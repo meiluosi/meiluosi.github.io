@@ -105,6 +105,5 @@ theme: landscape
 deploy: #博客部署
   type: git
   repo: https://github.com/paobujishangdemeiluosi/fengyu.github.io.git
-  branch: master
   message: #自定义提交消息
   
