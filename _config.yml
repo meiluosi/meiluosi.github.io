@@ -1,13 +1,13 @@
 # Site settings
-title: 三叶草国际语
-SEOTitle: 三叶草国际语 - 让沟通更容易
-header-img: img/post-bg-desk.jpg
-email: klovien@gmail.com
-description: "中西融合, 即学即会, 从此不再辛苦背单词"
-keyword: "人工语言, 国际语, 世界语, 三叶草国际语, 三叶语"
-url: "https://klovien.github.io"          # your host, for absolute URL
+title: 宇的游戏世界
+SEOTitle: 记录学习经历与生活感悟
+header-img: /img/about-someone.jpg
+email: 1160337988@qq.com
+description: "人可以成为任何想要成为的存在"
+keyword: "人工智能，概率图模型"
+url: "https://meiluosi.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/klovien/klovien.github.io.git" # you code repository
+github_repo: "https://github.com/meiluosi/meiluosi.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -96,10 +96,9 @@ service-worker: true
 
 
 
-# 友情链接，请尽量不要删除，谢谢！
 friends: [
     {
-        title: "星球国际语",
+        title: "知乎联系方式",
         href: "https://globien.gitee.io"
     },{
         title: "星球语互动社区",
