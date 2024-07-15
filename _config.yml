@@ -14,15 +14,6 @@ sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "存在先于本质"
 sidebar-avatar: /img/about_me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-<!-- 不蒜子统计 -->
-{% if site.busuanzi_count.enable %}
-  <span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-  </span>
-  <span id="busuanzi_container_site_uv">
-    本站访客数<span id="busuanzi_value_site_uv"></span>人次
-  </span>
-{% endif %}
 
 
 # SNS settings
@@ -114,7 +105,6 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 friends: [
