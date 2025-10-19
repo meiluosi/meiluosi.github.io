@@ -86,25 +86,25 @@
         </div>
         <ul class="quick-links">
             <li class="quick-link-item">
-                <a href="{{ site.baseurl }}/1-about/" class="quick-link">
+                <a href="{{ site.baseurl }}/pages/1-about/" class="quick-link">
                     <span class="icon">👨‍💼</span>
                     关于我
                 </a>
             </li>
             <li class="quick-link-item">
-                <a href="{{ site.baseurl }}/2-projects/" class="quick-link">
+                <a href="{{ site.baseurl }}/pages/2-projects/" class="quick-link">
                     <span class="icon">💼</span>
                     项目展示
                 </a>
             </li>
             <li class="quick-link-item">
-                <a href="{{ site.baseurl }}/3-publications/" class="quick-link">
+                <a href="{{ site.baseurl }}/pages/3-publications/" class="quick-link">
                     <span class="icon">📄</span>
                     学术成果
                 </a>
             </li>
             <li class="quick-link-item">
-                <a href="{{ site.baseurl }}/7-tags/" class="quick-link">
+                <a href="{{ site.baseurl }}/pages/4-tags/" class="quick-link">
                     <span class="icon">🏷️</span>
                     标签导航
                 </a>
@@ -144,7 +144,7 @@
         <div class="sidebar-tags">
             {% for tag in site.tags %}
                 {% if tag[1].size > {{site.featured-condition-size}} %}
-                    <a href="{{ site.baseurl }}/7-tags/#{{ tag[0] }}" class="sidebar-tag" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                    <a href="{{ site.baseurl }}/pages/4-tags/#{{ tag[0] }}" class="sidebar-tag" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                         {{ tag[0] }}
                     </a>
                 {% endif %}
@@ -159,7 +159,7 @@
         </div>
         <div class="short-about">
             {% if site.sidebar-avatar %}
-                <a href="{{ site.baseurl }}/1-about/">
+                <a href="{{ site.baseurl }}/pages/1-about/">
                     <img src="{{site.sidebar-avatar}}" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display: block;"/>
                 </a>
             {% endif %}
