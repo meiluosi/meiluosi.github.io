@@ -1,0 +1,391 @@
+---
+layout: page
+title: "大语言模型实战"
+description: "从基础到应用的LLM开发指南"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<style>
+.series-header {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+}
+
+.series-progress {
+    background: rgba(255, 255, 255, 0.2);
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.series-progress-bar {
+    background: white;
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.episode-list {
+    list-style: none;
+    padding: 0;
+}
+
+.episode-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #fa709a;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.episode-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 25px rgba(250, 112, 154, 0.2);
+}
+
+.episode-number {
+    position: absolute;
+    top: 20px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(250, 112, 154, 0.3);
+}
+
+.episode-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    margin-left: 35px;
+}
+
+.episode-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.episode-title a:hover {
+    color: #fa709a;
+}
+
+.episode-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+    margin-left: 35px;
+    font-size: 14px;
+    color: #999;
+}
+
+.episode-description {
+    color: #666;
+    line-height: 1.8;
+    margin-left: 35px;
+}
+
+.episode-tags {
+    margin-top: 15px;
+    margin-left: 35px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.episode-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);
+    color: #fa709a;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid rgba(250, 112, 154, 0.3);
+}
+</style>
+
+<div class="series-header">
+    <h1 style="margin: 0 0 10px 0;">🤖 大语言模型实战</h1>
+    <p style="margin: 0; opacity: 0.9; font-size: 16px;">
+        从 Transformer 架构到应用开发，系统掌握大语言模型的原理与工程实践。
+        涵盖模型训练、微调、提示工程、RAG、Agent 等核心技术。
+    </p>
+    <div style="margin-top: 20px; display: flex; gap: 30px; flex-wrap: wrap;">
+        <div>📚 <strong>10</strong> 篇文章</div>
+        <div>⏱️ 预计学习时长：<strong>25</strong> 小时</div>
+        <div>📈 难度：<strong>入门→高级</strong></div>
+    </div>
+    <div class="series-progress">
+        <div class="series-progress-bar"></div>
+    </div>
+    <p style="margin: 15px 0 0 0; font-size: 14px; opacity: 0.8;">已完成 0/10 篇 (0%)</p>
+</div>
+
+<h2 style="color: #fa709a; margin-bottom: 30px;">📖 系列文章目录</h2>
+
+<ul class="episode-list">
+    <li class="episode-item">
+        <div class="episode-number">01</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/09/01/Transformer架构详解/">Transformer 架构详解</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-09-01</span>
+            <span>⏱️ 预计 30 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            深入理解 Transformer 的自注意力机制、位置编码、多头注意力等核心组件，
+            为后续 LLM 学习打下坚实基础。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">Transformer</span>
+            <span class="episode-tag">注意力机制</span>
+            <span class="episode-tag">基础理论</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">02</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/09/08/预训练语言模型演进史/">预训练语言模型演进史</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-09-08</span>
+            <span>⏱️ 预计 25 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            从 BERT、GPT 到 LLaMA、ChatGPT，梳理预训练模型的发展脉络与关键技术突破。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">BERT</span>
+            <span class="episode-tag">GPT</span>
+            <span class="episode-tag">模型演进</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">03</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/09/15/LLM训练技术详解/">LLM 训练技术详解</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-09-15</span>
+            <span>⏱️ 预计 35 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            预训练、监督微调（SFT）、人类反馈强化学习（RLHF）等训练流程的原理与实践。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">预训练</span>
+            <span class="episode-tag">RLHF</span>
+            <span class="episode-tag">训练流程</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">04</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/09/22/高效微调技术LoRA与PEFT/">高效微调技术：LoRA 与 PEFT</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-09-22</span>
+            <span>⏱️ 预计 30 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            参数高效微调方法，使用 LoRA、Adapter、Prefix-Tuning 等技术低成本定制模型。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">LoRA</span>
+            <span class="episode-tag">PEFT</span>
+            <span class="episode-tag">微调</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">05</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/09/29/提示工程最佳实践/">提示工程最佳实践</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-09-29</span>
+            <span>⏱️ 预计 20 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            Prompt Engineering 技巧与模式，Few-shot、Chain-of-Thought、ReAct 等方法详解。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">Prompt</span>
+            <span class="episode-tag">CoT</span>
+            <span class="episode-tag">工程实践</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">06</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/10/06/RAG检索增强生成实战/">RAG 检索增强生成实战</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-10-06</span>
+            <span>⏱️ 预计 35 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            结合向量数据库与 LLM 构建知识问答系统，掌握 RAG 的架构设计与优化技巧。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">RAG</span>
+            <span class="episode-tag">向量检索</span>
+            <span class="episode-tag">知识库</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">07</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/10/13/LLM-Agent开发指南/">LLM Agent 开发指南</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-10-13</span>
+            <span>⏱️ 预计 30 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            构建具有工具调用、规划与记忆能力的智能 Agent，实现复杂任务自动化。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">Agent</span>
+            <span class="episode-tag">工具调用</span>
+            <span class="episode-tag">任务规划</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">08</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/10/20/多模态大模型技术/">多模态大模型技术</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-10-20</span>
+            <span>⏱️ 预计 25 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            CLIP、BLIP、GPT-4V 等多模态模型原理，实现图文理解与生成。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">多模态</span>
+            <span class="episode-tag">视觉语言</span>
+            <span class="episode-tag">CLIP</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">09</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/10/27/LLM推理优化与部署/">LLM 推理优化与部署</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-10-27</span>
+            <span>⏱️ 预计 30 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            量化、剪枝、KV-Cache、Flash Attention 等推理加速技术，vLLM、TensorRT-LLM 部署实战。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">推理优化</span>
+            <span class="episode-tag">量化</span>
+            <span class="episode-tag">部署</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">10</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/11/03/LLM安全与对齐/">LLM 安全与对齐</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-11-03</span>
+            <span>⏱️ 预计 25 分钟</span>
+            <span>📝 占位</span>
+        </div>
+        <div class="episode-description">
+            模型安全风险评估、对抗攻击防御、价值对齐技术，构建可信赖的 LLM 应用。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">安全</span>
+            <span class="episode-tag">对齐</span>
+            <span class="episode-tag">可信AI</span>
+        </div>
+    </li>
+</ul>
+
+<div style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.05) 0%, rgba(254, 225, 64, 0.05) 100%); padding: 30px; border-radius: 12px; margin-top: 40px;">
+    <h3 style="color: #fa709a; margin-bottom: 25px;">🛠️ 推荐开发框架</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="padding: 15px; background: white; border-radius: 8px;">
+            <h4 style="margin: 0 0 8px 0; color: #fa709a;">Hugging Face</h4>
+            <p style="margin: 0; font-size: 14px; color: #666;">Transformers、PEFT、Accelerate</p>
+        </div>
+        
+        <div style="padding: 15px; background: white; border-radius: 8px;">
+            <h4 style="margin: 0 0 8px 0; color: #fa709a;">LangChain</h4>
+            <p style="margin: 0; font-size: 14px; color: #666;">LLM 应用开发框架</p>
+        </div>
+        
+        <div style="padding: 15px; background: white; border-radius: 8px;">
+            <h4 style="margin: 0 0 8px 0; color: #fa709a;">LlamaIndex</h4>
+            <p style="margin: 0; font-size: 14px; color: #666;">数据连接与索引</p>
+        </div>
+        
+        <div style="padding: 15px; background: white; border-radius: 8px;">
+            <h4 style="margin: 0 0 8px 0; color: #fa709a;">vLLM</h4>
+            <p style="margin: 0; font-size: 14px; color: #666;">高性能推理引擎</p>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 40px; padding: 30px; background: white; border-radius: 12px;">
+    <h3 style="color: #fa709a;">💬 互动与反馈</h3>
+    <p style="color: #666; margin: 15px 0;">
+        如果您在学习过程中有任何疑问或建议，欢迎在文章下方留言交流！<br>
+        您的反馈将帮助我不断完善这个系列。
+    </p>
+    <div style="margin-top: 25px;">
+        <a href="{{ site.baseurl }}/pages/4-tags/#大语言模型" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);">
+            浏览所有LLM文章 →
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        document.querySelector('.series-progress-bar').style.width = '0%';
+    }, 500);
+});
+</script>
