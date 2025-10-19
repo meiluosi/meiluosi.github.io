@@ -109,7 +109,15 @@ service-worker: true
 
 friends: [
     {
-        title: "知乎联系方式",
+        title: "📚 知乎学术主页",
         href: "https://www.zhihu.com/people/feng-chui-guo-de-jie-dao-39"
+    },
+    {
+        title: "💻 GitHub代码仓库",
+        href: "https://github.com/meiluosi"
+    },
+    {
+        title: "📧 学术交流邮箱",
+        href: "mailto:1160337988@qq.com"
     }
 ]

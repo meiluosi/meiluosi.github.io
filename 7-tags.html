@@ -1,7 +1,7 @@
 ---
-title: Blog
+title: 博客标签
 layout: default
-description: keep hungry keep foolish
+description: 按主题分类浏览学术文章
 header-img: "img/tag-bg.jpg"
 ---
 
@@ -30,11 +30,9 @@ header-img: "img/tag-bg.jpg"
 				{% endfor %}
 			</div>
 
-            <!--<blockquote class="tag-comments">
-                标签命名规范：
-                    <li>行业观察、职位、公司优先使用中文</li>
-                    <li>外国产品、术语优先使用英文</li>
-            </blockquote>-->
+            <blockquote class="tag-comments">
+                💡 提示：点击标签可快速跳转到相关文章列表
+            </blockquote>
 
             <!-- 标签列表 -->
 			{% for tag in site.tags %}
@@ -43,10 +41,6 @@ header-img: "img/tag-bg.jpg"
                     <span class="tag-text">{{ tag[0] }}</span>
                 </span>
 				{% for post in tag[1] %}
-				  <!-- <li class="listing-item">
-				  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-				  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-				  </li> -->
 				 <div class="post-preview">
 				    <a href="{{ post.url | prepend: site.baseurl }}">
 				        <h2 class="post-title">
@@ -58,7 +52,10 @@ header-img: "img/tag-bg.jpg"
 				        </h3>
 				        {% endif %}
 				    </a>
-				    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+				    <p class="post-meta">
+				        发布于 {{ post.date | date:"%Y年%m月%d日" }}
+				        {% if post.author %} · {{ post.author }}{% endif %}
+				    </p>
 				</div>
 				<hr>
 				{% endfor %}
@@ -68,3 +65,59 @@ header-img: "img/tag-bg.jpg"
 		</div>
 	</div>
 </div>
+
+<style>
+.tags a {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tags a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.tag-comments {
+    margin: 30px 0;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    font-size: 14px;
+    color: #666;
+}
+
+.one-tag-list {
+    margin-bottom: 50px;
+}
+
+.listing-seperator {
+    color: #667eea;
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.tag-text {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.post-preview {
+    margin-top: 20px;
+}
+
+.post-meta {
+    color: #999;
+    font-size: 14px;
+    margin-top: 10px;
+}
+</style>
