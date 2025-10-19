@@ -17,13 +17,23 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{ site.baseurl }}/">Home</a>
+                        <a href="{{ site.baseurl }}/">主页</a>
                     </li>
-                    {% for page in site.pages %}{% if page.title %}
                     <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                        <a href="{{ site.baseurl }}/pages/1-about/">关于我</a>
                     </li>
-                    {% endif %}{% endfor %}
+                    <li>
+                        <a href="{{ site.baseurl }}/pages/2-projects/">项目展示</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/pages/3-publications/">学术成果</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/pages/4-tags/">标签导航</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/interactive/algorithm-visualizations/">算法可视化</a>
+                    </li>
                 </ul>
             </div>
         </div>

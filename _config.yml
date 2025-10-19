@@ -104,15 +104,9 @@ ai_assistant:
     - "帮我解释页面中的这段代码。"
     - "给我一个强化学习学习路径。"
 
-# 在线 Notebook/Thebe 配置
-thebe:
-  enable: true
-  use_cdn: true
-  binder:
-    provider_url: "https://mybinder.org"
-    repo: "meiluosi/interactive-notebooks"
-    ref: "HEAD"
-    filepath: ""
+# 在线 Notebook/Thebe 配置（已禁用）
+# thebe:
+#   enable: false
 
 
 # 统计
