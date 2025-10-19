@@ -93,12 +93,12 @@ math:
 # AI 助手配置
 ai_assistant:
   enabled: true
-  endpoint: ""                   # 设置为自建 API 代理地址
+  endpoint: "https://api.openai.com/v1/chat/completions"  # 或者用户自建的代理地址
   model: "gpt-4o-mini"          # 默认模型名称，可自定义
   temperature: 0.2
   placeholder: "向 AI 助手提问，例如：请总结这篇文章的关键点"
-  intro: "您好，我是博客 AI 助手，可以为您讲解文章、解析代码、规划学习路径。"
-  require_api_key: false          # 如需访客自行填写密钥，可切换为 true
+  intro: "您好，我是博客 AI 助手，可以为您讲解文章、解析代码、规划学习路径。由于需要API密钥，请先在下方输入您的OpenAI API Key。"
+  require_api_key: true           # 要求用户输入API密钥
   default_examples:
     - "这篇文章的主要结论是什么？"
     - "帮我解释页面中的这段代码。"
