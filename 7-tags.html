@@ -22,13 +22,59 @@ header-img: "img/tag-bg.jpg"
 <!-- Main Content -->
 <div class="container">
 	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+		<div class="col-lg-12">
+            
+            <!-- 快速导航栏 -->
+            <div class="tag-navigation">
+                <h3>🧭 快速导航</h3>
+                <div class="nav-categories">
+                    <div class="nav-category">
+                        <h4>🧠 概率图模型</h4>
+                        <a href="#概率图模型">概率图模型</a>
+                        <a href="#因果推理">因果推理</a>
+                        <a href="#不确定性建模">不确定性建模</a>
+                        <a href="#DUCG">DUCG</a>
+                    </div>
+                    <div class="nav-category">
+                        <h4>🤖 机器学习</h4>
+                        <a href="#强化学习">强化学习</a>
+                        <a href="#深度学习">深度学习</a>
+                        <a href="#机器学习">机器学习</a>
+                        <a href="#AlphaZero">AlphaZero</a>
+                    </div>
+                    <div class="nav-category">
+                        <h4>📊 数据分析</h4>
+                        <a href="#数据分析">数据分析</a>
+                        <a href="#数据科学">数据科学</a>
+                        <a href="#因果推断">因果推断</a>
+                        <a href="#业务分析">业务分析</a>
+                    </div>
+                    <div class="nav-category">
+                        <h4>🔬 算法研究</h4>
+                        <a href="#算法研究">算法研究</a>
+                        <a href="#博弈论">博弈论</a>
+                        <a href="#游戏AI">游戏AI</a>
+                        <a href="#优化算法">优化算法</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 知识图谱可视化 -->
+            <div class="knowledge-graph-section">
+                <h3>🌐 知识图谱</h3>
+                <p class="graph-intro">文章之间的关联关系可视化（点击节点查看相关文章）</p>
+                <div id="knowledge-graph"></div>
+            </div>
+
             <!-- 标签云 -->
-			<div id='tag_cloud' class="tags">
-				{% for tag in site.tags %}
-				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-				{% endfor %}
-			</div>
+            <div class="tag-cloud-section">
+                <h3>☁️ 标签云</h3>
+			    <div id='tag_cloud' class="tags">
+				    {% for tag in site.tags %}
+				    <a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+				    {% endfor %}
+			    </div>
+            </div>
 
             <blockquote class="tag-comments">
                 💡 提示：点击标签可快速跳转到相关文章列表
@@ -67,6 +113,105 @@ header-img: "img/tag-bg.jpg"
 </div>
 
 <style>
+/* 快速导航栏样式 */
+.tag-navigation {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.tag-navigation h3 {
+    color: white;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.nav-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.nav-category {
+    background: rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-category h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+}
+
+.nav-category a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-category a:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateX(5px);
+}
+
+/* 知识图谱样式 */
+.knowledge-graph-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 2px solid #e9ecef;
+}
+
+.knowledge-graph-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.graph-intro {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#knowledge-graph {
+    width: 100%;
+    height: 500px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 标签云样式 */
+.tag-cloud-section {
+    margin-bottom: 40px;
+}
+
+.tag-cloud-section h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tags {
+    text-align: center;
+    padding: 20px;
+}
+
 .tags a {
     display: inline-block;
     margin: 5px 10px;
@@ -81,21 +226,26 @@ header-img: "img/tag-bg.jpg"
 }
 
 .tags a:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .tag-comments {
     margin: 30px 0;
     padding: 15px 20px;
-    background: #f8f9fa;
-    border-left: 4px solid #667eea;
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
     font-size: 14px;
-    color: #666;
+    color: #856404;
 }
 
+/* 标签列表样式 */
 .one-tag-list {
     margin-bottom: 50px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .listing-seperator {
@@ -103,6 +253,8 @@ header-img: "img/tag-bg.jpg"
     font-size: 24px;
     margin-bottom: 20px;
     display: block;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
 }
 
 .tag-text {
@@ -113,6 +265,26 @@ header-img: "img/tag-bg.jpg"
 
 .post-preview {
     margin-top: 20px;
+    padding: 15px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.post-preview:hover {
+    border-left-color: #667eea;
+    background: #f8f9fa;
+}
+
+.post-title {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.post-subtitle {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .post-meta {
@@ -120,4 +292,164 @@ header-img: "img/tag-bg.jpg"
     font-size: 14px;
     margin-top: 10px;
 }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    #knowledge-graph {
+        height: 400px;
+    }
+}
 </style>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+// 知识图谱数据
+const graphData = {
+    nodes: [
+        // 概率图模型类
+        { id: 'ducg', label: 'DUCG理论', category: '概率图模型', size: 20 },
+        { id: 'ducg-law', label: 'DUCG-法律', category: '概率图模型', size: 15 },
+        { id: 'ducg-finance', label: 'DUCG-金融', category: '概率图模型', size: 15 },
+        { id: 'ducg-software', label: 'DUCG-软件', category: '概率图模型', size: 15 },
+        { id: 'ducg-security', label: 'DUCG-安全', category: '概率图模型', size: 15 },
+        
+        // 强化学习类
+        { id: 'rl-notes', label: '强化学习笔记', category: '强化学习', size: 18 },
+        { id: 'dqn', label: '深度Q网络', category: '强化学习', size: 15 },
+        { id: 'alphazero', label: 'AlphaZero', category: '强化学习', size: 18 },
+        { id: 'cfr', label: 'CFR算法', category: '强化学习', size: 15 },
+        
+        // 数据分析类
+        { id: 'data-thinking', label: '数据分析思考', category: '数据分析', size: 16 },
+        { id: 'shap', label: 'SHAP可解释性', category: '数据分析', size: 15 },
+        { id: 'ylearn', label: 'YLearn因果', category: '数据分析', size: 15 },
+        { id: 'dowhy', label: 'DoWhy实战', category: '数据分析', size: 15 },
+        
+        // 算法研究类
+        { id: 'swarm', label: '群体智能', category: '算法研究', size: 15 },
+        { id: 'r-lang', label: 'R语言', category: '算法研究', size: 12 }
+    ],
+    links: [
+        // DUCG相关连接
+        { source: 'ducg', target: 'ducg-law', strength: 3 },
+        { source: 'ducg', target: 'ducg-finance', strength: 3 },
+        { source: 'ducg', target: 'ducg-software', strength: 3 },
+        { source: 'ducg', target: 'ducg-security', strength: 3 },
+        
+        // 强化学习相关连接
+        { source: 'rl-notes', target: 'dqn', strength: 2 },
+        { source: 'rl-notes', target: 'alphazero', strength: 2 },
+        { source: 'rl-notes', target: 'cfr', strength: 2 },
+        { source: 'dqn', target: 'alphazero', strength: 1 },
+        
+        // 数据分析相关连接
+        { source: 'data-thinking', target: 'shap', strength: 2 },
+        { source: 'data-thinking', target: 'ylearn', strength: 2 },
+        { source: 'data-thinking', target: 'dowhy', strength: 2 },
+        { source: 'ylearn', target: 'dowhy', strength: 2 },
+        
+        // 跨领域连接
+        { source: 'ducg', target: 'data-thinking', strength: 1 },
+        { source: 'shap', target: 'rl-notes', strength: 1 },
+        { source: 'swarm', target: 'rl-notes', strength: 1 },
+        { source: 'r-lang', target: 'data-thinking', strength: 1 }
+    ]
+};
+
+// 颜色映射
+const colorMap = {
+    '概率图模型': '#667eea',
+    '强化学习': '#f093fb',
+    '数据分析': '#4facfe',
+    '算法研究': '#43e97b'
+};
+
+// 创建知识图谱
+function createKnowledgeGraph() {
+    const width = document.getElementById('knowledge-graph').clientWidth;
+    const height = 500;
+
+    const svg = d3.select('#knowledge-graph')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+
+    const simulation = d3.forceSimulation(graphData.nodes)
+        .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(100))
+        .force('charge', d3.forceManyBody().strength(-300))
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('collision', d3.forceCollide().radius(d => d.size + 5));
+
+    // 绘制连线
+    const link = svg.append('g')
+        .selectAll('line')
+        .data(graphData.links)
+        .enter().append('line')
+        .attr('stroke', '#999')
+        .attr('stroke-opacity', 0.6)
+        .attr('stroke-width', d => d.strength);
+
+    // 绘制节点
+    const node = svg.append('g')
+        .selectAll('g')
+        .data(graphData.nodes)
+        .enter().append('g')
+        .call(d3.drag()
+            .on('start', dragstarted)
+            .on('drag', dragged)
+            .on('end', dragended));
+
+    node.append('circle')
+        .attr('r', d => d.size)
+        .attr('fill', d => colorMap[d.category])
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 2)
+        .style('cursor', 'pointer');
+
+    node.append('text')
+        .text(d => d.label)
+        .attr('x', 0)
+        .attr('y', d => d.size + 15)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '12px')
+        .attr('fill', '#333');
+
+    // 添加工具提示
+    node.append('title')
+        .text(d => `${d.label}\n类别: ${d.category}`);
+
+    simulation.on('tick', () => {
+        link
+            .attr('x1', d => d.source.x)
+            .attr('y1', d => d.source.y)
+            .attr('x2', d => d.target.x)
+            .attr('y2', d => d.target.y);
+
+        node.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+
+    function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    }
+}
+
+// 页面加载后创建图谱
+document.addEventListener('DOMContentLoaded', createKnowledgeGraph);
+</script>
