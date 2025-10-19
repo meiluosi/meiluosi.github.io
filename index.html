@@ -1,27 +1,121 @@
 ---
 layout: page
-title: "Index"
-description: "人能够成为一切想要成为的存在"
+title: "Home"
+description: "数据科学与人工智能研究 | 探索智能算法的奥秘"
 header-img: "img/post-bg-rwd.jpg"
 ---
 
-<!--
-<ul class="pager">
-  
-    <li class="next">
-        <a href="https://klovien.github.io/1-resources/" data-toggle="tooltip" data-placement="top" title="学习资料集">
-                        开始学习<br>
-        </a>
-    </li>           
-  
-    <li class="next">
-        <a href="https://klovien.github.io/2018/12/10/三叶语简介/" data-toggle="tooltip" data-placement="top" title="三叶语简介">
-                        了解更多<br>
-        </a>
-    </li>
-                    
-</ul>
--->
+<!-- Academic Highlights Section -->
+<div class="academic-highlights">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-heading">🎓 学术研究亮点</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="highlight-item">
+                            <h4>🧠 概率图模型</h4>
+                            <p>动态不确定性因果图(DUCG)理论研究，应用于法律、金融、安全等多个领域</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="highlight-item">
+                            <h4>🎮 强化学习</h4>
+                            <p>AlphaZero算法优化、CFR博弈算法，在游戏AI领域取得创新突破</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="highlight-item">
+                            <h4>📊 因果推断</h4>
+                            <p>DoWhy、YLearn框架应用，为业务决策提供科学的因果分析方法</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Research Section -->
+<div class="recent-research">
+    <div class="container">
+        <h2 class="section-heading">📚 最新研究</h2>
+        <div class="research-preview">
+            <a href="/2024/06/30/动态不确定性因果图模型理论/">
+                <h3>动态不确定性因果图模型理论</h3>
+                <p>提出了DUCG模型，用于处理复杂系统中的不确定性因果关系建模与推理...</p>
+            </a>
+        </div>
+        <div class="research-preview">
+            <a href="/2024/06/30/Alpha Zero算法实现五子棋/">
+                <h3>Alpha Zero算法实现五子棋AI</h3>
+                <p>基于深度强化学习，结合蒙特卡洛树搜索和神经网络，实现高水平AI...</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.academic-highlights {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.highlight-item {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-item h4 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.recent-research {
+    margin-bottom: 40px;
+}
+
+.research-preview {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-left: 4px solid #007bff;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.research-preview a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.research-preview h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.research-preview p {
+    color: #666;
+    margin: 0;
+}
+</style>
+
+<!-- Blog Posts Section -->
 
 {% for post in paginator.posts %}
 <div class="post-preview">

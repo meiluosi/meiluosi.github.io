@@ -1,0 +1,309 @@
+---
+layout: page
+title: "Projects"
+description: "技术项目与研究实践"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<!-- Language Selector -->
+<select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英文 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <blockquote><p>理论与实践的完美结合</p></blockquote>
+
+    <h2>🚀 核心研究项目</h2>
+
+    <div class="project-item">
+        <h3>🧠 动态不确定性因果图模型理论研究</h3>
+        <p><strong>项目描述：</strong>开发并应用动态不确定性因果图(DUCG)模型，用于复杂系统的因果建模与推理。</p>
+        <p><strong>应用领域：</strong></p>
+        <ul>
+            <li>法律领域 - 证据推理与案件分析</li>
+            <li>金融领域 - 风险评估与投资决策</li>
+            <li>软件可靠性 - 系统故障诊断与预测</li>
+            <li>网络安全 - 威胁检测与响应</li>
+        </ul>
+        <p><strong>技术栈：</strong>Python, NetworkX, 概率推理算法</p>
+        <p><strong>成果：</strong>在多个实际场景中验证了DUCG模型的有效性</p>
+    </div>
+
+    <h2>🎮 智能算法与游戏AI</h2>
+
+    <div class="project-item">
+        <h3>♟️ Alpha Zero算法实现五子棋AI</h3>
+        <p><strong>项目描述：</strong>基于AlphaZero算法，结合蒙特卡洛树搜索和深度神经网络，实现高水平的五子棋AI系统。</p>
+        <p><strong>核心技术：</strong></p>
+        <ul>
+            <li>深度强化学习 (Deep Reinforcement Learning)</li>
+            <li>蒙特卡洛树搜索 (MCTS)</li>
+            <li>卷积神经网络 (CNN)</li>
+            <li>自我对弈训练</li>
+        </ul>
+        <p><strong>技术栈：</strong>Python, TensorFlow/PyTorch, NumPy</p>
+        <p><strong>项目亮点：</strong>AI能够通过自我学习达到专业水平</p>
+    </div>
+
+    <div class="project-item">
+        <h3>🃏 CFR算法实现德州扑克对战</h3>
+        <p><strong>项目描述：</strong>应用反事实遗憾最小化(CFR)算法，开发智能德州扑克对战系统。</p>
+        <p><strong>核心技术：</strong></p>
+        <ul>
+            <li>反事实遗憾最小化 (Counterfactual Regret Minimization)</li>
+            <li>博弈论与纳什均衡</li>
+            <li>信息集抽象</li>
+            <li>策略迭代优化</li>
+        </ul>
+        <p><strong>技术栈：</strong>Python, 博弈论算法库</p>
+        <p><strong>应用价值：</strong>展示了CFR在不完全信息博弈中的强大能力</p>
+    </div>
+
+    <div class="project-item">
+        <h3>🧮 新型群体智能算法对比实验</h3>
+        <p><strong>项目描述：</strong>对比研究多种群体智能算法在不同优化问题上的性能表现。</p>
+        <p><strong>算法覆盖：</strong></p>
+        <ul>
+            <li>粒子群优化 (PSO)</li>
+            <li>遗传算法 (GA)</li>
+            <li>蚁群算法 (ACO)</li>
+            <li>人工蜂群算法 (ABC)</li>
+        </ul>
+        <p><strong>技术栈：</strong>Python, Matplotlib, 优化算法库</p>
+        <p><strong>研究成果：</strong>为不同类型优化问题提供算法选择指导</p>
+    </div>
+
+    <h2>📊 数据分析与机器学习</h2>
+
+    <div class="project-item">
+        <h3>🔍 机器学习可解释性研究</h3>
+        <p><strong>项目描述：</strong>应用SHAP库实现机器学习模型的可解释性分析，提升模型透明度。</p>
+        <p><strong>核心技术：</strong></p>
+        <ul>
+            <li>SHAP (SHapley Additive exPlanations)</li>
+            <li>特征重要性分析</li>
+            <li>模型解释性可视化</li>
+            <li>决策路径追踪</li>
+        </ul>
+        <p><strong>技术栈：</strong>Python, SHAP, Scikit-learn, XGBoost</p>
+        <p><strong>应用场景：</strong>金融风控、医疗诊断、推荐系统</p>
+    </div>
+
+    <div class="project-item">
+        <h3>📈 因果推断框架应用</h3>
+        <p><strong>项目描述：</strong>应用DoWhy和YLearn框架，在实际业务场景中实现因果推断分析。</p>
+        <p><strong>核心方法：</strong></p>
+        <ul>
+            <li>工具变量法 (Instrumental Variables)</li>
+            <li>断点回归 (Regression Discontinuity)</li>
+            <li>差分法 (Difference-in-Differences)</li>
+            <li>倾向性评分匹配 (PSM)</li>
+        </ul>
+        <p><strong>技术栈：</strong>Python, DoWhy, YLearn, EconML</p>
+        <p><strong>实践案例：</strong>酒店业务分析、营销效果评估</p>
+    </div>
+
+    <h2>🏢 行业数据分析实战</h2>
+
+    <div class="project-item">
+        <h3>🚗 打车软件数据分析</h3>
+        <p><strong>分析维度：</strong>用户行为、供需匹配、定价策略、运营效率</p>
+        <p><strong>关键指标：</strong>DAU、订单完成率、司机在线率、收益优化</p>
+    </div>
+
+    <div class="project-item">
+        <h3>📱 短视频平台数据分析</h3>
+        <p><strong>分析维度：</strong>内容消费、用户画像、推荐效果、创作者生态</p>
+        <p><strong>关键指标：</strong>观看时长、互动率、留存率、内容质量评估</p>
+    </div>
+
+    <div class="project-item">
+        <h3>🛍️ 小红书数据分析</h3>
+        <p><strong>分析维度：</strong>社区生态、购买转化、内容营销、用户增长</p>
+        <p><strong>关键指标：</strong>种草转化率、KOL影响力、商品销售表现</p>
+    </div>
+
+    <div class="project-item">
+        <h3>🎯 游戏数据分析</h3>
+        <p><strong>分析维度：</strong>用户付费、游戏平衡性、留存分析、LTV预测</p>
+        <p><strong>关键指标：</strong>ARPU、付费率、游戏时长、流失预警</p>
+    </div>
+
+    <h2>📚 技术能力展示</h2>
+    <p><strong>编程语言：</strong>Python (专家级), R (熟练), SQL (熟练), JavaScript (中级)</p>
+    <p><strong>机器学习：</strong>TensorFlow, PyTorch, Scikit-learn, XGBoost, LightGBM</p>
+    <p><strong>数据处理：</strong>Pandas, NumPy, Dask, Spark</p>
+    <p><strong>可视化：</strong>Matplotlib, Seaborn, Plotly, Tableau</p>
+    <p><strong>因果推断：</strong>DoWhy, YLearn, CausalML, EconML</p>
+    <p><strong>深度学习：</strong>CNN, RNN, LSTM, Transformer, GAN</p>
+    <p><strong>强化学习：</strong>Q-Learning, Policy Gradient, Actor-Critic, AlphaZero</p>
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote><p>Perfect integration of theory and practice</p></blockquote>
+
+    <h2>🚀 Core Research Projects</h2>
+
+    <div class="project-item">
+        <h3>🧠 Dynamic Uncertain Causality Graph Theory Research</h3>
+        <p><strong>Description:</strong> Development and application of Dynamic Uncertain Causality Graph (DUCG) models for causal modeling and inference in complex systems.</p>
+        <p><strong>Application Domains:</strong></p>
+        <ul>
+            <li>Legal Domain - Evidence reasoning and case analysis</li>
+            <li>Finance - Risk assessment and investment decisions</li>
+            <li>Software Reliability - System fault diagnosis and prediction</li>
+            <li>Cybersecurity - Threat detection and response</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, NetworkX, Probabilistic reasoning algorithms</p>
+        <p><strong>Achievements:</strong> Validated DUCG effectiveness across multiple real-world scenarios</p>
+    </div>
+
+    <h2>🎮 Intelligent Algorithms & Game AI</h2>
+
+    <div class="project-item">
+        <h3>♟️ Alpha Zero Gomoku AI Implementation</h3>
+        <p><strong>Description:</strong> High-level Gomoku AI system based on AlphaZero algorithm, combining Monte Carlo Tree Search and deep neural networks.</p>
+        <p><strong>Core Technologies:</strong></p>
+        <ul>
+            <li>Deep Reinforcement Learning</li>
+            <li>Monte Carlo Tree Search (MCTS)</li>
+            <li>Convolutional Neural Networks (CNN)</li>
+            <li>Self-play training</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, TensorFlow/PyTorch, NumPy</p>
+        <p><strong>Highlights:</strong> AI achieves professional level through self-learning</p>
+    </div>
+
+    <div class="project-item">
+        <h3>🃏 Texas Hold'em with CFR Algorithm</h3>
+        <p><strong>Description:</strong> Intelligent Texas Hold'em battle system using Counterfactual Regret Minimization (CFR) algorithm.</p>
+        <p><strong>Core Technologies:</strong></p>
+        <ul>
+            <li>Counterfactual Regret Minimization (CFR)</li>
+            <li>Game theory and Nash equilibrium</li>
+            <li>Information set abstraction</li>
+            <li>Strategy iteration optimization</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, Game theory algorithm libraries</p>
+        <p><strong>Value:</strong> Demonstrates CFR's power in imperfect information games</p>
+    </div>
+
+    <h2>📊 Data Analysis & Machine Learning</h2>
+
+    <div class="project-item">
+        <h3>🔍 Machine Learning Explainability Research</h3>
+        <p><strong>Description:</strong> Implementation of machine learning model interpretability analysis using SHAP library to improve model transparency.</p>
+        <p><strong>Core Technologies:</strong></p>
+        <ul>
+            <li>SHAP (SHapley Additive exPlanations)</li>
+            <li>Feature importance analysis</li>
+            <li>Model interpretability visualization</li>
+            <li>Decision path tracking</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, SHAP, Scikit-learn, XGBoost</p>
+        <p><strong>Applications:</strong> Financial risk control, medical diagnosis, recommendation systems</p>
+    </div>
+
+    <div class="project-item">
+        <h3>📈 Causal Inference Framework Applications</h3>
+        <p><strong>Description:</strong> Implementation of causal inference analysis in real business scenarios using DoWhy and YLearn frameworks.</p>
+        <p><strong>Core Methods:</strong></p>
+        <ul>
+            <li>Instrumental Variables</li>
+            <li>Regression Discontinuity</li>
+            <li>Difference-in-Differences</li>
+            <li>Propensity Score Matching (PSM)</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, DoWhy, YLearn, EconML</p>
+        <p><strong>Case Studies:</strong> Hotel business analysis, marketing effectiveness evaluation</p>
+    </div>
+
+    <h2>🏢 Industry Data Analysis Practice</h2>
+
+    <div class="project-item">
+        <h3>🚗 Ride-hailing Platform Analysis</h3>
+        <p><strong>Analysis Dimensions:</strong> User behavior, supply-demand matching, pricing strategy, operational efficiency</p>
+        <p><strong>Key Metrics:</strong> DAU, order completion rate, driver online rate, revenue optimization</p>
+    </div>
+
+    <div class="project-item">
+        <h3>📱 Short Video Platform Analysis</h3>
+        <p><strong>Analysis Dimensions:</strong> Content consumption, user profiling, recommendation effectiveness, creator ecosystem</p>
+        <p><strong>Key Metrics:</strong> Watch time, engagement rate, retention rate, content quality assessment</p>
+    </div>
+
+    <h2>📚 Technical Skills Showcase</h2>
+    <p><strong>Programming:</strong> Python (Expert), R (Proficient), SQL (Proficient), JavaScript (Intermediate)</p>
+    <p><strong>ML/DL:</strong> TensorFlow, PyTorch, Scikit-learn, XGBoost, LightGBM</p>
+    <p><strong>Data Processing:</strong> Pandas, NumPy, Dask, Spark</p>
+    <p><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly, Tableau</p>
+    <p><strong>Causal Inference:</strong> DoWhy, YLearn, CausalML, EconML</p>
+    <p><strong>Deep Learning:</strong> CNN, RNN, LSTM, Transformer, GAN</p>
+    <p><strong>Reinforcement Learning:</strong> Q-Learning, Policy Gradient, Actor-Critic, AlphaZero</p>
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+<style>
+.project-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 4px solid #007bff;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.project-item h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.project-item p {
+    margin-bottom: 10px;
+}
+
+.project-item ul {
+    margin-bottom: 10px;
+}
+</style>

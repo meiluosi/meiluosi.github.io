@@ -1,17 +1,17 @@
 # Site settings
-title: 宇的游戏世界
-SEOTitle: 记录学习经历与生活感悟
+title: Feng Yu's Academic Blog
+SEOTitle: 数据科学与人工智能研究 | Data Science & AI Research
 header-img: /img/about_me.jpg
 email: 1160337988@qq.com
-description: "人可以成为任何想要成为的存在"
-keyword: "人工智能，概率图模型"
+description: "专注于概率图模型、强化学习、因果推断与数据科学的学术研究博客"
+keyword: "人工智能，概率图模型，强化学习，因果推断，数据科学，机器学习，DUCG，AlphaZero"
 url: "https://meiluosi.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/meiluosi/meiluosi.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "存在先于本质"
+sidebar-about-description: "数据科学研究者 | AI算法工程师 | 学术探索者"
 sidebar-avatar: /img/about_me.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
