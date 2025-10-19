@@ -510,10 +510,74 @@ function createKnowledgeGraph() {
 
     const container = d3.select('#knowledge-graph');
     
+    // 清空容器
+    container.selectAll('*').remove();
+    
     const svg = container
         .append('svg')
         .attr('width', width)
-        .attr('height', height);
+        .attr('height', height)
+        .style('border-radius', '10px')
+        .style('background', 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)');
+
+    // 创建缩放和平移组
+    const g = svg.append('g');
+    
+    // 添加缩放和平移功能
+    const zoom = d3.zoom()
+        .scaleExtent([0.5, 3])
+        .on('zoom', (event) => {
+            g.attr('transform', event.transform);
+        });
+    
+    svg.call(zoom);
+    
+    // 添加控制按钮
+    const controls = container
+        .append('div')
+        .style('position', 'absolute')
+        .style('top', '10px')
+        .style('right', '10px')
+        .style('z-index', '1000');
+        
+    controls.append('button')
+        .text('🔍+')
+        .style('margin', '2px')
+        .style('padding', '8px')
+        .style('background', 'white')
+        .style('border', 'none')
+        .style('border-radius', '20px')
+        .style('cursor', 'pointer')
+        .style('box-shadow', '0 2px 4px rgba(0,0,0,0.2)')
+        .on('click', () => {
+            svg.transition().duration(300).call(zoom.scaleBy, 1.5);
+        });
+        
+    controls.append('button')
+        .text('🔍-')
+        .style('margin', '2px')
+        .style('padding', '8px')
+        .style('background', 'white')
+        .style('border', 'none')
+        .style('border-radius', '20px')
+        .style('cursor', 'pointer')
+        .style('box-shadow', '0 2px 4px rgba(0,0,0,0.2)')
+        .on('click', () => {
+            svg.transition().duration(300).call(zoom.scaleBy, 0.75);
+        });
+        
+    controls.append('button')
+        .text('🏠')
+        .style('margin', '2px')
+        .style('padding', '8px')
+        .style('background', 'white')
+        .style('border', 'none')
+        .style('border-radius', '20px')
+        .style('cursor', 'pointer')
+        .style('box-shadow', '0 2px 4px rgba(0,0,0,0.2)')
+        .on('click', () => {
+            svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+        });
 
     // 创建弹窗容器
     const popup = container
@@ -528,7 +592,7 @@ function createKnowledgeGraph() {
         .force('collision', d3.forceCollide().radius(d => d.size + 5));
 
     // 绘制连线
-    const link = svg.append('g')
+    const link = g.append('g')
         .selectAll('line')
         .data(graphData.links)
         .enter().append('line')
@@ -537,7 +601,7 @@ function createKnowledgeGraph() {
         .attr('stroke-width', d => d.strength);
 
     // 绘制节点
-    const node = svg.append('g')
+    const node = g.append('g')
         .selectAll('g')
         .data(graphData.nodes)
         .enter().append('g')

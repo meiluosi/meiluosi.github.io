@@ -85,10 +85,10 @@ layout: default
             ">
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
-                <section>
+                <section class="sidebar-section">
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="{{'/7-tags/' | prepend: site.baseurl }}">热门标签</a></h5>
-                    <div class="tags">
+                    <h5><a href="{{'/7-tags/' | prepend: site.baseurl }}">🏷️ 热门标签</a></h5>
+                    <div class="tags modern-tags">
                         {% for tag in site.tags %}
                             {% if tag[1].size > {{site.featured-condition-size}} %}
                                 <a href="{{ site.baseurl }}/7-tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
@@ -101,8 +101,8 @@ layout: default
                 {% endif %}
 
                 <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="{{'/3-about/' | prepend: site.baseurl }}">关于我</a></h5>
+                <section class="visible-md visible-lg sidebar-section">
+                    <hr><h5><a href="{{'/1-about/' | prepend: site.baseurl }}">👨‍💼 关于我</a></h5>
                     <div class="short-about">
                         {% if site.sidebar-avatar %}
                             <a href="{{ site.baseurl }}/3-about">
@@ -192,15 +192,19 @@ layout: default
                         {% endif %}
                     </div>
                 </section>
-                <!-- Friends Blog -->
+                <!-- Academic Links -->
                 {% if site.friends %}
-                <hr>
-                <h5>MORE SITES</h5>
-                <ul class="list-inline">
-                    {% for friend in site.friends %}
-                        <li><a href="{{friend.href}}">{{friend.title}}</a></li>
-                    {% endfor %}
-                </ul>
+                <section class="sidebar-section">
+                    <h5>🔗 学术链接</h5>
+                    <div class="academic-links">
+                        {% for friend in site.friends %}
+                            <a href="{{friend.href}}" target="_blank" class="academic-link">
+                                <span class="link-icon">🌐</span>
+                                {{friend.title}}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </section>
                 {% endif %}
     		</div>
         {% endif %}

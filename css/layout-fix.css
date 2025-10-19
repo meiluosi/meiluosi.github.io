@@ -38,37 +38,171 @@ pre code {
     color: #333 !important;
 }
 
-/* 侧边栏优化 */
+/* 侧边栏优化 - 改为相对定位 */
 .sidebar-container {
-    position: sticky !important;
-    top: 20px !important;
-    z-index: 10 !important;
-    max-height: calc(100vh - 100px) !important;
-    overflow-y: auto !important;
-}
-
-/* Featured Tags 样式优化 */
-.sidebar-container .tags {
     position: relative !important;
-    z-index: 11 !important;
+    z-index: 10 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    margin-top: 20px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease !important;
 }
 
-.sidebar-container .tags a {
-    display: inline-block !important;
-    margin: 3px 5px !important;
-    padding: 6px 12px !important;
+.sidebar-container:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.15) !important;
+}
+
+/* 侧边栏章节样式 */
+.sidebar-section {
+    margin-bottom: 25px !important;
+    padding: 15px !important;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%) !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #667eea !important;
+}
+
+.sidebar-section h5 {
+    margin-bottom: 15px !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+.sidebar-section h5 a {
+    color: #667eea !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.sidebar-section h5 a:hover {
+    color: #764ba2 !important;
+    transform: translateX(5px) !important;
+}
+
+/* Featured Tags 现代化样式 */
+.modern-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+.modern-tags a {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 8px 16px !important;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
     color: white !important;
-    border-radius: 16px !important;
+    border-radius: 20px !important;
     text-decoration: none !important;
-    font-size: 12px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
     transition: all 0.3s ease !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-.sidebar-container .tags a:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+.modern-tags a::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent) !important;
+    transition: left 0.5s !important;
+}
+
+.modern-tags a:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+.modern-tags a:hover::before {
+    left: 100% !important;
+}
+
+/* 关于我部分优化 */
+.short-about {
+    text-align: center !important;
+    padding: 20px !important;
+}
+
+.short-about img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    border: 3px solid #667eea !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 15px !important;
+}
+
+.short-about img:hover {
+    transform: scale(1.1) !important;
+    border-color: #764ba2 !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+}
+
+.short-about p {
+    color: #666 !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 15px !important;
+}
+
+/* 社交链接优化 */
+.short-about .list-inline {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-bottom: 15px !important;
+}
+
+.short-about .list-inline li {
+    margin: 0 !important;
+}
+
+.short-about .fa-stack {
+    transition: all 0.3s ease !important;
+}
+
+.short-about .fa-stack:hover {
+    transform: translateY(-3px) rotate(5deg) !important;
+}
+
+/* 学术链接样式 */
+.academic-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.academic-link {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%) !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(102, 126, 234, 0.2) !important;
+}
+
+.academic-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    transform: translateX(8px) !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.link-icon {
+    margin-right: 10px !important;
+    font-size: 16px !important;
 }
 
 /* 响应式优化 */
