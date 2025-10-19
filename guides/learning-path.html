@@ -1,0 +1,249 @@
+---
+layout: page
+title: "AI 学习路径地图"
+description: "0-1-∞ 的系统化成长规划"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<style>
+.hero-banner {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 44px;
+    border-radius: 18px;
+    box-shadow: 0 16px 32px rgba(79, 172, 254, 0.25);
+    margin-bottom: 40px;
+}
+.stage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+.stage-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stage-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(79, 172, 254, 0.18);
+}
+.stage-card h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    color: #0f4c81;
+}
+.tag-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.tag {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(79, 172, 254, 0.12);
+    color: #0f4c81;
+    font-size: 12px;
+    border: 1px solid rgba(79, 172, 254, 0.2);
+}
+.roadmap {
+    margin-top: 45px;
+    padding: 35px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.08) 0%, rgba(0, 242, 254, 0.08) 100%);
+}
+.roadmap h2 {
+    margin: 0 0 20px;
+    color: #0f4c81;
+}
+.roadmap-step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+.roadmap-icon {
+    font-size: 34px;
+    min-width: 50px;
+    text-align: center;
+}
+.resource-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 35px;
+}
+.resource-card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(15, 76, 129, 0.12);
+}
+.resource-card h4 {
+    margin: 0 0 10px;
+    color: #0f4c81;
+}
+.checklist {
+    padding-left: 18px;
+    color: #555;
+    line-height: 1.7;
+}
+</style>
+
+<div class="hero-banner">
+    <h1 style="margin: 0 0 12px;">🧭 AI 学习路径地图</h1>
+    <p style="max-width: 640px; margin: 0; line-height: 1.7;">
+        从计算机基础到科研创新，构建完整的 AI 能力体系。路径覆盖编程、机器学习、深度学习、强化学习、因果推断、工程部署等关键模块。
+    </p>
+    <div style="margin-top: 24px; display: flex; gap: 18px; flex-wrap: wrap;">
+        <span>⏱️ 学习周期：12-18 个月</span>
+        <span>📈 目标：技术能力 + 业务理解 + 工程落地</span>
+        <span>🎯 用户画像：高校学生 | 转行者 | 研究人员</span>
+    </div>
+</div>
+
+<h2 style="color: #0f4c81; margin-bottom: 20px;">📍 阶段化成长路线</h2>
+<div class="stage-grid">
+    <div class="stage-card" style="border-top-color: #4facfe;">
+        <h3>Stage 0 · 计算机/数学基础</h3>
+        <ul class="checklist">
+            <li>Python 编程、数据结构与算法</li>
+            <li>线性代数、概率论、统计学</li>
+            <li>Git、Linux、SQL 基础指令</li>
+        </ul>
+        <div class="tag-strip">
+            <span class="tag">Python</span>
+            <span class="tag">Linear Algebra</span>
+            <span class="tag">Probability</span>
+        </div>
+    </div>
+    <div class="stage-card" style="border-top-color: #29c6b7;">
+        <h3>Stage 1 · 机器学习核心</h3>
+        <ul class="checklist">
+            <li>监督、无监督、半监督学习</li>
+            <li>模型评估、特征工程、调优</li>
+            <li>Scikit-learn、XGBoost、LightGBM</li>
+        </ul>
+        <div class="tag-strip">
+            <span class="tag">ML Basics</span>
+            <span class="tag">Modeling</span>
+            <span class="tag">Evaluation</span>
+        </div>
+    </div>
+    <div class="stage-card" style="border-top-color: #3d8bff;">
+        <h3>Stage 2 · 深度学习进阶</h3>
+        <ul class="checklist">
+            <li>神经网络、CNN、RNN、Transformer</li>
+            <li>PyTorch / TensorFlow 框架实战</li>
+            <li>模型压缩、部署、服务化</li>
+        </ul>
+        <div class="tag-strip">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Transformer</span>
+            <span class="tag">Deployment</span>
+        </div>
+    </div>
+    <div class="stage-card" style="border-top-color: #00b7ff;">
+        <h3>Stage 3 · 强化学习/因果推断</h3>
+        <ul class="checklist">
+            <li>Q-Learning、Policy Gradient、Actor-Critic</li>
+            <li>因果图、DoWhy、YLearn、DUCG 理论</li>
+            <li>行业案例：推荐、广告、运筹优化</li>
+        </ul>
+        <div class="tag-strip">
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Causal Inference</span>
+            <span class="tag">DUCG</span>
+        </div>
+    </div>
+    <div class="stage-card" style="border-top-color: #2ed1ff;">
+        <h3>Stage 4 · 工程落地与科研</h3>
+        <ul class="checklist">
+            <li>MLOps、数据治理、可解释性</li>
+            <li>论文阅读、实验设计、性能对比</li>
+            <li>写作与分享：博客、开源贡献、演讲</li>
+        </ul>
+        <div class="tag-strip">
+            <span class="tag">MLOps</span>
+            <span class="tag">Explainability</span>
+            <span class="tag">Research</span>
+        </div>
+    </div>
+</div>
+
+<div class="roadmap">
+    <h2>🛣️ 里程碑规划</h2>
+    <div class="roadmap-step">
+        <div class="roadmap-icon">📘</div>
+        <div>
+            <h4 style="margin: 0 0 6px; color: #0f4c81;">第 0-3 个月 · 基础阶段</h4>
+            <p style="margin: 0; color: #555; line-height: 1.7;">完成 2 门编程课程 + 1 本数学教材；掌握 5-10 个基础算法；搭建学习记录（Notion/GitHub）。</p>
+        </div>
+    </div>
+    <div class="roadmap-step">
+        <div class="roadmap-icon">🧠</div>
+        <div>
+            <h4 style="margin: 0 0 6px; color: #0f4c81;">第 4-8 个月 · 模型阶段</h4>
+            <p style="margin: 0; color: #555; line-height: 1.7;">完成 3 个不同场景的建模项目；输出 2 篇技术博客；参与 Kaggle/天池比赛并获得排名。</p>
+        </div>
+    </div>
+    <div class="roadmap-step">
+        <div class="roadmap-icon">🚀</div>
+        <div>
+            <h4 style="margin: 0 0 6px; color: #0f4c81;">第 9-12 个月 · 实践阶段</h4>
+            <p style="margin: 0; color: #555; line-height: 1.7;">实现 1 个完整工程项目，包含数据管道 + 模型服务；提交开源 PR 或发布 Python 包；参加技术分享。</p>
+        </div>
+    </div>
+    <div class="roadmap-step">
+        <div class="roadmap-icon">🌟</div>
+        <div>
+            <h4 style="margin: 0 0 6px; color: #0f4c81;">第 13 个月以后 · 拓展阶段</h4>
+            <p style="margin: 0; color: #555; line-height: 1.7;">深入强化学习、因果推断、图神经网络等方向；参与科研合作，准备论文投稿或高级面试。</p>
+        </div>
+    </div>
+</div>
+
+<h2 style="color: #0f4c81; margin: 40px 0 20px;">📚 核心资源推荐</h2>
+<div class="resource-board">
+    <div class="resource-card">
+        <h4>课程</h4>
+        <ul class="checklist">
+            <li>CS50、MIT 6.0001（计算机基础）</li>
+            <li>Andrew Ng ML、DeepLearning.ai 专项课</li>
+            <li>OpenAI Spinning Up（强化学习）</li>
+        </ul>
+    </div>
+    <div class="resource-card">
+        <h4>书籍</h4>
+        <ul class="checklist">
+            <li>《统计学习方法》《深度学习》</li>
+            <li>《强化学习：An Introduction》</li>
+            <li>《Causal Inference in Statistics》</li>
+        </ul>
+    </div>
+    <div class="resource-card">
+        <h4>实战项目</h4>
+        <ul class="checklist">
+            <li>推荐系统、知识图谱构建</li>
+            <li>金融风险预测、智能调度</li>
+            <li>强化学习游戏 AI、机器人控制</li>
+        </ul>
+    </div>
+    <div class="resource-card">
+        <h4>工具链</h4>
+        <ul class="checklist">
+            <li>Jupyter、VS Code、Docker、Weights &amp; Biases</li>
+            <li>Airflow/Kedro、MLflow、Great Expectations</li>
+            <li>Notion、Obsidian、Excalidraw（知识管理）</li>
+        </ul>
+    </div>
+</div>
+
+<div style="margin-top: 45px; text-align: center;">
+    <a href="{{ site.baseurl }}/series/reinforcement-learning/" style="display: inline-block; padding: 12px 30px; border-radius: 999px; text-decoration: none; font-weight: 600; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">继续学习强化学习系列 →</a>
+</div>

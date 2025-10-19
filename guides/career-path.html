@@ -1,0 +1,242 @@
+---
+layout: page
+title: "AI/数据科学求职指南"
+description: "从目标定位到面试突围的实战手册"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<style>
+.guide-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 48px;
+    border-radius: 18px;
+    box-shadow: 0 18px 35px rgba(102, 126, 234, 0.25);
+    margin-bottom: 40px;
+}
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+.guide-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(102, 126, 234, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.guide-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(102, 126, 234, 0.18);
+}
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4c51bf;
+    margin: 40px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.timeline {
+    position: relative;
+    margin: 30px 0;
+    padding-left: 32px;
+}
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+.timeline-item {
+    margin-bottom: 28px;
+    position: relative;
+}
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffafbd;
+    border: 3px solid white;
+    box-shadow: 0 0 0 4px rgba(255, 175, 189, 0.2);
+}
+.timeline-item h4 {
+    margin: 0 0 6px;
+    color: #333;
+    font-size: 18px;
+}
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.badge {
+    background: rgba(102, 126, 234, 0.1);
+    color: #4c51bf;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+.download-box {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 14px;
+    padding: 30px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.download-link {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+</style>
+
+<div class="guide-hero">
+    <h1 style="margin: 0 0 14px;">🎓 AI/数据科学求职指南</h1>
+    <p style="max-width: 620px; line-height: 1.7; margin: 0;">
+        覆盖目标定位、能力建设、项目布局、面试准备、Offer 选择的完整路径，帮助你在 AI / 数据科学求职季精准出击。
+    </p>
+    <div style="margin-top: 24px; display: flex; gap: 18px; flex-wrap: wrap;">
+        <span>📅 准备周期：3-6 个月</span>
+        <span>📂 必备素材：简历、项目合集、面经</span>
+        <span>🎯 适用对象：在校生 | 转行者 | 职场进阶</span>
+    </div>
+</div>
+
+<div class="section-title">🔍 求职定位策略</div>
+<div class="guide-grid">
+    <div class="guide-card">
+        <h3>🎯 职位地图</h3>
+        <ul style="padding-left: 18px; color: #555; line-height: 1.7;">
+            <li>算法工程师：推荐、计算机视觉、NLP、强化学习</li>
+            <li>数据科学家：建模分析、实验设计、业务驱动</li>
+            <li>数据分析师：BI、用户运营、增长、商业分析</li>
+            <li>机器学习工程师：模型部署、MLOps、平台建设</li>
+        </ul>
+    </div>
+    <div class="guide-card">
+        <h3>🧭 目标公司分层</h3>
+        <p style="color: #555; line-height: 1.7;">
+            建议按照「冲刺」「匹配」「保底」三层配置，结合岗位要求和个人优势制定差异化策略。记录 JD 关键词，形成能力对标表。
+        </p>
+        <div class="badge-list">
+            <span class="badge">AI Lab</span>
+            <span class="badge">互联网大厂</span>
+            <span class="badge">新锐独角兽</span>
+            <span class="badge">咨询 &amp; 金融</span>
+            <span class="badge">海外远程</span>
+        </div>
+    </div>
+    <div class="guide-card">
+        <h3>📊 能力雷达图</h3>
+        <ul style="padding-left: 18px; color: #555; line-height: 1.7;">
+            <li>技术基础：编程、数据结构、机器学习基础</li>
+            <li>算法能力：模型原理、调参、工程实现</li>
+            <li>业务理解：行业知识、案例分析、指标拆解</li>
+            <li>沟通表达：产品思维、跨团队合作、汇报技巧</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section-title">🗂️ 准备时间线</div>
+<div class="timeline">
+    <div class="timeline-item">
+        <h4>第 1-2 个月：基础夯实</h4>
+        <p style="color: #666; margin: 0;">复习编程基础、统计学、机器学习核心算法；完成 1-2 个高质量项目复盘。</p>
+    </div>
+    <div class="timeline-item">
+        <h4>第 3-4 个月：能力拔高</h4>
+        <p style="color: #666; margin: 0;">搭建项目展示页，准备简历、技术博客，形成面试故事线；参加线上挑战赛积累战绩。</p>
+    </div>
+    <div class="timeline-item">
+        <h4>第 5-6 个月：冲刺面试</h4>
+        <p style="color: #666; margin: 0;">模拟面试+真题训练；针对目标岗位准备系统设计、案例分析；完成 offer 选择决策。</p>
+    </div>
+</div>
+
+<div class="section-title">💼 面试重点模块</div>
+<div class="guide-grid">
+    <div class="guide-card">
+        <h3>📘 简历&amp;作品集</h3>
+        <p style="color: #555; line-height: 1.7;">
+            STAR 结构描述亮点项目，突出业务价值与量化指标。准备中英文简历，附带 GitHub、博客、可视化案例链接。
+        </p>
+        <div class="badge-list">
+            <span class="badge">量化成果</span>
+            <span class="badge">技术栈</span>
+            <span class="badge">角色职责</span>
+        </div>
+    </div>
+    <div class="guide-card">
+        <h3>🧠 技术面</h3>
+        <ul style="padding-left: 18px; color: #555; line-height: 1.7;">
+            <li>基础：线性代数、概率统计、优化方法</li>
+            <li>算法：模型原理、公式推导、应用场景</li>
+            <li>工程：系统设计、数据治理、性能优化</li>
+            <li>实战：项目拆解、难点解决、复盘反思</li>
+        </ul>
+    </div>
+    <div class="guide-card">
+        <h3>🤝 HR 面</h3>
+        <p style="color: #555; line-height: 1.7;">
+            准备职业动机、团队协作、冲突处理、领导力等行为面试问题，同时对薪资期望、行业趋势保持清晰认知。</p>
+    </div>
+</div>
+
+<div class="section-title">🛠️ 工具与资源</div>
+<div class="guide-grid">
+    <div class="guide-card">
+        <h3>📄 模板资料</h3>
+        <ul style="padding-left: 18px; color: #555; line-height: 1.7;">
+            <li>简历模板（中英文版）</li>
+            <li>面试问题库（算法+业务）</li>
+            <li>项目复盘文档模板</li>
+            <li>自我介绍与面试总结模板</li>
+        </ul>
+    </div>
+    <div class="guide-card">
+        <h3>🌐 在线平台</h3>
+        <ul style="padding-left: 18px; color: #555; line-height: 1.7;">
+            <li>LeetCode、Kaggle、天池挑战赛</li>
+            <li>DataWhale、AI研习社、PaperWeekly</li>
+            <li>Glassdoor、脉脉面经社群</li>
+        </ul>
+    </div>
+    <div class="guide-card">
+        <h3>📚 推荐书单</h3>
+        <ul style="padding-left: 18px; color: #555; line-height: 1.7;">
+            <li>《统计学习方法》</li>
+            <li>《百面机器学习》</li>
+            <li>《数据化决策》</li>
+            <li>《深入浅出推荐系统》</li>
+        </ul>
+    </div>
+</div>
+
+<div class="download-box">
+    <div>
+        <h3 style="margin: 0 0 10px; color: #4c51bf;">📦 一键获取材料包</h3>
+        <p style="margin: 0; color: #555; line-height: 1.7;">后续会开放 PDF 与 Notion 模板，订阅邮件即可第一时间获取更新。</p>
+    </div>
+    <a class="download-link" href="mailto:{{ site.email }}?subject=求职指南资料订阅">📧 注册更新提醒</a>
+</div>
