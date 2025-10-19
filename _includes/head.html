@@ -36,6 +36,10 @@
     <!-- Collapsible Sidebar CSS -->
     <link rel="stylesheet" href="{{ "/css/collapsible-sidebar.css" | prepend: site.baseurl }}">
 
+    {% if site.ai_assistant.enabled %}
+    <link rel="stylesheet" href="{{ "/css/ai-assistant.css" | prepend: site.baseurl }}">
+    {% endif %}
+
     <!-- Pygments Github CSS -->
     <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
 
@@ -43,6 +47,16 @@
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    {% if site.math.enable %}
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-dc7gQR3CDZrUuYBIuNIQP5CKEM5Qn2ATmNnS/xPbbGrFV/e44fR/LM3WxAu9mZ85" crossorigin="anonymous">
+    {% endif %}
+
+    {% if page.thebe %}
+    <!-- Thebe notebook support -->
+    <link rel="stylesheet" href="https://unpkg.com/thebe@latest/lib/index.css">
+    {% endif %}
 
 
     <!-- Hux Delete, sad but pending in China
@@ -58,6 +72,17 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    {% if site.ai_assistant.enabled %}
+    <script>
+        window.AIAssistantConfig = JSON.parse('{{ site.ai_assistant | jsonify | escape }}');
+    </script>
+    {% endif %}
+
+    {% if site.math.enable %}
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-O9f7HOg79Db9j5xQjB/c7E8WwV7c8QGuvUvO1si6dVD5/MPNbpcd2QBkwWgU7BLE" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQ4nOvH3zHh/dS+xuApqIyTWZJl7NDGlRfrTTdGPV8yu1IkE17X0WLYXhS6" crossorigin="anonymous"></script>
+    {% endif %}
 
     <!-- ga & ba script hoook -->
     <script></script>

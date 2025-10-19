@@ -1,0 +1,27 @@
+{% assign binder = site.thebe.binder %}
+<div class="thebe-config-container">
+  <script type="text/x-thebe-config">
+  {
+    "requestKernel": true,
+    "binderOptions": {
+      "repo": "{{ binder.repo }}",
+      "ref": "{{ binder.ref }}",
+      "baseUrl": "{{ binder.provider_url }}",
+      "provider": "gh"
+    },
+    "kernelOptions": {
+      "name": "{{ page.thebe_kernel | default: 'python3' }}",
+      "path": "{{ page.thebe_kernel_path | default: '' }}"
+    },
+    "selector": ".thebe-cell",
+    "codeMirrorConfig": {
+      "theme": "default",
+      "lineNumbers": true
+    }
+  }
+  </script>
+  {% if binder.repo contains "interactive-notebooks" and binder.repo == "meiluosi/interactive-notebooks" %}
+  <div class="thebe-warning" style="margin: 12px 0; padding: 12px; border-radius: 12px; background: rgba(79, 172, 254, 0.08); color: #0f4c81;">
+    当前 Thebe 使用的 Binder 仓库为 <code>{{ binder.repo }}</code>。请确保该仓库已包含 <code>requirements.txt</code> / <code>environment.yml</code>，否则在线运行会失败。可在 <code>_config.yml</code> 中修改 <code>thebe.binder.repo</code>。</div>
+  {% endif %}
+</div>

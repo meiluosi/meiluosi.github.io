@@ -1,0 +1,34 @@
+{% if site.comments.provider == "giscus" %}
+  {% assign giscus = site.comments.giscus %}
+  <section id="comments" class="comments-section">
+    <h3 class="comments-title">💬 交流与讨论</h3>
+    {% if giscus.repo_id contains "PLACEHOLDER" or giscus.category_id contains "PLACEHOLDER" %}
+      <div class="comments-placeholder">
+        <p>⚠️ 尚未完成 Giscus 配置。请在 <code>_config.yml</code> 中设置 <code>repo_id</code> 与 <code>category_id</code> 后重新部署，即可启用升级后的评论系统。</p>
+        <p>配置完成后，评论区将自动支持 Markdown 代码高亮与 LaTeX 数学公式渲染，访客回复会同步到 GitHub Discussions，并具备通知功能。</p>
+      </div>
+    {% else %}
+      <script src="https://giscus.app/client.js"
+              data-repo="{{ giscus.repo }}"
+              data-repo-id="{{ giscus.repo_id }}"
+              data-category="{{ giscus.category }}"
+              data-category-id="{{ giscus.category_id }}"
+              data-mapping="{{ giscus.mapping | default: 'pathname' }}"
+              data-strict="{{ giscus.strict | default: 0 }}"
+              data-reactions-enabled="{{ giscus.reactions_enabled | default: 1 }}"
+              data-emit-metadata="{{ giscus.emit_metadata | default: 0 }}"
+              data-input-position="{{ giscus.input_position | default: 'bottom' }}"
+              data-theme="{{ giscus.theme | default: 'light' }}"
+              data-lang="{{ giscus.lang | default: 'zh-CN' }}"
+              crossorigin="anonymous"
+              async>
+      </script>
+      <noscript>请开启 JavaScript 以查看借助 Giscus 提供的评论区。</noscript>
+    {% endif %}
+  </section>
+{% elsif site.gitalk.enable %}
+  <!-- 兼容旧版 Gitalk，暂保留 -->
+  <div class="comments-placeholder">
+    <p>当前仍使用 Gitalk 评论系统。若要使用新版功能，请将 <code>gitalk.enable</code> 设置为 <code>false</code> 并配置 <code>comments.giscus</code>。</p>
+  </div>
+{% endif %}

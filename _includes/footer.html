@@ -185,6 +185,32 @@
     })
 </script>
 
+{% if site.math.enable %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (typeof renderMathInElement === "function") {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ]
+            });
+        }
+    });
+</script>
+{% endif %}
+
+{% if site.ai_assistant.enabled %}
+<script src="{{ "/js/ai-assistant.js" | prepend: site.baseurl }}"></script>
+{% endif %}
+
+{% if page.thebe %}
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<script src="{{ "/js/thebe-init.js" | prepend: site.baseurl }}"></script>
+{% endif %}
+
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}

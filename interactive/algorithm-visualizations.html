@@ -1,0 +1,152 @@
+---
+layout: page
+title: "算法可视化实验室"
+description: "强化学习曲线、DUCG推理步骤与神经网络结构的交互演示"
+header-img: "img/404-bg.jpg"
+---
+
+<style>
+.viz-hero {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+    padding: 44px;
+    border-radius: 18px;
+    box-shadow: 0 22px 48px rgba(240, 147, 251, 0.25);
+    margin-bottom: 36px;
+}
+.viz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+.viz-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(185, 80, 214, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.viz-card h3 {
+    margin: 0;
+    color: #b950d6;
+}
+.viz-note {
+    background: rgba(240, 147, 251, 0.12);
+    color: #b950d6;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+}
+.rl-chart-wrapper {
+    position: relative;
+    height: 320px;
+}
+.ducg-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.ducg-step {
+    background: rgba(181, 80, 214, 0.08);
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid #b950d6;
+}
+.ducg-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+.nn-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.nn-visual {
+    position: relative;
+    min-height: 240px;
+    overflow: hidden;
+    padding: 0 12px;
+}
+.nn-layer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.nn-node {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 8px 18px rgba(245, 87, 108, 0.35);
+}
+.nn-connection {
+    position: absolute;
+    width: 2px;
+    background: rgba(245, 87, 108, 0.4);
+    transform-origin: top left;
+}
+.nn-summary {
+    background: rgba(245, 87, 108, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    color: #b950d6;
+}
+</style>
+
+<div class="viz-hero">
+    <h1 style="margin-top:0;">🎮 算法可视化实验室</h1>
+    <p style="max-width: 720px; line-height: 1.7;">
+        该页面汇集强化学习训练过程、DUCG 推理链路、神经网络结构三大主题的交互式演示。
+        借助动态可视化与可调参数，快速理解模型行为与推理逻辑。
+    </p>
+    <div class="viz-note">
+        建议使用桌面浏览器获得最佳体验。页面所有可视化均由前端脚本生成，可轻松扩展到真实实验数据。
+    </div>
+</div>
+
+<div class="viz-grid">
+    <div class="viz-card">
+        <h3>1️⃣ 强化学习训练曲线</h3>
+        <p>模拟 PPO 算法在不同训练迭代下的平均回报，并支持实时动画展示训练进度。</p>
+        <div class="rl-chart-wrapper">
+            <canvas id="rl-training-chart" aria-label="强化学习训练曲线"></canvas>
+        </div>
+        <div class="ducg-controls">
+            <button type="button" id="rl-play" class="ai-assistant-send" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">播放动画</button>
+            <span id="rl-episode" style="color:#b950d6;font-weight:600;">迭代：0 / 200</span>
+        </div>
+    </div>
+
+    <div class="viz-card">
+        <h3>2️⃣ DUCG 推理流程</h3>
+        <p>以法律判决为例，从证据输入到判决输出，展示动态不确定性因果图的推理路径。</p>
+        <div class="ducg-step" id="ducg-step"></div>
+        <div class="ducg-controls">
+            <button type="button" id="ducg-prev" class="ai-assistant-send" style="background: rgba(185, 80, 214, 0.15); color:#b950d6;">上一步</button>
+            <button type="button" id="ducg-next" class="ai-assistant-send" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">下一步</button>
+        </div>
+        <small style="color:#b950d6;">提示：可在数据文件中自定义推理节点与可信度阈值。</small>
+    </div>
+
+    <div class="viz-card">
+        <h3>3️⃣ 神经网络结构探索</h3>
+        <p>通过滑块调整隐藏层与神经元数量，观察网络拓扑变化，并即时生成参数量估算。</p>
+        <div class="nn-controls">
+            <label for="nn-depth" style="color:#b950d6; font-weight:600;">隐藏层：<span id="nn-depth-label">3</span></label>
+            <input type="range" id="nn-depth" min="1" max="6" value="3">
+            <label for="nn-width" style="color:#b950d6; font-weight:600;">每层神经元：<span id="nn-width-label">8</span></label>
+            <input type="range" id="nn-width" min="2" max="16" value="8" step="2">
+        </div>
+        <div class="nn-visual" id="nn-visual"></div>
+        <div class="nn-summary" id="nn-summary"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6"></script>
+<script src="{{ "/js/algorithm-visualizations.js" | prepend: site.baseurl }}"></script>

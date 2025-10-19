@@ -1,0 +1,26 @@
+{% if site.ai_assistant.enabled %}
+<div class="ai-assistant-panel" id="ai-assistant-panel" role="dialog" aria-label="AI 助手">
+    <div class="ai-assistant-header">
+        <h3>AI 助手</h3>
+        <button type="button" id="ai-assistant-close" aria-label="关闭助手">&times;</button>
+    </div>
+    <div class="ai-assistant-messages" id="ai-assistant-messages">
+        <div class="ai-assistant-empty">开始与助手对话，它可以解答文章内容、解析代码、规划学习路线。</div>
+    </div>
+    <div class="ai-assistant-footer">
+        <div class="ai-assistant-hints" id="ai-assistant-hints"></div>
+        <div class="ai-assistant-api" id="ai-assistant-api-wrapper" style="display:none; gap: 8px; flex-direction: column;">
+            <label for="ai-assistant-api-key" style="font-size: 12px; color:#764ba2;">需要有效的 API Key 才能调用接口，该 Key 只保存在浏览器中：</label>
+            <input type="password" id="ai-assistant-api-key" placeholder="请输入 API Key" style="border:1px solid rgba(118, 75, 162, 0.25); border-radius: 12px; padding: 8px 10px;">
+        </div>
+        <textarea id="ai-assistant-input" placeholder="向 AI 助手提问"></textarea>
+        <div class="ai-assistant-actions">
+            <span class="ai-assistant-status" id="ai-assistant-status"></span>
+            <button type="button" class="ai-assistant-send" id="ai-assistant-send">
+                <span>发送</span>
+            </button>
+        </div>
+    </div>
+</div>
+<button class="ai-assistant-toggle" id="ai-assistant-toggle" aria-label="打开 AI 助手">🤖</button>
+{% endif %}

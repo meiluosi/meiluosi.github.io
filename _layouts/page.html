@@ -19,6 +19,9 @@ layout: default
 
 <!-- Main Content -->
 <div class="container">
+    {% if page.thebe %}
+        {% include thebe-support.html %}
+    {% endif %}
 	<div class="row">
         {% if site.sidebar == false %}
 <!-- NO SIDEBAR -->

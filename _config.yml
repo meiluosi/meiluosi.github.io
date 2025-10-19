@@ -61,13 +61,58 @@ kramdown:
 
 # Gitalk
 gitalk:
-  enable: true    #是否开启Gitalk评论
+  enable: false    #是否开启Gitalk评论
   clientID: d18b343dd9c7ca49518a                            #生成的clientID
   clientSecret: 539e88b8a7feffaddbb553b9c421dfefcbc6eced    #生成的clientSecret
   repo: meiluosi.github.io    #仓库名称
   owner: Feng Yu    #github用户名
   admin: meiluosi
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
+
+# Giscus 评论系统（GitHub Discussions）
+comments:
+  provider: giscus
+  giscus:
+    repo: "meiluosi/meiluosi.github.io"       # 仓库名，格式：owner/repo
+    repo_id: "REPO_ID_PLACEHOLDER"            # GitHub Discussions 仓库 ID
+    category: "Announcements"                 # Discussion 分类名称
+    category_id: "CATEGORY_ID_PLACEHOLDER"    # 目标分类 ID
+    mapping: "pathname"                       # 评论与页面的匹配方式
+    strict: 0
+    reactions_enabled: 1
+    emit_metadata: 0
+    input_position: "bottom"
+    lang: "zh-CN"
+    theme: "light"
+
+# 全站数学公式渲染
+math:
+  enable: true
+  engine: katex
+
+# AI 助手配置
+ai_assistant:
+  enabled: true
+  endpoint: ""                   # 设置为自建 API 代理地址
+  model: "gpt-4o-mini"          # 默认模型名称，可自定义
+  temperature: 0.2
+  placeholder: "向 AI 助手提问，例如：请总结这篇文章的关键点"
+  intro: "您好，我是博客 AI 助手，可以为您讲解文章、解析代码、规划学习路径。"
+  require_api_key: false          # 如需访客自行填写密钥，可切换为 true
+  default_examples:
+    - "这篇文章的主要结论是什么？"
+    - "帮我解释页面中的这段代码。"
+    - "给我一个强化学习学习路径。"
+
+# 在线 Notebook/Thebe 配置
+thebe:
+  enable: true
+  use_cdn: true
+  binder:
+    provider_url: "https://mybinder.org"
+    repo: "meiluosi/interactive-notebooks"
+    ref: "HEAD"
+    filepath: ""
 
 
 # 统计
