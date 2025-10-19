@@ -1,0 +1,200 @@
+<!-- 左侧可伸缩边栏 -->
+
+<!-- 切换按钮 -->
+<button class="sidebar-toggle" aria-label="Toggle Sidebar">
+    <span class="icon">☰</span>
+</button>
+
+<!-- 遮罩层 -->
+<div class="sidebar-overlay"></div>
+
+<!-- 边栏容器 -->
+<aside class="collapsible-sidebar">
+    <div class="sidebar-content">
+        
+        <!-- 系列文章 -->
+        <div class="sidebar-section-title">
+            <span class="icon">📚</span>
+            系列文章
+        </div>
+        <ul class="series-list">
+            <li class="series-item">
+                <a href="{{ site.baseurl }}/series/reinforcement-learning/" style="text-decoration: none; color: inherit;">
+                    <div class="series-title">
+                        🎮 从零开始的强化学习
+                        <span class="series-count">10篇</span>
+                    </div>
+                    <div class="series-description">
+                        从基础理论到AlphaZero实战，系统学习强化学习算法
+                    </div>
+                    <div class="series-progress">
+                        <div class="series-progress-bar" data-progress="40"></div>
+                    </div>
+                </a>
+            </li>
+            
+            <li class="series-item">
+                <a href="{{ site.baseurl }}/series/ducg-theory/" style="text-decoration: none; color: inherit;">
+                    <div class="series-title">
+                        🧠 DUCG理论与实践
+                        <span class="series-count">8篇</span>
+                    </div>
+                    <div class="series-description">
+                        深入理解动态不确定性因果图，探索多领域应用
+                    </div>
+                    <div class="series-progress">
+                        <div class="series-progress-bar" data-progress="62"></div>
+                    </div>
+                </a>
+            </li>
+            
+            <li class="series-item">
+                <a href="{{ site.baseurl }}/series/data-science/" style="text-decoration: none; color: inherit;">
+                    <div class="series-title">
+                        📊 数据科学实战指南
+                        <span class="series-count">12篇</span>
+                    </div>
+                    <div class="series-description">
+                        从数据分析到因果推断，覆盖业务分析全流程
+                    </div>
+                    <div class="series-progress">
+                        <div class="series-progress-bar" data-progress="33"></div>
+                    </div>
+                </a>
+            </li>
+            
+            <li class="series-item">
+                <a href="{{ site.baseurl }}/series/game-ai/" style="text-decoration: none; color: inherit;">
+                    <div class="series-title">
+                        🎯 游戏AI开发全流程
+                        <span class="series-count">6篇</span>
+                    </div>
+                    <div class="series-description">
+                        五子棋、德州扑克AI开发实战，掌握博弈论应用
+                    </div>
+                    <div class="series-progress">
+                        <div class="series-progress-bar" data-progress="50"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        
+        <!-- 快速链接 -->
+        <div class="sidebar-section-title">
+            <span class="icon">🔗</span>
+            快速导航
+        </div>
+        <ul class="quick-links">
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/1-about/" class="quick-link">
+                    <span class="icon">👨‍💼</span>
+                    关于我
+                </a>
+            </li>
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/2-projects/" class="quick-link">
+                    <span class="icon">💼</span>
+                    项目展示
+                </a>
+            </li>
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/3-publications/" class="quick-link">
+                    <span class="icon">📄</span>
+                    学术成果
+                </a>
+            </li>
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/7-tags/" class="quick-link">
+                    <span class="icon">🏷️</span>
+                    标签导航
+                </a>
+            </li>
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/guides/career-path/" class="quick-link">
+                    <span class="icon">🎓</span>
+                    求职指南
+                </a>
+            </li>
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/guides/learning-path/" class="quick-link">
+                    <span class="icon">📖</span>
+                    学习路径
+                </a>
+            </li>
+            <li class="quick-link-item">
+                <a href="{{ site.baseurl }}/guides/tool-reviews/" class="quick-link">
+                    <span class="icon">🛠️</span>
+                    工具评测
+                </a>
+            </li>
+        </ul>
+        
+        <!-- 热门标签 -->
+        {% if site.featured-tags %}
+        <div class="sidebar-section-title">
+            <span class="icon">🏷️</span>
+            热门标签
+        </div>
+        <div class="sidebar-tags">
+            {% for tag in site.tags %}
+                {% if tag[1].size > {{site.featured-condition-size}} %}
+                    <a href="{{ site.baseurl }}/7-tags/#{{ tag[0] }}" class="sidebar-tag" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                        {{ tag[0] }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <!-- 关于我（简短版） -->
+        <div class="sidebar-section-title">
+            <span class="icon">👤</span>
+            联系方式
+        </div>
+        <div class="short-about">
+            {% if site.sidebar-avatar %}
+                <a href="{{ site.baseurl }}/1-about/">
+                    <img src="{{site.sidebar-avatar}}" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display: block;"/>
+                </a>
+            {% endif %}
+            {% if site.sidebar-about-description %}
+                <p style="font-size: 12px; color: #666; text-align: center; margin: 10px 0;">{{site.sidebar-about-description}}</p>
+            {% endif %}
+            
+            <!-- Social Links -->
+            <ul class="list-inline" style="text-align: center; margin-top: 10px;">
+                {% if site.github_username %}
+                <li style="display: inline-block; margin: 0 5px;">
+                    <a target="_blank" href="https://github.com/{{ site.github_username }}" title="GitHub">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if site.zhihu_username %}
+                <li style="display: inline-block; margin: 0 5px;">
+                    <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}" title="知乎">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-stack-1x fa-inverse">知</i>
+                        </span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if site.email %}
+                <li style="display: inline-block; margin: 0 5px;">
+                    <a href="mailto:{{ site.email }}" title="Email">
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </div>
+</aside>

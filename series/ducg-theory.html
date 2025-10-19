@@ -1,0 +1,497 @@
+---
+layout: page
+title: "DUCG理论与实践"
+description: "动态不确定性因果图模型深度解析"
+header-img: "img/post-bg-rwd.jpg"
+---
+
+<style>
+.series-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+}
+
+.series-progress {
+    background: rgba(255, 255, 255, 0.2);
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.series-progress-bar {
+    background: white;
+    height: 100%;
+    width: 62%;
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.episode-list {
+    list-style: none;
+    padding: 0;
+}
+
+.episode-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #f093fb;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.episode-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 25px rgba(240, 147, 251, 0.2);
+}
+
+.episode-number {
+    position: absolute;
+    top: 20px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(240, 147, 251, 0.3);
+}
+
+.episode-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    margin-left: 35px;
+}
+
+.episode-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.episode-title a:hover {
+    color: #f093fb;
+}
+
+.episode-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+    margin-left: 35px;
+    font-size: 14px;
+    color: #999;
+}
+
+.episode-description {
+    color: #666;
+    line-height: 1.8;
+    margin-left: 35px;
+}
+
+.episode-tags {
+    margin-top: 15px;
+    margin-left: 35px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.episode-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+    color: #f093fb;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid rgba(240, 147, 251, 0.3);
+}
+
+.theory-framework {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(245, 87, 108, 0.05) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(240, 147, 251, 0.2);
+}
+
+.framework-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+}
+
+.framework-icon {
+    font-size: 30px;
+    margin-right: 20px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.framework-content h4 {
+    margin: 0 0 8px 0;
+    color: #f093fb;
+    font-size: 18px;
+}
+
+.framework-content p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.application-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.application-card {
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(240, 147, 251, 0.2);
+}
+
+.application-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.application-card h4 {
+    color: #f093fb;
+    margin-bottom: 10px;
+}
+
+.application-card p {
+    font-size: 14px;
+    color: #666;
+}
+</style>
+
+<div class="series-header">
+    <h1 style="margin: 0 0 10px 0;">🧠 DUCG理论与实践</h1>
+    <p style="margin: 0; opacity: 0.9; font-size: 16px;">
+        深入探索动态不确定性因果图（Dynamic Uncertain Causality Graph）模型的理论基础与多领域应用实践。
+        本系列涵盖 DUCG 理论框架、推理算法、以及在法律、金融、软件、安全等领域的应用案例。
+    </p>
+    <div style="margin-top: 20px; display: flex; gap: 30px; flex-wrap: wrap;">
+        <div>📚 <strong>8</strong> 篇文章</div>
+        <div>⏱️ 预计学习时长：<strong>16</strong> 小时</div>
+        <div>📈 难度：<strong>中级→高级</strong></div>
+    </div>
+    <div class="series-progress">
+        <div class="series-progress-bar"></div>
+    </div>
+    <p style="margin: 15px 0 0 0; font-size: 14px; opacity: 0.8;">已完成 5/8 篇 (62%)</p>
+</div>
+
+<h2 style="color: #f093fb; margin-bottom: 30px;">📖 系列文章目录</h2>
+
+<ul class="episode-list">
+    <li class="episode-item">
+        <div class="episode-number">01</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/06/30/动态不确定性因果图模型理论/">动态不确定性因果图模型理论</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-06-30</span>
+            <span>⏱️ 30 分钟阅读</span>
+            <span>✅ 已完成</span>
+        </div>
+        <div class="episode-description">
+            DUCG 模型的理论基础，详细介绍因果关系表示、不确定性量化、动态演化机制等核心概念，
+            为后续应用学习奠定理论根基。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">理论基础</span>
+            <span class="episode-tag">因果推理</span>
+            <span class="episode-tag">概率图模型</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">02</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/06/30/动态不确定性因果图模型理论在法律领域的应用/">DUCG 在法律领域的应用</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-06-30</span>
+            <span>⏱️ 25 分钟阅读</span>
+            <span>✅ 已完成</span>
+        </div>
+        <div class="episode-description">
+            探索 DUCG 模型在法律案件分析、证据推理、责任认定中的应用，
+            通过实际案例展示如何用因果图辅助法律决策。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">法律</span>
+            <span class="episode-tag">证据推理</span>
+            <span class="episode-tag">应用案例</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">03</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/06/30/动态不确定性因果图模型理论在金融领域的应用/">DUCG 在金融领域的应用</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-06-30</span>
+            <span>⏱️ 25 分钟阅读</span>
+            <span>✅ 已完成</span>
+        </div>
+        <div class="episode-description">
+            金融风险评估与预测中的 DUCG 模型应用，涵盖信用风险、市场风险、操作风险等场景，
+            学习如何构建金融领域的因果推理系统。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">金融</span>
+            <span class="episode-tag">风险评估</span>
+            <span class="episode-tag">信用评分</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">04</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/06/30/动态不确定性因果图模型理论在软件可靠性领域的应用/">DUCG 在软件可靠性领域的应用</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-06-30</span>
+            <span>⏱️ 20 分钟阅读</span>
+            <span>✅ 已完成</span>
+        </div>
+        <div class="episode-description">
+            软件系统故障诊断与可靠性分析的 DUCG 方法，学习如何建模复杂软件系统的因果关系，
+            实现故障根因定位与预测性维护。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">软件工程</span>
+            <span class="episode-tag">故障诊断</span>
+            <span class="episode-tag">可靠性</span>
+        </div>
+    </li>
+    
+    <li class="episode-item">
+        <div class="episode-number">05</div>
+        <div class="episode-title">
+            <a href="{{ site.baseurl }}/2024/06/30/动态不确定性因果图模型理论在网络安全领域的应用/">DUCG 在网络安全领域的应用</a>
+        </div>
+        <div class="episode-meta">
+            <span>📅 2024-06-30</span>
+            <span>⏱️ 22 分钟阅读</span>
+            <span>✅ 已完成</span>
+        </div>
+        <div class="episode-description">
+            网络安全威胁检测与攻击溯源的 DUCG 应用，涵盖入侵检测、漏洞分析、攻击路径推演等场景，
+            构建智能化安全防御体系。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">网络安全</span>
+            <span class="episode-tag">威胁检测</span>
+            <span class="episode-tag">攻击溯源</span>
+        </div>
+    </li>
+    
+    <li class="episode-item" style="opacity: 0.6;">
+        <div class="episode-number">06</div>
+        <div class="episode-title">
+            DUCG 推理算法详解（规划中）
+        </div>
+        <div class="episode-meta">
+            <span>📅 即将发布</span>
+            <span>⏱️ 预计 25 分钟</span>
+            <span>🔜 待完成</span>
+        </div>
+        <div class="episode-description">
+            深入 DUCG 的推理算法，包括贝叶斯推理、逻辑推理、近似推理等方法，
+            掌握高效求解 DUCG 模型的技术手段。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">推理算法</span>
+            <span class="episode-tag">计算方法</span>
+        </div>
+    </li>
+    
+    <li class="episode-item" style="opacity: 0.6;">
+        <div class="episode-number">07</div>
+        <div class="episode-title">
+            DUCG 建模实战指南（规划中）
+        </div>
+        <div class="episode-meta">
+            <span>📅 即将发布</span>
+            <span>⏱️ 预计 30 分钟</span>
+            <span>🔜 待完成</span>
+        </div>
+        <div class="episode-description">
+            从实际问题到 DUCG 模型的完整建模流程，包括变量选择、因果关系识别、参数估计等实战技巧。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">建模实战</span>
+            <span class="episode-tag">实践指南</span>
+        </div>
+    </li>
+    
+    <li class="episode-item" style="opacity: 0.6;">
+        <div class="episode-number">08</div>
+        <div class="episode-title">
+            DUCG 工具与平台（规划中）
+        </div>
+        <div class="episode-meta">
+            <span>📅 即将发布</span>
+            <span>⏱️ 预计 20 分钟</span>
+            <span>🔜 待完成</span>
+        </div>
+        <div class="episode-description">
+            介绍 DUCG 建模与推理的软件工具、开源库、可视化平台，帮助快速上手 DUCG 实践。
+        </div>
+        <div class="episode-tags">
+            <span class="episode-tag">工具介绍</span>
+            <span class="episode-tag">软件平台</span>
+        </div>
+    </li>
+</ul>
+
+<div class="theory-framework">
+    <h3 style="color: #f093fb; margin-bottom: 25px;">🔬 DUCG 理论框架</h3>
+    
+    <div class="framework-item">
+        <div class="framework-icon">🎯</div>
+        <div class="framework-content">
+            <h4>因果关系表示</h4>
+            <p>通过有向图结构明确表示变量间的因果关系，支持多层次、多粒度的因果建模</p>
+        </div>
+    </div>
+    
+    <div class="framework-item">
+        <div class="framework-icon">📊</div>
+        <div class="framework-content">
+            <h4>不确定性量化</h4>
+            <p>采用概率、模糊、证据理论等方法量化因果关系的不确定性，处理不完全信息</p>
+        </div>
+    </div>
+    
+    <div class="framework-item">
+        <div class="framework-icon">⚡</div>
+        <div class="framework-content">
+            <h4>动态演化机制</h4>
+            <p>支持时序推理和状态转换，刻画系统随时间的动态变化过程</p>
+        </div>
+    </div>
+    
+    <div class="framework-item">
+        <div class="framework-icon">🔍</div>
+        <div class="framework-content">
+            <h4>因果推理与诊断</h4>
+            <p>提供前向预测、后向诊断、反事实推理等多种推理模式，支持决策优化</p>
+        </div>
+    </div>
+</div>
+
+<h3 style="color: #f093fb; margin: 40px 0 25px 0;">🌍 应用领域</h3>
+
+<div class="application-grid">
+    <div class="application-card">
+        <div class="icon">⚖️</div>
+        <h4>法律</h4>
+        <p>案件分析、证据推理、责任认定</p>
+    </div>
+    
+    <div class="application-card">
+        <div class="icon">💰</div>
+        <h4>金融</h4>
+        <p>风险评估、信用评分、欺诈检测</p>
+    </div>
+    
+    <div class="application-card">
+        <div class="icon">💻</div>
+        <h4>软件工程</h4>
+        <p>故障诊断、可靠性分析、质量保障</p>
+    </div>
+    
+    <div class="application-card">
+        <div class="icon">🔒</div>
+        <h4>网络安全</h4>
+        <p>威胁检测、攻击溯源、防御策略</p>
+    </div>
+    
+    <div class="application-card">
+        <div class="icon">🏥</div>
+        <h4>医疗健康</h4>
+        <p>疾病诊断、治疗决策、预后预测</p>
+    </div>
+    
+    <div class="application-card">
+        <div class="icon">🏭</div>
+        <h4>工业控制</h4>
+        <p>设备监控、故障预测、维护优化</p>
+    </div>
+</div>
+
+<div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 30px; border-radius: 12px; margin-top: 40px; text-align: center;">
+    <h3 style="color: #f093fb;">💬 学术交流</h3>
+    <p style="color: #666; margin: 15px 0;">
+        DUCG 是一个活跃的研究领域，欢迎探讨理论创新与应用拓展！<br>
+        如有合作意向或学术问题，欢迎通过邮件或 GitHub 联系。
+    </p>
+    <div style="margin-top: 25px;">
+        <a href="{{ site.baseurl }}/7-tags/#概率图模型" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);">
+            浏览所有概率图模型文章 →
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        document.querySelector('.series-progress-bar').style.width = '62%';
+    }, 500);
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.episode-item').forEach(function(item) {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'all 0.5s ease';
+        observer.observe(item);
+    });
+});
+</script>
