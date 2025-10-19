@@ -307,31 +307,166 @@ header-img: "img/tag-bg.jpg"
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-// 知识图谱数据
+// 知识图谱数据（包含完整文章信息）
 const graphData = {
     nodes: [
         // 概率图模型类
-        { id: 'ducg', label: 'DUCG理论', category: '概率图模型', size: 20 },
-        { id: 'ducg-law', label: 'DUCG-法律', category: '概率图模型', size: 15 },
-        { id: 'ducg-finance', label: 'DUCG-金融', category: '概率图模型', size: 15 },
-        { id: 'ducg-software', label: 'DUCG-软件', category: '概率图模型', size: 15 },
-        { id: 'ducg-security', label: 'DUCG-安全', category: '概率图模型', size: 15 },
+        { 
+            id: 'ducg', 
+            label: 'DUCG理论', 
+            category: '概率图模型', 
+            size: 20,
+            title: '动态不确定性因果图模型理论',
+            description: '提出了DUCG模型，用于处理复杂系统中的不确定性因果关系建模与推理问题',
+            url: '/2024/06/30/动态不确定性因果图模型理论/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'ducg-law', 
+            label: 'DUCG-法律', 
+            category: '概率图模型', 
+            size: 15,
+            title: 'DUCG在法律领域的应用',
+            description: '将DUCG模型应用于法律推理和证据分析',
+            url: '/2024/06/30/动态不确定性因果图模型理论在法律领域的应用/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'ducg-finance', 
+            label: 'DUCG-金融', 
+            category: '概率图模型', 
+            size: 15,
+            title: 'DUCG在金融领域的应用',
+            description: '探索DUCG在金融风险评估和投资决策中的应用',
+            url: '/2024/06/30/动态不确定性因果图模型理论在金融领域的应用/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'ducg-software', 
+            label: 'DUCG-软件', 
+            category: '概率图模型', 
+            size: 15,
+            title: 'DUCG在软件可靠性领域的应用',
+            description: '将DUCG应用于软件系统的故障诊断与可靠性分析',
+            url: '/2024/06/30/动态不确定性因果图模型理论在软件可靠性领域的应用/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'ducg-security', 
+            label: 'DUCG-安全', 
+            category: '概率图模型', 
+            size: 15,
+            title: 'DUCG在网络安全领域的应用',
+            description: '利用DUCG进行网络安全威胁检测与响应',
+            url: '/2024/06/30/动态不确定性因果图模型理论在网络安全领域的应用/',
+            date: '2024-06-30'
+        },
         
         // 强化学习类
-        { id: 'rl-notes', label: '强化学习笔记', category: '强化学习', size: 18 },
-        { id: 'dqn', label: '深度Q网络', category: '强化学习', size: 15 },
-        { id: 'alphazero', label: 'AlphaZero', category: '强化学习', size: 18 },
-        { id: 'cfr', label: 'CFR算法', category: '强化学习', size: 15 },
+        { 
+            id: 'rl-notes', 
+            label: '强化学习笔记', 
+            category: '强化学习', 
+            size: 18,
+            title: '强化学习笔记记录',
+            description: '深度强化学习算法理论与实践总结',
+            url: '/2024/06/09/强化学习笔记记录/',
+            date: '2024-06-09'
+        },
+        { 
+            id: 'dqn', 
+            label: '深度Q网络', 
+            category: '强化学习', 
+            size: 15,
+            title: '深度Q网络案例实践',
+            description: 'Deep Q-Network算法的实现与案例分析',
+            url: '/2024/06/30/深度Q网络案例实践/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'alphazero', 
+            label: 'AlphaZero', 
+            category: '强化学习', 
+            size: 18,
+            title: 'Alpha Zero算法实现五子棋',
+            description: '基于深度强化学习，结合MCTS实现的高水平五子棋AI',
+            url: '/2024/06/30/Alpha Zero算法实现五子棋/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'cfr', 
+            label: 'CFR算法', 
+            category: '强化学习', 
+            size: 15,
+            title: '应用CFR实现德州扑克对战',
+            description: '反事实遗憾最小化算法在不完全信息博弈中的应用',
+            url: '/2024/06/30/应用CFR实现德州扑克对战/',
+            date: '2024-06-30'
+        },
         
         // 数据分析类
-        { id: 'data-thinking', label: '数据分析思考', category: '数据分析', size: 16 },
-        { id: 'shap', label: 'SHAP可解释性', category: '数据分析', size: 15 },
-        { id: 'ylearn', label: 'YLearn因果', category: '数据分析', size: 15 },
-        { id: 'dowhy', label: 'DoWhy实战', category: '数据分析', size: 15 },
+        { 
+            id: 'data-thinking', 
+            label: '数据分析思考', 
+            category: '数据分析', 
+            size: 16,
+            title: '关于数据分析的一些思考',
+            description: '数据科学方法论与实践框架构建',
+            url: '/2024/06/09/关于数据分析思考/',
+            date: '2024-06-09'
+        },
+        { 
+            id: 'shap', 
+            label: 'SHAP可解释性', 
+            category: '数据分析', 
+            size: 15,
+            title: '应用SHAP库实现机器学习可解释性',
+            description: '使用SHAP提升机器学习模型的透明度和可解释性',
+            url: '/2024/06/30/应用SHAP库实现机器学习可解释性/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'ylearn', 
+            label: 'YLearn因果', 
+            category: '数据分析', 
+            size: 15,
+            title: '应用YLearn框架实现因果推断',
+            description: 'YLearn因果推断框架在实际业务中的应用',
+            url: '/2024/06/30/应用Ylearn框架实现因果推断/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'dowhy', 
+            label: 'DoWhy实战', 
+            category: '数据分析', 
+            size: 15,
+            title: '数据分析实战—DoWhy酒店案例实战',
+            description: '使用DoWhy进行因果推断的实际案例分析',
+            url: '/2024/06/30/数据分析实战—Dowhy酒店案例实战/',
+            date: '2024-06-30'
+        },
         
         // 算法研究类
-        { id: 'swarm', label: '群体智能', category: '算法研究', size: 15 },
-        { id: 'r-lang', label: 'R语言', category: '算法研究', size: 12 }
+        { 
+            id: 'swarm', 
+            label: '群体智能', 
+            category: '算法研究', 
+            size: 15,
+            title: '新型群体智能算法对比实验',
+            description: '对比研究多种群体智能算法的性能表现',
+            url: '/2024/06/30/新型群体智能算法对比实验/',
+            date: '2024-06-30'
+        },
+        { 
+            id: 'r-lang', 
+            label: 'R语言', 
+            category: '算法研究', 
+            size: 12,
+            title: 'R语言学习',
+            description: 'R语言在数据科学中的应用学习笔记',
+            url: '/2024/09/16/R语言学习/',
+            date: '2024-09-16'
+        }
     ],
     links: [
         // DUCG相关连接
@@ -373,10 +508,18 @@ function createKnowledgeGraph() {
     const width = document.getElementById('knowledge-graph').clientWidth;
     const height = 500;
 
-    const svg = d3.select('#knowledge-graph')
+    const container = d3.select('#knowledge-graph');
+    
+    const svg = container
         .append('svg')
         .attr('width', width)
         .attr('height', height);
+
+    // 创建弹窗容器
+    const popup = container
+        .append('div')
+        .attr('class', 'node-popup')
+        .style('position', 'absolute');
 
     const simulation = d3.forceSimulation(graphData.nodes)
         .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(100))
@@ -408,7 +551,25 @@ function createKnowledgeGraph() {
         .attr('fill', d => colorMap[d.category])
         .attr('stroke', '#fff')
         .attr('stroke-width', 2)
-        .style('cursor', 'pointer');
+        .style('cursor', 'pointer')
+        .on('click', function(event, d) {
+            event.stopPropagation();
+            showNodePopup(event, d);
+        })
+        .on('mouseover', function(event, d) {
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr('r', d.size * 1.2)
+                .attr('stroke-width', 3);
+        })
+        .on('mouseout', function(event, d) {
+            d3.select(this)
+                .transition()
+                .duration(200)
+                .attr('r', d.size)
+                .attr('stroke-width', 2);
+        });
 
     node.append('text')
         .text(d => d.label)
@@ -416,11 +577,32 @@ function createKnowledgeGraph() {
         .attr('y', d => d.size + 15)
         .attr('text-anchor', 'middle')
         .attr('font-size', '12px')
-        .attr('fill', '#333');
+        .attr('fill', '#333')
+        .style('pointer-events', 'none');
 
-    // 添加工具提示
-    node.append('title')
-        .text(d => `${d.label}\n类别: ${d.category}`);
+    // 显示节点弹窗
+    function showNodePopup(event, d) {
+        const rect = svg.node().getBoundingClientRect();
+        const graphRect = container.node().getBoundingClientRect();
+        
+        popup.html(`
+            <div class="popup-title">${d.title}</div>
+            <div class="popup-category">${d.category}</div>
+            <div class="popup-description">${d.description}</div>
+            <div style="margin-bottom: 10px; font-size: 12px; color: #999;">
+                发布时间: ${d.date}
+            </div>
+            <a href="${d.url}" class="popup-button">📖 阅读文章</a>
+        `)
+        .style('left', `${d.x}px`)
+        .style('top', `${d.y}px`)
+        .classed('show', true);
+    }
+
+    // 点击其他地方隐藏弹窗
+    d3.select('body').on('click', function() {
+        popup.classed('show', false);
+    });
 
     simulation.on('tick', () => {
         link

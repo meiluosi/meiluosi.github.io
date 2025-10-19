@@ -1,0 +1,226 @@
+/* 修复布局和代码展示问题的CSS */
+
+/* 主内容区域优化 */
+.main-content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.post-content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* 代码块优化 */
+pre {
+    background-color: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin: 16px 0 !important;
+    overflow-x: auto !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+code {
+    background-color: #f1f3f4 !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-size: 0.9em !important;
+    color: #d63384 !important;
+}
+
+pre code {
+    background-color: transparent !important;
+    padding: 0 !important;
+    color: #333 !important;
+}
+
+/* 侧边栏优化 */
+.sidebar-container {
+    position: sticky !important;
+    top: 20px !important;
+    z-index: 10 !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+}
+
+/* Featured Tags 样式优化 */
+.sidebar-container .tags {
+    position: relative !important;
+    z-index: 11 !important;
+}
+
+.sidebar-container .tags a {
+    display: inline-block !important;
+    margin: 3px 5px !important;
+    padding: 6px 12px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border-radius: 16px !important;
+    text-decoration: none !important;
+    font-size: 12px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.sidebar-container .tags a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 991px) {
+    .sidebar-container {
+        position: relative !important;
+        top: auto !important;
+        margin-top: 40px !important;
+    }
+}
+
+/* 文章内容区域间距优化 */
+.post-container h1, 
+.post-container h2, 
+.post-container h3, 
+.post-container h4, 
+.post-container h5, 
+.post-container h6 {
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+}
+
+.post-container p {
+    margin-bottom: 16px !important;
+    line-height: 1.7 !important;
+}
+
+.post-container ul, 
+.post-container ol {
+    margin-bottom: 16px !important;
+    padding-left: 24px !important;
+}
+
+.post-container blockquote {
+    margin: 20px 0 !important;
+    padding: 15px 20px !important;
+    background: #f8f9fa !important;
+    border-left: 4px solid #667eea !important;
+    font-style: italic !important;
+    color: #666 !important;
+}
+
+/* 表格优化 */
+.post-container table {
+    width: 100% !important;
+    margin: 20px 0 !important;
+    border-collapse: collapse !important;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.post-container table th,
+.post-container table td {
+    padding: 12px 16px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #e9ecef !important;
+}
+
+.post-container table th {
+    background: #f8f9fa !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+}
+
+/* 知识图谱弹窗样式 */
+.node-popup {
+    position: absolute;
+    background: white;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    z-index: 1000;
+    max-width: 300px;
+    min-width: 250px;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.95);
+}
+
+.node-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -110%);
+}
+
+.node-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(255,255,255,0.95);
+}
+
+.popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.popup-category {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.popup-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.popup-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.popup-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+/* 图谱容器优化 */
+#knowledge-graph {
+    position: relative;
+    overflow: visible;
+}
