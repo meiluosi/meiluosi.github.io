@@ -3,7 +3,7 @@ layout:     post
 title:      Alpha Zero算法实现五子棋
 subtitle:   深度强化学习在游戏AI中的创新应用
 date:       2024-06-30
-author:     Feng Yu
+author:     冯宇
 header-img: img/post-bg-recitewords.jpg
 catalog: true
 permalink: /2024/06/30/Alpha-Zero算法实现五子棋/
