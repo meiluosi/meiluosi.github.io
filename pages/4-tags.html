@@ -466,6 +466,62 @@ const graphData = {
             description: 'R语言在数据科学中的应用学习笔记',
             url: '/2024/09/16/R语言学习/',
             date: '2024-09-16'
+        },
+        
+        // 统计学与假设检验
+        { 
+            id: 'statistics', 
+            label: '统计学基础', 
+            category: '数据分析', 
+            size: 18,
+            title: '统计学基础与假设检验',
+            description: '描述统计、推断统计、假设检验与A/B测试完整框架',
+            url: '/2024/08/15/统计学基础与假设检验/',
+            date: '2024-08-15'
+        },
+        
+        // 游戏AI核心算法
+        { 
+            id: 'mcts', 
+            label: 'MCTS算法', 
+            category: '强化学习', 
+            size: 18,
+            title: 'MCTS算法深度解析',
+            description: '蒙特卡洛树搜索核心原理、UCT/PUCT策略与优化技术',
+            url: '/2024/08/20/MCTS算法深度解析/',
+            date: '2024-08-20'
+        },
+        
+        // LLM技术系列
+        { 
+            id: 'lora', 
+            label: 'LoRA/PEFT', 
+            category: '大语言模型', 
+            size: 18,
+            title: 'LoRA与参数高效微调技术',
+            description: '大模型微调技术：LoRA、Prefix Tuning、Adapter等方法详解',
+            url: '/2024/12/10/LoRA与参数高效微调技术/',
+            date: '2024-12-10'
+        },
+        { 
+            id: 'prompt', 
+            label: 'Prompt工程', 
+            category: '大语言模型', 
+            size: 18,
+            title: 'Prompt Engineering完整指南',
+            description: '提示词工程技术体系：设计原则、高级技巧与实战案例',
+            url: '/2024/12/12/Prompt Engineering完整指南/',
+            date: '2024-12-12'
+        },
+        { 
+            id: 'rag', 
+            label: 'RAG技术', 
+            category: '大语言模型', 
+            size: 18,
+            title: 'RAG检索增强生成技术',
+            description: '向量检索、知识库构建、混合检索与RAG评估优化',
+            url: '/2024/12/15/RAG检索增强生成技术/',
+            date: '2024-12-15'
         }
     ],
     links: [
@@ -479,19 +535,33 @@ const graphData = {
         { source: 'rl-notes', target: 'dqn', strength: 2 },
         { source: 'rl-notes', target: 'alphazero', strength: 2 },
         { source: 'rl-notes', target: 'cfr', strength: 2 },
+        { source: 'rl-notes', target: 'mcts', strength: 2 },
         { source: 'dqn', target: 'alphazero', strength: 1 },
+        { source: 'mcts', target: 'alphazero', strength: 3 },  // MCTS是AlphaZero的核心
+        { source: 'mcts', target: 'cfr', strength: 1 },         // 都是博弈AI算法
         
         // 数据分析相关连接
         { source: 'data-thinking', target: 'shap', strength: 2 },
         { source: 'data-thinking', target: 'ylearn', strength: 2 },
         { source: 'data-thinking', target: 'dowhy', strength: 2 },
+        { source: 'data-thinking', target: 'statistics', strength: 3 },  // 统计学是数据分析基础
         { source: 'ylearn', target: 'dowhy', strength: 2 },
+        { source: 'statistics', target: 'ylearn', strength: 2 },  // 因果推断需要统计基础
+        { source: 'statistics', target: 'dowhy', strength: 2 },
+        
+        // LLM技术连接
+        { source: 'lora', target: 'prompt', strength: 2 },  // 微调与提示词互补
+        { source: 'prompt', target: 'rag', strength: 2 },   // RAG需要好的prompt
+        { source: 'lora', target: 'rag', strength: 1 },     // 都是LLM优化技术
         
         // 跨领域连接
         { source: 'ducg', target: 'data-thinking', strength: 1 },
         { source: 'shap', target: 'rl-notes', strength: 1 },
         { source: 'swarm', target: 'rl-notes', strength: 1 },
-        { source: 'r-lang', target: 'data-thinking', strength: 1 }
+        { source: 'r-lang', target: 'data-thinking', strength: 1 },
+        { source: 'statistics', target: 'shap', strength: 2 },  // SHAP需要统计学知识
+        { source: 'lora', target: 'rl-notes', strength: 1 },    // RLHF涉及强化学习
+        { source: 'rag', target: 'data-thinking', strength: 1 }  // RAG涉及数据处理
     ]
 };
 
@@ -500,7 +570,8 @@ const colorMap = {
     '概率图模型': '#667eea',
     '强化学习': '#f093fb',
     '数据分析': '#4facfe',
-    '算法研究': '#43e97b'
+    '算法研究': '#43e97b',
+    '大语言模型': '#feca57'
 };
 
 // 创建知识图谱
