@@ -101,12 +101,6 @@
         </div>
         <ul class="quick-links">
             <li class="quick-link-item">
-                <a href="{{ site.baseurl }}/pages/1-about/" class="quick-link">
-                    <span class="icon">👨‍💼</span>
-                    关于我
-                </a>
-            </li>
-            <li class="quick-link-item">
                 <a href="{{ site.baseurl }}/pages/2-projects/" class="quick-link">
                     <span class="icon">💼</span>
                     项目展示
@@ -161,16 +155,14 @@
         </div>
         {% endif %}
         
-        <!-- 关于我（简短版） -->
+        <!-- 联系方式 -->
         <div class="sidebar-section-title">
             <span class="icon">👤</span>
             联系方式
         </div>
         <div class="short-about">
             {% if site.sidebar-avatar %}
-                <a href="{{ site.baseurl }}/pages/1-about/">
-                    <img src="{{site.sidebar-avatar}}" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display: block;"/>
-                </a>
+                <img src="{{site.sidebar-avatar}}" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display: block;"/>
             {% endif %}
             {% if site.sidebar-about-description %}
                 <p style="font-size: 12px; color: #666; text-align: center; margin: 10px 0;">{{site.sidebar-about-description}}</p>
