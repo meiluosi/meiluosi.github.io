@@ -61,12 +61,21 @@ header-img: "img/post-bg-rwd.jpg"
 </div>
 
 <div class="episode-item">
+    <h3><a href="{{ site.baseurl }}/2024/08/22/SQL数据分析实战/">SQL 数据分析实战</a></h3>
+    <p>SQL 高级查询技巧，复杂业务场景的数据提取</p>
+    <span style="color: #999;">� 占位</span>
 </div>
 
 <div class="episode-item">
+    <h3><a href="{{ site.baseurl }}/2024/08/29/Python数据分析工具链/">Python 数据分析工具链</a></h3>
+    <p>Pandas、NumPy、Matplotlib 等工具的系统性学习</p>
+    <span style="color: #999;">� 占位</span>
 </div>
 
 <div class="episode-item">
+    <h3><a href="{{ site.baseurl }}/2024/09/05/数据可视化最佳实践/">数据可视化最佳实践</a></h3>
+    <p>Tableau、PowerBI、Plotly 可视化技巧与设计原则</p>
+    <span style="color: #999;">� 占位</span>
 </div>
 
 <div style="text-align: center; margin-top: 40px;">
