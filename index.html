@@ -333,11 +333,6 @@ header-img: "img/post-bg-rwd.jpg"
 <h2 class="section-heading">📝 最新文章 Latest Posts</h2>
 
 {% for post in paginator.posts %}
-</style>
-
-<!-- Blog Posts Section -->
-
-{% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
