@@ -42,6 +42,32 @@ header-img: "img/post-bg-rwd.jpg"
         <p><strong>关键词：</strong>网络安全, 动态不确定性因果图, 多状态建模, 概率推理, 攻击图</p>
     </div>
 
+    <!-- Under submission papers -->
+    <div class="publication-item">
+        <h3>DURCA：一种新的基于动态因果推理的大规模微服务故障根因分析框架</h3>
+        <p><strong>作者：</strong>董春玲, 冯宇</p>
+        <p><strong>单位：</strong>中国传媒大学计算机与网络空间安全学院，北京 100024</p>
+        <p><strong>状态：</strong>在投</p>
+        <p><strong>摘要：</strong>微服务架构下的故障根因诊断面临着秒级定位时限与复杂故障传播链黑盒性的双重挑战。现有方法或因模型静态而无法捕捉故障的动态演化，或因缺乏可解释性而难以获得运维人员的信任。为此，本文提出DURCA（Dynamic Uncertain-causal-reasoning-based Root Cause Analysis），一种基于动态因果推理的可扩展、高时效故障根因分析框架。框架基于动态不确定因果图（DUCG）理论，引入时间维度和穿越式因果连接，统一表示日志、指标、链路等多模态数据，并对时序依赖、因果延滞与动态负反馈进行显式建模；在推理层面通过权重逻辑根因推理（WLRCA）解耦领域知识驱动的因果强度与数据驱动的不确定性因子，实现多源异构告警证据的高效、可解释后验概率推理；同时设计动态推理剪枝策略，依据实时告警对模型自适应化简，在保证准确性的前提下大幅降低计算开销。</p>
+        <p><strong>核心创新：</strong></p>
+        <ol>
+            <li>提出立体动态不确定因果故障图（Cubic-DUCFG），突破静态图表达瓶颈。</li>
+            <li>设计面向微服务的权重逻辑根因推理算法（WLRCA），实现可解释的后验概率推理。</li>
+            <li>提出动态推理剪枝策略，具有线性时间复杂度，满足500+节点实时诊断。</li>
+        </ol>
+        <p><strong>实验结果：</strong>DURCA在时序故障传播仿真中Top-5根因召回率达99%，较最优基线提升4.7%；平均诊断耗时10毫秒，相较轻量级算法（如NSigma）提速30倍，兼顾准确性、效率与可解释性。</p>
+        <p><strong>关键词：</strong>动态不确定性因果图；根因分析；故障预测；因果推断</p>
+    </div>
+
+    <div class="publication-item">
+        <h3>The Method of Cubic DUCG for Dynamic Causal Modeling and Fuzzy Temporal Causality Reasoning in Industrial Fault Diagnosis</h3>
+        <p><strong>作者：</strong>Chunling Dong（通讯作者）, Yu Feng</p>
+        <p><strong>期刊：</strong>Reliability Engineering &amp; System Safety（JRESS），Research Paper</p>
+        <p><strong>关键词：</strong>Dynamics and uncertainties; fault diagnosis; dynamic reasoning; fuzzy temporal causality reasoning; fuzzy evidence</p>
+        <p><strong>摘要：</strong>Online health monitoring and fault diagnosis in safety-critical industrial systems is of paramount importance for enhancing the system reliability and safety. However, fault diagnoses become complex when the time-dependent variations, fuzziness, and uncertain causalities among system components are involved. In view of the time-varying and multi operating system conditions, as well as the fuzzy uncertainty of fault data and knowledge, a method of Cubic DUCG is proposed for fault diagnosis. The major theoretical problems addressed include a generative cubic causality graph modeling scheme and a fuzzy temporal causality reasoning algorithm, intended to represent and reason about complex fault situations involving temporal causalities and fuzzy uncertain evidence. Mechanisms including weighted logic inference, causality simplification and EELA strategy are proposed to reduce complexities. Comparative analysis and simulator experiments verify the accuracy, interpretability and efficiency in large-scale dynamic systems.</p>
+        <p><strong>状态：</strong>返修</p>
+    </div>
+
     <h2>🎯 技术报告</h2>
 
     <div class="publication-item">
@@ -133,11 +159,6 @@ header-img: "img/post-bg-rwd.jpg"
     </div>
 
     <div class="activity-item">
-        <h3>同行评议</h3>
-        <p>为多个学术期刊和会议提供论文评审服务</p>
-    </div>
-
-    <div class="activity-item">
         <h3>学术交流</h3>
         <p>通过知乎等平台分享学术见解，促进学术交流与讨论</p>
     </div>
@@ -165,6 +186,26 @@ header-img: "img/post-bg-rwd.jpg"
         <p><strong>Keywords:</strong> Deep Reinforcement Learning, AlphaZero, Monte Carlo Tree Search, Game AI</p>
         <p><strong>Contributions:</strong> Network architecture optimization, Training efficiency improvement, Strategy evaluation enhancement</p>
         <p><strong>Status:</strong> Preparing for submission</p>
+    </div>
+
+    <!-- Under submission papers (EN) -->
+    <div class="publication-item">
+        <h3>DURCA: A Dynamic Causal Reasoning-based Large-scale Microservices Root Cause Analysis Framework</h3>
+        <p><strong>Authors:</strong> Chunling Dong, Yu Feng</p>
+        <p><strong>Affiliation:</strong> School of Computer and Cyberspace Security, Communication University of China, Beijing 100024</p>
+        <p><strong>Status:</strong> Under Submission</p>
+        <p><strong>Abstract:</strong> DURCA addresses the dual challenges of second-level localization and black-box fault propagation in microservices. Built upon Dynamic Uncertain Causality Graph (DUCG), it constructs a temporal-evolving Cubic-DUCFG to unify multi-modal data (logs, metrics, traces) and explicitly model temporal dependencies, causal delays and dynamic negative feedback. A weighted logic root cause analysis (WLRCA) decouples domain knowledge-based causal strength and data-driven uncertainty for efficient and interpretable posterior reasoning; a dynamic inference pruning strategy adapts the graph with real-time alerts to significantly reduce computation with linear-time complexity. In simulated temporal propagation scenarios, DURCA achieves 99.9% Top-5 root cause recall (+4.7% over SOTA) with 10 ms average diagnosis latency (30x faster than lightweight baselines like NSigma).</p>
+        <p><strong>Keywords:</strong> Dynamic Uncertain Causality Graph, Root Cause Analysis, Fault Prediction, Causal Inference</p>
+    </div>
+
+    <div class="publication-item">
+        <h3>The Method of Cubic DUCG for Dynamic Causal Modeling and Fuzzy Temporal Causality Reasoning in Industrial Fault Diagnosis</h3>
+        <p><strong>Authors:</strong> Chunling Dong (Corresponding Author), Yu Feng</p>
+        <p><strong>Journal:</strong> Reliability Engineering &amp; System Safety (JRESS), Research Paper</p>
+        <p><strong>Manuscript No.:</strong> JRESS-D-24-01378</p>
+        <p><strong>Status:</strong> Under Review</p>
+        <p><strong>Keywords:</strong> Dynamics and uncertainties; fault diagnosis; dynamic reasoning; fuzzy temporal causality reasoning; fuzzy evidence</p>
+        <p><strong>Abstract:</strong> We propose Cubic DUCG for industrial fault diagnosis under time-varying operating conditions and fuzzy uncertainty in data and knowledge. A generative cubic causal modeling scheme and a fuzzy temporal causality reasoning algorithm are introduced, together with weighted logic inference, causality simplification and EELA strategy to reduce modeling and reasoning complexities. Comparative and simulator-based experiments (nuclear power plant) validate accuracy, interpretability and efficiency in large-scale dynamic systems.</p>
     </div>
 
     <h2>🎯 Technical Reports</h2>
