@@ -138,23 +138,6 @@
             </li>
         </ul>
         
-        <!-- 热门标签 -->
-        {% if site.featured-tags %}
-        <div class="sidebar-section-title">
-            <span class="icon">🏷️</span>
-            热门标签
-        </div>
-        <div class="sidebar-tags">
-            {% for tag in site.tags %}
-                {% if tag[1].size > {{site.featured-condition-size}} %}
-                    <a href="{{ site.baseurl }}/pages/4-tags/#{{ tag[0] }}" class="sidebar-tag" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                        {{ tag[0] }}
-                    </a>
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% endif %}
-        
         <!-- 联系方式 -->
         <div class="sidebar-section-title">
             <span class="icon">👤</span>

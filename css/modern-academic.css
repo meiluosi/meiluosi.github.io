@@ -175,26 +175,6 @@ body {
     padding-bottom: 10px;
 }
 
-/* 标签云优化 */
-.tags a {
-    display: inline-block;
-    margin: 5px 8px;
-    padding: 8px 18px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white !important;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.tags a:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
-}
-
 /* 页脚优化 */
 .site-footer {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
