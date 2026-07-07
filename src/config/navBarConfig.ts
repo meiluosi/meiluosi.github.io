@@ -80,10 +80,10 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 文档链接
+	// 文档链接（示例）
 	// links.push({
 	// 	name: "文档",
-	// 	url: "https://docs-firefly.cuteleaf.cn",
+	// 	url: "https://example.com/docs",
 	// 	external: true,
 	// 	icon: "material-symbols:docs",
 	// });
@@ -144,23 +144,16 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/about/",
 		icon: "material-symbols:person",
 	},
-	Bangumi: {
-		name: "番组计划",
-		url: "/bangumi/",
-		icon: "material-symbols:movie",
-		pageKey: "bangumi",
-	},
 	Gallery: {
 		name: "相册",
 		url: "/gallery/",
 		icon: "material-symbols:photo-library",
 		pageKey: "gallery",
 	},
-	Anime: {
-		name: "追番",
-		url: "/anime/",
-		icon: "material-symbols:live-tv",
-		pageKey: "anime",
+	Github: {
+		name: "GitHub",
+		url: "https://github.com/meiluosi",
+		icon: "fa7-brands:github",
 	},
 };
 

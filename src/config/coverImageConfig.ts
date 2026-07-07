@@ -28,7 +28,7 @@ export const coverImageConfig: CoverImageConfig = {
 			"https://source.unsplash.com/random/1200x630/?nature,landscape",
 		],
 		// API失败时的回退图片路径（相对于src目录或以/开头的public目录路径）
-		fallback: "assets/images/cover.avif",
+		fallback: "https://picsum.photos/1200/630",
 		// 是否显示加载动画
 		showLoading: false,
 	},

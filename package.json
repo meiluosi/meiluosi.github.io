@@ -1,7 +1,9 @@
 {
-  "name": "firefly",
+  "name": "meiluosi-blog",
   "type": "module",
   "version": "6.13.5",
+  "author": "枫语 (Feng Yu)",
+  "description": "枫语个人博客 - AI · 强化学习 · 因果推断 · 大语言模型",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
