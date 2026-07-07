@@ -5,7 +5,7 @@ export const announcementConfig: AnnouncementConfig = {
 	title: "公告",
 
 	// 公告内容
-	content: "欢迎来到我的博客！这是一则示例公告。",
+	content: "欢迎来到枫语 — 一个专注于 AI、强化学习、因果推断与大语言模型的技术博客",
 
 	// 是否允许用户关闭公告
 	closable: true,
@@ -14,7 +14,7 @@ export const announcementConfig: AnnouncementConfig = {
 		// 启用链接
 		enable: true,
 		// 链接文本
-		text: "了解更多",
+		text: "关于本站",
 		// 链接 URL
 		url: "/about/",
 		// 内部链接

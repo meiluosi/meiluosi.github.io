@@ -81,17 +81,17 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否允许用户通过控制面板切换横幅标题显示
 			switchable: true,
 			// 主页横幅主标题
-			title: "Lovely firefly!",
+			title: "枫语",
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
 			subtitle: [
-				"In Reddened Chrysalis, I Once Rest",
-				"From Shattered Sky, I Free Fall",
-				"Amidst Silenced Stars, I Deep Sleep",
-				"Upon Lighted Fyrefly, I Soon Gaze",
-				"From Undreamt Night, I Thence Shine",
-				"In Finalized Morrow, I Full Bloom",
+				"探索人工智能的无限可能",
+				"用数据洞察世界的本质",
+				"在因果中寻找确定性的答案",
+				"让强化学习驱动智能决策",
+				"大语言模型开启认知新纪元",
+				"算法是思想的诗篇，代码是逻辑的乐章",
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",

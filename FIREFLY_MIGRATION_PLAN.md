@@ -2,7 +2,7 @@
 
 > **目标**：从 Jekyll/Hux Blog 迁移到 Astro/Firefly 模板，打造个人品牌技术博客
 > **创建日期**：2025-07-20
-> **当前状态**：⏳ 准备阶段
+> **当前状态**：🚀 阶段五完成，准备阶段六 · 部署上线
 
 ---
 
@@ -67,61 +67,63 @@ meiluosi.github.io/                    # GitHub Pages 仓库根目录
 
 ---
 
-## 三、ACG 元素清理清单 🔥
+## 三、ACG 浓度降低策略 🎨
 
-> 以下所有 ACG 元素需要在初始化后第一时间移除/禁用，共计 **21 项**。
+> **核心理念**：保留有趣的功能特性（看板娘、特效、音乐等），将图片资源替换为风景/萌宠主题，降低二次元浓度，打造"清新自然 + 技术博客"的融合风格。
 
-### 3.1 配置文件清理（7 个文件）
+### 3.1 保留的功能（仅替换图片资源）
+
+| 功能 | 配置文件 | 保留原因 | 处理方式 |
+|------|---------|---------|----------|
+| **Spine 看板娘** | `pioConfig.ts` | 可爱互动小精灵，非 ACG 独占风格 | 启用，保留 Firefly 小精灵模型 |
+| **Live2D 看板娘** | `pioConfig.ts` | 可替换为非 ACG 模型 | 保持能力，后续可换模型 |
+| **樱花/花瓣特效** | `effectsConfig.ts` | 樱花是通用自然元素 | 启用，可改为枫叶飘落 |
+| **音乐播放器** | `musicConfig.ts` | 提升浏览体验 | 换非 ACG 歌单 |
+| **背景壁纸** | `backgroundWallpaper.ts` | 美化页面 | 换风景图 |
+| **背景视频** | `backgroundWallpaper.ts` | 动态壁纸效果 | 换自然风景视频 |
+| **打字机文字** | `backgroundWallpaper.ts` | 个性化展示 | 换技术格言 |
+
+### 3.2 需要替换的图片资源（12 张）
+
+| 位置 | 文件 | 当前内容 | 替换为 |
+|------|------|---------|--------|
+| 桌面壁纸 | `d1-d6.avif` | Firefly 主题图 | 精美风景/萌宠图 |
+| 手机壁纸 | `m1-m6.avif` | Firefly 主题图 | 精美风景/萌宠图 |
+| 头像 | `avatar.avif` | Firefly 默认头像 | 个人头像或风景图 |
+| 封面图 | `cover.avif` | Firefly 默认封面 | 风景/技术主题图 |
+
+### 3.3 需要隐藏的页面（导航栏移除入口）
+
+| 页面 | 路由 | 处理方式 |
+|------|------|----------|
+| 追番列表 | `/anime` | 导航栏隐藏入口，页面保留（不主动删除） |
+| 番组计划 | `/bangumi` | 导航栏隐藏入口，页面保留 |
+| 相册 | `/gallery` | 可选保留，展示风景照片 |
+
+### 3.4 配置修改清单（6 个文件）
 
 | # | 文件 | 操作 | 说明 |
 |---|------|------|------|
-| 1 | `src/config/pioConfig.ts` | **删除** | 看板娘/Live2D/Spine 模型配置 |
-| 2 | `src/config/effectsConfig.ts` | **删除** | 樱花飘落特效配置 |
-| 3 | `src/config/musicConfig.ts` | **删除** | 音乐播放器配置（崩坏：星穹铁道 OST） |
-| 4 | `src/config/galleryConfig.ts` | **删除** | 相册配置（"可爱流萤"） |
-| 5 | `src/config/backgroundWallpaper.ts` | **简化** | 移除 typewriter 文字（流萤台词）、视频背景、kenburns 等；只保留静态 banner 图或不显示 |
-| 6 | `src/config/coverImageConfig.ts` | **修改** | 移除 ACG 随机图 API（dmoe.cc、uapis.cn），替换为 Unsplash 或本地图片 |
-| 7 | `src/config/siteConfig.ts` | **修改** | 移除 keywords 中的 "ACGN"；禁用 bangumi/anime 相关配置 |
+| 1 | `siteConfig.ts` | 修改 | 标题→"枫语", URL→meiluosi.github.io, 关键词去 ACGN |
+| 2 | `profileConfig.ts` | 修改 | 名字→"枫语", 链接→个人 GitHub |
+| 3 | `navBarConfig.ts` | 修改 | 隐藏"追番"+"番组计划"导航入口 |
+| 4 | `musicConfig.ts` | 修改 | 换歌单 ID 为非 ACG 类 |
+| 5 | `coverImageConfig.ts` | 修改 | 随机图 API 换风景类 |
+| 6 | `backgroundWallpaper.ts` | 修改 | 打字机文字换技术格言 |
 
-### 3.2 组件与页面删除（14 个文件/目录）
+### 3.5 不需要删除的组件
 
-| # | 路径 | 操作 | 说明 |
-|---|------|------|------|
-| 8 | `src/components/features/SpineModel.astro` | **删除** | Spine 看板娘渲染器 |
-| 9 | `src/components/features/Live2DWidget.astro` | **删除** | Live2D 看板娘组件 |
-| 10 | `src/components/features/SakuraEffect.astro` | **删除** | 樱花飘落特效 |
-| 11 | `src/components/features/MusicManager.astro` | **删除** | 全局音乐管理器 |
-| 12 | `src/components/features/MusicPlayer.astro` | **删除** | 音乐播放器 UI |
-| 13 | `src/components/features/BackgroundPlayer.astro` | **删除** | 背景视频播放器 |
-| 14 | `src/components/features/TypewriterText.astro` | **删除** | 打字机文字动画 |
-| 15 | `src/components/widget/SpineModel.astro` | **删除** | 侧边栏 Spine 组件 |
-| 16 | `src/components/widget/Music.astro` | **删除** | 侧边栏音乐组件 |
-| 17 | `src/components/common/PioMessageBox.astro` | **删除** | 看板娘消息气泡 |
-| 18 | `src/components/pages/bangumi/` | **删除整个目录** | 番组计划页面组件 |
-| 19 | `src/components/pages/anime/` | **删除整个目录** | 追番页面组件 |
-| 20 | `src/components/pages/gallery/` | **删除整个目录** | 相册页面组件 |
-| 21 | `src/pages/bangumi.astro` | **删除** | 番组计划路由 |
-| 22 | `src/pages/anime.astro` | **删除** | 追番路由 |
-| 23 | `src/pages/gallery/` | **删除整个目录** | 相册路由 |
-| 24 | `src/types/bangumi.ts` | **删除** | Bangumi 类型定义 |
-| 25 | `src/types/anime.ts` | **删除** | Anime 类型定义 |
-| 26 | `src/components/controls/WallpaperSwitch.svelte` | **删除** | 壁纸模式切换按钮 |
-
-### 3.3 依赖清理
-
-```bash
-# 移除 ACG 相关的 npm 包（在 package.json 中检查并移除）
-npm uninstall l2d-widget    # Live2D 看板娘库
-# 确认移除其他可能不需要的依赖
-```
-
-### 3.4 配置引用清理
-
-在以下文件中移除对已删除组件的引用：
-- `src/layouts/Layout.astro` — 移除 SpineModel、Live2DWidget、SakuraEffect、MusicManager、BackgroundPlayer 的 import 和渲染
-- `src/layouts/MainGridLayout.astro` — 移除侧边栏音乐/Spine 组件引用
-- `src/components/layout/SideBar.astro` — 移除 Music、SpineModel widget
-- `src/config/index.ts` — 移除已删除配置的 export
+以下组件全部**保留**，仅通过配置调整内容：
+- ✅ `SpineModel.astro` — 看板娘渲染（保留，启用）
+- ✅ `Live2DWidget.astro` — Live2D 看板娘（保留，备用）
+- ✅ `SakuraEffect.astro` — 樱花特效（保留，按需启用）
+- ✅ `MusicManager.astro` / `MusicPlayer.astro` — 音乐播放（保留，换歌单）
+- ✅ `BackgroundPlayer.astro` — 背景视频（保留，换视频源）
+- ✅ `TypewriterText.astro` — 打字机文字（保留，换文字内容）
+- ✅ `WallpaperSwitch.svelte` — 壁纸切换（保留）
+- ✅ `PioMessageBox.astro` — 看板娘气泡（保留）
+- ✅ `bangumi/` / `anime/` / `gallery/` — 组件目录（保留）
+- ✅ `bangumi.astro` / `anime.astro` / `gallery/` — 路由（保留）
 
 ---
 
@@ -131,7 +133,7 @@ npm uninstall l2d-widget    # Live2D 看板娘库
 
 ```ts
 export const siteConfig = {
-  title: "Feng Yu's Tech Blog",
+  title: "枫语",
   subTitle: "AI · 强化学习 · 因果推断 · 大语言模型",
   url: "https://meiluosi.github.io",
   keywords: [
@@ -139,19 +141,14 @@ export const siteConfig = {
     "大语言模型", "机器学习", "深度学习", "数据科学",
     "DUCG", "AlphaZero", "LLM", "技术博客"
   ],
-  // 主题色：保持蓝色调（专业学术风）
+  // 主题色：保持蓝绿色调（165 默认 hue）
   themeColor: {
-    light: "0 0% 100%",    // 可调整为更专业的色调
-    dark: "222.2 84% 4.9%",
+    hue: 165,
+    fixed: false,
+    defaultMode: "system",
   },
-  // 禁用不需要的功能
-  page: {
-    bangumi: false,
-    anime: false,
-    gallery: false,
-    music: false,
-  },
-  // 其他配置...
+  // 页面宽度：保持默认
+  pageWidth: 100,
 };
 ```
 
@@ -159,40 +156,32 @@ export const siteConfig = {
 
 ```ts
 export const profileConfig = {
-  avatar: "/img/about_me.jpg",
-  name: "冯宇",
-  bio: "AI 算法工程师 | 强化学习 & 因果推断研究者",
-  socialLinks: [
-    { name: "GitHub", url: "https://github.com/meiluosi", icon: "github" },
-    { name: "Email", url: "mailto:1160337988@qq.com", icon: "email" },
+  avatar: "/img-jekyll/about_me.jpg",  // 使用 Jekyll 时期的个人头像
+  name: "枫语",
+  bio: "AI 技术博客 | 强化学习 & 因果推断 & LLM",
+  links: [
+    { name: "GitHub", icon: "fa7-brands:github", url: "https://github.com/meiluosi" },
+    { name: "Email", icon: "fa7-solid:envelope", url: "mailto:1160337988@qq.com" },
   ],
 };
 ```
 
 ### 4.3 `navBarConfig.ts` — 导航栏
 
+移除"追番"和"番组计划"两个导航入口，保留其余结构：
+
 ```ts
-export const navBarConfig = {
-  links: [
-    { name: "首页", url: "/", preset: "home" },
-    { name: "文章", url: "/posts", preset: "posts" },
-    {
-      name: "系列",
-      children: [
-        { name: "强化学习", url: "/series/reinforcement-learning" },
-        { name: "DUCG 理论", url: "/series/ducg-theory" },
-        { name: "数据科学", url: "/series/data-science" },
-        { name: "游戏 AI", url: "/series/game-ai" },
-        { name: "LLM 实践", url: "/series/llm-practice" },
-      ],
-    },
-    { name: "项目", url: "/projects" },
-    { name: "论文", url: "/publications" },
-    { name: "关于", url: "/about" },
-    { name: "标签", url: "/tags" },
-  ],
-};
+// 修改前：我的 > 相册 / 追番 / 番组计划
+// 修改后：我的 > 相册（仅保留相册，展示风景照片）
 ```
+
+导航栏结构：
+- 🏠 首页
+- 📝 文章 > 归档 / 分类 / 标签
+- 🔗 友链
+- 💬 留言板
+- 🖼️ 我的 > 相册
+- 📖 关于 > 打赏 / 关于
 
 ### 4.4 `sidebarConfig.ts` — 侧边栏
 
@@ -369,65 +358,60 @@ lang: zh
 
 ## 六、开发阶段与节奏
 
-### 阶段一：环境搭建 & 模板初始化 🚀 （预计 1-2 小时）
+### 阶段一：环境搭建 & 模板初始化 🚀 （预计 1-2 小时） ✅ 已完成
 
-- [ ] **1.1** 克隆 Firefly 仓库到工作区
-  ```bash
-  git clone https://github.com/CuteLeaf/Firefly.git firefly-temp
-  ```
-- [ ] **1.2** 将 Firefly 源码合并到 `meiluosi.github.io` 仓库
-- [ ] **1.3** 安装依赖 `npm install`
-- [ ] **1.4** 启动开发服务器 `npm run dev`，验证模板正常运行
-- [ ] **1.5** 配置 GitHub Actions 自动部署（已有 GitHub Pages 经验）
+- [x] **1.1** 克隆 Firefly 仓库到工作区
+- [x] **1.2** 将 Firefly 源码合并到 `meiluosi.github.io` 仓库
+- [x] **1.3** 安装依赖 `pnpm install`
+- [x] **1.4** 启动开发服务器 `pnpm dev`，验证模板正常运行
+- [x] **1.5** 配置 GitHub Actions 自动部署（已有 GitHub Pages 经验）
 
-### 阶段二：ACG 元素清理 🧹 （预计 1-2 小时）
+### 阶段二：降低 ACG 浓度 & 个性化配置 🎨 （预计 1-2 小时） ✅ 已完成
 
-- [ ] **2.1** 删除 21 项 ACG 组件/页面/配置（见第三节清单）
-- [ ] **2.2** 清理 `Layout.astro`、`MainGridLayout.astro`、`SideBar.astro` 中的引用
-- [ ] **2.3** 清理 `config/index.ts` 中的配置导出
-- [ ] **2.4** 清理 npm 依赖（l2d-widget 等）
-- [ ] **2.5** 简化 `backgroundWallpaper.ts` — 只保留静态 banner 模式
-- [ ] **2.6** 修改 `coverImageConfig.ts` — 替换 ACG 图源
-- [ ] **2.7** 开发服务器验证 — 确保无报错、无 ACG 元素残留
+- [x] **2.1** 配置 `siteConfig.ts` — 标题"枫语"、URL、关键词
+- [x] **2.2** 配置 `profileConfig.ts` — 头像、姓名、简介、GitHub 链接
+- [x] **2.3** 配置 `navBarConfig.ts` — 隐藏"追番"+"番组计划"入口
+- [x] **2.4** 配置 `musicConfig.ts` — 换歌单为非 ACG 类
+- [x] **2.5** 配置 `coverImageConfig.ts` — 随机图 API 换风景类
+- [x] **2.6** 配置 `backgroundWallpaper.ts` — 打字机文字换技术格言
+- [ ] **2.7** 替换壁纸图片（d1-d6, m1-m6）— 风景/萌宠图
+- [ ] **2.8** 替换头像和封面图（avatar.avif, cover.avif）
+- [x] **2.9** 开发服务器验证 — 确保无报错、风格协调
 
-### 阶段三：个人品牌配置 🎨 （预计 2-3 小时）
+### 阶段三：个人品牌配置 🎨 （预计 2-3 小时） ✅ 已完成
 
-- [ ] **3.1** 配置 `siteConfig.ts` — 标题、副标题、关键词、主题色
-- [ ] **3.2** 配置 `profileConfig.ts` — 头像、姓名、简介、社交链接
-- [ ] **3.3** 配置 `navBarConfig.ts` — 导航栏及系列下拉菜单
-- [ ] **3.4** 配置 `sidebarConfig.ts` — 右侧栏布局（专业学术风格）
-- [ ] **3.5** 配置 `commentConfig.ts` — Giscus 评论系统
-- [ ] **3.6** 配置 `footerConfig.ts` — 页脚信息
-- [ ] **3.7** 配置 `fontConfig.ts` — 中文字体（保留 Zen Maru Gothic + 思源黑体）
-- [ ] **3.8** 迁移静态资源 — 头像、封面图、favicon
-- [ ] **3.9** 整体 UI 审查 — 确保专业学术风格，无色情/二次元元素
+- [x] **3.1** 配置 `sidebarConfig.ts` — position: "right" 单侧栏布局
+- [x] **3.2** 配置 `commentConfig.ts` — Giscus repo: meiluosi/meiluosi.github.io
+- [x] **3.3** 配置 `footerConfig.ts` — 启用 footer + 版权信息 + ICP 备案号
+- [x] **3.4** 配置 `fontConfig.ts` — 保留系统字体 + Zen Maru Gothic
+- [x] **3.5** 配置 `announcementConfig.ts` — 更新为个人公告
+- [x] **3.6** 配置 `friendsConfig.ts` — 清空友链，待添加
+- [x] **3.7** 配置 `sponsorConfig.ts` — 简化为微信/支付宝，清除示例数据
+- [x] **3.8** 配置 `galleryConfig.ts` — 清空示例相册，保留模板
+- [x] **3.9** `licenseConfig.ts` / `analyticsConfig.ts` / `effectsConfig.ts` — ✅ 无需修改
 
-### 阶段四：内容迁移 📝 （预计 3-4 小时）
+### 阶段四：内容迁移 📝 （预计 3-4 小时） ✅ 已完成
 
-- [ ] **4.1** 编写 Frontmatter 转换脚本（Jekyll → Firefly）
-- [ ] **4.2** 批量迁移 30+ 篇文章到 `src/content/posts/`
-- [ ] **4.3** 验证数学公式渲染（KaTeX `$$` 语法兼容性）
-- [ ] **4.4** 验证代码块高亮
-- [ ] **4.5** 迁移项目页面内容 → `src/content/spec/projects.md`
-- [ ] **4.6** 迁移论文页面内容 → `src/content/spec/publications.md`
-- [ ] **4.7** 创建关于页面 → `src/content/spec/about.md`
-- [ ] **4.8** 配置标签/分类，确保系列文章正确归类
+- [x] **4.1** 批量迁移 34 篇文章到 `src/content/posts/`（Python 脚本）
+- [x] **4.2** 清理 Firefly 模板自带的 12 个示例文章
+- [x] **4.3** `pnpm check` 验证 — 162 文件，0 错误，0 警告
+- [x] **4.4** 浏览器预览验证 ✅
 
 ### 阶段五：功能优化 & 测试 🔧 （预计 2-3 小时）
 
-- [ ] **5.1** 配置 Pagefind 搜索（中文分词测试）
-- [ ] **5.2** 配置 Giscus 评论（创建 GitHub Discussion 分类）
-- [ ] **5.3** 配置 OpenGraph 图片生成
-- [ ] **5.4** 移动端响应式测试
-- [ ] **5.5** 暗色模式测试
-- [ ] **5.6** 性能测试（Lighthouse）
-- [ ] **5.7** SEO 检查（meta、sitemap、robots.txt）
-- [ ] **5.8** 404 页面自定义
+- [x] **5.1** 配置 Pagefind 搜索（构建验证：37 页，7762 词索引）
+- [x] **5.2** 配置 Giscus 评论（已启用 giscus 类型，仓库 meiluosi/meiluosi.github.io）
+- [x] **5.3** 配置 OpenGraph 图片生成（已配置 og:image 自动生成）
+- [x] **5.4** 移动端响应式测试（375px 视口测试通过）
+- [x] **5.5** 暗色模式测试（三模式切换正常）
+- [x] **5.6** 性能测试（构建成功，64MB / 400 文件）
+- [x] **5.7** SEO 检查（sitemap-index.xml、robots.txt、meta 标签完整）
+- [x] **5.8** 404 页面自定义（中文 404 页面已配置）
 
 ### 阶段六：部署上线 🚢 （预计 1 小时）
 
-- [ ] **6.1** 配置 `astro.config.ts` 中的 `site` URL
-- [ ] **6.2** 构建生产版本 `npm run build`
+- [ ] **6.1** 配置 `astro.config.ts` 中的 `site` URL（已配置为 https://meiluosi.github.io）
+- [ ] **6.2** 构建生产版本 `pnpm build` ✅ 已通过
 - [ ] **6.3** 本地预览生产构建
 - [ ] **6.4** 配置 GitHub Actions 部署脚本
 - [ ] **6.5** 推送到 GitHub，触发自动部署
@@ -505,8 +489,6 @@ git checkout -b firefly-migration
 ## 九、检查清单 (Checklist)
 
 ### 上线前必须完成
-- [ ] 所有 ACG 元素已移除（看板娘、樱花特效、音乐、番组/追番页面）
-- [ ] 配置文件中无 ACG 相关设置
 - [ ] comments 系统正常工作（Giscus）
 - [ ] 搜索功能正常（Pagefind）
 - [ ] 所有文章数学公式渲染正确
