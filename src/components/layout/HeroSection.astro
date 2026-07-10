@@ -1,0 +1,127 @@
+---
+import { Icon } from "astro-icon/components";
+import { profileConfig, siteConfig, tagGroups } from "@/config";
+
+// 专栏系列配置
+const series = [
+	{
+		name: "LLM 训练实战",
+		icon: "material-symbols:hard-drive",
+		description: "DeepSpeed / FSDP 源码剖析与分布式训练踩坑",
+		tag: "分布式训练",
+		status: "writing",
+	},
+	{
+		name: "RLHF 全流程",
+		icon: "material-symbols:psychology",
+		description: "从 Reward Model 到 PPO 调参的完整实战",
+		tag: "RLHF",
+		status: "writing",
+	},
+	{
+		name: "推理优化",
+		icon: "material-symbols:rocket-launch",
+		description: "vLLM / TensorRT-LLM 源码分析与量化实战",
+		tag: "vLLM",
+		status: "planned",
+	},
+	{
+		name: "论文解读",
+		icon: "material-symbols:description",
+		description: "顶会论文深度复现与批判性解读",
+		tag: "论文解读",
+		status: "writing",
+	},
+];
+
+function getStatusLabel(status: string) {
+	switch (status) {
+		case "writing": return "更新中";
+		case "completed": return "已完成";
+		case "planned": return "即将推出";
+		default: return "";
+	}
+}
+
+function getStatusClass(status: string) {
+	switch (status) {
+		case "writing": return "bg-(--primary)/10 text-(--primary)";
+		case "completed": return "bg-green-500/10 text-green-600 dark:text-green-400";
+		case "planned": return "bg-amber-500/10 text-amber-600 dark:text-amber-400";
+		default: return "";
+	}
+}
+---
+
+<div class="hero-section mb-4 onload-animation">
+  <!-- Hero 区域 -->
+  <div class="card-base px-6 md:px-9 py-6 md:py-8 relative overflow-hidden">
+    <!-- 背景装饰 -->
+    <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-(--primary)/5 blur-3xl pointer-events-none" />
+    <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-(--primary)/5 blur-2xl pointer-events-none" />
+
+    <div class="relative z-10">
+      <!-- 头像 + 一句话定位 -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-5">
+        <div class="h-16 w-16 rounded-2xl bg-(--primary)/10 flex items-center justify-center text-3xl shrink-0 shadow-sm">
+          🍁
+        </div>
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl md:text-3xl font-bold text-black/90 dark:text-white/90 mb-1">
+            {profileConfig.name}
+          </h1>
+          <p class="text-base md:text-lg text-(--primary) font-medium">
+            {profileConfig.bio}
+          </p>
+          <p class="text-sm text-30 mt-1.5 leading-relaxed max-w-xl">
+            用 RL 和因果推断的方法，让大模型更聪明、更可靠。
+          </p>
+        </div>
+        <!-- 社交链接 -->
+        <div class="flex items-center gap-2 self-start sm:self-center shrink-0">
+          {profileConfig.links.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer"
+               class="h-10 w-10 rounded-xl bg-(--btn-card-bg) hover:bg-(--primary)/10 flex items-center justify-center
+                      text-50 hover:text-(--primary) transition-all hover:scale-110 active:scale-95"
+               title={link.name}
+            >
+              <Icon is:inline name={link.icon} class="text-xl" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- 专栏卡片 -->
+      <div class="mt-5">
+        <div class="flex items-center gap-2 mb-3">
+          <Icon is:inline name="material-symbols:collections-bookmark" class="text-lg text-(--primary)" />
+          <span class="text-sm font-semibold text-50 uppercase tracking-wide">系列专栏</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {series.map((s) => (
+            <a href={`/archive/?tag=${encodeURIComponent(s.tag)}`}
+               class="group flex flex-col gap-2 p-3.5 rounded-xl bg-(--btn-card-bg) hover:bg-(--primary)/5
+                      transition-all hover:scale-[1.02] active:scale-[0.98] border border-transparent
+                      hover:border-(--primary)/10"
+            >
+              <div class="flex items-center gap-2">
+                <div class="h-7 w-7 rounded-lg bg-(--primary)/10 text-(--primary) flex items-center justify-center shrink-0">
+                  <Icon is:inline name={s.icon} class="text-sm" />
+                </div>
+                <span class="text-xs font-medium px-2 py-0.5 rounded-full {getStatusClass(s.status)}">
+                  {getStatusLabel(s.status)}
+                </span>
+              </div>
+              <p class="text-sm font-semibold text-75 group-hover:text-(--primary) transition-colors leading-snug">
+                {s.name}
+              </p>
+              <p class="text-xs text-30 leading-relaxed line-clamp-2">
+                {s.description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

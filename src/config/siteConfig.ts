@@ -9,28 +9,29 @@ export const siteConfig: SiteConfig = {
 	title: "枫语",
 
 	// 站点副标题
-	subtitle: "AI · 强化学习 · 因果推断 · 大语言模型",
+	subtitle: "LLM 训练/推理 · 分布式系统 · RLHF",
 
 	// 站点 URL
 	site_url: "https://meiluosi.github.io",
 
 	// 站点描述
 	description:
-		"枫语 — 一个专注于人工智能、强化学习、因果推断与大语言模型的技术博客。分享前沿算法研究、工程实践与学术思考。",
+		"枫语 (Feng Yu) — LLM 训练/推理、分布式系统、RLHF 技术博客。分享 DeepSpeed 源码剖析、RLHF 实战经验、大模型推理优化与前沿论文解读。",
 
 	// 站点关键词
 	keywords: [
-		"人工智能",
+		"LLM训练",
+		"大模型推理",
+		"分布式训练",
+		"RLHF",
+		"DeepSpeed",
+		"vLLM",
 		"强化学习",
 		"因果推断",
-		"概率图模型",
-		"大语言模型",
+		"DPO",
+		"Transformer",
 		"机器学习",
 		"深度学习",
-		"数据科学",
-		"DUCG",
-		"AlphaZero",
-		"LLM",
 		"技术博客",
 	],
 
@@ -100,13 +101,13 @@ export const siteConfig: SiteConfig = {
 	// 页面开关配置 - 控制特定页面的访问权限，设为false会返回404并自动隐藏对应的导航栏菜单项
 	pages: {
 		// 友链页面开关
-		friends: true,
+		friends: false,
 		// 打赏页面开关
 		sponsor: true,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 相册页面开关
-		gallery: true,
+		gallery: false,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
@@ -176,7 +177,7 @@ export const siteConfig: SiteConfig = {
 		// - "avif": 仅输出 AVIF 格式（最新技术，最小体积，目前兼容性较低）
 		// - "webp": 仅输出 WebP 格式（体积适中，兼容性好）
 		// - "both": 同时输出 AVIF 和 WebP（推荐，浏览器自动选择最佳格式）
-		formats: "webp",
+		formats: "both",
 		// 图片压缩质量 (1-100)，值越低体积越小但质量越差，推荐 70-85
 		quality: 85,
 		// 为特定域名的图片添加 referrerpolicy="no-referrer" 属性

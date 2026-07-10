@@ -4,11 +4,13 @@
 // 类型导出
 export type {
 	AdConfig,
+	AiChatConfig,
 	AnalyticsConfig,
 	AnnouncementConfig,
 	BackgroundWallpaperConfig,
 	CommentConfig,
 	CoverImageConfig,
+	DifyConfig,
 	ExpressiveCodeConfig,
 	FooterConfig,
 	GalleryAlbum,
@@ -51,6 +53,8 @@ export { licenseConfig } from "./licenseConfig"; // 许可证配置
 // 组件配置
 export { musicPlayerConfig } from "./musicConfig"; // 音乐播放器配置
 export { navBarConfig, navBarSearchConfig } from "./navBarConfig"; // 导航栏配置与搜索配置
+export { aiChatConfig } from "./aiChatConfig"; // AI 对话看板娘配置
+export { difyConfig } from "./difyConfig"; // Dify AI 知识库问答配置
 export { live2dWidgetConfig, spineModelConfig } from "./pioConfig"; // 看板娘配置
 export { plantumlConfig } from "./plantumlConfig"; // PlantUML 图表配置
 export { profileConfig } from "./profileConfig"; // 用户资料配置
@@ -59,3 +63,5 @@ export { sidebarLayoutConfig } from "./sidebarConfig"; // 侧边栏布局配置
 // 核心配置
 export { siteConfig } from "./siteConfig"; // 站点基础配置
 export { sponsorConfig } from "./sponsorConfig"; // 打赏配置
+export { tagGroups, getTagGroupName, getTagGroupIcon } from "./tagGroupConfig"; // 标签分组体系
+export type { TagGroup } from "./tagGroupConfig";

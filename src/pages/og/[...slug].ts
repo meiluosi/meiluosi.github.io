@@ -139,6 +139,8 @@ export async function GET({
 	});
 
 	const description = post.data.description;
+	const brandTagline = "LLM 训练/推理 · 分布式系统 · RLHF";
+	const category = post.data.category ? ` · ${post.data.category}` : "";
 
 	const template = {
 		type: "div",
@@ -154,6 +156,7 @@ export async function GET({
 				padding: "60px",
 			},
 			children: [
+				// Top row: site icon + title + brand tagline
 				{
 					type: "div",
 					props: {
@@ -177,11 +180,34 @@ export async function GET({
 								type: "div",
 								props: {
 									style: {
-										fontSize: "36px",
-										fontWeight: 600,
-										color: subtleTextColor,
+										display: "flex",
+										flexDirection: "column",
+										gap: "4px",
 									},
-									children: siteConfig.title,
+									children: [
+										{
+											type: "div",
+											props: {
+												style: {
+													fontSize: "36px",
+													fontWeight: 600,
+													color: subtleTextColor,
+												},
+												children: siteConfig.title,
+											},
+										},
+										{
+											type: "div",
+											props: {
+												style: {
+													fontSize: "18px",
+													fontWeight: 400,
+													color: primaryColor,
+												},
+												children: brandTagline,
+											},
+										},
+									],
 								},
 							},
 						],
@@ -294,11 +320,33 @@ export async function GET({
 											type: "div",
 											props: {
 												style: {
-													fontSize: "28px",
-													fontWeight: 600,
-													color: textColor,
+													display: "flex",
+													flexDirection: "column",
+													gap: "4px",
 												},
-												children: profileConfig.name,
+												children: [
+													{
+														type: "div",
+														props: {
+															style: {
+																fontSize: "28px",
+																fontWeight: 600,
+																color: textColor,
+															},
+															children: profileConfig.name,
+														},
+													},
+													{
+														type: "div",
+														props: {
+															style: {
+																fontSize: "18px",
+																color: primaryColor,
+															},
+															children: brandTagline,
+														},
+													},
+												],
 											},
 										},
 									],
@@ -307,8 +355,28 @@ export async function GET({
 							{
 								type: "div",
 								props: {
-									style: { fontSize: "28px", color: subtleTextColor },
-									children: pubDate,
+									style: {
+										display: "flex",
+										flexDirection: "column",
+										alignItems: "flex-end",
+										gap: "6px",
+									},
+									children: [
+										{
+											type: "div",
+											props: {
+												style: { fontSize: "28px", color: subtleTextColor },
+												children: pubDate,
+											},
+										},
+										{
+											type: "div",
+											props: {
+												style: { fontSize: "18px", color: `hsl(${hue}, 10%, 50%)` },
+												children: `${siteConfig.title}${category}`,
+											},
+										},
+									],
 								},
 							},
 						],

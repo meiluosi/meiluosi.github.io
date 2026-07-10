@@ -1,14 +1,10 @@
 ---
 title: Alpha Zero算法实现五子棋
-description: "深度强化学习在游戏AI中的创新应用"
-published: 2024-06-30
+description: 深度强化学习在游戏AI中的创新应用
+published: 2024-06-30T00:00:00.000Z
 tags:
-  - AlphaZero
+  - 游戏AI与搜索
   - 强化学习
-  - 游戏AI
-  - MCTS
-  - 深度学习
-  - 神经网络
 category: AI Applications
 lang: zh
 ---

@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+{
+  /* AI 摘要组件 — 在文章顶部显示 AI 生成的一句话摘要 */
+}
+{
+  (Astro.props.aiSummary && typeof Astro.props.aiSummary === "string" && Astro.props.aiSummary.trim()) && (
+    <div class="ai-summary-card">
+      <div class="ai-summary-icon">
+        <Icon name="mingcute:ai-line" size="18" />
+      </div>
+      <div class="ai-summary-content">
+        <span class="ai-summary-label">AI 摘要</span>
+        <p class="ai-summary-text">{Astro.props.aiSummary}</p>
+      </div>
+    </div>
+  )
+}
+
+<style is:global>
+  .ai-summary-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    margin: 16px 0 24px;
+    border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--theme-color-rgb, 20, 184, 166), 0.06),
+      rgba(var(--theme-color-rgb, 59, 130, 246), 0.04)
+    );
+    border: 1px solid
+      rgba(var(--theme-color-rgb, 20, 184, 166), 0.15);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  :global(.dark) .ai-summary-card {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--theme-color-rgb, 20, 184, 166), 0.08),
+      rgba(var(--theme-color-rgb, 59, 130, 246), 0.04)
+    );
+    border-color: rgba(var(--theme-color-rgb, 20, 184, 166), 0.2);
+  }
+
+  .ai-summary-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--theme-color, hsl(165, 60%, 50%));
+    color: #fff;
+  }
+
+  .ai-summary-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ai-summary-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--theme-color, hsl(165, 60%, 50%));
+    margin-bottom: 4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(var(--theme-color-rgb, 20, 184, 166), 0.1);
+  }
+
+  :global(.dark) .ai-summary-label {
+    background: rgba(var(--theme-color-rgb, 20, 184, 166), 0.15);
+  }
+
+  .ai-summary-text {
+    margin: 0;
+    color: var(--text-color, #374151);
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  :global(.dark) .ai-summary-text {
+    color: var(--text-color, #d1d5db);
+  }
+</style>

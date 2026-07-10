@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import { siteConfig } from "@/config/siteConfig";
+import { profileConfig } from "@/config/profileConfig";
+
+interface Props {
+	title: string;
+	authors?: string;
+	pubDate: Date;
+	url: string;
+	slug: string;
+}
+
+const { title, authors, pubDate, url, slug } = Astro.props;
+
+const authorName = authors || profileConfig.name;
+const year = pubDate.getFullYear();
+const month = pubDate.toLocaleDateString("en-US", { month: "short" });
+
+const bibtexEntry = `@article{${slug},
+  author  = {${authorName}},
+  title   = {${title}},
+  journal = {${siteConfig.title}},
+  year    = {${year}},
+  month   = {${month.toLowerCase()}},
+  url     = {${url}}
+}`;
+---
+
+<div class="card-base px-6 py-5 mb-4 onload-animation">
+  <div class="flex items-center justify-between mb-3">
+    <div class="flex items-center gap-2">
+      <div class="h-8 w-8 rounded-lg bg-(--primary)/10 text-(--primary) flex items-center justify-center">
+        <Icon is:inline name="material-symbols:format-quote" class="text-lg" />
+      </div>
+      <h3 class="text-base font-semibold text-black/80 dark:text-white/80">
+        {i18n(I18nKey.citationTitle)}
+      </h3>
+    </div>
+    <button
+      id="bibtex-copy-btn"
+      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-(--primary)/10 hover:bg-(--primary)/20
+             text-(--primary) text-sm font-medium transition-colors active:scale-95 cursor-pointer"
+      data-bibtex={bibtexEntry}
+      data-copied-text={i18n(I18nKey.citationCopied)}
+    >
+      <Icon is:inline name="material-symbols:content-copy-outline" class="text-base" />
+      <span id="bibtex-copy-text">{i18n(I18nKey.citationCopy)}</span>
+    </button>
+  </div>
+  <pre class="text-xs text-black/60 dark:text-white/60 bg-black/[0.03] dark:bg-white/[0.03]
+              rounded-lg p-3 overflow-x-auto font-mono leading-relaxed
+              border border-black/5 dark:border-white/5">{bibtexEntry}</pre>
+</div>
+
+<script>
+  const btn = document.getElementById("bibtex-copy-btn");
+  const textEl = document.getElementById("bibtex-copy-text");
+  if (btn && textEl) {
+    const originalText = textEl.textContent || "";
+    const copiedText = btn.dataset.copiedText || "✓";
+    btn.addEventListener("click", () => {
+      const bibtex = btn.dataset.bibtex || "";
+      navigator.clipboard.writeText(bibtex).then(() => {
+        textEl.textContent = copiedText;
+        btn.classList.add("bg-green-500/10", "text-green-600", "dark:text-green-400");
+        setTimeout(() => {
+          textEl.textContent = originalText;
+          btn.classList.remove("bg-green-500/10", "text-green-600", "dark:text-green-400");
+        }, 2000);
+      });
+    });
+  }
+</script>

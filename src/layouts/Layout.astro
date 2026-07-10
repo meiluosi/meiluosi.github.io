@@ -6,6 +6,7 @@ import UmamiAnalytics from "@components/analytics/UmamiAnalytics.astro";
 import FancyboxManager from "@components/features/FancyboxManager.astro";
 import FontSetup from "@components/features/FontSetup.astro";
 import MusicManager from "@components/features/MusicManager.astro";
+import NeuralParticles from "@components/features/NeuralParticles.svelte";
 import SakuraEffect from "@components/features/SakuraEffect.astro";
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
 
@@ -550,6 +551,42 @@ const siteLang = lang.replace("_", "-");
 
     <!-- Font Setup (Astro Font API) -->
     <FontSetup />
+
+    <!-- JSON-LD Structured Data -->
+    {
+      Astro.site && (
+        <>
+          <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: siteConfig.title,
+            url: Astro.site.toString(),
+            description: siteConfig.description || siteConfig.subtitle,
+            inLanguage: siteConfig.lang,
+            ...(siteConfig.post.generateOgImages ? {
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: `${Astro.site}search/?q={search_term_string}`,
+                },
+                "query-input": "required name=search_term_string",
+              },
+            } : {}),
+          })} />
+          <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: profileConfig.name,
+            url: Astro.site.toString(),
+            description: profileConfig.bio,
+            ...(profileConfig.links?.length ? {
+              sameAs: profileConfig.links.map((l: { url: string }) => l.url),
+            } : {}),
+          })} />
+        </>
+      )
+    }
   </head>
   <body
     class="min-h-screen"
@@ -574,6 +611,9 @@ const siteLang = lang.replace("_", "-");
     <slot />
 
 
+
+    <!-- Neural Particles Background -->
+    <NeuralParticles client:load />
 
     <!-- Sakura Effect -->
     <SakuraEffect />

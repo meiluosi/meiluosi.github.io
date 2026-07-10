@@ -28,6 +28,10 @@ yarn.lock
 
 # ide
 .idea
+
+# internal strategy docs (not for public repo)
+docs/personal-brand-strategy.md
+docs/thoughts/
 *.iml
 .claude
 

@@ -1,12 +1,9 @@
 ---
 title: Transformer架构详解
-description: "深入理解自注意力机制与位置编码"
-published: 2024-09-01
+description: 深入理解自注意力机制与位置编码
+published: 2024-09-01T00:00:00.000Z
 tags:
-  - 大语言模型
-  - Transformer
-  - 注意力机制
-  - 深度学习
+  - 模型架构
 category: Deep Learning
 lang: zh
 ---

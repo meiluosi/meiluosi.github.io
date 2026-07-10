@@ -59,6 +59,10 @@ export const zh_TW: Translation = {
 	[Key.friendsEmpty]: "暫無友情連結",
 	[Key.guestbook]: "留言",
 	[Key.guestbookDescription]: "歡迎在這裡留下你的足跡，分享你的想法和建議",
+	[Key.graph]: "知識圖譜",
+	[Key.graphDescription]: "部落格文章、標籤和分類之間的關係視覺化",
+	[Key.askAI]: "AI 問答",
+	[Key.askAIDescription]: "向 AI 助手提問，基於部落格內容的知識庫回答",
 	[Key.untitled]: "無標題",
 	[Key.uncategorized]: "未分類",
 	[Key.noTags]: "無標籤",
@@ -388,4 +392,9 @@ export const zh_TW: Translation = {
 	[Key.videoPrev]: "上一個影片",
 	[Key.videoNext]: "下一個影片",
 	[Key.videoLoadError]: "影片載入失敗",
+
+	[Key.citationTitle]: "引用本文",
+	[Key.citationCopy]: "複製 BibTeX",
+	[Key.citationCopied]: "已複製！",
+	[Key.revisionHistory]: "修訂歷史",
 };

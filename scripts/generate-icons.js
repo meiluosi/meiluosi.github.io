@@ -5,15 +5,18 @@
  * 使用方法：node scripts/generate-icons.js
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { createHash } from "crypto";
 import { getIconData, iconToSVG, iconToHTML, replaceIDs } from "@iconify/utils";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = join(__dirname, "..");
 const SRC_DIR = join(ROOT_DIR, "src");
 const OUTPUT_FILE = join(SRC_DIR, "constants", "icons.ts");
+const CACHE_DIR = join(ROOT_DIR, "node_modules", ".cache");
+const CACHE_FILE = join(CACHE_DIR, "icons-hash.txt");
 
 // 支持的图标集及其包名
 const ICON_SETS = {
@@ -197,9 +200,42 @@ export default iconSvgData;
 }
 
 /**
+ * 计算所有源文件的组合哈希，用于判断是否需要重新生成图标
+ */
+function computeSourceHash() {
+	const files = getAllFiles(SRC_DIR);
+	const hash = createHash("sha256");
+	for (const file of files.sort()) {
+		if (file.endsWith("icons.ts")) continue;
+		hash.update(file);
+		hash.update(readFileSync(file, "utf-8"));
+	}
+	return hash.digest("hex");
+}
+
+/**
+ * 检查缓存是否有效，有效则跳过图标生成
+ */
+function isCacheValid() {
+	if (!existsSync(CACHE_FILE) || !existsSync(OUTPUT_FILE)) return false;
+	try {
+		const cachedHash = readFileSync(CACHE_FILE, "utf-8").trim();
+		return cachedHash === computeSourceHash();
+	} catch {
+		return false;
+	}
+}
+
+/**
  * 主函数
  */
 async function main() {
+	// 缓存检查：源文件未变更时跳过重新生成
+	if (isCacheValid()) {
+		console.log("✅ 图标缓存有效，跳过生成。");
+		return;
+	}
+
 	console.log("🔍 扫描源文件中的图标使用...\n");
 
 	// 获取所有源文件
@@ -264,6 +300,11 @@ async function main() {
 
 	console.log(`\n📝 已生成: ${OUTPUT_FILE}`);
 	console.log(`📦 文件大小: ${(Buffer.byteLength(output, "utf-8") / 1024).toFixed(2)} KB\n`);
+
+	// 保存缓存哈希
+	mkdirSync(CACHE_DIR, { recursive: true });
+	writeFileSync(CACHE_FILE, computeSourceHash(), "utf-8");
+	console.log("💾 图标缓存已更新。\n");
 }
 
 main().catch(console.error);

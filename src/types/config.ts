@@ -1,4 +1,6 @@
 export type { AnalyticsConfig } from "./analyticsConfig";
+export type { AiChatConfig } from "./aiChatConfig";
+export type { DifyConfig } from "./difyConfig";
 export type { AnnouncementConfig } from "./announcementConfig";
 export type { BackgroundWallpaperConfig } from "./backgroundWallpaper";
 export type { CommentConfig } from "./commentConfig";

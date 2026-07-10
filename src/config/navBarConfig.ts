@@ -30,6 +30,12 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 标签
 			LinkPresets.Tags,
+
+			// 知识图谱
+			LinkPresets.Graph,
+
+			// AI 问答
+			LinkPresets.AskAI,
 		],
 	});
 
@@ -120,6 +126,16 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		name: "标签",
 		url: "/tags/",
 		icon: "material-symbols:tag-rounded",
+	},
+	Graph: {
+		name: "知识图谱",
+		url: "/graph/",
+		icon: "material-symbols:hub",
+	},
+	AskAI: {
+		name: "AI 问答",
+		url: "/ask-ai/",
+		icon: "material-symbols:psychology",
 	},
 	Friends: {
 		name: "友链",

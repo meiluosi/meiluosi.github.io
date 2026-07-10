@@ -176,6 +176,25 @@ interface SubsetResult {
 	originalSrc: string;
 }
 
+const CACHE_FILE = path.resolve("node_modules/.cache/font-subset-hash.txt");
+
+/**
+ * 计算输入哈希（字体文件 + 配置 + 页面字符），用于跨构建缓存
+ */
+async function computeInputHash(localSubsetFonts: LocalSubsetFont[], pageChars: string): Promise<string> {
+	const hash = crypto.createHash("sha256");
+	hash.update(pageChars);
+	for (const font of localSubsetFonts) {
+		hash.update(JSON.stringify(font));
+		const fontPath = resolveFontPath(font.src);
+		try {
+			const buf = await fs.readFile(fontPath);
+			hash.update(buf);
+		} catch { /* ignore missing fonts */ }
+	}
+	return hash.digest("hex");
+}
+
 async function main() {
 	console.log("🔤 Font subsetting started...");
 
@@ -200,6 +219,16 @@ async function main() {
 		console.warn("⚠ No characters found in dist/. Skipping subsetting.");
 		return;
 	}
+
+	// 缓存检查：输入未变更时跳过子集化
+	const inputHash = await computeInputHash(localSubsetFonts, pageChars);
+	try {
+		const cachedHash = await fs.readFile(CACHE_FILE, "utf-8");
+		if (cachedHash.trim() === inputHash) {
+			console.log("✅ 字体子集缓存有效，跳过生成。");
+			return;
+		}
+	} catch { /* no cache file, proceed */ }
 
 	// 3. 确保输出目录存在
 	await fs.mkdir(OUTPUT_DIR, { recursive: true });
@@ -321,6 +350,10 @@ async function main() {
 	}
 
 	console.log("✨ Font subsetting completed!");
+
+	// 保存缓存哈希
+	await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
+	await fs.writeFile(CACHE_FILE, inputHash, "utf-8");
 }
 
 main().catch((err) => {

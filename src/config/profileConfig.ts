@@ -12,7 +12,7 @@ export const profileConfig: ProfileConfig = {
 	name: "枫语",
 
 	// 个人签名
-	bio: "AI 技术博客 | 强化学习 & 因果推断 & LLM",
+	bio: "LLM 训练/推理 · 分布式系统 · RLHF",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons

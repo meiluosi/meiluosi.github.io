@@ -5,7 +5,7 @@ export const announcementConfig: AnnouncementConfig = {
 	title: "公告",
 
 	// 公告内容
-	content: "欢迎来到枫语 — 一个专注于 AI、强化学习、因果推断与大语言模型的技术博客",
+	content: "LLM 训练/推理 · 分布式系统 · RLHF — 用 RL 的方法让大模型更聪明",
 
 	// 是否允许用户关闭公告
 	closable: true,

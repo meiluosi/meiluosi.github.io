@@ -59,6 +59,10 @@ export const zh_CN: Translation = {
 	[Key.friendsEmpty]: "暂无友情链接",
 	[Key.guestbook]: "留言",
 	[Key.guestbookDescription]: "欢迎在这里留下你的足迹，分享你的想法和建议",
+	[Key.graph]: "知识图谱",
+	[Key.graphDescription]: "博客文章、标签和分类之间的关系可视化",
+	[Key.askAI]: "AI 问答",
+	[Key.askAIDescription]: "向 AI 助手提问，基于博客内容的知识库回答",
 	[Key.untitled]: "无标题",
 	[Key.uncategorized]: "未分类",
 	[Key.noTags]: "无标签",
@@ -386,4 +390,9 @@ export const zh_CN: Translation = {
 	[Key.videoPrev]: "上一个视频",
 	[Key.videoNext]: "下一个视频",
 	[Key.videoLoadError]: "视频加载失败",
+
+	[Key.citationTitle]: "引用本文",
+	[Key.citationCopy]: "复制 BibTeX",
+	[Key.citationCopied]: "已复制！",
+	[Key.revisionHistory]: "修订历史",
 };

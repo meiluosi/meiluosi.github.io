@@ -6,6 +6,7 @@ import Markdown from "@components/common/Markdown.astro";
 import EncryptedPost from "@components/features/EncryptedPost.astro";
 import KatexManager from "@components/features/KatexManager.astro";
 import License from "@components/misc/License.astro";
+import BibTeXCitation from "@components/misc/BibTeXCitation.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
@@ -19,8 +20,11 @@ import { Icon } from "astro-icon/components";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import CoverImage from "@/components/common/CoverImage.astro";
+import AiSummary from "@/components/common/AiSummary.astro";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import RecommendedPost from "@/components/misc/RecommendedPost.astro";
+import ReadingProgress from "@/components/features/ReadingProgress.svelte";
+import Mindmap from "@/components/features/Mindmap.svelte";
 import SharePoster from "@/components/misc/SharePoster.svelte";
 import { coverImageConfig } from "@/config/coverImageConfig";
 import { licenseConfig } from "@/config/licenseConfig";
@@ -122,10 +126,21 @@ const jsonLd = {
 		url: Astro.site,
 	},
 	datePublished: formatDateToYYYYMMDD(entry.data.published),
+	...(entry.data.updated ? { dateModified: formatDateToYYYYMMDD(entry.data.updated) } : {}),
+	wordCount: remarkPluginFrontmatter.words,
 	inLanguage: entry.data.lang
 		? entry.data.lang.replace("_", "-")
 		: siteConfig.lang.replace("_", "-"),
-	// TODO include cover image here
+	...(processedImage ? { image: new URL(processedImage, Astro.site).toString() } : {}),
+	url: Astro.url.href,
+	publisher: {
+		"@type": "Person",
+		name: profileConfig.name,
+	},
+	mainEntityOfPage: {
+		"@type": "WebPage",
+		"@id": Astro.url.href,
+	},
 };
 
 const relatedPosts = await getRelatedPosts(entry, 5);
@@ -145,6 +160,8 @@ const relatedPosts = await getRelatedPosts(entry, 5);
   <!-- KaTeX 按需加载 - 仅在文章页面 -->
   <KatexManager slot="head" />
   
+  <ReadingProgress client:load />
+
   <script
     is:inline
     slot="head"
@@ -240,6 +257,15 @@ const relatedPosts = await getRelatedPosts(entry, 5);
           )
         }
       </div>
+
+      <!-- AI 摘要 -->
+      {
+        entry.data.aiSummary && (
+          <div class="onload-animation">
+            <AiSummary aiSummary={entry.data.aiSummary} />
+          </div>
+        )
+      }
 
       <!-- always show cover as long as it has one -->
 
@@ -351,6 +377,9 @@ const relatedPosts = await getRelatedPosts(entry, 5);
           <Markdown class="mb-6 markdown-content onload-animation">
             <Content />
           </Markdown>
+
+          {/* 思维导图 */}
+          <Mindmap headings={headings} client:load />
 
           {/* 打赏按钮 & 分享按钮 */}
           {
@@ -505,6 +534,15 @@ const relatedPosts = await getRelatedPosts(entry, 5);
       }
     }
   </script>
+
+  <!-- BibTeX 引用 -->
+  <BibTeXCitation
+    title={entry.data.title}
+    authors={entry.data.author}
+    pubDate={entry.data.published}
+    url={Astro.url.href}
+    slug={removeFileExtension(entry.id)}
+  />
 
   <div
     class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full"

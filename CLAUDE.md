@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal blog built on **Astro 6** with **Svelte 5** for interactive components. Originally based on [Fuwari](https://github.com/saicaca/fuwari) and Firefly themes. Primary language is Chinese (Simplified) with i18n for en, zh_TW, ja, ru.
+This is a personal blog built on **Astro 6** with **Svelte 5** for interactive components. Primary language is Chinese (Simplified) with i18n for en, zh_TW, ja, ru.
 
 ## Commands
 

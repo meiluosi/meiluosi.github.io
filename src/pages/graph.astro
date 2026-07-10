@@ -1,0 +1,78 @@
+---
+import type { GraphNode, GraphEdge } from "@components/features/KnowledgeGraph.svelte";
+import KnowledgeGraph from "@components/features/KnowledgeGraph.svelte";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+
+const nodes: GraphNode[] = [];
+const edges: GraphEdge[] = [];
+
+const title = "知识图谱";
+const description = "博客文章、标签和分类之间的关系可视化";
+---
+
+<MainGridLayout
+  title={title}
+  description={description}
+>
+  <div class="graph-page">
+    <div class="graph-header">
+      <h1 class="graph-title">🗺️ 知识图谱</h1>
+      <p class="graph-desc">
+        拖拽节点探索文章之间的联系。节点大小反映标签/分类包含的文章数量，点击节点可跳转。
+      </p>
+    </div>
+    <div class="graph-container">
+      <KnowledgeGraph
+        nodes={nodes}
+        edges={edges}
+        client:load
+      />
+    </div>
+  </div>
+</MainGridLayout>
+
+<style is:global>
+  .graph-page {
+    max-width: var(--page-width, 100%);
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+
+  .graph-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .graph-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-color, #1f2937);
+    margin-bottom: 8px;
+  }
+
+  :global(.dark) .graph-title {
+    color: var(--text-color, #f9fafb);
+  }
+
+  .graph-desc {
+    font-size: 14px;
+    color: var(--text-muted, #6b7280);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .graph-container {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .graph-page {
+      padding: 16px 8px 32px;
+    }
+
+    .graph-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>

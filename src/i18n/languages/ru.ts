@@ -61,6 +61,11 @@ export const ru: Translation = {
 	[Key.guestbook]: "Гостевая книга",
 	[Key.guestbookDescription]:
 		"Добро пожаловать, оставьте свой след здесь, поделитесь своими мыслями и предложениями",
+	[Key.graph]: "Граф знаний",
+	[Key.graphDescription]:
+		"Визуализация связей между статьями, тегами и категориями",
+	[Key.askAI]: "Спросить AI",
+	[Key.askAIDescription]: "Задайте вопрос AI-ассистенту на основе базы знаний блога",
 	[Key.untitled]: "Без названия",
 	[Key.uncategorized]: "Без категории",
 	[Key.noTags]: "Нет тегов",
@@ -399,4 +404,9 @@ export const ru: Translation = {
 	[Key.videoPrev]: "Предыдущее видео",
 	[Key.videoNext]: "Следующее видео",
 	[Key.videoLoadError]: "Не удалось загрузить видео",
+
+	[Key.citationTitle]: "Цитировать статью",
+	[Key.citationCopy]: "Копировать BibTeX",
+	[Key.citationCopied]: "Скопировано!",
+	[Key.revisionHistory]: "История изменений",
 };

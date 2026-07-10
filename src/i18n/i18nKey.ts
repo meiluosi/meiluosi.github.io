@@ -85,6 +85,10 @@ enum I18nKey {
 	friendsEmpty = "friendsEmpty",
 	guestbook = "guestbook",
 	guestbookDescription = "guestbookDescription",
+	graph = "graph",
+	graphDescription = "graphDescription",
+	askAI = "askAI",
+	askAIDescription = "askAIDescription",
 	bangumi = "bangumi",
 
 	// 番组计划筛选和状态文本
@@ -382,6 +386,12 @@ enum I18nKey {
 	videoPrev = "videoPrev",
 	videoNext = "videoNext",
 	videoLoadError = "videoLoadError",
+
+	// 文章底部增强
+	citationTitle = "citationTitle",
+	citationCopy = "citationCopy",
+	citationCopied = "citationCopied",
+	revisionHistory = "revisionHistory",
 }
 
 export default I18nKey;

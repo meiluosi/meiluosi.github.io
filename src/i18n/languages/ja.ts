@@ -61,6 +61,11 @@ export const ja: Translation = {
 	[Key.guestbook]: "ゲストブック",
 	[Key.guestbookDescription]:
 		"ここに足跡を残して、あなたの考えや提案を共有してください",
+	[Key.graph]: "ナレッジグラフ",
+	[Key.graphDescription]:
+		"ブログ記事、タグ、カテゴリ間の関係を可視化",
+	[Key.askAI]: "AI 質問",
+	[Key.askAIDescription]: "ブログのナレッジベースに基づいて AI アシスタントに質問する",
 	[Key.untitled]: "無題",
 	[Key.uncategorized]: "未分類",
 	[Key.noTags]: "タグなし",
@@ -396,4 +401,9 @@ export const ja: Translation = {
 	[Key.videoPrev]: "前の動画",
 	[Key.videoNext]: "次の動画",
 	[Key.videoLoadError]: "動画の読み込みに失敗しました",
+
+	[Key.citationTitle]: "この記事を引用",
+	[Key.citationCopy]: "BibTeX をコピー",
+	[Key.citationCopied]: "コピーしました！",
+	[Key.revisionHistory]: "改訂履歴",
 };

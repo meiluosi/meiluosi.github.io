@@ -7,7 +7,7 @@ export const analyticsConfig: AnalyticsConfig = {
 	microsoftClarityId: "",
 	// Umami 统计配置
 	umamiAnalytics: {
-		// Umami Website ID
+		// Umami Website ID（在 umami.is 免费注册后获取）
 		websiteId: "",
 		// Umami JS地址，支持使用自建
 		scriptUrl: "https://cloud.umami.is/script.js",

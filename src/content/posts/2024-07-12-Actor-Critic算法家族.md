@@ -1,12 +1,9 @@
 ---
 title: Actor-Critic 算法家族
-description: "A2C/A3C、PPO、SAC 全面梳理"
-published: 2024-07-12
+description: A2C/A3C、PPO、SAC 全面梳理
+published: 2024-07-12T00:00:00.000Z
 tags:
   - 强化学习
-  - Actor-Critic
-  - PPO
-  - SAC
 category: Reinforcement Learning
 lang: zh
 ---

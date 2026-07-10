@@ -61,6 +61,11 @@ export const en: Translation = {
 	[Key.guestbook]: "Guestbook",
 	[Key.guestbookDescription]:
 		"Welcome to leave your mark here, share your thoughts and suggestions",
+	[Key.graph]: "Knowledge Graph",
+	[Key.graphDescription]:
+		"Visualization of relationships between blog posts, tags, and categories",
+	[Key.askAI]: "Ask AI",
+	[Key.askAIDescription]: "Ask the AI assistant questions based on the blog knowledge base",
 	[Key.untitled]: "Untitled",
 	[Key.uncategorized]: "Uncategorized",
 	[Key.noTags]: "No Tags",
@@ -397,4 +402,9 @@ export const en: Translation = {
 	[Key.videoPrev]: "Previous video",
 	[Key.videoNext]: "Next video",
 	[Key.videoLoadError]: "Video failed to load",
+
+	[Key.citationTitle]: "Cite This Article",
+	[Key.citationCopy]: "Copy BibTeX",
+	[Key.citationCopied]: "Copied!",
+	[Key.revisionHistory]: "Revision History",
 };

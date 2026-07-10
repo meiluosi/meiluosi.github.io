@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Pagination from "@/components/common/Pagination.astro";
+import HeroSection from "@/components/layout/HeroSection.astro";
 import PostPage from "@/components/layout/PostPage.astro";
 import { siteConfig } from "@/config";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
@@ -16,9 +17,11 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 
 const len = page.data.length;
+const isFirstPage = page.currentPage === 1;
 ---
 
 <MainGridLayout>
+  {isFirstPage && <HeroSection />}
   <PostPage page={page} />
   {
     page.total > page.size && (

@@ -32,3 +32,17 @@ Use Conventional Commits, matching the current history: `feat: ...`, `fix: ...`,
 ## Security & Configuration Tips
 
 Do not commit secrets, tokens, or service keys in config files. Keep deployment-specific settings in the target platform environment, and review generated files such as `dist`, `src/constants/lqips.json`, and `src/constants/icons.ts` before committing them.
+
+## Project Documentation
+
+Feature planning, integration research, and roadmap are maintained in `docs/`:
+
+| Document | Purpose |
+|----------|---------|
+| `docs/README.md` | Documentation index and quick links |
+| `docs/features.md` | Feature ideas with priority and feasibility |
+| `docs/integration-ideas.md` | Open-source project research and integration plans |
+| `docs/architecture.md` | Project architecture, directory structure, build pipeline |
+| `docs/roadmap.md` | Phased development roadmap with Gantt chart |
+
+When implementing new features, consult `docs/features.md` and `docs/roadmap.md` first. Update `docs/roadmap.md` when completing a phase.
