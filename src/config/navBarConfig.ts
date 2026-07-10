@@ -39,9 +39,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// 友链
-	links.push(LinkPresets.Friends);
-
 	// 留言板
 	links.push(LinkPresets.Guestbook);
 
@@ -51,8 +48,8 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		url: "#",
 		icon: "material-symbols:person",
 		children: [
-			// 相册
-			LinkPresets.Gallery,
+			// 打赏
+			LinkPresets.Sponsor,
 		],
 	});
 
