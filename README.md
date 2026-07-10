@@ -60,9 +60,7 @@
         <li>🔍 全站 Pagefind 静态搜索</li>
         <li>📡 RSS 订阅</li>
         <li>🖼️ OG 图片自动生成（Satori）</li>
-        <li>📷 相册（瀑布流布局）</li>
-        <li>👥 友链页面</li>
-        <li>💬 留言板</li>
+        <li> 留言板</li>
         <li>💰 打赏页面</li>
       </ul>
     </td>
@@ -141,15 +139,10 @@ meiluosi.github.io/
 │   │   ├── posts/          # 文章详情页
 │   │   ├── archive.astro   # 归档页
 │   │   ├── about.astro     # 关于页
-│   │   ├── friends.astro   # 友链页
 │   │   ├── guestbook.astro # 留言板
 │   │   ├── sponsor.astro   # 打赏页
 │   │   ├── search.astro    # 搜索页
-│   │   ├── gallery/        # 相册
 │   │   ├── categories/     # 分类页
-│   │   ├── tags/           # 标签页
-│   │   ├── og/             # OG 图片生成
-│   │   └── api/            # API 端点
 │   │
 │   ├── components/         # 🧩 组件库
 │   │   ├── analytics/      # 统计分析组件
@@ -190,7 +183,6 @@ meiluosi.github.io/
 │   ├── assets/images/      # 壁纸、赞助图等
 │   ├── assets/fonts/       # 字体文件
 │   ├── favicon/            # 网站图标
-│   ├── gallery/            # 相册图片
 │   └── pio/                # 看板娘模型
 │
 ├── scripts/                # 🔧 构建脚本
@@ -232,8 +224,6 @@ meiluosi.github.io/
 | `effectsConfig.ts` | 樱花飘落特效 |
 | `analyticsConfig.ts` | 统计分析（GA / Clarity / Umami / 51la） |
 | `fontConfig.ts` | 自定义字体（内置 Google Fonts 字体栈） |
-| `galleryConfig.ts` | 相册 |
-| `friendsConfig.ts` | 友链列表 |
 | `announcementConfig.ts` | 顶部公告栏 |
 | `sponsorConfig.ts` | 打赏方式配置 |
 | `licenseConfig.ts` | 文章许可证声明 |

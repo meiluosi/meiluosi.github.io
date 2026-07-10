@@ -40,11 +40,9 @@ meiluosi.github.io/
 │   │   ├── [...page].astro      # 文章分页
 │   │   ├── archive.astro        # 归档页
 │   │   ├── about.astro          # 关于页
-│   │   ├── friends.astro        # 友链页
 │   │   ├── guestbook.astro      # 留言板
 │   │   ├── sponsor.astro        # 打赏页
 │   │   ├── search.astro         # 搜索页
-│   │   ├── gallery/             # 相册
 │   │   ├── posts/               # 文章详情页
 │   │   ├── categories/          # 分类页
 │   │   ├── tags/                # 标签页
@@ -111,7 +109,6 @@ meiluosi.github.io/
 ├── public/                      # 静态文件（直接服务）
 │   ├── favicon/                 # 网站图标
 │   ├── pio/                     # 看板娘模型资源
-│   ├── gallery/                 # 相册图片
 │   └── assets/                  # CSS/JS/字体
 │
 ├── scripts/                     # 构建脚本
@@ -205,7 +202,7 @@ pnpm build
 | 实时性 | ✅ 实时 |
 | 适合 | 聊天机器人、知识库问答 |
 
-**示例**：Dify AI 知识库问答、Giscus 评论
+**示例**：Giscus 评论
 
 ---
 

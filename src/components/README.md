@@ -111,10 +111,6 @@
 - `FilterControls.svelte` - 筛选控制组件
 - `TabNav.svelte` - 标签导航组件
 
-**pages/gallery/** - 相册页面组件
-- `AlbumCard.astro` - 相册卡片组件
-- `PhotoCard.astro` - 照片卡片组件
-
 ### 💬 comment/ - 评论系统组件
 
 第三方评论系统集成组件。

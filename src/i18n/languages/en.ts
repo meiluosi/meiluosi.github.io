@@ -53,19 +53,12 @@ export const en: Translation = {
 	[Key.commentNotConfigured]: "Comment system not configured",
 	[Key.guestbookCommentHint]:
 		"You have not enabled the comment system in the configuration file yet. After enabling it, visitors will be able to leave messages here",
-	[Key.friends]: "Friends",
-	[Key.friendsDescription]:
-		"Here are my friends, welcome to visit and communicate with each other",
-	[Key.searchFriends]: "Search friends...",
-	[Key.friendsEmpty]: "No friends yet.",
 	[Key.guestbook]: "Guestbook",
 	[Key.guestbookDescription]:
 		"Welcome to leave your mark here, share your thoughts and suggestions",
 	[Key.graph]: "Knowledge Graph",
 	[Key.graphDescription]:
 		"Visualization of relationships between blog posts, tags, and categories",
-	[Key.askAI]: "Ask AI",
-	[Key.askAIDescription]: "Ask the AI assistant questions based on the blog knowledge base",
 	[Key.untitled]: "Untitled",
 	[Key.uncategorized]: "Uncategorized",
 	[Key.noTags]: "No Tags",
@@ -375,15 +368,6 @@ export const en: Translation = {
 	[Key.codeCollapsibleShowLess]: "Show less",
 	[Key.codeCollapsibleExpanded]: "Code block expanded",
 	[Key.codeCollapsibleCollapsed]: "Code block collapsed",
-
-	// Gallery Page
-	[Key.gallery]: "Gallery",
-	[Key.galleryDescription]: "Capturing beautiful moments in life",
-	[Key.galleryPhotos]: "photos",
-	[Key.galleryAlbums]: "albums",
-	[Key.galleryNoAlbums]: "No albums yet",
-	[Key.galleryBackToAlbums]: "Back to albums",
-	[Key.searchAlbums]: "Search albums...",
 
 	// Password Protection
 	[Key.passwordProtected]: "Password Protected",

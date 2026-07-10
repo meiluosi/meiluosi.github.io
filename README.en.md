@@ -60,9 +60,7 @@
         <li>🔍 Site-wide Pagefind static search</li>
         <li>📡 RSS feed</li>
         <li>🖼️ OG image generation (Satori)</li>
-        <li>📷 Photo gallery (masonry layout)</li>
-        <li>👥 Friends page</li>
-        <li>💬 Guestbook</li>
+        <li> Guestbook</li>
         <li>💰 Sponsor page</li>
       </ul>
     </td>
@@ -155,10 +153,6 @@ The entire site is configured via TypeScript files in `src/config/` — all with
 | `effectsConfig.ts` | Cherry blossom falling effect |
 | `analyticsConfig.ts` | Analytics (GA / Clarity / Umami / 51la) |
 | `fontConfig.ts` | Custom fonts (built-in Google Fonts stack) |
-| `galleryConfig.ts` | Photo gallery |
-| `friendsConfig.ts` | Friends list |
-| `announcementConfig.ts` | Top announcement bar |
-| `sponsorConfig.ts` | Sponsor/donation method config |
 | `licenseConfig.ts` | Article license declaration |
 
 ---

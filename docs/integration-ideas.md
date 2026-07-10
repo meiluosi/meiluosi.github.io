@@ -87,32 +87,12 @@
 
 ## LLM 应用平台
 
-### Dify
-
-- **仓库**：[langgenius/dify](https://github.com/langgenius/dify)
-- **定位**：LLM 应用开发平台，可视化构建 AI 应用
-- **核心能力**：
-  - RAG 管线（知识库 → 向量检索 → LLM 回答）
-  - Agent 模式（50+ 工具，可调用外部 API）
-  - 可视化 Prompt 编排（拖拽式）
-  - 可嵌入的聊天机器人（iframe / SDK）
-  - 对话日志 & 标注
-  - Dify Cloud 免费额度
-- **集成方式**：嵌入 AI 知识库问答
-  - 在 Dify Cloud 创建知识库 → 导入博客文章 → 配置 LLM
-  - 通过 iframe 嵌入博客页面（如 `/ask-ai/` 或侧边栏小部件）
-  - 访客可直接提问，AI 基于博客内容回答
-- **可行性**：⭐⭐⭐⭐⭐ 零代码集成，Dify Cloud 免费
-- **门槛**：极低（纯配置，无需写代码）
-
----
-
 ### LangChain / LlamaIndex
 
 - **仓库**：[langchain-ai/langchain](https://github.com/langchain-ai/langchain) / [run-llama/llama_index](https://github.com/run-llama/llama_index)
 - **定位**：LLM 应用开发框架
 - **集成方式**：底层工具，用于构建自定义 RAG 管线
-- **可行性**：⭐⭐⭐ 需要自己写后端，不如直接用 Dify 方便
+- **可行性**：⭐⭐⭐ 需要自己写后端，不如直接用现成的 LLM 应用平台方便
 - **门槛**：高
 
 ---
@@ -121,7 +101,7 @@
 
 - **仓库**：[labring/FastGPT](https://github.com/labring/FastGPT) / [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB)
 - **定位**：国产开源知识库问答平台
-- **集成方式**：类似 Dify，可嵌入 iframe
+- **集成方式**：可嵌入 iframe
 - **可行性**：⭐⭐⭐⭐ 国产、中文友好，但需要部署
 - **门槛**：中（需要 Docker 部署）
 
@@ -233,12 +213,11 @@
 
 | 项目 | 集成方式 | 难度 | 惊艳度 | 与博客契合度 | 推荐 |
 |------|---------|------|--------|------------|------|
-| **Dify** | iframe 嵌入 | ⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 🥇 |
 | **AKShare** | 构建时数据面板 | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 🥈 |
 | **FinGPT** | 内容型（写文章） | ⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 🥈 |
 | **FinRL** | 内容型 + Colab | ⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 🥈 |
 | **ECharts** | 纯前端组件 | ⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 🥈 |
-| **Mermaid 思维导图** | 构建时生成 | ⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 🥉 |
+| **Mermaid 思维导图** | 构建时生成 | ⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | 🥇 |
 | **Anki Flashcards** | 构建时 + 前端 | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 🥉 |
 | **OpenBB** | 内容型 / MCP | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | 🏅 |
 | **数字人** | GPU 渲染 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐ | 🏅 |
@@ -249,7 +228,7 @@
 ## 推荐优先级
 
 ```
-🥇 Dify AI 知识库问答 — 零代码，iframe 嵌入，Dify Cloud 免费
+🥇 Mermaid 思维导图 — 纯文本，零依赖，自动生成文章结构图
 🥈 AKShare 数据面板 — 构建时静态生成，有数据有图表
 🥈 FinGPT / FinRL 系列文章 — 内容型，写文章即可
 🥉 AI 文章摘要 + 增强搜索 — 构建时静态生成，安全

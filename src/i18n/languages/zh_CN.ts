@@ -53,16 +53,10 @@ export const zh_CN: Translation = {
 	[Key.commentNotConfigured]: "评论系统暂未配置",
 	[Key.guestbookCommentHint]:
 		"您还未在配置文件中启用评论系统，启用后访客才可在此留言",
-	[Key.friends]: "友链",
-	[Key.friendsDescription]: "这里是我的朋友们，欢迎互相访问交流",
-	[Key.searchFriends]: "搜索友链...",
-	[Key.friendsEmpty]: "暂无友情链接",
 	[Key.guestbook]: "留言",
 	[Key.guestbookDescription]: "欢迎在这里留下你的足迹，分享你的想法和建议",
 	[Key.graph]: "知识图谱",
 	[Key.graphDescription]: "博客文章、标签和分类之间的关系可视化",
-	[Key.askAI]: "AI 问答",
-	[Key.askAIDescription]: "向 AI 助手提问，基于博客内容的知识库回答",
 	[Key.untitled]: "无标题",
 	[Key.uncategorized]: "未分类",
 	[Key.noTags]: "无标签",
@@ -365,15 +359,6 @@ export const zh_CN: Translation = {
 	[Key.codeCollapsibleShowLess]: "收起",
 	[Key.codeCollapsibleExpanded]: "代码块已展开",
 	[Key.codeCollapsibleCollapsed]: "代码块已折叠",
-
-	// 相册页面
-	[Key.gallery]: "相册",
-	[Key.galleryDescription]: "记录生活中的美好瞬间",
-	[Key.galleryPhotos]: "张照片",
-	[Key.galleryAlbums]: "本相册",
-	[Key.galleryNoAlbums]: "暂无相册",
-	[Key.galleryBackToAlbums]: "返回相册列表",
-	[Key.searchAlbums]: "搜索相簿...",
 
 	// 密码保护
 	[Key.passwordProtected]: "密码保护",

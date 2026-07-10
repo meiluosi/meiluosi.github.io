@@ -53,19 +53,12 @@ export const ru: Translation = {
 	[Key.commentNotConfigured]: "Система комментариев не настроена",
 	[Key.guestbookCommentHint]:
 		"Вы еще не включили систему комментариев в файле конфигурации. После включения посетители смогут оставлять сообщения здесь",
-	[Key.friends]: "Ссылки",
-	[Key.friendsDescription]:
-		"Вот мои друзья, добро пожаловать посетить и общаться друг с другом",
-	[Key.searchFriends]: "Поиск друзей...",
-	[Key.friendsEmpty]: "Друзей пока нет.",
 	[Key.guestbook]: "Гостевая книга",
 	[Key.guestbookDescription]:
 		"Добро пожаловать, оставьте свой след здесь, поделитесь своими мыслями и предложениями",
 	[Key.graph]: "Граф знаний",
 	[Key.graphDescription]:
 		"Визуализация связей между статьями, тегами и категориями",
-	[Key.askAI]: "Спросить AI",
-	[Key.askAIDescription]: "Задайте вопрос AI-ассистенту на основе базы знаний блога",
 	[Key.untitled]: "Без названия",
 	[Key.uncategorized]: "Без категории",
 	[Key.noTags]: "Нет тегов",
@@ -377,15 +370,6 @@ export const ru: Translation = {
 	[Key.codeCollapsibleShowLess]: "Свернуть",
 	[Key.codeCollapsibleExpanded]: "Блок кода развернут",
 	[Key.codeCollapsibleCollapsed]: "Блок кода свернут",
-
-	// Страница галереи
-	[Key.gallery]: "Галерея",
-	[Key.galleryDescription]: "Запечатлеть прекрасные моменты жизни",
-	[Key.galleryPhotos]: "фото",
-	[Key.galleryAlbums]: "альбомов",
-	[Key.galleryNoAlbums]: "Пока нет альбомов",
-	[Key.galleryBackToAlbums]: "Вернуться к альбомам",
-	[Key.searchAlbums]: "Поиск альбомов...",
 
 	// Защита паролем
 	[Key.passwordProtected]: "Защищено паролем",

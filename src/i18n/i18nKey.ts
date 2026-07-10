@@ -79,16 +79,10 @@ enum I18nKey {
 	updatedAt = "updatedAt",
 	readTime = "readTime",
 	license = "license",
-	friends = "friends",
-	friendsDescription = "friendsDescription",
-	searchFriends = "searchFriends",
-	friendsEmpty = "friendsEmpty",
 	guestbook = "guestbook",
 	guestbookDescription = "guestbookDescription",
 	graph = "graph",
 	graphDescription = "graphDescription",
-	askAI = "askAI",
-	askAIDescription = "askAIDescription",
 	bangumi = "bangumi",
 
 	// 番组计划筛选和状态文本
@@ -361,15 +355,6 @@ enum I18nKey {
 	codeCollapsibleShowLess = "codeCollapsibleShowLess",
 	codeCollapsibleExpanded = "codeCollapsibleExpanded",
 	codeCollapsibleCollapsed = "codeCollapsibleCollapsed",
-
-	// 相册页面
-	gallery = "gallery",
-	galleryDescription = "galleryDescription",
-	galleryPhotos = "galleryPhotos",
-	galleryAlbums = "galleryAlbums",
-	galleryNoAlbums = "galleryNoAlbums",
-	galleryBackToAlbums = "galleryBackToAlbums",
-	searchAlbums = "searchAlbums",
 
 	// 密码保护
 	passwordProtected = "passwordProtected",

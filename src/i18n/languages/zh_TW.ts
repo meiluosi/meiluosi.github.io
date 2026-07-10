@@ -53,16 +53,10 @@ export const zh_TW: Translation = {
 	[Key.commentNotConfigured]: "評論系統暫未配置",
 	[Key.guestbookCommentHint]:
 		"您還未在配置文件中啟用評論系統，啟用後訪客才可在此留言",
-	[Key.friends]: "友鏈",
-	[Key.friendsDescription]: "這裡是我的朋友們，歡迎互相訪問交流",
-	[Key.searchFriends]: "搜尋友鏈...",
-	[Key.friendsEmpty]: "暫無友情連結",
 	[Key.guestbook]: "留言",
 	[Key.guestbookDescription]: "歡迎在這裡留下你的足跡，分享你的想法和建議",
 	[Key.graph]: "知識圖譜",
 	[Key.graphDescription]: "部落格文章、標籤和分類之間的關係視覺化",
-	[Key.askAI]: "AI 問答",
-	[Key.askAIDescription]: "向 AI 助手提問，基於部落格內容的知識庫回答",
 	[Key.untitled]: "無標題",
 	[Key.uncategorized]: "未分類",
 	[Key.noTags]: "無標籤",
@@ -369,14 +363,6 @@ export const zh_TW: Translation = {
 	[Key.codeCollapsibleCollapsed]: "代碼區塊已折疊",
 
 	// 相簿頁面
-	[Key.gallery]: "相簿",
-	[Key.galleryDescription]: "記錄生活中的美好瞬間",
-	[Key.galleryPhotos]: "張照片",
-	[Key.galleryAlbums]: "本相簿",
-	[Key.galleryNoAlbums]: "暫無相簿",
-	[Key.galleryBackToAlbums]: "返回相簿列表",
-	[Key.searchAlbums]: "搜尋相簿...",
-
 	// 密碼保護
 	[Key.passwordProtected]: "密碼保護",
 	[Key.passwordProtectedDesc]: "此內容已被密碼保護，請輸入密碼查看。",

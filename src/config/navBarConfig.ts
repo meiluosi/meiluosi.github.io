@@ -33,9 +33,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 知识图谱
 			LinkPresets.Graph,
-
-			// AI 问答
-			LinkPresets.AskAI,
 		],
 	});
 
@@ -129,17 +126,6 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/graph/",
 		icon: "material-symbols:hub",
 	},
-	AskAI: {
-		name: "AI 问答",
-		url: "/ask-ai/",
-		icon: "material-symbols:psychology",
-	},
-	Friends: {
-		name: "友链",
-		url: "/friends/",
-		icon: "material-symbols:group",
-		pageKey: "friends",
-	},
 	Sponsor: {
 		name: "打赏",
 		url: "/sponsor/",
@@ -156,12 +142,6 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		name: "关于我",
 		url: "/about/",
 		icon: "material-symbols:person",
-	},
-	Gallery: {
-		name: "相册",
-		url: "/gallery/",
-		icon: "material-symbols:photo-library",
-		pageKey: "gallery",
 	},
 	Github: {
 		name: "GitHub",

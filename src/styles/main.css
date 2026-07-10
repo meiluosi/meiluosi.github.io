@@ -6,7 +6,6 @@
 @import './transition.css'; 
 @import './custom-scrollbar.css';
 @import './tags.css';
-@import './gallery.css';
 @import './anime-bangumi.css';
 
 @plugin '@tailwindcss/typography';

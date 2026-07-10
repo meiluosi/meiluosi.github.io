@@ -1,6 +1,5 @@
 export type { AnalyticsConfig } from "./analyticsConfig";
 export type { AiChatConfig } from "./aiChatConfig";
-export type { DifyConfig } from "./difyConfig";
 export type { AnnouncementConfig } from "./announcementConfig";
 export type { BackgroundWallpaperConfig } from "./backgroundWallpaper";
 export type { CommentConfig } from "./commentConfig";
@@ -13,8 +12,6 @@ export type {
 } from "./expressiveCodeConfig";
 export type { FontSelectionConfig } from "./fontConfig";
 export type { FooterConfig } from "./footerConfig";
-export type { FriendLink, FriendsPageConfig } from "./friendsConfig";
-export type { GalleryAlbum, GalleryConfig } from "./galleryConfig";
 export type { LicenseConfig } from "./licenseConfig";
 export type { MusicPlayerConfig } from "./musicConfig";
 export type {
