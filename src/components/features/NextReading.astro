@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import { researchThreads } from "@/data/researchThreads";
+import ArticleConnections from "@/components/features/ArticleConnections.astro";
+import ConceptPreview from "@/components/features/ConceptPreview.astro";
+interface Props { sourceId: string; english?: boolean; }
+const { sourceId, english = false } = Astro.props;
+const posts = await getCollection("posts", ({ data }) => !data.draft && !data.password);
+const translations = await getCollection("enPosts");
+const current = posts.find((post) => post.id.replace(/\.mdx?$/, "") === sourceId.replace(/\.mdx?$/, ""));
+const currentPath = `/posts/${sourceId.replace(/\.mdx?$/, "")}/`;
+const readingReasons = [
+	{ match: "mcts算法", zh: "补齐搜索树、选择策略与回传的原理，再理解搜索如何产生学习信号。", en: "Understand tree search, selection, and backup before tracing how search produces a learning signal." },
+	{ match: "alpha-zero", zh: "把搜索与策略学习接起来，看它们如何在自我对弈中形成循环。", en: "Connect search and policy learning through a self-play loop." },
+	{ match: "actor-critic", zh: "换到策略梯度视角，理解价值估计如何帮助策略更新。", en: "Switch to policy gradients and see how value estimation supports policy updates." },
+	{ match: "cfr", zh: "进入不完全信息博弈，比较后悔最小化与其他策略学习方法。", en: "Move into imperfect-information games and compare regret minimization with other ways to learn a strategy." },
+	{ match: "统计学基础", zh: "为观察到的效果差异补上假设检验、效应量与实验设计的基础。", en: "Add hypothesis testing, effect sizes, and experimental design to the interpretation of observed differences." },
+	{ match: "ducg建模", zh: "从效果估计走向因果图建模，看看如何组织变量与推理路径。", en: "Move from estimating effects to building a causal graph and organizing inference paths." },
+	{ match: "ylearn", zh: "用模拟优惠券案例，把相关与因果的区别落到效应估计方法中。", en: "Use a simulated coupon example to connect correlation and causation with effect estimation." },
+	{ match: "llm推理", zh: "沿着模型工作流进入部署阶段，理解速度、显存与精度的取舍。", en: "Follow the model workflow into deployment and examine the trade-offs between speed, memory, and accuracy." },
+	{ match: "1b模型", zh: "把模型训练、部署与评估放进同一条本地工作流中思考。", en: "Consider training, deployment, and evaluation as parts of one local model workflow." },
+];
+const thread = researchThreads.find((item) => item.sources.some((source: { href: string }) => source.href === currentPath));
+const scores = posts.filter((post) => post.id !== current?.id).map((post) => {
+	const common = post.data.tags.filter((tag) => current?.data.tags.includes(tag));
+	const curated = thread?.sources.some((source: { href: string }) => source.href === `/posts/${post.id.replace(/\.mdx?$/, "")}/`);
+	return { post, common, score: (curated ? 10 : 0) + common.length * 2 + Number(post.data.category === current?.data.category) };
+}).filter((item) => item.score > 0).sort((a, b) => b.score - a.score || a.post.id.localeCompare(b.post.id)).slice(0, 2);
+---
+<ArticleConnections sourceId={sourceId} english={english} />
+<ConceptPreview />
+{scores.length > 0 && <section class="next-reading" aria-labelledby="next-reading-title"><h2 id="next-reading-title" data-i18n="reading.next" data-i18n-zh="沿着问题，继续读。" data-i18n-en="Follow the question further.">{english ? "Follow the question further." : "沿着问题，继续读。"}</h2><div class="next-grid">{scores.map(({ post, common }) => {
+	const translation = translations.find((entry) => entry.data.sourceId === post.id.replace(/\.mdx?$/, ""));
+	const zhHref = `/posts/${post.id.replace(/\.mdx?$/, "")}/`;
+	const enHref = translation ? `/en/posts/${translation.data.slug}/` : zhHref;
+	const specific = readingReasons.find((item) => post.id.includes(item.match));
+	const reason = specific?.zh ?? (common.length ? `延伸当前文章中的「${common.slice(0, 2).join(" / ")}」。` : "换一个案例，继续探索同一研究方向。");
+	const reasonEn = specific?.en ?? "A related perspective on the methods and ideas in this note.";
+	return <a href={english ? enHref : zhHref} data-i18n-href-zh={zhHref} data-i18n-href-en={enHref}><span data-i18n="reading.reason" data-i18n-zh={reason} data-i18n-en={reasonEn}>{english ? reasonEn : reason}</span><h3 data-i18n="reading.title" data-i18n-zh={post.data.title} data-i18n-en={translation?.data.title ?? post.data.title}>{english ? translation?.data.title ?? post.data.title : post.data.title}</h3><p data-i18n="reading.description" data-i18n-zh={post.data.description} data-i18n-en={translation?.data.description ?? post.data.description}>{english ? translation?.data.description ?? post.data.description : post.data.description}</p><b aria-hidden="true">↗</b></a>;
+})}</div>{thread?.id === "causal-inference" && <a class="lab-link" href="/lab/causal-playground/" data-i18n="reading.lab" data-i18n-zh="动手试试：让相关与因果产生差异 →" data-i18n-en="Try it: make correlation and causation diverge →">{english ? "Try it: make correlation and causation diverge →" : "动手试试：让相关与因果产生差异 →"}</a>}</section>}
+<style>
+	.next-reading{padding:35px 0;border-top:1px solid var(--brand-line);margin-top:35px}h2{font:400 25px/1.4 Georgia,"Songti SC",serif;color:var(--brand-ink);margin:0 0 22px}.next-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.next-grid>a{display:block;padding:22px;border:1px solid var(--brand-line);border-radius:12px;background:var(--brand-surface);color:var(--brand-ink);text-decoration:none}.next-grid>a:hover{border-color:var(--brand-accent)}span{font-size:10px;line-height:1.8;color:var(--brand-accent)}h3{font-size:16px;line-height:1.6;margin:14px 0;font-weight:500}p{font-size:12px;line-height:1.8;color:var(--brand-body)}b{display:block;text-align:right;font-weight:400;margin-top:18px}.lab-link{display:inline-block;margin-top:20px;font-size:12px;color:var(--brand-accent)}@media(max-width:700px){.next-grid{grid-template-columns:1fr}}
+</style>

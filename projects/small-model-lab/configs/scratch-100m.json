@@ -1,0 +1,32 @@
+{
+  "name": "scratch-100m",
+  "status": "planned-expansion",
+  "initialization": "random",
+  "backend": "pytorch-auto",
+  "architecture": {
+    "kind": "gpt-decoder",
+    "layers": 12,
+    "hidden_size": 768,
+    "attention_heads": 12,
+    "vocab_size": 8192,
+    "context_length": 512,
+    "position_embedding": "learned",
+    "mlp_expansion": 4,
+    "activation": "gelu",
+    "linear_bias": true,
+    "layer_norm_affine": true,
+    "layer_norms_per_block": 2,
+    "final_layer_norm": true,
+    "tied_embeddings": true,
+    "lm_head_bias": false
+  },
+  "pretraining": {
+    "pilot_tokens": 1000000,
+    "token_budget": 300000000,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "optimizer": "adamw",
+    "dtype_baseline": "float32",
+    "notes": "Enable after the default pipeline is complete and measured on the target machine. CLI --steps is explicit; token_budget is a planning estimate, not an automatic job."
+  }
+}

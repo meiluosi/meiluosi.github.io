@@ -1,17 +1,24 @@
 {
   "nodes": [
     {
-      "id": "cat:data-science",
-      "label": "Data Science",
+      "id": "cat:strandbeest",
+      "label": "Strandbeest",
       "type": "category",
-      "url": "/categories/data-science/",
-      "count": 6
+      "url": "/categories/strandbeest/",
+      "count": 3
     },
     {
       "id": "cat:deep-learning",
       "label": "Deep Learning",
       "type": "category",
       "url": "/categories/deep-learning/",
+      "count": 7
+    },
+    {
+      "id": "cat:data-science",
+      "label": "Data Science",
+      "type": "category",
+      "url": "/categories/data-science/",
       "count": 6
     },
     {
@@ -64,6 +71,13 @@
       "count": 1
     },
     {
+      "id": "tag:strandbeest",
+      "label": "Strandbeest",
+      "type": "tag",
+      "url": "/tags/strandbeest/",
+      "count": 3
+    },
+    {
       "id": "tag:数据处理",
       "label": "数据处理",
       "type": "tag",
@@ -111,6 +125,30 @@
       "type": "tag",
       "url": "/tags/后训练-rlhf-dpo/",
       "count": 2
+    },
+    {
+      "id": "post:2026-10-04-strandbeest-leg-linkage",
+      "label": "十三个数字怎么让腿走起来：Jansen 连杆的几何",
+      "type": "post",
+      "url": "/posts/2026-10-04-strandbeest-leg-linkage/"
+    },
+    {
+      "id": "post:2026-10-04-strandbeest-evolution-history",
+      "label": "Strandbeest 的十二个演化时期：一个人和一群塑料管动物",
+      "type": "post",
+      "url": "/posts/2026-10-04-strandbeest-evolution-history/"
+    },
+    {
+      "id": "post:2026-10-04-re-evolving-the-strandbeest-leg",
+      "label": "从随机长度出发，能重新演化出 Jansen 的腿吗？",
+      "type": "post",
+      "url": "/posts/2026-10-04-re-evolving-the-strandbeest-leg/"
+    },
+    {
+      "id": "post:2026-07-08-1B模型全链路实验计划",
+      "label": "从数据到部署：在 Mac 上规划小模型全链路训练",
+      "type": "post",
+      "url": "/posts/2026-07-08-1B模型全链路实验计划/"
     },
     {
       "id": "post:2024-9-16-R语言学习",
@@ -306,6 +344,34 @@
     }
   ],
   "edges": [
+    {
+      "source": "post:2026-10-04-strandbeest-leg-linkage",
+      "target": "cat:strandbeest"
+    },
+    {
+      "source": "post:2026-10-04-strandbeest-leg-linkage",
+      "target": "tag:strandbeest"
+    },
+    {
+      "source": "post:2026-10-04-strandbeest-evolution-history",
+      "target": "cat:strandbeest"
+    },
+    {
+      "source": "post:2026-10-04-strandbeest-evolution-history",
+      "target": "tag:strandbeest"
+    },
+    {
+      "source": "post:2026-10-04-re-evolving-the-strandbeest-leg",
+      "target": "cat:strandbeest"
+    },
+    {
+      "source": "post:2026-10-04-re-evolving-the-strandbeest-leg",
+      "target": "tag:strandbeest"
+    },
+    {
+      "source": "post:2026-07-08-1B模型全链路实验计划",
+      "target": "cat:deep-learning"
+    },
     {
       "source": "post:2024-9-16-R语言学习",
       "target": "cat:data-science"

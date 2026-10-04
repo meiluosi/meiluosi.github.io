@@ -17,5 +17,9 @@
   "public:assets/images/sponsor/alipay.png": "8ebbde91bedf93c0e0",
   "public:assets/images/ad/ad1.webp": "a1b8b68a8e918c8f93",
   "public:img-jekyll/about_me.jpg": "b3ace29499ccd1bbdc",
-  "public:img-jekyll/404-bg.jpg": "453b2e75624968543e"
+  "public:img-jekyll/404-bg.jpg": "453b2e75624968543e",
+  "public:assets/images/brand/social-card.png": "1a1e1629301b232a19",
+  "public:assets/images/brand/research-search.png": "eaeee9eff2edebefe9",
+  "public:assets/images/brand/research-model.png": "eaeee9eef1ece6eae3",
+  "public:assets/images/brand/research-causal.png": "eaeee8eff2edecefe9"
 }

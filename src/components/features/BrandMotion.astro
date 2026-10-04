@@ -1,0 +1,21 @@
+---
+import "@/styles/brand-motion.css";
+---
+
+<script>
+	import { mountBrandMotion } from "@/utils/brand-motion";
+
+	let cleanup = () => {};
+	const mount = (restored = false) => {
+		cleanup();
+		cleanup = mountBrandMotion(restored);
+	};
+
+	mount();
+	document.addEventListener("astro:page-load", () => mount());
+	document.addEventListener("astro:before-swap", () => cleanup());
+	window.addEventListener("pagehide", () => cleanup());
+	window.addEventListener("pageshow", (event) => {
+		if (event.persisted) mount(true);
+	});
+</script>

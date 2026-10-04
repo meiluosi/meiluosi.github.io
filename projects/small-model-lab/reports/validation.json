@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "date_local": "2026-10-04",
+  "timezone": "Asia/Shanghai",
+  "kind": "actual-validation-record",
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "python": "3.10.18",
+    "torch": "2.14.0",
+    "backend": "cpu",
+    "passed": 10,
+    "failed": 0,
+    "checks": ["causal attention", "real gradient update", "assistant-only shifted mask and EOS", "padding ignored", "token-weighted accumulation", "DPO initial loss and gradient direction", "frozen reference", "duplicate document groups", "cross-stage split isolation", "manifest tamper rejection", "finite memory budget", "exact same-backend CPU resume", "fresh process CPU inference"]
+  },
+  "mps": {
+    "report": "mac-mps-smoke.json",
+    "parameters": 138560,
+    "pretrain_steps": 12,
+    "sft_steps": 8,
+    "dpo_steps": 8,
+    "resumed_pretrain_step": 14,
+    "new_process_generate_exit_code": 0,
+    "new_process_report": "mac-mps-fresh-process.json"
+  },
+  "portability": {"report": "portable-copy.json", "backend": "cpu", "status": "passed"},
+  "limitations": ["no 30M/100M/0.5B training", "no sustained throughput measurement", "no true MPS peak memory", "no model capability benchmark", "no thermal or swap measurement", "no remote GitHub publication"]
+}

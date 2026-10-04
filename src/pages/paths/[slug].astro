@@ -1,0 +1,18 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import { readingPaths, type ReadingPath } from "@/data/readingPaths";
+import { getResearchNotes, requireResearchNote } from "@/utils/research-content";
+export function getStaticPaths() { return readingPaths.map((path) => ({ params: { slug: path.slug }, props: { path } })); }
+const { path } = Astro.props as { path: ReadingPath };
+const notes = await getResearchNotes();
+const steps = path.steps.map((step) => ({ ...step, note: requireResearchNote(notes, step.sourceId) }));
+const labHref = path.number === "01" ? "/lab/mcts/" : path.number === "02" ? "/lab/causal-playground/" : "/lab/model-pipeline/";
+---
+<ExploreLayout title={path.title} titleEn={path.titleEn} description={path.question} descriptionEn={path.questionEn}>
+	<header class="explore-hero"><p class="explore-kicker">READING PATH {path.number} / {steps.length} <Text zh="篇笔记" en="NOTES" /></p><Text as="h1" zh={path.title} en={path.titleEn} /><Text as="p" class="explore-lead" zh={path.question} en={path.questionEn} /></header>
+	<div class="explore-grid path-brief">{[{ title: "适合谁", titleEn: "Who it’s for", body: path.audience, bodyEn: path.audienceEn }, { title: "需要的基础", titleEn: "Before you start", body: path.prerequisites, bodyEn: path.prerequisitesEn }, { title: "读完之后", titleEn: "What to take away", body: path.outcome, bodyEn: path.outcomeEn }].map((item) => <div class="explore-card"><Text as="h3" zh={item.title} en={item.titleEn} /><Text as="p" zh={item.body} en={item.bodyEn} /></div>)}</div>
+	<ol class="path-steps">{steps.map((step, i) => <li><span class="step-number">0{i + 1}</span><div><a href={step.note.href} data-i18n-href-zh={step.note.href} data-i18n-href-en={step.note.hrefEn}><Text as="h2" zh={step.note.title} en={step.note.titleEn} /></a><Text as="p" class="explore-body" zh={step.focus} en={step.focusEn} /><a class="explore-link" href={step.note.href} data-i18n-href-zh={step.note.href} data-i18n-href-en={step.note.hrefEn}><Text zh="阅读这一篇" en="Read this note" /> ↗</a></div></li>)}</ol>
+	<section class="explore-section"><p class="explore-kicker">PAUSE & CONNECT</p><Text as="h2" zh="带着这个问题，继续走。" en="Carry this question forward." /><Text as="p" class="explore-lead" zh={path.reflection} en={path.reflectionEn} /><div class="path-actions"><a class="explore-link" href={path.caseHref}><Text zh="进入对应案例" en="Explore the case" /> ↗</a>{labHref && <a class="explore-link" href={labHref}><Text zh="动手做一个小实验" en="Try an interactive experiment" /> ↗</a>}<a class="explore-link" href={`/library/?path=${path.slug}`}><Text zh="查阅相关文献" en="Browse related sources" /> ↗</a></div></section>
+</ExploreLayout>
+<style>.path-brief :global(h3){font-size:16px}.path-steps{list-style:none;padding:0;margin:42px 0}.path-steps li{display:grid;grid-template-columns:55px 1fr;gap:24px;border-top:1px solid var(--brand-line);padding:32px 0}.step-number{font:13px monospace;color:var(--brand-accent);padding-top:10px}.path-steps a{text-decoration:none;color:var(--brand-ink)}.path-steps a:hover{color:var(--brand-accent)}.path-steps :global(h2){font-size:25px;margin:0}.path-actions{display:flex;flex-wrap:wrap;gap:16px 30px}@media(max-width:600px){.path-steps li{grid-template-columns:25px 1fr;gap:12px}.path-steps :global(h2){font-size:21px}}</style>

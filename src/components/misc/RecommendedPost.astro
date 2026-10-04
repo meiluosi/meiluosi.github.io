@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { brandTranslations } from "@/i18n/brand";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import type { PostForList } from "@/utils/content-utils";
@@ -27,10 +28,18 @@ const noRandomPostsText = i18n(I18nKey.noRandomPosts);
         class="text-xl text-(--primary)"
       />
       <span class="text-base font-bold text-black/75 dark:text-white/75 transition">
-        {i18n(I18nKey.relatedPosts)}
+        <span
+          data-i18n="post.related"
+          data-i18n-zh={brandTranslations["zh-CN"]["post.related"]}
+          data-i18n-en={brandTranslations.en["post.related"]}
+        >{i18n(I18nKey.relatedPosts)}</span>
       </span>
       <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-(--btn-regular-bg) text-(--btn-content) transition">
-        {i18n(I18nKey.smartRecommend)}
+        <span
+          data-i18n="post.smartRecommend"
+          data-i18n-zh={brandTranslations["zh-CN"]["post.smartRecommend"]}
+          data-i18n-en={brandTranslations.en["post.smartRecommend"]}
+        >{i18n(I18nKey.smartRecommend)}</span>
       </span>
     </div>
     {relatedPosts.length > 0 ? (
@@ -81,10 +90,18 @@ const noRandomPostsText = i18n(I18nKey.noRandomPosts);
         class="text-xl text-(--primary)"
       />
       <span class="text-base font-bold text-black/75 dark:text-white/75 transition">
-        {i18n(I18nKey.randomPosts)}
+        <span
+          data-i18n="post.random"
+          data-i18n-zh={brandTranslations["zh-CN"]["post.random"]}
+          data-i18n-en={brandTranslations.en["post.random"]}
+        >{i18n(I18nKey.randomPosts)}</span>
       </span>
       <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-(--btn-regular-bg) text-(--btn-content) transition">
-        {i18n(I18nKey.randomRecommend)}
+        <span
+          data-i18n="post.randomRecommend"
+          data-i18n-zh={brandTranslations["zh-CN"]["post.randomRecommend"]}
+          data-i18n-en={brandTranslations.en["post.randomRecommend"]}
+        >{i18n(I18nKey.randomRecommend)}</span>
       </span>
     </div>
     <div

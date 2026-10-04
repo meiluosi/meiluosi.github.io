@@ -1,0 +1,140 @@
+---
+import ResearchVisual from "@/components/features/ResearchVisual.astro";
+import Navbar from "@/components/layout/Navbar.astro";
+import { researchArchive } from "@/data/researchArchive";
+import { researchThreads } from "@/data/researchThreads";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { getSortedPosts } from "@/utils/content-utils";
+
+const posts = await getSortedPosts();
+const englishPosts = await getCollection("enPosts");
+const tracks = researchThreads;
+const getPostUrl = (id: string) => `/posts/${id.replace(/\.mdx?$/, "")}/`;
+const normalize = (value: string) =>
+	value.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+const hasEnglishTranslation = (postId: string) =>
+	englishPosts.some(
+		(entry) => entry.data.sourceId === postId.replace(/\.mdx?$/, ""),
+	);
+const archive = researchArchive.flatMap((item) => {
+	const post = posts.find((entry) =>
+		normalize(entry.id).includes(normalize(item.match)),
+	);
+	if (!post) return [];
+	const translation = englishPosts.find(
+		(entry) => entry.data.sourceId === post.id.replace(/\.mdx?$/, ""),
+	);
+	return [
+		{
+			...item,
+			post,
+			caseHref: `/work/${item.caseSlug}/`,
+			href: getPostUrl(post.id),
+			hrefEn: translation
+				? `/en/posts/${translation.data.slug}/`
+				: getPostUrl(post.id),
+		},
+	];
+});
+---
+
+<Layout title="研究档案 — 枫语" titleEn="Research Archive — Feng Yu" description="围绕递归自我改进与 AGI，整理模型系统、反馈学习和因果评估方向的研究记录。" descriptionEn="Research records on model systems, feedback learning, and causal evaluation in the pursuit of RSI and AGI.">
+	<div class="work-page" data-brand-motion>
+		<Navbar />
+		<header class="work-hero"><p class="eyebrow" data-motion-intro>RSI / AGI · RESEARCH IN PROGRESS</p><h1 data-motion-intro data-i18n="work.hero.title" data-i18n-html="true">让智能，<br/><em>递归地变好。</em></h1><p class="lead" data-motion-intro data-i18n="work.hero.lead">围绕递归自我改进这个长期问题，沿着模型系统、反馈学习与因果评估，逐步积累可检查的研究记录。</p><a class="down" data-motion-intro href="#research-archive" data-i18n="work.hero.archive">先看研究档案 ↓</a><div class="hero-index">ONE QUESTION<br/>THREE RESEARCH<br/>THREADS</div></header>
+		<main id="swup-container">
+		<section class="research-archive" id="research-archive"><div class="track-top" data-motion-reveal><span>SELECTED RESEARCH LOGS</span><span>PROJECTS · IMPLEMENTATIONS · SIMULATIONS</span></div><div class="archive-intro" data-motion-reveal><h2 data-i18n="work.archive.heading">四次探索，四条路径。</h2><p data-i18n="work.archive.intro">从本地模型工作流到自我对弈、博弈学习与因果分析。每个案例都从一个具体问题出发，并继续通向下一次实验。</p></div><div class="archive-grid">{archive.map((item) => <article class="archive-card" data-motion-hover data-motion-reveal>{item.caseSlug !== "kuhn-poker-cfr" && <div class="archive-visual"><ResearchVisual kind={item.caseSlug === "local-1b-model-workflow" ? "model" : item.caseSlug === "alphazero-gomoku" ? "search" : "causal"} /></div>}<div class="archive-meta"><span class="archive-kind" data-i18n={`archive.${item.match}.kind`} data-i18n-zh={item.kindZh} data-i18n-en={item.kind}>{item.kindZh}</span><span class="archive-thread" data-i18n={`archive.${item.match}.thread`} data-i18n-zh={item.threadZh} data-i18n-en={item.thread}>{item.threadZh}</span><span class="archive-status" data-i18n={`archive.${item.match}.status`} data-i18n-zh={item.statusZh} data-i18n-en={item.status}>{item.statusZh}</span></div><h3 data-i18n={`archive.${item.match}.title`} data-i18n-zh={item.post.data.title} data-i18n-en={item.titleEn}>{item.post.data.title}</h3><p data-i18n={`archive.${item.match}.summary`} data-i18n-zh={item.summary} data-i18n-en={item.summaryEn}>{item.summary}</p><ul class="archive-evidence">{item.evidence.map((fact: string, evidenceIndex: number) => <li data-i18n={`archive.${item.match}.evidence.${evidenceIndex}`} data-i18n-zh={fact} data-i18n-en={item.evidenceEn[evidenceIndex]}>{fact}</li>)}</ul><div class="archive-links"><a class="archive-link case-link" href={item.caseHref} data-i18n-href-zh={item.caseHref} data-i18n-href-en={item.caseHref}><span data-i18n="work.openCase" data-i18n-zh="查看案例" data-i18n-en="OPEN CASE">查看案例</span> <b>↗</b></a><a class="archive-link" href={item.href} data-i18n-href-zh={item.href} data-i18n-href-en={item.hrefEn}><span data-i18n="work.source">查看原文</span> <b>↗</b></a></div></article>)}</div></section>
+			{tracks.map((track) => {
+				const related = posts
+					.filter((post) =>
+						track.searchTerms.some((term: string) =>
+							`${post.data.title} ${post.data.tags.join(" ")}`
+								.toLowerCase()
+								.includes(term.toLowerCase()),
+						),
+					)
+					.sort(
+						(left, right) =>
+							Number(hasEnglishTranslation(right.id)) -
+							Number(hasEnglishTranslation(left.id)),
+					)
+					.slice(0, 3)
+					.map((post) => {
+						const translation = englishPosts.find(
+							(entry) =>
+								entry.data.sourceId === post.id.replace(/\.mdx?$/, ""),
+						);
+						const href = getPostUrl(post.id);
+						return {
+							post,
+							translationAvailable: Boolean(translation),
+							href,
+							title: post.data.title,
+							titleKey: `work.related.${track.i18nKey}`,
+							titleZh: post.data.title,
+							titleEn: translation?.data.title ?? post.data.title,
+							hrefEn: translation
+								? `/en/posts/${translation.data.slug}/`
+								: href,
+						};
+					});
+				return (
+					<section class="track" id={track.id}>
+						<div class="track-top" data-motion-reveal>
+			<span>{track.number} / {track.workName}</span>
+							<span>ONE LONG-TERM QUESTION</span>
+						</div>
+						<div class="track-grid">
+						<h2 data-i18n={`work.track.${track.i18nKey}.title`} data-i18n-zh={track.workTitle} data-i18n-en={track.workTitleEn}>
+							{track.workTitle}
+							</h2>
+							<div class="track-copy">
+								<p data-i18n={`work.track.${track.i18nKey}.text`} data-i18n-zh={track.workText} data-i18n-en={track.workTextEn}>
+									{track.workText}
+								</p>
+								<div class="tags">
+									{track.workTags.map((tag: string) => <span>{tag}</span>)}
+								</div>
+							</div>
+						</div>
+						{related.length > 0 && (
+							<div class="related">
+								<span class="related-label">FROM THE NOTEBOOK</span>
+								{track.id === "causal-inference" && <a href="/lab/causal-playground/"><span data-i18n="work.lab" data-i18n-zh="互动实验：相关，还是因果？" data-i18n-en="Interactive experiment: correlation or causation?">互动实验：相关，还是因果？</span><span>↗</span></a>}
+								{related.map(
+									({ href, hrefEn, translationAvailable, title, titleKey, titleZh, titleEn }) => (
+									<a
+										href={href}
+										data-i18n-href-zh={href}
+										data-i18n-href-en={hrefEn}
+										data-hide-in-en={!translationAvailable}
+									>
+										<span
+											data-i18n={titleKey}
+											data-i18n-zh={titleZh}
+											data-i18n-en={titleEn}
+										>
+											{title}
+										</span>
+										<span>↗</span>
+									</a>
+									),
+								)}
+							</div>
+						)}
+					</section>
+				);
+			})}
+		</main>
+		<footer class="work-footer"><span>RECURSIVE SELF-IMPROVEMENT · AGI</span><a href="/contact/"><span data-i18n="work.footer.contact">有好的问题？来聊聊</span> ↗</a></footer>
+	</div>
+	<style>
+.archive-visual{max-width:280px;width:100%;margin-bottom:22px}
+
+		:global(html){background:var(--brand-paper);scroll-behavior:smooth}:global(body){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink)!important;font-family:Inter,"Helvetica Neue",Arial,sans-serif}.work-page{background:var(--brand-paper);color:var(--brand-ink);min-height:100vh}.work-hero{min-height:600px;height:calc(82svh - 74px);max-height:850px;position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 11vw;border-bottom:1px solid rgba(37,60,52,.13);background:radial-gradient(ellipse at 82% 53%,rgba(129,151,86,.12),transparent 38%)}.eyebrow,.track-top,.related-label,.work-footer{font:9px/1.7 "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.work-hero h1{font-size:clamp(67px,10vw,132px);line-height:.98;letter-spacing:-.08em;font-weight:450;margin:39px 0 28px}.work-hero h1 em{font:italic 400 .9em/1 Georgia,"Songti SC",serif;color:var(--brand-accent);letter-spacing:-.075em}.lead{max-width:450px;color:var(--brand-body);font-size:14px;line-height:2}.down{margin-top:40px;font:9px "JetBrains Mono",monospace;letter-spacing:.1em;text-decoration:none;color:var(--brand-accent)}.hero-index{position:absolute;right:11vw;bottom:55px;font:9px/1.8 "JetBrains Mono",monospace;letter-spacing:.12em;text-align:right;color:var(--brand-muted)}.research-archive{padding:56px 11vw 68px;border-bottom:1px solid rgba(37,60,52,.13);background:var(--brand-surface)}.archive-intro{display:grid;grid-template-columns:1fr .8fr;gap:8vw;padding:38px 0 26px}.archive-intro h2{font-size:clamp(33px,4vw,54px);font-weight:450;letter-spacing:-.06em;margin:0}.archive-intro p{max-width:460px;color:var(--brand-body);font-size:12px;line-height:2;margin:0}.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.archive-card{min-height:210px;display:flex;flex-direction:column;padding:22px;border:1px solid rgba(37,60,52,.13);color:var(--brand-ink);text-decoration:none;transition:border-color .2s,transform .2s}.archive-card:hover{border-color:rgba(65,99,79,.52);transform:translateY(-3px)}.archive-meta{display:flex;flex-direction:column;gap:6px}.archive-kind,.archive-thread,.archive-link{font:8px "JetBrains Mono",monospace;letter-spacing:.1em}.archive-kind{color:var(--brand-accent)}.archive-thread{color:var(--brand-muted);margin-top:6px}.archive-card h3{font-size:18px;line-height:1.5;font-weight:450;margin:18px 0 8px}.archive-card p{color:var(--brand-body);font-size:11px;line-height:1.8;margin:0 0 14px}.archive-evidence{list-style:none;padding:0;margin:0 0 15px;display:grid;gap:7px}.archive-evidence li{position:relative;padding-left:13px;color:var(--brand-body);font-size:10px;line-height:1.7}.archive-evidence li:before{content:"+";position:absolute;left:0;color:var(--brand-accent);font:9px "JetBrains Mono",monospace}.archive-link{display:flex;justify-content:space-between;align-items:center;margin-top:auto;color:var(--brand-body)}.archive-link b{color:var(--brand-accent);font-size:13px;font-weight:400}.track{padding:63px 11vw 55px;border-bottom:1px solid rgba(37,60,52,.13);scroll-margin-top:25px}.track-top{display:flex;justify-content:space-between;padding-bottom:17px;border-bottom:1px solid rgba(37,60,52,.13)}.track-top span:first-child{color:var(--brand-accent)}.track-grid{display:grid;grid-template-columns:1fr .8fr;gap:8vw;padding:44px 0}.track h2{font-size:clamp(33px,4vw,55px);letter-spacing:-.06em;line-height:1.2;font-weight:450;margin:0}.track-copy p{color:var(--brand-body);font-size:13px;line-height:2.1;margin:0}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}.tags span{border:1px solid rgba(37,60,52,.17);border-radius:20px;padding:7px 11px;color:var(--brand-body);font:8px "JetBrains Mono",monospace}.related{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:7px}.related-label{font-size:8px}.related a{grid-column:2;display:flex;justify-content:space-between;gap:20px;color:var(--brand-body);text-decoration:none;border-bottom:1px solid rgba(37,60,52,.1);padding:10px 0;font-size:12px}.related a:hover{color:var(--brand-accent)}.related a span{color:var(--brand-accent)}.work-footer{padding:25px 11vw;display:flex;justify-content:space-between}.work-footer a{font:10px Inter,sans-serif;color:var(--brand-accent);text-decoration:none}@media(max-width:700px){.work-hero{min-height:620px;height:calc(86svh - 66px);padding:0 8vw}.work-hero h1{font-size:clamp(61px,15vw,90px);margin:32px 0 22px}.lead{font-size:12px}.hero-index{right:8vw;bottom:32px;font-size:8px}.research-archive{padding:43px 8vw 48px}.archive-intro{grid-template-columns:1fr;gap:15px;padding:31px 0 21px}.archive-intro h2{font-size:35px}.archive-grid{grid-template-columns:1fr}.archive-card{min-height:190px;padding:18px}.track{padding:44px 8vw}.track-top{font-size:8px}.track-grid{grid-template-columns:1fr;gap:17px;padding:32px 0}.track h2{font-size:36px}.track-copy p{font-size:12px}.related{grid-template-columns:1fr;gap:7px}.related a{grid-column:1}.work-footer{padding:22px 8vw;font-size:8px}.work-footer a{font-size:9px}}
+		.archive-status{display:block;margin-top:2px;color:var(--brand-body);font:7px "JetBrains Mono",monospace;letter-spacing:.1em}
+		.archive-links{display:flex;gap:18px;margin-top:13px}.archive-link{margin-top:0}.archive-link.case-link{color:var(--brand-accent)}
+		.related a[hidden]{display:none}
+	</style>
+</Layout>

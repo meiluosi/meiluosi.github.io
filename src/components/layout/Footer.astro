@@ -1,66 +1,15 @@
 ---
-import fs from "node:fs";
-import path from "node:path";
-import { footerConfig, profileConfig } from "@/config";
-import { url } from "@/utils/url-utils";
+import { profileConfig } from "@/config";
 
 const currentYear = new Date().getFullYear();
-
-// 读取FooterConfig.html文件内容
-let customFooterHtml = "";
-if (footerConfig.enable) {
-	try {
-		const footerConfigPath = path.join(
-			process.cwd(),
-			"src",
-			"config",
-			"FooterConfig.html",
-		);
-		customFooterHtml = fs.readFileSync(footerConfigPath, "utf-8");
-		// 移除HTML注释
-		customFooterHtml = customFooterHtml.replace(/<!--[\s\S]*?-->/g, "").trim();
-	} catch (error) {
-		console.warn("FooterConfig.html文件读取失败:", error.message);
-	}
-}
 ---
 
+<footer class="folio-footer">
+	<a class="brand" href="/"><span>F.</span>{profileConfig.name} / FIELD NOTES</a>
+	<div class="links"><a href="/work/" data-i18n="footer.work">探索方向</a><a href="/notes/" data-i18n="footer.notes">笔记</a><a href="/contact/" data-i18n="footer.contact">联系</a><a href="https://github.com/meiluosi" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
+	<span class="copyright">© {currentYear} {profileConfig.name} · MADE WITH CURIOSITY</span>
+</footer>
 
-<div
-  class="transition border-t border-black/10 dark:border-white/15 my-10 border-dashed mx-32"
->
-</div>
-
-<div
-  class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6"
->
-  <div class="transition text-50 text-sm text-center wrap">
-    <div class="mb-2">
-      {customFooterHtml && <div set:html={customFooterHtml} />}
-    </div>
-    <div class="m-0.5 flex gap-2 justify-center flex-wrap">
-      &copy; <span id="copyright-year">{currentYear}</span>
-      {profileConfig.name}. All Rights Reserved.
-      <span aria-hidden="true">/</span>
-      <a
-        class="transition link text-(--primary) font-medium"
-        target="_blank"
-        href={url("rss.xml")}>RSS</a
-      >
-      <span aria-hidden="true">/</span>
-      <a
-        class="transition link text-(--primary) font-medium"
-        target="_blank"
-        href={url("sitemap-index.xml")}>Sitemap</a
-      >
-    </div>
-    <div class="m-0.5 flex gap-2 justify-center flex-wrap">
-      <span>Powered by</span>
-      <a
-        class="transition link text-(--primary) font-medium"
-        target="_blank"
-        href="https://astro.build">Astro</a
-      >
-    </div>
-  </div>
-</div>
+<style>
+	.folio-footer{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;border-top:1px solid rgba(37,60,52,.13);padding:24px max(6vw,calc((100vw - 1180px)/2));margin-top:42px;color:var(--brand-muted);background:var(--brand-paper)}.folio-footer .brand{display:flex;align-items:center;gap:10px;color:var(--brand-ink);text-decoration:none;font:9px "JetBrains Mono",monospace;letter-spacing:.12em}.folio-footer .brand span{width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--brand-muted);border-radius:50%;color:var(--brand-accent);font:italic 14px Georgia}.folio-footer .links{display:flex;gap:19px}.folio-footer .links a,.folio-footer .copyright{color:var(--brand-muted);text-decoration:none;font:8px "JetBrains Mono",monospace;letter-spacing:.08em}.folio-footer .links a:hover{color:var(--brand-accent)}.folio-footer .copyright{grid-column:1/-1;border-top:1px solid rgba(37,60,52,.08);padding-top:15px}@media(max-width:700px){.folio-footer{grid-template-columns:1fr;padding:22px 8vw}.folio-footer .links{gap:15px;flex-wrap:wrap}.folio-footer .copyright{grid-column:auto;font-size:7px}}
+</style>

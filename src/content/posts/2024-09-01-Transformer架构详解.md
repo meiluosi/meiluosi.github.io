@@ -1,5 +1,6 @@
 ---
 title: Transformer架构详解
+format: technical
 description: 深入理解自注意力机制与位置编码
 published: 2024-09-01T00:00:00.000Z
 tags:

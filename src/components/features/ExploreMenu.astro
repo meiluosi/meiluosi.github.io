@@ -1,0 +1,19 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+const links = [
+	["/world/", "研究岛", "Research island", "进入智能研究工作室", "Enter the research workshop"],
+	["/rsi/", "RSI 导读", "RSI guide", "从长期问题开始", "Start with the question"],
+	["/paths/", "阅读路线", "Reading paths", "沿三个问题深入", "Follow three questions"],
+	["/library/", "文献架", "Library", "回到原始资料", "Go to the sources"],
+	["/lab/", "实验室", "Lab", "动手改变一个参数", "Change a parameter"],
+	["/reading/", "阅读收藏", "Saved reading", "留待下一次阅读", "Pick up a saved note"],
+];
+---
+<details class="explore-menu"><summary><Text zh="探索" en="Explore" /> <span aria-hidden="true">＋</span></summary><div class="explore-dropdown">{links.map(([href, title, titleEn, description, descriptionEn]) => <a href={href}><Text as="strong" zh={title} en={titleEn} /><Text as="small" zh={description} en={descriptionEn} /></a>)}</div></details>
+<script>
+	document.querySelectorAll<HTMLDetailsElement>(".explore-menu").forEach((menu) => {
+		menu.addEventListener("keydown", (event) => { if (event.key === "Escape" && menu.open) { menu.open = false; menu.querySelector("summary")?.focus(); } });
+		document.addEventListener("click", (event) => { if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false; });
+	});
+</script>
+<style>.explore-menu{position:relative;color:var(--brand-body);font:11px "JetBrains Mono",monospace;letter-spacing:0}.explore-menu summary{cursor:pointer;list-style:none;white-space:nowrap;padding:10px 0}.explore-menu summary::-webkit-details-marker{display:none}.explore-menu summary>span:last-child{font-size:12px;color:var(--brand-accent)}.explore-dropdown{position:absolute;right:0;top:100%;width:256px;max-width:85vw;z-index:80;padding:10px;border:1px solid var(--brand-line);border-radius:14px;background:var(--brand-paper);box-shadow:0 16px 40px rgba(37,60,52,.12)}.explore-dropdown a{display:grid;gap:6px;padding:12px;border-radius:8px;text-decoration:none;color:var(--brand-ink)}.explore-dropdown a:hover{background:var(--brand-surface)}.explore-dropdown :global(strong){font:500 13px/1.5 Inter,sans-serif}.explore-dropdown :global(small){font:11px/1.5 Inter,sans-serif;color:var(--brand-muted)}@media(max-width:700px){.explore-menu{font-size:9px}}</style>

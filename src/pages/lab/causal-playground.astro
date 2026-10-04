@@ -1,0 +1,17 @@
+---
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
+import CausalPlayground from "@/components/features/CausalPlayground.svelte";
+---
+<Layout title="相关，还是因果？— 枫语" titleEn="Correlation or causation? — Feng Yu" description="改变优惠券的发放方式，看看人群差异怎样影响你看到的效果。" descriptionEn="Change who receives a coupon and see how selection changes the apparent effect.">
+	<Navbar />
+	<main class="lab-page" id="swup-container">
+		<header><a href="/work/#causal-inference" data-i18n="lab.back" data-i18n-zh="← 因果与评估" data-i18n-en="← Causality & evaluation">← 因果与评估</a><p class="eyebrow">SMALL EXPERIMENT / 001</p><h1 data-i18n="lab.title" data-i18n-zh="相关，还是因果？" data-i18n-en="Correlation or causation?">相关，还是因果？</h1><p class="lead" data-i18n="lab.lead" data-i18n-zh="拿到优惠券的人消费更多，是券起了作用，还是券本来就发给了更爱消费的人？用一分钟，亲手改变这个故事。" data-i18n-en="Coupon recipients spend more. Did the coupon help, or did it go to people who already spend more? Take a minute to change the story yourself.">拿到优惠券的人消费更多，是券起了作用，还是券本来就发给了更爱消费的人？用一分钟，亲手改变这个故事。</p></header>
+		<CausalPlayground client:load />
+		<noscript><p>请启用 JavaScript 操作实验。默认设定下，直接比较为 +68，组内比较为 +20；其中 +48 来自人群构成差异。 / Enable JavaScript to use the sliders. The default raw difference is +68; the within-type effect is +20.</p></noscript>
+		<footer><div><h2 data-i18n="lab.next.title" data-i18n-zh="把直觉带回研究。" data-i18n-en="Take the intuition back to research.">把直觉带回研究。</h2><p data-i18n="lab.next.body" data-i18n-zh="同样的问题也出现在模型评估里：表现变好了，究竟是干预有效，还是比较的条件变了？" data-i18n-en="The same question appears in model evaluation: did an intervention help, or did the conditions of comparison change?">同样的问题也出现在模型评估里：表现变好了，究竟是干预有效，还是比较的条件变了？</p></div><nav><a href="/work/ylearn-causal-inference/" data-i18n="lab.case" data-i18n-zh="阅读 YLearn 案例 ↗" data-i18n-en="Read the YLearn case ↗">阅读 YLearn 案例 ↗</a><a href="/posts/2024-6-30-应用ylearn框架实现因果推断/" data-i18n-href-zh="/posts/2024-6-30-应用ylearn框架实现因果推断/" data-i18n-href-en="/en/posts/ylearn-causal-inference/" data-i18n="lab.note" data-i18n-zh="继续读方法与代码 ↗" data-i18n-en="Continue to methods and code ↗">继续读方法与代码 ↗</a></nav></footer>
+	</main>
+	<style>
+		:global(body){margin:0!important;background:var(--brand-paper);color:var(--brand-ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.lab-page{max-width:1200px;margin:auto;padding:65px 6vw 50px}header{max-width:760px;margin-bottom:42px}header>a{font-size:12px;color:var(--brand-accent);text-decoration:none}.eyebrow{font:10px "JetBrains Mono",monospace;color:var(--brand-muted);letter-spacing:.1em;margin:48px 0 22px}h1{font:400 clamp(38px,6vw,68px)/1.2 Georgia,"Songti SC",serif;letter-spacing:-.04em;margin:0 0 24px}.lead{font-size:15px;line-height:2;color:var(--brand-body)}footer{display:flex;justify-content:space-between;gap:40px;padding:40px 0 0}footer>div{max-width:540px}footer h2{font-size:23px;font-weight:450}footer p{font-size:13px;line-height:2;color:var(--brand-body)}footer nav{display:grid;align-content:center;gap:20px;flex-shrink:0}footer a{color:var(--brand-accent);font-size:12px;text-decoration:none}@media(max-width:700px){.lab-page{padding:40px 7vw}.eyebrow{margin-top:36px}.lead{font-size:13px}footer{display:block}footer nav{margin-top:24px}}
+	</style>
+</Layout>

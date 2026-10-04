@@ -1,0 +1,32 @@
+{
+  "name": "tiny-smoke",
+  "status": "engineering-only",
+  "initialization": "random",
+  "backend": "pytorch-auto",
+  "architecture": {
+    "kind": "gpt-decoder",
+    "layers": 2,
+    "hidden_size": 64,
+    "attention_heads": 4,
+    "vocab_size": 512,
+    "context_length": 128,
+    "position_embedding": "learned",
+    "mlp_expansion": 4,
+    "activation": "gelu",
+    "linear_bias": true,
+    "layer_norm_affine": true,
+    "layer_norms_per_block": 2,
+    "final_layer_norm": true,
+    "tied_embeddings": true,
+    "lm_head_bias": false
+  },
+  "pretraining": {
+    "pilot_tokens": 4096,
+    "token_budget": 4096,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 1,
+    "optimizer": "adamw",
+    "dtype_baseline": "float32",
+    "notes": "Synthetic short smoke only; not a language capability experiment. CLI --steps controls actual execution."
+  }
+}

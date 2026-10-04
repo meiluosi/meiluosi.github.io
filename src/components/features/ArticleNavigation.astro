@@ -1,0 +1,45 @@
+---
+import type { MarkdownHeading } from "astro";
+interface Props { headings: MarkdownHeading[]; english?: boolean; }
+const { headings, english = false } = Astro.props;
+const sections = headings.filter((heading) => heading.depth === 2 || heading.depth === 3).map((heading) => ({ ...heading, text: heading.text.replace(/#\s*$/, "").trim() }));
+---
+<div class="reading-navigation">
+	<a href="/notes/" data-notes-return data-i18n="reading.return" data-i18n-zh="← 返回笔记目录" data-i18n-en="← Back to notes">{english ? "← Back to notes" : "← 返回笔记目录"}</a>
+	{sections.length > 0 && <details class="reading-toc"><summary data-i18n="reading.contents" data-i18n-zh="本篇目录" data-i18n-en="ON THIS PAGE">{english ? "ON THIS PAGE" : "本篇目录"}</summary><nav aria-label={english ? "Article sections" : "文章章节"}><ol>{sections.map((heading) => <li class:list={{ nested: heading.depth === 3 }}><a href={`#${encodeURIComponent(heading.slug)}`} data-reading-heading={heading.slug}>{heading.text}</a></li>)}</ol></nav></details>}
+</div>
+<script>
+	const returnLink = document.querySelector<HTMLAnchorElement>("[data-notes-return]");
+	try {
+		const saved = JSON.parse(sessionStorage.getItem("feng-yu-notes-return") ?? "null");
+		if (saved?.url && returnLink) {
+			const destination = new URL(saved.url, location.origin);
+			if (destination.origin === location.origin && destination.pathname === "/notes/") {
+				destination.searchParams.set("return", "1"); returnLink.href = destination.href;
+			}
+		}
+	} catch { /* The plain notes link remains usable. */ }
+	const toc = document.querySelector<HTMLDetailsElement>(".reading-toc");
+	const desktop = matchMedia("(min-width: 1440px)");
+	const sync = () => { if (toc) toc.open = desktop.matches; };
+	sync(); desktop.addEventListener("change", sync);
+	const links = [...document.querySelectorAll<HTMLAnchorElement>("[data-reading-heading]")];
+	const headings = links.map((link) => document.getElementById(link.dataset.readingHeading ?? "")).filter((item): item is HTMLElement => Boolean(item));
+	let pending = 0;
+	const highlight = () => {
+		pending = 0;
+		const current = headings.filter((heading) => heading.getBoundingClientRect().top <= 60).at(-1) ?? headings[0];
+		for (const link of links) {
+			if (link.dataset.readingHeading === current?.id) link.setAttribute("aria-current", "location");
+			else link.removeAttribute("aria-current");
+		}
+	};
+	const schedule = () => { if (!pending) pending = requestAnimationFrame(highlight); };
+	window.addEventListener("scroll", schedule, { passive: true });
+	for (const link of links) link.addEventListener("click", () => { if (toc && !desktop.matches) toc.open = false; });
+	highlight();
+	window.addEventListener("pagehide", () => { cancelAnimationFrame(pending); }, { once: true });
+</script>
+<style>
+	.reading-navigation{font-size:12px;color:var(--brand-accent);padding:24px clamp(20px,6vw,72px) 0}.reading-navigation>a{text-decoration:none}.reading-toc{margin-top:18px;border:1px solid var(--brand-line);border-radius:10px;padding:12px 16px;background:var(--brand-paper)}summary{cursor:pointer;font:11px/1.8 "JetBrains Mono",monospace;color:var(--brand-accent)}ol{list-style:none;margin:12px 0 0;padding:0;max-height:55vh;overflow:auto;overscroll-behavior:contain}li{padding:5px 0;line-height:1.7}.nested{padding-left:12px;font-size:11px}li a{display:block;color:var(--brand-muted);text-decoration:none;border-left:2px solid transparent;padding-left:8px}li a[aria-current]{border-color:var(--brand-accent);color:var(--brand-ink);font-weight:600}li a:hover{color:var(--brand-accent)}:global(#post-container :is(h2,h3)){scroll-margin-top:30px}@media(min-width:1440px){.reading-toc{position:fixed;right:20px;top:120px;width:190px;z-index:5;margin:0;padding:16px 12px;background:var(--brand-paper)}ol{max-height:calc(100vh - 230px)}}@media(max-width:700px){.reading-navigation{padding:24px 7vw 0}}
+</style>

@@ -1,0 +1,27 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/layout/Navbar.astro";
+import Text from "@/components/common/BilingualText.astro";
+interface Props { title: string; titleEn: string; description: string; descriptionEn: string; }
+const { title, titleEn, description, descriptionEn } = Astro.props;
+const links = [
+	{ href: "/world/", zh: "研究岛", en: "Research island" },
+	{ href: "/rsi/", zh: "RSI 导读", en: "RSI guide" },
+	{ href: "/paths/", zh: "阅读路线", en: "Reading paths" },
+	{ href: "/library/", zh: "文献架", en: "Library" },
+	{ href: "/lab/", zh: "实验室", en: "Lab" },
+	{ href: "/reading/", zh: "阅读收藏", en: "Saved reading" },
+];
+---
+<Layout title={`${title} — 枫语`} titleEn={`${titleEn} — Feng Yu`} description={description} descriptionEn={descriptionEn}>
+	<Navbar />
+	<div class="explore-shell" data-brand-motion>
+		<nav class="explore-sections" aria-label="探索栏目" data-i18n-aria-label-zh="探索栏目" data-i18n-aria-label-en="Explore sections">{links.map((link) => <a href={link.href} aria-current={Astro.url.pathname.startsWith(link.href) ? "page" : undefined}><Text zh={link.zh} en={link.en} /></a>)}</nav>
+		<main id="swup-container"><slot /></main>
+		<footer class="explore-footer"><span>RSI → AGI / KEEP ASKING</span><a href="/notes/"><Text zh="回到全部笔记 ↗" en="Back to all notes ↗" /></a></footer>
+	</div>
+</Layout>
+<style is:global>
+	body:has(.explore-shell){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif}.explore-shell{max-width:1200px;margin:auto;padding:0 6vw}.explore-sections{display:flex;flex-wrap:wrap;gap:8px 24px;padding:22px 0;border-bottom:1px solid var(--brand-line);font-size:12px}.explore-sections a,.explore-footer a{color:var(--brand-muted);text-decoration:none}.explore-sections a[aria-current],.explore-sections a:hover{color:var(--brand-accent);text-decoration:underline;text-underline-offset:6px}.explore-hero{padding:65px 0 46px;max-width:850px}.explore-kicker{font:10px/1.8 "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--brand-accent);margin:0 0 24px}.explore-hero h1{font:400 clamp(40px,6vw,70px)/1.22 Georgia,"Songti SC",serif;letter-spacing:-.045em;margin:0 0 25px}.explore-lead{font-size:15px;line-height:2;color:var(--brand-body);max-width:720px}.explore-shell section{scroll-margin-top:28px}.explore-shell h2{font-size:clamp(24px,3vw,36px);line-height:1.45;font-weight:450;letter-spacing:-.03em}.explore-shell h3{font-size:20px;line-height:1.5;font-weight:500}.explore-body{font-size:14px;line-height:2;color:var(--brand-body)}.explore-card{padding:28px;border:1px solid var(--brand-line);border-radius:16px;background:var(--brand-surface)}.explore-card h3{margin:12px 0}.explore-card p{font-size:13px;line-height:1.9;color:var(--brand-body)}.explore-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.explore-link{display:inline-flex;align-items:center;gap:12px;color:var(--brand-accent);font-size:12px;text-decoration:none;border-bottom:1px solid var(--brand-line);padding:8px 0}.explore-link:hover{border-color:var(--brand-accent)}.explore-section{padding:42px 0;border-top:1px solid var(--brand-line)}.explore-footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--brand-line);padding:30px 0;margin-top:50px;font:10px/1.8 "JetBrains Mono",monospace;color:var(--brand-muted)}@media(max-width:760px){.explore-shell{padding:0 7vw}.explore-hero{padding:42px 0 32px}.explore-lead{font-size:13px}.explore-grid{grid-template-columns:1fr}.explore-card{padding:23px}.explore-section{padding:30px 0}.explore-footer{font-size:9px}.explore-sections{gap:10px 20px;font-size:11px}}
+	.explore-section>h2{margin:0 0 20px}.explore-body{margin:14px 0}.explore-shell a:focus-visible,.explore-shell button:focus-visible,.explore-shell summary:focus-visible,.explore-shell select:focus-visible,.explore-shell input:focus-visible,.explore-shell [tabindex="0"]:focus-visible{outline:2px solid var(--brand-accent);outline-offset:4px}
+</style>

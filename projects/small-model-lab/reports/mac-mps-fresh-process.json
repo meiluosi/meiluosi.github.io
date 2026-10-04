@@ -1,0 +1,18 @@
+{
+  "stage": "dpo",
+  "prompt": "What is a token?",
+  "generated_text": "A answers.",
+  "generated_ids": [
+    36,
+    333,
+    86,
+    17
+  ],
+  "decoding": {
+    "method": "greedy",
+    "max_new_tokens": 4,
+    "context_overflow": "sliding window; learned positions reset per window",
+    "chat_template": true
+  },
+  "notice": "Engineering smoke weights may produce meaningless text."
+}

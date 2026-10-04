@@ -1,0 +1,9 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import ReadingPathCards from "@/components/features/ReadingPathCards.astro";
+---
+<ExploreLayout title="阅读路线" titleEn="Reading paths" description="三条循序渐进的路线，把搜索、评估与模型系统的笔记串起来。" descriptionEn="Three guided paths through search, evaluation, and model systems.">
+	<header class="explore-hero"><p class="explore-kicker">FOLLOW A QUESTION / READING PATHS</p><Text as="h1" zh="让阅读，有一条线。" en="Give your reading a direction." /><Text as="p" class="explore-lead" zh="从一个问题出发，按顺序读几篇笔记，再把理解带到实验与案例里。每条路线都标出了基础要求、阅读目的，以及最后值得带走的问题。" en="Begin with a question, follow a sequence of notes, then take the ideas into experiments and cases. Each path includes prerequisites, a purpose for each step, and a question to carry forward." /></header>
+	<ReadingPathCards /><section class="explore-section" style="margin-top:42px"><Text as="h2" zh="也可以从自己的问题出发。" en="Or start with your own question." /><Text as="p" class="explore-body" zh="这些路线是一种读法。你也可以在全部笔记里搜索概念、方法或代码片段，找到自己的入口。" en="These paths offer one way through the material. You can also search all notes for a concept, method, or code fragment and find your own starting point." /><a class="explore-link" href="/notes/"><Text zh="搜索全部笔记" en="Search all notes" /> ↗</a></section>
+</ExploreLayout>

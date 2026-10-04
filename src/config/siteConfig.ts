@@ -9,14 +9,14 @@ export const siteConfig: SiteConfig = {
 	title: "枫语",
 
 	// 站点副标题
-	subtitle: "LLM 训练/推理 · 分布式系统 · RLHF",
+	subtitle: "递归自我改进 · RSI / AGI",
 
 	// 站点 URL
 	site_url: "https://meiluosi.github.io",
 
 	// 站点描述
 	description:
-		"枫语 (Feng Yu) — LLM 训练/推理、分布式系统、RLHF 技术博客。分享 DeepSpeed 源码剖析、RLHF 实战经验、大模型推理优化与前沿论文解读。",
+		"枫语的个人品牌网站：以递归自我改进为长期问题，记录通向 AGI 的模型学习、反馈机制、因果评估与研究笔记。",
 
 	// 站点关键词
 	keywords: [
@@ -32,17 +32,17 @@ export const siteConfig: SiteConfig = {
 		"Transformer",
 		"机器学习",
 		"深度学习",
-		"技术博客",
+		"个人网站",
 	],
 
 	// 主题色
 	themeColor: {
 		// 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
-		hue: 165,
+		hue: 78,
 		// 是否对访问者隐藏主题色选择器
-		fixed: false,
+		fixed: true,
 		// 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
-		defaultMode: "system",
+		defaultMode: "light",
 	},
 
 	// 页面整体宽度（单位：rem）
@@ -62,7 +62,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			src: "/favicon/favicon.ico",
+			src: "/favicon/mark.svg",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -107,7 +107,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
-	categoryBar: true,
+	categoryBar: false,
 
 	// 归档页是否折叠非最新年份文章，禁用后默认展开全部年份
 	foldArticle: true,
@@ -148,11 +148,11 @@ export const siteConfig: SiteConfig = {
 			enablePythonMarkdownAdmonitions: false,
 		},
 		// 文章页底部的"上次编辑时间"卡片开关
-		showLastModified: true,
+		showLastModified: false,
 		// 文章过期阈值（天数），超过此天数才显示"上次编辑"卡片
 		outdatedThreshold: 30,
 		// 是否开启分享海报生成功能
-		sharePoster: true,
+		sharePoster: false,
 		// OpenGraph图片功能，注意开启后要渲染很长时间，不建议本地调试的时候开启
 		generateOgImages: false,
 	},

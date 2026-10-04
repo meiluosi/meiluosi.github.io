@@ -1,25 +1,50 @@
 ---
+import avatar from "@/assets/images/avatar.avif";
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
+import PersonalJourney from "@/components/features/PersonalJourney.astro";
 
-import { getEntry, render } from "astro:content";
-import Markdown from "@components/common/Markdown.astro";
-import I18nKey from "@/i18n/i18nKey";
-import { i18n } from "@/i18n/translation";
-import MainGridLayout from "@/layouts/MainGridLayout.astro";
-
-const aboutPost = await getEntry("spec", "about");
-
-if (!aboutPost) {
-	throw new Error("About page content not found");
-}
-
-const { Content } = await render(aboutPost);
+const principles = [
+	{
+		n: "01",
+		title: "从问题开始",
+		titleEn: "Start with the question",
+		body: "先把问题定义清楚，再决定该读什么、写什么代码，以及什么证据才算回答。",
+		bodyEn:
+			"Define the question before deciding what to read, what to code, and what would count as an answer.",
+	},
+	{
+		n: "02",
+		title: "理论要落到实践",
+		titleEn: "Put theory into practice",
+		body: "读论文，也做实验。理解一个方法，最好亲手实现它、观察它在哪些条件下失效。",
+		bodyEn:
+			"Read papers, then run experiments. A method becomes clearer when you implement it and see where it fails.",
+	},
+	{
+		n: "03",
+		title: "把过程讲明白",
+		titleEn: "Make the process legible",
+		body: "记录假设、选择和结果，让知识可以被复查、复用，也欢迎别人提出不同看法。",
+		bodyEn:
+			"Record assumptions, choices, and results so the work can be checked, reused, and challenged.",
+	},
+];
 ---
-<MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
-    <div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32">
-        <div class="card-base z-10 px-9 py-6 relative w-full ">
-            <Markdown class="mt-2">
-                <Content />
-            </Markdown>
-        </div>
-    </div>
-</MainGridLayout>
+
+<Layout title="关于我 — 枫语" titleEn="About Feng Yu" description="关于枫语，以及以递归自我改进和 AGI 为长期方向的探索。" descriptionEn="About Feng Yu and an ongoing exploration of recursive self-improvement and AGI.">
+	<div class="about-page" data-brand-motion>
+		<Navbar />
+		<main id="swup-container">
+			<section class="about-hero"><div class="portrait"><img src={avatar.src} alt="枫语的头像" data-i18n-alt-zh="枫语的头像" data-i18n-alt-en="Portrait of Feng Yu"/><span>你好，世界。</span></div><div><p class="eyebrow" data-motion-intro>LONG-TERM QUESTION / RSI → AGI</p><h1 data-motion-intro data-i18n="about.hero.title" data-i18n-html="true">我是枫语。<br/><em>你好。</em></h1><p class="lead" data-motion-intro data-i18n="about.hero.lead">我想把所有学习、实验与系统构建，放在同一条长期路径上：探索递归自我改进（RSI），并一步步走向 AGI。</p><a class="cta" data-motion-intro href="/contact/"><span data-i18n="about.hero.cta">联系我</span> <span>↗</span></a></div></section>
+			<PersonalJourney />
+			<section class="principles" data-motion-reveal><div class="label">HOW I LIKE TO WORK</div><div class="principle-list">{principles.map((item, index) => <article><span>{item.n}</span><div><h2 data-i18n={`about.principle.${index}.title`} data-i18n-zh={item.title} data-i18n-en={item.titleEn}>{item.title}</h2><p data-i18n={`about.principle.${index}.body`} data-i18n-zh={item.body} data-i18n-en={item.bodyEn}>{item.body}</p></div></article>)}</div></section>
+			<section class="toolbox" data-motion-reveal><div class="label">THREE RESEARCH THREADS</div><div class="tool-columns"><div><span>01 / MODEL SYSTEMS</span><p data-i18n="about.toolbox.models" data-i18n-html="true">模型如何学习、推理，<br/>以及如何被有效评估。</p></div><div><span>02 / FEEDBACK & LEARNING</span><p data-i18n="about.toolbox.feedback" data-i18n-html="true">反馈怎样改变策略，<br/>并让行为持续变好。</p></div><div><span>03 / CAUSAL INFERENCE</span><p data-i18n="about.toolbox.causal" data-i18n-html="true">哪些干预带来改进，<br/>又如何确认因果关系。</p></div></div></section>
+		</main>
+		<footer><span>STILL LEARNING, ALWAYS.</span><a href="/work/"><span data-i18n="about.footer">看看我在探索什么</span> ↗</a></footer>
+	</div>
+	<style>
+		:global(html){background:var(--brand-paper)}:global(body){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink)!important;font-family:Inter,"Helvetica Neue",Arial,sans-serif}.about-page{background:var(--brand-paper);color:var(--brand-ink);min-height:100vh}.about-hero{min-height:640px;padding:95px 13vw 90px;display:grid;grid-template-columns:.75fr 1.25fr;align-items:center;gap:8vw;border-bottom:1px solid rgba(37,60,52,.13);background:radial-gradient(ellipse at 23% 50%,rgba(129,151,86,.13),transparent 30%)}.portrait{position:relative;max-width:300px;aspect-ratio:.82;overflow:hidden;background:var(--brand-sage);border-radius:46% 46% 4px 4px}.portrait img{width:100%;height:100%;object-fit:cover;filter:saturate(.72);mix-blend-mode:screen;opacity:.85}.portrait span{position:absolute;bottom:18px;left:18px;font:9px "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--brand-ink)}.eyebrow,.label,.tool-columns span,footer{font:9px/1.8 "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.about-hero h1{font-size:clamp(64px,9vw,115px);line-height:.98;letter-spacing:-.08em;font-weight:450;margin:34px 0 25px}.about-hero h1 em{font:italic 400 .9em Georgia,"Songti SC",serif;color:var(--brand-accent)}.lead{max-width:475px;color:var(--brand-body);font-size:14px;line-height:2}.cta{display:inline-flex;gap:28px;color:var(--brand-accent);text-decoration:none;margin-top:23px;padding-bottom:9px;border-bottom:1px solid rgba(65,99,79,.4);font-size:12px}.bio,.principles,.toolbox{padding:75px 13vw;display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw;border-bottom:1px solid rgba(37,60,52,.13)}.label{color:var(--brand-accent)}.bio p{max-width:640px;color:var(--brand-body);font-size:14px;line-height:2.1;margin:0 0 19px}.principle-list article{display:grid;grid-template-columns:45px 1fr;gap:15px;padding:0 0 25px;margin-bottom:24px;border-bottom:1px solid rgba(37,60,52,.1)}.principle-list article:last-child{border:0;margin:0}.principle-list article>span{padding-top:6px;color:var(--brand-accent);font:10px "JetBrains Mono",monospace}.principle-list h2{font-size:19px;font-weight:450;margin:0 0 9px}.principle-list p{max-width:500px;color:var(--brand-body);font-size:12px;line-height:1.9;margin:0}.tool-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.tool-columns span{font-size:8px;color:var(--brand-accent)}.tool-columns p{font:10px/2 "JetBrains Mono",monospace;color:var(--brand-body)}footer{padding:26px 13vw;display:flex;justify-content:space-between}footer a{color:var(--brand-accent);text-decoration:none;font:10px Inter,sans-serif}@media(max-width:700px){.about-hero{padding:64px 8vw 58px;grid-template-columns:1fr;gap:40px}.portrait{width:42%;min-width:145px}.about-hero h1{font-size:75px;margin:27px 0 19px}.lead{font-size:12px}.bio,.principles,.toolbox{padding:50px 8vw;grid-template-columns:1fr;gap:27px}.bio p{font-size:12px}.principle-list h2{font-size:17px}.tool-columns{grid-template-columns:1fr;gap:12px}.tool-columns p{margin:7px 0 10px}footer{padding:22px 8vw;font-size:8px}footer a{font-size:9px}}
+	</style>
+	<style>.portrait img{mix-blend-mode:normal;opacity:1}</style>
+</Layout>

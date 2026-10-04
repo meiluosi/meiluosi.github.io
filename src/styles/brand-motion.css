@@ -1,0 +1,106 @@
+[data-brand-motion] {
+	--motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	--motion-feedback: 220ms;
+}
+
+/* Same-origin document navigation stays native: links, history and scroll restoration. */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition { navigation: auto; }
+	html[data-brand-theme]::view-transition-old(root) {
+		animation: brand-page-out 160ms ease-out both;
+		mix-blend-mode: normal;
+	}
+	html[data-brand-theme]::view-transition-new(root) {
+		animation: brand-page-in 220ms ease-out both;
+		mix-blend-mode: normal;
+	}
+}
+
+@keyframes brand-page-out { to { opacity: 0; } }
+@keyframes brand-page-in { from { opacity: 0; } }
+
+/* The three research questions share one visual path through Now. */
+[data-brand-motion] .now-threads { position: relative; }
+[data-brand-motion] .now-threads::before {
+	content: ""; position: absolute; top: 26px; bottom: 28px; left: 10px;
+	width: 1px; background: var(--brand-line); transform-origin: top;
+}
+[data-brand-motion] .now-thread-number {
+	position: relative; display: grid; place-items: center; align-self: start;
+	width: 22px; height: 22px; padding: 0; border-radius: 50%;
+	background: var(--brand-surface); border: 1px solid var(--brand-line);
+}
+@media (prefers-reduced-motion: no-preference) {
+	[data-brand-motion] .threads-revealed::before { animation: brand-thread-in 900ms var(--motion-ease) both; }
+}
+@keyframes brand-thread-in { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+[data-brand-motion] .filters button {
+	transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+[data-brand-motion] .filters button[aria-pressed="true"] {
+	background: var(--brand-sage);
+	color: var(--brand-ink);
+}
+[data-brand-motion] .trail-card:hover { transform: none; }
+
+.note-results { margin: 14px 0; color: var(--brand-muted); font-size: 12px; }
+.note-empty { padding: 32px 0 48px; color: var(--brand-body); }
+.note-empty[hidden] { display: none; }
+.note-empty button {
+	margin-top: 12px; padding: 10px 16px; border: 1px solid var(--brand-line);
+	border-radius: 24px; background: var(--brand-peach); color: var(--brand-ink); cursor: pointer;
+}
+
+[data-brand-motion] [data-motion-hover] {
+	transition: background-color var(--motion-feedback),
+		border-color var(--motion-feedback),
+		translate var(--motion-feedback) var(--motion-ease);
+}
+
+[data-brand-motion] :is(.work-arrow, .note-arrow, .entry > b, .trail-card > b, .now-thread-main > b) {
+	display: inline-block;
+	transition: translate var(--motion-feedback) var(--motion-ease), color var(--motion-feedback);
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+	[data-brand-motion] [data-motion-hover]:hover {
+		translate: 0 -3px;
+	}
+
+	[data-brand-motion] :is(.work-card, .note-row, .entry, .trail-card, .now-thread-main):hover :is(.work-arrow, .note-arrow, b) {
+		translate: 3px -3px;
+	}
+}
+
+/* Hover feedback must not reflow titles or change line wrapping. */
+[data-brand-motion] .work-card:hover { padding-left: 20px; }
+[data-brand-motion] .work-card:hover .work-arrow { transform: none; }
+[data-brand-motion] .entry:hover { padding-left: 4px; }
+
+@media (max-width: 700px) {
+	[data-brand-motion] .work-card:hover { padding-left: 6px; }
+	[data-brand-motion] .entry:hover { padding-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	@view-transition { navigation: none; }
+	html[data-brand-theme]::view-transition-old(root),
+	html[data-brand-theme]::view-transition-new(root) { animation: none; }
+	html[data-brand-theme] { scroll-behavior: auto !important; }
+	html[data-brand-theme] *,
+	html[data-brand-theme] *::before,
+	html[data-brand-theme] *::after {
+		animation: none !important;
+		transition: none !important;
+	}
+	/* Legacy article entrances start transparent and rely on animation fill. */
+	html[data-brand-theme] .onload-animation {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+	[data-brand-motion] :is([data-motion-hover], .pill, .contact-button):hover {
+		transform: none;
+		translate: none;
+	}
+}

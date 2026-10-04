@@ -1,5 +1,6 @@
 ---
 title: Alpha Zero算法实现五子棋
+format: code-example
 description: 深度强化学习在游戏AI中的创新应用
 published: 2024-06-30T00:00:00.000Z
 tags:
@@ -188,6 +189,8 @@ def loss_fn(outputs, targets_pi, targets_v, l2=1e-4):
 - 在“算法可视化实验室”中嵌入五子棋对弈小部件，实时标注 MCTS 访问热度
 
 ## 8. 总结
+
+如果希望先拆开搜索过程，可以回到 [MCTS 算法深度解析](/posts/2024-08-20-mcts算法深度解析/)，或在 [MCTS 互动实验](/lab/mcts/) 中逐步观察选择、扩展、模拟与回传。再比较这里由策略先验和价值网络引导的搜索，两者获得反馈的方式有什么不同？
 
 本文给出 AlphaZero 在五子棋的最小可运行框架：策略-价值网络、PUCT MCTS、自对弈与训练。建议先在 9×9 上跑通闭环，再扩展更复杂的网络与更高模拟量，逐步达到稳定强力水平。
 

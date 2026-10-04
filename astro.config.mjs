@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
-import swup from "@swup/astro";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
@@ -91,34 +90,6 @@ export default defineConfig({
 	},
 
 	integrations: [
-		swup({
-			theme: false,
-			animationClass: "transition-swup-", // see https://swup.js.org/options/#animationselector
-			// the default value `transition-` cause transition delay
-			// when the Tailwind class `transition-all` is used
-			containers: [
-				"#banner-overlay-container",
-				"#banner-dim-container",
-				"#swup-container",
-				"#left-sidebar-dynamic",
-				"#right-sidebar-dynamic",
-				"#floating-toc-wrapper",
-			],
-			smoothScrolling: false,
-			cache: true,
-			preload: true,
-			accessibility: true,
-			updateHead: true,
-			updateBodyClass: false,
-			globalInstance: true,
-			// 滚动相关配置优化
-			resolveUrl: (url) => url,
-			animateHistoryBrowsing: false,
-			skipPopStateHandling: (event) => {
-				// 跳过锚点链接的处理，让浏览器原生处理
-				return event.state?.url?.includes("#");
-			},
-		}),
 		icon({
 			include: {
 				"material-symbols": ["*"],
@@ -320,4 +291,3 @@ export default defineConfig({
 		},
 	},
 });
-

@@ -1,0 +1,10 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import MctsPlayground from "@/components/features/MctsPlayground.svelte";
+---
+<ExploreLayout title="MCTS 互动实验" titleEn="MCTS playground" description="逐步观察蒙特卡洛树搜索，比较搜索预算与探索权重对决策的影响。" descriptionEn="Step through Monte Carlo tree search and explore how budget and exploration affect decisions.">
+	<header class="explore-hero"><p class="explore-kicker">LAB 01 / MONTE CARLO TREE SEARCH</p><Text as="h1" zh="一棵树，怎样学会选择？" en="How does a tree learn to choose?" /><Text as="p" class="explore-lead" zh="A、B、C 三条路，有限的尝试次数。是继续走看起来不错的路，还是看看别处藏着什么？一步步观察搜索怎样把反馈变成下一次选择。" en="Three paths—A, B, and C—and a limited number of trials. Follow a promising path, or explore what lies elsewhere? Step through the search as feedback shapes the next choice." /></header>
+	<MctsPlayground client:load /><noscript><p>请启用 JavaScript 操作实验，或阅读下方的方法笔记。 / Enable JavaScript to use the experiment, or follow the reading path below.</p></noscript>
+	<section class="explore-section" style="margin-top:40px"><Text as="h2" zh="搜索之后，怎样开始学习？" en="What comes after search?" /><Text as="p" class="explore-body" zh="这个实验更新的是搜索树上的统计量。沿着 AlphaZero 的阅读路线，可以进一步理解搜索结果怎样成为训练信号，以及模型更新怎样影响下一轮搜索。" en="This experiment updates statistics in a search tree. Continue through the AlphaZero reading path to see how search results become training signals and how updated models affect the next search." /><a class="explore-link" href="/paths/search-to-self-play/"><Text zh="从搜索到自我对弈" en="From search to self-play" /> ↗</a></section>
+</ExploreLayout>

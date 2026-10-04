@@ -1,9 +1,10 @@
 ---
-import { Icon } from "astro-icon/components";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
-import { siteConfig } from "@/config/siteConfig";
+import { Icon } from "astro-icon/components";
 import { profileConfig } from "@/config/profileConfig";
+import { siteConfig } from "@/config/siteConfig";
+import { brandTranslations } from "@/i18n/brand";
 
 interface Props {
 	title: string;
@@ -36,7 +37,11 @@ const bibtexEntry = `@article{${slug},
         <Icon is:inline name="material-symbols:format-quote" class="text-lg" />
       </div>
       <h3 class="text-base font-semibold text-black/80 dark:text-white/80">
-        {i18n(I18nKey.citationTitle)}
+        <span
+          data-i18n="post.citationTitle"
+          data-i18n-zh={brandTranslations["zh-CN"]["post.citationTitle"]}
+          data-i18n-en={brandTranslations.en["post.citationTitle"]}
+        >{i18n(I18nKey.citationTitle)}</span>
       </h3>
     </div>
     <button
@@ -47,7 +52,12 @@ const bibtexEntry = `@article{${slug},
       data-copied-text={i18n(I18nKey.citationCopied)}
     >
       <Icon is:inline name="material-symbols:content-copy-outline" class="text-base" />
-      <span id="bibtex-copy-text">{i18n(I18nKey.citationCopy)}</span>
+      <span
+        id="bibtex-copy-text"
+        data-i18n="post.copyCitation"
+        data-i18n-zh={brandTranslations["zh-CN"]["post.copyCitation"]}
+        data-i18n-en={brandTranslations.en["post.copyCitation"]}
+      >{i18n(I18nKey.citationCopy)}</span>
     </button>
   </div>
   <pre class="text-xs text-black/60 dark:text-white/60 bg-black/[0.03] dark:bg-white/[0.03]

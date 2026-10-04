@@ -1,0 +1,84 @@
+---
+import ResearchVisual from "@/components/features/ResearchVisual.astro";
+import Navbar from "@/components/layout/Navbar.astro";
+import { caseStudies } from "@/data/caseStudies";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { getSortedPosts } from "@/utils/content-utils";
+
+type Study = (typeof caseStudies)[number];
+interface Props {
+	study: Study;
+}
+
+const posts = await getSortedPosts();
+const englishPosts = await getCollection("enPosts");
+const normalize = (value: string) =>
+	value.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+
+export function getStaticPaths() {
+	return caseStudies.map((study) => ({ params: { slug: study.slug }, props: { study } }));
+}
+
+const { study } = Astro.props as Props;
+const post = posts.find((entry) => normalize(entry.id).includes(normalize(study.match)));
+if (!post) throw new Error(`Source article not found for case study: ${study.slug}`);
+const sourceHref = `/posts/${post.id.replace(/\.mdx?$/, "")}/`;
+const translation = englishPosts.find(
+	(entry) => normalize(entry.data.sourceId) === normalize(post.id.replace(/\.mdx?$/, "")),
+);
+const visualKind = study.slug === "local-1b-model-workflow" ? "model" : study.slug === "alphazero-gomoku" ? "search" : study.slug === "ylearn-causal-inference" ? "causal" : null;
+const sourceHrefEn = translation ? `/en/posts/${translation.data.slug}/` : sourceHref;
+---
+
+<Layout
+	title={`${study.title} — Research Case`}
+	titleEn={`${study.titleEn} — Research Case`}
+	description={study.dek}
+	descriptionEn={study.dekEn}
+	shareImage={visualKind ? `/assets/images/brand/research-${visualKind}.png` : undefined}
+>
+	<div class="case-page" data-brand-motion>
+		<Navbar />
+		<header class="case-hero">
+			<a class="back-link" href="/work/" data-i18n-href-zh="/work/" data-i18n-href-en="/work/"><span data-i18n="case.back" data-i18n-zh="← 返回研究档案" data-i18n-en="← Back to research">← 返回研究档案</span></a>
+			<p class="eyebrow" data-motion-intro>RSI / AGI <span>·</span> CASE NOTE <span>·</span> {visualKind === "model" ? "SMALL MODEL / FULL PIPELINE" : study.slug.toUpperCase()}</p>
+			<h1 data-motion-intro data-i18n={`case.${study.slug}.title`} data-i18n-zh={study.title} data-i18n-en={study.titleEn}>{study.title}</h1>
+			<p class="dek" data-motion-intro data-i18n={`case.${study.slug}.dek`} data-i18n-zh={study.dek} data-i18n-en={study.dekEn}>{study.dek}</p>
+			<div class="case-question" data-motion-reveal><span data-i18n="case.question.label" data-i18n-zh="THE QUESTION" data-i18n-en="THE QUESTION">THE QUESTION</span><p data-i18n={`case.${study.slug}.question`} data-i18n-zh={study.question} data-i18n-en={study.questionEn}>{study.question}</p></div>
+			{visualKind && <div class="case-visual"><ResearchVisual kind={visualKind} /></div>}
+			<div class="hero-index">QUESTION<br/>METHOD<br/>NEXT STEP</div>
+		</header>
+		<main id="swup-container">
+			<section class="section intro-section">
+				<div class="section-label"><span>01 / ORIGIN</span><span data-i18n="case.scope.label" data-i18n-zh="问题起点" data-i18n-en="WHERE IT STARTED">问题起点</span></div>
+				<div class="section-grid"><h2 data-i18n="case.scope.heading" data-i18n-html="true" data-i18n-zh="从一个问题开始。<br/><em>再把它变成可以动手的实验。</em>" data-i18n-en="Start with a question.<br/><em>Turn it into an experiment.</em>">从一个问题开始。<br/><em>再把它变成可以动手的实验。</em></h2><div class="copy"><p class="claim" data-i18n={`case.${study.slug}.claim`} data-i18n-zh={study.claim} data-i18n-en={study.claimEn}>{study.claim}</p><p class="subtle" data-i18n="case.scope.note" data-i18n-zh="这里整理这项研究的出发点、实现路径、当前观察，以及下一步准备回答的问题。" data-i18n-en="This note follows the question, implementation path, current observations, and the next questions to answer.">这里整理这项研究的出发点、实现路径、当前观察，以及下一步准备回答的问题。</p></div></div>
+			</section>
+			<section class="section approach-section">
+				<div class="section-label"><span>02 / APPROACH</span><span data-i18n="case.approach.label" data-i18n-zh="实现路径" data-i18n-en="IMPLEMENTATION PATH">实现路径</span></div>
+				<div class="approach-list">{study.approach.map((step: Study["approach"][number], index: number) => <article class="approach-step"><span class="step-number">0{index + 1}</span><div><h3 data-i18n={`case.${study.slug}.approach.${index}.title`} data-i18n-zh={step.title} data-i18n-en={step.titleEn}>{step.title}</h3><p data-i18n={`case.${study.slug}.approach.${index}.body`} data-i18n-zh={step.body} data-i18n-en={step.bodyEn}>{step.body}</p></div><span class="step-mark">↘</span></article>)}</div>
+			</section>
+			<section class="section outcome-section">
+				<div class="section-label"><span>03 / OBSERVATIONS & NEXT STEP</span><span data-i18n="case.result.label" data-i18n-zh="观察与下一步" data-i18n-en="OBSERVATIONS & NEXT STEP">观察与下一步</span></div>
+				<div class="result-panel"><span class="result-marker">→</span><div><h2 data-i18n="case.result.heading" data-i18n-zh="已经走到这里，下一步继续验证。" data-i18n-en="This is where the work stands—and where it goes next.">已经走到这里，下一步继续验证。</h2><p data-i18n={`case.${study.slug}.result`} data-i18n-zh={study.result} data-i18n-en={study.resultEn}>{study.result}</p></div></div>
+			</section>
+			<section class="section rsi-section">
+				<div class="section-label"><span>04 / THE RSI CONNECTION</span><span>RSI → AGI</span></div>
+				<div class="section-grid"><h2 data-i18n="case.rsi.heading" data-i18n-html="true" data-i18n-zh="它如何连接到<br/><em>更大的问题？</em>" data-i18n-en="How does this connect to<br/><em>the larger question?</em>">它如何连接到<br/><em>更大的问题？</em></h2><div class="copy"><p data-i18n={`case.${study.slug}.rsi`} data-i18n-zh={study.rsi} data-i18n-en={study.rsiEn}>{study.rsi}</p><div class="boundaries"><span data-i18n="case.boundaries.label" data-i18n-zh="接下来要回答的问题" data-i18n-en="QUESTIONS TO ANSWER NEXT">接下来要回答的问题</span><ul>{study.boundaries.map((line: Study["boundaries"][number], index: number) => <li data-i18n={`case.${study.slug}.boundary.${index}`} data-i18n-zh={line} data-i18n-en={study.boundariesEn[index]}>{line}</li>)}</ul></div></div></div>
+			</section>
+			<section class="source-section">
+				<div><span class="source-label" data-i18n="case.source.label" data-i18n-zh="继续阅读原始记录" data-i18n-en="READ THE SOURCE NOTE">继续阅读原始记录</span><h2 data-i18n="case.source.title" data-i18n-zh={post.data.title} data-i18n-en={translation?.data.title ?? post.data.title}>{post.data.title}</h2></div>
+				<a href={sourceHref} data-i18n-href-zh={sourceHref} data-i18n-href-en={sourceHrefEn}><span data-i18n="case.source.open" data-i18n-zh="打开文章" data-i18n-en="OPEN ARTICLE">打开文章</span> <b>↗</b></a>
+			</section>
+			{study.slug === "local-1b-model-workflow" && <section class="source-section"><div><span class="source-label" data-i18n="case.pipeline.label" data-i18n-zh="全链路互动导读" data-i18n-en="INTERACTIVE TRAINING GUIDE">全链路互动导读</span><h2 data-i18n="case.pipeline.title" data-i18n-zh="从数据走到部署，每一步留下什么？" data-i18n-en="From data to deployment: what does each stage produce?">从数据走到部署，每一步留下什么？</h2></div><a href="/lab/model-pipeline/"><span data-i18n="case.pipeline.open" data-i18n-zh="探索训练链路" data-i18n-en="EXPLORE THE PIPELINE">探索训练链路</span><b>↗</b></a></section>}
+			{study.slug === "alphazero-gomoku" && <section class="source-section"><div><span class="source-label">MCTS / UCT</span><h2 data-i18n="case.search.title" data-i18n-zh="跟随一次搜索，观察选择与回传。" data-i18n-en="Follow a search through selection and backup.">跟随一次搜索，观察选择与回传。</h2></div><a href="/lab/mcts/"><span data-i18n="case.search.open" data-i18n-zh="动手搜索" data-i18n-en="TRY A SEARCH">动手搜索</span><b>↗</b></a></section>}
+			{study.slug === "ylearn-causal-inference" && <section class="source-section"><div><span class="source-label" data-i18n="case.lab.label" data-i18n-zh="一分钟互动实验" data-i18n-en="A ONE-MINUTE EXPERIMENT">一分钟互动实验</span><h2 data-i18n="case.lab.title" data-i18n-zh="换一种发券方式，结论会怎样？" data-i18n-en="Change who gets the coupon. What happens?">换一种发券方式，结论会怎样？</h2></div><a href="/lab/causal-playground/"><span data-i18n="case.lab.open" data-i18n-zh="动手试试" data-i18n-en="TRY IT">动手试试</span><b>↗</b></a></section>}
+		</main>
+		<footer class="case-footer"><span>RECURSIVE SELF-IMPROVEMENT · AGI</span><a href="/contact/"><span data-i18n="case.footer.contact" data-i18n-zh="有好的问题？来聊聊" data-i18n-en="Have a good question? Let's talk">有好的问题？来聊聊</span> ↗</a></footer>
+	</div>
+	<style>
+		.case-visual{max-width:480px;margin:32px 0 0}.case-visual :global(.research-visual){background:var(--brand-surface)}
+
+		:global(html){background:var(--brand-paper);scroll-behavior:smooth}:global(body){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink)!important;font-family:Inter,"Helvetica Neue",Arial,sans-serif}.case-page{min-height:100vh;background:var(--brand-paper);color:var(--brand-ink)}.case-hero{position:relative;min-height:590px;padding:55px 11vw 75px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid rgba(37,60,52,.13);background:radial-gradient(ellipse at 82% 46%,rgba(129,151,86,.13),transparent 36%)}.back-link{align-self:flex-start;margin-bottom:47px;color:var(--brand-accent);text-decoration:none;font:9px "JetBrains Mono",monospace;letter-spacing:.1em}.eyebrow,.section-label,.hero-index,.case-footer,.source-label,.boundaries>span{font:9px/1.7 "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.eyebrow span{color:var(--brand-accent);margin:0 8px}.case-hero h1{max-width:930px;font-size:clamp(48px,8vw,102px);line-height:1.06;letter-spacing:-.075em;font-weight:450;margin:24px 0}.dek{max-width:630px;color:var(--brand-body);font-size:14px;line-height:2}.case-question{display:grid;grid-template-columns:145px 1fr;gap:18px;max-width:670px;margin-top:30px;padding-top:15px;border-top:1px solid rgba(37,60,52,.15)}.case-question>span{font:8px "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--brand-accent);padding-top:4px}.case-question p{margin:0;color:var(--brand-body);font-size:13px;line-height:1.8}.hero-index{position:absolute;right:11vw;bottom:44px;text-align:right;font-size:8px;color:var(--brand-muted)}.section{padding:55px 11vw 63px;border-bottom:1px solid rgba(37,60,52,.13)}.section-label{display:flex;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid rgba(37,60,52,.13)}.section-label span:first-child{color:var(--brand-accent)}.section-grid{display:grid;grid-template-columns:1fr .82fr;gap:8vw;padding-top:44px}.section h2{font-size:clamp(32px,4.5vw,57px);line-height:1.2;letter-spacing:-.06em;font-weight:450;margin:0}.section h2 em{font:italic 400 .85em/1.3 Georgia,"Songti SC",serif;color:var(--brand-accent)}.copy{max-width:530px}.copy p,.approach-step p,.result-panel p,.boundaries li{font-size:12px;line-height:2;color:var(--brand-body)}.copy .claim{color:var(--brand-body);font-size:14px}.subtle{margin-top:22px;padding-left:13px;border-left:1px solid rgba(65,99,79,.4);color:var(--brand-muted)!important;font-size:10px!important}.approach-list{padding-top:10px}.approach-step{display:grid;grid-template-columns:50px 1fr 25px;gap:16px;padding:24px 0;border-bottom:1px solid rgba(37,60,52,.1)}.step-number{font:10px "JetBrains Mono",monospace;color:var(--brand-accent);padding-top:4px}.approach-step h3{font-size:18px;font-weight:450;margin:0 0 8px}.approach-step p{max-width:740px;margin:0}.step-mark{color:var(--brand-muted);justify-self:end}.outcome-section{background:var(--brand-surface)}.result-panel{display:grid;grid-template-columns:44px 1fr;gap:15px;max-width:870px;padding:28px 0 8px}.result-marker{width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(65,99,79,.42);border-radius:50%;color:var(--brand-accent);font:13px Georgia}.result-panel h2{font-size:clamp(22px,3vw,34px)}.result-panel p{max-width:760px;margin:14px 0}.rsi-section .copy>p{font-size:14px;color:var(--brand-body)}.boundaries{margin-top:28px;padding-top:17px;border-top:1px solid rgba(37,60,52,.12)}.boundaries>span{color:var(--brand-accent);font-size:8px}.boundaries ul{padding-left:17px;margin:10px 0 0}.boundaries li{padding:4px 0;font-size:10px}.source-section{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:35px 11vw;background:var(--brand-peach);color:var(--brand-ink)}.source-label{color:rgba(37,60,52,.63);font-size:8px}.source-section h2{font-size:20px;font-weight:500;margin:8px 0 0}.source-section>a{flex:none;color:var(--brand-ink);text-decoration:none;border-bottom:1px solid rgba(37,60,52,.4);padding:10px 0;font-size:11px}.source-section b{margin-left:20px;font-size:15px;font-weight:400}.case-footer{padding:24px 11vw;display:flex;justify-content:space-between}.case-footer a{font:10px Inter,sans-serif;color:var(--brand-accent);text-decoration:none}@media(max-width:700px){.case-hero{min-height:600px;padding:35px 8vw 65px}.back-link{margin-bottom:38px}.case-hero h1{font-size:clamp(43px,12vw,70px);margin:20px 0}.dek{font-size:12px}.case-question{grid-template-columns:1fr;gap:7px}.hero-index{right:8vw;bottom:26px;font-size:7px}.section{padding:42px 8vw 48px}.section-grid{grid-template-columns:1fr;gap:19px;padding-top:31px}.section h2{font-size:37px}.copy .claim,.rsi-section .copy>p{font-size:12px}.approach-step{grid-template-columns:32px 1fr 16px;gap:10px;padding:20px 0}.approach-step h3{font-size:16px}.approach-step p{font-size:11px}.result-panel{grid-template-columns:31px 1fr;gap:12px;padding-top:24px}.result-marker{width:25px;height:25px}.result-panel h2{font-size:23px}.result-panel p{font-size:11px}.source-section{align-items:flex-start;flex-direction:column;padding:28px 8vw}.source-section h2{font-size:18px}.case-footer{padding:21px 8vw;font-size:7px}.case-footer a{font-size:9px}}
+	</style>
+</Layout>

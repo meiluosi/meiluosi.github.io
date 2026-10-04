@@ -1,0 +1,4 @@
+# Versions in the actual Mac MPS smoke environment (Python 3.10.18).
+# For another platform prefer pyproject.toml constraints and a matching PyTorch wheel.
+torch==2.14.0
+tokenizers==0.22.1

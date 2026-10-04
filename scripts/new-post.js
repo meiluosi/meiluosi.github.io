@@ -49,6 +49,7 @@ description: ''
 image: ''
 tags: []
 category: ''
+format: technical
 draft: false 
 lang: ''
 ---

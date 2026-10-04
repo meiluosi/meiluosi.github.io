@@ -1,0 +1,32 @@
+{
+  "name": "scratch-30m",
+  "status": "planned-default",
+  "initialization": "random",
+  "backend": "pytorch-auto",
+  "architecture": {
+    "kind": "gpt-decoder",
+    "layers": 8,
+    "hidden_size": 512,
+    "attention_heads": 8,
+    "vocab_size": 8192,
+    "context_length": 512,
+    "position_embedding": "learned",
+    "mlp_expansion": 4,
+    "activation": "gelu",
+    "linear_bias": true,
+    "layer_norm_affine": true,
+    "layer_norms_per_block": 2,
+    "final_layer_norm": true,
+    "tied_embeddings": true,
+    "lm_head_bias": false
+  },
+  "pretraining": {
+    "pilot_tokens": 1000000,
+    "token_budget": 100000000,
+    "micro_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "optimizer": "adamw",
+    "dtype_baseline": "float32",
+    "notes": "Planning inputs only. Throughput and model quality have not been measured. CLI --steps is explicit; token_budget is a planning estimate, not an automatic job."
+  }
+}

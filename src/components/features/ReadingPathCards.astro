@@ -1,0 +1,5 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+import { readingPaths } from "@/data/readingPaths";
+---
+<div class="explore-grid">{readingPaths.map((path) => <article class="explore-card"><span class="explore-kicker">PATH {path.number} / {path.steps.length} <Text zh="篇笔记" en="NOTES" /></span><Text as="h3" zh={path.title} en={path.titleEn} /><Text as="p" zh={path.question} en={path.questionEn} /><a class="explore-link" href={`/paths/${path.slug}/`}><Text zh="沿这条路线读" en="Follow this path" /> ↗</a></article>)}</div>

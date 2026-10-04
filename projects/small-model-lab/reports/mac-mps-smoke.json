@@ -1,0 +1,693 @@
+{
+  "schema_version": 1,
+  "kind": "actual-engineering-smoke",
+  "scope": "Synthetic, tiny, brief; no capability or sustained-throughput claim",
+  "stages": [
+    {
+      "schema_version": 1,
+      "kind": "actual-training-run",
+      "run_id": "pretrain",
+      "started_utc": "2026-10-04T07:09:29.813910+00:00",
+      "stage": "pretrain",
+      "initialization": "random",
+      "purpose": "Engineering baseline; not a model capability benchmark",
+      "hardware": {
+        "platform": "macOS-26.2-arm64-arm-64bit",
+        "machine": "arm64",
+        "python": "3.10.18",
+        "torch": "2.14.0",
+        "chip": "Apple M4",
+        "model": "Mac16,12",
+        "memory_bytes": "17179869184",
+        "mps_built": true,
+        "mps_available": true,
+        "cuda_available": false,
+        "free_disk_bytes": 40620408832
+      },
+      "backend": "mps",
+      "parameters": 138560,
+      "architecture": {
+        "kind": "gpt-decoder",
+        "layers": 2,
+        "hidden_size": 64,
+        "attention_heads": 4,
+        "vocab_size": 473,
+        "context_length": 128,
+        "position_embedding": "learned",
+        "mlp_expansion": 4,
+        "activation": "gelu",
+        "linear_bias": true,
+        "layer_norm_affine": true,
+        "layer_norms_per_block": 2,
+        "final_layer_norm": true,
+        "tied_embeddings": true,
+        "lm_head_bias": false
+      },
+      "source_sha256": "5fd2921ba60b08a68d10ac147ad7c1797fa36060561120c75c922c510b9542bf",
+      "config_sha256": "76574b4509e68a5c4565a2895c637478d56a58672270ee02203a611f881f9828",
+      "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+      "data": {
+        "prepared_manifest_sha256": "dbc6e41bd17d2a69d69c115f2b968e3cabddc0490c6d8be39699273ea89b035d",
+        "post_data_sha256": null,
+        "related_post_sha256": [
+          "7615a389b8aa6cb6ae8be17da9544ee5f27d68c1badca91fa38c4cabd7c56a55",
+          "c208e07ab757624e5ca8970f63cb1767ae9ec4108aa5c751139a680dceffb0ff"
+        ]
+      },
+      "isolation_audit": {
+        "post_files_checked": 2,
+        "method": "Whitespace-normalized exact prompt/pair and whole-document matches",
+        "remaining": [
+          "near duplicates",
+          "semantic overlap",
+          "external benchmark contamination",
+          "unlisted files"
+        ]
+      },
+      "parent_checkpoint_sha256": null,
+      "resume_checkpoint_sha256": null,
+      "training_options": {
+        "lr": 0.0005,
+        "batch": 1,
+        "accumulation": 1,
+        "beta": 0.1,
+        "seed": 42,
+        "threads": 2,
+        "dtype": "float32",
+        "scheduler": "constant"
+      },
+      "start_step": 0,
+      "end_step": 12,
+      "processed_tokens_this_invocation": 716,
+      "processed_tokens_cumulative": 716,
+      "loss_tokens_cumulative": 716,
+      "training_wall_seconds": 2.0191124179400504,
+      "loop_seconds_including_periodic_checkpoint_io": 2.0196063749608584,
+      "tokens_per_second_including_warmup": 354.61126068972493,
+      "warmup_steps_excluded": 3,
+      "tokens_per_second_after_warmup": 744.9438758117764,
+      "timing_scope": "Synchronized optimizer loop only; excludes data/tokenizer, initialization, evaluation and checkpoint writes. DPO tokens count policy inputs once; frozen reference compute is included in elapsed time.",
+      "memory": {
+        "process_lifetime_peak_rss_bytes": 540426240,
+        "cuda_peak_allocated_bytes": null,
+        "mps_sampled_max_allocated_bytes": 2218752,
+        "mps_true_peak_bytes": null,
+        "note": "RSS is process lifetime high-water, not isolated stage peak; MPS samples after updates can miss transient peaks. Unified-memory totals must not sum overlapping metrics."
+      },
+      "checkpoint_bytes": 1717379,
+      "checkpoint_sha256": "eca74a5877b7e12280652c0d97b86059816b2288ee4ac4a540ac02f27faf9992",
+      "history": [
+        {
+          "step": 1,
+          "loss": 6.166094779968262,
+          "processed_tokens": 78,
+          "loss_tokens": 78,
+          "seconds": 1.0016660840483382
+        },
+        {
+          "step": 2,
+          "loss": 6.17236852645874,
+          "processed_tokens": 41,
+          "loss_tokens": 41,
+          "seconds": 0.1336180840153247
+        },
+        {
+          "step": 3,
+          "loss": 6.164309978485107,
+          "processed_tokens": 35,
+          "loss_tokens": 35,
+          "seconds": 0.12940899998648092
+        },
+        {
+          "step": 4,
+          "loss": 6.1402740478515625,
+          "processed_tokens": 81,
+          "loss_tokens": 81,
+          "seconds": 0.14089441701071337
+        },
+        {
+          "step": 5,
+          "loss": 6.209547519683838,
+          "processed_tokens": 48,
+          "loss_tokens": 48,
+          "seconds": 0.13814570795511827
+        },
+        {
+          "step": 6,
+          "loss": 6.158815383911133,
+          "processed_tokens": 50,
+          "loss_tokens": 50,
+          "seconds": 0.1424535419791937
+        },
+        {
+          "step": 7,
+          "loss": 6.096236705780029,
+          "processed_tokens": 50,
+          "loss_tokens": 50,
+          "seconds": 0.02463891595834866
+        },
+        {
+          "step": 8,
+          "loss": 6.113730430603027,
+          "processed_tokens": 52,
+          "loss_tokens": 52,
+          "seconds": 0.14910874998895451
+        },
+        {
+          "step": 9,
+          "loss": 5.941038131713867,
+          "processed_tokens": 81,
+          "loss_tokens": 81,
+          "seconds": 0.03943000000435859
+        },
+        {
+          "step": 10,
+          "loss": 5.830508232116699,
+          "processed_tokens": 41,
+          "loss_tokens": 41,
+          "seconds": 0.039637416950426996
+        },
+        {
+          "step": 11,
+          "loss": 5.765067100524902,
+          "processed_tokens": 78,
+          "loss_tokens": 78,
+          "seconds": 0.042446875013411045
+        },
+        {
+          "step": 12,
+          "loss": 5.834079265594482,
+          "processed_tokens": 81,
+          "loss_tokens": 81,
+          "seconds": 0.037663625029381365
+        }
+      ],
+      "capability_benchmark": null
+    },
+    {
+      "schema_version": 1,
+      "kind": "actual-training-run",
+      "run_id": "sft",
+      "started_utc": "2026-10-04T07:09:32.183088+00:00",
+      "stage": "sft",
+      "initialization": "checkpoint",
+      "purpose": "Engineering baseline; not a model capability benchmark",
+      "hardware": {
+        "platform": "macOS-26.2-arm64-arm-64bit",
+        "machine": "arm64",
+        "python": "3.10.18",
+        "torch": "2.14.0",
+        "chip": "Apple M4",
+        "model": "Mac16,12",
+        "memory_bytes": "17179869184",
+        "mps_built": true,
+        "mps_available": true,
+        "cuda_available": false,
+        "free_disk_bytes": 40618250240
+      },
+      "backend": "mps",
+      "parameters": 138560,
+      "architecture": {
+        "kind": "gpt-decoder",
+        "layers": 2,
+        "hidden_size": 64,
+        "attention_heads": 4,
+        "vocab_size": 473,
+        "context_length": 128,
+        "position_embedding": "learned",
+        "mlp_expansion": 4,
+        "activation": "gelu",
+        "linear_bias": true,
+        "layer_norm_affine": true,
+        "layer_norms_per_block": 2,
+        "final_layer_norm": true,
+        "tied_embeddings": true,
+        "lm_head_bias": false
+      },
+      "source_sha256": "5fd2921ba60b08a68d10ac147ad7c1797fa36060561120c75c922c510b9542bf",
+      "config_sha256": "76574b4509e68a5c4565a2895c637478d56a58672270ee02203a611f881f9828",
+      "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+      "data": {
+        "prepared_manifest_sha256": "dbc6e41bd17d2a69d69c115f2b968e3cabddc0490c6d8be39699273ea89b035d",
+        "post_data_sha256": "7615a389b8aa6cb6ae8be17da9544ee5f27d68c1badca91fa38c4cabd7c56a55",
+        "related_post_sha256": [
+          "7615a389b8aa6cb6ae8be17da9544ee5f27d68c1badca91fa38c4cabd7c56a55",
+          "c208e07ab757624e5ca8970f63cb1767ae9ec4108aa5c751139a680dceffb0ff"
+        ]
+      },
+      "isolation_audit": {
+        "post_files_checked": 2,
+        "method": "Whitespace-normalized exact prompt/pair and whole-document matches",
+        "remaining": [
+          "near duplicates",
+          "semantic overlap",
+          "external benchmark contamination",
+          "unlisted files"
+        ]
+      },
+      "parent_checkpoint_sha256": "eca74a5877b7e12280652c0d97b86059816b2288ee4ac4a540ac02f27faf9992",
+      "resume_checkpoint_sha256": null,
+      "training_options": {
+        "lr": 0.0005,
+        "batch": 1,
+        "accumulation": 1,
+        "beta": 0.1,
+        "seed": 42,
+        "threads": 2,
+        "dtype": "float32",
+        "scheduler": "constant"
+      },
+      "start_step": 0,
+      "end_step": 8,
+      "processed_tokens_this_invocation": 178,
+      "processed_tokens_cumulative": 178,
+      "loss_tokens_cumulative": 81,
+      "training_wall_seconds": 0.7491423760657199,
+      "loop_seconds_including_periodic_checkpoint_io": 0.7494440000155009,
+      "tokens_per_second_including_warmup": 237.6050343524882,
+      "warmup_steps_excluded": 3,
+      "tokens_per_second_after_warmup": 291.10149956353206,
+      "timing_scope": "Synchronized optimizer loop only; excludes data/tokenizer, initialization, evaluation and checkpoint writes. DPO tokens count policy inputs once; frozen reference compute is included in elapsed time.",
+      "memory": {
+        "process_lifetime_peak_rss_bytes": 602292224,
+        "cuda_peak_allocated_bytes": null,
+        "mps_sampled_max_allocated_bytes": 2218240,
+        "mps_true_peak_bytes": null,
+        "note": "RSS is process lifetime high-water, not isolated stage peak; MPS samples after updates can miss transient peaks. Unified-memory totals must not sum overlapping metrics."
+      },
+      "checkpoint_bytes": 1717507,
+      "checkpoint_sha256": "9cda4b6a48a61190e7200baf7b4ce9e158df79391ad4e961454d3de3eb4f7dae",
+      "history": [
+        {
+          "step": 1,
+          "loss": 6.045906066894531,
+          "processed_tokens": 23,
+          "loss_tokens": 12,
+          "seconds": 0.15788912499556318
+        },
+        {
+          "step": 2,
+          "loss": 6.008787631988525,
+          "processed_tokens": 19,
+          "loss_tokens": 10,
+          "seconds": 0.16144887497648597
+        },
+        {
+          "step": 3,
+          "loss": 5.844639778137207,
+          "processed_tokens": 19,
+          "loss_tokens": 10,
+          "seconds": 0.02788270899327472
+        },
+        {
+          "step": 4,
+          "loss": 5.66179084777832,
+          "processed_tokens": 23,
+          "loss_tokens": 12,
+          "seconds": 0.02515904203755781
+        },
+        {
+          "step": 5,
+          "loss": 6.005962371826172,
+          "processed_tokens": 34,
+          "loss_tokens": 19,
+          "seconds": 0.16039558401098475
+        },
+        {
+          "step": 6,
+          "loss": 5.901126861572266,
+          "processed_tokens": 20,
+          "loss_tokens": 6,
+          "seconds": 0.1624608330312185
+        },
+        {
+          "step": 7,
+          "loss": 5.786754608154297,
+          "processed_tokens": 20,
+          "loss_tokens": 6,
+          "seconds": 0.024916665977798402
+        },
+        {
+          "step": 8,
+          "loss": 5.641886234283447,
+          "processed_tokens": 20,
+          "loss_tokens": 6,
+          "seconds": 0.028989542042836547
+        }
+      ],
+      "capability_benchmark": null
+    },
+    {
+      "schema_version": 1,
+      "kind": "actual-training-run",
+      "run_id": "dpo",
+      "started_utc": "2026-10-04T07:09:33.243629+00:00",
+      "stage": "dpo",
+      "initialization": "checkpoint",
+      "purpose": "Engineering baseline; not a model capability benchmark",
+      "hardware": {
+        "platform": "macOS-26.2-arm64-arm-64bit",
+        "machine": "arm64",
+        "python": "3.10.18",
+        "torch": "2.14.0",
+        "chip": "Apple M4",
+        "model": "Mac16,12",
+        "memory_bytes": "17179869184",
+        "mps_built": true,
+        "mps_available": true,
+        "cuda_available": false,
+        "free_disk_bytes": 40615587840
+      },
+      "backend": "mps",
+      "parameters": 138560,
+      "architecture": {
+        "kind": "gpt-decoder",
+        "layers": 2,
+        "hidden_size": 64,
+        "attention_heads": 4,
+        "vocab_size": 473,
+        "context_length": 128,
+        "position_embedding": "learned",
+        "mlp_expansion": 4,
+        "activation": "gelu",
+        "linear_bias": true,
+        "layer_norm_affine": true,
+        "layer_norms_per_block": 2,
+        "final_layer_norm": true,
+        "tied_embeddings": true,
+        "lm_head_bias": false
+      },
+      "source_sha256": "5fd2921ba60b08a68d10ac147ad7c1797fa36060561120c75c922c510b9542bf",
+      "config_sha256": "76574b4509e68a5c4565a2895c637478d56a58672270ee02203a611f881f9828",
+      "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+      "data": {
+        "prepared_manifest_sha256": "dbc6e41bd17d2a69d69c115f2b968e3cabddc0490c6d8be39699273ea89b035d",
+        "post_data_sha256": "c208e07ab757624e5ca8970f63cb1767ae9ec4108aa5c751139a680dceffb0ff",
+        "related_post_sha256": [
+          "7615a389b8aa6cb6ae8be17da9544ee5f27d68c1badca91fa38c4cabd7c56a55",
+          "c208e07ab757624e5ca8970f63cb1767ae9ec4108aa5c751139a680dceffb0ff"
+        ]
+      },
+      "isolation_audit": {
+        "post_files_checked": 2,
+        "method": "Whitespace-normalized exact prompt/pair and whole-document matches",
+        "remaining": [
+          "near duplicates",
+          "semantic overlap",
+          "external benchmark contamination",
+          "unlisted files"
+        ]
+      },
+      "parent_checkpoint_sha256": "9cda4b6a48a61190e7200baf7b4ce9e158df79391ad4e961454d3de3eb4f7dae",
+      "resume_checkpoint_sha256": null,
+      "training_options": {
+        "lr": 0.0005,
+        "batch": 1,
+        "accumulation": 1,
+        "beta": 0.1,
+        "seed": 42,
+        "threads": 2,
+        "dtype": "float32",
+        "scheduler": "constant"
+      },
+      "start_step": 0,
+      "end_step": 8,
+      "processed_tokens_this_invocation": 427,
+      "processed_tokens_cumulative": 427,
+      "loss_tokens_cumulative": 233,
+      "training_wall_seconds": 0.8527222499833442,
+      "loop_seconds_including_periodic_checkpoint_io": 0.8530752919614315,
+      "tokens_per_second_including_warmup": 500.7492181754849,
+      "warmup_steps_excluded": 3,
+      "tokens_per_second_after_warmup": 615.2036603384329,
+      "timing_scope": "Synchronized optimizer loop only; excludes data/tokenizer, initialization, evaluation and checkpoint writes. DPO tokens count policy inputs once; frozen reference compute is included in elapsed time.",
+      "memory": {
+        "process_lifetime_peak_rss_bytes": 653737984,
+        "cuda_peak_allocated_bytes": null,
+        "mps_sampled_max_allocated_bytes": 2774016,
+        "mps_true_peak_bytes": null,
+        "note": "RSS is process lifetime high-water, not isolated stage peak; MPS samples after updates can miss transient peaks. Unified-memory totals must not sum overlapping metrics."
+      },
+      "checkpoint_bytes": 2280031,
+      "checkpoint_sha256": "41edf4af61a453a054ad0b54f4abba4bf6899ffa2e2fae8cb1100fb4a0ca8b17",
+      "history": [
+        {
+          "step": 1,
+          "loss": 0.6931471824645996,
+          "processed_tokens": 53,
+          "loss_tokens": 31,
+          "seconds": 0.18343774997629225
+        },
+        {
+          "step": 2,
+          "loss": 0.5367418527603149,
+          "processed_tokens": 47,
+          "loss_tokens": 29,
+          "seconds": 0.1696312500280328
+        },
+        {
+          "step": 3,
+          "loss": 0.3949000835418701,
+          "processed_tokens": 47,
+          "loss_tokens": 29,
+          "seconds": 0.044519416987895966
+        },
+        {
+          "step": 4,
+          "loss": 0.2776319682598114,
+          "processed_tokens": 53,
+          "loss_tokens": 31,
+          "seconds": 0.06589766702381894
+        },
+        {
+          "step": 5,
+          "loss": 0.4187433123588562,
+          "processed_tokens": 68,
+          "loss_tokens": 38,
+          "seconds": 0.07161954103503376
+        },
+        {
+          "step": 6,
+          "loss": 0.3041285574436188,
+          "processed_tokens": 53,
+          "loss_tokens": 25,
+          "seconds": 0.22750137496041134
+        },
+        {
+          "step": 7,
+          "loss": 0.2501566708087921,
+          "processed_tokens": 53,
+          "loss_tokens": 25,
+          "seconds": 0.0446562499855645
+        },
+        {
+          "step": 8,
+          "loss": 0.20028629899024963,
+          "processed_tokens": 53,
+          "loss_tokens": 25,
+          "seconds": 0.04545899998629466
+        }
+      ],
+      "capability_benchmark": null
+    }
+  ],
+  "evaluations": [
+    {
+      "kind": "held-out-language-model-evaluation",
+      "stage": "pretrain",
+      "split": "test",
+      "checkpoint_sha256": "eca74a5877b7e12280652c0d97b86059816b2288ee4ac4a540ac02f27faf9992",
+      "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+      "dataset_sha256": "18852087c342b3b5810a607fbbb9fb60deb2f4c34223f45353900103fa7bf8bb",
+      "supervised_tokens": 62,
+      "mean_next_token_nll": 6.089676380157471,
+      "perplexity": 441.2785815309019,
+      "scope": "Tiny held-out synthetic fixtures; pipeline sanity only, not useful language ability or RSI evidence."
+    },
+    {
+      "kind": "held-out-language-model-evaluation",
+      "stage": "sft",
+      "split": "test",
+      "checkpoint_sha256": "9cda4b6a48a61190e7200baf7b4ce9e158df79391ad4e961454d3de3eb4f7dae",
+      "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+      "dataset_sha256": "18852087c342b3b5810a607fbbb9fb60deb2f4c34223f45353900103fa7bf8bb",
+      "supervised_tokens": 62,
+      "mean_next_token_nll": 5.9592204093933105,
+      "perplexity": 387.3080647825252,
+      "scope": "Tiny held-out synthetic fixtures; pipeline sanity only, not useful language ability or RSI evidence.",
+      "post_training": {
+        "kind": "sft",
+        "dataset_sha256": "7615a389b8aa6cb6ae8be17da9544ee5f27d68c1badca91fa38c4cabd7c56a55",
+        "examples": [
+          {
+            "id": "sft-07",
+            "completion_nll": 6.045403957366943,
+            "completion_tokens": 10
+          }
+        ],
+        "note": "Raw DPO log-probability sums favor short answers; no reward-model or general capability claim."
+      }
+    },
+    {
+      "kind": "held-out-language-model-evaluation",
+      "stage": "dpo",
+      "split": "test",
+      "checkpoint_sha256": "41edf4af61a453a054ad0b54f4abba4bf6899ffa2e2fae8cb1100fb4a0ca8b17",
+      "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+      "dataset_sha256": "18852087c342b3b5810a607fbbb9fb60deb2f4c34223f45353900103fa7bf8bb",
+      "supervised_tokens": 62,
+      "mean_next_token_nll": 6.097386360168457,
+      "perplexity": 444.6939799820059,
+      "scope": "Tiny held-out synthetic fixtures; pipeline sanity only, not useful language ability or RSI evidence.",
+      "post_training": {
+        "kind": "dpo",
+        "dataset_sha256": "c208e07ab757624e5ca8970f63cb1767ae9ec4108aa5c751139a680dceffb0ff",
+        "examples": [
+          {
+            "id": "dpo-07",
+            "chosen_minus_rejected_logp_sum": 64.94210052490234,
+            "chosen_tokens": 10,
+            "rejected_tokens": 19
+          }
+        ],
+        "note": "Raw DPO log-probability sums favor short answers; no reward-model or general capability claim."
+      }
+    }
+  ],
+  "resume": {
+    "schema_version": 1,
+    "kind": "actual-training-run",
+    "run_id": "resumed",
+    "started_utc": "2026-10-04T07:09:34.421633+00:00",
+    "stage": "pretrain",
+    "initialization": "checkpoint",
+    "purpose": "Engineering baseline; not a model capability benchmark",
+    "hardware": {
+      "platform": "macOS-26.2-arm64-arm-64bit",
+      "machine": "arm64",
+      "python": "3.10.18",
+      "torch": "2.14.0",
+      "chip": "Apple M4",
+      "model": "Mac16,12",
+      "memory_bytes": "17179869184",
+      "mps_built": true,
+      "mps_available": true,
+      "cuda_available": false,
+      "free_disk_bytes": 40613724160
+    },
+    "backend": "mps",
+    "parameters": 138560,
+    "architecture": {
+      "kind": "gpt-decoder",
+      "layers": 2,
+      "hidden_size": 64,
+      "attention_heads": 4,
+      "vocab_size": 473,
+      "context_length": 128,
+      "position_embedding": "learned",
+      "mlp_expansion": 4,
+      "activation": "gelu",
+      "linear_bias": true,
+      "layer_norm_affine": true,
+      "layer_norms_per_block": 2,
+      "final_layer_norm": true,
+      "tied_embeddings": true,
+      "lm_head_bias": false
+    },
+    "source_sha256": "5fd2921ba60b08a68d10ac147ad7c1797fa36060561120c75c922c510b9542bf",
+    "config_sha256": "76574b4509e68a5c4565a2895c637478d56a58672270ee02203a611f881f9828",
+    "tokenizer_sha256": "8b9da2cc2b024e2881fa804831af751c2f779992d70e8db6379bd4105242e39e",
+    "data": {
+      "prepared_manifest_sha256": "dbc6e41bd17d2a69d69c115f2b968e3cabddc0490c6d8be39699273ea89b035d",
+      "post_data_sha256": null,
+      "related_post_sha256": [
+        "7615a389b8aa6cb6ae8be17da9544ee5f27d68c1badca91fa38c4cabd7c56a55",
+        "c208e07ab757624e5ca8970f63cb1767ae9ec4108aa5c751139a680dceffb0ff"
+      ]
+    },
+    "isolation_audit": {
+      "post_files_checked": 2,
+      "method": "Whitespace-normalized exact prompt/pair and whole-document matches",
+      "remaining": [
+        "near duplicates",
+        "semantic overlap",
+        "external benchmark contamination",
+        "unlisted files"
+      ]
+    },
+    "parent_checkpoint_sha256": null,
+    "resume_checkpoint_sha256": "eca74a5877b7e12280652c0d97b86059816b2288ee4ac4a540ac02f27faf9992",
+    "training_options": {
+      "lr": 0.0005,
+      "batch": 1,
+      "accumulation": 1,
+      "beta": 0.1,
+      "seed": 42,
+      "threads": 2,
+      "dtype": "float32",
+      "scheduler": "constant"
+    },
+    "start_step": 12,
+    "end_step": 14,
+    "processed_tokens_this_invocation": 87,
+    "processed_tokens_cumulative": 803,
+    "loss_tokens_cumulative": 803,
+    "training_wall_seconds": 0.18854758399538696,
+    "loop_seconds_including_periodic_checkpoint_io": 0.1887232919689268,
+    "tokens_per_second_including_warmup": 461.4219824854853,
+    "warmup_steps_excluded": 2,
+    "tokens_per_second_after_warmup": null,
+    "timing_scope": "Synchronized optimizer loop only; excludes data/tokenizer, initialization, evaluation and checkpoint writes. DPO tokens count policy inputs once; frozen reference compute is included in elapsed time.",
+    "memory": {
+      "process_lifetime_peak_rss_bytes": 673660928,
+      "cuda_peak_allocated_bytes": null,
+      "mps_sampled_max_allocated_bytes": 2218240,
+      "mps_true_peak_bytes": null,
+      "note": "RSS is process lifetime high-water, not isolated stage peak; MPS samples after updates can miss transient peaks. Unified-memory totals must not sum overlapping metrics."
+    },
+    "checkpoint_bytes": 1717443,
+    "checkpoint_sha256": "f7ad84c4a7d6cff1bde19a6bd2b07a1b5f9700e1e697e730f973b6a9fed838cd",
+    "history": [
+      {
+        "step": 13,
+        "loss": 6.16377592086792,
+        "processed_tokens": 46,
+        "loss_tokens": 46,
+        "seconds": 0.14815491699846461
+      },
+      {
+        "step": 14,
+        "loss": 5.675076961517334,
+        "processed_tokens": 41,
+        "loss_tokens": 41,
+        "seconds": 0.040392666996922344
+      }
+    ],
+    "capability_benchmark": null
+  },
+  "sample": {
+    "stage": "dpo",
+    "prompt": "What is a token?",
+    "generated_text": "A answers........",
+    "generated_ids": [
+      36,
+      333,
+      86,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17,
+      17
+    ],
+    "decoding": {
+      "method": "greedy",
+      "max_new_tokens": 16,
+      "context_overflow": "sliding window; learned positions reset per window",
+      "chat_template": true
+    },
+    "notice": "Engineering smoke weights may produce meaningless text."
+  }
+}

@@ -1,0 +1,154 @@
+---
+import Navbar from "@/components/layout/Navbar.astro";
+import NoteSearch from "@/components/features/NoteSearch.astro";
+import { researchArchive } from "@/data/researchArchive";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { getSortedPosts } from "@/utils/content-utils";
+import { removeFileExtension } from "@/utils/url-utils";
+
+const posts = await getSortedPosts();
+const englishPosts = await getCollection("enPosts");
+const postUrl = (id: string) => `/posts/${id.replace(/\.mdx?$/, "")}/`;
+const dateLabel = (date: Date) =>
+	new Intl.DateTimeFormat("zh-CN", { year: "numeric", month: "short" }).format(
+		date,
+	);
+const dateLabelEn = (date: Date) =>
+	new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short" }).format(
+		date,
+	);
+const categoryLabels: Record<string, string> = {
+	"AI Applications": "AI 应用",
+	"Data Science": "数据科学",
+	"Deep Learning": "深度学习",
+	"Game AI": "游戏 AI",
+	"Machine Learning": "机器学习",
+	NLP: "自然语言处理",
+	Probability: "概率论",
+	"Reinforcement Learning": "强化学习",
+	Research: "研究",
+	Uncategorized: "未分类",
+};
+const tagLabels: Record<string, string> = {
+	"Agent与RAG": "Agents & RAG",
+	"Apple Silicon": "Apple Silicon",
+	LLM全链路: "Full-stack LLM",
+	MLX: "MLX",
+	QLoRA: "QLoRA",
+	"后训练(RLHF/DPO)": "Post-training (RLHF/DPO)",
+	因果推断: "Causal Inference",
+	大模型训练: "LLM Training",
+	实验计划: "Experiment Plan",
+	工程实践: "Engineering",
+	强化学习: "Reinforcement Learning",
+	推理优化: "Inference Optimization",
+	数据处理: "Data Processing",
+	模型架构: "Model Architecture",
+	游戏AI与搜索: "Game AI & Search",
+};
+const normalize = (value: string) =>
+	value.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+const archive = researchArchive.flatMap((item) => {
+	const post = posts.find((entry) =>
+		normalize(entry.id).includes(normalize(item.match)),
+	);
+	if (!post) return [];
+	const translation = englishPosts.find(
+		(entry) => entry.data.sourceId === removeFileExtension(post.id),
+	);
+	return [
+		{
+			...item,
+			post,
+			href: postUrl(post.id),
+			hrefEn: translation
+				? `/en/posts/${translation.data.slug}/`
+				: postUrl(post.id),
+		},
+	];
+});
+const categories = [
+	...new Set(
+		posts.map((post) => post.data.category?.trim() || "Uncategorized"),
+	),
+].sort();
+const formatLabels: Record<string, string> = {
+	plan: "实验计划",
+	"code-example": "代码示例",
+	application: "应用拆解",
+	technical: "技术讲解",
+	experiment: "实验方法",
+	reflection: "学习与思考",
+};
+const formats = Object.keys(formatLabels);
+---
+
+<Layout title="笔记 — 枫语" titleEn="Notes — Feng Yu" description="研究记录、技术笔记和正在形成的想法。" descriptionEn="Research notes, experiment plans, implementation records, and ideas in progress.">
+	<div class="notes-page" data-brand-motion>
+		<Navbar />
+		<header class="notes-hero"><p class="eyebrow" data-motion-intro>RSI / AGI · THOUGHTS, EXPERIMENTS & FIELD NOTES</p><h1 data-motion-intro data-i18n="notes.hero.title" data-i18n-html="true">边走，<em>边记录。</em></h1><p data-i18n="notes.hero.lead">研究笔记、实验计划和实现记录。它们是朝向 RSI 与 AGI 的不同路径，也是不断修正问题的过程。</p><div class="count"><span>{posts.length.toString().padStart(2,"0")}</span> NOTES / AND COUNTING</div></header>
+		<section class="start-here"><div class="start-head" data-motion-reveal><span data-i18n="notes.start">START WITH A QUESTION</span><span data-i18n="notes.entryPoints">FOUR ENTRY POINTS</span></div><div class="trail-grid">{archive.map((item, index) => <a class="trail-card" data-motion-hover data-motion-reveal href={item.href} data-i18n-href-zh={item.href} data-i18n-href-en={item.hrefEn}><span data-i18n={`archive.${item.match}.kind`} data-i18n-zh={`${(index + 1).toString().padStart(2, "0")} / ${item.kindZh}`} data-i18n-en={`${(index + 1).toString().padStart(2, "0")} / ${item.kind}`}>{(index + 1).toString().padStart(2, "0")} / {item.kindZh}</span><h2 data-i18n={`archive.${item.match}.title`} data-i18n-zh={item.post.data.title} data-i18n-en={item.titleEn}>{item.post.data.title}</h2><p data-i18n={`archive.${item.match}.summary`} data-i18n-zh={item.summary} data-i18n-en={item.summaryEn}>{item.summary}</p><b data-i18n="notes.openThread">打开这条研究线索 ↗</b></a>)}</div></section>
+		<main class="entries" id="swup-container"><NoteSearch /><div class="entries-head"><span data-i18n="notes.index">NOTEBOOK INDEX</span><span data-i18n="notes.recent">RECENT FIRST</span></div><section class="filters" aria-label="筛选研究笔记" data-i18n-aria-label-zh="筛选研究笔记" data-i18n-aria-label-en="Filter notes"><div class="filter-group"><span class="filter-label" data-i18n="notes.format">形式</span><div class="filter-options"><button type="button" data-note-format-filter="all" aria-pressed="true" data-i18n="notes.all">全部</button>{formats.map((format) => <button type="button" data-note-format-filter={format} aria-pressed="false" data-i18n={`notes.format.${format}`}>{formatLabels[format]}</button>)}</div></div><div class="filter-group"><span class="filter-label" data-i18n="notes.topic">方向</span><div class="filter-options"><button type="button" data-note-topic-filter="all" aria-pressed="true" data-i18n="notes.all">全部</button>{categories.map((category) => <button type="button" data-note-topic-filter={category} aria-pressed="false" data-i18n="notes.topic.category" data-i18n-zh={categoryLabels[category] ?? category} data-i18n-en={category}>{categoryLabels[category] ?? category}</button>)}</div></div></section><p class="note-results" data-note-results role="status" aria-live="polite" aria-atomic="true"></p><div class="note-empty" data-note-empty hidden><p data-i18n="notes.empty" data-i18n-zh="没有匹配的笔记，试试其他关键词或筛选条件。" data-i18n-en="No matching notes. Try another keyword or filter.">没有匹配的笔记，试试其他关键词或筛选条件。</p><button type="button" data-note-reset data-i18n="notes.reset" data-i18n-zh="清空搜索与筛选" data-i18n-en="Reset search and filters">清空搜索与筛选</button></div>{posts.map((post, index) => {
+				const category = post.data.category?.trim() || "Uncategorized";
+				const translation = englishPosts.find(
+					(entry) => entry.data.sourceId === removeFileExtension(post.id),
+				);
+				return (
+					<a
+						class="entry"
+						href={postUrl(post.id)}
+						data-i18n-href-zh={postUrl(post.id)}
+						data-i18n-href-en={translation ? `/en/posts/${translation.data.slug}/` : postUrl(post.id)}
+						data-note-id={post.id}
+						data-note-format={post.data.format}
+						data-note-category={category}
+					>
+						<span class="entry-n">{(index + 1).toString().padStart(2, "0")}</span>
+						<div class="entry-content">
+							<div class="entry-labels">
+								<span class="category" data-i18n={`notes.format.${post.data.format}`}>
+									{formatLabels[post.data.format]}
+								</span>
+								<span class="topic-label" data-i18n="notes.topic.category" data-i18n-zh={categoryLabels[category] ?? category} data-i18n-en={category}>{categoryLabels[category] ?? category}</span>
+								{!translation && (
+									<span class="topic-label locale-badge" data-locale-notice hidden data-i18n="notes.originalChinese">中文原文</span>
+								)}
+							</div>
+							<h2
+								data-i18n={translation ? `notes.title.${translation.data.slug}` : undefined}
+								data-i18n-zh={post.data.title}
+								data-i18n-en={translation?.data.title}
+							>
+								{post.data.title}
+							</h2>
+							{post.data.description && (
+								<p data-i18n={translation ? `notes.description.${translation.data.slug}` : undefined} data-i18n-zh={post.data.description} data-i18n-en={translation?.data.description}>
+									{post.data.description}
+								</p>
+							)}
+							<p class="search-excerpt" data-note-excerpt hidden></p>
+							<div class="tags">
+									{post.data.tags.slice(0, 3).map((tag) => <span data-i18n="notes.tag" data-i18n-zh={tag} data-i18n-en={tagLabels[tag] ?? tag}>{tagLabels[tag] ?? tag}</span>)}
+							</div>
+						</div>
+						<time data-i18n="notes.date" data-i18n-zh={dateLabel(post.data.published)} data-i18n-en={dateLabelEn(post.data.published)}>{dateLabel(post.data.published)}</time>
+						<b>↗</b>
+					</a>
+				);
+			})}</main>
+		<footer class="notes-footer"><a href="/work/" data-i18n="notes.footer">重新探索方向 ↗</a><span>IDEAS ARE BETTER WHEN SHARED.</span></footer>
+	</div>
+	<script>
+		import { mountNoteFilters } from "@/utils/note-filters";
+		let cleanup = mountNoteFilters();
+		window.addEventListener("pagehide", () => cleanup());
+		window.addEventListener("pageshow", (event) => {
+			if (event.persisted) { cleanup(); cleanup = mountNoteFilters(); }
+		});
+	</script>
+	<style>
+		.entry .search-excerpt{margin-top:12px;padding:12px 14px;border-left:2px solid var(--brand-accent);background:var(--brand-surface);color:var(--brand-body);overflow-wrap:anywhere}.search-excerpt[hidden]{display:none}
+		:global(html){background:var(--brand-paper)}:global(body){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink)!important;font-family:Inter,"Helvetica Neue",Arial,sans-serif}.notes-page{min-height:100vh;background:var(--brand-paper);color:var(--brand-ink)}.notes-hero{position:relative;padding:92px 11vw 65px;border-bottom:1px solid rgba(37,60,52,.13);background:radial-gradient(ellipse at 79% 48%,rgba(129,151,86,.12),transparent 37%)}.eyebrow,.count,.entries-head,.entry-n,.category,.entry time,.notes-footer{font:9px/1.7 "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.notes-hero h1{font-size:clamp(64px,9vw,118px);line-height:1;letter-spacing:-.08em;font-weight:450;margin:39px 0 24px}.notes-hero h1 em{font:italic 400 .9em Georgia,"Songti SC",serif;color:var(--brand-accent)}.notes-hero>p:not(.eyebrow){max-width:500px;font-size:14px;line-height:2;color:var(--brand-body)}.count{position:absolute;right:11vw;bottom:70px}.count span{font-size:25px;color:var(--brand-accent);margin-right:8px}.start-here{padding:38px 11vw 55px;background:var(--brand-surface)}.start-head{display:flex;justify-content:space-between;padding-bottom:13px;border-bottom:1px solid rgba(37,60,52,.13);font:8px "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-accent)}.trail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:12px}.trail-card{display:flex;flex-direction:column;min-height:190px;padding:19px;border:1px solid rgba(37,60,52,.12);color:var(--brand-ink);text-decoration:none;transition:border-color .2s,transform .2s}.trail-card:hover{border-color:rgba(65,99,79,.5);transform:translateY(-2px)}.trail-card>span,.trail-card>b{font:8px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--brand-accent)}.trail-card h2{font-size:15px;line-height:1.55;font-weight:450;margin:15px 0 7px}.trail-card p{font-size:10px;line-height:1.8;color:var(--brand-muted);margin:0 0 15px}.trail-card>b{margin-top:auto;font-weight:400}.entries{padding:0 11vw}.entries-head{display:flex;justify-content:space-between;padding:20px 0;border-bottom:1px solid rgba(37,60,52,.13);color:var(--brand-accent);font-size:8px}.filters{display:grid;gap:8px;padding:16px 0 12px;border-bottom:1px solid rgba(37,60,52,.1)}.filter-group{display:grid;grid-template-columns:42px minmax(0,1fr);gap:10px;align-items:start}.filter-label{padding-top:8px;font:8px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--brand-muted)}.filter-options{display:flex;gap:7px;flex-wrap:wrap;min-width:0}.filters button{border:1px solid rgba(37,60,52,.17);border-radius:30px;background:transparent;padding:7px 11px;color:var(--brand-body);font:8px "JetBrains Mono",monospace;cursor:pointer}.filters button[aria-pressed="true"],.filters button:hover{border-color:var(--brand-accent);color:var(--brand-accent)}.entry[hidden]{display:none}.entry-labels{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.topic-label{font:7px "JetBrains Mono",monospace;color:var(--brand-muted);border:1px solid rgba(37,60,52,.13);border-radius:20px;padding:3px 7px}.locale-badge{color:var(--brand-clay);border-color:rgba(231,185,108,.3)}.entry{display:grid;grid-template-columns:55px 1fr 100px 30px;gap:20px;align-items:start;padding:25px 4px 22px;border-bottom:1px solid rgba(37,60,52,.11);color:var(--brand-ink);text-decoration:none;transition:padding .2s}.entry:hover{padding-left:12px}.entry-n{padding-top:5px}.entry-content .category{font-size:8px;color:var(--brand-accent)}.entry h2{font-size:17px;line-height:1.55;font-weight:450;margin:7px 0}.entry p{font-size:11px;line-height:1.8;color:var(--brand-muted);margin:0;max-width:640px}.entry time{padding-top:4px;text-align:right;font-size:8px}.entry>b{font-weight:400;color:var(--brand-accent);justify-self:end;padding-top:1px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.tags span{font:7px "JetBrains Mono",monospace;color:var(--brand-muted);border:1px solid rgba(37,60,52,.13);border-radius:20px;padding:4px 8px}.notes-footer{padding:25px 11vw;display:flex;justify-content:space-between}.notes-footer a{font:10px Inter,sans-serif;text-decoration:none;color:var(--brand-accent)}@media(max-width:700px){.notes-hero{padding:70px 8vw 85px}.start-here{padding:32px 8vw 42px}.trail-grid{grid-template-columns:1fr}.trail-card{min-height:165px;padding:17px}.notes-hero h1{font-size:clamp(55px,13vw,78px);margin:31px 0 20px}.notes-hero>p:not(.eyebrow){font-size:12px}.count{right:8vw;bottom:21px}.count span{font-size:18px}.entries{padding:0 8vw}.entry{grid-template-columns:25px 1fr 20px;gap:10px;padding:19px 0}.filter-group{grid-template-columns:30px minmax(0,1fr);gap:6px}.filter-label{font-size:7px}.filter-options{gap:5px}.filters button{font-size:7px;padding:6px 8px}.entry h2{font-size:14px}.entry p{font-size:10px}.entry time{display:none}.entry>b{grid-column:3;grid-row:1}.entry-n{grid-column:1;grid-row:1;font-size:8px}.entry-content{grid-column:2;grid-row:1}.notes-footer{padding:22px 8vw;font-size:8px}.notes-footer a{font-size:9px}}
+	</style>
+</Layout>

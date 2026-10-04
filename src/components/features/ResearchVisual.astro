@@ -1,0 +1,42 @@
+---
+interface Props { kind: "model" | "search" | "causal"; }
+const { kind } = Astro.props;
+---
+<div class={`research-visual ${kind}`} aria-hidden="true">
+	<svg viewBox="0 0 280 164" fill="none">
+		{kind === "model" ? <>
+			<path class="wire" d="M36 84H84M132 84H177M219 84H252M104 57V31H201V57" />
+			<rect class="paper" x="17" y="58" width="38" height="51" rx="7" transform="rotate(-7 17 58)" />
+			<path class="ink" d="M26 70H44M25 79H42M24 88H36" />
+			<rect class="core" x="78" y="49" width="54" height="68" rx="12" />
+			{[0,1,2].map((row) => [0,1,2].map((col) => <circle class="light" cx={91 + col * 14} cy={69 + row * 14} r="3" />))}
+			<rect class="peach" x="177" y="55" width="42" height="56" rx="10" />
+			<path class="ink" d="M188 77L196 85L209 68" />
+			<circle class="core" cx="250" cy="84" r="9" />
+			<circle class="peach" cx="155" cy="31" r="5" />
+			<path class="faint" d="M76 140H223M16 128H66M174 20H241" />
+		</> : kind === "search" ? <>
+			<rect class="paper" x="20" y="23" width="120" height="120" rx="8" />
+			{[0,1,2,3,4,5,6].map((i) => <><path class="wire" d={`M32 ${35 + i * 16}H128`} /><path class="wire" d={`M${32 + i * 16} 35V131`} /></>)}
+			{[[64,67],[80,83],[64,99],[96,99]].map(([x,y]) => <circle class="core" cx={x} cy={y} r="6" />)}
+			{[[80,67],[80,99],[96,83]].map(([x,y]) => <circle class="peach" cx={x} cy={y} r="6" />)}
+			<path class="wire" d="M148 83H173M214 34L183 79M214 34L249 79M183 79L166 127M183 79L208 127" />
+			<path class="selected-path" d="M214 34L183 79L208 127" />
+			{[[214,34],[183,79],[249,79],[166,127],[208,127]].map(([x,y], i) => <circle class={i === 0 || i === 1 ? "core" : i === 4 ? "peach" : "paper"} cx={x} cy={y} r={i === 0 ? 11 : 8} />)}
+			<circle class="ring" cx="208" cy="127" r="15" />
+		</> : <>
+			<path class="wire" d="M140 32L69 112M140 32L213 112M80 112H197" />
+			<path class="selected-path" d="M85 112H192" />
+			<circle class="paper" cx="140" cy="32" r="17" />
+			<circle class="core" cx="67" cy="112" r="24" />
+			<circle class="peach" cx="214" cy="112" r="24" />
+			<path class="light-line" d="M58 113H76M67 104V122" />
+			<path class="ink" d="M205 117L213 106L221 114M135 32H145" />
+			<path class="ink" d="M183 107L192 112L183 117" />
+			<path class="faint" d="M24 48H70M220 45H259M112 145H163" />
+		</>}
+	</svg>
+</div>
+<style>
+	.research-visual{aspect-ratio:280/164;border-radius:14px;background:var(--brand-paper);overflow:hidden}.research-visual svg{display:block;width:100%;height:100%}.wire{stroke:var(--brand-muted);stroke-width:1.5;opacity:.45}.ink{stroke:var(--brand-accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.core{fill:var(--brand-accent)}.paper{fill:var(--brand-surface);stroke:var(--brand-accent);stroke-width:1.2}.peach{fill:var(--brand-peach);stroke:var(--brand-clay);stroke-width:1}.light{fill:var(--brand-paper)}.light-line{stroke:var(--brand-paper);stroke-width:2}.selected-path{stroke:var(--brand-accent);stroke-width:2.5;stroke-dasharray:6 5}.ring{stroke:var(--brand-clay);stroke-width:1;opacity:.6}.faint{stroke:var(--brand-line);stroke-width:1}
+</style>

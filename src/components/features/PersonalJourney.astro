@@ -1,0 +1,20 @@
+---
+const stages = [
+	{ date: "2018 — 2022", title: "信息与系统", titleEn: "Information & systems", place: "南京邮电大学 · 信息管理与信息系统本科", placeEn: "Nanjing University of Posts and Telecommunications · Bachelor’s in Information Management and Information Systems", body: "从信息、数据与系统的基础出发，为之后进入计算机科学和智能研究积累工具。", bodyEn: "A foundation in information, data, and systems before moving into computer science and intelligence research." },
+	{ date: "2022 — 2025", title: "开始追问智能", titleEn: "Beginning to study intelligence", place: "中国传媒大学 · 计算机科学与技术硕士", placeEn: "Communication University of China · Master’s in Computer Science and Technology", body: "从研究生阶段开始关注智能。研究动态因果推理与机器学习模型优化，参与医疗诊断因果图系统、网络攻击因果建模，以及人工智能课程教材的编写和算法实现。", bodyEn: "My interest in intelligence began during graduate school. I studied dynamic causal inference and machine-learning optimization, working on causal graphs for medical diagnosis, network-attack modeling, and AI textbook writing and algorithm implementations." },
+	{ date: "2025 —", title: "从方法走向系统", titleEn: "From methods to systems", place: "大模型算法工程师", placeEn: "LLM algorithm engineer", body: "把研究中的问题带进工程实践：从生产预测、Text-to-SQL，到 GraphRAG、知识平台与多智能体系统。也在设计自动化科研闭环，探索研究系统如何根据反馈改进自身。", bodyEn: "I now bring research questions into engineering: production forecasting, Text-to-SQL, GraphRAG, knowledge platforms, and multi-agent systems. I am also designing an automated research loop to explore how research systems could improve from feedback." },
+];
+---
+
+<section class="journey" aria-labelledby="journey-title" data-motion-reveal>
+	<div class="journey-intro">
+		<p class="kicker" data-i18n="journey.kicker" data-i18n-zh="关于我 / 这条路的起点" data-i18n-en="ABOUT ME / WHERE IT BEGAN">关于我 / 这条路的起点</p>
+		<h2 id="journey-title" data-i18n="journey.title" data-i18n-html="true" data-i18n-zh="从理解智能，<br/>走向改进智能。" data-i18n-en="From understanding intelligence to improving it.">从理解智能，<br/>走向改进智能。</h2>
+		<p data-i18n="journey.intro" data-i18n-zh="我叫冯宇，在这里使用“枫语”这个名字。研究生阶段开始关注智能之后，因果推理、强化学习和大模型逐渐成为我探索同一个问题的不同入口：智能如何从反馈中学习，又如何知道自己变得更好了？" data-i18n-en="My name is Feng Yu (冯宇); I write here as 枫语. Since graduate school, causal inference, reinforcement learning, and language models have become different ways into the same question: how can intelligence learn from feedback, and how can it tell that it has improved?">我叫冯宇，在这里使用“枫语”这个名字。研究生阶段开始关注智能之后，因果推理、强化学习和大模型逐渐成为我探索同一个问题的不同入口：智能如何从反馈中学习，又如何知道自己变得更好了？</p>
+	</div>
+	<ol>{stages.map((stage, index) => <li><span class="date">{stage.date}</span><div><h3 data-i18n={`journey.${index}.title`} data-i18n-zh={stage.title} data-i18n-en={stage.titleEn}>{stage.title}</h3><p class="place" data-i18n={`journey.${index}.place`} data-i18n-zh={stage.place} data-i18n-en={stage.placeEn}>{stage.place}</p><p data-i18n={`journey.${index}.body`} data-i18n-zh={stage.body} data-i18n-en={stage.bodyEn}>{stage.body}</p></div></li>)}</ol>
+</section>
+
+<style>
+	.journey{padding:75px 13vw;border-bottom:1px solid var(--brand-line);display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw}.kicker,.date{font:10px/1.8 "JetBrains Mono",monospace;color:var(--brand-accent);letter-spacing:.06em}.journey h2{font:400 clamp(26px,3vw,38px)/1.4 Georgia,"Songti SC",serif;margin:24px 0}.journey p{font-size:13px;line-height:2;color:var(--brand-body)}ol{margin:0;padding:0;list-style:none}li{position:relative;border-left:1px solid var(--brand-line);padding:0 0 30px 25px}li:last-child{padding-bottom:0}li:before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:var(--brand-accent)}h3{font-weight:450;font-size:21px;margin:10px 0}.journey .place{color:var(--brand-accent);font-size:11px}li p{margin:9px 0 0}@media(max-width:700px){.journey{padding:50px 8vw;grid-template-columns:1fr;gap:25px}.journey h2{max-width:16em}.journey p{font-size:12px}}
+</style>

@@ -3,31 +3,20 @@
 
 	let progress = $state(0);
 	let visible = $state(false);
+	let english = $state(false);
 
 	onMount(() => {
-		const article = document.querySelector("article");
-		if (!article) {
-			// fallback: use document body
-			const updateProgress = () => {
-				const scrollTop = window.scrollY;
-				const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-				progress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
-				visible = scrollTop > 100;
-			};
-			window.addEventListener("scroll", updateProgress, { passive: true });
-			updateProgress();
-			return () => window.removeEventListener("scroll", updateProgress);
-		}
-
+		const article = document.querySelector<HTMLElement>("#post-container") ?? document.body;
+		const syncLocale = () => { english = document.documentElement.lang.startsWith("en"); };
+		syncLocale(); document.addEventListener("site-locale-change", syncLocale);
 		const updateProgress = () => {
-			const articleTop = article.offsetTop;
+			const articleTop = article.getBoundingClientRect().top + window.scrollY;
 			const articleHeight = article.offsetHeight;
 			const scrollTop = window.scrollY;
 			const viewportHeight = window.innerHeight;
 
-			// progress starts when article top reaches viewport bottom
-			const start = articleTop - viewportHeight;
-			const range = articleHeight;
+			const start = articleTop;
+			const range = Math.max(1, articleHeight - viewportHeight);
 			const current = scrollTop - start;
 
 			progress = range > 0 ? Math.min(Math.max((current / range) * 100, 0), 100) : 0;
@@ -35,9 +24,17 @@
 		};
 
 		window.addEventListener("scroll", updateProgress, { passive: true });
+		window.addEventListener("resize", updateProgress);
+		const resize = new ResizeObserver(updateProgress);
+		resize.observe(article);
 		updateProgress();
 
-		return () => window.removeEventListener("scroll", updateProgress);
+		return () => {
+			window.removeEventListener("scroll", updateProgress);
+			window.removeEventListener("resize", updateProgress);
+			document.removeEventListener("site-locale-change", syncLocale);
+			resize.disconnect();
+		};
 	});
 </script>
 
@@ -50,7 +47,7 @@
 			aria-valuenow={Math.round(progress)}
 			aria-valuemin="0"
 			aria-valuemax="100"
-			aria-label="阅读进度"
+			aria-label={english ? "Reading progress" : "阅读进度"}
 		></div>
 	</div>
 {/if}

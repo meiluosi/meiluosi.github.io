@@ -1,0 +1,11 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import SavedReading from "@/components/features/SavedReading.svelte";
+import { getResearchNotes } from "@/utils/research-content";
+const notes = [...(await getResearchNotes()).values()];
+---
+<ExploreLayout title="阅读收藏" titleEn="Saved reading" description="保存值得继续阅读的笔记，随时回到你的问题。" descriptionEn="Save a note and return to your questions later.">
+	<header class="explore-hero"><p class="explore-kicker">PICK UP THE THREAD / SAVED READING</p><Text as="h1" zh="下次，接着读。" en="Pick up where curiosity left off." /><Text as="p" class="explore-lead" zh="为还想继续想一想的问题，留下一页。收藏保存在当前浏览器，无需账号；不会同步到其他设备，清除浏览器数据也会清除收藏。" en="Keep a page for a question you want to return to. Saved notes stay in this browser, with no account required. They do not sync across devices and are removed when browser data is cleared." /></header>
+	<SavedReading notes={notes} client:load /><noscript><p>请启用 JavaScript 使用阅读收藏。 / Enable JavaScript to use saved reading.</p></noscript>
+</ExploreLayout>

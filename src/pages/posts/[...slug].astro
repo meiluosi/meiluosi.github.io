@@ -1,16 +1,16 @@
 ---
-import { render } from "astro:content";
+import { getCollection, render } from "astro:content";
 import * as path from "node:path";
 import Comment from "@components/comment/index.astro";
 import Markdown from "@components/common/Markdown.astro";
 import EncryptedPost from "@components/features/EncryptedPost.astro";
 import KatexManager from "@components/features/KatexManager.astro";
-import License from "@components/misc/License.astro";
 import BibTeXCitation from "@components/misc/BibTeXCitation.astro";
+import License from "@components/misc/License.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getRelatedPosts, getSortedPosts } from "@utils/content-utils";
+import { getSortedPosts } from "@utils/content-utils";
 import {
 	getFileDirFromPath,
 	getPostUrlBySlug,
@@ -19,35 +19,47 @@ import {
 import { Icon } from "astro-icon/components";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import CoverImage from "@/components/common/CoverImage.astro";
 import AiSummary from "@/components/common/AiSummary.astro";
-import PostMetadata from "@/components/layout/PostMeta.astro";
-import RecommendedPost from "@/components/misc/RecommendedPost.astro";
-import ReadingProgress from "@/components/features/ReadingProgress.svelte";
+import CoverImage from "@/components/common/CoverImage.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
+import ReadingProgress from "@/components/features/ReadingProgress.svelte";
+import PostMetadata from "@/components/layout/PostMeta.astro";
+import NextReading from "@/components/features/NextReading.astro";
+import SaveNote from "@/components/features/SaveNote.svelte";
 import SharePoster from "@/components/misc/SharePoster.svelte";
 import { coverImageConfig } from "@/config/coverImageConfig";
 import { licenseConfig } from "@/config/licenseConfig";
 import { profileConfig } from "@/config/profileConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { sponsorConfig } from "@/config/sponsorConfig";
+import { brandTranslations } from "@/i18n/brand";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
 import { url } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
+	const englishEntries = await getCollection("enPosts");
 	return blogEntries.map((entry) => {
 		// 将 id 转换为 slug（移除扩展名）以匹配路由参数
 		const slug = removeFileExtension(entry.id);
+		const translation = englishEntries.find(
+			(englishEntry) => englishEntry.data.sourceId === slug,
+		);
 		return {
 			params: { slug },
-			props: { entry },
+			props: {
+				entry,
+				localeZhUrl: `/posts/${slug}/`,
+				localeEnUrl: translation
+					? `/en/posts/${translation.data.slug}/`
+					: undefined,
+			},
 		};
 	});
 }
 
-const { entry } = Astro.props;
+const { entry, localeZhUrl, localeEnUrl } = Astro.props;
 const { Content, headings } = await render(entry);
 
 const { remarkPluginFrontmatter } = await render(entry);
@@ -58,6 +70,24 @@ const bannerPostMeta = {
 	updated: entry.data.updated,
 	words: remarkPluginFrontmatter.words,
 	minutes: remarkPluginFrontmatter.minutes,
+};
+
+const wordCountMeta = {
+	zh: brandTranslations["zh-CN"]["post.wordsMeta"].replace(
+		"{words}",
+		String(remarkPluginFrontmatter.words),
+	),
+	en: brandTranslations.en["post.wordsMeta"].replace(
+		"{words}",
+		String(remarkPluginFrontmatter.words),
+	),
+};
+const readingTimeMeta = {
+	zh: `${remarkPluginFrontmatter.minutes} 分钟阅读`,
+	en: brandTranslations.en["post.readMeta"].replace(
+		"{minutes}",
+		String(remarkPluginFrontmatter.minutes),
+	),
 };
 
 // 处理随机图：如果image为"api"，则从配置的API获取随机图
@@ -126,12 +156,16 @@ const jsonLd = {
 		url: Astro.site,
 	},
 	datePublished: formatDateToYYYYMMDD(entry.data.published),
-	...(entry.data.updated ? { dateModified: formatDateToYYYYMMDD(entry.data.updated) } : {}),
+	...(entry.data.updated
+		? { dateModified: formatDateToYYYYMMDD(entry.data.updated) }
+		: {}),
 	wordCount: remarkPluginFrontmatter.words,
 	inLanguage: entry.data.lang
 		? entry.data.lang.replace("_", "-")
 		: siteConfig.lang.replace("_", "-"),
-	...(processedImage ? { image: new URL(processedImage, Astro.site).toString() } : {}),
+	...(processedImage
+		? { image: new URL(processedImage, Astro.site).toString() }
+		: {}),
 	url: Astro.url.href,
 	publisher: {
 		"@type": "Person",
@@ -143,7 +177,6 @@ const jsonLd = {
 	},
 };
 
-const relatedPosts = await getRelatedPosts(entry, 5);
 ---
 
 <MainGridLayout
@@ -154,13 +187,16 @@ const relatedPosts = await getRelatedPosts(entry, 5);
   setOGTypeArticle={true}
   postSlug={entry.id}
   postCategory={entry.data.category || undefined}
-  headings={headings}
+  localeZhUrl={localeZhUrl}
+  localeEnUrl={localeEnUrl}
+  headings={entry.data.password ? [] : headings}
   bannerPostMeta={bannerPostMeta}
 >
   <!-- KaTeX 按需加载 - 仅在文章页面 -->
   <KatexManager slot="head" />
   
   <ReadingProgress client:load />
+  {!entry.data.draft && !entry.data.password && <SaveNote sourceId={entry.id.replace(/\.mdx?$/, "")} client:load />}
 
   <script
     is:inline
@@ -188,9 +224,13 @@ const relatedPosts = await getRelatedPosts(entry, 5);
           >
             <Icon is:inline name="material-symbols:notes-rounded" />
           </div>
-          <div class="text-sm">
-            {remarkPluginFrontmatter.words}
-            {" " + i18n(I18nKey.wordsCount)}
+          <div
+            class="text-sm"
+            data-i18n="post.wordsMeta"
+            data-i18n-zh={wordCountMeta.zh}
+            data-i18n-en={wordCountMeta.en}
+          >
+            {wordCountMeta.zh}
           </div>
         </div>
         <div class="flex flex-row items-center">
@@ -199,16 +239,13 @@ const relatedPosts = await getRelatedPosts(entry, 5);
           >
             <Icon is:inline name="material-symbols:schedule-outline-rounded" />
           </div>
-          <div class="text-sm">
-            {remarkPluginFrontmatter.minutes}
-            {
-              " " +
-                i18n(
-                  remarkPluginFrontmatter.minutes === 1
-                    ? I18nKey.minuteCount
-                    : I18nKey.minutesCount
-                )
-            }
+          <div
+            class="text-sm"
+            data-i18n="post.readMeta"
+            data-i18n-zh={readingTimeMeta.zh}
+            data-i18n-en={readingTimeMeta.en}
+          >
+            {readingTimeMeta.zh}
           </div>
         </div>
         {entry.data.password && (
@@ -548,7 +585,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
     class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full"
   >
     <a
-      href={entry.data.nextSlug ? getPostUrlBySlug(entry.data.nextSlug) : url("/")}
+      href={entry.data.nextSlug ? getPostUrlBySlug(entry.data.nextSlug) : url("/notes/")}
       class="w-full font-bold overflow-hidden active:scale-95"
     >
       <div class="btn-card rounded-2xl w-full h-15 max-w-full px-4 flex items-center justify-start! gap-4">
@@ -557,18 +594,18 @@ const relatedPosts = await getRelatedPosts(entry, 5);
           class="text-[2rem] text-(--primary)"
         />
         <div class="overflow-hidden transition text-ellipsis whitespace-nowrap max-w-[calc(100%-3rem)] text-black/75 dark:text-white/75">
-          {entry.data.nextTitle || i18n(I18nKey.home)}
+          {entry.data.nextTitle || <span data-i18n="post.allNotes">所有笔记</span>}
         </div>
       </div>
     </a>
 
     <a
-      href={entry.data.prevSlug ? getPostUrlBySlug(entry.data.prevSlug) : url("/")}
+      href={entry.data.prevSlug ? getPostUrlBySlug(entry.data.prevSlug) : url("/notes/")}
       class="w-full font-bold overflow-hidden active:scale-95"
     >
       <div class="btn-card rounded-2xl w-full h-15 max-w-full px-4 flex items-center justify-end! gap-4">
         <div class="overflow-hidden transition text-ellipsis whitespace-nowrap max-w-[calc(100%-3rem)] text-black/75 dark:text-white/75">
-          {entry.data.prevTitle || i18n(I18nKey.home)}
+          {entry.data.prevTitle || <span data-i18n="post.allNotes">所有笔记</span>}
         </div>
         <Icon is:inline
           name="material-symbols:chevron-right-rounded"
@@ -578,8 +615,32 @@ const relatedPosts = await getRelatedPosts(entry, 5);
     </a>
   </div>
 
-  <RecommendedPost relatedPosts={relatedPosts} currentPostId={entry.id} />
+  <NextReading sourceId={entry.id} />
 
   <!-- 评论 -->
   {entry.data.comment && !entry.data.password && <Comment post={entry} />}
 </MainGridLayout>
+
+<style is:global>
+	:root { color-scheme: light; }
+	body { background: var(--brand-paper) !important; color: var(--brand-ink); }
+	#top-row { width: 100%; max-width: none; padding: 0; }
+	#main-grid { display: block; max-width: none; padding: 0; }
+	#swup-container { width: min(100%, 980px); margin: 0 auto; }
+	#content-wrapper { padding: clamp(28px, 6vw, 76px) clamp(20px, 6vw, 72px) 0; }
+	#post-container { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; }
+	#post-container > div:first-child { color: var(--brand-muted) !important; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .06em; }
+	#post-container [data-pagefind-meta="title"] { color: var(--brand-ink) !important; font-size: clamp(34px, 5.2vw, 62px) !important; line-height: 1.12 !important; letter-spacing: -.055em; font-weight: 450 !important; }
+	#post-container .markdown-content { max-width: 76ch; margin-inline: auto; color: var(--brand-body); font-size: 16px; line-height: 1.95; }
+	#post-container .markdown-content h2, #post-container .markdown-content h3 { color: var(--brand-ink); letter-spacing: -.035em; font-weight: 500; }
+	#post-container .markdown-content h2 { margin-top: 2.5em; padding-top: .5em; border-top: 1px solid rgba(37,60,52,.12); }
+	#post-container .markdown-content a { color: var(--brand-accent); }
+	#post-container .markdown-content blockquote { border-left-color: var(--brand-accent); color: var(--brand-body); }
+	#post-container .markdown-content :not(pre) > code { background: rgba(65,99,79,.1); color: var(--brand-accent); }
+	#post-container .markdown-content img { border-radius: 8px; }
+	#main-grid .footer { padding-inline: 0; }
+	@media (max-width: 700px) {
+		#content-wrapper { padding: 35px 7vw 0; }
+		#post-container .markdown-content { font-size: 16px; line-height: 1.9; }
+	}
+</style>

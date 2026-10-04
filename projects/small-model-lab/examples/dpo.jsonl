@@ -1,0 +1,8 @@
+{"id": "dpo-00", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "train", "prompt": "What is a token?", "chosen": "A unit of text.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-01", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "train", "prompt": "What does training update?", "chosen": "Model parameters.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-02", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "train", "prompt": "Why keep test data separate?", "chosen": "To check held-out behavior.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-03", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "train", "prompt": "What does a checkpoint store?", "chosen": "Weights and optimizer state.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-04", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "train", "prompt": "What is a causal mask?", "chosen": "It blocks future tokens.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-05", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "train", "prompt": "What is SFT?", "chosen": "Learning from example answers.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-06", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "validation", "prompt": "What is a tokenizer?", "chosen": "It maps text to token IDs.", "rejected": "This is a purple sandwich."}
+{"id": "dpo-07", "source": "original-synthetic-fixture-v1", "license": "CC0-1.0", "split": "test", "prompt": "Are smoke outputs useful answers?", "chosen": "Not necessarily.", "rejected": "This is a purple sandwich."}

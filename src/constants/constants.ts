@@ -1,20 +1,20 @@
 export const PAGE_SIZE = 8;
 
-export const LIGHT_MODE = "light",
-	DARK_MODE = "dark",
-	SYSTEM_MODE = "system";
-export const DEFAULT_THEME = LIGHT_MODE; // 仅作为向后兼容的默认值，实际使用 siteConfig.themeColor.defaultMode
+export const LIGHT_MODE: "light" = "light";
+export const DARK_MODE: "dark" = "dark";
+export const SYSTEM_MODE: "system" = "system";
+export const DEFAULT_THEME: typeof LIGHT_MODE = LIGHT_MODE; // 仅作为向后兼容的默认值，实际使用 siteConfig.themeColor.defaultMode
 
 // Wallpaper modes
-export const WALLPAPER_BANNER = "banner",
-	WALLPAPER_FULLSCREEN = "fullscreen",
-	WALLPAPER_OVERLAY = "overlay",
-	WALLPAPER_NONE = "none";
+export const WALLPAPER_BANNER: "banner" = "banner";
+export const WALLPAPER_FULLSCREEN: "fullscreen" = "fullscreen";
+export const WALLPAPER_OVERLAY: "overlay" = "overlay";
+export const WALLPAPER_NONE: "none" = "none";
 
 // Banner height unit: vh
 export const BANNER_HEIGHT = 35;
 export const BANNER_HEIGHT_EXTEND = 30;
-export const BANNER_HEIGHT_HOME = BANNER_HEIGHT + BANNER_HEIGHT_EXTEND;
+export const BANNER_HEIGHT_HOME: number = BANNER_HEIGHT + BANNER_HEIGHT_EXTEND;
 
 // The height the main panel overlaps the banner, unit: rem
 export const MAIN_PANEL_OVERLAPS_BANNER_HEIGHT = 3.5;

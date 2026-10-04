@@ -1,0 +1,40 @@
+---
+import { concepts } from "@/data/concepts";
+import Text from "@/components/common/BilingualText.astro";
+---
+<dialog id="concept-preview" aria-labelledby="concept-preview-title"><div class="concept-dialog-head"><span>FIELD GUIDE / CONCEPT</span><button type="button" data-concept-close aria-label="关闭概念预览" data-i18n-aria-label-zh="关闭概念预览" data-i18n-aria-label-en="Close concept preview">×</button></div><h2 id="concept-preview-title"></h2><p data-concept-definition></p><a data-concept-read><Text zh="继续了解" en="Explore this idea" /> ↗</a></dialog>
+<div hidden data-concept-catalog>{concepts.map((concept) => <span data-concept-id={concept.id} data-term={concept.term} data-name={concept.name} data-name-en={concept.nameEn} data-definition={concept.definition} data-definition-en={concept.definitionEn} data-href={concept.href} data-href-en={concept.hrefEn} />)}</div>
+<script>
+	const dialog = document.querySelector<HTMLDialogElement>("#concept-preview");
+	const catalog = [...document.querySelectorAll<HTMLElement>("[data-concept-id]")];
+	const content = document.querySelector("#post-container .markdown-content, #post-container .prose");
+	if (dialog && content) {
+		let active: HTMLElement | undefined;
+		let trigger: HTMLButtonElement | undefined;
+		const english = () => document.documentElement.lang.startsWith("en");
+		const render = () => { if (!active) return; const data = active.dataset; const title = dialog.querySelector("h2"); const definition = dialog.querySelector("[data-concept-definition]"); const link = dialog.querySelector<HTMLAnchorElement>("[data-concept-read]"); if (title) title.textContent = `${data.term} · ${english() ? data.nameEn : data.name}`; if (definition) definition.textContent = (english() ? data.definitionEn : data.definition) ?? ""; if (link) link.href = (english() ? data.hrefEn : data.href) ?? "/rsi/"; };
+		const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT);
+		const texts: Text[] = [];
+		while (walker.nextNode()) { const node = walker.currentNode as Text; const parent = node.parentElement; if (parent?.closest("p, li") && !parent.closest("a, button, code, pre, .katex, math, script, style, h1, h2, h3, h4")) texts.push(node); }
+		const used = new Set<string>();
+		const terms = new RegExp(`(?<![A-Za-z0-9_])(${catalog.map((item) => item.dataset.term).sort((a, b) => (b?.length ?? 0) - (a?.length ?? 0)).join("|")})(?![A-Za-z0-9_])`, "g");
+		for (const node of texts) {
+			const value = node.textContent ?? "";
+			const fragment = document.createDocumentFragment(); let last = 0;
+			for (const match of value.matchAll(terms)) {
+				const concept = catalog.find((entry) => entry.dataset.term === match[0]);
+				if (!concept || used.has(match[0])) continue;
+				used.add(match[0]); fragment.append(value.slice(last, match.index));
+				const button = document.createElement("button"); button.type = "button"; button.className = "concept-trigger"; button.textContent = match[0]; button.dataset.conceptTerm = match[0]; button.setAttribute("aria-haspopup", "dialog");
+				button.addEventListener("click", () => { active = concept; trigger = button; render(); dialog.showModal(); }); fragment.append(button); last = match.index + match[0].length;
+			}
+			if (last) { fragment.append(value.slice(last)); node.replaceWith(fragment); }
+		}
+		const labels = () => { document.querySelectorAll<HTMLButtonElement>(".concept-trigger").forEach((button) => button.setAttribute("aria-label", english() ? `Explain ${button.dataset.conceptTerm}` : `了解 ${button.dataset.conceptTerm}`)); render(); }; labels();
+		document.addEventListener("site-locale-change", labels);
+		dialog.querySelector("[data-concept-close]")?.addEventListener("click", () => dialog.close());
+		dialog.addEventListener("close", () => trigger?.focus());
+		dialog.addEventListener("click", (event) => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
+	}
+</script>
+<style is:global>.concept-trigger{display:inline!important;padding:0!important;border:0!important;border-bottom:1px dotted var(--brand-accent)!important;border-radius:0!important;background:transparent!important;color:var(--brand-accent)!important;font:inherit!important;cursor:help;text-decoration:none!important}.concept-trigger:focus-visible{outline:2px solid var(--brand-accent);outline-offset:4px}#concept-preview{position:fixed;inset:0;margin:auto;width:min(480px,calc(100vw - 36px));max-height:80svh;overflow:auto;padding:28px;border:1px solid var(--brand-line);border-radius:16px;background:var(--brand-paper);color:var(--brand-ink);box-shadow:0 25px 90px rgba(37,60,52,.18)}#concept-preview::backdrop{background:rgba(25,40,34,.28)}.concept-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:20px;font:9px monospace;color:var(--brand-muted)}.concept-dialog-head button{font-size:26px;line-height:1;padding:4px 8px;background:none;border:0;color:var(--brand-ink);cursor:pointer}#concept-preview h2{font:400 26px/1.5 Georgia,"Songti SC",serif;margin:24px 0 16px}#concept-preview p{font-size:14px;line-height:2;color:var(--brand-body)}#concept-preview a{display:inline-block;margin-top:22px;font-size:12px;color:var(--brand-accent)}</style>

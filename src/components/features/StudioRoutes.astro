@@ -1,0 +1,63 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+const routes = [
+	{
+		number: "01",
+		label: "造一个模型",
+		labelEn: "Build a model",
+		question: "模型从哪里学会预测？",
+		questionEn: "Where does prediction come from?",
+		copy: "先试数据与分词，再看预训练怎样连接到评测。",
+		copyEn:
+			"Try data and tokenization, then connect pretraining to evaluation.",
+		href: "/lab/model-pipeline/",
+		path: "/paths/models-to-systems/",
+		action: "打开模型工作台",
+		actionEn: "Open the model workbench",
+		stages: "DATA → TRAIN → EVAL",
+	},
+	{
+		number: "02",
+		label: "追踪一次选择",
+		labelEn: "Trace a decision",
+		question: "反馈怎样改变下一步？",
+		questionEn: "How does feedback change the next move?",
+		copy: "运行一次搜索，观察选择、展开、模拟与回传。",
+		copyEn: "Run a search: selection, expansion, simulation, and backup.",
+		href: "/lab/mcts/",
+		path: "/paths/search-to-self-play/",
+		action: "运行 MCTS 实验",
+		actionEn: "Try the MCTS experiment",
+		stages: "TRY → FEEDBACK → UPDATE",
+	},
+	{
+		number: "03",
+		label: "检验一次改进",
+		labelEn: "Evaluate a change",
+		question: "分数变好，就真的有效吗？",
+		questionEn: "Does a higher score mean improvement?",
+		copy: "改变发券方式，区分人群差异与干预带来的效果。",
+		copyEn:
+			"Change coupon assignment to separate group differences from intervention effects.",
+		href: "/lab/causal-playground/",
+		path: "/paths/evaluating-improvement/",
+		action: "打开因果实验",
+		actionEn: "Open the causal experiment",
+		stages: "COMPARE → QUESTION → TEST",
+	},
+];
+---
+<section class="studio-routes" aria-labelledby="studio-routes-title">
+	<div class="routes-intro"><p>START HERE / 01—03</p><h2 id="studio-routes-title"><Text zh="第一次来，从一个问题开始。" en="First visit? Start with a question." /></h2><Text as="p" zh="先动手观察，再沿阅读路线深入。每个实验都可以独立打开。" en="Try an experiment, then follow its reading path. Each workbench stands on its own." /></div>
+	<div class="routes-grid">{routes.map((route) => <article>
+		<div class="route-label"><span>{route.number}</span><Text zh={route.label} en={route.labelEn} /></div>
+		<Text as="h3" zh={route.question} en={route.questionEn} />
+		<Text as="p" zh={route.copy} en={route.copyEn} />
+		<span class="route-stages">{route.stages}</span>
+		<a class="route-primary" href={route.href}><Text zh={route.action} en={route.actionEn} /><span aria-hidden="true">↗</span></a>
+		<a class="route-reading" href={route.path}><Text zh="沿对应路线阅读" en="Follow the reading path" /> →</a>
+	</article>)}</div>
+</section>
+<style>
+	.studio-routes{position:relative;z-index:2;padding:60px 11vw 75px;border-bottom:1px solid var(--brand-line);background:var(--brand-surface)}.routes-intro>p:first-child{font:10px/1.8 "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--brand-accent)}.routes-intro :global(h2){font:400 clamp(28px,3vw,40px)/1.4 Georgia,"Songti SC",serif;margin:15px 0}.routes-intro :global(p:last-child){color:var(--brand-body);font-size:13px;line-height:1.9}.routes-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:35px}.routes-grid article{display:flex;flex-direction:column;min-width:0;border-top:1px solid var(--brand-accent);padding-top:20px}.route-label{display:flex;gap:15px;font-size:12px;color:var(--brand-accent)}.route-label>span:first-child{font:11px monospace;color:var(--brand-muted)}.routes-grid :global(h3){font-size:20px;font-weight:500;line-height:1.6;margin:20px 0 12px;letter-spacing:-.02em}.routes-grid :global(p){font-size:13px;color:var(--brand-body);line-height:1.9;margin:0 0 20px}.route-stages{font:9px/1.8 "JetBrains Mono",monospace;color:var(--brand-muted);letter-spacing:.04em;margin-top:auto;padding-bottom:25px}.routes-grid a{font-size:12px;color:var(--brand-accent);text-decoration:none}.route-primary{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border:1px solid var(--brand-line);border-radius:25px;background:var(--brand-paper)}.route-primary:hover{background:var(--brand-peach)}.route-reading{align-self:flex-start;padding:14px 0 4px}.route-reading:hover{text-decoration:underline;text-underline-offset:5px}.routes-grid a:focus-visible{outline:2px solid var(--brand-accent);outline-offset:4px}@media(max-width:760px){.studio-routes{padding:40px 7vw 50px}.routes-grid{grid-template-columns:1fr;gap:28px}.routes-grid :global(h3){margin-top:14px}.route-stages{padding-bottom:15px}.route-primary{max-width:420px}.routes-intro :global(h2){font-size:29px}}
+</style>

@@ -1,0 +1,13 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+---
+<aside class="note-explore"><div><Text as="strong" zh="想沿着一个问题读下去？" en="Want to follow a question further?" /><Text as="p" zh="先选一条阅读路线，或到实验室动手试一试。" en="Choose a reading path, or try an experiment in the lab." /></div><nav aria-label="阅读方式" data-i18n-aria-label-zh="阅读方式" data-i18n-aria-label-en="Ways to read"><a href="/rsi/"><Text zh="RSI 导读" en="RSI guide" /> ↗</a><a href="/paths/"><Text zh="阅读路线" en="Reading paths" /> ↗</a><a href="/lab/"><Text zh="实验室" en="Lab" /> ↗</a><a href="/reading/"><Text zh="我的收藏" en="Saved reading" /> ↗</a></nav></aside>
+<div class="note-search" role="search">
+	<label for="note-search-input" data-i18n="search.label" data-i18n-zh="搜索笔记" data-i18n-en="Search notes">搜索笔记</label>
+	<div class="search-field"><input id="note-search-input" data-note-search type="search" autocomplete="off" maxlength="200" aria-describedby="note-search-help" /><button type="button" data-note-clear data-i18n="search.clear" data-i18n-zh="清除" data-i18n-en="Clear">清除</button></div>
+	<p id="note-search-help" data-i18n="search.help" data-i18n-zh="搜索已发布文章的中英文标题与正文，可与下方筛选组合使用。" data-i18n-en="Search published titles and full text in both languages, then narrow by format or topic.">搜索已发布文章的中英文标题与正文，可与下方筛选组合使用。</p>
+</div>
+<style>
+	.note-search{padding:28px 0 8px}.note-search label{display:block;font-size:13px;color:var(--brand-ink);margin-bottom:10px}.search-field{display:flex;border:1px solid var(--brand-line);border-radius:10px;background:var(--brand-surface);overflow:hidden}.search-field:focus-within{outline:2px solid var(--brand-accent);outline-offset:3px}input{min-width:0;flex:1;border:0;background:transparent;color:var(--brand-ink);font:inherit;font-size:16px;padding:14px;outline:0}button{border:0;background:transparent;color:var(--brand-accent);font-size:12px;padding:0 18px;cursor:pointer}button:focus-visible{outline:2px solid var(--brand-accent);outline-offset:-4px}.note-search p{font-size:11px;line-height:1.8;color:var(--brand-muted);margin-top:10px}
+	.note-explore{display:flex;justify-content:space-between;gap:20px;align-items:center;background:var(--brand-surface);border:1px solid var(--brand-line);border-radius:12px;padding:22px 26px;margin:12px 0}.note-explore :global(strong){font-size:13px;color:var(--brand-ink);font-weight:500}.note-explore :global(p){font-size:11px;line-height:1.8;color:var(--brand-muted);margin:8px 0 0}.note-explore nav{display:flex;flex-wrap:wrap;gap:12px 22px;max-width:280px}.note-explore a{font-size:11px;color:var(--brand-accent);text-decoration:none}@media(max-width:760px){.note-explore{display:block;padding:20px}.note-explore nav{margin-top:20px;max-width:none}}
+</style>

@@ -1,0 +1,89 @@
+/* B: sage, soft white and peach. Shared by brand pages and reading layouts. */
+:root[data-brand-theme="sage"] {
+	color-scheme: light;
+	--brand-paper: #f3f6f1;
+	--brand-surface: #e8efe7;
+	--brand-sage: #d5e4d8;
+	--brand-ink: #253c34;
+	--brand-body: #445e51;
+	--brand-muted: #586e62;
+	--brand-accent: #41634f;
+	--brand-peach: #f3c7ac;
+	--brand-peach-hover: #edb995;
+	--brand-clay: #915638;
+	--brand-blue: #4d6f80;
+	--brand-line: rgb(37 60 52 / 16%);
+	--page-bg: var(--brand-paper);
+	--card-bg: #fafbf8;
+	--primary: var(--brand-accent);
+	--deep-text: var(--brand-ink);
+	--content-meta: var(--brand-muted);
+	--line-divider: var(--brand-line);
+	--line-color: var(--brand-line);
+	--inline-code-bg: var(--brand-sage);
+	--inline-code-color: var(--brand-ink);
+	--codeblock-bg: var(--brand-surface);
+	--codeblock-topbar-bg: var(--brand-sage);
+	--selection-bg: var(--brand-peach);
+	--btn-content: var(--brand-accent);
+	--btn-regular-bg: var(--brand-surface);
+	--btn-regular-bg-hover: var(--brand-sage);
+	--btn-plain-bg-hover: var(--brand-surface);
+	--float-panel-bg: var(--brand-paper);
+	--link-underline: var(--brand-sage);
+	--link-hover: var(--brand-surface);
+	--toc-item-active: var(--brand-accent);
+	background: var(--brand-paper);
+}
+
+html[data-brand-theme="sage"] body {
+	background: var(--brand-paper);
+	color: var(--brand-ink);
+}
+
+@media (max-width: 380px) {
+	[data-brand-theme="sage"] :is(.wordmark, .folio-brand) :is(.brand-descriptor, i) { display: none; }
+}
+
+[data-brand-theme="sage"] ::selection {
+	background: var(--brand-peach);
+	color: var(--brand-ink);
+}
+
+[data-brand-theme="sage"] :focus-visible {
+	outline: 2px solid var(--brand-accent);
+	outline-offset: 4px;
+}
+
+/* Soft color fields carry the scene through the rest of the site. */
+[data-brand-theme="sage"] :is(.notes-hero, .work-hero, .case-hero, .about-hero) {
+	background: radial-gradient(ellipse at 85% 20%, rgb(243 199 172 / 35%), transparent 42%),
+		radial-gradient(ellipse at 68% 70%, rgb(213 228 216 / 65%), transparent 55%);
+}
+
+[data-brand-theme="sage"] .folio .contact,
+[data-brand-theme="sage"] .case-page .source-section {
+	background: var(--brand-peach);
+	color: var(--brand-ink);
+}
+
+[data-brand-theme="sage"] :is(.pill.primary, .back-home) {
+	background: var(--brand-peach);
+	color: var(--brand-ink);
+}
+
+[data-brand-theme="sage"] .pill.primary:hover { background: var(--brand-peach-hover); }
+[data-brand-theme="sage"] .contact-button { background: var(--brand-ink); color: var(--brand-paper); }
+[data-brand-theme="sage"] .contact-button span { color: var(--brand-peach); }
+
+[data-brand-theme="sage"] #post-container :is(.markdown-content, .prose) {
+	color: var(--brand-body);
+	--tw-prose-body: var(--brand-body);
+	--tw-prose-headings: var(--brand-ink);
+	--tw-prose-bold: var(--brand-ink);
+	--tw-prose-links: var(--brand-accent);
+	--tw-prose-code: var(--brand-ink);
+	--tw-prose-quotes: var(--brand-body);
+	--tw-prose-bullets: var(--brand-muted);
+	--tw-prose-counters: var(--brand-muted);
+}

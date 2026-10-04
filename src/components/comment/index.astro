@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { commentConfig } from "@/config/commentConfig";
+import { brandTranslations } from "@/i18n/brand";
 import Key from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import { removeFileExtension } from "@/utils/url-utils";
@@ -50,9 +51,19 @@ let commentService: string = commentConfig?.type || "none";
       <div class="relative z-10 mb-6">
         <div class="flex items-center gap-3 mb-2">
           <div class="w-1 h-6 bg-linear-to-b from-(--primary) to-transparent rounded-full"></div>
-          <h3 class="text-xl font-bold text-(--btn-content)">{i18n(Key.commentSection)}</h3>
+          <h3
+            class="text-xl font-bold text-(--btn-content)"
+            data-i18n="post.comments"
+            data-i18n-zh={brandTranslations["zh-CN"]["post.comments"]}
+            data-i18n-en={brandTranslations.en["post.comments"]}
+          >{i18n(Key.commentSection)}</h3>
         </div>
-        <p class="text-sm text-(--content-meta) ml-4">{i18n(Key.commentSubtitle)}</p>
+        <p
+          class="text-sm text-(--content-meta) ml-4"
+          data-i18n="post.commentsSubtitle"
+          data-i18n-zh={brandTranslations["zh-CN"]["post.commentsSubtitle"]}
+          data-i18n-en={brandTranslations.en["post.commentsSubtitle"]}
+        >{i18n(Key.commentSubtitle)}</p>
       </div>
       <!-- 评论内容区域 -->
       <div class="relative z-10 pl-2 pr-2">

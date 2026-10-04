@@ -1,0 +1,19 @@
+---
+import { readingPaths } from "@/data/readingPaths";
+import { library } from "@/data/library";
+import { getBacklinks } from "@/utils/backlinks";
+import { getResearchNotes, requireResearchNote } from "@/utils/research-content";
+interface Props { sourceId: string; english?: boolean; }
+const { sourceId, english = false } = Astro.props;
+const id = sourceId.replace(/\.mdx?$/, "");
+const paths = readingPaths.filter((path) => path.steps.some((step) => step.sourceId === id));
+const sources = library.filter((entry) => entry.notes.includes(id));
+const backlinks = await getBacklinks(id, english);
+const notes = paths.length ? await getResearchNotes() : new Map();
+---
+{(paths.length > 0 || sources.length > 0 || backlinks.length > 0) && <aside class="article-connections" aria-label={english ? "Connections to this note" : "这篇笔记的连接"}>
+	{paths.map((path) => { const index = path.steps.findIndex((step) => step.sourceId === id); const next = path.steps[index + 1]; const note = next ? requireResearchNote(notes, next.sourceId) : undefined; return <section class="path-context"><p>{english ? "READING PATH" : "所属阅读路线"} / {index + 1} · {path.steps.length}</p><h2><a href={`/paths/${path.slug}/`}>{english ? path.titleEn : path.title} ↗</a></h2><p>{english ? path.steps[index].focusEn : path.steps[index].focus}</p>{note ? <a class="path-next" href={english ? note.hrefEn : note.href}>{english ? "Next in this path: " : "沿路线读下一篇："}{english ? note.titleEn : note.title} →</a> : <a class="path-next" href={`/paths/${path.slug}/`}>{english ? "You’ve reached the last note. Return to the path’s reflection →" : "读到路线的最后一篇了，回去看看最后那个问题 →"}</a>}</section>; })}
+	{backlinks.length > 0 && <section class="backlinks"><h2>{english ? "Mentioned in these notes" : "这些文章提到了它"}</h2><p>{english ? "Links found in the published article text." : "来自已发布文章正文中的链接。"}</p><ul>{backlinks.map((link) => <li><a href={link.href}>{link.title} ↗</a>{link.section && <small>{english ? "In: " : "出现在："}{link.section}</small>}</li>)}</ul></section>}
+	{sources.length > 0 && <section class="source-connections"><h2>{english ? "Related source material" : "关联原始资料"}</h2><ul>{sources.map((source) => <li><a href={`/library/?path=${source.path}#${source.id}`}>{source.title} ↗</a></li>)}</ul></section>}
+</aside>}
+<style>.article-connections{margin:36px 0;border-top:1px solid var(--brand-line);color:var(--brand-ink)}.article-connections section{padding:26px 0;border-bottom:1px solid var(--brand-line)}.article-connections h2{font:400 23px/1.5 Georgia,"Songti SC",serif;margin:0 0 12px}.article-connections p{font:12px/1.9 Inter,sans-serif;color:var(--brand-body);margin:10px 0}.article-connections a{color:var(--brand-accent);text-decoration:none}.article-connections a:hover{text-decoration:underline;text-underline-offset:4px}.path-context>p:first-child{font:10px monospace;color:var(--brand-muted);letter-spacing:.08em}.path-next{display:inline-block;font-size:12px;line-height:1.9;margin-top:8px}.article-connections ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}.article-connections li{display:grid;gap:6px;font-size:12px;line-height:1.9}.article-connections small{font-size:10px;color:var(--brand-muted)}</style>
