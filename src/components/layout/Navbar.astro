@@ -1,15 +1,25 @@
 ---
 import { navBarConfig } from "@/config";
-import LanguageSwitcher from "@/components/features/LanguageSwitcher.svelte";
+import Text from "@/components/common/BilingualText.astro";
 import ExploreMenu from "@/components/features/ExploreMenu.astro";
+import LanguageSwitcher from "@/components/features/LanguageSwitcher.svelte";
+import { getBrandTranslation } from "@/i18n/brand";
+
 const className = Astro.props.class;
+const initialLocale = Astro.url.pathname.startsWith("/en/") ? "en" : "zh-CN";
+const labelKeys: Record<string, string> = {
+	"/notes/": "nav.notes",
+	"/work/": "nav.work",
+	"/about/": "nav.about",
+	"/contact/": "nav.contact",
+};
 ---
 
 <header id="navbar" class:list={["folio-navbar", className]}>
-	<a class="folio-brand" href="/" aria-label="枫语个人主页" data-i18n-aria-label-zh="枫语个人主页" data-i18n-aria-label-en="Feng Yu’s personal site"><span class="folio-mark">F.</span><span>FENG YU <i>·</i> <span class="brand-descriptor">RESEARCH STUDIO</span></span></a>
+	<a class="folio-brand" href="/" aria-label="枫语个人主页" data-i18n-aria-label-zh="枫语个人主页" data-i18n-aria-label-en="Feng Yu’s personal site"><span class="folio-mark" aria-hidden="true">F.</span><span class="brand-name"><Text zh="枫语" en="Feng Yu" /></span></a>
 	<div class="folio-nav-actions">
 		<nav aria-label="主导航" data-i18n-aria-label-zh="主导航" data-i18n-aria-label-en="Main navigation">
-			{navBarConfig.links.map((link) => <a href={link.url} data-i18n={link.name === "联系" ? undefined : link.name === "研究档案" ? "nav.work" : link.name === "笔记" ? "nav.notes" : link.name === "关于" ? "nav.about" : undefined} target={link.external ? "_blank" : undefined} rel={link.external ? "noreferrer" : undefined}>{link.name === "联系" ? <><span data-i18n="nav.contact">联系</span><span>↗</span></> : link.name}</a>)}
+			{navBarConfig.links.map((link) => <a href={link.url} data-i18n={labelKeys[link.url]} aria-current={Astro.url.pathname === link.url ? "page" : undefined} target={link.external ? "_blank" : undefined} rel={link.external ? "noreferrer" : undefined}>{getBrandTranslation(initialLocale, labelKeys[link.url]) ?? link.name}</a>)}
 		</nav>
 		<ExploreMenu />
 		<LanguageSwitcher client:load />
@@ -17,9 +27,27 @@ const className = Astro.props.class;
 </header>
 
 <style>
-	.folio-navbar{height:74px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(37,60,52,.13);background:var(--brand-paper);color:var(--brand-ink);position:relative;z-index:50}.folio-brand{display:flex;align-items:center;gap:12px;color:inherit;font-size:10px;letter-spacing:.18em;font-weight:600;text-decoration:none}.folio-brand i{color:var(--brand-accent);font-style:normal}.folio-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--brand-muted);border-radius:50%;color:var(--brand-accent);font:italic 16px Georgia;letter-spacing:-.08em}.folio-nav-actions{display:flex;align-items:center;gap:20px}.folio-navbar nav{display:flex;align-items:center;gap:31px}.folio-navbar nav a{font:9px "JetBrains Mono",monospace;letter-spacing:.12em;color:var(--brand-body);text-decoration:none;transition:color .2s}.folio-navbar nav a:hover{color:var(--brand-accent)}.folio-navbar nav a span:last-child{color:var(--brand-accent);margin-left:6px;font-size:12px}@media(max-width:700px){.folio-navbar{height:66px;padding:0 5vw}.folio-brand{font-size:8px;gap:8px;white-space:nowrap;flex-shrink:0}.folio-brand :is(.brand-descriptor,i){display:none}.folio-mark{width:30px;height:30px}.folio-nav-actions{gap:8px}.folio-navbar nav{gap:12px}.folio-navbar nav a{font-size:7px;letter-spacing:.03em;white-space:nowrap}}
-	@media (max-width: 380px) {
-		.folio-navbar nav { gap: 8px; }
-		.folio-brand > span:last-child { display: none; }
+	.folio-navbar { min-height: 78px; padding: 12px 6vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--brand-line); background: var(--brand-paper); color: var(--brand-ink); position: relative; z-index: 50; }
+	.folio-brand { display: flex; flex-shrink: 0; align-items: center; gap: 11px; color: inherit; text-decoration: none; }
+	.brand-name { font: 400 23px/1.4 "Iowan Old Style", "Songti SC", STSong, Georgia, serif; letter-spacing: .035em; }
+	.folio-mark { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid var(--brand-muted); border-radius: 50%; color: var(--brand-accent); font: italic 16px Georgia, serif; letter-spacing: -.08em; }
+	.folio-nav-actions { display: flex; align-items: center; gap: 25px; }
+	#navbar.folio-navbar > .folio-nav-actions { background: transparent; border: 0; box-shadow: none; backdrop-filter: none; }
+	nav { display: flex; align-items: center; gap: 28px; }
+	nav a { display: inline-flex; align-items: center; min-height: 40px; font: 13px/1.5 Inter, "PingFang SC", sans-serif; color: var(--brand-body); text-decoration: none; white-space: nowrap; transition: color .2s; }
+	nav a:hover, nav a[aria-current="page"] { color: var(--brand-accent); text-decoration: underline; text-underline-offset: .45em; text-decoration-color: var(--brand-clay); }
+	@media (max-width: 700px) {
+		.folio-navbar { padding: 14px 6vw 10px; flex-wrap: wrap; gap: 10px; }
+		.brand-name { font-size: 21px; }
+		.folio-nav-actions { gap: 16px; }
+		nav { gap: 18px; }
+		nav a { font-size: 12px; }
+	}
+	@media (max-width: 520px) {
+		.folio-nav-actions { width: 100%; justify-content: space-between; gap: 10px; }
+		nav { gap: 20px; }
+	}
+	@media (max-width: 350px) {
+		nav { gap: 12px; }
 	}
 </style>

@@ -6,7 +6,7 @@ export interface LibraryEntry {
 	kind: string;
 	kindEn: string;
 	url: string;
-	path: string;
+	topic: "models" | "search" | "evaluation";
 	focus: string;
 	focusEn: string;
 	notes: string[];
@@ -20,7 +20,7 @@ export const library: LibraryEntry[] = [
 		kind: "训练项目",
 		kindEn: "Training project",
 		url: "https://github.com/jingyaogong/minimind",
-		path: "models-to-systems",
+		topic: "models",
 		focus:
 			"对照小模型的数据、预训练与后训练组织。固定上游版本，单独测量本机资源与吞吐。",
 		focusEn:
@@ -35,7 +35,7 @@ export const library: LibraryEntry[] = [
 		kind: "训练项目",
 		kindEn: "Training project",
 		url: "https://github.com/karpathy/nanochat",
-		path: "models-to-systems",
+		topic: "models",
 		focus:
 			"沿分词器、预训练、后训练、评测与推理追踪产物。区分GPU规模示例与CPU/MPS教育配置。",
 		focusEn:
@@ -51,7 +51,7 @@ export const library: LibraryEntry[] = [
 		kind: "综述",
 		kindEn: "Survey",
 		url: "https://doi.org/10.1109/TCIAIG.2012.2186810",
-		path: "search-to-self-play",
+		topic: "search",
 		focus:
 			"从四个搜索阶段读起，再看 UCT 如何权衡探索与利用。对照互动实验，理解访问次数和奖励如何沿树回传。",
 		focusEn:
@@ -67,7 +67,7 @@ export const library: LibraryEntry[] = [
 		kind: "论文",
 		kindEn: "Paper",
 		url: "https://arxiv.org/abs/1712.01815",
-		path: "search-to-self-play",
+		topic: "search",
 		focus:
 			"关注自我对弈、搜索与策略价值网络的连接方式。把搜索产生的动作分布，与训练时更新的模型参数区分开。",
 		focusEn:
@@ -82,7 +82,7 @@ export const library: LibraryEntry[] = [
 		kind: "教材",
 		kindEn: "Textbook",
 		url: "https://mixtape.scunning.com/",
-		path: "evaluating-improvement",
+		topic: "evaluation",
 		focus:
 			"从因果图与潜在结果开始，追问每一种比较成立的条件。作者的在线第二版仍在更新；旧笔记引用的书名为 The Mixtape。",
 		focusEn:
@@ -100,7 +100,7 @@ export const library: LibraryEntry[] = [
 		kind: "工具",
 		kindEn: "Tool",
 		url: "https://github.com/DataCanvasIO/YLearn",
-		path: "evaluating-improvement",
+		topic: "evaluation",
 		focus:
 			"结合官方文档理解处理效应估计的工作流。使用具体估计器前，先明确处理、结果、协变量与识别假设。",
 		focusEn:
@@ -115,7 +115,7 @@ export const library: LibraryEntry[] = [
 		kind: "论文",
 		kindEn: "Paper",
 		url: "https://arxiv.org/abs/1706.03762",
-		path: "models-to-systems",
+		topic: "models",
 		focus:
 			"先追踪注意力、多头机制与位置表示之间的数据流，再回到模型训练笔记，理解架构决定了哪些计算。",
 		focusEn:
@@ -130,7 +130,7 @@ export const library: LibraryEntry[] = [
 		kind: "论文",
 		kindEn: "Paper",
 		url: "https://arxiv.org/abs/2210.03629",
-		path: "models-to-systems",
+		topic: "models",
 		focus:
 			"看推理、动作与环境观察如何交替出现。将工具返回的反馈与模型内部的推断分开，思考错误会在哪一步累积。",
 		focusEn:

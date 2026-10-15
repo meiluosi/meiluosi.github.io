@@ -26,6 +26,19 @@ export function mountNoteFilters(): () => void {
 	if (input) input.value = (params.get("q") ?? "").slice(0, 200);
 	const preference = matchMedia("(prefers-reduced-motion: reduce)");
 	const events = new AbortController();
+	const viewButtons = [...root.querySelectorAll<HTMLButtonElement>("[data-note-view-button]")];
+	const setView = (view: string) => {
+		root.dataset.noteView = view === "list" ? "list" : "cards";
+		for (const button of viewButtons)
+			button.ariaPressed = String(button.dataset.noteViewButton === root.dataset.noteView);
+	};
+	try { setView(localStorage.getItem("feng-yu-note-view") ?? "cards"); }
+	catch { setView("cards"); }
+	for (const button of viewButtons) button.addEventListener("click", () => {
+		setView(button.dataset.noteViewButton ?? "cards");
+		try { localStorage.setItem("feng-yu-note-view", root.dataset.noteView!); }
+		catch { /* Display switching also works without storage. */ }
+	}, { signal: events.signal });
 	const active = new Map<HTMLElement, Animation>();
 	let format =
 		formats.find((button) => button.ariaPressed === "true")?.dataset
@@ -203,7 +216,7 @@ export function mountNoteFilters(): () => void {
 		(event) => {
 			if (
 				!(event.target instanceof Element) ||
-				!event.target.closest("a.entry, a.trail-card")
+				!event.target.closest("a.entry")
 			)
 				return;
 			try {

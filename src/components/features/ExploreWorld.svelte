@@ -4,16 +4,16 @@ import { researchThreads } from "@/data/researchThreads";
 import type { WorldController, WorldLocale, WorldQuality } from "./world/create-world";
 import WorldPoster from "./world/WorldPoster.svelte";
 
-interface Props { immersive?: boolean; }
-let { immersive = false }: Props = $props();
+interface Props { immersive?: boolean; compact?: boolean; }
+let { immersive = false, compact = false }: Props = $props();
 let stage: HTMLDivElement;
-let canvas: HTMLCanvasElement;
+let canvas = $state<HTMLCanvasElement>();
 let panel = $state<HTMLElement>();
 let controller: WorldController | null = null;
 let disposed = false;
 let locale = $state<WorldLocale>("zh-CN");
-let noticeZh = $state("研究工作室 / 点选一个方向，或启动 3D 探索");
-let noticeEn = $state("RESEARCH WORKSHOP / CHOOSE A STATION OR START 3D");
+let noticeZh = $state("桌上有几个还没想完的问题，随意看看。");
+let noticeEn = $state("A few unfinished questions are on the table. Have a look around.");
 let webglAvailable = $state(true);
 let sceneReady = $state(false);
 let loading = $state(false);
@@ -21,25 +21,42 @@ let animationPaused = $state(false);
 let reducedMotion = $state(false);
 let followRover = $state(false);
 let quality = $state<WorldQuality>("light");
-let selected = $state<(typeof researchThreads)[number] | null>(null);
+let selected = $state<(typeof destinations)[number] | null>(null);
 let panelCollapsed = $state(false);
 let previewTrigger: HTMLElement | null = null;
-const destinations = researchThreads;
+const stationCopy = {
+	"llm-systems": {
+		label: "文字桌", labelEn: "Word desk", sceneLabel: "文字桌", sceneLabelEn: "The word desk",
+		question: "一句话怎样变成机器眼中的数字？", questionEn: "How does a sentence become numbers to a machine?",
+		workText: "从纸上的一句话开始，拆成词元，看看预测、训练与评测怎样接上。", workTextEn: "Start with a sentence on the page, turn it into tokens, and follow the connections between prediction, training, and evaluation.",
+	},
+	"reinforcement-learning": {
+		label: "棋盘", labelEn: "The board", sceneLabel: "棋盘边", sceneLabelEn: "At the board",
+		question: "多想一步，选择会改变吗？", questionEn: "Would thinking one step further change the choice?",
+		workText: "棋盘上的一步，还可以往前想多远？展开一棵搜索树，看看尝试怎样留下线索。", workTextEn: "How far ahead can we look before placing a stone? Open a search tree and see what each attempt leaves behind.",
+	},
+	"causal-inference": {
+		label: "观察台", labelEn: "Observation", sceneLabel: "观察台", sceneLabelEn: "The observation desk",
+		question: "怎样辨认一次改变的原因？", questionEn: "How can we find the cause of a change?",
+		workText: "两组人看起来不同，差异来自哪里？换一种安排，在模拟数据里试着分辨。", workTextEn: "Two groups look different, but why? Change how things are assigned and explore the distinction with simulated data.",
+	},
+};
+const destinations = researchThreads.map((thread) => ({ ...thread, ...stationCopy[thread.id] }));
 const stationContent = {
 	"llm-systems": {
 		slug: "local-1b-model-workflow", zh: "小模型全链路训练", en: "End-to-end small-model training",
-		experiment: "/lab/model-pipeline/", experimentZh: "从数据、分词到训练、评测与部署", experimentEn: "From data and tokenization to training, evaluation, and deployment",
-		path: "/paths/models-to-systems/", pathZh: "从模型到智能系统", pathEn: "From models to intelligent systems",
+		experiment: "/lab/model-pipeline/", experimentZh: "拆开一句话，试着预测下一个词", experimentEn: "Take a sentence apart and predict the next token",
+		path: "/work/local-1b-model-workflow/", pathZh: "从模型到智能系统", pathEn: "From models to intelligent systems",
 	},
 	"reinforcement-learning": {
 		slug: "alphazero-gomoku", zh: "AlphaZero 五子棋", en: "AlphaZero Gomoku",
-		experiment: "/lab/mcts/", experimentZh: "运行一次 MCTS 搜索", experimentEn: "Run a Monte Carlo tree search",
-		path: "/paths/search-to-self-play/", pathZh: "从搜索到自我对弈", pathEn: "From search to self-play",
+		experiment: "/lab/mcts/", experimentZh: "沿着搜索树，多想一步", experimentEn: "Think one step further with a search tree",
+		path: "/work/alphazero-gomoku/", pathZh: "从搜索到自我对弈", pathEn: "From search to self-play",
 	},
 	"causal-inference": {
 		slug: "ylearn-causal-inference", zh: "YLearn 因果分析", en: "YLearn causal inference",
-		experiment: "/lab/causal-playground/", experimentZh: "改变分配方式，观察效果", experimentEn: "Change assignment and observe the effect",
-		path: "/paths/evaluating-improvement/", pathZh: "怎样判断改进有效", pathEn: "How to evaluate improvement",
+		experiment: "/lab/causal-playground/", experimentZh: "换一种安排，观察差异", experimentEn: "Change the assignment and observe the difference",
+		path: "/work/ylearn-causal-inference/", pathZh: "怎样判断改进有效", pathEn: "How to evaluate improvement",
 	},
 };
 const panelId = $derived(immersive ? "immersive-station-panel" : "home-station-panel");
@@ -73,7 +90,7 @@ function resetView(): void {
 }
 function collapsePanel(): void {
 	panelCollapsed = true;
-	canvas.focus({ preventScroll: true });
+	canvas?.focus({ preventScroll: true });
 }
 function toggleAnimation(): void {
 	animationPaused = !animationPaused;
@@ -101,13 +118,13 @@ function showFallback(): void {
 	noticeEn = "3D IS UNAVAILABLE · ALL STATION CONTENT REMAINS ACCESSIBLE";
 }
 async function startScene(): Promise<void> {
-	if (loading || sceneReady || disposed) return;
+	if (loading || sceneReady || disposed || compact || !canvas) return;
 	loading = true;
 	noticeZh = "正在准备研究岛 · 可先点选下方站点";
 	noticeEn = "PREPARING THE ISLAND · STATION BUTTONS ARE READY";
 	try {
 		const { createWorld } = await import("./world/create-world");
-		if (disposed) return;
+		if (disposed || !canvas) return;
 		controller = createWorld({
 			canvas, stage, stations: destinations, immersive, locale,
 			onReady: () => { sceneReady = true; loading = false; },
@@ -119,7 +136,10 @@ async function startScene(): Promise<void> {
 			onError: showFallback,
 		});
 		if (selected) controller.selectStation(selected.id);
-	} catch { if (!disposed) showFallback(); }
+	} catch (error) {
+		if (import.meta.env.DEV) console.warn("[ExploreWorld] Scene initialization failed", error);
+		if (!disposed) showFallback();
+	}
 }
 
 onMount(() => {
@@ -129,7 +149,7 @@ onMount(() => {
 		controller?.setLocale(locale);
 	};
 	document.addEventListener("site-locale-change", onLocaleChange);
-	if (immersive) void startScene();
+	if (immersive && !compact) void startScene();
 	return () => {
 		disposed = true;
 		controller?.dispose();
@@ -141,8 +161,11 @@ onMount(() => {
 
 <svelte:window onkeydown={onWindowKeyDown} />
 
-<div class="explore-world" class:immersive class:offline={!webglAvailable} class:ready={sceneReady} class:has-selection={selected !== null && !panelCollapsed} bind:this={stage}>
-	<div class="world-poster" aria-hidden="true"><WorldPoster /></div>
+<div class="explore-world" class:immersive class:compact class:offline={!webglAvailable} class:ready={sceneReady} class:has-selection={selected !== null && !panelCollapsed} bind:this={stage}>
+	<div class="world-poster" aria-hidden="true"><WorldPoster {locale} /></div>
+	{#if compact}
+		<div class="compact-caption"><p>{locale === "en" ? "A desk, a board, and a place to look closer." : "一张桌、一盘棋，还有几个想继续追问的问题。"}</p><a href="/world/">{locale === "en" ? "Have a look around" : "进来随意看看"}<span aria-hidden="true">↗</span></a></div>
+	{:else}
 	<canvas bind:this={canvas} tabindex={webglAvailable && sceneReady ? 0 : -1} aria-hidden={!webglAvailable || !sceneReady} aria-describedby={instructionId} aria-label={locale === "en" ? "Interactive research island. Select a station, drag to rotate, or use WASD and arrow keys to move. Press Enter near a station. R returns the rover to the start; Home restores the view." : "互动研究岛。点选站点、拖动旋转，或用 WASD 与方向键移动。靠近站点后按 Enter；R 返回起点，Home 恢复视角。"}></canvas>
 	{#if !immersive && !sceneReady && webglAvailable}
 		<button type="button" class="world-launch" onclick={startScene} disabled={loading}><span aria-hidden="true">{loading ? "◌" : "▷"}</span>{loading ? (locale === "en" ? "Preparing…" : "正在准备…") : (locale === "en" ? "Start 3D here" : "在此启动 3D")}</button>
@@ -172,16 +195,17 @@ onMount(() => {
 			<button class="preview-close" type="button" onclick={closeStation} aria-label={locale === "en" ? "Close station details" : "关闭站点详情"}>×</button>
 			<p class="preview-kicker">{localized(selected)}</p>
 			<h2 id={`${panelId}-title`}>{locale === "en" ? selected.questionEn : selected.question}</h2>
+			<a class="preview-main-link" href={content.experiment}><span>{locale === "en" ? "Try it" : "动手试试"}</span><strong>{locale === "en" ? content.experimentEn : content.experimentZh}</strong><b aria-hidden="true">↗</b></a>
 			<p class="preview-body">{locale === "en" ? selected.workTextEn : selected.workText}</p>
-			{#if sceneReady && webglAvailable}<button type="button" class="preview-explore" onclick={collapsePanel}>{locale === "en" ? "Hide panel & explore the installation" : "收起面板，查看装置与行驶过程"} <span aria-hidden="true">↙</span></button>{/if}
 			<div class="preview-links">
-				<a href={content.experiment}><span>{locale === "en" ? "01 / INTERACTIVE EXPERIMENT" : "01 / 互动实验"}</span><strong>{locale === "en" ? content.experimentEn : content.experimentZh}</strong><b aria-hidden="true">↗</b></a>
-				<a href={`/work/${content.slug}/`}><span>{locale === "en" ? "02 / RESEARCH CASE" : "02 / 研究案例"}</span><strong>{locale === "en" ? content.en : content.zh}</strong><b aria-hidden="true">↗</b></a>
-				<a href={content.path}><span>{locale === "en" ? "03 / READING PATH" : "03 / 阅读路线"}</span><strong>{locale === "en" ? content.pathEn : content.pathZh}</strong><b aria-hidden="true">↗</b></a>
+				<a href={`/work/${content.slug}/`}><span>{locale === "en" ? "Read the notes" : "翻翻记录"}</span><strong>{locale === "en" ? content.en : content.zh}</strong><b aria-hidden="true">↗</b></a>
+				<a href={content.path}><span>{locale === "en" ? "Research case" : "研究案例"}</span><strong>{locale === "en" ? content.pathEn : content.pathZh}</strong><b aria-hidden="true">↗</b></a>
 			</div>
+			{#if sceneReady && webglAvailable}<button type="button" class="preview-explore" onclick={collapsePanel}>{locale === "en" ? "Put the note aside and look around" : "先放下纸条，看看桌上的东西"} <span aria-hidden="true">↙</span></button>{/if}
 		</section>
 	{/if}
 	<noscript><nav class="world-no-script" aria-label="研究方向"><a href="/lab/model-pipeline/">小模型全链路训练</a><a href="/lab/mcts/">MCTS 搜索实验</a><a href="/lab/causal-playground/">因果实验</a></nav></noscript>
+	{/if}
 </div>
 
 <style>
@@ -193,80 +217,80 @@ onMount(() => {
 .world-poster { position: absolute; inset: 14% 1% 18%; display: grid; place-items: center; transition: opacity 400ms ease; }
 .ready .world-poster { opacity: 0; }
 .offline .world-poster { opacity: 1; }
-.world-launch { position: absolute; right: 10%; bottom: 22%; display: flex; align-items: center; gap: 9px; padding: 11px 17px; min-height: 44px; background: var(--brand-accent); color: var(--brand-paper); border: 0; border-radius: 24px; font: 11px/1.6 "JetBrains Mono", monospace; cursor: pointer; pointer-events: auto; box-shadow: 0 5px 20px rgb(37 60 52 / 12%); }
+.world-launch { position: absolute; right: 10%; bottom: 22%; display: flex; align-items: center; gap: 9px; padding: 11px 17px; min-height: 44px; background: var(--brand-accent); color: var(--brand-paper); border: 0; border-radius: 24px; font-size: 12px; line-height: 1.6; cursor: pointer; pointer-events: auto; box-shadow: 0 5px 20px rgb(37 60 52 / 12%); }
 .world-launch:hover { background: var(--brand-ink); }
 .world-launch:disabled { opacity: .7; cursor: progress; }
 .world-launch span { font-size: 17px; }
-.world-status { position: absolute; right: 10%; top: 11%; display: flex; align-items: center; gap: 8px; max-width: 74%; color: var(--brand-body); font: 8px/1.7 "JetBrains Mono", monospace; letter-spacing: .035em; }
+.world-status { position: absolute; right: 10%; top: 11%; display: flex; align-items: center; gap: 8px; max-width: 74%; color: var(--brand-body); font-size: 12px; line-height: 1.7; }
 .world-status > span:first-child { flex: 0 0 5px; height: 5px; border-radius: 50%; background: var(--brand-accent); }
 .world-status > span.offline:first-child { background: var(--brand-clay); }
 .world-toolbar { position: absolute; right: 10%; top: 17%; display: flex; flex-wrap: wrap; gap: 5px; pointer-events: auto; }
-.world-toolbar button { min-height: 44px; padding: 7px 9px; border: 1px solid var(--brand-line); border-radius: 20px; background: var(--brand-paper); color: var(--brand-accent); font: 9px/1.5 "JetBrains Mono", monospace; cursor: pointer; }
+.world-toolbar button { min-height: 44px; padding: 7px 11px; border: 1px solid var(--brand-line); border-radius: 20px; background: var(--brand-paper); color: var(--brand-accent); font-size: 12px; line-height: 1.5; cursor: pointer; }
 .world-toolbar button:hover, .world-toolbar button[aria-pressed="true"] { background: var(--brand-sage); }
 .world-toolbar button:disabled { opacity: .65; cursor: default; }
 .world-toolbar button > span { font-size: 13px; vertical-align: -1px; }
-.world-controls { position: absolute; right: 10%; bottom: 16%; margin: 0; color: var(--brand-muted); font: 8px/1.8 "JetBrains Mono", monospace; letter-spacing: .02em; }
+.world-controls { position: absolute; right: 10%; bottom: 16%; margin: 0; color: var(--brand-muted); font-size: 12px; line-height: 1.8; }
 .world-shortcuts { position: absolute; right: 10%; bottom: 6%; display: flex; gap: 6px; max-width: 90%; pointer-events: auto; }
-.world-shortcuts button { display: flex; align-items: center; gap: 7px; cursor: pointer; min-height: 44px; padding: 10px 11px; border: 1px solid var(--brand-line); border-radius: 10px; background: var(--brand-paper); color: var(--brand-accent); text-align: left; font: 10px/1.5 "JetBrains Mono", monospace; transition: background 180ms ease, border-color 180ms ease; }
+.world-shortcuts button { display: flex; align-items: center; gap: 7px; cursor: pointer; min-height: 44px; padding: 10px 11px; border: 1px solid var(--brand-line); border-radius: 8px; background: var(--brand-paper); color: var(--brand-accent); text-align: left; font-size: 14px; line-height: 1.5; transition: background 180ms ease, border-color 180ms ease; }
 .world-shortcuts button:hover, .world-shortcuts button.active { background: var(--brand-sage); border-color: var(--brand-accent); }
-.station-number { color: var(--brand-muted); font-size: 8px; }
+.station-number { color: var(--brand-muted); font-size: 12px; }
 .station-arrow { font-size: 13px; }
 .station-preview { position: absolute; right: 9%; bottom: 20%; width: min(350px, 82%); max-height: min(440px, 64%); box-sizing: border-box; overflow: auto; overscroll-behavior: contain; pointer-events: auto; padding: 25px; border: 1px solid var(--brand-line); border-radius: 17px; background: var(--brand-paper); color: var(--brand-ink); box-shadow: 0 14px 60px rgb(37 60 52 / 15%); scrollbar-width: thin; }
 .station-preview:focus { outline: none; }
 .station-preview:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: -4px; }
 .preview-close { position: absolute; right: 6px; top: 4px; border: 0; border-radius: 50%; background: none; color: var(--brand-accent); font-size: 26px; cursor: pointer; width: 44px; height: 44px; }
 .preview-close:hover { background: var(--brand-sage); }
-.preview-kicker { font: 8px/1.8 "JetBrains Mono", monospace; color: var(--brand-accent); margin: 0 18px 12px 0; }
+.preview-kicker { font-size: 12px; line-height: 1.8; color: var(--brand-accent); margin: 0 24px 12px 0; }
 .station-preview h2 { font: 400 22px/1.5 Georgia, "Songti SC", serif; margin: 0; }
-.preview-body { font-size: 12px; line-height: 1.9; color: var(--brand-body); margin: 12px 0 18px; }
-.preview-explore { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 44px; margin: -3px 0 12px; padding: 6px 0; color: var(--brand-accent); background: none; border: 0; border-bottom: 1px solid var(--brand-line); text-align: left; font-size: 11px; line-height: 1.7; cursor: pointer; }
+.preview-body { font-size: 15px; line-height: 1.85; color: var(--brand-body); margin: 14px 0 18px; }
+.preview-explore { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; margin: 12px 0 0; padding: 6px 0; color: var(--brand-accent); background: none; border: 0; border-top: 1px solid var(--brand-line); text-align: left; font-size: 12px; line-height: 1.7; cursor: pointer; }
 .preview-explore:hover { color: var(--brand-clay); }
-.reopen-preview { position: absolute; right: 10%; bottom: 23%; max-width: 80%; pointer-events: auto; min-height: 44px; padding: 10px 15px; border: 1px solid var(--brand-line); border-radius: 10px; color: var(--brand-accent); background: var(--brand-paper); font-size: 11px; cursor: pointer; box-shadow: 0 5px 25px rgb(37 60 52 / 10%); }
+.reopen-preview { position: absolute; right: 10%; bottom: 23%; max-width: 80%; pointer-events: auto; min-height: 44px; padding: 10px 15px; border: 1px solid var(--brand-line); border-radius: 10px; color: var(--brand-accent); background: var(--brand-paper); font-size: 12px; cursor: pointer; box-shadow: 0 5px 25px rgb(37 60 52 / 10%); }
 .preview-links { display: grid; gap: 7px; }
-.preview-links a { display: grid; grid-template-columns: 1fr auto; gap: 5px 9px; padding: 12px; border: 1px solid var(--brand-line); border-radius: 9px; color: var(--brand-ink); text-decoration: none; }
-.preview-links a:first-child { background: var(--brand-sage); }
-.preview-links a:hover { border-color: var(--brand-accent); }
-.preview-links span { grid-column: 1; font: 8px/1.5 "JetBrains Mono", monospace; color: var(--brand-accent); }
-.preview-links strong { grid-column: 1; font-size: 12px; font-weight: 500; line-height: 1.6; }
-.preview-links b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 16px; font-weight: 400; color: var(--brand-accent); }
+.preview-links a, .preview-main-link { display: grid; grid-template-columns: 1fr auto; gap: 5px 9px; padding: 12px; border: 1px solid var(--brand-line); border-radius: 8px; color: var(--brand-ink); text-decoration: none; }
+.preview-main-link { margin-top: 17px; background: var(--brand-sage); }
+.preview-links a:hover, .preview-main-link:hover { border-color: var(--brand-accent); }
+.preview-links span, .preview-main-link > span { grid-column: 1; font-size: 12px; line-height: 1.5; color: var(--brand-accent); }
+.preview-links strong, .preview-main-link > strong { grid-column: 1; font-size: 15px; font-weight: 400; line-height: 1.6; }
+.preview-links b, .preview-main-link > b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 16px; font-weight: 400; color: var(--brand-accent); }
 .world-no-script { position: absolute; inset: auto 10% 30%; display: grid; gap: 12px; pointer-events: auto; font-size: 13px; }
 .world-no-script a { color: var(--brand-accent); }
 .immersive { position: relative; inset: auto; width: 100%; height: 100%; min-height: 500px; isolation: isolate; border-radius: inherit; background: radial-gradient(ellipse at 50% 45%, #e9efe1 0, var(--brand-paper) 73%); }
-.immersive .world-status { left: 22px; right: auto; top: auto; bottom: 88px; font-size: 9px; max-width: calc(100% - 44px); }
+.immersive .world-status { left: 22px; right: auto; top: auto; bottom: 88px; font-size: 12px; max-width: calc(100% - 44px); }
 .immersive .world-toolbar { left: 22px; right: auto; top: 20px; }
-.immersive .world-toolbar button { font-size: 10px; padding: 8px 12px; }
-.immersive .world-controls { left: 22px; right: 22px; top: auto; bottom: 114px; max-width: none; font-size: 9px; }
+.immersive .world-toolbar button { font-size: 12px; padding: 8px 12px; }
+.immersive .world-controls { left: 22px; right: 22px; top: auto; bottom: 114px; max-width: none; font-size: 12px; }
 .immersive .world-shortcuts { inset: auto 22px 20px; justify-content: center; max-width: none; }
-.immersive .world-shortcuts button { flex: 1; max-width: 250px; justify-content: space-between; min-height: 48px; font-size: 11px; }
+.immersive .world-shortcuts button { flex: 1; max-width: 250px; justify-content: space-between; min-height: 48px; font-size: 12px; }
 .immersive .station-preview { top: 75px; right: 20px; bottom: auto; width: 320px; max-height: calc(100% - 170px); }
 .immersive .reopen-preview { right: 22px; top: 80px; bottom: auto; }
 @media (max-width: 1000px) {
-	.world-shortcuts button { font-size: 8px; padding: 9px 7px; gap: 5px; }
+	.world-shortcuts button { font-size: 12px; padding: 9px 7px; gap: 5px; }
 	.station-number { display: none; }
-	.world-controls { max-width: 77%; font-size: 7px; }
+	.world-controls { max-width: 77%; font-size: 12px; }
 	.immersive .world-controls { display: none; }
 }
 @media (max-width: 700px) {
 	.explore-world { inset: auto 0 52px; width: 100%; height: 360px; }
 	.explore-world canvas { touch-action: pan-y; }
 	.world-poster { inset: 3% 2% 19%; }
-	.world-launch { right: 6%; bottom: 23%; padding: 9px 14px; font-size: 10px; }
-	.world-status { right: 6%; left: 6%; top: 1%; max-width: none; font-size: 8px; }
+	.world-launch { right: 6%; bottom: 23%; padding: 9px 14px; font-size: 12px; }
+	.world-status { right: 6%; left: 6%; top: 1%; max-width: none; font-size: 12px; }
 	.world-toolbar { top: 9%; right: 6%; left: 6%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-	.world-toolbar button { padding: 5px 8px; font-size: 8px; }
-	.world-controls { right: 6%; bottom: 17%; max-width: 88%; font-size: 7px; }
+	.world-toolbar button { padding: 5px 8px; font-size: 12px; }
+	.world-controls { right: 6%; bottom: 17%; max-width: 88%; font-size: 12px; }
 	.world-shortcuts { inset: auto 5% 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; gap: 5px; }
-	.world-shortcuts button { padding: 8px 6px; min-height: 48px; font-size: 9px; justify-content: center; text-align: center; }
+	.world-shortcuts button { padding: 8px 6px; min-height: 48px; font-size: 12px; justify-content: center; text-align: center; }
 	.station-arrow { display: none; }
 	.station-preview { position: fixed; inset: auto 14px 14px; width: auto; max-height: min(520px, 72svh); z-index: 40; padding: 23px; }
 	.station-preview h2 { font-size: 23px; }
 	.immersive { position: relative; inset: auto; height: 100%; min-height: 500px; }
 	.immersive .world-toolbar { top: 14px; left: 14px; right: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-	.immersive .world-toolbar button { padding: 7px 9px; font-size: 9px; }
-	.immersive .reopen-preview { top: 117px; right: 14px; font-size: 10px; }
+	.immersive .world-toolbar button { padding: 7px 9px; font-size: 12px; }
+	.immersive .reopen-preview { top: 134px; right: 14px; font-size: 12px; }
 	.immersive .world-shortcuts { inset: auto 12px 12px; }
-	.immersive .world-shortcuts button { font-size: 9px; min-height: 48px; }
-	.immersive .world-status { left: 15px; right: 15px; bottom: 72px; top: auto; max-width: none; font-size: 8px; }
+	.immersive .world-shortcuts button { font-size: 12px; min-height: 48px; }
+	.immersive .world-status { left: 15px; right: 15px; bottom: 72px; top: auto; max-width: none; font-size: 12px; }
 	.immersive .station-preview { position: absolute; inset: auto 12px 102px; width: auto; max-height: calc(100% - 236px); padding: 21px; }
 	.immersive .station-preview h2 { font-size: 21px; }
 	.immersive.has-selection .world-status { display: none; }
@@ -274,4 +298,10 @@ onMount(() => {
 @media (prefers-reduced-motion: reduce) {
 	.explore-world canvas, .world-poster, .world-shortcuts button { transition: none; }
 }
+.compact { position: relative; inset: auto; width: 100%; height: auto; min-height: 0; overflow: visible; pointer-events: auto; }
+.compact .world-poster { position: relative; inset: auto; width: 100%; padding: 0; }
+.compact-caption { padding: 14px 0 0; border-top: 1px solid var(--brand-line); }
+.compact-caption p { margin: 0; max-width: 29em; color: var(--brand-body); font-size: 15px; line-height: 1.85; }
+.compact-caption a { display: inline-flex; align-items: center; gap: 22px; min-height: 44px; margin-top: 4px; color: var(--brand-accent); font-size: 14px; text-decoration: none; }
+.compact-caption a:hover { text-decoration: underline; text-underline-offset: 5px; }
 </style>

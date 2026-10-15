@@ -1,21 +1,89 @@
 ---
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
-import ReadingPathCards from "@/components/features/ReadingPathCards.astro";
-const loop = [
-	{ title: "提出问题", en: "Ask", body: "什么能力值得改进？", bodyEn: "Which capability should improve?", href: "/work/" },
-	{ title: "构建实验", en: "Build", body: "把问题变成可操作的系统。", bodyEn: "Turn the question into a working system.", href: "/lab/" },
-	{ title: "获得反馈", en: "Observe", body: "从环境、搜索和数据中获得信号。", bodyEn: "Gather signals from environments, search, and data.", href: "/paths/search-to-self-play/" },
-	{ title: "评估变化", en: "Evaluate", body: "变化来自哪里，能否复现？", bodyEn: "What caused the change? Can it be reproduced?", href: "/paths/evaluating-improvement/" },
-	{ title: "改进系统", en: "Improve", body: "让下一轮有更好的起点。", bodyEn: "Give the next iteration a better starting point.", href: "/paths/models-to-systems/" },
+import ThreeChanges from "@/components/features/rsi/ThreeChanges.svelte";
+import GeneralizationLens from "@/components/features/rsi/GeneralizationLens.svelte";
+import JudgmentDesk from "@/components/features/rsi/JudgmentDesk.svelte";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+const chapters = [
+	{ href: "#change", zh: "改变了什么", en: "What changed" },
+	{ href: "#transfer", zh: "换一道题", en: "A different problem" },
+	{ href: "#judgment", zh: "谁决定更好", en: "Who decides what is better" },
+	{ href: "#agi", zh: "留下未解的问题", en: "Questions left open" },
 ];
 ---
-<ExploreLayout title="RSI 导读" titleEn="RSI guide" description="从反馈学习、因果评估与模型系统，进入递归自我改进这个长期问题。" descriptionEn="Explore recursive self-improvement through learning, causal evaluation, and model systems.">
-	<header class="explore-hero"><p class="explore-kicker">A STARTING POINT / RSI → AGI</p><Text as="h1" zh="让改进，成为下一次改进的起点。" en="Let improvement improve what comes next." /><Text as="p" class="explore-lead" zh="我是枫语，从研究生阶段开始关注智能。这里的学习、实验与系统构建，都围绕一个长期方向展开：推进递归自我改进（RSI），探索通向 AGI 的路径。" en="I’m Feng Yu. My interest in intelligence began during graduate school. My learning, experiments, and system building share a long-term direction: advancing recursive self-improvement (RSI) and exploring a path toward AGI." /></header>
-	<section class="explore-section"><Text as="h2" zh="先把问题说清楚。" en="First, clarify the question." /><Text as="p" class="explore-body" zh="递归自我改进关心的，是改进后的系统能否进一步提升自身产生改进的能力。一次训练、一次搜索或一次工具调用，可以是这个问题的研究材料；要形成持续的递归过程，还需要可靠的反馈、评估与更新机制。" en="Recursive self-improvement asks whether an improved system can become better at producing further improvements. Training, search, and tool use offer ways to study parts of this question. A sustained recursive process also needs reliable feedback, evaluation, and update mechanisms." /><Text as="p" class="explore-body" zh="AGI 是更广泛的目标：能在多种任务和情境中学习、推理与行动的通用智能。这里把 RSI 作为探索方向；从局部能力提升到通用智能，中间仍有许多开放问题。" en="AGI is the broader goal: general intelligence that can learn, reason, and act across tasks and contexts. RSI is the direction explored here; many questions remain between improving a local capability and reaching general intelligence." /><a class="explore-link" href="/about/"><Text zh="认识这条路径背后的人" en="Meet the person behind this direction" /> ↗</a></section>
-	<section class="explore-section"><Text as="h2" zh="把长期问题拆成一个循环。" en="Break the question into a loop." /><Text as="p" class="explore-body" zh="这是组织本站内容的阅读框架。点击每一步，进入对应的问题、实验与笔记。" en="This is a reading framework for the site. Follow each step to its questions, experiments, and notes." /><ol class="research-loop">{loop.map((step, i) => <li><a href={step.href}><span>0{i + 1} <b aria-hidden="true">{i === 4 ? "↻" : "→"}</b></span><Text as="h3" zh={step.title} en={step.en} /><Text as="p" zh={step.body} en={step.bodyEn} /></a></li>)}</ol></section>
-	<section class="explore-section"><Text as="h2" zh="从三个具体问题开始。" en="Start with three concrete questions." /><ReadingPathCards /></section>
-	<section class="explore-section open-questions"><div><p class="explore-kicker">QUESTIONS TO KEEP OPEN</p><Text as="h2" zh="值得继续追问的事。" en="Questions worth keeping open." /></div><ul class="explore-body"><li><Text zh="能力提升来自更多计算、更好的数据，还是系统改进了自己的学习方式？" en="Does a gain come from more compute, better data, or an improved way of learning?" /></li><li><Text zh="评估能否发现过拟合、能力退化，以及只对某一项指标有效的优化？" en="Can evaluation expose overfitting, regressions, and gains limited to one metric?" /></li><li><Text zh="一轮实验的反馈，怎样可靠地进入下一轮决策，而不让误差不断累积？" en="How can feedback inform the next decision without accumulating errors?" /></li></ul></section>
-	<a class="explore-link" href="/library/"><Text zh="带着问题去读原始资料" en="Take these questions to the source material" /> ↗</a>
+<ExploreLayout title="递归自我改进：机制与评估 · 智能手记" titleEn="Recursive self-improvement: mechanisms and evaluation · Intelligence notebook" description="从一道做对的题开始，亲手改变规则、情境与评价尺度，理解学习、泛化和递归自我改进之间的距离。" descriptionEn="Start with one correct answer. Change rules, situations, and criteria to explore the distance between learning, generalization, and recursive self-improvement.">
+	<article class="intelligence-notebook" data-pagefind-body>
+		<header class="notebook-head compact-page-heading"><h1 data-pagefind-meta="title"><Text zh="递归自我改进：机制与评估" en="Recursive self-improvement: mechanisms and evaluation" /></h1></header><nav class="chapter-links" aria-label="本篇章节" data-i18n-aria-label-zh="本篇章节" data-i18n-aria-label-en="Essay chapters">{chapters.map((chapter) => <a href={chapter.href}><Text zh={chapter.zh} en={chapter.en} /></a>)}</nav>
+
+		<section id="change" aria-labelledby="change-title">
+			<div class="prose">
+				<p class="chapter-number"><Text zh="第一张手记 / 改变" en="First note / Change" /></p>
+				<h2 id="change-title"><Text zh="搜索、参数更新与方法改进" en="Search, parameter updates, and method improvement" /></h2>
+				<Text as="p" zh="下一步棋想得更久，模型从反馈中更新参数，系统修改寻找改进的方法——它们都可能带来更好的结果，但留下的东西不一样。一次搜索留下当前问题的统计；训练可以把经验写进参数；对改进过程的修改，则可能影响下一轮如何提出和检验想法。" en="Thinking longer about a move, updating model parameters from feedback, and changing how improvements are found can all help. But they leave different things behind: statistics about the current problem, experience encoded in parameters, or a different way to propose and test the next idea." />
+			</div>
+			<figure class="notebook-figure"><ThreeChanges client:visible /><noscript><p>搜索可以改变当前统计，训练可以更新参数，方法修改可以改变下一轮的改进过程。下方正文和实验链接在无 JavaScript 时仍可阅读。 / Search can change statistics, training can update parameters, and method changes can alter subsequent improvement. The essay and experiment links remain readable without JavaScript.</p></noscript><figcaption><Text zh="01 / 先找到改变的位置，再问它是否有用。这里的三个位置是可以重叠的观察视角。" en="01 / Locate the change before asking whether it helps. These three perspectives can overlap." /></figcaption></figure>
+			<div class="prose">
+				<Text as="p" zh="递归自我改进（RSI）关心一个更进一步的问题：改进后的系统，能否更有效地产生后续改进？一次分数上涨、一次自改代码，都是值得研究的事件；要回答这个问题，还需要看它们在后续轮次、可比较的预算和未见任务中，究竟带来了什么。" en="Recursive self-improvement (RSI) asks a further question: can the improved system become more effective at producing subsequent improvements? A higher score or a self-written code change is worth studying. Answering the question requires looking at later iterations, comparable budgets, and unseen tasks." />
+				<p><Text zh="Darwin Gödel Machine 提供了一个具体研究案例：编码 Agent 提出代码修改，借助任务评测筛选，并保留可继续探索的 Agent 档案。它让“改进自身”有了可以检查的实现；其编程任务证据，需要连同实验设置一起理解，不能直接当作已经实现 AGI 的结论。" en="The Darwin Gödel Machine offers a concrete research case: a coding agent proposes code changes, evaluates them on tasks, and maintains an archive of agents for further exploration. This makes self-modification inspectable. Its evidence on programming tasks must be read with its experimental setup, rather than taken as a finding that AGI has been achieved." /> <a href="https://sakana.ai/dgm/">[1]</a></p>
+				<div class="margin-question"><Text as="p" zh="把“自己改了自己”写进记录之后，还应留一行：谁设定了题目，谁检查了结果？" en="After writing “it changed itself,” leave another line: who set the task, and who checked the result?" /></div>
+			</div>
+		</section>
+
+		<section id="transfer" aria-labelledby="transfer-title">
+			<div class="prose">
+				<p class="chapter-number"><Text zh="第二张手记 / 迁移" en="Second note / Transfer" /></p>
+				<h2 id="transfer-title"><Text zh="分布变化与规则泛化" en="Distribution shift and rule generalization" /></h2>
+				<Text as="p" zh="想象一排卡片：三角形恰好都是颜色甲，也恰好站在第 1、3、5 个位置。现在要选出三角形，三条完全不同的规则都能答对。只看正确率，我们无法知道哪条线索在起作用。" en="Imagine a row of cards. Every triangle happens to have color A and to sit in position 1, 3, or 5. Asked to select triangles, three different rules all succeed. Accuracy alone does not reveal which cue each one uses." />
+				<Text as="p" zh="先选一条规则，再只改变配色或位置。最后，把题目本身换掉。每一次操作都保留一点东西，也拿走一点东西。" en="Choose a rule, then change only the colors or the order. Finally, change the task itself. Each operation preserves something and takes something away." />
+			</div>
+			<figure class="notebook-figure"><GeneralizationLens client:visible /><noscript><p>静态图中三条规则都答对。交换配色后，颜色规则全错；打乱位置后，位置规则只有 2/6 正确。形状规则在这两次变化中仍全对，但把目标改为圆形后三条旧规则都全错。 / All rules pass the familiar case. Swapping colors breaks the color rule; reordering leaves the position rule at 2/6. The shape rule survives both, but all unchanged rules fail when the target becomes circles.</p></noscript><figcaption><Text zh="02 / 一个固定规则的迁移示意。选入和略过都算一次判断；没有把规则选择称为模型训练。" en="02 / Transfer under fixed rules. Selecting and skipping each count as a decision; choosing a rule is not model training." /></figcaption></figure>
+			<div class="prose">
+				<p><Text zh="Chollet 在《On the Measure of Intelligence》中区分了完成特定任务的技能与获得新技能的效率，并提醒我们把已有知识、经验和泛化难度纳入评价。这提供了一种读结果的方式：除了“答对多少”，也记录“见过什么、付出多少、换到哪里还有效”。这是一种研究主张，而非唯一的智能定义。" en="In On the Measure of Intelligence, Chollet distinguishes skill on a specific task from the efficiency of acquiring new skills, taking prior knowledge, experience, and generalization difficulty into account. It suggests recording not only how much a system gets right, but what it has seen, what it costs, and where the result transfers. This is a research position, not the sole definition of intelligence." /> <a href="https://arxiv.org/abs/1911.01547">[2]</a></p>
+				<Text as="p" zh="卡片上的失效很容易看见。真实系统里，线索可能藏在数据来源、标注习惯或评测方式中。一次失败因而可以成为一张有用的手记：它帮我们写清楚，先前的成功究竟依赖了什么。" en="Failure is easy to see on these cards. In a real system, a cue may be hidden in data sources, labeling habits, or evaluation procedures. A failure can therefore become a useful note: it helps explain what an earlier success depended on." />
+			</div>
+		</section>
+
+		<section id="judgment" aria-labelledby="judgment-title">
+			<div class="prose">
+				<p class="chapter-number"><Text zh="第三张手记 / 判断" en="Third note / Judgment" /></p>
+				<h2 id="judgment-title"><Text zh="改进目标与评估标准" en="Improvement objectives and evaluation criteria" /></h2>
+				<Text as="p" zh="想象一张图书修补台。多检查一本完好的书，会占用一点时间；漏掉一本已经破损的书，则把问题留给了下一位读者。两种差错可以被写进同一个公式，但它们并不是同一件事。" en="Imagine a library repair desk. Inspecting an intact book takes time. Missing a damaged book leaves the problem for its next reader. We can put both errors into one formula, but they are not the same thing." />
+				<Text as="p" zh="下面有八张事先写好的教学记录，以及两种分拣规则。移动滑块，让“漏掉修补”变得更值得在意。书没有变，规则没有变，推荐却可能改变。" en="Below are eight hand-authored teaching records and two sorting rules. Move the slider to give a missed repair more weight. The books and rules stay the same, but the preferred approach can change." />
+			</div>
+			<figure class="notebook-figure"><JudgmentDesk client:visible /><noscript><p>漏检代价为 1 时，两种规则代价分别为 3 与 1；提高至 3 时打平，提高至 5 时变为 3 与 5。书本状态与规则始终未变。 / At a missed-repair cost of 1, the policies cost 3 and 1. At 3 they tie, and at 5 they cost 3 and 5. Neither the books nor the rules change.</p></noscript><figcaption><Text zh="03 / 一个可以逐项核对的代价计算。它呈现标准如何影响选择；标准本身仍需由人解释。" en="03 / A cost calculation you can check record by record. It shows how criteria affect a choice; the criteria still need human justification." /></figcaption></figure>
+			<div class="prose">
+				<Text as="p" zh="这也是自改进系统绕不过去的页边问题。反馈可以很精确，目标却可能很狭窄。一个系统更擅长提高既定分数，并不自动回答那个分数是否代表我们在意的东西。评价不只是实验结束后的打分，它也在塑造系统努力的方向。" en="This is a question in the margin of self-improving systems too. Feedback may be precise while its objective is narrow. Becoming better at raising a given score does not settle whether that score represents what we care about. Evaluation does more than mark an experiment afterward: it shapes the direction of effort." />
+				<a class="inline-route" href="/lab/causal-playground/"><Text zh="再追问一步：观察到的差异，真的是改进造成的吗？" en="One question further: did the change actually cause the difference we observed?" /> ↗</a>
+			</div>
+		</section>
+
+		<section id="agi" aria-labelledby="agi-title">
+			<div class="prose">
+				<p class="chapter-number"><Text zh="留在下一页的问题 / AGI" en="Questions for the next page / AGI" /></p>
+				<h2 id="agi-title"><Text zh="研究问题与技术框架" en="Research questions and technical framework" /></h2>
+				<p><Text zh="谈论 AGI 时，我们还需要把目光放到任务之外。《Levels of AGI》提出从能力的深度与广度描述进展，并把自主性与部署情境纳入讨论。沿着这个提醒，这里分别记录几个问题，不把它们压成一个“完成百分比”。" en="Discussing AGI means looking beyond a single task. Levels of AGI proposes describing progress through the depth and breadth of capabilities, while also discussing autonomy and deployment. Following that reminder, this notebook keeps several questions separate instead of compressing them into a completion percentage." /> <a href="https://arxiv.org/abs/2311.02462">[3]</a></p>
+				<div class="evidence-notes">
+					<details open><summary><Text zh="能做什么，又在什么地方失效？" en="What can it do, and where does it fail?" /></summary><Text as="p" zh="记录具体任务、可比较的基线和错误案例。把“这道题做得好”写准确，是继续谈论智能的起点。" en="Record specific tasks, comparable baselines, and failure cases. Describe success on this problem accurately before making a broader claim." /></details>
+					<details><summary><Text zh="换了任务，需要多少新经验？" en="How much new experience does a new task require?" /></summary><Text as="p" zh="区分外观变化、分布变化和目标变化；说明系统见过哪些数据，迁移时允许多少学习与计算。卡片实验只覆盖其中很小的一角。" en="Distinguish appearance, distribution, and goal changes. State which data a system has seen and how much learning and computation transfer allows. The card example covers only a small corner." /></details>
+					<details><summary><Text zh="有多少判断仍然由人在承担？" en="Which judgments are people still making?" /></summary><Text as="p" zh="谁设定目标、提供反馈、处理异常，谁可以暂停或撤回改变？自主性描述系统如何行动；它不能替代能力广度与可靠性的证据。" en="Who sets goals, supplies feedback, handles exceptions, and can pause or reverse a change? Autonomy describes how a system acts; it cannot substitute for evidence of breadth or reliability." /></details>
+					<details><summary><Text zh="它会变得更会改进吗？" en="Does it become better at improving?" /></summary><Text as="p" zh="追踪多轮修改及其代价，用独立评价检查有效改进是否更容易产生，同时保留失败与回退。RSI 是这里持续追问的机制问题；它与 AGI 的关系需要研究来回答。" en="Track successive changes and their costs. Use independent evaluation to test whether useful improvements become easier to produce, retaining failures and reversions. RSI is the mechanism questioned here; its relationship to AGI remains a research question." /></details>
+				</div>
+				<p class="closing"><Text zh="下一页不一定写着更高的分数。也可能写着：这次，我们终于知道该换哪一个问题。" en="The next page need not hold a higher score. It may say: this time, we finally learned which question to change." /></p>
+			</div>
+		</section>
+
+		<footer class="notebook-sources prose">
+			<h2><Text zh="参考文献" en="References" /></h2>
+			<ol class="sources-list">
+				<li><a href="https://sakana.ai/dgm/">Darwin Gödel Machine · Sakana AI / UBC</a><Text as="p" zh="读一个自修改编码 Agent 的方法、评测与限制。本站没有复现其 Agent 运行或评测结果。" en="Read the method, evaluation, and limitations of a self-modifying coding agent. This site has not reproduced its agent runs or evaluation results." /></li>
+				<li><a href="https://arxiv.org/abs/1911.01547">François Chollet · On the Measure of Intelligence</a><Text as="p" zh="从任务技能，走向对先验、经验与技能获取效率的讨论。卡片示意是本站独立制作，并非 ARC 题目或成绩。" en="Move from task skill toward priors, experience, and skill-acquisition efficiency. The cards are independently made illustrations, not ARC tasks or scores." /></li>
+				<li><a href="https://arxiv.org/abs/2311.02462">Morris et al. · Levels of AGI</a><Text as="p" zh="把能力深度、广度和自主性分别讨论；阅读时也保留对定义与评测方式的追问。" en="Discuss depth, breadth, and autonomy separately, while continuing to question definitions and evaluation." /></li>
+			</ol>
+			<nav class="next-pages" aria-label="继续探索" data-i18n-aria-label-zh="继续探索" data-i18n-aria-label-en="Continue exploring"><a href="/library/"><Text zh="在文献架继续翻阅" en="Keep reading in the library" /> ↗</a></nav>
+		</footer>
+	</article>
 </ExploreLayout>
-<style>.research-loop{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:0;margin:28px 0}.research-loop a{display:block;height:100%;padding:22px 16px;border:1px solid var(--brand-line);border-radius:12px;color:var(--brand-ink);background:var(--brand-surface);text-decoration:none}.research-loop a:hover{border-color:var(--brand-accent)}.research-loop span{display:flex;justify-content:space-between;color:var(--brand-accent);font:11px monospace}.research-loop :global(h3){font-size:17px;margin:22px 0 10px}.research-loop :global(p){font-size:12px;line-height:1.9;color:var(--brand-body)}.open-questions{display:grid;grid-template-columns:1fr 1fr;gap:35px}.open-questions li{margin:15px 0}@media(max-width:850px){.research-loop{grid-template-columns:1fr}.research-loop a{padding:20px}.research-loop :global(h3){margin:12px 0 4px}.research-loop :global(p){margin:0}.open-questions{grid-template-columns:1fr;gap:0}}</style>
+
+<style>
+	.intelligence-notebook{padding-bottom:15px}.notebook-head{max-width:760px;margin:0 auto;padding:65px 0 40px}.notebook-head .byline{font-size:13px;color:var(--brand-muted);margin:0 0 24px;letter-spacing:.025em}.notebook-head h1{font:400 clamp(36px,5.5vw,64px)/1.32 Georgia,"Songti SC","Noto Serif SC",serif;letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance}.notebook-head .opening{font:400 clamp(21px,2.2vw,25px)/1.85 Georgia,"Songti SC",serif;color:var(--brand-ink);margin-bottom:22px}.notebook-head>:global(p){font-size:17px;line-height:2;color:var(--brand-body)}.chapter-links{display:flex;flex-wrap:wrap;gap:13px 23px;padding-top:18px;margin-top:26px;border-top:1px solid var(--brand-line)}.chapter-links a{font-size:13px;color:var(--brand-muted);text-decoration:none}.chapter-links a:hover{color:var(--brand-accent)}.prose{max-width:740px;margin-left:auto;margin-right:auto}.intelligence-notebook>section{padding:42px 0 15px;scroll-margin-top:28px}.prose :global(h2){font:400 clamp(25px,3.4vw,34px)/1.6 Georgia,"Songti SC",serif;letter-spacing:-.02em;margin:0 0 25px;text-wrap:balance}.prose :global(p){font-size:17px;line-height:2.05;color:var(--brand-body);margin:20px 0}.prose .chapter-number{font-size:13px;letter-spacing:.02em;color:var(--brand-accent);margin:0 0 17px}.prose a{color:var(--brand-accent);text-decoration:underline;text-underline-offset:5px}.notebook-figure{margin:30px auto 35px;padding:30px 34px 20px;max-width:920px;background:color-mix(in srgb,var(--brand-surface) 80%,var(--brand-paper));border:1px solid var(--brand-line);border-radius:8px}.notebook-figure figcaption{font-size:13px;line-height:1.85;color:var(--brand-muted);margin:24px 0 0;padding-top:16px;border-top:1px solid var(--brand-line)}.notebook-figure noscript p{font-size:14px;line-height:1.9}.margin-question{margin:32px 0 16px;padding:1px 0 1px 22px;border-left:2px solid var(--brand-clay)}.margin-question :global(p){font-family:Georgia,"Songti SC",serif;color:var(--brand-ink)}.inline-route{display:inline-block;font-size:15px;line-height:1.9;margin:5px 0 12px}.evidence-notes{margin:32px 0}.evidence-notes details{border-top:1px solid var(--brand-line)}.evidence-notes details:last-child{border-bottom:1px solid var(--brand-line)}.evidence-notes summary{cursor:pointer;padding:20px 0;font-size:17px;line-height:1.8;color:var(--brand-ink)}.evidence-notes :global(p){margin:0 0 25px;font-size:16px}.prose .closing{font:400 22px/1.95 Georgia,"Songti SC",serif;color:var(--brand-ink);margin:42px 0}.notebook-sources{padding-top:40px;margin-top:30px;border-top:1px solid var(--brand-line)}.sources-list{padding-left:22px;margin:25px 0}.sources-list li{padding-left:5px;margin:20px 0;font-size:15px;line-height:1.8;overflow-wrap:anywhere}.sources-list :global(p){font-size:14px;line-height:1.9;margin:8px 0;color:var(--brand-muted)}.next-pages{display:flex;flex-direction:column;align-items:start;gap:14px;padding:25px 0 5px}.next-pages a{font-size:15px;line-height:1.8}@media(max-width:760px){.notebook-head{padding-top:42px}.notebook-head>:global(p),.prose :global(p){font-size:16px}.notebook-head .opening{font-size:21px}.intelligence-notebook>section{padding-top:30px}.notebook-figure{padding:22px 18px 18px;margin:26px 0 30px}.prose :global(h2){font-size:27px}.evidence-notes summary{font-size:16px}.prose .closing{font-size:21px}}@media(max-width:400px){.notebook-head h1{font-size:35px}.notebook-figure{padding:20px 12px 16px}.chapter-links{gap:12px 18px}.notebook-head .opening{font-size:20px}}
+</style>

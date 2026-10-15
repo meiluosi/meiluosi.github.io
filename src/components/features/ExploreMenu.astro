@@ -3,10 +3,8 @@ import Text from "@/components/common/BilingualText.astro";
 const links = [
 	["/world/", "研究岛", "Research island", "进入智能研究工作室", "Enter the research workshop"],
 	["/rsi/", "RSI 导读", "RSI guide", "从长期问题开始", "Start with the question"],
-	["/paths/", "阅读路线", "Reading paths", "沿三个问题深入", "Follow three questions"],
 	["/library/", "文献架", "Library", "回到原始资料", "Go to the sources"],
 	["/lab/", "实验室", "Lab", "动手改变一个参数", "Change a parameter"],
-	["/reading/", "阅读收藏", "Saved reading", "留待下一次阅读", "Pick up a saved note"],
 ];
 ---
 <details class="explore-menu"><summary><Text zh="探索" en="Explore" /> <span aria-hidden="true">＋</span></summary><div class="explore-dropdown">{links.map(([href, title, titleEn, description, descriptionEn]) => <a href={href}><Text as="strong" zh={title} en={titleEn} /><Text as="small" zh={description} en={descriptionEn} /></a>)}</div></details>

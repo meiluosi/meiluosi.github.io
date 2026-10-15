@@ -1,0 +1,13 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+interface Props { question: string; questionEn: string; hint: string; hintEn: string; }
+const { question, questionEn, hint, hintEn } = Astro.props;
+---
+<aside class="margin-question">
+	<Text as="small" zh="动手前，先留一个猜想" en="Before you try, make a prediction" />
+	<Text as="p" class="question" zh={question} en={questionEn} />
+	<Text as="p" class="hint" zh={hint} en={hintEn} />
+</aside>
+<style>
+	.margin-question{margin:0 0 32px;padding:8px 0 8px 24px;border-left:2px solid var(--brand-clay);max-width:760px}.margin-question :global(small){font-size:12px;line-height:1.8;color:var(--brand-muted)}.margin-question :global(.question){font:400 22px/1.8 "Iowan Old Style","Songti SC",Georgia,serif;color:var(--brand-ink);margin:10px 0}.margin-question :global(.hint){font-size:15px;line-height:1.9;color:var(--brand-body);margin:0}@media(max-width:600px){.margin-question{padding-left:18px}.margin-question :global(.question){font-size:20px}}
+</style>

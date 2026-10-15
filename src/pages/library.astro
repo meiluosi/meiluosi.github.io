@@ -2,23 +2,70 @@
 import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
 import { library } from "@/data/library";
-import { readingPaths } from "@/data/readingPaths";
 import { getResearchNotes, requireResearchNote } from "@/utils/research-content";
 const notes = await getResearchNotes();
+const topics = [
+ {id:"models",zh:"模型与训练",en:"Models & training",icon:"M12 3 3 8l9 5 9-5-9-5ZM3 12l9 5 9-5M3 16l9 5 9-5"},
+ {id:"search",zh:"搜索与强化学习",en:"Search & reinforcement learning",icon:"M12 3v7M5 17v-7h14v7M2 17h6v4H2zM16 17h6v4h-6zM9 1h6v4H9z"},
+ {id:"evaluation",zh:"因果推断与评估",en:"Causality & evaluation",icon:"M4 20V10m8 10V4m8 16v-7M2 20h20"},
+];
+const shortTitles: Record<string,string> = {minimind:"MiniMind",nanochat:"nanochat","mcts-survey":"Monte Carlo Tree Search",alphazero:"AlphaZero","causal-remix":"Causal Inference: The Remix",ylearn:"YLearn",transformer:"Transformer",react:"ReAct"};
 ---
-<ExploreLayout title="文献架" titleEn="Library" description="连接原始论文、教材、工具与站内笔记的研究文献架。" descriptionEn="Original papers, textbooks, and tools connected to the site’s research notes.">
-	<header class="explore-hero"><p class="explore-kicker">BACK TO THE SOURCES / LIBRARY</p><Text as="h1" zh="带着问题，读原始资料。" en="Read the sources with a question." /><Text as="p" class="explore-lead" zh="把论文、教材与工具放到同一张阅读地图上。每份资料附有一个阅读切口，以及可以接着读的站内笔记。" en="Papers, textbooks, and tools on one reading map. Each source comes with a suggested focus and links to notes that continue the question." /></header>
-	<div class="library-filter"><label for="library-path"><Text zh="按阅读路线筛选" en="Filter by reading path" /></label><select id="library-path"><Text as="option" zh="全部资料" en="All sources" />{readingPaths.map((path) => <option value={path.slug} data-i18n="library.path" data-i18n-zh={path.title} data-i18n-en={path.titleEn}>{path.title}</option>)}</select><output id="library-count" aria-live="polite">6 / 6</output></div>
-	<div class="library-list">{library.map((item) => <article id={item.id} data-library-path={item.path} class="explore-card"><div class="source-meta"><Text zh={item.kind} en={item.kindEn} /> / {item.year} · {item.authors}</div><h2><a href={item.url}>{item.title} <span aria-hidden="true">↗</span></a></h2><Text as="p" zh={item.focus} en={item.focusEn} /><div class="source-notes"><Text as="small" zh="关联笔记" en="CONNECTED NOTES" />{item.notes.map((id) => { const note = requireResearchNote(notes, id); return <a href={note.href} data-i18n-href-zh={note.href} data-i18n-href-en={note.hrefEn}><Text zh={note.title} en={note.titleEn} /> →</a>; })}</div></article>)}</div>
+<ExploreLayout title="文献架" titleEn="Research library" description="模型训练、强化学习与因果推断的论文、教材及开源项目。" descriptionEn="Papers, textbooks, and open-source projects on model training, reinforcement learning, and causal inference.">
+ <header class="explore-hero compact-page-heading"><Text as="h1" zh="研究文献与开源资料" en="Research literature and open-source resources" /></header>
+ <reference-library>
+  <div class="library-controls">
+   <label><Text zh="研究主题" en="Research topic" /><select data-topic><option value="" data-i18n="library.all" data-i18n-zh="全部主题" data-i18n-en="All topics">全部主题</option>{topics.map(topic=><option value={topic.id} data-i18n="library.topic" data-i18n-zh={topic.zh} data-i18n-en={topic.en}>{topic.zh}</option>)}</select></label>
+   <label class="library-search"><Text zh="搜索资料" en="Search resources" /><input type="search" data-search aria-label="搜索资料 / Search resources" /></label>
+   <output data-count aria-live="polite">{library.length} / {library.length}</output>
+  </div>
+  <div class="library-shelf">
+   <div class="shelf-label"><Text zh="文献索引" en="RESOURCE INDEX" /><span>{String(library.length).padStart(2,"0")} <Text zh="项资料" en="RESOURCES" /></span></div>
+   <div class="reference-grid">
+    {library.map((item,index)=>{
+     const topic=topics.find(t=>t.id===item.topic)!;
+     return <details id={item.id} class="reference-card" data-topic={item.topic} data-search-text={`${item.title} ${item.authors} ${item.kind} ${item.kindEn} ${item.focus} ${item.focusEn} ${shortTitles[item.id]}`.toLowerCase()}>
+      <summary>
+       <div class="card-top"><span class="source-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={topic.icon}/></svg></span><span class="card-number">{String(index+1).padStart(2,"0")}</span></div>
+       <h2>{shortTitles[item.id] || item.title}</h2>
+       <p class="card-meta"><Text zh={item.kind} en={item.kindEn} /> · {item.year === "Project" ? <Text zh="开源项目" en="Open source" /> : item.year === "Online edition" ? <Text zh="在线版" en="Online edition" /> : item.year}</p>
+       <div class="card-bottom"><span class="topic-dot" aria-hidden="true"></span><Text zh={topic.zh} en={topic.en} /><span class="expand-icon" aria-hidden="true">＋</span></div>
+      </summary>
+      <div class="source-detail">
+       <p class="source-title">{item.title}</p><p class="source-authors">{item.authors}</p>
+       <Text as="p" class="source-focus" zh={item.focus} en={item.focusEn} />
+       <a class="source-link" href={item.url} target="_blank" rel="noopener noreferrer"><Text zh="查看原始资料" en="Open original source" /> ↗</a>
+       <div class="source-notes"><Text as="small" zh="相关笔记" en="Related notes" />{item.notes.map(id=>{const note=requireResearchNote(notes,id);return <a href={note.href} data-i18n-href-zh={note.href} data-i18n-href-en={note.hrefEn}><Text zh={note.title} en={note.titleEn}/> ↗</a>;})}</div>
+      </div>
+     </details>;
+    })}
+   </div>
+   <p class="library-empty" data-empty hidden><Text zh="没有匹配的资料，请调整主题或关键词。" en="No matching resources. Try another topic or keyword." /></p>
+  </div>
+ </reference-library>
 </ExploreLayout>
 <script>
-	const select = document.querySelector<HTMLSelectElement>("#library-path");
-	if (select) {
-		select.options[0].value = "";
-		const apply = () => { const value = select.value; let count = 0; document.querySelectorAll<HTMLElement>("[data-library-path]").forEach((item) => { item.hidden = Boolean(value && item.dataset.libraryPath !== value); if (!item.hidden) count++; }); const output = document.querySelector("#library-count"); if (output) output.textContent = `${count} / 6`; };
-		const restore = () => { const value = new URL(location.href).searchParams.get("path") ?? ""; select.value = [...select.options].some((option) => option.value === value) ? value : ""; apply(); };
-		select.addEventListener("change", () => { const url = new URL(location.href); if (select.value) url.searchParams.set("path", select.value); else url.searchParams.delete("path"); history.pushState({}, "", url); apply(); });
-		window.addEventListener("popstate", restore); restore();
-	}
+ class ReferenceLibrary extends HTMLElement {
+  private cleanup?: () => void;
+  connectedCallback() {
+   this.cleanup?.();
+   const topic=this.querySelector<HTMLSelectElement>("select[data-topic]")!;
+   const search=this.querySelector<HTMLInputElement>("[data-search]")!;
+   const cards=[...this.querySelectorAll<HTMLDetailsElement>(".reference-card")];
+   const apply=()=>{
+    const query=search.value.trim().toLocaleLowerCase();let count=0;
+    for(const card of cards){card.hidden=Boolean((topic.value&&card.dataset.topic!==topic.value)||(query&&!card.dataset.searchText?.includes(query)));if(!card.hidden)count++;}
+    this.querySelector("[data-count]")!.textContent=`${count} / ${cards.length}`;
+    this.querySelector<HTMLElement>("[data-empty]")!.hidden=count>0;
+   };
+   const reveal=()=>{let id="";try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}const card=cards.find(c=>c.id===id);if(card){topic.value="";search.value="";apply();card.open=true;card.scrollIntoView({block:"center"});}};
+   topic.addEventListener("change",apply);search.addEventListener("input",apply);window.addEventListener("hashchange",reveal);apply();reveal();
+   this.cleanup=()=>{topic.removeEventListener("change",apply);search.removeEventListener("input",apply);window.removeEventListener("hashchange",reveal);};
+  }
+  disconnectedCallback(){this.cleanup?.();}
+ }
+ if(!customElements.get("reference-library"))customElements.define("reference-library",ReferenceLibrary);
 </script>
-<style>.library-filter{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 24px;font-size:12px;color:var(--brand-body)}select{max-width:100%;border:1px solid var(--brand-line);border-radius:8px;padding:12px;background:var(--brand-surface);color:var(--brand-ink)}output{margin-left:auto;font:11px monospace}.library-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}.library-list article[hidden]{display:none}.source-meta{font:10px/1.9 monospace;color:var(--brand-muted)}.library-list h2{font:400 24px/1.45 Georgia,serif;margin:20px 0}.library-list a{color:var(--brand-ink);text-decoration:none}.library-list a:hover{color:var(--brand-accent)}.source-notes{display:grid;gap:10px;padding-top:18px;margin-top:22px;border-top:1px solid var(--brand-line);font-size:12px;line-height:1.8}.source-notes :global(small){font-size:9px;letter-spacing:.06em;color:var(--brand-muted)}@media(max-width:700px){.library-list{grid-template-columns:1fr}.library-list h2{font-size:22px}}</style>
+<style>
+ reference-library{display:block}.library-controls{display:flex;gap:18px;align-items:end;flex-wrap:wrap;margin-bottom:22px;color:var(--brand-body);font-size:13px}.library-controls label{display:grid;gap:8px}.library-controls select,.library-controls input{border:1px solid var(--brand-line);border-radius:8px;background:var(--card-bg);color:var(--brand-ink);padding:10px 12px;min-height:44px;max-width:100%;font-size:14px}.library-search{flex:1;min-width:180px}.library-controls output{padding-bottom:12px;font:12px monospace}.library-shelf{padding:26px;border-radius:20px;color:var(--brand-ink);background:linear-gradient(115deg,var(--brand-surface),var(--brand-paper) 45%,var(--brand-sage));position:relative;isolation:isolate}.library-shelf::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:48px 48px}.shelf-label{display:flex;justify-content:space-between;gap:16px;font:11px/1.6 monospace;letter-spacing:.08em;color:var(--brand-muted);margin-bottom:22px}.reference-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}.reference-card{min-width:0;border:1px solid var(--brand-line);border-radius:16px;background:var(--site-glass);box-shadow:inset 0 1px #ffffff20;transition:background .18s,border-color .18s,transform .18s;scroll-margin-top:100px}.reference-card[hidden]{display:none}.reference-card:hover,.reference-card[open]{background:var(--site-glass-hover);border-color:var(--brand-accent)}.reference-card:hover{transform:translateY(-3px)}summary{list-style:none;cursor:pointer;padding:20px;min-height:226px;display:flex;flex-direction:column}summary::-webkit-details-marker{display:none}summary:focus-visible{outline:3px solid var(--brand-accent)!important;outline-offset:4px;border-radius:12px}.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.source-icon{display:grid;place-items:center;width:42px;height:42px;background:var(--brand-surface);border:1px solid var(--brand-line);border-radius:12px}.source-icon svg{width:22px;height:22px}.card-number{font:12px monospace;border:1px solid var(--brand-line);padding:5px 10px;border-radius:20px;color:var(--brand-muted)}.reference-card h2{font:600 16px/1.45 Inter,Arial,sans-serif!important;letter-spacing:0!important;color:var(--brand-ink);margin:0 0 8px;overflow-wrap:anywhere}.card-meta{font-size:12px;color:var(--brand-body);line-height:1.6;margin:0 0 18px}.card-bottom{display:flex;align-items:center;gap:7px;border-top:1px solid var(--brand-line);padding-top:12px;margin-top:auto;font-size:11px;color:var(--brand-body)}.topic-dot{width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--brand-accent);box-shadow:0 0 0 5px #41634f10}.expand-icon{font-size:17px;margin-left:auto;transition:transform .18s}.reference-card[open] .expand-icon{transform:rotate(45deg)}.source-detail{border-top:1px solid var(--brand-line);padding:18px 20px;font-size:13px;line-height:1.8}.source-title{font-weight:600;color:var(--brand-ink);margin-bottom:8px;overflow-wrap:anywhere}.source-authors{font-size:11px;color:var(--brand-muted);margin-bottom:15px}.source-detail :global(.source-focus){font-size:13px;line-height:1.85;color:var(--brand-body);margin:12px 0}.source-link{display:inline-block;padding:7px 0;color:var(--brand-ink);text-underline-offset:4px}.source-notes{margin-top:14px;padding-top:14px;border-top:1px solid var(--brand-line);display:grid;gap:10px}.source-notes :global(small){font-size:11px;color:var(--brand-muted)}.source-notes a{color:var(--brand-accent);text-decoration:none;font-size:12px}.source-notes a:hover{text-decoration:underline}.source-detail a:focus-visible{outline-color:var(--brand-accent)!important}.library-empty{padding:25px 0;text-align:center;color:var(--brand-body)}@media(max-width:1050px){.reference-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.library-shelf{padding:16px}.reference-grid{grid-template-columns:1fr;gap:14px}summary{min-height:200px}.library-controls{gap:14px}.library-controls label{width:100%}.library-controls select{width:100%}.library-controls output{padding:0}.shelf-label{font-size:10px}}@media(prefers-reduced-motion:reduce){.reference-card,.expand-icon{transition:none}.reference-card:hover{transform:none}}
+</style>

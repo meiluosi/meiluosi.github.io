@@ -6,6 +6,10 @@
 
 | 文档 | 说明 |
 |------|------|
+| [site-editorial-cleanup.md](./site-editorial-cleanup.md) | 标题表达、导航精简与交互文献卡片 |
+| [article-concept-network.md](./article-concept-network.md) | 文章多层概念网络、来源关联与评论关闭记录 |
+| [pretraining-data-research.md](./pretraining-data-research.md) | 大模型训练研究笔记第一卷：六篇文章、来源台账与验收记录 |
+| [humanities-and-technology.md](./humanities-and-technology.md) | 人文＋科技方向、编辑原则、实现与验收 |
 | [small-model-research-studio.md](./small-model-research-studio.md) | 研究岛 2.0、旗舰全链路文章与独立训练项目规划 |
 | [studio-validation.md](./studio-validation.md) | 本轮网站交互、构建、包体和性能边界核验 |
 | [small-model-training-validation.md](./small-model-training-validation.md) | tiny 全链路实测与正式训练的边界 |
@@ -20,16 +24,13 @@
 | 内容 | 维护位置 | 约定 |
 |------|----------|------|
 | RSI 导读 | `src/pages/rsi.astro` | 保留开放问题；个人判断需由作者提供 |
-| 三条阅读路线 | `src/data/readingPaths.ts` | 使用发布文章的稳定 `sourceId`；失效条目会在构建时报告 |
-| 文献架 | `src/data/library.ts` | 使用原始来源链接；导读不写成未经提供的个人读后评价 |
+| 文献架 | `src/data/library.ts`、`src/pages/library.astro` | 按研究主题筛选，展开交互卡片查阅原始来源 |
 | MCTS 实验 | `src/utils/mcts.ts`、`MctsPlayground.svelte` | 种子固定时可复现；奖励统一从单智能体视角回传 |
 | 概念预览 | `src/data/concepts.ts`、`ConceptPreview.astro` | 双语短定义与继续阅读目标；不侵入代码、公式和现有链接 |
-| 反向链接 | `src/utils/backlinks.ts`、`ArticleConnections.astro` | 构建时解析已发布正文的 Markdown 链接；不将主题相似当成引用 |
-| 阅读收藏 | `src/utils/reading-storage.ts`、`SaveNote.svelte`、`SavedReading.svelte` | 只保存文章 ID；中英文共用；本地存储键 `feng-yu-reading-v1` |
 
 新增研究岛 `/world/` 与旗舰工作台 `/lab/model-pipeline/`；可独立复制发布的训练骨架位于 [`projects/small-model-lab/`](../projects/small-model-lab/README.md)，实际运行证据见 [训练验证记录](./small-model-training-validation.md)。
 
-入口为 `/rsi/`、`/paths/`、`/library/`、`/lab/`、`/reading/`；共用 `ExploreLayout.astro`，公共导航与首页通过 `ExploreMenu.astro` 连接。
+入口为 `/rsi/`、`/library/`、`/lab/`、`/world/`；共用 `ExploreLayout.astro`，公共导航与首页通过 `ExploreMenu.astro` 连接。
 
 ## 核心约束
 
@@ -47,3 +48,5 @@
 - [项目 README](../README.md)
 - [AGENTS.md](../AGENTS.md) — AI 编码助手指南
 - [CLAUDE.md](../CLAUDE.md) — Claude Code 指南
+
+- [智能手记与文献解读](./rsi-reading-notebook.md)：RSI／AGI 互动叙事、逐篇解读标准与 dot 文献清单状态。

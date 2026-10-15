@@ -3,44 +3,41 @@ import Text from "@/components/common/BilingualText.astro";
 const routes = [
 	{
 		number: "01",
-		label: "造一个模型",
+		label: "模型训练",
 		labelEn: "Build a model",
-		question: "模型从哪里学会预测？",
-		questionEn: "Where does prediction come from?",
+		question: "模型训练与评估",
+		questionEn: "Model training and evaluation",
 		copy: "先试数据与分词，再看预训练怎样连接到评测。",
 		copyEn:
 			"Try data and tokenization, then connect pretraining to evaluation.",
 		href: "/lab/model-pipeline/",
-		path: "/paths/models-to-systems/",
 		action: "打开模型工作台",
 		actionEn: "Open the model workbench",
 		stages: "DATA → TRAIN → EVAL",
 	},
 	{
 		number: "02",
-		label: "追踪一次选择",
+		label: "搜索决策",
 		labelEn: "Trace a decision",
-		question: "反馈怎样改变下一步？",
-		questionEn: "How does feedback change the next move?",
+		question: "MCTS 搜索与反馈",
+		questionEn: "MCTS search and feedback",
 		copy: "运行一次搜索，观察选择、展开、模拟与回传。",
 		copyEn: "Run a search: selection, expansion, simulation, and backup.",
 		href: "/lab/mcts/",
-		path: "/paths/search-to-self-play/",
 		action: "运行 MCTS 实验",
 		actionEn: "Try the MCTS experiment",
 		stages: "TRY → FEEDBACK → UPDATE",
 	},
 	{
 		number: "03",
-		label: "检验一次改进",
+		label: "因果评估",
 		labelEn: "Evaluate a change",
-		question: "分数变好，就真的有效吗？",
-		questionEn: "Does a higher score mean improvement?",
+		question: "干预效果与选择偏差",
+		questionEn: "Treatment effects and selection bias",
 		copy: "改变发券方式，区分人群差异与干预带来的效果。",
 		copyEn:
 			"Change coupon assignment to separate group differences from intervention effects.",
 		href: "/lab/causal-playground/",
-		path: "/paths/evaluating-improvement/",
 		action: "打开因果实验",
 		actionEn: "Open the causal experiment",
 		stages: "COMPARE → QUESTION → TEST",
@@ -48,14 +45,13 @@ const routes = [
 ];
 ---
 <section class="studio-routes" aria-labelledby="studio-routes-title">
-	<div class="routes-intro"><p>START HERE / 01—03</p><h2 id="studio-routes-title"><Text zh="第一次来，从一个问题开始。" en="First visit? Start with a question." /></h2><Text as="p" zh="先动手观察，再沿阅读路线深入。每个实验都可以独立打开。" en="Try an experiment, then follow its reading path. Each workbench stands on its own." /></div>
+	<div class="routes-intro"><p>START HERE / 01—03</p><h2 id="studio-routes-title"><Text zh="交互实验" en="Interactive experiments" /></h2><Text as="p" zh="模型训练、搜索算法与因果评估的独立交互实验。" en="Independent interactive experiments in model training, search algorithms, and causal evaluation." /></div>
 	<div class="routes-grid">{routes.map((route) => <article>
 		<div class="route-label"><span>{route.number}</span><Text zh={route.label} en={route.labelEn} /></div>
 		<Text as="h3" zh={route.question} en={route.questionEn} />
 		<Text as="p" zh={route.copy} en={route.copyEn} />
 		<span class="route-stages">{route.stages}</span>
 		<a class="route-primary" href={route.href}><Text zh={route.action} en={route.actionEn} /><span aria-hidden="true">↗</span></a>
-		<a class="route-reading" href={route.path}><Text zh="沿对应路线阅读" en="Follow the reading path" /> →</a>
 	</article>)}</div>
 </section>
 <style>

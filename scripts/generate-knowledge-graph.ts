@@ -11,6 +11,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { glob } from "glob";
+import matter from "gray-matter";
 
 // ========== 配置 ==========
 
@@ -50,52 +51,19 @@ function parseFrontmatter(content: string): {
 	title: string;
 	tags: string[];
 	category: string;
+	draft: boolean;
+	protected: boolean;
 } {
-	const match = content.match(/^---\n([\s\S]*?)\n---/);
-	if (!match) return { title: "", tags: [], category: "" };
-
-	const raw = match[1];
-	const result: { title: string; tags: string[]; category: string } = {
-		title: "",
-		tags: [],
-		category: "",
+	const { data } = matter(content);
+	return {
+		title: typeof data.title === "string" ? data.title : "",
+		tags: Array.isArray(data.tags)
+			? data.tags.filter((tag): tag is string => typeof tag === "string")
+			: [],
+		category: typeof data.category === "string" ? data.category : "",
+		draft: data.draft === true || data.draft === "true",
+		protected: Boolean(data.password),
 	};
-
-	let currentKey = "";
-	let inArray = false;
-
-	for (const line of raw.split("\n")) {
-		const trimmed = line.trim();
-
-		if (inArray) {
-			if (trimmed.startsWith("- ")) {
-				const arr = (result as any)[currentKey] || [];
-				arr.push(trimmed.slice(2).trim().replace(/^["']|["']$/g, ""));
-				(result as any)[currentKey] = arr;
-			} else if (trimmed === "") {
-				continue;
-			} else {
-				inArray = false;
-			}
-		}
-
-		if (!inArray) {
-			const colonIdx = line.indexOf(":");
-			if (colonIdx > 0) {
-				const key = line.slice(0, colonIdx).trim();
-				const value = line.slice(colonIdx + 1).trim();
-
-				if (value === "") {
-					currentKey = key;
-					inArray = true;
-				} else if (key === "title" || key === "category") {
-					(result as any)[key] = value.replace(/^["']|["']$/g, "");
-				}
-			}
-		}
-	}
-
-	return result;
 }
 
 function slugify(text: string): string {
@@ -110,7 +78,7 @@ function slugify(text: string): string {
 async function main() {
 	console.log("🗺️  知识图谱数据生成器\n");
 
-	const postFiles = await glob("**/*.md", { cwd: POSTS_DIR });
+	const postFiles = await glob("**/*.{md,mdx}", { cwd: POSTS_DIR });
 	console.log(`   找到 ${postFiles.length} 篇文章\n`);
 
 	const posts: PostData[] = [];
@@ -122,9 +90,10 @@ async function main() {
 		const content = await fs.readFile(filePath, "utf-8");
 		const fm = parseFrontmatter(content);
 
-		if (!fm.title) continue;
+		// Public graph metadata follows the same visibility as the article index.
+		if (!fm.title || fm.draft || fm.protected) continue;
 
-		const id = file.replace(/\.md$/, "");
+		const id = file.replace(/\.mdx?$/, "");
 
 		posts.push({
 			id,

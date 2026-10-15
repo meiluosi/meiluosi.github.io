@@ -1,0 +1,86 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+import StrandbeestLab from "@/components/features/strandbeest/StrandbeestLab.svelte";
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
+import { STRANDBEEST_LINKS } from "@/utils/strandbeest-geometry";
+---
+<Layout title="把风，变成一步" titleEn="Turning wind into a step" description="从 Theo Jansen 的塑料管动物出发，沿着圆、三角形与脚端轨迹，走进艺术与几何之间的一小片海滩。" descriptionEn="An interactive visual essay on Theo Jansen, plastic tubes, and the geometry that turns a circle into a step." setOGTypeArticle={true}>
+	<Navbar />
+	<main id="swup-container" class="strand-essay" data-pagefind-body>
+		<header class="essay-head compact-page-heading"><h1 data-pagefind-meta="title"><Text zh="Strandbeest 机构设计与运动仿真" en="Strandbeest mechanism design and simulation" /></h1></header>
+
+		<figure class="opening-figure">
+			<StrandbeestLab mode="glance" client:visible />
+			<figcaption><Text zh="01 / 理想平面连杆示意。桃色短杆转一圈，脚端便描出一条闭合曲线。图中固定机身，专注观察一条腿。" en="01 / An ideal planar linkage. One turn of the terracotta crank draws a closed foot path. The frame stays fixed so we can watch one leg closely." /></figcaption>
+			<noscript><p>这里保留了 205° 时的真实几何与完整脚端轨迹。启用 JavaScript 后可播放和手动转动。 / The static diagram shows the solved geometry at 205° and the complete foot path. Enable JavaScript to turn it.</p></noscript>
+		</figure>
+
+		<article class="essay-body">
+			<section aria-labelledby="story-heading">
+				<p class="section-no">I — MATERIAL</p>
+				<h2 id="story-heading"><Text zh="Strandbeest 的设计背景" en="Strandbeest design background" /></h2>
+				<Text as="p" zh="Theo Jansen 的故事里，起点很朴素：五金店可以买到的电线套管。他在自己的问答中回忆，一篇报纸专栏里的想象让他买来这些管子，准备给这种材料一年的时间。后来，这一年不断延长。" en="In Theo Jansen’s account, the beginning is ordinary: electrical conduit from a hardware store. An idea in a newspaper column led him to buy some tubing and give the material a year. That year kept expanding." />
+				<p class="source-link"><a href="https://www.strandbeest.com/page/frequently-asked"><Text zh="读 Jansen 本人的回忆 ↗" en="Read Jansen’s own account ↗" /></a></p>
+				<Text as="p" zh="黄色 PVC 管轻、便宜，也给造型留下了很多空白。没有皮肤的动物，让人同时看见形状与结构：一阵风穿过它，也穿过那些由三角形围出来的空隙。它的轻盈既是视觉上的，也是材料上的。" en="The yellow PVC tubes are light and inexpensive. Their open structure leaves room for air. Without skin, an animal shows its shape and its construction at once: wind passes through the triangles as well as around them. Lightness becomes something to see." />
+				<Text as="p" zh="但轻盈不是一开始就有的。Jansen 记录过，最早用胶带连接的 Vulgaris 连站立都做不到。后来，扎带与新的腿部结构才让 Currens Vulgaris 站起来、走起来。美丽的成品背后，还有连接会松、身体会倒、材料不听话的日子。" en="That lightness did not arrive fully formed. Jansen records that the first tape-bound Vulgaris could not even stand. Cable ties and a new leg system later helped Currens Vulgaris stand and walk. The graceful result grew out of awkward connections, falls, and resistant material." />
+				<p class="source-link"><a href="https://www.strandbeest.com/evolution?period=gluton"><Text zh="胶带时期，1990—1991" en="The tape period, 1990–1991" /></a><span> · </span><a href="https://www.strandbeest.com/evolution?period=chorda"><Text zh="扎带时期，1991—1993 ↗" en="The strap period, 1991–1993 ↗" /></a></p>
+				<Text as="p" zh="这让“创造生命”这样宏大的念头，落回了一双手能够碰到的尺度。艺术家的想象没有停在一个比喻里。它需要找到接头，找到长度，找到让下一步发生的办法。" en="A grand idea—creating life—comes back to the scale of something a pair of hands can touch. The artist’s imagination does not end with a metaphor. It needs a joint, a length, a way for the next step to happen." />
+			</section>
+
+			<section aria-labelledby="geometry-heading">
+				<p class="section-no">II — CONSTRAINT</p>
+				<h2 id="geometry-heading"><Text zh="连杆参数与步态生成" en="Linkage parameters and gait generation" /></h2>
+				<Text as="p" zh="圆周运动很容易得到，走路却要求另一种节奏：脚先向一侧移动，再抬起、收回。连杆的特别之处，在于它可以用固定的长度，把一种轨迹变成另一种轨迹。" en="Rotation is easy to produce. A step asks for another rhythm: move the foot to one side, then lift it and bring it back. A linkage can transform one path into another using nothing more than fixed lengths." />
+				<Text as="p" zh="先把复杂的腿放下，只看两个点。如果一根杆的一端固定，另一端就只能沿圆周移动。如果另一根杆又从另一个点连过来，那个活动点便必须同时落在两个圆上。于是，一大片自由的位置，被缩小到两个交点；选定装配的一侧，位置就确定了。" en="Set the complicated leg aside for a moment. Fix one end of a rod, and its other end can only move on a circle. Connect that moving end to a second point with another rod, and it must lie on both circles. A whole plane of possibilities narrows to two intersections; choosing an assembly side determines the position." />
+				<Text as="p" zh="下面把这件事拆成三步。先转一个圆，再寻找交点，最后让所有约束一起工作。你拖动的只有曲柄，其他关节的位置都由几何关系求出来。" en="The diagram below unfolds this in three steps: turn a circle, find an intersection, then let all the constraints work together. You move only the crank. Geometry determines the other joints." />
+			</section>
+		</article>
+
+		<figure class="study-figure">
+			<StrandbeestLab mode="study" client:visible />
+			<figcaption><Text zh="02 / 两个带环的点 G、O 固定在机身上；C 是曲柄端，F 是脚端。变长的曲柄未必能走得更好，也可能让机构在某个角度无法闭合。" en="02 / The ringed points G and O are fixed to the frame; C is the crank end and F the foot. A longer crank need not make a better step—it can make some positions impossible to close." /></figcaption>
+		</figure>
+
+		<article class="essay-body">
+			<section aria-labelledby="path-heading">
+				<p class="section-no">III — A PATH</p>
+				<h2 id="path-heading"><Text zh="轨迹仿真与机械实现" en="Trajectory simulation and mechanical implementation" /></h2>
+				<Text as="p" zh="沿着虚线看，脚端的运动并不均匀。默认比例下，路径的一部分较平，另一部分向上绕回。如果把较平的一段用来接触地面，就能看出它为什么让人联想到迈步。这里的脚端轨迹来自计算；“接触地面”仍然只是我们对它的一种用途设想。" en="Follow the dashed line. The foot does not move uniformly: with these proportions, part of the path is flatter and another part curves upward. If the flatter part were used for ground contact, the resemblance to a step becomes clear. The path is calculated here; contact with the ground is still an interpretation of how to use it." />
+				<Text as="p" zh="真正走到沙滩上，材料会为这条曲线添上自己的性格：管子会弯曲，接头有间隙，脚与沙子会互相牵制，几条腿也要错开节奏。几何给出一种运动的可能，实体的步伐还需要这些条件共同成立。" en="On a real beach, materials give the curve a character of its own: tubes bend, joints have play, feet negotiate with sand, and several legs must share a rhythm. Geometry offers a possible motion; a physical step depends on all these conditions working together." />
+				<Text as="p" zh="也因此，那个“无法闭合”的提示值得停下来看看。这时，两根定长的杆已经够不到彼此。约束有时会产生一种漂亮的运动，有时也会诚实地告诉我们：这一条路走不通。" en="That is why the “cannot close” message deserves a pause. At that point, two rods of fixed length can no longer meet. Constraints can produce a beautiful motion. They can also tell us, quite plainly, that this route will not work." />
+				<details class="model-note">
+					<summary><Text zh="这张图具体算了什么？" en="What exactly does this diagram calculate?" /></summary>
+					<Text as="p" zh="这是独立绘制的 Jansen 式理想平面模型，没有做实体测试。G = (0, 0)，O = (38, 7.8)，曲柄 OC 默认长 15；其余杆长如下。数字仅作为本示意的无量纲输入，不代表对某一件 Strandbeest 实物的测量。" en="This is an independently drawn, ideal planar Jansen-style model, with no physical testing. G = (0, 0), O = (38, 7.8), and crank OC defaults to 15. The other lengths are below. These dimensionless inputs are not measurements of a particular Strandbeest." />
+					<div class="lengths">{STRANDBEEST_LINKS.map((link) => <span><b>{link.from}{link.to}</b> {link.length}</span>)}</div>
+					<Text as="p" zh="程序依次求出 K、L、M、N、F，固定每次圆相交时的装配分支；没有可用交点就停止。轨迹每隔 1° 采样，遇到不可达处会断开，不用平滑曲线把缺口补上。模型忽略重量、摩擦、材料变形与杆件碰撞；未运行步态优化，也未复现原作者的遗传算法。" en="The solver locates K, L, M, N, and F in order, keeping each circle-intersection branch fixed. It stops if an intersection is unavailable. The path is sampled every 1° and breaks across unreachable regions instead of smoothing them over. The model omits mass, friction, deformation, and rod collisions. No gait optimization or reproduction of the artist’s genetic algorithm is performed." />
+				</details>
+			</section>
+
+			<section aria-labelledby="evolution-heading">
+				<p class="section-no">IV — POSSIBILITY</p>
+				<h2 id="evolution-heading"><Text zh="机构参数的进化优化" en="Evolutionary optimization of mechanism parameters" /></h2>
+				<Text as="p" zh="Jansen 在自己的演化记录中说，这些杆长的比例曾借助 Atari 电脑上的遗传算法寻找。这是一个迷人的交汇：艺术家提出想象，材料施加限制，计算帮助寻找比例，沙滩再给出新的问题。" en="In his evolution notes, Jansen says he used a genetic algorithm on an Atari computer to find the rod-length ratios. It is an intriguing meeting: the artist supplies an idea, the material imposes limits, computation searches for proportions, and the beach poses new questions." />
+				<p class="source-link"><a href="https://www.strandbeest.com/evolution?period=chorda"><Text zh="关于杆长与遗传算法的原始叙述 ↗" en="The original account of the ratios and genetic algorithm ↗" /></a></p>
+				<Text as="p" zh="沿这条线继续做自己的实验，可以先说明希望保留什么：更平的触地段，更小的抬脚高度，还是更容易加工的结构？不同问题，会让不同的形状留下来。所谓“更好”，总要回到一个具体的愿望。" en="To continue with an experiment of our own, we can first say what we want to preserve: a flatter contact path, a lower lift, or a structure that is easier to build? Different questions keep different shapes. “Better” always returns to a particular wish." />
+				<Text as="p" zh="看懂圆与交点之后，那只脚并没有变得不神奇。反而是一些原本看不见的关系显现出来：一根杆不能伸长，另一个关节便只好转身；局部很简单，放在一起却有了节奏。" en="Knowing about the circles does not make the foot less wonderful. It makes hidden relationships visible: one rod cannot stretch, so another joint must turn. Each local rule is simple. Together, they acquire a rhythm." />
+				<Text as="p" class="closing" zh="也许技术与艺术相遇的地方，就在这里。我们一边知道它为什么动，一边仍然愿意看它多走一步。" en="Perhaps this is where art and technology meet: we understand why it moves, and still want to watch it take one more step." />
+			</section>
+
+			<footer class="essay-sources">
+				<Text as="h2" zh="参考资料与实现记录" en="References and implementation notes" />
+				<Text as="p" zh="本页图形由代码计算绘制。关于艺术家与作品的叙述，来自 Theo Jansen 的官方网站；原作的尺度、风声与节奏，仍值得亲自去看。" en="The diagrams here are drawn from code. The account of the artist and his work comes from Theo Jansen’s official website. The scale, wind, and rhythm of the originals deserve a visit of their own." />
+				<ul>
+					<li><a href="https://www.strandbeest.com/"><Text zh="Strandbeest · 艺术家的作品与影像 ↗" en="Strandbeest · The artist’s work and films ↗" /></a></li>
+					<li><a href="https://www.strandbeest.com/page/frequently-asked"><Text zh="Frequently Asked · 材料、起点与工作方式 ↗" en="Frequently Asked · Materials, beginnings, and process ↗" /></a></li>
+					<li><a href="https://www.strandbeest.com/evolution?period=gluton"><Text zh="Gluton · 那只还不能站立的动物 ↗" en="Gluton · The animal that could not stand ↗" /></a></li>
+					<li><a href="https://www.strandbeest.com/evolution?period=chorda"><Text zh="Chorda · 三角形、杆长与第一次行走 ↗" en="Chorda · Triangles, proportions, and the first steps ↗" /></a></li>
+				</ul>
+				<a class="back" href="/notes/"><Text zh="← 再读一篇" en="← Find another essay" /></a>
+			</footer>
+		</article>
+	</main>
+</Layout>
+<style>
+	:global(body){margin:0!important;background:var(--brand-paper);color:var(--brand-ink)}.strand-essay{max-width:1120px;margin:0 auto;padding:64px 6vw 100px}.essay-head{max-width:740px;margin:0 auto}.back{font-size:12px;color:var(--brand-muted);text-decoration:none}.back:hover{color:var(--brand-clay)}.eyebrow,.section-no{font-size:12px;font-family:"JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.eyebrow{margin:60px 0 24px}.essay-head :global(h1){font:400 clamp(38px,6vw,65px)/1.35 "Noto Serif SC","Songti SC",STSong,Georgia,serif;letter-spacing:-.03em;margin:0 0 25px}.deck{font-size:17px;line-height:2;color:var(--brand-body);max-width:640px}.byline{font-size:13px;color:var(--brand-muted);margin-top:28px}.opening-figure{margin:40px auto 70px;max-width:820px;padding:24px 30px;border-top:1px solid var(--brand-line);border-bottom:1px solid var(--brand-line);background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--brand-sage) 15%,transparent))}figcaption{font-size:13px;line-height:1.9;color:var(--brand-muted);max-width:680px;margin:20px auto 0}noscript p{font-size:12px;line-height:1.9}.essay-body{max-width:690px;margin:0 auto}.essay-body section{margin:0 0 65px}.section-no{margin-bottom:20px}.essay-body :global(h2){font:400 clamp(25px,3.5vw,34px)/1.6 "Noto Serif SC","Songti SC",STSong,Georgia,serif;margin:0 0 28px}.essay-body :global(p:not(.section-no):not(.source-link)){font-size:17px;line-height:2.05;color:var(--brand-body);margin:0 0 23px;text-wrap:pretty}.source-link{font-size:13px;line-height:1.9;margin:-10px 0 26px}.essay-body a{color:var(--brand-accent);text-decoration:underline;text-decoration-color:var(--brand-line);text-underline-offset:5px}.essay-body a:hover{text-decoration-color:currentColor;color:var(--brand-clay)}.study-figure{max-width:800px;padding:30px 34px;margin:0 auto 65px;border:1px solid var(--brand-line);border-radius:5px;background:color-mix(in srgb,var(--brand-sage) 13%,transparent)}.model-note{border-top:1px solid var(--brand-line);border-bottom:1px solid var(--brand-line);padding:18px 0;margin:30px 0}.model-note summary{font-size:13px;cursor:pointer;min-height:30px;color:var(--brand-accent)}.model-note[open] summary{margin-bottom:20px}.model-note :global(p:not(.section-no):not(.source-link)){font-size:13px;line-height:1.9}.lengths{display:grid;grid-template-columns:repeat(5,1fr);gap:10px 20px;padding:8px 0 25px;font:13px "JetBrains Mono",monospace;color:var(--brand-body)}.lengths b{font-weight:500;color:var(--brand-muted)}.essay-body :global(.closing){font-family:"Noto Serif SC","Songti SC",STSong,Georgia,serif;font-size:22px!important;color:var(--brand-ink)!important;line-height:1.9!important;margin-top:38px!important}.essay-sources{border-top:1px solid var(--brand-line);padding-top:40px}.essay-sources :global(h2){font-size:23px}.essay-sources :global(p){font-size:13px!important}.essay-sources ul{padding:0;list-style:none;margin:25px 0 45px}.essay-sources li{font-size:12px;line-height:1.8;margin:15px 0}a:focus-visible,summary:focus-visible{outline:2px solid var(--brand-accent);outline-offset:5px}@media(max-width:600px){.strand-essay{padding:40px 7vw 65px}.eyebrow{margin-top:42px}.deck{font-size:15px;line-height:1.95}.opening-figure{padding:15px 0 24px;margin:30px auto 50px}.essay-body :global(p:not(.section-no):not(.source-link)){font-size:16px;line-height:2}.essay-body section{margin-bottom:45px}.essay-body :global(h2){font-size:27px;line-height:1.55}.study-figure{padding:18px 14px;margin-left:-10px;margin-right:-10px}.lengths{grid-template-columns:repeat(3,1fr);gap:12px}.essay-body :global(.closing){font-size:20px!important}}
+</style>

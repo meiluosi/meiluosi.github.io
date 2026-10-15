@@ -1,5 +1,59 @@
 @reference "tailwindcss";
 
+/* Shared by the Chinese article route and its English editions. */
+#post-container [data-pagefind-meta="title"] {
+  color: var(--brand-ink) !important;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", STSong, Georgia, serif;
+  font-size: var(--site-title-size, 34px) !important;
+  line-height: 1.4 !important;
+  letter-spacing: -.025em;
+  font-weight: 600 !important;
+  text-wrap: pretty;
+}
+
+#post-container .markdown-content {
+  max-width: 44rem;
+  margin-inline: auto;
+  color: var(--brand-body);
+  font-size: 17px;
+  line-height: 1.95;
+}
+
+#post-container .markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--brand-ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", STSong, Georgia, serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -.01em;
+  scroll-margin-top: 2rem;
+}
+
+#post-container .markdown-content h2 {
+  margin-top: 2.4em;
+  margin-bottom: .9em;
+  font-size: 1.6em;
+}
+
+#post-container .markdown-content h3 {
+  margin-top: 2em;
+  font-size: 1.25em;
+}
+
+#post-container .markdown-content p { margin-block: 1.4em; }
+#post-container .markdown-content li { margin-block: .45em; }
+#post-container .markdown-content :is(pre, code) { font-size: .875rem; letter-spacing: normal; }
+#post-container .markdown-content pre { line-height: 1.7; }
+#post-container .markdown-content :is(.katex-display, .katex-display-container) { overflow-x: auto; overflow-y: hidden; padding-block: .25em; }
+#post-container .markdown-content :is(figcaption, .caption) { font-size: .85em; line-height: 1.7; color: var(--brand-muted); }
+#post-container .markdown-content blockquote { margin-block: 1.8em; }
+#swup-container[lang="en"] #post-container .markdown-content { line-height: 1.85; }
+#post-container .edition-label { letter-spacing: .04em; line-height: 1.7; }
+
+@media (max-width: 700px) {
+  #post-container .markdown-content { font-size: 16px; line-height: 1.95; }
+  #post-container [data-pagefind-meta="title"] { letter-spacing: -.015em; }
+}
+
 .custom-md {
   overflow-wrap: break-word;
 
@@ -213,4 +267,3 @@ body.wallpaper-transparent .custom-md {
     background-color: color-mix(in oklch, var(--btn-plain-bg-active) 68%, transparent);
   }
 }
-

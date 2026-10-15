@@ -1,0 +1,15 @@
+.rsi-interactive { color: var(--brand-ink); min-width: 0; }
+.rsi-interactive p { font-size: 16px; line-height: 1.9; color: var(--brand-body); }
+.rsi-interactive .rsi-prompt { margin: 0 0 16px; color: var(--brand-ink); }
+.rsi-interactive button, .rsi-interactive select { font: inherit; font-size: 15px; color: var(--brand-ink); border: 1px solid var(--brand-line); border-radius: 5px; min-height: 44px; padding: 10px 14px; background: var(--brand-paper); cursor: pointer; }
+.rsi-interactive button:disabled, .rsi-interactive select:disabled, .rsi-interactive input:disabled { cursor: default; opacity: .6; }
+.rsi-interactive button:hover:not(:disabled) { border-color: var(--brand-accent); }
+.rsi-interactive button[aria-pressed="true"] { background: var(--brand-sage); border-color: var(--brand-accent); }
+.rsi-interactive .rsi-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.rsi-interactive .rsi-choices button { flex: 1; }
+.rsi-interactive .rsi-result { border-left: 2px solid var(--brand-clay); padding: 4px 0 4px 18px; margin: 25px 0 0; }
+.rsi-interactive .rsi-result p { margin: 6px 0; }
+.rsi-interactive .rsi-note { font-size: 13px; line-height: 1.8; color: var(--brand-muted); }
+.rsi-interactive a { color: var(--brand-accent); text-decoration: underline; text-underline-offset: 4px; }
+.rsi-interactive button:focus-visible, .rsi-interactive select:focus-visible, .rsi-interactive input:focus-visible, .rsi-interactive summary:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 4px; }
+@media (max-width: 520px) { .rsi-interactive p { font-size: 16px; } .rsi-interactive .rsi-choices button { flex-basis: 100%; } .rsi-interactive .rsi-note { font-size: 13px; } }

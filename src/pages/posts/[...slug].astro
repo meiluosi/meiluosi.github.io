@@ -22,10 +22,9 @@ import utc from "dayjs/plugin/utc";
 import AiSummary from "@/components/common/AiSummary.astro";
 import CoverImage from "@/components/common/CoverImage.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
+import { buildConceptGraph } from "@/utils/article-concept-graph";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import PostMetadata from "@/components/layout/PostMeta.astro";
-import NextReading from "@/components/features/NextReading.astro";
-import SaveNote from "@/components/features/SaveNote.svelte";
 import SharePoster from "@/components/misc/SharePoster.svelte";
 import { coverImageConfig } from "@/config/coverImageConfig";
 import { licenseConfig } from "@/config/licenseConfig";
@@ -196,7 +195,6 @@ const jsonLd = {
   <KatexManager slot="head" />
   
   <ReadingProgress client:load />
-  {!entry.data.draft && !entry.data.password && <SaveNote sourceId={entry.id.replace(/\.mdx?$/, "")} client:load />}
 
   <script
     is:inline
@@ -264,7 +262,7 @@ const jsonLd = {
 
       <!-- title -->
       <div class="relative onload-animation">
-        <div
+        <h1
           data-pagefind-body
           data-pagefind-weight="10"
           data-pagefind-meta="title"
@@ -275,7 +273,7 @@ const jsonLd = {
                     before:absolute before:top-3 before:-left-4.5"
         >
           {entry.data.title}
-        </div>
+        </h1>
       </div>
 
       <!-- metadata -->
@@ -416,7 +414,7 @@ const jsonLd = {
           </Markdown>
 
           {/* 思维导图 */}
-          <Mindmap headings={headings} client:load />
+          <Mindmap graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)} client:load />
 
           {/* 打赏按钮 & 分享按钮 */}
           {
@@ -615,7 +613,6 @@ const jsonLd = {
     </a>
   </div>
 
-  <NextReading sourceId={entry.id} />
 
   <!-- 评论 -->
   {entry.data.comment && !entry.data.password && <Comment post={entry} />}
@@ -630,10 +627,6 @@ const jsonLd = {
 	#content-wrapper { padding: clamp(28px, 6vw, 76px) clamp(20px, 6vw, 72px) 0; }
 	#post-container { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; }
 	#post-container > div:first-child { color: var(--brand-muted) !important; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .06em; }
-	#post-container [data-pagefind-meta="title"] { color: var(--brand-ink) !important; font-size: clamp(34px, 5.2vw, 62px) !important; line-height: 1.12 !important; letter-spacing: -.055em; font-weight: 450 !important; }
-	#post-container .markdown-content { max-width: 76ch; margin-inline: auto; color: var(--brand-body); font-size: 16px; line-height: 1.95; }
-	#post-container .markdown-content h2, #post-container .markdown-content h3 { color: var(--brand-ink); letter-spacing: -.035em; font-weight: 500; }
-	#post-container .markdown-content h2 { margin-top: 2.5em; padding-top: .5em; border-top: 1px solid rgba(37,60,52,.12); }
 	#post-container .markdown-content a { color: var(--brand-accent); }
 	#post-container .markdown-content blockquote { border-left-color: var(--brand-accent); color: var(--brand-body); }
 	#post-container .markdown-content :not(pre) > code { background: rgba(65,99,79,.1); color: var(--brand-accent); }
@@ -641,6 +634,5 @@ const jsonLd = {
 	#main-grid .footer { padding-inline: 0; }
 	@media (max-width: 700px) {
 		#content-wrapper { padding: 35px 7vw 0; }
-		#post-container .markdown-content { font-size: 16px; line-height: 1.9; }
 	}
 </style>

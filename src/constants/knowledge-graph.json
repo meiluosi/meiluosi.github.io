@@ -1,11 +1,11 @@
 {
   "nodes": [
     {
-      "id": "cat:strandbeest",
-      "label": "Strandbeest",
+      "id": "cat:大模型训练研究笔记",
+      "label": "大模型训练研究笔记",
       "type": "category",
-      "url": "/categories/strandbeest/",
-      "count": 3
+      "url": "/categories/大模型训练研究笔记/",
+      "count": 6
     },
     {
       "id": "cat:deep-learning",
@@ -19,14 +19,14 @@
       "label": "Data Science",
       "type": "category",
       "url": "/categories/data-science/",
-      "count": 6
+      "count": 5
     },
     {
       "id": "cat:game-ai",
       "label": "Game AI",
       "type": "category",
       "url": "/categories/game-ai/",
-      "count": 4
+      "count": 3
     },
     {
       "id": "cat:research",
@@ -71,32 +71,46 @@
       "count": 1
     },
     {
-      "id": "tag:strandbeest",
-      "label": "Strandbeest",
+      "id": "tag:大模型训练研究笔记",
+      "label": "大模型训练研究笔记",
       "type": "tag",
-      "url": "/tags/strandbeest/",
-      "count": 3
+      "url": "/tags/大模型训练研究笔记/",
+      "count": 6
+    },
+    {
+      "id": "tag:预训练数据",
+      "label": "预训练数据",
+      "type": "tag",
+      "url": "/tags/预训练数据/",
+      "count": 6
+    },
+    {
+      "id": "tag:模型评测",
+      "label": "模型评测",
+      "type": "tag",
+      "url": "/tags/模型评测/",
+      "count": 2
     },
     {
       "id": "tag:数据处理",
       "label": "数据处理",
       "type": "tag",
       "url": "/tags/数据处理/",
-      "count": 4
+      "count": 3
     },
     {
       "id": "tag:强化学习",
       "label": "强化学习",
       "type": "tag",
       "url": "/tags/强化学习/",
-      "count": 9
+      "count": 8
     },
     {
       "id": "tag:因果推断",
       "label": "因果推断",
       "type": "tag",
       "url": "/tags/因果推断/",
-      "count": 9
+      "count": 8
     },
     {
       "id": "tag:游戏ai与搜索",
@@ -127,22 +141,40 @@
       "count": 2
     },
     {
-      "id": "post:2026-10-04-strandbeest-leg-linkage",
-      "label": "十三个数字怎么让腿走起来：Jansen 连杆的几何",
+      "id": "post:2026-10-15-llm-training-data-06-build",
+      "label": "构建一份可追溯的小型预训练语料",
       "type": "post",
-      "url": "/posts/2026-10-04-strandbeest-leg-linkage/"
+      "url": "/posts/2026-10-15-llm-training-data-06-build/"
     },
     {
-      "id": "post:2026-10-04-strandbeest-evolution-history",
-      "label": "Strandbeest 的十二个演化时期：一个人和一群塑料管动物",
+      "id": "post:2026-10-15-llm-training-data-05-mixture",
+      "label": "中英文数据怎样混合：从语料比例到实际训练分布",
       "type": "post",
-      "url": "/posts/2026-10-04-strandbeest-evolution-history/"
+      "url": "/posts/2026-10-15-llm-training-data-05-mixture/"
     },
     {
-      "id": "post:2026-10-04-re-evolving-the-strandbeest-leg",
-      "label": "从随机长度出发，能重新演化出 Jansen 的腿吗？",
+      "id": "post:2026-10-15-llm-training-data-04-dedup",
+      "label": "去重与评测污染：模型究竟学到了什么",
       "type": "post",
-      "url": "/posts/2026-10-04-re-evolving-the-strandbeest-leg/"
+      "url": "/posts/2026-10-15-llm-training-data-04-dedup/"
+    },
+    {
+      "id": "post:2026-10-15-llm-training-data-03-quality",
+      "label": "什么是高质量预训练数据：从规则到模型评分",
+      "type": "post",
+      "url": "/posts/2026-10-15-llm-training-data-03-quality/"
+    },
+    {
+      "id": "post:2026-10-15-llm-training-data-02-cleaning",
+      "label": "从网页到训练文本：预训练数据清洗到底在做什么",
+      "type": "post",
+      "url": "/posts/2026-10-15-llm-training-data-02-cleaning/"
+    },
+    {
+      "id": "post:2026-10-15-llm-training-data-01-map",
+      "label": "预训练数据从哪里来：中英文开放语料地图与选型框架",
+      "type": "post",
+      "url": "/posts/2026-10-15-llm-training-data-01-map/"
     },
     {
       "id": "post:2026-07-08-1B模型全链路实验计划",
@@ -161,18 +193,6 @@
       "label": "深度Q网络案例实践",
       "type": "post",
       "url": "/posts/2024-6-30-深度Q网络案例实践/"
-    },
-    {
-      "id": "post:2024-6-30-新型群体智能算法对比实验",
-      "label": "新型群体智能算法对比实验",
-      "type": "post",
-      "url": "/posts/2024-6-30-新型群体智能算法对比实验/"
-    },
-    {
-      "id": "post:2024-6-30-数据分析实战—Dowhy酒店案例实战",
-      "label": "数据分析实战—DoWhy酒店案例实战",
-      "type": "post",
-      "url": "/posts/2024-6-30-数据分析实战—Dowhy酒店案例实战/"
     },
     {
       "id": "post:2024-6-30-应用Ylearn框架实现因果推断",
@@ -345,34 +365,90 @@
   ],
   "edges": [
     {
-      "source": "post:2026-10-04-strandbeest-leg-linkage",
-      "target": "cat:strandbeest"
+      "source": "post:2026-10-15-llm-training-data-06-build",
+      "target": "cat:大模型训练研究笔记"
     },
     {
-      "source": "post:2026-10-04-strandbeest-leg-linkage",
-      "target": "tag:strandbeest"
+      "source": "post:2026-10-15-llm-training-data-06-build",
+      "target": "tag:大模型训练研究笔记"
     },
     {
-      "source": "post:2026-10-04-strandbeest-evolution-history",
-      "target": "cat:strandbeest"
+      "source": "post:2026-10-15-llm-training-data-06-build",
+      "target": "tag:预训练数据"
     },
     {
-      "source": "post:2026-10-04-strandbeest-evolution-history",
-      "target": "tag:strandbeest"
+      "source": "post:2026-10-15-llm-training-data-05-mixture",
+      "target": "cat:大模型训练研究笔记"
     },
     {
-      "source": "post:2026-10-04-re-evolving-the-strandbeest-leg",
-      "target": "cat:strandbeest"
+      "source": "post:2026-10-15-llm-training-data-05-mixture",
+      "target": "tag:大模型训练研究笔记"
     },
     {
-      "source": "post:2026-10-04-re-evolving-the-strandbeest-leg",
-      "target": "tag:strandbeest"
+      "source": "post:2026-10-15-llm-training-data-05-mixture",
+      "target": "tag:预训练数据"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-04-dedup",
+      "target": "cat:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-04-dedup",
+      "target": "tag:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-04-dedup",
+      "target": "tag:预训练数据"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-04-dedup",
+      "target": "tag:模型评测"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-03-quality",
+      "target": "cat:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-03-quality",
+      "target": "tag:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-03-quality",
+      "target": "tag:预训练数据"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-02-cleaning",
+      "target": "cat:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-02-cleaning",
+      "target": "tag:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-02-cleaning",
+      "target": "tag:预训练数据"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-01-map",
+      "target": "cat:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-01-map",
+      "target": "tag:大模型训练研究笔记"
+    },
+    {
+      "source": "post:2026-10-15-llm-training-data-01-map",
+      "target": "tag:预训练数据"
     },
     {
       "source": "post:2026-07-08-1B模型全链路实验计划",
       "target": "cat:deep-learning"
     },
     {
+      "source": "post:2026-07-08-1B模型全链路实验计划",
+      "target": "tag:模型评测"
+    },
+    {
       "source": "post:2024-9-16-R语言学习",
       "target": "cat:data-science"
     },
@@ -387,26 +463,6 @@
     {
       "source": "post:2024-6-30-深度Q网络案例实践",
       "target": "tag:强化学习"
-    },
-    {
-      "source": "post:2024-6-30-新型群体智能算法对比实验",
-      "target": "cat:game-ai"
-    },
-    {
-      "source": "post:2024-6-30-新型群体智能算法对比实验",
-      "target": "tag:强化学习"
-    },
-    {
-      "source": "post:2024-6-30-数据分析实战—Dowhy酒店案例实战",
-      "target": "cat:data-science"
-    },
-    {
-      "source": "post:2024-6-30-数据分析实战—Dowhy酒店案例实战",
-      "target": "tag:因果推断"
-    },
-    {
-      "source": "post:2024-6-30-数据分析实战—Dowhy酒店案例实战",
-      "target": "tag:数据处理"
     },
     {
       "source": "post:2024-6-30-应用Ylearn框架实现因果推断",

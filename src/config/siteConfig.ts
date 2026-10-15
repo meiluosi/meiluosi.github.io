@@ -9,14 +9,14 @@ export const siteConfig: SiteConfig = {
 	title: "枫语",
 
 	// 站点副标题
-	subtitle: "递归自我改进 · RSI / AGI",
+	subtitle: "边走，边记录",
 
 	// 站点 URL
 	site_url: "https://meiluosi.github.io",
 
 	// 站点描述
 	description:
-		"枫语的个人品牌网站：以递归自我改进为长期问题，记录通向 AGI 的模型学习、反馈机制、因果评估与研究笔记。",
+		"枫语的个人博客。在文字与技术之间，记录对智能、机械与世界的好奇：一些文章，一些尝试，以及还没有想明白的问题。",
 
 	// 站点关键词
 	keywords: [

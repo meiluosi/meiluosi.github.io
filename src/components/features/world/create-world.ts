@@ -91,8 +91,8 @@ export function createWorld(options: WorldOptions): WorldController {
 	const world = new THREE.Group();
 	world.rotation.y = -0.12;
 	scene.add(world);
-	scene.add(new THREE.HemisphereLight(0xfffbef, 0x768d80, 1.4));
-	const sun = new THREE.DirectionalLight(0xffecd8, 2.3);
+	scene.add(new THREE.HemisphereLight(0xfff5e1, 0x849181, 1.4));
+	const sun = new THREE.DirectionalLight(0xffe4ba, 2.15);
 	sun.position.set(-5, 12, 7);
 	sun.castShadow = true;
 	sun.shadow.mapSize.set(1024, 1024);
@@ -111,10 +111,14 @@ export function createWorld(options: WorldOptions): WorldController {
 	const materials = {
 		forest: new THREE.MeshStandardMaterial({ color: 0x315844, roughness: 0.72 }),
 		sage: new THREE.MeshStandardMaterial({ color: 0x9dbda6, roughness: 0.9 }),
-		paper: new THREE.MeshStandardMaterial({ color: 0xf0eadb, roughness: 0.9 }),
+		paper: new THREE.MeshStandardMaterial({ color: 0xf3ead6, roughness: 0.95 }),
 		peach: new THREE.MeshStandardMaterial({ color: 0xeeb28c, roughness: 0.75 }),
 		blue: new THREE.MeshStandardMaterial({ color: 0x587989, roughness: 0.7 }),
 		ink: new THREE.MeshStandardMaterial({ color: 0x263c35, roughness: 0.88 }),
+		wood: new THREE.MeshStandardMaterial({ color: 0xb58c61, roughness: 0.88 }),
+		woodEdge: new THREE.MeshStandardMaterial({ color: 0x8c684c, roughness: 0.86 }),
+		brass: new THREE.MeshStandardMaterial({ color: 0x9e8058, roughness: 0.42, metalness: 0.48 }),
+		lamplight: new THREE.MeshBasicMaterial({ color: 0xffe6ad }),
 	};
 	function mesh(
 		geometry: THREE.BufferGeometry,
@@ -140,6 +144,30 @@ export function createWorld(options: WorldOptions): WorldController {
 		object.position.copy(from).add(to).multiplyScalar(0.5);
 		object.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
 		return object;
+	}
+	function notebook(parent: THREE.Object3D, x: number, y: number, z: number, angle = 0): void {
+		const book = new THREE.Group();
+		book.position.set(x, y, z);
+		book.rotation.y = angle;
+		parent.add(book);
+		box(book, [0.38, 0.035, 0.29], [0, 0, 0], materials.forest);
+		box(book, [0.34, 0.035, 0.27], [0.005, 0.029, 0], materials.paper);
+		for (let line = 0; line < 3; line++) box(book, [0.19 - line * 0.025, 0.005, 0.008], [0.01, 0.05, -0.065 + line * 0.045], materials.woodEdge);
+		connection(book, new THREE.Vector3(-0.22, 0.05, -0.13), new THREE.Vector3(-0.18, 0.05, 0.15), materials.peach, 0.015);
+	}
+	function deskLamp(parent: THREE.Object3D, x: number, y: number, z: number): void {
+		const lamp = new THREE.Group();
+		lamp.position.set(x, y, z);
+		parent.add(lamp);
+		mesh(new THREE.CylinderGeometry(0.115, 0.13, 0.035, 12), materials.brass, lamp);
+		connection(lamp, new THREE.Vector3(0, 0.02, 0), new THREE.Vector3(0, 0.53, 0), materials.brass, 0.018);
+		connection(lamp, new THREE.Vector3(0, 0.53, 0), new THREE.Vector3(0.22, 0.62, 0.04), materials.brass, 0.021);
+		mesh(new THREE.ConeGeometry(0.14, 0.15, 16, 1, true), materials.brass, lamp, 0.22, 0.58, 0.04);
+		mesh(new THREE.SphereGeometry(0.048, 8, 6), materials.lamplight, lamp, 0.22, 0.505, 0.04).castShadow = false;
+		// A soft tabletop pool suggests lamplight without an extra dynamic light.
+		const glow = mesh(new THREE.CircleGeometry(0.26, 20), new THREE.MeshBasicMaterial({ color: 0xffd694, transparent: true, opacity: 0.14, depthWrite: false }), lamp, 0.22, 0.021, 0.04);
+		glow.rotation.x = -Math.PI / 2;
+		glow.castShadow = false;
 	}
 
 	const rock = mesh(new THREE.CylinderGeometry(6.4, 4.6, 1.7, 10), materials.forest, world, 0, -0.9, 0);
@@ -189,11 +217,11 @@ export function createWorld(options: WorldOptions): WorldController {
 		texture.colorSpace = THREE.SRGBColorSpace;
 		const update = () => {
 			context.clearRect(0, 0, 768, 140);
-			context.fillStyle = "rgba(243, 246, 241, .97)";
+			context.fillStyle = "rgba(246, 239, 223, .97)";
 			context.beginPath();
-			context.roundRect(2, 2, 764, 136, 30);
+			context.roundRect(2, 2, 764, 136, 10);
 			context.fill();
-			context.strokeStyle = "#9eafa0";
+			context.strokeStyle = "#b8aa8f";
 			context.lineWidth = 3;
 			context.stroke();
 			context.fillStyle = "#315844";
@@ -213,7 +241,9 @@ export function createWorld(options: WorldOptions): WorldController {
 		labelUpdates.push(update);
 		const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, depthTest: false, transparent: true, toneMapped: false }));
 		sprite.position.set(0, 2.6, 0);
-		sprite.scale.set(3.15, 0.575, 1);
+		sprite.scale.set(2.6, 0.475, 1);
+		sprite.userData.station = station.id;
+		targets.push(sprite);
 		parent.add(sprite);
 	}
 
@@ -240,7 +270,9 @@ export function createWorld(options: WorldOptions): WorldController {
 		label(station, group);
 
 		if (station.id === "llm-systems") {
-			box(group, [1.88, 0.11, 0.86], [0, 0.49, 0], materials.forest);
+			box(group, [1.96, 0.12, 1.12], [0, 0.52, 0], materials.wood);
+			for (const x of [-0.76, 0.76]) for (const z of [-0.4, 0.4]) box(group, [0.09, 0.22, 0.09], [x, 0.39, z], materials.woodEdge);
+			for (const z of [-0.36, 0.02, 0.39]) box(group, [1.82, 0.004, 0.007], [0, 0.582, z], materials.woodEdge);
 			box(group, [0.56, 0.86, 0.7], [0, 0.96, 0], materials.sage);
 			for (let layer = 0; layer < 4; layer++) {
 				box(group, [0.65, 0.065, 0.76], [0, 0.66 + layer * 0.22, 0], materials.forest);
@@ -252,11 +284,13 @@ export function createWorld(options: WorldOptions): WorldController {
 			for (let i = 0; i < 3; i++) {
 				box(group, [0.1, 0.18 + i * 0.13, 0.13], [0.7 + i * 0.14, 0.66 + i * 0.065, -0.21], materials.peach);
 			}
+			notebook(group, -0.53, 0.615, 0.36, -0.18);
+			deskLamp(group, -0.79, 0.605, -0.31);
 			stationAnimations.push((time) => {
 				tokens.forEach((token, i) => { token.position.x = ((time * 0.28 + i * 0.46) % 1.84) - 0.92; });
 			});
 		} else if (station.id === "reinforcement-learning") {
-			box(group, [1.43, 0.12, 1.18], [0, 0.5, 0.03], materials.peach);
+			box(group, [1.43, 0.12, 1.18], [0, 0.5, 0.03], materials.wood);
 			for (let i = -2; i <= 2; i++) {
 				box(group, [0.016, 0.01, 0.99], [i * 0.24, 0.566, 0.03], materials.forest);
 				box(group, [1.18, 0.01, 0.016], [0, 0.567, 0.03 + i * 0.2], materials.forest);
@@ -273,15 +307,22 @@ export function createWorld(options: WorldOptions): WorldController {
 				new THREE.Vector3(0.24, 0.94, -0.17),
 				new THREE.Vector3(0.73, 0.94, -0.17),
 			];
-			for (let i = 1; i < points.length; i++) connection(group, points[Math.floor((i - 1) / 2)], points[i], materials.forest);
+			for (let i = 1; i < points.length; i++) connection(group, points[Math.floor((i - 1) / 2)], points[i], materials.brass);
 			points.forEach((point, i) => mesh(new THREE.SphereGeometry(i === 0 ? 0.13 : 0.09, 12, 8), i === 0 || i === 2 || i === 6 ? materials.peach : materials.forest, group, point.x, point.y, point.z));
 			const signal = mesh(new THREE.SphereGeometry(0.065, 10, 8), materials.paper, group);
+			mesh(new THREE.CylinderGeometry(0.14, 0.12, 0.11, 14), materials.woodEdge, group, -0.84, 0.47, 0.48);
+			mesh(new THREE.SphereGeometry(0.075, 10, 8), materials.paper, group, -0.84, 0.53, 0.48).scale.y = 0.45;
+			notebook(group, 0.66, 0.435, 0.71, 0.28);
 			stationAnimations.push((time) => {
 				const phase = (time * 0.6) % 4;
 				const route = [points[0], points[2], points[6], points[2], points[0]];
 				signal.position.lerpVectors(route[Math.floor(phase)], route[Math.floor(phase) + 1], phase % 1);
 			});
 		} else {
+			box(group, [1.55, 0.07, 0.94], [0, 0.455, 0.08], materials.wood);
+			box(group, [1.36, 0.015, 0.74], [0, 0.505, 0.08], materials.paper);
+			for (let line = 0; line < 4; line++) box(group, [0.31 + line * 0.07, 0.006, 0.007], [0.15, 0.519, 0.29 - line * 0.065], materials.sage);
+			connection(group, new THREE.Vector3(-0.61, 0.53, -0.22), new THREE.Vector3(-0.49, 0.53, 0.4), materials.peach, 0.018);
 			const points = [new THREE.Vector3(0, 1.99, -0.15), new THREE.Vector3(-0.67, 1.03, 0.1), new THREE.Vector3(0.67, 1.03, 0.1)];
 			for (const [a, b] of [[0, 1], [0, 2], [1, 2]]) {
 				connection(group, points[a], points[b], materials.blue, 0.035);
@@ -363,18 +404,18 @@ export function createWorld(options: WorldOptions): WorldController {
 
 	function noticeForStation(id: string): void {
 		const station = stations.find((item) => item.id === id);
-		if (station) options.onNotice(`${station.sceneLabel} · 点选进入`, `${station.sceneLabelEn} · SELECT TO EXPLORE`);
+		if (station) options.onNotice(`${station.sceneLabel} · 点开看看`, `${station.sceneLabelEn} · Take a closer look`);
 	}
 	function defaultNotice(): void {
-		options.onNotice("拖动旋转 · 点选站点 · WASD 漫游", "DRAG TO ORBIT · SELECT A STATION · WASD TO ROAM");
+		options.onNotice("点一张桌子，或开着小车慢慢逛。", "Choose a desk, or take the rover for a little wander.");
 	}
 	function arrivalNotice(id: string): void {
 		const station = stations.find((item) => item.id === id);
-		if (station) options.onNotice(`已到达 ${station.sceneLabel} · 打开内容，或继续驾驶`, `ARRIVED AT ${station.sceneLabelEn} · EXPLORE THE CONTENT OR KEEP DRIVING`);
+		if (station) options.onNotice(`到${station.sceneLabel}了，看看这里有什么。`, `You've arrived at ${station.sceneLabelEn.toLowerCase()}. Take a closer look.`);
 	}
 	function proximityNotice(id: string): void {
 		const station = stations.find((item) => item.id === id);
-		if (station) options.onNotice(`${station.sceneLabel} · 已靠近，按 Enter 打开`, `${station.sceneLabelEn} · PRESS ENTER TO EXPLORE`);
+		if (station) options.onNotice(`${station.sceneLabel} · 已靠近，按 Enter 打开`, `${station.sceneLabelEn} · Press Enter to explore`);
 	}
 	function setFollowRover(follow: boolean): void {
 		followRover = follow;
@@ -437,8 +478,8 @@ export function createWorld(options: WorldOptions): WorldController {
 		desiredRadius = immersive ? 14.3 : 17;
 		desiredPitch = 0.36;
 		if (arrival) arrivalNotice(id);
-		else if (autoDestination) options.onNotice(`正在前往 ${station.sceneLabel} · 虚线是小车路线`, `TRAVELLING TO ${station.sceneLabelEn} · FOLLOW THE DOTTED ROUTE`);
-		else options.onNotice(`${station.sceneLabel} · 当前无法规划路线，可回起点重试`, `${station.sceneLabelEn} · NO CLEAR ROUTE; RESET THE ROVER TO RETRY`);
+		else if (autoDestination) options.onNotice(`正在往${station.sceneLabel}走，沿着小路慢慢来。`, `On the way to ${station.sceneLabelEn.toLowerCase()}. Follow the dotted path.`);
+		else options.onNotice(`${station.sceneLabel} · 当前无法规划路线，可回起点重试`, `${station.sceneLabelEn} · No clear route. Return the rover to the start and try again.`);
 		schedule();
 	}
 	function resetView(): void {
@@ -467,7 +508,7 @@ export function createWorld(options: WorldOptions): WorldController {
 		rover.position.set(0, 0.25, 1.35);
 		rover.rotation.set(0, 0, 0);
 		body.rotation.set(0, 0, 0);
-		options.onNotice("已回到起点 · 点选站点继续探索", "BACK AT THE START · SELECT A STATION TO CONTINUE");
+		options.onNotice("小车回来了，接下来想去哪张桌？", "Back at the start. Which desk shall we visit next?");
 		schedule();
 	}
 	function stationAt(event: PointerEvent): string | null {

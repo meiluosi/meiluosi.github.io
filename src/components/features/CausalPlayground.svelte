@@ -18,7 +18,7 @@
 <section class="experiment" aria-label={english ? "Coupon selection experiment" : "优惠券选择偏差实验"}>
 	<div class="controls">
 		<p class="eyebrow">{english ? "01 / CHANGE THE ASSIGNMENT" : "01 / 改变分配方式"}</p>
-		<h2>{english ? "Who gets the coupon?" : "优惠券，更偏向发给谁？"}</h2>
+		<h2>{english ? "Treatment assignment" : "干预分配参数"}</h2>
 		<p>{english ? "Two equally sized groups spend 120 and 40 units without a coupon. Turn the sliders to change who receives it and what it actually does." : "两类顾客人数相同，不用券时的消费分别是 120 与 40。拖动滑块，改变发券偏好和优惠券真正带来的增量。"}</p>
 		<label for="selection-bias">{english ? "Preference for high-spending customers" : "偏向高消费人群的程度"}<output for="selection-bias">{signed(bias)} {english ? "pp" : "个百分点"}</output></label>
 		<input id="selection-bias" type="range" min="-80" max="80" step="10" bind:value={bias} aria-valuetext={english ? `${signed(bias)} percentage points difference in coupon probability` : `两类人群获券概率相差 ${signed(bias)} 个百分点`} />

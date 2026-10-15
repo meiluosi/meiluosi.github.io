@@ -1,50 +1,98 @@
 ---
 import avatar from "@/assets/images/avatar.avif";
+import Text from "@/components/common/BilingualText.astro";
+import PersonalJourney from "@/components/features/PersonalJourney.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import Layout from "@/layouts/Layout.astro";
-import PersonalJourney from "@/components/features/PersonalJourney.astro";
 
-const principles = [
+const curiosities = [
 	{
-		n: "01",
-		title: "从问题开始",
-		titleEn: "Start with the question",
-		body: "先把问题定义清楚，再决定该读什么、写什么代码，以及什么证据才算回答。",
-		bodyEn:
-			"Define the question before deciding what to read, what to code, and what would count as an answer.",
+		title: "学会一件事，然后呢？",
+		titleEn: "What happens after learning?",
+		body: "模型怎样从文字里学会预测，一次反馈又怎样改变下一次选择？写代码、读论文、看它们出错，都是我接近这些问题的方式。",
+		bodyEn: "How does a model learn to predict from text, and how does feedback change its next choice? I explore these questions by reading papers, writing code, and watching where things go wrong.",
 	},
 	{
-		n: "02",
-		title: "理论要落到实践",
-		titleEn: "Put theory into practice",
-		body: "读论文，也做实验。理解一个方法，最好亲手实现它、观察它在哪些条件下失效。",
-		bodyEn:
-			"Read papers, then run experiments. A method becomes clearer when you implement it and see where it fails.",
+		title: "数字怎样描述世界",
+		titleEn: "How numbers describe the world",
+		body: "一个分数能说明多少事，又遗漏了什么？因果推理和数据分析让我反复想到这个问题，也提醒我留意数字背后的前提。",
+		bodyEn: "How much can a score tell us, and what does it leave out? Causal inference and data analysis keep bringing me back to the assumptions behind the numbers.",
 	},
 	{
-		n: "03",
-		title: "把过程讲明白",
-		titleEn: "Make the process legible",
-		body: "记录假设、选择和结果，让知识可以被复查、复用，也欢迎别人提出不同看法。",
-		bodyEn:
-			"Record assumptions, choices, and results so the work can be checked, reused, and challenged.",
+		title: "机器也能有步态",
+		titleEn: "A machine with a gait",
+		body: "最近的好奇心还走向了 Strandbeest：几根连杆为什么能走出像生物一样的步子？在机械、几何与演化交汇的地方，有许多值得慢慢拆开看的东西。",
+		bodyEn: "Lately, my curiosity has also led me to Strandbeest. How can a handful of links produce a gait that feels alive? There is a lot to take apart and understand where mechanics, geometry, and evolution meet.",
 	},
 ];
 ---
 
-<Layout title="关于我 — 枫语" titleEn="About Feng Yu" description="关于枫语，以及以递归自我改进和 AGI 为长期方向的探索。" descriptionEn="About Feng Yu and an ongoing exploration of recursive self-improvement and AGI.">
+<Layout title="关于我 — 枫语" titleEn="About me — Feng Yu" description="我是冯宇，在这里写下关于智能、因果、机械和学习的好奇与思考。" descriptionEn="I’m Feng Yu. I write about intelligence, causality, mechanics, and the questions that come with learning.">
 	<div class="about-page" data-brand-motion>
 		<Navbar />
 		<main id="swup-container">
-			<section class="about-hero"><div class="portrait"><img src={avatar.src} alt="枫语的头像" data-i18n-alt-zh="枫语的头像" data-i18n-alt-en="Portrait of Feng Yu"/><span>你好，世界。</span></div><div><p class="eyebrow" data-motion-intro>LONG-TERM QUESTION / RSI → AGI</p><h1 data-motion-intro data-i18n="about.hero.title" data-i18n-html="true">我是枫语。<br/><em>你好。</em></h1><p class="lead" data-motion-intro data-i18n="about.hero.lead">我想把所有学习、实验与系统构建，放在同一条长期路径上：探索递归自我改进（RSI），并一步步走向 AGI。</p><a class="cta" data-motion-intro href="/contact/"><span data-i18n="about.hero.cta">联系我</span> <span>↗</span></a></div></section>
+			<section class="about-hero compact-page-heading"><h1 id="about-title" data-motion-intro><Text zh="关于枫语" en="About Feng Yu" /></h1></section>
+			<section class="letter" aria-labelledby="letter-title" data-motion-reveal>
+				<h2 id="letter-title"><Text zh="个人简介" en="Profile" /></h2>
+				<div><figure class="portrait"><img src={avatar.src} alt="枫语的头像" data-i18n-alt-zh="枫语的头像" data-i18n-alt-en="Portrait of Feng Yu" width={avatar.width} height={avatar.height}/><figcaption><Text zh="枫语 · 冯宇" en="Feng Yu · 冯宇" /></figcaption></figure><Text as="p" class="lead" zh="我叫冯宇，是一名大模型算法工程师。这是我的个人博客，放着学习时写下的笔记、动手做过的尝试，还有一些仍在琢磨的问题。" en="My name is Feng Yu, and I’m an LLM algorithm engineer. This is my personal blog: a place for notes from learning, things I’ve tried making, and questions I’m still thinking through." />
+					<Text as="p" zh="我常从一个技术问题出发，写着写着，又碰到更大的疑问：什么算学会，怎样判断一次变化，为什么简单的东西能组合出复杂的行为。模型、反馈、因果和机械，让我从不同角度靠近这些问题。" en="I often start with a technical question and find a larger one along the way: what counts as learning, how to make sense of a change, or why simple parts can produce complex behavior. Models, feedback, causality, and mechanics give me different ways to approach them." />
+					<Text as="p" zh="递归自我改进（RSI）仍是我关心的长期问题。这里也给旁逸斜出的好奇心留一点位置：一段推导、一篇读后感，或者一台会走路的机器，都可以成为下一篇文章的起点。" en="Recursive self-improvement (RSI) remains a long-term interest. There is room here for curiosity to wander, too: a derivation, a reflection on something I’ve read, or a walking machine can all be the starting point for a piece of writing." />
+					<p><Text zh="你可以从一篇感兴趣的文章读起，也可以去看看那些能动手试的小实验。若有不同的想法，欢迎" en="Start with an article that catches your interest, or try one of the small interactive experiments. If something makes you think, feel free to " /><a href="/contact/"><Text zh="写信给我" en="write to me" /></a><Text zh="。" en="." /></p>
+				</div>
+			</section>
+			<section class="curiosities" aria-labelledby="curiosity-title" data-motion-reveal>
+				<h2 id="curiosity-title"><Text zh="研究方向" en="Research interests" /></h2>
+				<div class="curiosity-list">{curiosities.map((item) => <article><Text as="h3" zh={item.title} en={item.titleEn} /><Text as="p" zh={item.body} en={item.bodyEn} /></article>)}</div>
+			</section>
 			<PersonalJourney />
-			<section class="principles" data-motion-reveal><div class="label">HOW I LIKE TO WORK</div><div class="principle-list">{principles.map((item, index) => <article><span>{item.n}</span><div><h2 data-i18n={`about.principle.${index}.title`} data-i18n-zh={item.title} data-i18n-en={item.titleEn}>{item.title}</h2><p data-i18n={`about.principle.${index}.body`} data-i18n-zh={item.body} data-i18n-en={item.bodyEn}>{item.body}</p></div></article>)}</div></section>
-			<section class="toolbox" data-motion-reveal><div class="label">THREE RESEARCH THREADS</div><div class="tool-columns"><div><span>01 / MODEL SYSTEMS</span><p data-i18n="about.toolbox.models" data-i18n-html="true">模型如何学习、推理，<br/>以及如何被有效评估。</p></div><div><span>02 / FEEDBACK & LEARNING</span><p data-i18n="about.toolbox.feedback" data-i18n-html="true">反馈怎样改变策略，<br/>并让行为持续变好。</p></div><div><span>03 / CAUSAL INFERENCE</span><p data-i18n="about.toolbox.causal" data-i18n-html="true">哪些干预带来改进，<br/>又如何确认因果关系。</p></div></div></section>
+
 		</main>
-		<footer><span>STILL LEARNING, ALWAYS.</span><a href="/work/"><span data-i18n="about.footer">看看我在探索什么</span> ↗</a></footer>
+		<footer><Text zh="边走，边记录。" en="Keep wandering. Keep writing." /><a href="/">← <Text zh="回到首页" en="Back home" /></a></footer>
 	</div>
-	<style>
-		:global(html){background:var(--brand-paper)}:global(body){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink)!important;font-family:Inter,"Helvetica Neue",Arial,sans-serif}.about-page{background:var(--brand-paper);color:var(--brand-ink);min-height:100vh}.about-hero{min-height:640px;padding:95px 13vw 90px;display:grid;grid-template-columns:.75fr 1.25fr;align-items:center;gap:8vw;border-bottom:1px solid rgba(37,60,52,.13);background:radial-gradient(ellipse at 23% 50%,rgba(129,151,86,.13),transparent 30%)}.portrait{position:relative;max-width:300px;aspect-ratio:.82;overflow:hidden;background:var(--brand-sage);border-radius:46% 46% 4px 4px}.portrait img{width:100%;height:100%;object-fit:cover;filter:saturate(.72);mix-blend-mode:screen;opacity:.85}.portrait span{position:absolute;bottom:18px;left:18px;font:9px "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--brand-ink)}.eyebrow,.label,.tool-columns span,footer{font:9px/1.8 "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.about-hero h1{font-size:clamp(64px,9vw,115px);line-height:.98;letter-spacing:-.08em;font-weight:450;margin:34px 0 25px}.about-hero h1 em{font:italic 400 .9em Georgia,"Songti SC",serif;color:var(--brand-accent)}.lead{max-width:475px;color:var(--brand-body);font-size:14px;line-height:2}.cta{display:inline-flex;gap:28px;color:var(--brand-accent);text-decoration:none;margin-top:23px;padding-bottom:9px;border-bottom:1px solid rgba(65,99,79,.4);font-size:12px}.bio,.principles,.toolbox{padding:75px 13vw;display:grid;grid-template-columns:.75fr 1.25fr;gap:8vw;border-bottom:1px solid rgba(37,60,52,.13)}.label{color:var(--brand-accent)}.bio p{max-width:640px;color:var(--brand-body);font-size:14px;line-height:2.1;margin:0 0 19px}.principle-list article{display:grid;grid-template-columns:45px 1fr;gap:15px;padding:0 0 25px;margin-bottom:24px;border-bottom:1px solid rgba(37,60,52,.1)}.principle-list article:last-child{border:0;margin:0}.principle-list article>span{padding-top:6px;color:var(--brand-accent);font:10px "JetBrains Mono",monospace}.principle-list h2{font-size:19px;font-weight:450;margin:0 0 9px}.principle-list p{max-width:500px;color:var(--brand-body);font-size:12px;line-height:1.9;margin:0}.tool-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.tool-columns span{font-size:8px;color:var(--brand-accent)}.tool-columns p{font:10px/2 "JetBrains Mono",monospace;color:var(--brand-body)}footer{padding:26px 13vw;display:flex;justify-content:space-between}footer a{color:var(--brand-accent);text-decoration:none;font:10px Inter,sans-serif}@media(max-width:700px){.about-hero{padding:64px 8vw 58px;grid-template-columns:1fr;gap:40px}.portrait{width:42%;min-width:145px}.about-hero h1{font-size:75px;margin:27px 0 19px}.lead{font-size:12px}.bio,.principles,.toolbox{padding:50px 8vw;grid-template-columns:1fr;gap:27px}.bio p{font-size:12px}.principle-list h2{font-size:17px}.tool-columns{grid-template-columns:1fr;gap:12px}.tool-columns p{margin:7px 0 10px}footer{padding:22px 8vw;font-size:8px}footer a{font-size:9px}}
-	</style>
-	<style>.portrait img{mix-blend-mode:normal;opacity:1}</style>
 </Layout>
+
+<style>
+	:global(html) { background: var(--brand-paper); }
+	:global(body) { margin: 0 !important; background: var(--brand-paper) !important; color: var(--brand-ink) !important; font-family: Inter, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
+	.about-page { background: var(--brand-paper); color: var(--brand-ink); min-height: 100vh; }
+	.about-hero, .letter, .curiosities, .invitation { padding-inline: max(7vw, calc((100vw - 1040px) / 2)); }
+	.about-hero { padding-block: 84px 76px; display: grid; grid-template-columns: minmax(0, 1fr) 225px; align-items: center; gap: 70px; border-bottom: 1px solid var(--brand-line); }
+	.welcome :global(.eyebrow) { color: var(--brand-muted); font-size: 13px; letter-spacing: .04em; margin: 0; }
+	h1, h2, .curiosity-list :global(h3) { font-family: "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", STSong, Georgia, serif; font-weight: 400; }
+	h1 { font-size: clamp(40px, 5.4vw, 68px); line-height: 1.28; letter-spacing: -.025em; margin: 25px 0; }
+	h1 em { color: var(--brand-accent); font-style: normal; }
+	.welcome :global(.lead), .letter :global(p), .curiosity-list :global(p) { color: var(--brand-body); font-size: 16px; line-height: 2; text-wrap: pretty; }
+	.welcome :global(.lead) { max-width: 38em; margin-bottom: 0; }
+	.portrait { margin: 0; align-self: center; }
+	.portrait img { display: block; width: 100%; height: auto; aspect-ratio: .9; object-fit: cover; border-radius: 44% 44% 5px 5px; filter: saturate(.85); }
+	.portrait figcaption { margin-top: 14px; text-align: center; color: var(--brand-muted); font-size: 12px; }
+	.letter, .curiosities { padding-block: 62px; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 55px; }
+	.letter { padding-bottom: 20px; }
+	h2 { font-size: clamp(23px, 2.5vw, 29px); line-height: 1.6; margin: 0; }
+	.letter :global(p) { margin: 0 0 1.35em; }
+	a { color: var(--brand-accent); text-underline-offset: .25em; text-decoration-thickness: 1px; }
+	a:hover { color: var(--brand-clay); }
+	.curiosities { padding-top: 32px; border-bottom: 1px solid var(--brand-line); }
+	.curiosity-list { display: grid; gap: 30px; }
+	.curiosity-list :global(h3) { font-size: 22px; line-height: 1.5; margin: 0 0 9px; }
+	.curiosity-list :global(p) { margin: 0; }
+	.about-page :global(.journey) { padding: 62px max(7vw, calc((100vw - 1040px) / 2)); grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 55px; }
+	.about-page :global(.journey p) { font-size: 15px; line-height: 1.95; }
+	.about-page :global(.journey .place) { font-size: 13px; }
+	.about-page :global(.journey .kicker) { font-family: inherit; font-size: 12px; letter-spacing: 0; }
+	.invitation { padding-block: 62px; }
+	.invitation > div { display: flex; flex-wrap: wrap; gap: 18px 32px; margin-top: 24px; }
+	.invitation a { font-size: 15px; line-height: 2; }
+	footer { padding: 25px max(7vw, calc((100vw - 1040px) / 2)); border-top: 1px solid var(--brand-line); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: var(--brand-muted); font-size: 12px; }
+	footer a { text-decoration: none; }
+	@media (max-width: 700px) {
+		.about-hero { padding-block: 48px; grid-template-columns: minmax(0, 1fr); gap: 30px; }
+		.portrait { width: 140px; }
+		.portrait figcaption { text-align: left; }
+		.letter, .curiosities { padding-block: 40px; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+		.letter { padding-bottom: 0; }
+		.curiosity-list { gap: 25px; }
+		.about-page :global(.journey) { padding-block: 40px; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+		.invitation { padding-block: 40px; }
+	}
+</style>

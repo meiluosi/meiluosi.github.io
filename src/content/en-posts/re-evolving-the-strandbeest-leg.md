@@ -77,6 +77,20 @@ The repository also has a dynamics model: body mass, slope and drag, with a gear
 
 The model has no foot slip, no impact loss and no soft ground, and the legs have no mass.
 
+## With a higher-fidelity simulator, the torque numbers above do not hold
+
+The wind results above come from a simplified model (quasi-static plus energy conservation). I then built a multibody dynamics simulator on MuJoCo and compared it on the same 12-leg walking scenario. **A correction first:** my initial comparison used a simulator with a bug: every foot carried two coincident collision spheres that collided with each other, adding spurious contacts to all results. I found it while building the replay viewer, because the "feet in contact" flags were true at every frame. The numbers below are after the fix.
+
+- **Stride agrees**; the simulator is about 5% to 6% higher.
+- **Torque shape and amplitude now roughly match**: with the default settings the correlation of the crank-torque curve is about 0.59 and peak-to-peak is 7.7 vs 8.1 N·m. With much softer contact or low friction the correlation falls to −0.47 and 0.10.
+- **Mean torque is still about 8 N·m higher**: on flat ground it is almost entirely energy lost to foot slip, which the simple model cannot see. So the **start wind and peak torque above are not validated**.
+- **The simulator's own torque level depends on how friction is handled numerically**: changing the friction cone, the friction impedance ratio or the no-slip iterations moves mean torque by up to a factor of 2.4. Purely numerical settings (timestep within 0.5 ms, solver iterations, loop-constraint stiffness) do converge.
+- **The truly physical parameters have to be measured**: contact stiffness, friction coefficient, and one effect I still do not understand (heavier legs raise mean torque even though total mass is fixed). I also fixed a unit: I had labelled contact stiffness as N/m, but it is a mass-normalised stiffness (1/s²) and cannot be compared directly with a measured pad stiffness.
+
+So I now report torque as a **range**: the same scenario is run under four friction treatments and the minimum and maximum over valid runs are shown. That is model uncertainty, not measurement error.
+
+**An interesting finding: the start wind.** I added a "sail drive" to the simulator (no motor, a sail turns the crank in the wind). The small walker starts in a wind of about 0.45 m/s, half of the 0.99 m/s predicted from its motor-driven peak torque: that peak contains dynamic loads at 2 rad/s and overestimates the load at standstill. The simple model's start criterion also uses the peak torque, so it is conservative in the same way. This is still model against model; nothing here is measured. Next is a small physical build to measure real torque and stride and fit contact stiffness and friction.
+
 ## Try it
 
 Code, scripts and results: [strandbeest-evolution](https://github.com/meiluosi/strandbeest-evolution).
