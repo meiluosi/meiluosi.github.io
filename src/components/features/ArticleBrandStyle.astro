@@ -1,0 +1,93 @@
+---
+/**
+ * 文章阅读页的品牌化皮肤。
+ *
+ * 这段 `<style is:global>` 原来只写在 posts/[...slug].astro 里，
+ * 所以只有中文原文页被重排成「鼠尾草 + 暖白」的阅读版式，
+ * /en/posts/* 仍是旧骨架的卡片底色与旧配色。
+ *
+ * 中文页与英文概览页现在共用这一份，避免两条路由各写一遍后逐渐漂移。
+ * 这里只放「跨语言一致」的覆盖；页面各自的结构差异留在页面里。
+ */
+---
+
+<style is:global>
+	:root {
+		color-scheme: light;
+	}
+	body {
+		background: var(--brand-paper) !important;
+		color: var(--brand-ink);
+	}
+	#top-row {
+		width: 100%;
+		max-width: none;
+		padding: 0;
+	}
+	#main-grid {
+		display: block;
+		max-width: none;
+		padding: 0;
+	}
+	#swup-container {
+		width: min(100%, 980px);
+		margin: 0 auto;
+	}
+	#content-wrapper {
+		padding: clamp(28px, 6vw, 76px) clamp(20px, 6vw, 72px) 0;
+	}
+
+	/* 正文容器不再是一张卡片：留白由 #content-wrapper 与章节节奏控制。 */
+	#post-container {
+		background: transparent !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		padding: 0 !important;
+	}
+	/* 字数 / 阅读时长这一行用等宽小字，作为正文的技术性页眉。 */
+	#post-container > div:first-child {
+		color: var(--brand-muted) !important;
+		font-family: "JetBrains Mono", monospace;
+		font-size: 10px;
+		letter-spacing: 0.06em;
+	}
+	/* 标题统一到品牌墨绿，不再用旧的 near-black。 */
+	#post-container h1 {
+		color: var(--brand-ink) !important;
+	}
+	/* 英文版次标签（English edition / Abridged overview）。 */
+	#post-container .edition-label {
+		font-family: "JetBrains Mono", monospace;
+		font-size: 10px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--brand-accent);
+	}
+
+	/* 正文内的链接、引用、行内代码与图片跟随品牌色。 */
+	#post-container .markdown-content a {
+		color: var(--brand-accent);
+	}
+	#post-container .markdown-content blockquote {
+		border-left-color: var(--brand-accent);
+		color: var(--brand-body);
+	}
+	#post-container .markdown-content :not(pre) > code {
+		background: rgba(65, 99, 79, 0.1);
+		color: var(--brand-accent);
+	}
+	#post-container .markdown-content img {
+		border-radius: 8px;
+	}
+
+	#main-grid .footer {
+		padding-inline: 0;
+	}
+
+	@media (max-width: 700px) {
+		#content-wrapper {
+			padding: 35px 7vw 0;
+		}
+	}
+</style>

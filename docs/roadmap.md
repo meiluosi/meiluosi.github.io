@@ -241,7 +241,28 @@
 
 仍未做：231KB 公共样式块（legacy Tailwind + Firemark 层）需要拆 CSS 入口才能进一步下降；`public/strandbeest`（2.6MB）与 6 篇未发布稿待定；Fancybox 样式仍为全局静态引入。
 
+## Phase 15：英文文章页并入品牌阅读排版（2026-10-17 完成）
+
+中文原文页有一套 `is:global` 覆盖把它重排成「鼠尾草 + 暖白」的阅读版式，英文概览页没有，导致同一篇文章的中英版本在留白、容器、标题色、元信息上不一致。
+
+- [x] **抽出共用皮肤**：新增 `src/components/features/ArticleBrandStyle.astro`，承载 `#content-wrapper` 留白、`#post-container` 去卡片化、标题品牌墨绿、正文链接／引用／行内代码／图片配色；中文页与英文页各自 `import` 同一份。
+- [x] **英文页结构对齐**：补上字数与阅读时长行、`PostMetadata`（日期／分类／标签）、版次标签、与中文页一致的标题与元信息层级；正文改用与中文页相同的 `Markdown` 包裹器（补回 `max-w-none!`，避免英文正文被 `prose` 收窄）。
+- [x] **修掉英文页的公式破版**：31 篇英文页里有 9 篇含 `$…$`，此前只有 KaTeX 标记、没有 KaTeX 样式。英文页补 `KatexManager` 后与中文页一致。
+- [x] **补英文页结构化数据**：新增 `BlogPosting` JSON-LD（`inLanguage: en`，含 `wordCount` 与 `translationOfWork` 指向中文原文）。
+- [x] **顺带把英文页的 `.edition-label` 纳入统一排版**：等宽小字 + 大写 + 品牌强调色。
+
+验收：同一篇文章的中英页 CSS 文件集合完全一致（`diff` 为空）；31 个英文页均有字数、阅读时长、版次标签与 `BlogPosting`；`pnpm check`（209 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页）通过；预览服务下 `/`、`/notes/`、`/notes/?topic=…`、中英文章页、`/rss.xml`、`/about/` 均返回 200。
+
+仍未做：英文页的上一页／下一页导航与概念图数据仅覆盖中文原文；中英页各自的「英／中」切换仍是 JS 改写链接，静态入口已由 hreflang 与标题下链接覆盖。
+
 ## 版本记录
+
+### 2026-10-17：英文文章页并入品牌阅读排版
+
+- [x] 抽出 `ArticleBrandStyle.astro`，中英文章页共用同一份阅读页全局皮肤。
+- [x] 英文页补字数／阅读时长、`PostMetadata`、版次标签与统一标题层级。
+- [x] 修复英文页只有 KaTeX 标记、没有 KaTeX 样式的问题（9 篇含公式）。
+- [x] 英文页补 `BlogPosting` JSON-LD（`inLanguage: en` + `translationOfWork`）。
 
 ### 2026-10-17：入口修复、死负载清理与文章页头部
 

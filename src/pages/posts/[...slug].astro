@@ -21,6 +21,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import AiSummary from "@/components/common/AiSummary.astro";
 import CoverImage from "@/components/common/CoverImage.astro";
+import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import PostMetadata from "@/components/layout/PostMeta.astro";
@@ -196,6 +197,7 @@ const jsonLd = {
   headings={entry.data.password ? [] : headings}
   bannerPostMeta={bannerPostMeta}
 >
+  <ArticleBrandStyle />
   <!-- KaTeX 按需加载 - 仅在文章页面 -->
   <KatexManager slot="head" />
   
@@ -632,24 +634,3 @@ const jsonLd = {
   <!-- 评论 -->
   {entry.data.comment && !entry.data.password && <Comment post={entry} />}
 </MainGridLayout>
-
-<style is:global>
-	:root { color-scheme: light; }
-	body { background: var(--brand-paper) !important; color: var(--brand-ink); }
-	#top-row { width: 100%; max-width: none; padding: 0; }
-	#main-grid { display: block; max-width: none; padding: 0; }
-	#swup-container { width: min(100%, 980px); margin: 0 auto; }
-	#content-wrapper { padding: clamp(28px, 6vw, 76px) clamp(20px, 6vw, 72px) 0; }
-	/* 1180px 起目录固定在右侧：正文容器让出右缘的规则放在
-	   ArticleNavigation.astro 里，中英文文章页共用同一份，避免两条路由各写一遍。 */
-	#post-container { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; }
-	#post-container > div:first-child { color: var(--brand-muted) !important; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .06em; }
-	#post-container .markdown-content a { color: var(--brand-accent); }
-	#post-container .markdown-content blockquote { border-left-color: var(--brand-accent); color: var(--brand-body); }
-	#post-container .markdown-content :not(pre) > code { background: rgba(65,99,79,.1); color: var(--brand-accent); }
-	#post-container .markdown-content img { border-radius: 8px; }
-	#main-grid .footer { padding-inline: 0; }
-	@media (max-width: 700px) {
-		#content-wrapper { padding: 35px 7vw 0; }
-	}
-</style>
