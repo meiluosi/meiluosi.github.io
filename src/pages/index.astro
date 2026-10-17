@@ -3,8 +3,9 @@ import { getCollection } from "astro:content";
 import Text from "@/components/common/BilingualText.astro";
 import ExploreWorldCompact from "@/components/features/ExploreWorldCompact.astro";
 import Navbar from "@/components/layout/Navbar.astro";
-import Layout from "@/layouts/Layout.astro";
+import { siteConfig } from "@/config/siteConfig";
 import { now } from "@/data/now";
+import Layout from "@/layouts/Layout.astro";
 import { getSortedPosts } from "@/utils/content-utils";
 
 // Keep private drafts out of the introduction, including in development.
@@ -12,29 +13,68 @@ const published = (await getSortedPosts()).filter(
 	(post) => !post.data.draft && !post.data.password,
 );
 const englishPosts = await getCollection("enPosts");
-const reflection = published.find((post) =>
-	post.id.includes("2024-06-09-关于数据分析思考"),
+const postId = (id: string) => id.replace(/\.mdx?$/, "");
+const translationFor = (id: string) =>
+	englishPosts.find((entry) => entry.data.sourceId === postId(id));
+
+// 「最近」的日期取手写 now.updatedAt 与最新一篇已发布文章的较大者，
+// 新文章一发布日期就自动推进，不必再改 now.ts。
+const siteDate = new Intl.DateTimeFormat("en-CA", {
+	timeZone: siteConfig.timezone || "Asia/Shanghai",
+	year: "numeric",
+	month: "2-digit",
+	day: "2-digit",
+});
+const toSiteIsoDate = (date: Date): string => {
+	const parts = siteDate.formatToParts(date);
+	const value = (type: string) =>
+		parts.find((part) => part.type === type)?.value ?? "";
+	return `${value("year")}-${value("month")}-${value("day")}`;
+};
+// 使用 UTC 正午作为手写日期的锚点，避免时区把日期推前一天。
+const nowDate = new Date(`${now.updatedAt}T12:00:00Z`);
+const latestPublished = published.reduce(
+	(latest, post) =>
+		post.data.published.getTime() > latest.getTime()
+			? post.data.published
+			: latest,
+	new Date(0),
 );
+const lastActive =
+	latestPublished.getTime() > nowDate.getTime() ? latestPublished : nowDate;
+const lastActiveIso = toSiteIsoDate(lastActive);
+const lastActiveLabel = lastActiveIso.replaceAll("-", ".");
+
+// 最新两篇按发布时间倒序；旧笔记从其余文章中挑选。
 const recent = [...published]
-	.filter((post) => post.id !== reflection?.id)
 	.sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
 	.slice(0, 2);
-const reading = [...(reflection ? [reflection] : []), ...recent].map((post) => {
-	const sourceId = post.id.replace(/\.mdx?$/, "");
-	const translation = englishPosts.find((entry) => entry.data.sourceId === sourceId);
-	const isReflection = post.id === reflection?.id;
+const recentIds = new Set(recent.map((post) => post.id));
+const notRecent = [...published]
+	.filter((post) => !recentIds.has(post.id))
+	.sort((a, b) => a.data.published.getTime() - b.data.published.getTime());
+// 旧笔记规则：pinned > 最早的 reflection > 全站最早；
+// 与「最新两篇」冲突时已被 notRecent 排除，自动顺延到下一篇。
+const picked =
+	notRecent.find((post) => post.data.pinned) ??
+	notRecent.find((post) => post.data.format === "reflection") ??
+	notRecent[0];
+const reading = picked ? [picked, ...recent] : recent;
+const cards = reading.map((post) => {
+	const id = postId(post.id);
+	const translation = translationFor(post.id);
+	// 历史字段名 isReflection 保留，语义已改为「被挑出的那篇旧笔记」。
+	const isReflection = picked?.id === post.id;
 	return {
 		...post,
-		href: "/posts/" + sourceId + "/",
-		hrefEn: translation ? "/en/posts/" + translation.data.slug + "/" : "/posts/" + sourceId + "/",
+		href: `/posts/${id}/`,
+		hrefEn: translation
+			? `/en/posts/${translation.data.slug}/`
+			: `/posts/${id}/`,
 		titleEn: translation?.data.title ?? post.data.title,
 		isReflection,
-		intro: isReflection
-			? "当我们用一个数字描述一个人，究竟看见了什么，又忽略了什么？从 GPA 出发，重新想一想指标如何影响判断。"
-			: post.data.description,
-		introEn: isReflection
-			? "What do we see—and miss—when we describe a person with a number? A note on GPA, measurement, and the judgments we make."
-			: translation?.data.description ?? post.data.description,
+		intro: post.data.description,
+		introEn: translation?.data.description ?? post.data.description,
 	};
 });
 ---
@@ -54,7 +94,7 @@ const reading = [...(reflection ? [reflection] : []), ...recent].map((post) => {
 		<section id="notes" class="writing" aria-labelledby="writing-title">
 			<div class="section-heading"><h2 id="writing-title"><Text zh="最新文章" en="Latest articles" /></h2><a href="/notes/"><Text zh="全部文章" en="All writing" /> <span aria-hidden="true">↗</span></a></div>
 			<div class="writing-grid">
-				{reading.map((post) => <article class:list={["writing-entry", { "picked-entry": post.isReflection }]}>
+				{cards.map((post) => <article class:list={["writing-entry", { "picked-entry": post.isReflection }]}>
 					<p class="entry-context">{post.isReflection ? <Text zh="翻开一篇旧笔记" en="From the notebook" /> : <Text zh="最近写下" en="Recent writing" />}<span aria-hidden="true"> · </span><time datetime={post.data.published.toISOString().slice(0, 10)}>{post.data.published.getFullYear()}</time></p>
 					<h3><a href={post.href} data-i18n-href-zh={post.href} data-i18n-href-en={post.hrefEn}><Text zh={post.data.title} en={post.titleEn} /></a></h3>
 					<Text as="p" class="entry-intro" zh={post.intro} en={post.introEn} />
@@ -75,7 +115,7 @@ const reading = [...(reflection ? [reflection] : []), ...recent].map((post) => {
 		</section>
 
 		<section class="now-letter" id="now" aria-labelledby="now-title">
-			<div class="letter-meta"><h2 id="now-title"><Text zh="最近" en="Lately" /></h2><time datetime={now.updatedAt}>{now.updatedAt.replaceAll("-", ".")}</time></div>
+			<div class="letter-meta"><h2 id="now-title"><Text zh="最近" en="Lately" /></h2><time datetime={lastActiveIso}>{lastActiveLabel}</time></div>
 			<div class="letter-copy"><Text as="p" zh={now.mission} en={now.missionEn} /><Text as="p" zh="有些问题适合写成长文，有些暂时只是一段笔记。先把它们留下，再慢慢连接起来。" en="Some questions grow into essays. Others are still a few lines in a notebook. I leave room for both, and for the connections that come later." /><div class="letter-links"><a href="/library/"><Text zh="翻翻资料架" en="Browse the reading shelf" /> ↗</a><a href="/rsi/"><Text zh="一个长期问题：智能如何改进自身" en="A longer question: how intelligence improves itself" /> ↗</a></div></div>
 		</section>
 

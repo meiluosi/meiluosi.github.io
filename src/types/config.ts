@@ -1,10 +1,8 @@
 export type { AnalyticsConfig } from "./analyticsConfig";
-export type { AiChatConfig } from "./aiChatConfig";
 export type { AnnouncementConfig } from "./announcementConfig";
 export type { BackgroundWallpaperConfig } from "./backgroundWallpaper";
 export type { CommentConfig } from "./commentConfig";
 export type { CoverImageConfig } from "./coverImageConfig";
-export type { SakuraConfig } from "./effectsConfig";
 export type {
 	ExpressiveCodeConfig,
 	PluginCollapsibleConfig,
@@ -13,14 +11,12 @@ export type {
 export type { FontSelectionConfig } from "./fontConfig";
 export type { FooterConfig } from "./footerConfig";
 export type { LicenseConfig } from "./licenseConfig";
-export type { MusicPlayerConfig } from "./musicConfig";
 export type {
 	NavBarConfig,
 	NavBarLink,
 	NavBarSearchConfig,
 	NavBarSearchMethod,
 } from "./navBarConfig";
-export type { Live2DWidgetConfig, SpineModelConfig } from "./pioConfig";
 export type { PlantUMLConfig } from "./plantumlConfig";
 export type { ProfileConfig } from "./profileConfig";
 export type {

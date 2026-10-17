@@ -596,30 +596,25 @@ const jsonLd = {
 
       // 1. 預設加上 hidden 隱藏，並把時間與閾值綁在 data-* 屬性
       return (
-        <div 
-          id="outdated-card" 
-          class="card-base p-6 mb-4 hidden" 
-          data-date={lastModified.toISOString()} 
+        <div
+          id="outdated-card"
+          class="hidden mt-2 mb-8 border-l-2 py-3.5 pl-4"
+          style="border-color: var(--brand-accent)"
+          data-date={lastModified.toISOString()}
           data-threshold={outdatedThreshold}
         >
-          <div class="flex items-center gap-2">
-            <div class="transition h-9 w-9 rounded-lg overflow-hidden relative flex items-center justify-center mr-0">
-              <Icon is:inline
-                name="material-symbols:history-rounded"
-                class="text-4xl text-(--primary) transition-transform group-hover:translate-x-0.5 bg-(--enter-btn-bg) p-2 rounded-md"
-              />
-            </div>
-
-            <div class="flex flex-col gap-0.1">
-              <div class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75">
-                {i18n(I18nKey.lastModifiedPrefix)}{dateStr}
-                <span id="days-ago-text" data-template={i18n(I18nKey.lastModifiedDaysAgo)}></span>
-              </div>
-              <p id="outdated-warning" class="text-[0.8rem] leading-tight text-black/75 dark:text-white/75 hidden">
-                {i18n(I18nKey.lastModifiedOutdated)}
-              </p>
-            </div>
-          </div>
+          <p class="m-0 text-[13px] leading-relaxed" style="color: var(--brand-body)">
+            {i18n(I18nKey.lastModifiedPrefix)}
+            <span style="color: var(--brand-muted)">{dateStr}</span>
+            <span id="days-ago-text" data-template={i18n(I18nKey.lastModifiedDaysAgo)}></span>
+          </p>
+          <p
+            id="outdated-warning"
+            class="mt-1 mb-0 hidden text-[12px] leading-relaxed"
+            style="color: var(--brand-muted)"
+          >
+            {i18n(I18nKey.lastModifiedOutdated)}
+          </p>
         </div>
       );
     })()

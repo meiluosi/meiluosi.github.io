@@ -5,11 +5,7 @@ import SideBar from "@components/layout/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
-import ScrollDownIndicator from "@/components/controls/ScrollDownIndicator.astro";
 import ArticleNavigation from "@/components/features/ArticleNavigation.astro";
-import BackgroundPlayer from "@/components/features/BackgroundPlayer.astro";
-import TypewriterText from "@/components/features/TypewriterText.astro";
-import CategoryBar from "@/components/layout/CategoryBar.astro";
 import { backgroundWallpaper, sidebarLayoutConfig, siteConfig } from "@/config";
 import {
 	BANNER_HEIGHT,
@@ -109,8 +105,6 @@ const shouldRenderGradient =
 
 // 检查是否为首页
 const isHomePageCheck = isHomePage(Astro.url.pathname);
-
-const shouldRenderCategoryBar = !!siteConfig.categoryBar;
 
 // 检查是否在文章详情页
 const isPostPage = !!postSlug;
@@ -604,10 +598,6 @@ const hasMultipleImages =
         })();
     </script>
     )}
-    
-    {backgroundWallpaper.playerEnable && typeof backgroundWallpaper.src === "object" && !Array.isArray(backgroundWallpaper.src) && backgroundWallpaper.src.playerUrl && (
-        <BackgroundPlayer playerUrl={backgroundWallpaper.src.playerUrl} playerMode={backgroundWallpaper.common?.playerMode ?? "order"} />
-    )}
 
     <div id="banner-dim-container" class="absolute inset-0 z-10 pointer-events-none">
         {showBannerDim && <div class="banner-dim-overlay absolute inset-0" style={`background: rgba(0, 0, 0, ${dimOpacity})`}></div>}
@@ -625,16 +615,7 @@ const hasMultipleImages =
                     )}
                     {backgroundWallpaper.common?.homeText?.subtitle && (
                         <div id="banner-subtitle" class="banner-subtitle text-white/90 leading-snug" style={{ fontSize: backgroundWallpaper.common.homeText.subtitleSize || "1.5rem" }} data-subtitles={JSON.stringify(backgroundWallpaper.common.homeText.subtitle)}>
-                            {backgroundWallpaper.common.homeText.typewriter?.enable ? (
-                                <TypewriterText
-                                    text={backgroundWallpaper.common.homeText.subtitle}
-                                    speed={backgroundWallpaper.common.homeText.typewriter.speed}
-                                    deleteSpeed={backgroundWallpaper.common.homeText.typewriter.deleteSpeed}
-                                    pauseTime={backgroundWallpaper.common.homeText.typewriter.pauseTime}
-                                />
-                            ) : (
-                                randomSubtitle
-                            )}
+                            {randomSubtitle}
                         </div>
                     )}
                 </div>
@@ -653,7 +634,7 @@ const hasMultipleImages =
             try {
                 const subtitles = JSON.parse(subtitlesData);
                 // Only randomize if it's an array and typewriter is NOT enabled (check for typewriter class)
-                if (Array.isArray(subtitles) && subtitles.length > 0 && !subtitleElement.querySelector('.typewriter')) {
+                if (Array.isArray(subtitles) && subtitles.length > 0) {
                     // Use a global variable to persist the subtitle across Swup navigations
                     // This variable will be reset on full page reload (F5), meeting the requirement
                     if (!window.blogCachedSubtitle) {
@@ -725,8 +706,6 @@ const hasMultipleImages =
         </div>
     )}
 
-    <!-- Fullscreen 模式下显示向下滚动指示器 -->
-    {(isFullscreenMode || isWallpaperSwitchable) && <ScrollDownIndicator />}
     </div>
 
     <!-- Water waves effect - 如果允许切换或任一设备启用则渲染 -->
@@ -845,8 +824,6 @@ const hasMultipleImages =
                     
             {/* 主内容区包装器 - 包含静态栏位和swup容器，作为单个grid item */}
             <div class={staticBarClass}>
-                {/* 分类导航栏 - 全站渲染并显示 */}
-                {shouldRenderCategoryBar && <div id="category-bar-wrapper"><CategoryBar currentPostCategory={postCategory} /></div>}
                 {/* 主内容区 - 始终渲染，确保 Swup 容器存在 */}
                 <main
                     id="swup-container"

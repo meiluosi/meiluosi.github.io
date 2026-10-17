@@ -59,18 +59,14 @@ meiluosi.github.io/
 │   │   ├── analytics/           # 分析组件（Google Analytics 等）
 │   │   ├── comment/             # 评论组件（Giscus）
 │   │   ├── common/              # 通用组件
-│   │   ├── controls/            # 控件组件（主题切换等）
 │   │   ├── features/            # 功能组件（3D 研究地图、语言切换等）
 │   │   ├── layout/              # 布局组件
 │   │   ├── misc/                # 杂项组件
-│   │   ├── pages/               # 页面级组件
 │   │   └── widget/              # 小部件
 │   │
 │   ├── config/                  # 配置文件（TypeScript）
 │   │   ├── siteConfig.ts        # 站点核心配置
 │   │   ├── navBarConfig.ts      # 导航栏配置
-│   │   ├── pioConfig.ts         # 看板娘配置
-│   │   ├── musicConfig.ts       # 音乐播放器配置
 │   │   ├── commentConfig.ts     # 评论系统配置
 │   │   ├── analyticsConfig.ts   # 分析配置
 │   │   ├── fontConfig.ts        # 字体配置

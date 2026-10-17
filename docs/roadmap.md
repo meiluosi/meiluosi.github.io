@@ -312,9 +312,31 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 未验证：命令面板未做浏览器/真机/屏幕阅读器/真实 IME 实测，⌘K 是否被浏览器抢占、`client:idle` 水合前的点击竞态、320–390px 换行只做了静态推演。
 
-仍未做：配置层空壳（`pioConfig`/`aiChatConfig` 的类型与 barrel 导出、樱花 getter、`l2d-widget`/`pagefind` 依赖）仍保留，删除需要动类型与锁文件；`MusicPlayer`/`SideBar`/`TypewriterText` 等虽然由可达布局引用，但对应功能已关闭，属于更深一层的布局精简。
+仍未做：配置层空壳与布局叶子组件已在本轮 Phase 20 处理；`MusicPlayer` 已删但整个 `SideBar` 及 `widget/` 仍由可达布局静态引用，属更深一层的结构精简。
+
+## Phase 20：内容时效信号、配置层空壳与布局叶子组件（2026-10-18 完成）
+
+- [x] **内容时效自动推进**：首页「最近」日期改为 `max(now.updatedAt, 最新文章 published)`（按时区格式化，不会因 UTC 偏移错一天）；`now.ts` 的 `updatedAt` 更新到 10-18，mission 改写为当前真实在做的六篇数据卷与旧笔记重读。
+- [x] **「翻开一篇旧笔记」数据驱动**：删除硬编码文章 id 与两段手写导语，规则改为 `pinned → 最早 reflection → 全站最早`，自动排除最近两篇；导语统一取 `description`（上一轮已重写为 60–90 字）。
+- [x] **启用「最后更新」提示**：`showLastModified: true`，文章页原来的旧 `card-base` 卡片改为细窄提示条（左侧 2px 品牌强调色、13px 正文、无圆角无阴影），保留 `data-date`/`data-threshold` 与客户端阈值逻辑。
+- [x] **配置层空壳清理**：删除 `pioConfig`、`aiChatConfig`、`effectsConfig`（樱花）、`musicConfig` 四组配置与对应类型，同步 config/types barrel、`setting-utils` 的樱花 getter、i18n 的 `sakuraEffect` 键（6 个文件对称删除）；`global.d.ts` 从 100 行缩到 16 行，只留仍有生产者的 `swup` 与 `table-of-contents`；连带删除零引用的 `sakura-manager.ts` 与 `backlinks.ts`。
+- [x] **布局叶子组件精简**：`MainGridLayout` 移除 4 个在当前配置下恒不渲染的组件（`BackgroundPlayer`、`TypewriterText`、`ScrollDownIndicator`、`CategoryBar`）及其分支与变量；`SideBar` 移除 `Music` widget；删除 6 个组件文件。收尾时连带清掉 `sidebarConfig` 的 music 条目与类型、`backgroundWallpaper` 的 typewriter 配置与类型、`layout-styles.css` 的滚动指示器 CSS、`components/README.md` 与 `architecture.md` 的失效条目。
+- [x] **依赖清理未落地**：`l2d-widget` / `pagefind` 已无代码引用，但离线环境无法重建 lockfile（需要 registry metadata），按「锁文件不得漂移」原则**保留在 package.json**，联网后执行 `pnpm remove l2d-widget pagefind` 即可。
+
+验收：`pnpm check`（175 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页）通过；构建产物核对首页日期为 `2026.10.18`、旧笔记为 pinned 的 1B 全链路、导语来自 description、文章页提示条带 `hidden` 与阈值脚本；`scroll-down-indicator`/`typewriter`/`music-player`/`category-bar` 的 CSS 已不在产物中，配置层符号在产物 JS 中为 0；预览下首页、文章页、英文文章页、`/notes/`、`/api/palette.json`、`/about/` 均 200。
+
+未验证：没有浏览器实测，提示条的实际显隐（依赖客户端按天数计算）与首页新导语的视觉节奏未肉眼确认。
+
+仍未做：整个 `SideBar` 与 `widget/` 仍由可达布局静态引用（侧栏配置关闭）；i18n 里仍有 `music*` 等约 19 个键零引用，需要一次统一的死键扫描；`docs/features.md` 保留历史功能设想，其中提到的 Live2D/樱花等已下线，属历史记录不再回溯。
 
 ## 版本记录
+
+### 2026-10-18：时效信号、配置空壳与布局叶子组件
+
+- [x] 首页「最近」日期随最新文章自动推进，旧笔记入口改为 pinned/reflection 数据驱动，删除硬编码。
+- [x] 启用「最后更新」提示并改成品牌细窄提示条（阈值 30 天，客户端计算）。
+- [x] 删除 pio/aiChat/effects/music 四组配置与类型、樱花运行时与反链工具，global.d.ts 100→16 行。
+- [x] MainGridLayout 移除 4 个恒不渲染的叶子组件与 6 个组件文件，连带清掉 sidebar/typewriter/scroll-down 残留。
 
 ### 2026-10-18：⌘K 命令面板与死交互层清理
 

@@ -8,19 +8,11 @@
 
 负责整体页面框架和布局结构的组件。
 
-- `CategoryBar.astro` - 分类栏组件
 - `ConfigCarrier.astro` - 配置载体组件
 - `Footer.astro` - 页脚组件
 - `Navbar.astro` - 导航栏组件
 - `PostMeta.astro` - 文章元数据组件
 - `SideBar.astro` - 侧边栏组件
-
-### 🎮 controls/ - 导航和交互控件
-
-页面导航和用户交互功能组件。
-
-**导航控件**
-- `ScrollDownIndicator.astro` - 向下滚动指示器
 
 ### 🔧 common/ - 公共可复用组件
 
@@ -45,7 +37,6 @@
 - `Announcement.astro` - 公告组件
 - `Calendar.astro` - 日历组件
 - `Categories.astro` - 分类组件
-- `Music.astro` - 音乐播放器小部件
 - `Profile.astro` - 个人信息/社交链接小部件
 - `SidebarTOC.astro` - 侧边栏目录组件
 - `SiteInfo.astro` - 站点信息组件
@@ -64,8 +55,6 @@
 **功能组件**
 - `EncryptedContent.astro` - 加密内容组件
 - `EncryptedPost.astro` - 加密文章组件
-- `MusicPlayer.astro` - 音乐播放器 UI 视图控制器
-- `TypewriterText.astro` - 打字机动画效果
 
 ### 💬 comment/ - 评论系统组件
 
@@ -101,7 +90,6 @@
 | 分类 | 用途 | 特点 |
 |------|------|------|
 | **layout/** | 页面布局和结构 | 决定整体页面框架 |
-| **controls/** | 导航和交互 | 用户交互功能 |
 | **common/** | 通用可复用组件 | 跨多个页面/组件使用 |
 | **widget/** | 侧边栏小部件 | 侧边栏特定组件 |
 | **features/** | 全局功能特效 | 全局加载的增强功能 |

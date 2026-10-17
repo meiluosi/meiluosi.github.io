@@ -17,7 +17,6 @@ declare global {
 		};
 		tocInternalNavigation: boolean;
 		// swup is defined in global.d.ts
-		// __blogMusic type is defined in global.d.ts
 		semifullScrollHandler?: (() => void) | undefined;
 		initSemifullScrollDetection?: () => void;
 	}

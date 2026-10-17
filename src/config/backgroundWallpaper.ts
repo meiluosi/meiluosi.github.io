@@ -81,18 +81,6 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
-			typewriter: {
-				// 是否启用打字机效果
-				// 打字机开启 → 循环显示所有副标题
-				// 打字机关闭 → 每次刷新随机显示一条副标题
-				enable: true,
-				// 打字速度（毫秒）
-				speed: 100,
-				// 删除速度（毫秒）
-				deleteSpeed: 50,
-				// 完全显示后的暂停时间（毫秒）
-				pauseTime: 2000,
-			},
 		},
 		// 导航栏配置
 		navbar: {
