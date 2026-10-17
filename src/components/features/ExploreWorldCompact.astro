@@ -1,0 +1,66 @@
+---
+/**
+ * 首页的研究岛静态预览。
+ *
+ * 之前首页用 `<ExploreWorld compact client:visible />`，但 compact 分支只输出
+ * 一张固定的 SVG 与两行文案，没有任何客户端交互——却要加载 Svelte 岛运行时、
+ * ExploreWorld chunk 并在可见时水合。改成纯 Astro 渲染后，首页不再下载这些脚本；
+ * `/world/` 的完整 3D 研究岛不受影响。
+ */
+import Text from "@/components/common/BilingualText.astro";
+import WorldPoster from "@/components/features/world/WorldPoster.svelte";
+---
+
+<div class="explore-world-compact">
+	<div class="world-poster" aria-hidden="true"><WorldPoster /></div>
+	<div class="compact-caption">
+		<Text
+			as="p"
+			zh="一张桌、一盘棋，还有几个想继续追问的问题。"
+			en="A desk, a board, and a place to look closer."
+		/>
+		<a href="/world/">
+			<Text zh="进来随意看看" en="Have a look around" /><span aria-hidden="true"
+				>↗</span
+			>
+		</a>
+	</div>
+</div>
+
+<style>
+	.explore-world-compact {
+		position: relative;
+		width: 100%;
+		min-width: 0;
+	}
+	.world-poster {
+		width: 100%;
+		display: grid;
+		place-items: center;
+	}
+	.compact-caption {
+		padding: 14px 0 0;
+		border-top: 1px solid var(--brand-line);
+	}
+	.compact-caption :global(p) {
+		margin: 0;
+		max-width: 29em;
+		color: var(--brand-body);
+		font-size: 15px;
+		line-height: 1.85;
+	}
+	.compact-caption a {
+		display: inline-flex;
+		align-items: center;
+		gap: 22px;
+		min-height: 44px;
+		margin-top: 4px;
+		color: var(--brand-accent);
+		font-size: 14px;
+		text-decoration: none;
+	}
+	.compact-caption a:hover {
+		text-decoration: underline;
+		text-underline-offset: 5px;
+	}
+</style>

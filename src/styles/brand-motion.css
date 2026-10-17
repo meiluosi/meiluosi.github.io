@@ -1,23 +1,26 @@
-[data-brand-motion] {
-	--motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
-	--motion-feedback: 220ms;
-}
-
+/* Motion scale lives on :root[data-brand-theme="sage"] in brand-theme.css. */
 /* Same-origin document navigation stays native: links, history and scroll restoration. */
 @media (prefers-reduced-motion: no-preference) {
 	@view-transition { navigation: auto; }
+
+	/* The transition canvas must match the page colour; otherwise the fading old snapshot
+	   reveals the browser canvas instead of the brand paper. */
+	::view-transition { background-color: var(--brand-paper, #f3f6f1); }
+
+	/* Only the old page fades. The new snapshot is opaque from the first frame and sits
+	   below the old one, so two pages are never blended at ~50% opacity. */
 	html[data-brand-theme]::view-transition-old(root) {
-		animation: brand-page-out 160ms ease-out both;
+		animation: brand-page-out 140ms ease-out both;
 		mix-blend-mode: normal;
+		z-index: 2;
 	}
 	html[data-brand-theme]::view-transition-new(root) {
-		animation: brand-page-in 220ms ease-out both;
-		mix-blend-mode: normal;
+		animation: none;
+		z-index: 1;
 	}
 }
 
 @keyframes brand-page-out { to { opacity: 0; } }
-@keyframes brand-page-in { from { opacity: 0; } }
 
 /* The three research questions share one visual path through Now. */
 [data-brand-motion] .now-threads { position: relative; }
@@ -31,12 +34,14 @@
 	background: var(--brand-surface); border: 1px solid var(--brand-line);
 }
 @media (prefers-reduced-motion: no-preference) {
-	[data-brand-motion] .threads-revealed::before { animation: brand-thread-in 900ms var(--motion-ease) both; }
+	[data-brand-motion] .threads-revealed::before { animation: brand-thread-in var(--motion-slow) var(--motion-ease-out) both; }
 }
 @keyframes brand-thread-in { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 
 [data-brand-motion] .filters button {
-	transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+	transition: background-color var(--motion-fast) var(--motion-ease-in-out),
+		border-color var(--motion-fast) var(--motion-ease-in-out),
+		color var(--motion-fast) var(--motion-ease-in-out);
 }
 [data-brand-motion] .filters button[aria-pressed="true"] {
 	background: var(--brand-sage);
@@ -53,14 +58,15 @@
 }
 
 [data-brand-motion] [data-motion-hover] {
-	transition: background-color var(--motion-feedback),
-		border-color var(--motion-feedback),
-		translate var(--motion-feedback) var(--motion-ease);
+	transition: background-color var(--motion-base) var(--motion-ease-in-out),
+		border-color var(--motion-base) var(--motion-ease-in-out),
+		translate var(--motion-base) var(--motion-ease-out);
 }
 
 [data-brand-motion] :is(.work-arrow, .note-arrow, .entry > b, .trail-card > b, .now-thread-main > b) {
 	display: inline-block;
-	transition: translate var(--motion-feedback) var(--motion-ease), color var(--motion-feedback);
+	transition: translate var(--motion-fast) var(--motion-ease-out),
+		color var(--motion-fast) var(--motion-ease-in-out);
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -71,16 +77,21 @@
 	[data-brand-motion] :is(.work-card, .note-row, .entry, .trail-card, .now-thread-main):hover :is(.work-arrow, .note-arrow, b) {
 		translate: 3px -3px;
 	}
+
+	/* Hover-only indent: this used to sit outside the query, so a touch tap stuck.
+	   The dead .work-card rules were dropped; only .entry still exists. */
+	[data-brand-motion] .entry:hover { padding-left: 4px; }
 }
 
-/* Hover feedback must not reflow titles or change line wrapping. */
-[data-brand-motion] .work-card:hover { padding-left: 20px; }
-[data-brand-motion] .work-card:hover .work-arrow { transform: none; }
-[data-brand-motion] .entry:hover { padding-left: 4px; }
+/* Press feedback stays composited (translate only) so it never reflows a card or row. */
+[data-brand-motion] [data-motion-hover]:active {
+	translate: 0 -1px;
+	/* A press should read faster than the 220ms hover settle. */
+	transition-duration: var(--motion-fast);
+}
 
-@media (max-width: 700px) {
-	[data-brand-motion] .work-card:hover { padding-left: 6px; }
-	[data-brand-motion] .entry:hover { padding-left: 0; }
+[data-brand-motion] .entry:active {
+	translate: 0 1px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -99,8 +110,12 @@
 		opacity: 1 !important;
 		transform: none !important;
 	}
-	[data-brand-motion] :is([data-motion-hover], .pill, .contact-button):hover {
+	[data-brand-motion] :is([data-motion-hover], .entry, .pill, .contact-button):is(:hover, :active) {
 		transform: none;
 		translate: none;
+		scale: none;
 	}
+	/* The hover indent above is already gated by no-preference; keep the explicit reset
+	   so a media-query reorder cannot reintroduce movement for reduced-motion users. */
+	[data-brand-motion] .entry:hover { padding-left: 0; }
 }

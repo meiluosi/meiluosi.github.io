@@ -32,6 +32,7 @@ import "@/styles/markdown-extend.styl";
 import "@rehype-callouts-theme";
 import "@/styles/brand-theme.css";
 import "@/styles/site-typography.css";
+import "@/styles/a11y.css";
 
 interface Props {
 	title?: string;
@@ -657,6 +658,8 @@ const siteLang = lang.replace("_", "-");
       },
     ]}
   >
+
+    <a class="skip-link" href="#swup-container">跳到主内容 / Skip to content</a>
 
     <!-- 页面顶部渐变高光效果 - 只在full和semifull模式下显示 -->
     {shouldShowTopHighlight && <div class="top-gradient-highlight" />}
@@ -1300,4 +1303,15 @@ function disableAnimation() {
 
   initImageLoadFadeIn();
   document.addEventListener('astro:page-load', initImageLoadFadeIn);
+
+  /* Skip link: the container needs tabindex="-1" so following #swup-container
+     actually moves focus, not just the scroll position. No outline here. */
+  function initSkipLinkTarget() {
+    const container = document.getElementById("swup-container");
+    if (container && !container.hasAttribute("tabindex")) {
+      container.setAttribute("tabindex", "-1");
+    }
+  }
+  initSkipLinkTarget();
+  document.addEventListener('astro:page-load', initSkipLinkTarget);
 </script>

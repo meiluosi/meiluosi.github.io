@@ -1,30 +1,14 @@
 /* ==========================================================================
-   Page Transition Classes & Global Animations
+   Legacy Page-Entry Animations & Global Keyframes
+   Note: .transition-main / .transition-leaving are still present in
+   MainGridLayout templates, but nothing toggles their transition state any
+   more (Swup was removed and navigation is a full document load). Their old
+   120ms opacity/transform transitions are intentionally absent so they cannot
+   double up with the native cross-document View Transition.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Page Transition Classes
-   Note: these class names are still applied in MainGridLayout templates, so the
-   base transition properties stay. The Swup state rules (is-changing /
-   is-leaving / is-animating) were removed together with the Swup integration.
-   -------------------------------------------------------------------------- */
-
-/* Main Content Transition */
-.transition-main {
-    transition:
-        opacity 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Leaving Animation */
-.transition-leaving {
-    transition:
-        transform 120ms cubic-bezier(0.55, 0.055, 0.675, 0.19),
-        opacity 120ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-/* --------------------------------------------------------------------------
-   2. Keyframes
+   1. Keyframes
    -------------------------------------------------------------------------- */
 
 @keyframes fade-in-up {
@@ -39,7 +23,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. Onload Animations
+   2. Onload Animations
    -------------------------------------------------------------------------- */
 
 .onload-animation {

@@ -1,0 +1,59 @@
+/*
+ * Accessibility defaults shared by every layout.
+ *
+ * Two things only: one visible keyboard focus ring for controls that have no
+ * focus style of their own, and the skip link rendered by Layout.astro.
+ * Motion, brand colours and component styling live in their own files.
+ */
+
+/*
+ * Zero-specificity selector on purpose: a component that already declares
+ * :focus-visible (cards, concept triggers, pagination, ...) keeps its own ring,
+ * everything else inherits this one instead of the browser default.
+ *
+ * Note: brand-theme.css already paints a 2px accent ring for every element via
+ * `[data-brand-theme="sage"] :focus-visible` (offset 4px, specificity 0-2-0),
+ * so in practice that rule wins and this one is the fallback for any page that
+ * renders without the brand attribute. Aligning the offset to 3px would mean
+ * editing brand-theme.css, which belongs to the motion task.
+ */
+:where(a[href], button, summary, [tabindex]):focus-visible {
+	outline: 2px solid var(--brand-accent, var(--primary));
+	outline-offset: 3px;
+}
+
+/*
+ * The skip link moves focus to the page container, which is focusable
+ * (tabindex="-1") only for that purpose, so the container must not grow a ring.
+ */
+#swup-container:focus,
+#swup-container:focus-visible {
+	outline: none;
+}
+
+.skip-link {
+	position: fixed;
+	top: 12px;
+	left: 12px;
+	z-index: 100;
+	padding: 10px 16px;
+	border: 1px solid var(--brand-accent, var(--primary));
+	border-radius: 10px;
+	background: var(--brand-paper, Canvas);
+	color: var(--brand-ink, CanvasText);
+	font: 500 13px/1.5 Inter, "PingFang SC", "Microsoft YaHei", sans-serif;
+	text-decoration: none;
+	/* Off-screen but still in the tab order. */
+	transform: translateY(calc(-100% - 16px));
+	transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.skip-link {
+		transition: none;
+	}
+}

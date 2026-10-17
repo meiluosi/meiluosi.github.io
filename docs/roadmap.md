@@ -283,7 +283,34 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 仍未做：英文译文的 `series` 字段留空（数据卷暂无英文译本，有译本时填上即可自动生效）；相关阅读只按标签精确匹配，没有同义词或主题轴归并。
 
+## Phase 18：动效系统与交互一致性（2026-10-18 完成）
+
+第一轮审计里「动效」与「交互」两个维度的第一批问题。
+
+- [x] **motion token 收口**：`brand-theme.css` 的 `:root` 增加 `--motion-fast/base/slow` 与两条缓动，作为全站唯一动效刻度；`brand-motion.css` 删除局部 `--motion-*`，所有引用改指 token（filter 180ms、箭头 220ms、thread 线 900ms 都归位）。
+- [x] **页面过渡修正**：此前 old 160ms 淡出与 new 220ms 淡入并行，中间帧两页文字叠加。现在 old 只做 140ms 淡出并留在上层（`z-index:2`），new 静态呈现（`animation:none`），`::view-transition` 铺 `--brand-paper` 底色。
+- [x] **删掉死主题 VT**：`main.css` 里 0.5s 的 `::view-transition` 主题切换、`theme-fade-*` 与整段 `.is-theme-transitioning`（约 130 行）已无生产者（暗色不可达），删除后与新过渡不再打架。
+- [x] **hover/press/reduce**：`.entry:hover` 的 padding 位移从全局移进 `(hover:hover) and (pointer:fine)` 查询，触屏点完不再粘住缩进；补 `:active` 按压反馈（纯合成属性，不重排）；`prefers-reduced-motion` 下把 padding/translate/scale 一并清零。
+- [x] **入场节奏**：文章/内页入场从 620ms、`opacity:0`、18px 位移改为 320ms、`opacity:0.7`、10px，stagger 65ms → 50ms；一次性与 focus 保护不变。
+- [x] **滚动管线**：`ReadingProgress` 改为 rAF 合并 + 几何缓存（`ResizeObserver` / resize / `fonts.ready` 重测），scroll 回调里没有任何布局读取，去掉 150ms 的 width transition；`ArticleNavigation` 只在固定目录或移动端展开时计算，rAF 内先读后写，卸载/bfcache 清理补齐。
+- [x] **首页研究岛去水合**：compact 变体本来只渲染静态 SVG 与两行文案，改为 `ExploreWorldCompact.astro` 纯 Astro 输出——首页不再加载 `ExploreWorld` chunk 与 Svelte 岛运行时，仅剩语言切换一个岛；`/world/` 的完整 3D 不变。
+- [x] **交互一致性**：笔记搜索补双语 placeholder、清除按钮空态禁用；文献架把 `topic`/`q` 写入 URL 并支持 `popstate` 还原（与 `/notes` 一致）；新增 `a11y.css` 零特异性焦点环兜底与 skip link（跳到 `#swup-container`，运行时补 `tabindex="-1"`）。
+
+验收：`pnpm check`（216 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页）通过；产物核对首页无 `ExploreWorld` 引用（仅剩 `LanguageSwitcher` 岛）、`/world/` 仍加载 3D、`::view-transition-new(root)` 无动画、skip link 与 placeholder 出现在 HTML、文献架脚本含 `replaceState`/`popstate`；`astro preview` 下 `/`、`/notes/`、`/library/?topic=…`、中英文章页、`/world/` 均 200。
+
+未验证：没有浏览器自动化，页面过渡的 `z-index` 层级、触屏 hover 粘滞修复、skip link 是否被 sticky 导航遮挡都只做了静态推演，需要在真实浏览器里看一眼。
+
 ## 版本记录
+
+### 2026-10-18：动效系统与交互一致性
+
+- [x] motion token 上移 `:root`，全站动效刻度统一；页面过渡改为 old 淡出 + new 静态。
+- [x] 删除 main.css 里约 130 行已死的主题 View Transition 与 `.is-theme-transitioning`。
+- [x] 触屏 hover 粘滞修复、补 `:active` 按压反馈、reduce 下清零位移；入场 620ms→320ms。
+- [x] 阅读进度与目录高亮改成 rAF + 几何缓存，滚动回调内无布局读取。
+- [x] 首页研究岛 compact 版去水合，首页不再加载 ExploreWorld chunk 与 Svelte 岛运行时。
+- [x] 笔记搜索补 placeholder 与清除空态；文献架筛选写入 URL 并支持后退还原。
+- [x] 新增零特异性焦点环与 skip link。
 
 ### 2026-10-18：英文概念图、系列导航与相关阅读
 

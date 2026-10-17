@@ -1,41 +1,77 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+import { onMount } from "svelte";
 
-	let progress = $state(0);
-	let visible = $state(false);
-	let english = $state(false);
+let progress = $state(0);
+let visible = $state(false);
+let english = $state(false);
 
-	onMount(() => {
-		const article = document.querySelector<HTMLElement>("#post-container") ?? document.body;
-		const syncLocale = () => { english = document.documentElement.lang.startsWith("en"); };
-		syncLocale(); document.addEventListener("site-locale-change", syncLocale);
-		const updateProgress = () => {
-			const articleTop = article.getBoundingClientRect().top + window.scrollY;
-			const articleHeight = article.offsetHeight;
-			const scrollTop = window.scrollY;
-			const viewportHeight = window.innerHeight;
+onMount(() => {
+	const article =
+		document.querySelector<HTMLElement>("#post-container") ?? document.body;
+	let frame = 0;
+	let disposed = false;
+	// 文章几何只在测量时读取布局一次；scroll 回调只用缓存值
+	let articleTop = 0;
+	let articleHeight = 1;
+	let viewportHeight = window.innerHeight;
 
-			const start = articleTop;
-			const range = Math.max(1, articleHeight - viewportHeight);
-			const current = scrollTop - start;
+	const measure = () => {
+		if (disposed) return;
+		const scrollTop = window.scrollY;
+		const rect = article.getBoundingClientRect();
+		articleTop = rect.top + scrollTop;
+		articleHeight = rect.height;
+		viewportHeight = window.innerHeight;
+	};
 
-			progress = range > 0 ? Math.min(Math.max((current / range) * 100, 0), 100) : 0;
-			visible = scrollTop > articleTop - 100;
-		};
+	const render = () => {
+		frame = 0;
+		const scrollTop = window.scrollY;
+		const range = Math.max(1, articleHeight - viewportHeight);
+		const current = scrollTop - articleTop;
+		progress = Math.min(Math.max((current / range) * 100, 0), 100);
+		visible = scrollTop > articleTop - 100;
+	};
 
-		window.addEventListener("scroll", updateProgress, { passive: true });
-		window.addEventListener("resize", updateProgress);
-		const resize = new ResizeObserver(updateProgress);
-		resize.observe(article);
-		updateProgress();
+	const schedule = () => {
+		if (disposed || frame) return;
+		frame = requestAnimationFrame(render);
+	};
 
-		return () => {
-			window.removeEventListener("scroll", updateProgress);
-			window.removeEventListener("resize", updateProgress);
-			document.removeEventListener("site-locale-change", syncLocale);
-			resize.disconnect();
-		};
-	});
+	const syncLocale = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+
+	// 尺寸/字体变化后先重算缓存，下一帧再刷新进度
+	const remeasure = () => {
+		if (disposed) return;
+		measure();
+		schedule();
+	};
+
+	syncLocale();
+	document.addEventListener("site-locale-change", syncLocale);
+	window.addEventListener("scroll", schedule, { passive: true });
+	window.addEventListener("resize", remeasure);
+	const resizeObserver = new ResizeObserver(remeasure);
+	resizeObserver.observe(article);
+	// 自定义字体加载完成后行高会变化，需要重新测量文章高度
+	document.fonts?.ready.then(remeasure).catch(() => {});
+	measure();
+	render();
+
+	return () => {
+		disposed = true;
+		if (frame) {
+			cancelAnimationFrame(frame);
+			frame = 0;
+		}
+		window.removeEventListener("scroll", schedule);
+		window.removeEventListener("resize", remeasure);
+		document.removeEventListener("site-locale-change", syncLocale);
+		resizeObserver.disconnect();
+	};
+});
 </script>
 
 {#if visible}
@@ -72,7 +108,6 @@
 			var(--primary-light, hsl(165, 80%, 60%))
 		);
 		border-radius: 0 2px 2px 0;
-		transition: width 0.15s linear;
 		box-shadow: 0 0 8px var(--primary, hsl(165, 70%, 50%));
 	}
 </style>

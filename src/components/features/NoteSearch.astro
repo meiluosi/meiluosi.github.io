@@ -1,7 +1,56 @@
 <div class="note-search" role="search">
 	<label for="note-search-input" data-i18n="search.label" data-i18n-zh="搜索笔记" data-i18n-en="Search notes">搜索笔记</label>
-	<div class="search-field"><input id="note-search-input" data-note-search type="search" autocomplete="off" maxlength="200"  /><button type="button" data-note-clear data-i18n="search.clear" data-i18n-zh="清除" data-i18n-en="Clear">清除</button></div>
+	<div class="search-field"><input id="note-search-input" data-note-search type="search" autocomplete="off" maxlength="200" placeholder="输入标题、标签或正文关键词" data-i18n-placeholder-zh="输入标题、标签或正文关键词" data-i18n-placeholder-en="Search titles, tags, or text" /><button type="button" data-note-clear disabled data-i18n="search.clear" data-i18n-zh="清除" data-i18n-en="Clear">清除</button></div>
 </div>
+<script>
+	// Placeholder and clear-button state are derived from the runtime locale and
+	// the current input value. note-filters.ts owns filtering and updates the
+	// input programmatically (URL restore, reset), so re-sync after clicks,
+	// popstate and the first frame instead of only listening for "input".
+	const isEnglish = (): boolean =>
+		document.documentElement.lang.startsWith("en");
+
+	function syncPlaceholders(): void {
+		for (const input of document.querySelectorAll<HTMLInputElement>(
+			"[data-i18n-placeholder-zh], [data-i18n-placeholder-en]",
+		)) {
+			const value =
+				input.dataset[isEnglish() ? "i18nPlaceholderEn" : "i18nPlaceholderZh"];
+			if (value) input.placeholder = value;
+		}
+	}
+
+	function syncClearButtons(): void {
+		for (const input of document.querySelectorAll<HTMLInputElement>(
+			"[data-note-search]",
+		)) {
+			const clear = input.parentElement?.querySelector<HTMLButtonElement>(
+				"[data-note-clear]",
+			);
+			if (clear) clear.disabled = input.value.length === 0;
+		}
+	}
+
+	const syncAll = (): void => {
+		syncPlaceholders();
+		syncClearButtons();
+	};
+
+	syncAll();
+	// note-filters.ts may fill the input from ?q after this module runs, so
+	// re-sync once the DOM is complete as well.
+	requestAnimationFrame(syncAll);
+	document.addEventListener("DOMContentLoaded", syncAll);
+	document.addEventListener("input", syncClearButtons, true);
+	document.addEventListener(
+		"click",
+		() => requestAnimationFrame(syncClearButtons),
+		true,
+	);
+	window.addEventListener("popstate", () => requestAnimationFrame(syncClearButtons));
+	window.addEventListener("pageshow", syncAll);
+	document.addEventListener("site-locale-change", syncAll);
+</script>
 <style>
-	.note-search{padding:28px 0 8px}.note-search label{display:block;font-size:13px;color:var(--brand-ink);margin-bottom:10px}.search-field{display:flex;border:1px solid var(--brand-line);border-radius:10px;background:var(--brand-surface);overflow:hidden}.search-field:focus-within{outline:2px solid var(--brand-accent);outline-offset:3px}input{min-width:0;flex:1;border:0;background:transparent;color:var(--brand-ink);font:inherit;font-size:16px;padding:14px;outline:0}button{border:0;background:transparent;color:var(--brand-accent);font-size:12px;padding:0 18px;cursor:pointer}button:focus-visible{outline:2px solid var(--brand-accent);outline-offset:-4px}.note-search p{font-size:11px;line-height:1.8;color:var(--brand-muted);margin-top:10px}
+	.note-search{padding:28px 0 8px}.note-search label{display:block;font-size:13px;color:var(--brand-ink);margin-bottom:10px}.search-field{display:flex;border:1px solid var(--brand-line);border-radius:10px;background:var(--brand-surface);overflow:hidden}.search-field:focus-within{outline:2px solid var(--brand-accent);outline-offset:3px}input{min-width:0;flex:1;border:0;background:transparent;color:var(--brand-ink);font:inherit;font-size:16px;padding:14px;outline:0}input::placeholder{color:var(--brand-muted);opacity:1}button{border:0;background:transparent;color:var(--brand-accent);font-size:12px;padding:0 18px;cursor:pointer}button:disabled{color:var(--brand-muted);opacity:.55;cursor:default}button:focus-visible{outline:2px solid var(--brand-accent);outline-offset:-4px}.note-search p{font-size:11px;line-height:1.8;color:var(--brand-muted);margin-top:10px}
 </style>

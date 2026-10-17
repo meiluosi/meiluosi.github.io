@@ -8,7 +8,10 @@ export function mountBrandMotion(restored = false): () => void {
 	const pending = new Set<HTMLElement>();
 	let observer: IntersectionObserver | undefined;
 	const events = new AbortController();
+	// Keep in sync with --motion-ease-out / --motion-slow in brand-theme.css.
 	const easing = "cubic-bezier(0.22, 1, 0.36, 1)";
+	const duration = 320;
+	const enterOffset = "translate3d(0, 10px, 0)";
 
 	const stop = (element: HTMLElement) => {
 		active.get(element)?.cancel();
@@ -27,10 +30,12 @@ export function mountBrandMotion(restored = false): () => void {
 		if (preference.matches || element.contains(document.activeElement)) return;
 		const animation = element.animate(
 			[
-				{ opacity: 0, transform: "translate3d(0, 18px, 0)" },
+				// Start partially visible so a hero element is never a blank LCP candidate,
+				// and so a late-executing script cannot flash content away and replay it.
+				{ opacity: 0.7, transform: enterOffset },
 				{ opacity: 1, transform: "translate3d(0, 0, 0)" },
 			],
-			{ duration: 620, delay, easing, fill: "backwards" },
+			{ duration, delay, easing, fill: "backwards" },
 		);
 		active.set(element, animation);
 		animation.onfinish = () => {
@@ -47,7 +52,7 @@ export function mountBrandMotion(restored = false): () => void {
 		if (!restored && !location.hash && window.scrollY < 24) {
 			root.querySelectorAll<HTMLElement>("[data-motion-intro]").forEach((element, index) => {
 				if (element.getBoundingClientRect().top < window.innerHeight) {
-					enter(element, Math.min(index, 4) * 65);
+					enter(element, Math.min(index, 4) * 50);
 				}
 			});
 		}
@@ -59,7 +64,7 @@ export function mountBrandMotion(restored = false): () => void {
 					const element = entry.target as HTMLElement;
 					if (!pending.has(element)) continue;
 					stop(element);
-					enter(element, Math.min(order++, 3) * 55);
+					enter(element, Math.min(order++, 3) * 40);
 				}
 			}, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
 			for (const element of root.querySelectorAll<HTMLElement>("[data-motion-reveal]")) {

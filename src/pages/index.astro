@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Text from "@/components/common/BilingualText.astro";
-import ExploreWorld from "@/components/features/ExploreWorld.svelte";
+import ExploreWorldCompact from "@/components/features/ExploreWorldCompact.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import Layout from "@/layouts/Layout.astro";
 import { now } from "@/data/now";
@@ -71,7 +71,7 @@ const reading = [...(reflection ? [reflection] : []), ...recent].map((post) => {
 				<a class="read-link" href="/world/"><Text zh="打开研究工作台" en="Open the research workspace" /> <span aria-hidden="true">↗</span></a>
 				<div class="world-footpaths"><a href="/lab/model-pipeline/"><Text zh="从文字到模型" en="From text to a model" /></a><a href="/lab/mcts/"><Text zh="蒙特卡洛树搜索" en="Monte Carlo tree search" /></a><a href="/lab/causal-playground/"><Text zh="因果效应估计" en="Causal effect estimation" /></a></div>
 			</div>
-			<div class="world-preview"><ExploreWorld compact client:visible /></div>
+			<div class="world-preview"><ExploreWorldCompact /></div>
 		</section>
 
 		<section class="now-letter" id="now" aria-labelledby="now-title">
