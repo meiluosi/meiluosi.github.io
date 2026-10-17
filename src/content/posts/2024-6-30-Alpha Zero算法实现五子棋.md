@@ -1,7 +1,7 @@
 ---
 title: Alpha Zero算法实现五子棋
 format: code-example
-description: 深度强化学习在游戏AI中的创新应用
+description: "以五子棋为载体，交代策略价值网络、PUCT 搜索、自对弈数据收集与训练循环，最后给出参数建议与对弈可视化。文章给的是最小实现骨架与工程建议，未报告对弈强度或训练曲线，结果需自行运行确认。"
 published: 2024-06-30T00:00:00.000Z
 tags:
   - 游戏AI与搜索

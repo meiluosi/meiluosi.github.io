@@ -1,7 +1,7 @@
 ---
 title: Actor-Critic 算法家族
 format: technical
-description: A2C/A3C、PPO、SAC 全面梳理
+description: "承接策略梯度的方差问题，讲 Actor-Critic 框架与优势函数估计，比较 A3C 与 A2C 的同步异步取舍，再展开 PPO 的重要性采样与裁剪，以及 SAC 的熵正则思路。属方法综述，附实现代码，不含横向基准实验。"
 published: 2024-07-12T00:00:00.000Z
 tags:
   - 强化学习

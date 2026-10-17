@@ -1,61 +1,40 @@
-import { loadRenderers } from "astro:container";
-import { render } from "astro:content";
-import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
 import rss, { type RSSFeedItem } from "@astrojs/rss";
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
 import { getSortedPosts } from "@utils/content-utils";
 import { formatDateI18nWithTime } from "@utils/date-utils";
 import { url } from "@utils/url-utils";
 import type { APIContext } from "astro";
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import sanitizeHtml from "sanitize-html";
 import { siteConfig } from "@/config";
-import pkg from "../../package.json";
 
-function stripInvalidXmlChars(str: string): string {
-	return str.replace(
-		// biome-ignore lint/suspicious/noControlCharactersInRegex: https://www.w3.org/TR/xml/#charsets
-		/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F\uFDD0-\uFDEF\uFFFE\uFFFF]/g,
-		"",
-	);
-}
+/**
+ * 只输出摘要的订阅源。
+ *
+ * 此前每篇都渲染完整正文塞进 content:encoded，37 篇合计 4.1MB，
+ * 阅读器和抓取端都会因此超时。现在改为「标题 + description + 链接」，
+ * 体积从 4.1MB 降到几十 KB；想读全文的读者点链接即可。
+ */
+const FEED_LIMIT = 20;
 
 export async function GET(context: APIContext): Promise<Response> {
-	const blog = await getSortedPosts();
-	const renderers = await loadRenderers([getMDXRenderer()]);
-	const container = await AstroContainer.create({ renderers });
-	const feedItems: RSSFeedItem[] = [];
-	for (const post of blog) {
-		if (post.data.password) {
-			feedItems.push({
-				title: post.data.title,
-				pubDate: post.data.published,
-				description: post.data.description || "",
-				link: url(`/posts/${post.id}/`),
-				content: i18n(I18nKey.passwordProtectedRss),
-			});
-			continue;
-		}
-		const { Content } = await render(post);
-		const rawContent = await container.renderToString(Content);
-		const cleanedContent = stripInvalidXmlChars(rawContent);
-		feedItems.push({
+	const blog = (await getSortedPosts())
+		.filter((post) => !post.data.password)
+		.slice(0, FEED_LIMIT);
+
+	const items: RSSFeedItem[] = blog.map((post) => {
+		const description = post.data.description.trim() || post.data.title;
+		return {
 			title: post.data.title,
 			pubDate: post.data.published,
-			description: post.data.description || "",
+			description,
 			link: url(`/posts/${post.id}/`),
-			content: sanitizeHtml(cleanedContent, {
-				allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-			}),
-		});
-	}
+		};
+	});
+
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.subtitle || "No description",
 		site: context.site ?? "https://meiluosi.github.io",
 		customData: `<generator>Astro</generator>
 		<lastBuildDate>${formatDateI18nWithTime(new Date())}</lastBuildDate>`,
-		items: feedItems,
+		items,
 	});
 }

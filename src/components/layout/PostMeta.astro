@@ -52,7 +52,7 @@ const visibleTags =
 
 <div
   class:list={[
-    "post-meta-root flex flex-wrap text-neutral-500 dark:text-neutral-400 items-center gap-4 gap-x-4 gap-y-2",
+    "post-meta-root flex flex-wrap text-(--content-meta) items-center gap-4 gap-x-4 gap-y-2",
     className,
   ]}
 >
@@ -75,7 +75,7 @@ const visibleTags =
             class="text-xl"
           />
         </div>
-        <span class="text-50 text-sm font-medium">
+        <span class="text-(--content-meta) text-sm font-medium">
           {formatDateToYYYYMMDD(published)}
         </span>
       </div>
@@ -95,7 +95,7 @@ const visibleTags =
               class="text-xl"
             />
           </div>
-          <span class="text-50 text-sm font-medium">
+          <span class="text-(--content-meta) text-sm font-medium">
             {formatDateToYYYYMMDD(updated)}
           </span>
         </div>
@@ -104,16 +104,16 @@ const visibleTags =
 
   {
     showCategory && (
-      <div class="flex items-center">
+      <div class="flex flex-wrap items-center min-w-0 max-w-full">
         <div class="meta-icon">
           <Icon is:inline name="material-symbols:book-2-outline-rounded" class="text-xl" />
         </div>
-        <div class="flex flex-row flex-nowrap items-center">
+        <div class="flex flex-wrap items-center min-w-0">
           <a
             href={getCategoryUrl(category || "")}
             aria-label={`View all posts in the ${category} category`}
-            class="link-lg transition text-50 text-sm font-medium
-              hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"
+            class="link-lg transition text-(--content-meta) text-sm font-medium
+              hover:text-(--primary) dark:hover:text-(--primary)"
           >
             {category || i18n(I18nKey.uncategorized)}
           </a>
@@ -126,38 +126,35 @@ const visibleTags =
     showTags && (
       <div
         class:list={[
-          "items-center",
+          "items-center min-w-0 max-w-full",
           { flex: !hideTagsForMobile, "hidden md:flex": hideTagsForMobile },
         ]}
       >
         <div class="meta-icon">
           <Icon is:inline name="material-symbols:tag-rounded" class="text-xl" />
         </div>
-        <div class="flex flex-row flex-nowrap items-center">
+        <div class="flex flex-wrap items-center min-w-0">
           {visibleTags &&
             visibleTags.length > 0 &&
             visibleTags.map((tag, i) => (
-              <>
-                <div
-                  class:list={[
-                    { hidden: i === 0 },
-                    "mx-1.5 text-(--meta-divider) text-sm",
-                  ]}
-                >
-                  /
-                </div>
+              <span class="inline-flex items-center whitespace-nowrap">
                 <a
                   href={getTagUrl(tag)}
                   aria-label={`View all posts with the ${tag.trim()} tag`}
-                  class="link-lg transition text-50 text-sm font-medium
-                    hover:text-(--primary) dark:hover:text-(--primary) whitespace-nowrap"
+                  class="link-lg transition text-(--content-meta) text-sm font-medium
+                    hover:text-(--primary) dark:hover:text-(--primary)"
                 >
                   {tag.trim()}
                 </a>
-              </>
+                {i < visibleTags.length - 1 && (
+                  <span class="mx-1.5 text-(--brand-line) text-sm" aria-hidden="true">
+                    /
+                  </span>
+                )}
+              </span>
             ))}
           {showNoTags && !(visibleTags && visibleTags.length > 0) && (
-            <div class="transition text-50 text-sm font-medium">
+            <div class="transition text-(--content-meta) text-sm font-medium">
               {i18n(I18nKey.noTags)}
             </div>
           )}
@@ -179,10 +176,10 @@ const visibleTags =
               class="text-xl"
             />
           </div>
-          <span class="text-50 text-sm font-medium mr-1">
+          <span class="text-(--content-meta) text-sm font-medium mr-1">
             {i18n(I18nKey.pageViews)}
           </span>
-          <span class="text-50 text-sm font-medium" id="twikoo_visitors">
+          <span class="text-(--content-meta) text-sm font-medium" id="twikoo_visitors">
             {i18n(I18nKey.pageViewsLoading)}
           </span>
         </div>
@@ -202,11 +199,11 @@ const visibleTags =
               class="text-xl"
             />
           </div>
-          <span class="text-50 text-sm font-medium mr-1">
+          <span class="text-(--content-meta) text-sm font-medium mr-1">
             {i18n(I18nKey.pageViews)}
           </span>
           <span
-            class="text-50 text-sm font-medium waline-pageview-count"
+            class="text-(--content-meta) text-sm font-medium waline-pageview-count"
             data-path={path}
           >
             {i18n(I18nKey.pageViewsLoading)}
@@ -228,11 +225,11 @@ const visibleTags =
               class="text-xl"
             />
           </div>
-          <span class="text-50 text-sm font-medium mr-1">
+          <span class="text-(--content-meta) text-sm font-medium mr-1">
             {i18n(I18nKey.pageViews)}
           </span>
           <span
-            class="text-50 text-sm font-medium artalk-pv-count"
+            class="text-(--content-meta) text-sm font-medium artalk-pv-count"
             data-path={path}
           >
             {i18n(I18nKey.pageViewsLoading)}

@@ -51,12 +51,33 @@ const adapter = process.env.CF_WORKERS
 		})
 	: undefined;
 
+// 这些路由只负责把旧地址 301 到新地址，没有独立内容。
+// 让它们留在 sitemap 里会向搜索引擎提交一批空页面，所以统一排除。
+const redirectOnlyPaths = new Set([
+	"/archive/",
+	"/categories/",
+	"/graph/",
+	"/guestbook/",
+	"/paths/",
+	"/reading/",
+	"/search/",
+	"/sponsor/",
+	"/tags/",
+]);
+
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site_url,
 
 	base: "/",
 	trailingSlash: "always",
+
+	// 站内导航是普通的多页跳转：悬停即预取，页面过渡不必再等网络往返。
+	// 配合 brand-motion.css 里的跨文档 View Transition，点击后可以直接开始动画。
+	prefetch: {
+		prefetchAll: true,
+		defaultStrategy: "hover",
+	},
 
 	// 字体配置 - 只加载实际使用的字体，跳过未引用的以加快构建
 	fonts: (() => {
@@ -170,6 +191,13 @@ export default defineConfig({
 				// 根据页面开关配置过滤sitemap
 				const url = new URL(page);
 				const pathname = url.pathname;
+
+				if (redirectOnlyPaths.has(pathname)) {
+					return false;
+				}
+				if (pathname.startsWith("/paths/") || /^\/\d+\/$/.test(pathname)) {
+					return false;
+				}
 
 				if (pathname === "/friends/" && !siteConfig.pages.friends) {
 					return false;

@@ -1,7 +1,7 @@
 ---
 title: Transformer架构详解
 format: technical
-description: 深入理解自注意力机制与位置编码
+description: "以《Attention is All You Need》为起点交代 Transformer 的动机，拆解自注意力、前馈网络、残差与位置编码，再给出完整模型拼装、Label Smoothing 与 Warmup 等训练技巧及应用场景。属架构讲解，以原论文与常见实现为参照，不含训练实验或下游效果对比。"
 published: 2024-09-01T00:00:00.000Z
 tags:
   - 模型架构

@@ -22,7 +22,6 @@ import utc from "dayjs/plugin/utc";
 import AiSummary from "@/components/common/AiSummary.astro";
 import CoverImage from "@/components/common/CoverImage.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
-import { buildConceptGraph } from "@/utils/article-concept-graph";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import SharePoster from "@/components/misc/SharePoster.svelte";
@@ -32,6 +31,7 @@ import { profileConfig } from "@/config/profileConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { sponsorConfig } from "@/config/sponsorConfig";
 import { brandTranslations } from "@/i18n/brand";
+import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
 import { url } from "@/utils/url-utils";
@@ -103,9 +103,12 @@ if (processedImage) {
 	);
 	if (isLocal) {
 		const basePath = getFileDirFromPath(entry.filePath || "");
-		const files = import.meta.glob<ImageMetadata>("../../**", {
-			import: "default",
-		});
+		const files = import.meta.glob<ImageMetadata>(
+			"../../**/*.{png,jpg,jpeg,webp,avif}",
+			{
+				import: "default",
+			},
+		);
 		let normalizedPath = path
 			.normalize(path.join("../../", basePath, processedImage))
 			.replace(/\\/g, "/");
@@ -127,9 +130,12 @@ if (posterAvatarUrl) {
 		posterAvatarUrl.startsWith("data:")
 	);
 	if (isLocalAvatar) {
-		const files = import.meta.glob<ImageMetadata>("../../**", {
-			import: "default",
-		});
+		const files = import.meta.glob<ImageMetadata>(
+			"../../**/*.{png,jpg,jpeg,webp,avif}",
+			{
+				import: "default",
+			},
+		);
 		const normalizedPath = path
 			.normalize(path.join("../../", posterAvatarUrl))
 			.replace(/\\/g, "/");
@@ -175,7 +181,6 @@ const jsonLd = {
 		"@id": Astro.url.href,
 	},
 };
-
 ---
 
 <MainGridLayout
@@ -214,11 +219,11 @@ const jsonLd = {
     >
       <!-- word count and reading time -->
       <div
-        class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation"
+        class="flex flex-wrap text-(--content-meta) gap-5 mb-3 transition onload-animation"
       >
         <div class="flex flex-row items-center">
           <div
-            class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"
+            class="transition h-6 w-6 rounded-md bg-(--brand-surface) text-(--brand-muted) flex items-center justify-center mr-2"
           >
             <Icon is:inline name="material-symbols:notes-rounded" />
           </div>
@@ -233,7 +238,7 @@ const jsonLd = {
         </div>
         <div class="flex flex-row items-center">
           <div
-            class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"
+            class="transition h-6 w-6 rounded-md bg-(--brand-surface) text-(--brand-muted) flex items-center justify-center mr-2"
           >
             <Icon is:inline name="material-symbols:schedule-outline-rounded" />
           </div>
@@ -249,7 +254,7 @@ const jsonLd = {
         {entry.data.password && (
           <div class="flex flex-row items-center">
             <div
-              class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2"
+              class="transition h-6 w-6 rounded-md bg-(--brand-surface) text-(--brand-muted) flex items-center justify-center mr-2"
             >
               <Icon is:inline name="material-symbols:lock-outline" />
             </div>
@@ -274,6 +279,16 @@ const jsonLd = {
         >
           {entry.data.title}
         </h1>
+        {localeEnUrl && (
+          <a
+            href={localeEnUrl}
+            lang="en"
+            hreflang="en"
+            class="inline-flex items-center text-[13px] leading-6 text-(--content-meta) hover:text-(--brand-accent) transition-colors mb-3"
+          >
+            English overview →
+          </a>
+        )}
       </div>
 
       <!-- metadata -->
@@ -625,6 +640,8 @@ const jsonLd = {
 	#main-grid { display: block; max-width: none; padding: 0; }
 	#swup-container { width: min(100%, 980px); margin: 0 auto; }
 	#content-wrapper { padding: clamp(28px, 6vw, 76px) clamp(20px, 6vw, 72px) 0; }
+	/* 1180px 起目录固定在右侧：正文容器让出右缘的规则放在
+	   ArticleNavigation.astro 里，中英文文章页共用同一份，避免两条路由各写一遍。 */
 	#post-container { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; }
 	#post-container > div:first-child { color: var(--brand-muted) !important; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .06em; }
 	#post-container .markdown-content a { color: var(--brand-accent); }

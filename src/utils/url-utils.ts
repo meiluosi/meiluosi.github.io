@@ -40,18 +40,21 @@ export function getPostUrlBySlug(slug: string): string {
 }
 
 export function getTagUrl(tag: string): string {
-	if (!tag) return url("/archive/");
-	return url(`/archive/?tag=${encodeURIComponent(tag.trim())}`);
+	const normalized = tag.trim();
+	if (!normalized) return url("/notes/");
+	// 标签没有独立筛选维度，落到笔记页搜索框的 q 参数。
+	return url(`/notes/?q=${encodeURIComponent(normalized)}`);
 }
 
 export function getCategoryUrl(category: string | null): string {
+	const normalized = category?.trim() ?? "";
+	// 笔记页 topic 的取值是文章 frontmatter 的原始分类，空分类统一为 Uncategorized。
 	if (
-		!category ||
-		category.trim() === "" ||
-		category.trim().toLowerCase() === i18n(I18nKey.uncategorized).toLowerCase()
+		normalized === "" ||
+		normalized.toLowerCase() === i18n(I18nKey.uncategorized).toLowerCase()
 	)
-		return url("/archive/?uncategorized=true");
-	return url(`/archive/?category=${encodeURIComponent(category.trim())}`);
+		return url("/notes/?topic=Uncategorized");
+	return url(`/notes/?topic=${encodeURIComponent(normalized)}`);
 }
 
 export function getDir(path: string): string {

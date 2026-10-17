@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+/* 只扫描 src/ 里真正会被渲染的模板与内容。
+   默认的自动探测会从仓库根目录出发，把 docs/、projects/、scripts/ 里的普通英文单词
+   也当成候选类名，生成一批永远用不到的工具类（构建产物里单个公共样式块曾达 231KB）。 */
+@import 'tailwindcss' source(none);
+@source '../';
 @import './layout-styles.css';
 @import './navbar.css';
 @import './banner-title.css';

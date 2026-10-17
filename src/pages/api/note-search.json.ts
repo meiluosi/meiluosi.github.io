@@ -26,11 +26,11 @@ export const GET: APIRoute = async () => {
 			return {
 				id: post.id,
 				zh: plainText(
-					`${post.data.title} ${post.data.description ?? ""} ${post.body ?? ""}`,
+					`${post.data.title} ${post.data.description ?? ""} ${post.data.tags.join(" ")} ${post.body ?? ""}`,
 				),
 				en: translation
 					? plainText(
-							`${translation.data.title} ${translation.data.description ?? ""} ${translation.body ?? ""}`,
+							`${translation.data.title} ${translation.data.description ?? ""} ${translation.data.tags.join(" ")} ${translation.body ?? ""}`,
 						)
 					: "",
 			};

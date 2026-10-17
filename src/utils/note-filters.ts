@@ -22,47 +22,67 @@ export function mountNoteFilters(): () => void {
 	let index: Map<string, SearchRecord> | null = null;
 	let loading = false;
 	let failed = false;
-	const params = new URLSearchParams(location.search);
-	if (input) input.value = (params.get("q") ?? "").slice(0, 200);
 	const preference = matchMedia("(prefers-reduced-motion: reduce)");
 	const events = new AbortController();
-	const viewButtons = [...root.querySelectorAll<HTMLButtonElement>("[data-note-view-button]")];
+	const viewButtons = [
+		...root.querySelectorAll<HTMLButtonElement>("[data-note-view-button]"),
+	];
 	const setView = (view: string) => {
 		root.dataset.noteView = view === "list" ? "list" : "cards";
 		for (const button of viewButtons)
-			button.ariaPressed = String(button.dataset.noteViewButton === root.dataset.noteView);
+			button.ariaPressed = String(
+				button.dataset.noteViewButton === root.dataset.noteView,
+			);
 	};
-	try { setView(localStorage.getItem("feng-yu-note-view") ?? "cards"); }
-	catch { setView("cards"); }
-	for (const button of viewButtons) button.addEventListener("click", () => {
-		setView(button.dataset.noteViewButton ?? "cards");
-		try { localStorage.setItem("feng-yu-note-view", root.dataset.noteView!); }
-		catch { /* Display switching also works without storage. */ }
-	}, { signal: events.signal });
+	try {
+		setView(localStorage.getItem("feng-yu-note-view") ?? "cards");
+	} catch {
+		setView("cards");
+	}
+	for (const button of viewButtons)
+		button.addEventListener(
+			"click",
+			() => {
+				setView(button.dataset.noteViewButton ?? "cards");
+				try {
+					localStorage.setItem(
+						"feng-yu-note-view",
+						root.dataset.noteView ?? "cards",
+					);
+				} catch {
+					/* Display switching also works without storage. */
+				}
+			},
+			{ signal: events.signal },
+		);
 	const active = new Map<HTMLElement, Animation>();
-	let format =
-		formats.find((button) => button.ariaPressed === "true")?.dataset
-			.noteFormatFilter ?? "all";
-	let topic =
-		topics.find((button) => button.ariaPressed === "true")?.dataset
-			.noteTopicFilter ?? "all";
-	format = formats.some(
-		(button) => button.dataset.noteFormatFilter === params.get("format"),
-	)
-		? params.get("format")!
-		: "all";
-	topic = topics.some(
-		(button) => button.dataset.noteTopicFilter === params.get("topic"),
-	)
-		? params.get("topic")!
-		: "all";
+	let format = "all";
+	let topic = "all";
 	const syncButtons = () => {
 		for (const button of formats)
 			button.ariaPressed = String(button.dataset.noteFormatFilter === format);
 		for (const button of topics)
 			button.ariaPressed = String(button.dataset.noteTopicFilter === topic);
 	};
-	syncButtons();
+	// URL 是筛选状态的唯一来源：首次进入与浏览器前进/后退都从地址栏重新读取。
+	const syncFromUrl = () => {
+		const params = new URLSearchParams(location.search);
+		if (input) input.value = (params.get("q") ?? "").slice(0, 200);
+		const nextFormat = params.get("format") ?? "all";
+		format = formats.some(
+			(button) => button.dataset.noteFormatFilter === nextFormat,
+		)
+			? nextFormat
+			: "all";
+		const nextTopic = params.get("topic") ?? "all";
+		topic = topics.some(
+			(button) => button.dataset.noteTopicFilter === nextTopic,
+		)
+			? nextTopic
+			: "all";
+		syncButtons();
+	};
+	syncFromUrl();
 	let count = entries.filter((entry) => !entry.hidden).length;
 	const cancelAnimations = () => {
 		for (const animation of active.values()) animation.cancel();
@@ -211,6 +231,17 @@ export function mountNoteFilters(): () => void {
 		},
 		{ signal: events.signal },
 	);
+	// 浏览器前进/后退：按地址栏里的 q / format / topic 重新应用筛选。
+	window.addEventListener(
+		"popstate",
+		() => {
+			// SPA 切到其他页面后旧监听仍可能存在，根节点被替换时直接忽略。
+			if (!root.isConnected) return;
+			syncFromUrl();
+			void search();
+		},
+		{ signal: events.signal },
+	);
 	root.addEventListener(
 		"click",
 		(event) => {
@@ -276,6 +307,7 @@ export function mountNoteFilters(): () => void {
 		},
 		{ signal: events.signal },
 	);
+	// 带 ?q= 首次进入时先立即过滤一次，索引加载完成后 search() 会再刷新结果。
 	update(false);
 	void search().then(() => {
 		// Explicit return links restore the list; browser Back keeps native restoration.

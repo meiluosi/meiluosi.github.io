@@ -1,13 +1,15 @@
 ---
-import Text from "@/components/common/BilingualText.astro";
-import Navbar from "@/components/layout/Navbar.astro";
-import NoteSearch from "@/components/features/NoteSearch.astro";
-import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import Text from "@/components/common/BilingualText.astro";
+import NoteSearch from "@/components/features/NoteSearch.astro";
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
 import { getSortedPosts } from "@/utils/content-utils";
 import { removeFileExtension } from "@/utils/url-utils";
 
-const posts = (await getSortedPosts()).filter((post) => !post.data.draft && !post.data.password);
+const posts = (await getSortedPosts()).filter(
+	(post) => !post.data.draft && !post.data.password,
+);
 const englishPosts = await getCollection("enPosts");
 const postUrl = (id: string) => `/posts/${id.replace(/\.mdx?$/, "")}/`;
 const dateLabel = (date: Date) =>
@@ -31,7 +33,7 @@ const categoryLabels: Record<string, string> = {
 	Uncategorized: "未分类",
 };
 const tagLabels: Record<string, string> = {
-	"Agent与RAG": "Agents & RAG",
+	Agent与RAG: "Agents & RAG",
 	"Apple Silicon": "Apple Silicon",
 	LLM全链路: "Full-stack LLM",
 	MLX: "MLX",
@@ -183,5 +185,16 @@ const formats = Object.keys(formatLabels);
  @media(max-width:700px){.entries{padding-inline:8vw}}
  @media(max-width:560px){[data-note-view="cards"] .note-grid{grid-template-columns:1fr}}
  @media(prefers-reduced-motion:reduce){[data-note-view="cards"] .entry{transition:none}}
+		/* 移动端触控目标不小于 44px；按钮换行，避免 320px 下横向溢出。 */
+		@media (max-width: 700px) {
+			.filters button,
+			.view-switch button {
+				min-height: 44px;
+				padding-block: 10px;
+			}
+			.entries-head {
+				flex-wrap: wrap;
+			}
+		}
  </style>
 </Layout>

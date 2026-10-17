@@ -1,5 +1,14 @@
 # Spine 看板娘功能使用指南
 
+> **本轮变更（2026-10）：模型资源已从 `public/pio/` 移到这里。**
+>
+> 原因：`public/pio/` 会被原样复制进 `dist/`，但 `pioConfig.enable` 为 `false`，
+> `Live2DWidget.astro` 与两个 `SpineModel.astro` 都没有被任何页面挂载，构建产物里也没有
+> 任何 HTML/JS 引用 `/pio/`——等于为 15MB 死负载付部署与克隆成本。
+>
+> 重新启用时：把本目录移回 `public/pio/`，打开 `src/config/pioConfig.ts` 里对应模型的
+> `enable`，在页面挂载组件，并给 `vercel.json` 的 `/pio/(.*)` 补长缓存头。
+
 ## 功能说明
 
 此功能为博客添加了一个可配置的 Spine 动画看板娘，可以显示在页面的角落位置。

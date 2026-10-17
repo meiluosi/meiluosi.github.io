@@ -226,7 +226,31 @@
 
 详见 [标题与导航调整记录](./site-editorial-cleanup.md)。
 
+## Phase 14：入口可用性与交付质量（2026-10-17 完成）
+
+按「最值得先做的 5 件事」推进，全部是可用性与死负载清理，不改版式方向。
+
+- [x] **分类与标签入口接回真实筛选**：`getCategoryUrl` 改指 `/notes/?topic=<原始分类>`，`getTagUrl` 改指 `/notes/?q=<标签>`；标签写入正文搜索索引；笔记页支持 `popstate`，浏览器前进/后退按地址栏恢复 q/format/topic。
+- [x] **悬停预取 + 清掉 Swup 死层**：`astro.config.mjs` 开启 `prefetch`；`Layout.astro` 删除 `#progress-bar`、整套 `window.swup.hooks` 与 `setup()`（约 467 行）以及给不存在元素绑的 click-outside；`transition.css` 删除 Swup 与进度条规则，保留仍在使用的 `.onload-animation`。
+- [x] **下线死负载**：`public/pio`（15MB，无任何页面引用）移至 `projects/live2d-assets/`；移除构建中的 `pagefind` 步骤并删除 `pagefind.yml`（索引 1.6MB，全站已改用 `/api/note-search.json`）；`rss.xml` 由 37 篇全文（4.1MB）改为最近 20 篇摘要（12KB）；sitemap 排除 9 个 301 跳转壳与分页页。
+- [x] **顺带修掉一个隐性体积源**：`posts/[...slug].astro` 的封面图查找用 `import.meta.glob("../../**")` 把整个 `src/` 拖进模块图，导致每个页面产物里都带一个 665KB 的 Live2D 孤儿 chunk、并让文章页加载 22 个样式文件。收窄为图片扩展名后，文章页 CSS 从 22 个/455KB 降到 4 个/315KB，构建从 13.4s 降到 6.8s，`dist` 从 47MB 降到 25MB。
+- [x] **文章页头部与目录**：元信息改用品牌 token（`--brand-muted` 对纸色 5.04:1，原 `black/30` 仅 2.10:1）；标签容器允许换行，320px 不再裁断；固定目录断点 1440 → 1180（1280 笔记本可用），宽度 `clamp(200px,16vw,240px)`，锚点偏移 88px 并修正此前被 `markdown.css` 压掉的 `scroll-margin`。
+- [x] **双语与摘要**：为 68 个中英文章页输出 `hreflang`（zh-CN / en / x-default），31 篇有译文的中文文章在标题下新增服务端可爬的 `English overview →` 入口；30 篇文章的 description 从 10–17 字重写为 61–84 字（2 条空值补齐），保留原有证据边界表述。
+
+验收：`pnpm check`（208 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页，6.8s）通过；构建产物核对 `dist` 无 `/pio`、无 `/pagefind`，文章页仅 4 个 CSS，sitemap 无 301 壳，68 页输出 `hreflang`，31 篇中文文章有静态英文入口。
+
+仍未做：231KB 公共样式块（legacy Tailwind + Firemark 层）需要拆 CSS 入口才能进一步下降；`public/strandbeest`（2.6MB）与 6 篇未发布稿待定；Fancybox 样式仍为全局静态引入。
+
 ## 版本记录
+
+### 2026-10-17：入口修复、死负载清理与文章页头部
+
+- [x] 分类/标签死链改指 `/notes` 真实筛选参数，补 `popstate` 与移动端 44px 触控尺寸。
+- [x] 开启悬停预取，删除 Layout 中的 Swup 死层与进度条。
+- [x] 下线 15MB Live2D 资源与 1.6MB Pagefind，RSS 改摘要，sitemap 清 301 壳。
+- [x] 收窄封面图 glob，移除孤儿 chunk，文章页 CSS 22→4 个。
+- [x] 文章页元信息对比度与标签换行、目录断点 1180、锚点偏移修正。
+- [x] 补 hreflang 与中文文章页的静态英文入口，重写 30 条 description。
 
 ### 2026-10-16：紧凑页头与文章双视图
 
