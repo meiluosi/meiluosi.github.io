@@ -16,7 +16,7 @@ interface Heading {
 	slug: string;
 }
 // Vocabulary identifies concepts only when they occur in the article; it creates no claims or edges by itself.
-const vocabulary = [
+const vocabularyZh = [
 	"预训练",
 	"后训练",
 	"微调",
@@ -155,11 +155,127 @@ const vocabulary = [
 	"DUCG",
 	"YLearn",
 ];
+
+/**
+ * 英文概念词表。
+ *
+ * 原词表只有中文概念，英文文章只能靠加粗词与拉丁缩写撑起概念层：
+ * MCTS 概览能抓到的概念从中文原文的 114 个掉到 22 个，exploration / reward /
+ * policy 这一层全部丢失。这里按同一套「出现在正文才算概念」的规则补上英文词，
+ * 中英文章各用各的语言命中，不跨语言推断。
+ */
+const vocabularyEn = [
+	// 学习与优化
+	"pre-training",
+	"pretraining",
+	"fine-tuning",
+	"reinforcement learning",
+	"supervised learning",
+	"unsupervised learning",
+	"self-supervised learning",
+	"policy gradient",
+	"value function",
+	"action value",
+	"advantage function",
+	"experience replay",
+	"target network",
+	"discount factor",
+	"importance sampling",
+	"online learning",
+	"offline reinforcement learning",
+	"multi-agent reinforcement learning",
+	"Nash equilibrium",
+	"exploration",
+	"exploitation",
+	"reward",
+	"policy",
+	"state",
+	"action",
+	"environment",
+	"bootstrapping",
+	"temporal difference",
+	// 因果与统计
+	"causal inference",
+	"causal effect",
+	"confounder",
+	"counterfactual",
+	"randomized experiment",
+	"observational study",
+	"instrumental variable",
+	"difference-in-differences",
+	"hypothesis testing",
+	"confidence interval",
+	"effect size",
+	"statistical significance",
+	// 数据
+	"pre-training corpus",
+	"data mixture",
+	"synthetic data",
+	"deduplication",
+	"near-duplicate",
+	"exact deduplication",
+	"contamination",
+	"validation set",
+	"test set",
+	"training set",
+	"quality scoring",
+	"filtering",
+	"normalization",
+	"tokenization",
+	"web crawl",
+	"data quality",
+	// 网络结构
+	"gradient descent",
+	"loss function",
+	"self-attention",
+	"multi-head attention",
+	"positional encoding",
+	"word embedding",
+	"residual connection",
+	"layer normalization",
+	"context window",
+	"next-token prediction",
+	// 系统与部署
+	"retrieval-augmented generation",
+	"tool use",
+	"planning",
+	"memory",
+	"reasoning",
+	"self-improvement",
+	"feedback",
+	"evaluation",
+	"inference",
+	"quantization",
+	"KV cache",
+	"paged attention",
+	"distillation",
+	"alignment",
+	"benchmark",
+	"ablation",
+	"scaling law",
+	// 人文与机械
+	"mechanism",
+	"linkage",
+	"gait",
+	"optimization",
+	"population",
+	"mutation",
+	"selection",
+	"experiment",
+	"causality",
+	"aesthetics",
+	"technology",
+	"humanities",
+];
+
+const vocabulary = [...vocabularyZh, ...vocabularyEn];
 const clean = (text: string): string =>
 	text
 		.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
 		.replace(/[*_`]/g, "")
 		.replace(/<[^>]*>/g, "")
+		// 加粗片段常带尾随标点（"Selection:"、"Scope note."），去掉后再作为节点名。
+		.replace(/[.,:;!?。，：；！？]+$/g, "")
 		.trim();
 
 /** Extract only explicit headings and marked terms; shared terms imply recurrence, not causality. */
@@ -225,6 +341,13 @@ export function buildConceptGraph(
 		)) {
 			const label = clean(match[1] || match[2] || match[3]);
 			if (/第.{1,3}篇|论文|报告|§|原文|下一篇|上一篇/.test(label)) continue;
+			// 英文文章里的版块小标题（Scope note / Further reading）不是概念。
+			if (
+				/^(scope note|note|summary|overview|further reading|see also|references?|appendix)$/i.test(
+					label,
+				)
+			)
+				continue;
 			if (
 				label.length < 2 ||
 				label.length > 36 ||

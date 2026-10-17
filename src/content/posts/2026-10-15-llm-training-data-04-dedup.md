@@ -9,6 +9,8 @@ tags:
   - 数据去重
   - 模型评测
 category: 大模型训练研究笔记
+series: "大模型训练研究笔记 · 数据卷"
+seriesOrder: 4
 lang: zh
 ---
 

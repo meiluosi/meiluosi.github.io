@@ -8,6 +8,8 @@ tags:
   - 预训练数据
   - 数据清洗
 category: 大模型训练研究笔记
+series: "大模型训练研究笔记 · 数据卷"
+seriesOrder: 2
 lang: zh
 ---
 

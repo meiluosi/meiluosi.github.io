@@ -11,6 +11,10 @@ type PostsData = {
 	image: string;
 	tags: string[];
 	category: string | null;
+	/** 所属系列展示名（可选） */
+	series?: string;
+	/** 系列内序号，从 1 开始（可选） */
+	seriesOrder?: number;
 	format:
 		| "plan"
 		| "code-example"
@@ -43,6 +47,8 @@ const postsSchema: z.ZodType<PostsData> = z.object({
 	image: z.string().optional().default(""),
 	tags: z.array(z.string()).optional().default([]),
 	category: z.string().optional().nullable().default(""),
+	series: z.string().optional(),
+	seriesOrder: z.number().optional(),
 	format: z
 		.enum([
 			"plan",
@@ -94,6 +100,10 @@ type EnglishPostData = {
 	description: string;
 	tags: string[];
 	category: string | null;
+	/** 所属系列展示名（可选） */
+	series?: string;
+	/** 系列内序号，从 1 开始（可选） */
+	seriesOrder?: number;
 	lang: "en";
 };
 
@@ -106,6 +116,8 @@ const enPostsSchema: z.ZodType<EnglishPostData> = z.object({
 	description: z.string().optional().default(""),
 	tags: z.array(z.string()).optional().default([]),
 	category: z.string().optional().nullable().default(""),
+	series: z.string().optional(),
+	seriesOrder: z.number().optional(),
 	lang: z.literal("en").default("en"),
 });
 

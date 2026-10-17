@@ -122,6 +122,8 @@ export type SiteConfig = {
 		sharePoster?: boolean;
 		// OpenGraph图片功能
 		generateOgImages: boolean;
+		// 是否显示按共同标签推荐的相关阅读窄条
+		showRelatedByTags: boolean;
 	};
 
 	// 分页配置

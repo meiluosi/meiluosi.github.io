@@ -155,6 +155,8 @@ export const siteConfig: SiteConfig = {
 		sharePoster: false,
 		// OpenGraph图片功能，注意开启后要渲染很长时间，不建议本地调试的时候开启
 		generateOgImages: false,
+		// 是否显示按共同标签推荐的相关阅读窄条
+		showRelatedByTags: true,
 	},
 
 	// 分页配置

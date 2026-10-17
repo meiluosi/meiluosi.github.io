@@ -21,6 +21,8 @@ import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
+import RelatedArticles from "@/components/features/RelatedArticles.astro";
+import SeriesNav from "@/components/features/SeriesNav.astro";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import SharePoster from "@/components/misc/SharePoster.svelte";
 import { coverImageConfig } from "@/config/coverImageConfig";
@@ -33,6 +35,7 @@ import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
 import { buildReadingChain } from "@/utils/reading-chain";
+import { buildRelatedByTags } from "@/utils/related-articles";
 import { url } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
@@ -62,18 +65,59 @@ const { Content, headings } = await render(entry);
 
 const { remarkPluginFrontmatter } = await render(entry);
 
+// 全站已发布文章只取一次，阅读链、系列导航与相关阅读都从这一份数据派生。
+// 加密文章不进入任何导航，避免把读者带到需要密码的页面。
+const currentSlug = removeFileExtension(entry.id);
+const publishedPosts = (await getSortedPosts()).filter(
+	(post) => !post.data.draft && !post.data.password,
+);
+const chainSource = publishedPosts.map((post) => ({
+	slug: removeFileExtension(post.id),
+	title: post.data.title,
+	published: post.data.published,
+	category: post.data.category,
+}));
+
 // 阅读链：同主题优先，分类内没有邻居时退回发布时间相邻。
-// 加密文章不进入链，避免把读者带到需要密码的页面。
-const readingChain = buildReadingChain(
-	(await getSortedPosts())
-		.filter((post) => !post.data.draft && !post.data.password)
-		.map((post) => ({
-			slug: removeFileExtension(post.id),
-			title: post.data.title,
-			published: post.data.published,
-			category: post.data.category,
-		})),
-).get(removeFileExtension(entry.id));
+const readingChain = buildReadingChain(chainSource).get(currentSlug);
+
+// 系列导航：只有 frontmatter 声明了 series 的文章才显示。
+const seriesName = entry.data.series?.trim() ?? "";
+const seriesOrder = entry.data.seriesOrder ?? 0;
+const seriesItems =
+	seriesName && seriesOrder > 0
+		? publishedPosts
+				.filter(
+					(post) =>
+						post.data.series?.trim() === seriesName &&
+						typeof post.data.seriesOrder === "number",
+				)
+				.map((post) => ({
+					slug: removeFileExtension(post.id),
+					title: post.data.title,
+					order: post.data.seriesOrder as number,
+				}))
+				.sort((a, b) => a.order - b.order)
+		: [];
+
+// 相关阅读：跨分类，按共同标签；开关在 siteConfig.post.showRelatedByTags。
+// 上/下一篇已经出现在阅读链里，这里去重，避免同一页重复推荐同一篇。
+const chainNeighbours = new Set<string>(
+	[readingChain?.prev?.slug ?? "", readingChain?.next?.slug ?? ""].filter(
+		Boolean,
+	),
+);
+const relatedArticles = siteConfig.post.showRelatedByTags
+	? buildRelatedByTags(
+			publishedPosts.map((post) => ({
+				slug: removeFileExtension(post.id),
+				title: post.data.title,
+				tags: post.data.tags ?? [],
+				published: post.data.published,
+			})),
+			currentSlug,
+		).filter((item) => !chainNeighbours.has(item.slug))
+	: [];
 
 const bannerPostMeta = {
 	title: entry.data.title,
@@ -320,6 +364,19 @@ const jsonLd = {
           )
         }
       </div>
+
+      <!-- 系列导航 -->
+      {seriesItems.length > 0 && (
+        <div class="onload-animation mb-6">
+          <SeriesNav
+            series={seriesName}
+            order={seriesOrder}
+            items={seriesItems}
+            basePath="/posts/"
+            lang="zh"
+          />
+        </div>
+      )}
 
       <!-- AI 摘要 -->
       {
@@ -615,6 +672,9 @@ const jsonLd = {
     lang="zh"
   />
 
+  {relatedArticles.length > 0 && (
+    <RelatedArticles items={relatedArticles} basePath="/posts/" lang="zh" />
+  )}
 
   <!-- 评论 -->
   {entry.data.comment && !entry.data.password && <Comment post={entry} />}

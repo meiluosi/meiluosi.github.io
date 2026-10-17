@@ -269,7 +269,28 @@
 
 仍未做：英文概念图仍基于中文原文正文生成；阅读链目前只链到同分类的相邻一篇，跨分类的“相关阅读”仍保持移除状态。
 
+## Phase 17：英文概念图、系列导航与相关阅读（2026-10-18 完成）
+
+Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口、数据卷没有系列感。
+
+- [x] **英文概念图补词表**：`article-concept-graph.ts` 的概念词表原本只有中文，英文文章只能靠加粗词与拉丁缩写撑起概念层。新增约 100 个英文概念词（exploration / reward / policy / value function / causal inference / deduplication …），中英各用各的语言命中，不做跨语言推断。同篇对比：MCTS 概览概念 **22 → 46**，Actor-Critic 概览 **17 → 44**；中文侧基本不变（114 → 116）。
+- [x] **顺手修两处节点噪声**：`clean()` 去掉加粗片段的尾随标点（`Selection:` → `Selection`），并把 `Scope note` / `Further reading` 这类英文版块名排除出概念节点。
+- [x] **系列元数据**：posts / enPosts 的 schema 与手写类型增加可选 `series` / `seriesOrder`；6 篇数据卷标注 `series: "大模型训练研究笔记 · 数据卷"`、`seriesOrder: 1..6`（正文与其他字段逐字未动）。
+- [x] **系列导航**：新增 `SeriesNav.astro`，在标题下渲染一条紧凑横条「系列：… · 第 4/6 篇」+ 1–6 数字链接，当前篇用 `aria-current="page"`；只在声明了 `series` 的文章出现（当前 6 页），移动端数字行可横向滚动。
+- [x] **相关阅读窄栏**：新增 `buildRelatedByTags()`（共同标签数 → 发布时间 → slug 排序，最多 3 篇）与 `RelatedArticles.astro`（一行小标题 + 可换行链接 + 共同标签原因），跨分类但不做大区块；与阅读链的上一篇／下一篇去重；`siteConfig.post.showRelatedByTags` 可一键关闭。构建后 **60 个文章页**显示，8 篇因标签唯一不显示。
+
+验收：`pnpm check`（215 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页）通过；构建产物核对系列条只在 6 篇数据卷出现、相关栏与阅读链无重复项、英文 Mindmap 图数据从 30 个节点增长到 54；`astro preview` 下中文首页、数据卷首末篇、英文文章、`/notes/`、`/rss.xml` 均返回 200。
+
+仍未做：英文译文的 `series` 字段留空（数据卷暂无英文译本，有译本时填上即可自动生效）；相关阅读只按标签精确匹配，没有同义词或主题轴归并。
+
 ## 版本记录
+
+### 2026-10-18：英文概念图、系列导航与相关阅读
+
+- [x] 概念词表补英文：英文文章概念层从 22/17 提升到 46/44（MCTS、Actor-Critic 概览），中文侧几乎不变。
+- [x] 清掉加粗节点名的尾随标点，并把 Scope note 之类版块名排除出概念图。
+- [x] 新增 `series` / `seriesOrder` 元数据，6 篇数据卷用 `SeriesNav` 串成「第 n/6 篇」。
+- [x] 新增按共同标签的相关阅读窄栏（可开关、与阅读链去重），60 个文章页命中。
 
 ### 2026-10-17：文章阅读链
 

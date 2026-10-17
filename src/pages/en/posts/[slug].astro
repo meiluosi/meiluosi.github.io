@@ -7,12 +7,16 @@ import KatexManager from "@/components/features/KatexManager.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
+import RelatedArticles from "@/components/features/RelatedArticles.astro";
+import SeriesNav from "@/components/features/SeriesNav.astro";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import { profileConfig } from "@/config/profileConfig";
+import { siteConfig } from "@/config/siteConfig";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { buildReadingChain } from "@/utils/reading-chain";
+import { buildRelatedByTags } from "@/utils/related-articles";
 import { removeFileExtension } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
@@ -56,18 +60,55 @@ const [englishEntries, publicSources] = await Promise.all([
 const publicSourceIds = new Set(
 	publicSources.map((item) => removeFileExtension(item.id)),
 );
+const visibleTranslations = englishEntries.filter((item) =>
+	publicSourceIds.has(removeFileExtension(item.data.sourceId)),
+);
 const readingChain = buildReadingChain(
-	englishEntries
-		.filter((item) =>
-			publicSourceIds.has(removeFileExtension(item.data.sourceId)),
-		)
-		.map((item) => ({
-			slug: item.data.slug,
-			title: item.data.title,
-			published: item.data.published,
-			category: item.data.category,
-		})),
+	visibleTranslations.map((item) => ({
+		slug: item.data.slug,
+		title: item.data.title,
+		published: item.data.published,
+		category: item.data.category,
+	})),
 ).get(entry.data.slug);
+
+// 系列导航：英文译文只有在 frontmatter 里声明了 series 时才显示。
+const seriesName = entry.data.series?.trim() ?? "";
+const seriesOrder = entry.data.seriesOrder ?? 0;
+const seriesItems =
+	seriesName && seriesOrder > 0
+		? visibleTranslations
+				.filter(
+					(item) =>
+						item.data.series?.trim() === seriesName &&
+						typeof item.data.seriesOrder === "number",
+				)
+				.map((item) => ({
+					slug: item.data.slug,
+					title: item.data.title,
+					order: item.data.seriesOrder as number,
+				}))
+				.sort((a, b) => a.order - b.order)
+		: [];
+
+// 相关阅读：跨分类，按共同标签；开关在 siteConfig.post.showRelatedByTags。
+// 上/下一篇已在阅读链里，这里去重，避免同一页重复推荐同一篇。
+const chainNeighbours = new Set<string>(
+	[readingChain?.prev?.slug ?? "", readingChain?.next?.slug ?? ""].filter(
+		Boolean,
+	),
+);
+const relatedArticles = siteConfig.post.showRelatedByTags
+	? buildRelatedByTags(
+			visibleTranslations.map((item) => ({
+				slug: item.data.slug,
+				title: item.data.title,
+				tags: item.data.tags ?? [],
+				published: item.data.published,
+			})),
+			entry.data.slug,
+		).filter((item) => !chainNeighbours.has(item.slug))
+	: [];
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -183,6 +224,18 @@ const jsonLd = {
 			<div class="border-(--line-divider) border-dashed border-b mt-3 mb-5" />
 		</div>
 
+		{seriesItems.length > 0 && (
+			<div class="onload-animation mb-6">
+				<SeriesNav
+					series={seriesName}
+					order={seriesOrder}
+					items={seriesItems}
+					basePath="/en/posts/"
+					lang="en"
+				/>
+			</div>
+		)}
+
 		<Markdown class="mb-6 markdown-content onload-animation">
 			<Content />
 		</Markdown>
@@ -200,5 +253,9 @@ const jsonLd = {
 			allHref="/notes/"
 			lang="en"
 		/>
+
+		{relatedArticles.length > 0 && (
+			<RelatedArticles items={relatedArticles} basePath="/en/posts/" lang="en" />
+		)}
 	</article>
 </MainGridLayout>
