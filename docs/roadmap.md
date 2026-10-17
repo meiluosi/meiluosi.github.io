@@ -300,7 +300,27 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 未验证：没有浏览器自动化，页面过渡的 `z-index` 层级、触屏 hover 粘滞修复、skip link 是否被 sticky 导航遮挡都只做了静态推演，需要在真实浏览器里看一眼。
 
+## Phase 19：⌘K 命令面板与死交互层清理（2026-10-18 完成）
+
+- [x] **命令面板数据**：新增 `/api/palette.json`，构建时生成 77 条（37 篇中文文章 + 31 篇英文译文 + 9 个页面），只保留标题/描述/标签/分类，产物 35KB，首次打开才请求。
+- [x] **面板交互**：新增 `CommandPalette.svelte`，原生 `<dialog>` + `showModal()`；⌘K / Ctrl+K、`/`（非输入态）、导航按钮三个入口；懒加载 + 缓存 + loading/空/失败三态（失败可重试并给 `/notes/` 兜底）；按标题前缀 > 标题包含 > 标签/分类 > 描述打分，当前语言优先，最多 8 条；combobox + listbox + `aria-activedescendant`，↑↓/Home/End/Enter，IME 组合态不劫持 Enter，关闭后焦点返回触发元素。
+- [x] **入口接线**：Navbar 增加「搜索 ⌘K」触发按钮（桌面 40px、移动端 44px、≤360px 收成图标），Layout 在 `<slot />` 后挂 `client:idle`。
+- [x] **死交互层清理**：用可达性脚本（根 = `src/pages/**` + 配置入口，解析 import / export-from / 动态 import / `import.meta.glob`，支持路径别名）确认后删除 `src/components/` 下 **40 个零引用组件，约 272.5KB 源码**：搜索面板与高级搜索、悬浮目录与控件、两份显示设置、主题/壁纸/布局切换、下拉菜单系列、Live2D/Spine 看板娘、音乐管理、粒子/樱花特效、AI 聊天、知识图谱、归档与分页、旧文章卡片/页面、Hero、推荐阅读等；`src/components/README.md` 同步更新。
+- [x] **连带清理**：`src/data/concepts.ts`（唯一消费者已删）、`scripts/generate-knowledge-graph.ts` 与 `src/constants/knowledge-graph.json`（消费组件已删，构建步骤一并移除）、`main.css` 的 `.search-panel mark` 死 CSS、`env.d.ts` 中已删组件的 window 全局类型。
+
+验收：`pnpm check`（191 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页）通过；`/api/palette.json` 200、35KB、77 条；首页 2 个岛（语言切换 + 命令面板），文章页也带触发按钮；预览下 `/`、`/notes/`、`/library/`、中英文章页、`/world/`、`/about/` 与 `palette.json` 均 200。
+
+未验证：命令面板未做浏览器/真机/屏幕阅读器/真实 IME 实测，⌘K 是否被浏览器抢占、`client:idle` 水合前的点击竞态、320–390px 换行只做了静态推演。
+
+仍未做：配置层空壳（`pioConfig`/`aiChatConfig` 的类型与 barrel 导出、樱花 getter、`l2d-widget`/`pagefind` 依赖）仍保留，删除需要动类型与锁文件；`MusicPlayer`/`SideBar`/`TypewriterText` 等虽然由可达布局引用，但对应功能已关闭，属于更深一层的布局精简。
+
 ## 版本记录
+
+### 2026-10-18：⌘K 命令面板与死交互层清理
+
+- [x] 新增 `/api/palette.json`（77 条、35KB）与 `CommandPalette.svelte`：⌘K / `/` / 导航按钮三入口，键盘与 ARIA 完整，懒加载三态兜底。
+- [x] 清理 40 个零引用交互组件（约 272.5KB 源码）并同步 README。
+- [x] 连带删除 concepts.ts、知识图谱生成脚本与产物、死 CSS 与 window 全局类型。
 
 ### 2026-10-18：动效系统与交互一致性
 

@@ -4,6 +4,7 @@ import La51Analytics from "@components/analytics/La51Analytics.astro";
 import MicrosoftClarity from "@components/analytics/MicrosoftClarity.astro";
 import UmamiAnalytics from "@components/analytics/UmamiAnalytics.astro";
 import BrandMotion from "@components/features/BrandMotion.astro";
+import CommandPalette from "@components/features/CommandPalette.svelte";
 import FancyboxManager from "@components/features/FancyboxManager.astro";
 import FontSetup from "@components/features/FontSetup.astro";
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
@@ -665,6 +666,7 @@ const siteLang = lang.replace("_", "-");
     {shouldShowTopHighlight && <div class="top-gradient-highlight" />}
     <ConfigCarrier />
     <slot />
+    <CommandPalette client:idle />
     <BrandMotion />
     <!-- Fancybox Manager -->
     <FancyboxManager />

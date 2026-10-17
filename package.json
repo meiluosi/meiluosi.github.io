@@ -8,7 +8,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
-    "build": "node scripts/generate-icons.js && npx tsx scripts/generate-lqips.ts && npx tsx scripts/generate-summaries.ts && npx tsx scripts/generate-knowledge-graph.ts && astro build && npx tsx scripts/subset-fonts.ts",
+    "build": "node scripts/generate-icons.js && npx tsx scripts/generate-lqips.ts && npx tsx scripts/generate-summaries.ts && astro build && npx tsx scripts/subset-fonts.ts",
     "preview": "astro preview",
     "astro": "astro",
     "type-check": "tsc --noEmit --isolatedDeclarations",
@@ -18,8 +18,7 @@
     "preinstall": "npx only-allow pnpm",
     "icons": "node scripts/generate-icons.js",
     "lqips": "npx tsx scripts/generate-lqips.ts",
-    "summaries": "npx tsx scripts/generate-summaries.ts",
-    "knowledge-graph": "npx tsx scripts/generate-knowledge-graph.ts"
+    "summaries": "npx tsx scripts/generate-summaries.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

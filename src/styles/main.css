@@ -177,9 +177,6 @@ html {
     .float-panel-closed * {
         @apply pointer-events-none
     }
-    .search-panel mark {
-        @apply bg-transparent text-(--primary)
-    }
 
     .btn-card {
         @apply transition-colors duration-150 flex items-center justify-center bg-(--card-bg) hover:bg-(--btn-card-bg-hover)
