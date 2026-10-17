@@ -12,36 +12,18 @@
 - `Footer.astro` - 页脚组件
 - `Navbar.astro` - 导航栏组件
 - `PostMeta.astro` - 文章元数据组件
-- `SideBar.astro` - 侧边栏组件
 
 ### 🔧 common/ - 公共可复用组件
 
 通用的 UI 组件和工具组件，支持跨项目复用。
 
 **基础 UI 组件**
-- `ButtonLink.astro` - 链接按钮
-- `ButtonTag.astro` - 标签按钮
 - `Icon.svelte` - 图标组件（带加载状态和错误处理）
-- `WidgetLayout.astro` - 小部件布局容器
 
 **内容和展示组件**
 - `CoverImage.astro` - 封面图组件（支持本地图片和随机图API）
 - `ImageWrapper.astro` - 图片包装器（支持本地和远程图片）
 - `Markdown.astro` - Markdown 内容样式包装器
-
-### 🧩 widget/ - 小部件
-
-侧边栏中使用的各种功能小部件。
-
-- `Advertisement.astro` - 广告组件
-- `Announcement.astro` - 公告组件
-- `Calendar.astro` - 日历组件
-- `Categories.astro` - 分类组件
-- `Profile.astro` - 个人信息/社交链接小部件
-- `SidebarTOC.astro` - 侧边栏目录组件
-- `SiteInfo.astro` - 站点信息组件
-- `SiteStats.astro` - 站点统计组件
-- `Tags.astro` - 标签组件
 
 ### ✨ features/ - 全局功能特效组件
 
@@ -91,7 +73,6 @@
 |------|------|------|
 | **layout/** | 页面布局和结构 | 决定整体页面框架 |
 | **common/** | 通用可复用组件 | 跨多个页面/组件使用 |
-| **widget/** | 侧边栏小部件 | 侧边栏特定组件 |
 | **features/** | 全局功能特效 | 全局加载的增强功能 |
 | **comment/** | 评论系统 | 第三方服务集成 |
 | **analytics/** | 数据统计 | 分析和统计服务 |

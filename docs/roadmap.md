@@ -312,7 +312,7 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 未验证：命令面板未做浏览器/真机/屏幕阅读器/真实 IME 实测，⌘K 是否被浏览器抢占、`client:idle` 水合前的点击竞态、320–390px 换行只做了静态推演。
 
-仍未做：配置层空壳与布局叶子组件已在本轮 Phase 20 处理；`MusicPlayer` 已删但整个 `SideBar` 及 `widget/` 仍由可达布局静态引用，属更深一层的结构精简。
+仍未做：配置层空壳与布局叶子组件已在 Phase 20 处理，SideBar 组件与 widget 目录已在 Phase 21 移除。
 
 ## Phase 20：内容时效信号、配置层空壳与布局叶子组件（2026-10-18 完成）
 
@@ -327,9 +327,27 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 未验证：没有浏览器实测，提示条的实际显隐（依赖客户端按天数计算）与首页新导语的视觉节奏未肉眼确认。
 
-仍未做：整个 `SideBar` 与 `widget/` 仍由可达布局静态引用（侧栏配置关闭）；i18n 里仍有 `music*` 等约 19 个键零引用，需要一次统一的死键扫描；`docs/features.md` 保留历史功能设想，其中提到的 Live2D/樱花等已下线，属历史记录不再回溯。
+仍未做：`docs/features.md` 保留历史功能设想，其中提到的 Live2D/樱花等已下线，属历史记录不再回溯。
+
+## Phase 21：侧边栏组件、i18n 死键与依赖下线（2026-10-18 完成）
+
+- [x] **侧边栏组件移除**：`MainGridLayout` 删除 `SideBar` import 与 5 处渲染块，替换为与构建产物逐字一致的静态占位（`#left-sidebar-dynamic` / `#right-sidebar-static` / `#right-sidebar-dynamic`），保留 `#main-grid` 的 class 计算、`data-sidebar-*` 与 `#grid-class-carrier`（Layout 脚本仍读这些）。删除 `SideBar.astro`、9 个 sidebar widget、`toc-utils.ts`，以及只被 Calendar 使用的 `/api/allPostMeta.json`。文章页 HTML 体积与改前一致，说明渲染没有变化。
+- [x] **i18n 死键清理**：315 个键里有 232 个零引用（音乐、番组、追番、归档、标签页、搜索面板、赞助、壁纸/主题/特效设置、分页、旧版 404 文案等），从 `i18nKey.ts` 与 5 个语言文件对称删除，剩 83 个；`type-check` 通过即证明 5 份翻译表完整。
+- [x] **依赖下线**：`l2d-widget`、`pagefind` 从 `package.json` 移除并用 `pnpm remove` 重建锁文件（此前离线环境只能保留），node_modules 中已不存在。
+- [x] **收尾残留**：再删 3 个零引用组件（`WidgetLayout` / `ButtonTag` / `ButtonLink`）与 `widget-responsive.css`；`env.d.ts` 去掉已无生产者的 TOC 全局；`components/README.md`、`architecture.md` 同步。
+
+验收：`pnpm check`（160 文件，0 error / 0 warning）、`pnpm type-check`、完整 `pnpm build`（102 页）通过；产物核对三处侧栏占位逐字保留、文章页 HTML 与改前同长、`/api/allPostMeta.json` 返回 404、widget/allPostMeta 引用为 0、`widget-title`/`sidebar-toc` 的 CSS 已消失；预览下首页、中英文章页、`/notes/`、`/api/palette.json`、`/api/note-search.json`、`/about/` 全 200。
+
+仍未做：`sidebarConfig` / `responsive-utils` 的网格 class 计算仍保留（`#main-grid` 的 `data-sidebar-*` 与 `#grid-class-carrier` 仍被 Layout 脚本读取）；彻底去掉需要同时改 Layout 的脚本与首屏 class 生成，风险大于收益。`docs/features.md` 不回改。
 
 ## 版本记录
+
+### 2026-10-18：侧边栏组件、i18n 死键与依赖下线
+
+- [x] MainGridLayout 移除 SideBar 与 5 处渲染块，替换为逐字一致的静态占位；删除 SideBar + 9 个 widget + toc-utils + allPostMeta 接口。
+- [x] i18n 从 315 个键精简到 83 个（删除 232 个零引用键，6 个文件对称）。
+- [x] `l2d-widget`、`pagefind` 从依赖中移除并重建锁文件。
+- [x] 再删 3 个零引用组件与 widget-responsive.css，清理 env.d.ts 与 README/architecture。
 
 ### 2026-10-18：时效信号、配置空壳与布局叶子组件
 

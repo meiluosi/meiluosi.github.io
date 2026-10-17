@@ -1,7 +1,6 @@
 ---
 import Footer from "@components/layout/Footer.astro";
 import Navbar from "@components/layout/Navbar.astro";
-import SideBar from "@components/layout/SideBar.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon/components";
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
@@ -21,8 +20,6 @@ import { getBackgroundImages, isHomePage } from "@/utils/layout-utils";
 import {
 	generateGridClasses,
 	generateMainContentClasses,
-	generateRightSidebarClasses,
-	generateSidebarClasses,
 	getResponsiveSidebarConfig,
 	type ResponsiveSidebarConfig,
 } from "@/utils/responsive-utils";
@@ -202,11 +199,6 @@ const updatedGridConfig: ResponsiveSidebarConfig = {
 };
 
 const { gridCols } = generateGridClasses(updatedGridConfig);
-const sidebarClass = generateSidebarClasses(updatedGridConfig);
-const rightSidebarClass =
-	effectiveIsBothSidebars || sidebarLayoutConfig.position === "right"
-		? generateRightSidebarClasses(updatedGridConfig)
-		: "";
 const mainContentClass = generateMainContentClasses(updatedGridConfig);
 const staticBarClass = mainContentClass.replace("transition-main", "").trim();
 
@@ -791,37 +783,9 @@ const hasMultipleImages =
           data-show-both-sidebars-on-post={sidebarLayoutConfig.showBothSidebarsOnPostPage ? "true" : "false"}
         >
 
-            {/* 渲染左侧边栏 - 根据position和tabletSidebar配置显示 */}
-            {/*
-                如果全局配置为双侧栏(position: both)或仅左侧栏(position: left)，则使用静态容器(不被swup替换)，避免闪烁。
-                如果全局配置为仅右侧栏(position: right)，则使用动态容器(被swup替换)，以便在文章页显示左侧栏。
-                注意：为了满足swup要求所有containers必须存在，我们在所有模式下都必须渲染 #left-sidebar-dynamic。
-            */}
-            {sidebarLayoutConfig.position !== "right" ? (
-                <>
-                    {sidebarLayoutConfig.enable ? (
-                        <div id="left-sidebar-wrapper" class="contents" data-hide-sidebar-on-post={hideSidebarOnPostPage ? "true" : "false"} style="contain: layout style paint;">
-                            {effectiveHasLeftComponents && (
-                                <SideBar
-                                    side={effectiveIsBothSidebars ? "left" : undefined}
-                                    class={sidebarClass}
-                                    headings={headings}
-                                />
-                            )}
-                        </div>
-                    ) : (
-                        <div id="left-sidebar-wrapper" class="hidden"></div>
-                    )}
-                    <div id="left-sidebar-dynamic" class="hidden transition-swup-fade"></div>
-                </>
-            ) : (
-                <div id="left-sidebar-dynamic" class="contents transition-swup-fade">
-                    {effectiveIsBothSidebars && effectiveHasLeftComponents && (
-						<SideBar side="left" class={sidebarClass} headings={headings}></SideBar>
-                    )}
-                </div>
-            )}
-                    
+            {/* 侧栏已关闭：只保留与构建产物一致的 Swup 占位容器，供 Layout 脚本查找 */}
+            <div id="left-sidebar-dynamic" class="contents transition-swup-fade"></div>
+
             {/* 主内容区包装器 - 包含静态栏位和swup容器，作为单个grid item */}
             <div class={staticBarClass}>
                 {/* 主内容区 - 始终渲染，确保 Swup 容器存在 */}
@@ -849,40 +813,9 @@ const hasMultipleImages =
             </main>
             </div>
 
-            {/* 右侧边栏 - 双侧边栏模式或仅右侧栏模式 */}
-            {/*
-                如果全局配置为双侧栏(position: both)或仅右侧栏(position: right)，则使用静态容器(不被swup替换)，避免闪烁。
-                如果全局配置为单侧栏(position: left)，则使用动态容器(被swup替换)，以便在文章页显示右侧栏。
-                注意：为了满足swup要求所有containers必须存在，我们在所有模式下都必须渲染 #right-sidebar-dynamic。
-                右侧边栏的显示由CSS类控制。
-            */}
-            {(sidebarLayoutConfig.position === "both" || sidebarLayoutConfig.position === "right") ? (
-                <>
-                    {sidebarLayoutConfig.enable ? (
-                        <div id="right-sidebar-static" class="contents" data-hide-sidebar-on-post={hideSidebarOnPostPage ? "true" : "false"}>
-                            {(effectiveIsBothSidebars || sidebarLayoutConfig.position === "right") && effectiveHasRightComponents && (
-								<SideBar side="right" class={rightSidebarClass} headings={headings}></SideBar>
-                            )}
-                        </div>
-                    ) : (
-                        <div id="right-sidebar-static" class="hidden"></div>
-                    )}
-                    <div id="right-sidebar-dynamic" class="hidden transition-swup-fade"></div>
-                </>
-            ) : (
-                <div id="right-sidebar-dynamic" class="contents transition-swup-fade">
-                    {effectiveIsBothSidebars && effectiveHasRightComponents && (
-						<SideBar side="right" class={rightSidebarClass} headings={headings}></SideBar>
-                    )}
-                </div>
-            )}
-
-            {/* 移动端底部组件 - 768px及以下显示 */}
-            {sidebarLayoutConfig.mobileBottomComponents && sidebarLayoutConfig.mobileBottomComponents.length > 0 && (
-                <div id="mobile-bottom-sidebar" class="col-span-1 block md:hidden mt-4">
-					<SideBar side="bottom" headings={headings}></SideBar>
-                </div>
-            )}
+            {/* 侧栏已关闭：只保留与构建产物一致的静态占位（右侧栏 + Swup 动态容器） */}
+            <div id="right-sidebar-static" class="hidden"></div>
+            <div id="right-sidebar-dynamic" class="hidden transition-swup-fade"></div>
 
             <div class={footerClassName}>
                 <Footer></Footer>
