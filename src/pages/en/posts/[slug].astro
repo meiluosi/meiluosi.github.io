@@ -5,12 +5,14 @@ import Markdown from "@/components/common/Markdown.astro";
 import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
 import KatexManager from "@/components/features/KatexManager.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
+import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import { profileConfig } from "@/config/profileConfig";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
+import { buildReadingChain } from "@/utils/reading-chain";
 import { removeFileExtension } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
@@ -45,6 +47,27 @@ const { Content, headings, remarkPluginFrontmatter } = await render(entry);
 
 const words = Math.round(Number(remarkPluginFrontmatter.words ?? 0));
 const minutes = Math.max(1, Math.ceil(words / 220));
+
+// 英文页的阅读链只包含真正发布的译文，顺序与中文页一致（同主题优先）。
+const [englishEntries, publicSources] = await Promise.all([
+	getCollection("enPosts"),
+	getCollection("posts", ({ data }) => !data.draft && !data.password),
+]);
+const publicSourceIds = new Set(
+	publicSources.map((item) => removeFileExtension(item.id)),
+);
+const readingChain = buildReadingChain(
+	englishEntries
+		.filter((item) =>
+			publicSourceIds.has(removeFileExtension(item.data.sourceId)),
+		)
+		.map((item) => ({
+			slug: item.data.slug,
+			title: item.data.title,
+			published: item.data.published,
+			category: item.data.category,
+		})),
+).get(entry.data.slug);
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -168,6 +191,14 @@ const jsonLd = {
 			graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)}
 			english
 			client:load
+		/>
+
+		<ReadingChain
+			prev={readingChain?.prev ?? null}
+			next={readingChain?.next ?? null}
+			basePath="/en/posts/"
+			allHref="/notes/"
+			lang="en"
 		/>
 	</article>
 </MainGridLayout>

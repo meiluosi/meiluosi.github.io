@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Text from "@/components/common/BilingualText.astro";
 import NoteSearch from "@/components/features/NoteSearch.astro";
 import Navbar from "@/components/layout/Navbar.astro";
+import { categoryLabels as categoryLabelsShared } from "@/data/category-labels";
 import Layout from "@/layouts/Layout.astro";
 import { getSortedPosts } from "@/utils/content-utils";
 import { removeFileExtension } from "@/utils/url-utils";
@@ -20,18 +21,7 @@ const dateLabelEn = (date: Date) =>
 	new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short" }).format(
 		date,
 	);
-const categoryLabels: Record<string, string> = {
-	"AI Applications": "AI 应用",
-	"Data Science": "数据科学",
-	"Deep Learning": "深度学习",
-	"Game AI": "游戏 AI",
-	"Machine Learning": "机器学习",
-	NLP: "自然语言处理",
-	Probability: "概率论",
-	"Reinforcement Learning": "强化学习",
-	Research: "研究",
-	Uncategorized: "未分类",
-};
+const categoryLabels: Record<string, string> = categoryLabelsShared;
 const tagLabels: Record<string, string> = {
 	Agent与RAG: "Agents & RAG",
 	"Apple Silicon": "Apple Silicon",

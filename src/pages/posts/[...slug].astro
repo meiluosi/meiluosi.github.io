@@ -11,11 +11,7 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@utils/content-utils";
-import {
-	getFileDirFromPath,
-	getPostUrlBySlug,
-	removeFileExtension,
-} from "@utils/url-utils";
+import { getFileDirFromPath, removeFileExtension } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -23,6 +19,7 @@ import AiSummary from "@/components/common/AiSummary.astro";
 import CoverImage from "@/components/common/CoverImage.astro";
 import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
+import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import SharePoster from "@/components/misc/SharePoster.svelte";
@@ -35,6 +32,7 @@ import { brandTranslations } from "@/i18n/brand";
 import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
+import { buildReadingChain } from "@/utils/reading-chain";
 import { url } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
@@ -63,6 +61,19 @@ const { entry, localeZhUrl, localeEnUrl } = Astro.props;
 const { Content, headings } = await render(entry);
 
 const { remarkPluginFrontmatter } = await render(entry);
+
+// 阅读链：同主题优先，分类内没有邻居时退回发布时间相邻。
+// 加密文章不进入链，避免把读者带到需要密码的页面。
+const readingChain = buildReadingChain(
+	(await getSortedPosts())
+		.filter((post) => !post.data.draft && !post.data.password)
+		.map((post) => ({
+			slug: removeFileExtension(post.id),
+			title: post.data.title,
+			published: post.data.published,
+			category: post.data.category,
+		})),
+).get(removeFileExtension(entry.id));
 
 const bannerPostMeta = {
 	title: entry.data.title,
@@ -596,39 +607,13 @@ const jsonLd = {
     slug={removeFileExtension(entry.id)}
   />
 
-  <div
-    class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full"
-  >
-    <a
-      href={entry.data.nextSlug ? getPostUrlBySlug(entry.data.nextSlug) : url("/notes/")}
-      class="w-full font-bold overflow-hidden active:scale-95"
-    >
-      <div class="btn-card rounded-2xl w-full h-15 max-w-full px-4 flex items-center justify-start! gap-4">
-        <Icon is:inline
-          name="material-symbols:chevron-left-rounded"
-          class="text-[2rem] text-(--primary)"
-        />
-        <div class="overflow-hidden transition text-ellipsis whitespace-nowrap max-w-[calc(100%-3rem)] text-black/75 dark:text-white/75">
-          {entry.data.nextTitle || <span data-i18n="post.allNotes">所有笔记</span>}
-        </div>
-      </div>
-    </a>
-
-    <a
-      href={entry.data.prevSlug ? getPostUrlBySlug(entry.data.prevSlug) : url("/notes/")}
-      class="w-full font-bold overflow-hidden active:scale-95"
-    >
-      <div class="btn-card rounded-2xl w-full h-15 max-w-full px-4 flex items-center justify-end! gap-4">
-        <div class="overflow-hidden transition text-ellipsis whitespace-nowrap max-w-[calc(100%-3rem)] text-black/75 dark:text-white/75">
-          {entry.data.prevTitle || <span data-i18n="post.allNotes">所有笔记</span>}
-        </div>
-        <Icon is:inline
-          name="material-symbols:chevron-right-rounded"
-          class="text-[2rem] text-(--primary)"
-        />
-      </div>
-    </a>
-  </div>
+  <ReadingChain
+    prev={readingChain?.prev ?? null}
+    next={readingChain?.next ?? null}
+    basePath="/posts/"
+    allHref={url("/notes/")}
+    lang="zh"
+  />
 
 
   <!-- 评论 -->
