@@ -50,3 +50,11 @@
 - [CLAUDE.md](../CLAUDE.md) — Claude Code 指南
 
 - [智能手记与文献解读](./rsi-reading-notebook.md)：RSI／AGI 互动叙事、逐篇解读标准与 dot 文献清单状态。
+
+- [大模型训练研究笔记栏目规划](./llm-training-series-plan.md)：第一卷改写原则与第二至第七卷主题、篇目及交付目标。
+
+- [七卷执行记录](./llm-training-series-progress.md)：正文、来源核对和页面验收的实际进展。
+
+- [第二卷审校记录](./pretraining-foundations-research.md)：一手来源、实现边界、教学算例与整卷页面验收。
+
+- [第三卷 SFT 审校记录](./sft-research.md)：任务示范、模板与监督范围的来源、算例和验收。

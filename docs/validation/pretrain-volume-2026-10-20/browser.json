@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "01-tokenization",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 1,
+    "sections": 9,
+    "mermaid": 0,
+    "graphNodes": 67,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "02-objective",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 5,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 71,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "03-forward",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 7,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 57,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "04-batching",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 4,
+    "sections": 11,
+    "mermaid": 0,
+    "graphNodes": 54,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "05-optimization",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 7,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 50,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "06-experiment",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "sections": 12,
+    "mermaid": 0,
+    "graphNodes": 71,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "01-tokenization",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 1,
+    "sections": 9,
+    "mermaid": 0,
+    "graphNodes": 67,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "02-objective",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 5,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 71,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "03-forward",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 7,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 57,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "04-batching",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 4,
+    "sections": 11,
+    "mermaid": 0,
+    "graphNodes": 54,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "05-optimization",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 7,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 50,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "06-experiment",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "sections": 12,
+    "mermaid": 0,
+    "graphNodes": 71,
+    "brokenAnchors": []
+  }
+]

@@ -340,6 +340,38 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 仍未做：`sidebarConfig` / `responsive-utils` 的网格 class 计算仍保留（`#main-grid` 的 `data-sidebar-*` 与 `#grid-class-carrier` 仍被 Layout 脚本读取）；彻底去掉需要同时改 Layout 的脚本与首屏 class 生成，风险大于收益。`docs/features.md` 不回改。
 
+## Phase 22：数据卷通俗化与后续栏目规划（2026-10-20）
+
+- [x] 重写第一卷六篇，以具体问题、直觉、算例、设计边界与对照问题组织正文。
+- [x] 保留数据集范围、版本口径、原始引用与核心推导，区分教学设定和真实结果。
+- [x] 规划第二至第七卷，重点转向 SFT、偏好学习、推理强化学习和工具调用训练。
+- [x] 完成站点构建、公式、概念网络与桌面／手机阅读检查。
+
+详见 [栏目规划](./llm-training-series-plan.md) 和 [数据卷改写记录](./pretraining-data-research.md)。后续卷次为拟写内容，不新增网站导航模块。
+
+## Phase 23：大模型训练研究笔记七卷写作（进行中）
+
+七卷、42 篇范围已确认，按卷推进来源核对、正文、技术审校和页面验证，不设 token 预算。详见[栏目规划](./llm-training-series-plan.md)与[执行记录](./llm-training-series-progress.md)。
+
+- [x] 第一卷六篇读者友好改写与验收。
+- [x] 第二卷前两篇：分词与训练目标；教学算例核对、构建及桌面/手机检查。
+- [x] 第二卷后四篇：前向计算、batch、优化稳定性、小模型实验；整卷来源、算例和页面验收。
+- [x] 第三卷前三篇：任务示范、消息与模板、监督位置；来源、算例和页面验收。
+- [x] 第三卷后三篇：指令数据、LoRA/QLoRA、效果与退化评价；整卷验收。
+- [ ] 第四至第七卷正文与逐卷验收。
+
+## Phase 24：架构减脂、学术杂志视觉收口与五项互动实验扩展（2026-10-21 完成）
+
+- [x] **布局与遗留债务清理**：`Layout.astro`（1,319 → 393 行）与 `MainGridLayout.astro`（857 → 121 行）精简，补首屏同步 `lang` 与 `[data-i18n-en]` 预解析消除英文闪烁；移除 12 个零引用遗留组件/工具/样式文件，合并字体栈 CSS 变量。
+- [x] **视觉与文章页收口**：统一导航右侧控件簇触控尺寸与边框语言；重构 `License.astro` 与 `BibTeXCitation.astro` 为鼠尾草学术出版物尾注风格；去除 `posts/[...slug].astro` 重复 `render(entry)`。
+- [x] **阅读与检索交互增强**：`CommandPalette.svelte` 增加搜索词 `<mark>` 高亮与水合前排队唤醒；`ArticleNavigation.astro` 新增移动端底部浮动目录胶囊与抽屉；`SeriesNav.astro` 增加本地已读进度标记；代码块与宽表格补充横向滚动阴影提示。
+- [x] **五项实验室与互动展示落地**：
+  1. `/lab/cfr-poker/`：Kuhn Poker 反事实遗憾最小化（CFR）实验台（12 信息集策略演化、1:3 诈唬价值比、人机实战对局）并为 `/work/` 与案例页补齐 `ResearchVisual kind="cfr"`。
+  2. `/lab/preference-alignment/`：DPO 偏好对齐与 KL 锚定实验台（调节 $\beta$ 与迎合偏差 $\alpha_{\text{bias}}$，展示古德哈特前沿拐点与奖励黑客崩塌）。
+  3. `/lab/rope-attention/`：RoPE 旋转位置编码与注意力星盘实验台（6 通道复平面日晷、平移不变性检验、线性插值 PI vs. NTK-Aware 缩放对比）。
+  4. `MarginGadget3D.svelte`：交互式三维数学与机械小摆件（三维鞍点曲面与动量逃逸、多频相位浑天仪、UCT 探索与利用力矩天平），支持拖拽旋转与 `prefers-reduced-motion`。
+  5. `InteractiveMathEnhancer.astro`：文章页 KaTeX 公式符号跨段落悬停/点击锁定联动高亮与内联温度微调尺。
+
 ## 版本记录
 
 ### 2026-10-18：侧边栏组件、i18n 死键与依赖下线

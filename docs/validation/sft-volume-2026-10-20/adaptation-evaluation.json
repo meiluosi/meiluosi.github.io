@@ -1,0 +1,35 @@
+{
+  "kind": "independent-teaching-example-validation",
+  "BA": [
+    [
+      2,
+      -2,
+      0
+    ],
+    [
+      1,
+      -1,
+      0
+    ]
+  ],
+  "adapter_output": [
+    4,
+    2
+  ],
+  "full_matrix_parameters": 16777216,
+  "adapter_parameters": 65536,
+  "adapter_percentage": 0.390625,
+  "ideal_weight_storage_GiB": {
+    "4_bit": 0.46566128730773926,
+    "16_bit": 1.862645149230957
+  },
+  "paired_outcomes": {
+    "both_correct": 66,
+    "fixed": 12,
+    "regressed": 4,
+    "both_wrong": 18
+  },
+  "all_null_field_accuracy": 0.6666666666666666,
+  "boolean_step_rejected": true,
+  "scope": "Toy algebra, units and metric counts only; no training or hardware measurement."
+}

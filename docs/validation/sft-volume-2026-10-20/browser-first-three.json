@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "01-demonstrations",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "sections": 9,
+    "mermaid": 0,
+    "graphNodes": 56,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "02-messages",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 43,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "03-loss-mask",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "sections": 11,
+    "mermaid": 0,
+    "graphNodes": 49,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "01-demonstrations",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "sections": 9,
+    "mermaid": 0,
+    "graphNodes": 56,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "02-messages",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "sections": 10,
+    "mermaid": 0,
+    "graphNodes": 43,
+    "brokenAnchors": []
+  },
+  {
+    "slug": "03-loss-mask",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "sections": 11,
+    "mermaid": 0,
+    "graphNodes": 49,
+    "brokenAnchors": []
+  }
+]
