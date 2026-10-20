@@ -1,0 +1,58 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import RopeAttentionLab from "@/components/features/RopeAttentionLab.svelte";
+---
+
+<ExploreLayout
+	title="RoPE 旋转位置编码星盘实验"
+	titleEn="RoPE rotary position astrolabe"
+	description="在多频复平面星盘上拨动 Query 与 Key 词元位置，观察绝对旋转如何化约为纯粹的相对距离内积与长上下文外推。"
+	descriptionEn="Rotate Query and Key token positions across multi-frequency complex planes to see how absolute rotation reduces to relative-distance attention and long-context scaling."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="RoPE 旋转位置编码与注意力星盘"
+			en="RoPE Rotary Position Embedding & Attention Astrolabe"
+		/>
+	</header>
+
+	<ResearchQuestion
+		question="每个词元只乘上自己的绝对位置旋转角，为什么注意力内积却只认识「相对距离」？"
+		questionEn="If each token is rotated only by its own absolute position index, how does their dot product know only the relative distance?"
+		hint="点击「同时平移两个词元 (m+5, n+5)」，观察六个频率通道上的 Query 与 Key 指针都发生了旋转，但每对指针的夹角 Δ·θ_k 与总注意力核得分却纹丝不动。再切换「线性位置插值 PI」与「NTK-Aware」，比较高频通道 0 的局部混叠差异。"
+		hintEn="Click 'Shift Both Tokens (m+5, n+5)' and watch every Query and Key hand rotate while their angular separation Δ·θ_k and kernel score stay locked. Then toggle Linear PI vs. NTK-Aware scaling to see how NTK preserves Plane 0's local resolution."
+	/>
+
+	<RopeAttentionLab client:load />
+	<noscript>
+		<p>
+			请启用 JavaScript 操作实验，或阅读下方的方法笔记。 / Enable JavaScript to
+			use the workbench, or read the notes below.
+		</p>
+	</noscript>
+
+	<section class="explore-section" style="margin-top:40px">
+		<Text
+			as="h2"
+			zh="多尺度时间日晷与上下文窗口扩展"
+			en="Multi-scale sundials and context window extension"
+		/>
+		<Text
+			as="p"
+			class="explore-body"
+			zh="RoPE 将特征维度拆分为多组二维复平面，从高频（秒针，捕捉相邻词元语序）到低频（时针，捕捉长程篇章结构）。当直接把上下文窗口扩大 s 倍时，线性位置插值（PI）把所有指针转速除以 s，导致高频秒针变慢、相邻词元分辨力下降；而 NTK-Aware 基底缩放通过改变频率底数 b，让高频指针保持原有分辨精度，仅对低频长波长通道进行平滑拉伸。"
+			en="RoPE partitions hidden dimensions into 2D complex planes ranging from fast high-frequency 'second hands' (capturing local word order) to slow low-frequency 'hour hands' (capturing document-level structure). Linear Position Interpolation (PI) divides every frequency by s, crowding adjacent tokens in high-frequency planes; NTK-Aware scaling instead adjusts the base b so high-frequency resolution stays sharp while low-frequency wavelengths stretch."
+		/>
+		<a class="explore-link" href="/lab/model-pipeline/">
+			<Text zh="回到小模型全链路工作台（架构与预训练）" en="Back to the small-model pipeline workbench" /> ↗
+		</a>
+		<p>
+			<a class="explore-link" href="/essays/strandbeest/">
+				<Text zh="延伸阅读：几何旋转与连杆运动随笔" en="Related visual essay: geometry, rotation, and Strandbeest linkages" /> ↗
+			</a>
+		</p>
+	</section>
+</ExploreLayout>

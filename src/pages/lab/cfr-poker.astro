@@ -1,0 +1,63 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import CfrPokerLab from "@/components/features/CfrPokerLab.svelte";
+---
+
+<ExploreLayout
+	title="Kuhn Poker CFR 博弈实验"
+	titleEn="Kuhn Poker CFR workbench"
+	description="在最小不完全信息博弈中观察反事实遗憾最小化（CFR）怎样从随机猜测收敛至纳什均衡。"
+	descriptionEn="Watch Counterfactual Regret Minimization (CFR) converge from uniform guessing to Nash equilibrium in Kuhn Poker."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="Kuhn Poker 与反事实遗憾最小化"
+			en="Kuhn Poker & Counterfactual Regret Minimization"
+		/>
+	</header>
+
+	<ResearchQuestion
+		question="当对手不知道你手里的底牌时，为什么「从不诈唬」反而是可被剥削的劣势策略？"
+		questionEn="When your opponent cannot see your private card, why is 'never bluffing' an exploitable strategy?"
+		hint="把迭代轮数从 T=0 调到 T=1000，观察平均策略中先手拿到 J 的诈唬频率与拿到 K 的价值下注频率怎样稳定在 1:3，以及切换「单步遗憾匹配策略」时瞬时策略的震荡现象。"
+		hintEn="Slide T from 0 to 1000 and watch Player 1's J-bluff and K-value-bet frequencies settle into a 1:3 ratio in the average strategy—then toggle to Current Regret-Matching to see why single-step policies keep oscillating."
+	/>
+
+	<CfrPokerLab client:load />
+	<noscript>
+		<p>
+			请启用 JavaScript 操作实验，或阅读下方的方法笔记。 / Enable JavaScript to
+			use the workbench, or read the notes below.
+		</p>
+	</noscript>
+
+	<section class="explore-section" style="margin-top:40px">
+		<Text
+			as="h2"
+			zh="不完全信息博弈与平均策略收敛"
+			en="Imperfect-information games and average-strategy convergence"
+		/>
+		<Text
+			as="p"
+			class="explore-body"
+			zh="在完全信息棋类（如五子棋）中，MCTS 寻找特定局面的最优后续；而在存在隐藏底牌的 Kuhn Poker 中，单一定向策略会被对手针对。CFR 在每个信息集上累积各动作的反事实遗憾值，虽然单步策略随对手响应不断摆动，但历史平均策略严格逼近纳什均衡（先手理论期望值 -1/18）。"
+			en="In perfect-information board games like Gomoku, MCTS searches for the best continuation from a visible state. In Kuhn Poker, private cards mean any deterministic policy can be exploited. CFR accumulates counterfactual regret at each information set: while current regret-matching strategies oscillate, the historical average strategy converges to Nash equilibrium (expected value -1/18 for Player 1)."
+		/>
+		<a class="explore-link" href="/work/kuhn-poker-cfr/">
+			<Text zh="阅读 Kuhn Poker CFR 研究案例" en="Read the Kuhn Poker CFR research case" /> ↗
+		</a>
+		<p>
+			<a
+				class="explore-link"
+				href="/posts/2024-6-30-应用cfr实现德州扑克对战/"
+				data-i18n-href-zh="/posts/2024-6-30-应用cfr实现德州扑克对战/"
+				data-i18n-href-en="/en/posts/kuhn-poker-cfr/"
+			>
+				<Text zh="查看完整推导与源码笔记" en="Read the full derivation and implementation note" /> ↗
+			</a>
+		</p>
+	</section>
+</ExploreLayout>

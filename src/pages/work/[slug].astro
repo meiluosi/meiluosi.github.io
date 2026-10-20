@@ -27,7 +27,8 @@ const sourceHref = `/posts/${post.id.replace(/\.mdx?$/, "")}/`;
 const translation = englishPosts.find(
 	(entry) => normalize(entry.data.sourceId) === normalize(post.id.replace(/\.mdx?$/, "")),
 );
-const visualKind = study.slug === "local-1b-model-workflow" ? "model" : study.slug === "alphazero-gomoku" ? "search" : study.slug === "ylearn-causal-inference" ? "causal" : null;
+const visualKind = study.slug === "local-1b-model-workflow" ? "model" : study.slug === "alphazero-gomoku" ? "search" : study.slug === "ylearn-causal-inference" ? "causal" : study.slug === "kuhn-poker-cfr" ? "cfr" : null;
+const shareImageKind = visualKind && visualKind !== "cfr" ? visualKind : undefined;
 const sourceHrefEn = translation ? `/en/posts/${translation.data.slug}/` : sourceHref;
 ---
 
@@ -36,7 +37,7 @@ const sourceHrefEn = translation ? `/en/posts/${translation.data.slug}/` : sourc
 	titleEn={`${study.titleEn} — Research Case`}
 	description={study.dek}
 	descriptionEn={study.dekEn}
-	shareImage={visualKind ? `/assets/images/brand/research-${visualKind}.png` : undefined}
+	shareImage={shareImageKind ? `/assets/images/brand/research-${shareImageKind}.png` : undefined}
 >
 	<div class="case-page" data-brand-motion>
 		<Navbar />
@@ -69,6 +70,7 @@ const sourceHrefEn = translation ? `/en/posts/${translation.data.slug}/` : sourc
 			{study.slug === "local-1b-model-workflow" && <section class="source-section"><div><span class="source-label" data-i18n="case.pipeline.label" data-i18n-zh="全链路互动导读" data-i18n-en="INTERACTIVE TRAINING GUIDE">全链路互动导读</span><h2 data-i18n="case.pipeline.title" data-i18n-zh="模型训练流程与阶段产物" data-i18n-en="Training workflow and stage artifacts">模型训练流程与阶段产物</h2></div><a href="/lab/model-pipeline/"><span data-i18n="case.pipeline.open" data-i18n-zh="探索训练链路" data-i18n-en="EXPLORE THE PIPELINE">探索训练链路</span><b>↗</b></a></section>}
 			{study.slug === "alphazero-gomoku" && <section class="source-section"><div><span class="source-label">MCTS / UCT</span><h2 data-i18n="case.search.title" data-i18n-zh="MCTS 搜索过程与统计更新" data-i18n-en="MCTS search and statistics updates">MCTS 搜索过程与统计更新</h2></div><a href="/lab/mcts/"><span data-i18n="case.search.open" data-i18n-zh="动手搜索" data-i18n-en="TRY A SEARCH">动手搜索</span><b>↗</b></a></section>}
 			{study.slug === "ylearn-causal-inference" && <section class="source-section"><div><span class="source-label" data-i18n="case.lab.label" data-i18n-zh="一分钟互动实验" data-i18n-en="A ONE-MINUTE EXPERIMENT">一分钟互动实验</span><h2 data-i18n="case.lab.title" data-i18n-zh="干预分配与因果效应估计" data-i18n-en="Treatment assignment and causal effect estimation">干预分配与因果效应估计</h2></div><a href="/lab/causal-playground/"><span data-i18n="case.lab.open" data-i18n-zh="动手试试" data-i18n-en="TRY IT">动手试试</span><b>↗</b></a></section>}
+			{study.slug === "kuhn-poker-cfr" && <section class="source-section"><div><span class="source-label">CFR / NASH EQUILIBRIUM</span><h2 data-i18n="case.cfr.title" data-i18n-zh="Kuhn Poker 反事实遗憾最小化实验台" data-i18n-en="Kuhn Poker CFR convergence workbench">Kuhn Poker 反事实遗憾最小化实验台</h2></div><a href="/lab/cfr-poker/"><span data-i18n="case.cfr.open" data-i18n-zh="进入博弈实验" data-i18n-en="OPEN CFR LAB">进入博弈实验</span><b>↗</b></a></section>}
 		</main>
 		<footer class="case-footer"><span>RECURSIVE SELF-IMPROVEMENT · AGI</span><a href="/contact/"><span data-i18n="case.footer.contact" data-i18n-zh="有好的问题？来聊聊" data-i18n-en="Have a good question? Let's talk">有好的问题？来聊聊</span> ↗</a></footer>
 	</div>

@@ -2,17 +2,367 @@
 import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
 import ResearchVisual from "@/components/features/ResearchVisual.astro";
+import MarginGadget3D from "@/components/features/MarginGadget3D.svelte";
+
 const experiments = [
-	{ href: "/lab/mcts/", code: "01 / SEARCH & FEEDBACK", title: "蒙特卡洛树搜索实验", titleEn: "Monte Carlo tree search", question: "有限的搜索次数，应该花在看起来最好的分支，还是尚未探索的分支上？", questionEn: "Should a limited search budget go to the best-looking branch or an unexplored one?", control: "改变预算、探索权重与随机种子", controlEn: "Change budget, exploration weight, and seed", outcome: "观察四个搜索阶段、访问次数与根动作的变化。", outcomeEn: "Watch the four search phases, visits, and root decision change.", tag: "MCTS / UCT", path: "search-to-self-play" },
-	{ href: "/lab/causal-playground/", code: "02 / CAUSAL EVALUATION", title: "因果效应与选择偏差实验", titleEn: "Causal effects and selection bias", question: "拿到优惠券的人消费更多，是券起了作用，还是两组人本来就不同？", questionEn: "Do coupon recipients spend more because of the coupon, or because the groups were different?", control: "改变发券偏好与真实效果", controlEn: "Change assignment bias and the actual effect", outcome: "观察直接比较与组内比较怎样产生差异。", outcomeEn: "See the raw difference diverge from the within-type effect.", tag: "SELECTION BIAS / ATE", path: "evaluating-improvement" },
+	{
+		href: "/lab/mcts/",
+		code: "01 / SEARCH & FEEDBACK",
+		title: "蒙特卡洛树搜索实验",
+		titleEn: "Monte Carlo tree search",
+		question: "有限的搜索次数，应该花在看起来最好的分支，还是尚未探索的分支上？",
+		questionEn: "Should a limited search budget go to the best-looking branch or an unexplored one?",
+		control: "改变预算、探索权重与随机种子",
+		controlEn: "Change budget, exploration weight, and seed",
+		outcome: "观察四个搜索阶段、访问次数与根动作的变化。",
+		outcomeEn: "Watch the four search phases, visits, and root decision change.",
+		tag: "MCTS / UCT",
+		path: "search-to-self-play",
+	},
+	{
+		href: "/lab/causal-playground/",
+		code: "02 / CAUSAL EVALUATION",
+		title: "因果效应与选择偏差实验",
+		titleEn: "Causal effects and selection bias",
+		question: "拿到优惠券的人消费更多，是券起了作用，还是两组人本来就不同？",
+		questionEn: "Do coupon recipients spend more because of the coupon, or because the groups were different?",
+		control: "改变发券偏好与真实效果",
+		controlEn: "Change assignment bias and the actual effect",
+		outcome: "观察直接比较与组内比较怎样产生差异。",
+		outcomeEn: "See the raw difference diverge from the within-type effect.",
+		tag: "SELECTION BIAS / ATE",
+		path: "evaluating-improvement",
+	},
+	{
+		href: "/lab/cfr-poker/",
+		code: "03 / IMPERFECT-INFO GAME & NASH",
+		title: "Kuhn Poker 反事实遗憾最小化实验",
+		titleEn: "Kuhn Poker CFR & Nash equilibrium",
+		question: "当对手看不到你的底牌时，为什么「从不诈唬」反而是可被剥削的劣势策略？",
+		questionEn: "When your opponent cannot see your private card, why is 'never bluffing' an exploitable strategy?",
+		control: "调节自我博弈轮数 T，切换单步策略与历史平均策略，并亲自与 CFR 对局一手",
+		controlEn: "Scrub self-play iterations T, compare single-step vs. average policy, and play a hand vs. CFR",
+		outcome: "观察 12 个信息集怎样收敛至 J 诈唬与 K 价值下注 1:3 的纳什均衡。",
+		outcomeEn: "Watch all 12 information sets converge to the 1:3 bluff-to-value Nash ratio.",
+		tag: "CFR / NASH EQUILIBRIUM",
+		path: "cfr-poker",
+	},
+	{
+		href: "/lab/preference-alignment/",
+		code: "04 / PREFERENCE ALIGNMENT & GOODHART",
+		title: "DPO 偏好对齐与 KL 锚定实验",
+		titleEn: "DPO preference alignment & KL anchoring",
+		question: "当偏好标注隐含「喜欢冗长或迎合」的偏差时，把对齐强度拉满会发生什么？",
+		questionEn: "When preference labels subtly reward verbosity or flattery, what happens as optimization strength grows?",
+		control: "调节 KL 温度系数 β 与偏好迎合偏差权重 α_bias",
+		controlEn: "Tune KL regularization temperature β and proxy sycophancy bias α_bias",
+		outcome: "观察古德哈特前沿拐点：表观奖励继续上升，而真实质量因阿谀奉承而崩塌。",
+		outcomeEn: "Observe the Goodhart frontier: proxy reward climbs while true utility collapses into sycophancy.",
+		tag: "DPO / KL FRONTIER",
+		path: "preference-alignment",
+	},
+	{
+		href: "/lab/rope-attention/",
+		code: "05 / GEOMETRIC POSITION ENCODING",
+		title: "RoPE 旋转位置编码与注意力星盘",
+		titleEn: "RoPE rotary position astrolabe",
+		question: "每个词元只乘上自己的绝对位置旋转角，为什么注意力内积却只认识「相对距离」？",
+		questionEn: "If each token is rotated only by its own absolute index, why does attention depend strictly on relative distance?",
+		control: "拨动 Query/Key 词元位置 (m, n)，切换线性插值 PI 与 NTK-Aware 上下文扩展",
+		controlEn: "Scrub Query/Key positions (m, n) and compare Standard, Linear PI, and NTK-Aware scaling",
+		outcome: "在六个多频复平面日晷上验证平移不变性与相对距离衰减包络。",
+		outcomeEn: "Verify translation invariance and long-range relative decay across six harmonic complex dials.",
+		tag: "ROPE / NTK SCALING",
+		path: "rope-attention",
+	},
 ];
 ---
-<ExploreLayout title="实验室" titleEn="Lab" description="从全链路模型训练到搜索与因果评估，用互动工作台理解智能系统。" descriptionEn="Interactive workbenches for end-to-end model training, search, and causal evaluation.">
-	<header class="explore-hero compact-page-heading"><Text as="h1" zh="算法与模型交互实验" en="Interactive algorithm and model experiments" /></header>
-	<article class="pipeline-feature"><div><p class="explore-kicker">FEATURED / FROM DATA TO MODEL</p><Text as="h2" zh="小模型全流程训练与评估" en="Small-model training and evaluation" /><Text as="p" zh="数据、分词、随机初始化预训练、SFT、DPO、评测与部署。选择阶段，检查输入输出，再安排第一次训练的预算。" en="Data, tokenization, pretraining from random weights, SFT, DPO, evaluation, and deployment. Choose a stage, inspect its inputs and outputs, and plan a first training budget." /><a class="explore-link" href="/lab/model-pipeline/"><Text zh="打开模型工作台" en="Open the model workbench" /> ↗</a></div><a class="pipeline-picture" href="/lab/model-pipeline/" aria-label="小模型全链路互动工作台" data-i18n-aria-label-zh="小模型全链路互动工作台" data-i18n-aria-label-en="Small-model pipeline workbench"><ResearchVisual kind="model" /><span>~30M → ~100M → ?</span></a></article>
-	<div class="lab-cards">{experiments.map((item) => <article class="explore-card"><p class="explore-kicker">{item.code}</p><div class="lab-illustration" aria-hidden="true">{item.path === "search-to-self-play" ? <svg viewBox="0 0 300 110"><path d="M150 12L60 65M150 12L240 65M60 65L25 98M60 65L95 98M240 65L205 98M240 65L275 98" fill="none" stroke="currentColor" stroke-width="1.5"/>{[[150,12],[60,65],[240,65],[25,98],[95,98],[205,98],[275,98]].map(([x,y]) => <circle cx={x} cy={y} r="7" fill="currentColor" />)}</svg> : <div class="mini-bars"><span><i style="width:80%"></i></span><span><i style="width:20%"></i></span><b>Δ ?</b></div>}</div><Text as="h2" zh={item.title} en={item.titleEn} /><Text as="p" zh={item.question} en={item.questionEn} /><Text as="p" class="lab-control" zh={item.control} en={item.controlEn} /><Text as="p" zh={item.outcome} en={item.outcomeEn} /><div class="lab-links"><a class="explore-link" href={item.href}><Text zh="开始实验" en="Try the experiment" /> ↗</a></div></article>)}</div>
-	<section class="explore-section" style="margin-top:42px"><Text as="h2" zh="实验方法与研究资料" en="Experimental methods and references" /><Text as="p" class="explore-body" zh="实验使用简化的教学模型，规则写在每个实验的说明里。可以先猜测改变参数会发生什么，再运行观察；把意外的结果记下来，往往就是下一次阅读的起点。" en="These experiments use simplified teaching models, with assumptions explained on each page. Predict what a parameter change will do, then run it. An unexpected result often becomes a useful starting point for further reading." /><a class="explore-link" href="/rsi/"><Text zh="带着这次观察，翻开智能手记" en="Take this observation to the intelligence notebook" /> ↗</a></section>
-</ExploreLayout>
-<style>.lab-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}.lab-cards :global(h2){font-size:28px;margin-top:28px}.lab-illustration{height:150px;display:grid;place-items:center;background:var(--brand-paper);border-radius:10px;color:var(--brand-accent);margin:24px 0}.lab-illustration svg{width:80%;height:110px}.mini-bars{width:75%;position:relative;padding-right:45px}.mini-bars>span{display:block;height:20px;background:var(--brand-peach);border-radius:4px;overflow:hidden;margin:12px 0}.mini-bars i{display:block;height:100%;background:var(--brand-accent)}.mini-bars b{position:absolute;right:0;top:24px;font:20px Georgia}.lab-control{padding-top:20px;border-top:1px solid var(--brand-line)}.lab-links{display:flex;flex-wrap:wrap;gap:12px 25px}@media(max-width:760px){.lab-cards{grid-template-columns:1fr}.lab-cards :global(h2){font-size:26px}}</style>
 
-<style>.pipeline-feature{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:35px;background:var(--brand-surface);border:1px solid var(--brand-line);border-radius:18px;margin-bottom:25px}.pipeline-feature :global(h2){font:400 34px/1.4 Georgia,"Songti SC",serif;margin:15px 0}.pipeline-feature :global(p:not(.explore-kicker)){font-size:13px;line-height:1.95;color:var(--brand-body)}.pipeline-feature .explore-kicker{margin-bottom:12px}.pipeline-picture{text-decoration:none;text-align:center;color:var(--brand-accent);min-width:0}.pipeline-picture>span{display:block;margin-top:20px;font:11px "JetBrains Mono",monospace;letter-spacing:.06em}.pipeline-picture :global(.research-visual){background:transparent}@media(max-width:760px){.pipeline-feature{grid-template-columns:1fr;gap:15px;padding:25px}.pipeline-feature :global(h2){font-size:29px}.pipeline-picture{max-width:320px;width:100%;justify-self:center}.pipeline-picture>span{margin-top:8px}}</style>
+<ExploreLayout
+	title="实验室"
+	titleEn="Lab"
+	description="从全链路模型训练、搜索与不完全信息博弈到偏好对齐与旋转位置编码，用互动工作台理解智能系统。"
+	descriptionEn="Interactive workbenches for end-to-end model training, search, imperfect-information games, preference alignment, and rotary position embeddings."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="算法与模型交互实验"
+			en="Interactive algorithm and model experiments"
+		/>
+	</header>
+
+	<article class="pipeline-feature">
+		<div>
+			<p class="explore-kicker">FEATURED / FROM DATA TO MODEL</p>
+			<Text as="h2" zh="小模型全流程训练与评估" en="Small-model training and evaluation" />
+			<Text
+				as="p"
+				zh="数据、分词、随机初始化预训练、SFT、DPO、评测与部署。选择阶段，检查输入输出，再安排第一次训练的预算。"
+				en="Data, tokenization, pretraining from random weights, SFT, DPO, evaluation, and deployment. Choose a stage, inspect its inputs and outputs, and plan a first training budget."
+			/>
+			<a class="explore-link" href="/lab/model-pipeline/">
+				<Text zh="打开模型工作台" en="Open the model workbench" /> ↗
+			</a>
+		</div>
+		<a
+			class="pipeline-picture"
+			href="/lab/model-pipeline/"
+			aria-label="小模型全链路互动工作台"
+			data-i18n-aria-label-zh="小模型全链路互动工作台"
+			data-i18n-aria-label-en="Small-model pipeline workbench"
+		>
+			<ResearchVisual kind="model" />
+			<span>~30M → ~100M → ?</span>
+		</a>
+	</article>
+
+	<div class="lab-cards">
+		{experiments.map((item) => (
+			<article class="explore-card">
+				<p class="explore-kicker">{item.code}</p>
+				<div class="lab-illustration" aria-hidden="true">
+					{item.path === "search-to-self-play" ? (
+						<svg viewBox="0 0 300 110">
+							<path
+								d="M150 12L60 65M150 12L240 65M60 65L25 98M60 65L95 98M240 65L205 98M240 65L275 98"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+							/>
+							{[[150, 12], [60, 65], [240, 65], [25, 98], [95, 98], [205, 98], [275, 98]].map(
+								([x, y]) => <circle cx={x} cy={y} r="7" fill="currentColor" />,
+							)}
+						</svg>
+					) : item.path === "evaluating-improvement" ? (
+						<div class="mini-bars">
+							<span><i style="width:80%"></i></span>
+							<span><i style="width:20%"></i></span>
+							<b>Δ ?</b>
+						</div>
+					) : item.path === "cfr-poker" ? (
+						<svg viewBox="0 0 300 110">
+							<rect
+								x="48"
+								y="22"
+								width="40"
+								height="58"
+								rx="6"
+								fill="var(--brand-surface)"
+								stroke="currentColor"
+								stroke-width="1.5"
+								transform="rotate(-8 48 22)"
+							/>
+							<rect
+								x="86"
+								y="20"
+								width="40"
+								height="58"
+								rx="6"
+								fill="var(--brand-peach)"
+								stroke="var(--brand-clay)"
+								stroke-width="1.5"
+								transform="rotate(6 86 20)"
+							/>
+							<line x1="158" y1="36" x2="255" y2="36" stroke="var(--brand-line)" stroke-width="8" stroke-linecap="round" />
+							<line x1="158" y1="36" x2="190" y2="36" stroke="var(--brand-clay)" stroke-width="8" stroke-linecap="round" />
+							<line x1="158" y1="68" x2="255" y2="68" stroke="var(--brand-line)" stroke-width="8" stroke-linecap="round" />
+							<line x1="158" y1="68" x2="254" y2="68" stroke="currentColor" stroke-width="8" stroke-linecap="round" />
+						</svg>
+					) : item.path === "preference-alignment" ? (
+						<svg viewBox="0 0 300 110">
+							<path
+								d="M36 88 Q 140 20 264 24"
+								fill="none"
+								stroke="var(--brand-clay)"
+								stroke-width="2"
+								stroke-dasharray="5 4"
+							/>
+							<path
+								d="M36 88 Q 135 24 264 82"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.4"
+							/>
+							<circle cx="145" cy="44" r="6" fill="var(--brand-peach)" stroke="var(--brand-clay)" stroke-width="1.5" />
+						</svg>
+					) : (
+						<svg viewBox="0 0 300 110">
+							{[75, 150, 225].map((cx, idx) => (
+								<>
+									<circle cx={cx} cy="55" r="32" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.55" />
+									<line
+										x1={cx}
+										y1="55"
+										x2={cx + 26 * Math.cos(-0.8 + idx * 0.6)}
+										y2={55 + 26 * Math.sin(-0.8 + idx * 0.6)}
+										stroke="currentColor"
+										stroke-width="2.2"
+									/>
+									<line
+										x1={cx}
+										y1="55"
+										x2={cx + 22 * Math.cos(0.4 + idx * 0.6)}
+										y2={55 + 22 * Math.sin(0.4 + idx * 0.6)}
+										stroke="var(--brand-clay)"
+										stroke-width="1.8"
+										stroke-dasharray="3 2"
+									/>
+								</>
+							))}
+						</svg>
+					)}
+				</div>
+				<Text as="h2" zh={item.title} en={item.titleEn} />
+				<Text as="p" zh={item.question} en={item.questionEn} />
+				<Text as="p" class="lab-control" zh={item.control} en={item.controlEn} />
+				<Text as="p" zh={item.outcome} en={item.outcomeEn} />
+				<div class="lab-links">
+					<a class="explore-link" href={item.href}>
+						<Text zh="开始实验" en="Try the experiment" /> ↗
+					</a>
+				</div>
+			</article>
+		))}
+	</div>
+
+	<section class="gadget-showcase" style="margin-top:34px">
+		<MarginGadget3D client:visible />
+	</section>
+
+	<section class="explore-section" style="margin-top:42px">
+		<Text as="h2" zh="实验方法与研究资料" en="Experimental methods and references" />
+		<Text
+			as="p"
+			class="explore-body"
+			zh="实验使用简化的教学模型，规则写在每个实验的说明里。可以先猜测改变参数会发生什么，再运行观察；把意外的结果记下来，往往就是下一次阅读的起点。"
+			en="These experiments use simplified teaching models, with assumptions explained on each page. Predict what a parameter change will do, then run it. An unexpected result often becomes a useful starting point for further reading."
+		/>
+		<a class="explore-link" href="/rsi/">
+			<Text
+				zh="带着这次观察，翻开智能手记"
+				en="Take this observation to the intelligence notebook"
+			/> ↗
+		</a>
+	</section>
+</ExploreLayout>
+
+<style>
+	.lab-cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+	}
+	.lab-cards :global(h2) {
+		font-size: 28px;
+		margin-top: 28px;
+	}
+	.lab-illustration {
+		height: 150px;
+		display: grid;
+		place-items: center;
+		background: var(--brand-paper);
+		border-radius: 10px;
+		color: var(--brand-accent);
+		margin: 24px 0;
+	}
+	.lab-illustration svg {
+		width: 80%;
+		height: 110px;
+	}
+	.mini-bars {
+		width: 75%;
+		position: relative;
+		padding-right: 45px;
+	}
+	.mini-bars > span {
+		display: block;
+		height: 20px;
+		background: var(--brand-peach);
+		border-radius: 4px;
+		overflow: hidden;
+		margin: 12px 0;
+	}
+	.mini-bars i {
+		display: block;
+		height: 100%;
+		background: var(--brand-accent);
+	}
+	.mini-bars b {
+		position: absolute;
+		right: 0;
+		top: 24px;
+		font: 20px Georgia;
+	}
+	.lab-control {
+		padding-top: 20px;
+		border-top: 1px solid var(--brand-line);
+	}
+	.lab-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px 25px;
+	}
+	.pipeline-feature {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		gap: 40px;
+		align-items: center;
+		padding: 35px;
+		background: var(--brand-surface);
+		border: 1px solid var(--brand-line);
+		border-radius: 18px;
+		margin-bottom: 25px;
+	}
+	.pipeline-feature :global(h2) {
+		font: 400 34px/1.4 Georgia, "Songti SC", serif;
+		margin: 15px 0;
+	}
+	.pipeline-feature :global(p:not(.explore-kicker)) {
+		font-size: 13px;
+		line-height: 1.95;
+		color: var(--brand-body);
+	}
+	.pipeline-feature .explore-kicker {
+		margin-bottom: 12px;
+	}
+	.pipeline-picture {
+		text-decoration: none;
+		text-align: center;
+		color: var(--brand-accent);
+		min-width: 0;
+	}
+	.pipeline-picture > span {
+		display: block;
+		margin-top: 20px;
+		font: 11px "JetBrains Mono", monospace;
+		letter-spacing: 0.06em;
+	}
+	.pipeline-picture :global(.research-visual) {
+		background: transparent;
+	}
+	@media (max-width: 760px) {
+		.lab-cards {
+			grid-template-columns: 1fr;
+		}
+		.lab-cards :global(h2) {
+			font-size: 26px;
+		}
+		.pipeline-feature {
+			grid-template-columns: 1fr;
+			gap: 15px;
+			padding: 25px;
+		}
+		.pipeline-feature :global(h2) {
+			font-size: 29px;
+		}
+		.pipeline-picture {
+			max-width: 320px;
+			width: 100%;
+			justify-self: center;
+		}
+		.pipeline-picture > span {
+			margin-top: 8px;
+		}
+	}
+</style>

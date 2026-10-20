@@ -1,0 +1,58 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import PreferenceAlignmentLab from "@/components/features/PreferenceAlignmentLab.svelte";
+---
+
+<ExploreLayout
+	title="DPO 与偏好对齐实验"
+	titleEn="DPO & preference alignment sandbox"
+	description="探索直接偏好优化（DPO）中 KL 温度系数 β 与奖励偏差如何共同决定模型校准与阿谀奉承（Reward Hacking）。"
+	descriptionEn="Explore how the KL regularization temperature β and proxy preference bias govern calibration versus reward hacking in Direct Preference Optimization (DPO)."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="DPO 偏好对齐与 KL 锚定实验"
+			en="DPO Preference Alignment & KL Anchoring"
+		/>
+	</header>
+
+	<ResearchQuestion
+		question="当偏好数据本身喜欢「冗长或迎合」的回答时，把对齐强度拉满会发生什么？"
+		questionEn="When preference labels subtly favor flattery or verbosity, what happens if we push optimization strength to the limit?"
+		hint="先把偏差权重 α 设为 0.60，再把 KL 温度系数 β 从 0.30 慢慢调小到 0.04。观察表观代理奖励如何继续上升，而真实研究效用却在越过古德哈特拐点后崩塌。"
+		hintEn="Set the proxy bias α to 0.60, then slide the KL temperature β down from 0.30 to 0.04. Watch the proxy reward climb monotonically while true utility peaks and collapses past the Goodhart inflection point."
+	/>
+
+	<PreferenceAlignmentLab client:load />
+	<noscript>
+		<p>
+			请启用 JavaScript 操作实验，或阅读下方的方法笔记。 / Enable JavaScript to
+			use the workbench, or read the notes below.
+		</p>
+	</noscript>
+
+	<section class="explore-section" style="margin-top:40px">
+		<Text
+			as="h2"
+			zh="为什么 DPO 离不开参考模型 π_ref？"
+			en="Why DPO requires the reference anchor π_ref"
+		/>
+		<Text
+			as="p"
+			class="explore-body"
+			zh="直接偏好优化（DPO）利用闭式映射 r(x,y) = β ln(π_θ(y|x) / π_ref(y|x)) 绕过了显式奖励模型训练，但它的优化目标本质上仍在最大化「代理偏好信号减去 β 倍 KL 散度」。由于人类或裁判模型的偏好不可避免带有长度偏见或迎合偏见，温度系数 β 扮演了防止分布坍缩与古德哈特过优化的物理锚点。"
+			en="Direct Preference Optimization (DPO) reparameterizes the reward as r(x,y) = β ln(π_θ(y|x) / π_ref(y|x)), bypassing explicit reward modeling. Yet its objective still maximizes proxy preference minus β times the KL divergence from π_ref. Because human or LLM-judge labels inevitably carry length or sycophancy biases, β acts as the structural anchor preventing mode collapse and Goodhart over-optimization."
+		/>
+		<a class="explore-link" href="/lab/model-pipeline/">
+			<Text zh="回到小模型全链路工作台（SFT → DPO）" en="Back to the small-model pipeline workbench (SFT → DPO)" /> ↗
+		</a>
+		<p>
+			<a class="explore-link" href="/work/local-1b-model-workflow/">
+				<Text zh="阅读 1B 本地模型训练与对齐案例" en="Read the local 1B model training and alignment case" /> ↗
+			</a>
+		</p>
+	</section>
+</ExploreLayout>

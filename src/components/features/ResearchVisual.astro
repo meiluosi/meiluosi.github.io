@@ -1,5 +1,5 @@
 ---
-interface Props { kind: "model" | "search" | "causal"; }
+interface Props { kind: "model" | "search" | "causal" | "cfr"; }
 const { kind } = Astro.props;
 ---
 <div class={`research-visual ${kind}`} aria-hidden="true">
@@ -24,6 +24,16 @@ const { kind } = Astro.props;
 			<path class="selected-path" d="M214 34L183 79L208 127" />
 			{[[214,34],[183,79],[249,79],[166,127],[208,127]].map(([x,y], i) => <circle class={i === 0 || i === 1 ? "core" : i === 4 ? "peach" : "paper"} cx={x} cy={y} r={i === 0 ? 11 : 8} />)}
 			<circle class="ring" cx="208" cy="127" r="15" />
+		</> : kind === "cfr" ? <>
+			<rect class="paper" x="24" y="34" width="44" height="62" rx="7" transform="rotate(-8 24 34)" />
+			<rect class="peach" x="56" y="28" width="44" height="62" rx="7" transform="rotate(4 56 28)" />
+			<rect class="core" x="88" y="36" width="44" height="62" rx="7" transform="rotate(14 88 36)" />
+			<path class="wire" d="M144 54H248M144 84H248M144 114H248" />
+			<rect class="peach" x="144" y="48" width="32" height="12" rx="6" />
+			<rect class="paper" x="144" y="78" width="56" height="12" rx="6" />
+			<rect class="core" x="144" y="108" width="96" height="12" rx="6" />
+			<path class="selected-path" d="M44 126C86 144 146 144 236 126" />
+			<circle class="peach" cx="236" cy="126" r="6" />
 		</> : <>
 			<path class="wire" d="M140 32L69 112M140 32L213 112M80 112H197" />
 			<path class="selected-path" d="M85 112H192" />
