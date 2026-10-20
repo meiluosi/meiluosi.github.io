@@ -8,7 +8,6 @@
 
 负责整体页面框架和布局结构的组件。
 
-- `ConfigCarrier.astro` - 配置载体组件
 - `Footer.astro` - 页脚组件
 - `Navbar.astro` - 导航栏组件
 - `PostMeta.astro` - 文章元数据组件
@@ -37,6 +36,11 @@
 **功能组件**
 - `EncryptedContent.astro` - 加密内容组件
 - `EncryptedPost.astro` - 加密文章组件
+- `CfrPokerLab.svelte` - Kuhn Poker 反事实遗憾最小化（CFR）与纳什均衡交互实验台
+- `PreferenceAlignmentLab.svelte` - DPO 偏好对齐与 KL 锚定古德哈特前沿交互实验台
+- `RopeAttentionLab.svelte` - RoPE 旋转位置编码多频复平面星盘与相对距离衰减实验台
+- `MarginGadget3D.svelte` - 鼠尾草与黄铜色系交互式三维数学/机械小摆件（鞍点曲面、多频浑天仪、UCT 力矩天平）
+- `InteractiveMathEnhancer.astro` - 文章页 KaTeX 公式符号跨段落联动高亮与内联温度微调尺
 
 ### 💬 comment/ - 评论系统组件
 
@@ -62,8 +66,8 @@
 
 其他辅助和工具类组件。
 
+- `BibTeXCitation.astro` - BibTeX 学术引用卡片
 - `License.astro` - 许可证信息显示
-- `SharePoster.svelte` - 分享海报生成
 
 ---
 

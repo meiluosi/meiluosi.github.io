@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { licenseConfig } from "@/config/licenseConfig";
 import { profileConfig } from "@/config/profileConfig";
 import I18nKey from "@/i18n/i18nKey";
@@ -11,10 +10,10 @@ interface Props {
 	id: string;
 	pubDate: Date;
 	class: string;
-	author: string;
-	sourceLink: string;
-	licenseName: string;
-	licenseUrl: string;
+	author?: string;
+	sourceLink?: string;
+	licenseName?: string;
+	licenseUrl?: string;
 }
 
 const { title, pubDate, author, sourceLink, licenseName, licenseUrl } =
@@ -25,46 +24,98 @@ const licenseConf = licenseConfig;
 const postUrl = sourceLink || decodeURIComponent(Astro.url.toString());
 ---
 
-<div
-  class={`relative transition overflow-hidden bg-(--license-block-bg) py-5 px-6 ${className}`}
->
-  <div class="transition font-bold text-black/75 dark:text-white/75">
-    {title}
-  </div>
-  <a href={postUrl} class="link text-(--primary) break-all">
-    {postUrl}
-  </a>
-  <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-2">
-    <div>
-      <div class="transition text-black/30 dark:text-white/30 text-sm">
-        {i18n(I18nKey.author)}
-      </div>
-      <div class="transition text-black/75 dark:text-white/75 line-clamp-2">
-        {author || profileConf.name}
-      </div>
-    </div>
-    <div>
-      <div class="transition text-black/30 dark:text-white/30 text-sm">
-        {i18n(I18nKey.publishedAt)}
-      </div>
-      <div class="transition text-black/75 dark:text-white/75 line-clamp-2">
-        {formatDateToYYYYMMDD(pubDate)}
-      </div>
-    </div>
-    <div>
-      <div class="transition text-black/30 dark:text-white/30 text-sm">
-        {i18n(I18nKey.license)}
-      </div>
-      <a
-        href={licenseName ? licenseUrl || undefined : licenseConf.url}
-        target="_blank"
-        class="link text-(--primary) line-clamp-2"
-        >{licenseName || licenseConf.name}</a
-      >
-    </div>
-  </div>
-  <Icon is:inline
-    name="fa7-brands:creative-commons"
-    class="transition text-[15rem] absolute pointer-events-none right-6 top-1/2 -translate-y-1/2 text-black/5 dark:text-white/5"
-  />
-</div>
+<aside class={`article-license ${className}`} aria-label={i18n(I18nKey.license)}>
+	<div class="license-head">
+		<span class="license-kicker">COLOPHON · {i18n(I18nKey.license)}</span>
+		<span class="license-title">{title}</span>
+	</div>
+	<a href={postUrl} class="license-url">{postUrl}</a>
+	<dl class="license-meta">
+		<div>
+			<dt>{i18n(I18nKey.author)}</dt>
+			<dd>{author || profileConf.name}</dd>
+		</div>
+		<div>
+			<dt>{i18n(I18nKey.publishedAt)}</dt>
+			<dd>{formatDateToYYYYMMDD(pubDate)}</dd>
+		</div>
+		<div>
+			<dt>{i18n(I18nKey.license)}</dt>
+			<dd>
+				<a
+					href={licenseName ? licenseUrl || undefined : licenseConf.url}
+					target="_blank"
+					rel="noreferrer"
+				>
+					{licenseName || licenseConf.name} ↗
+				</a>
+			</dd>
+		</div>
+	</dl>
+</aside>
+
+<style>
+	.article-license {
+		padding: 18px 20px;
+		border: 1px solid var(--brand-line);
+		border-radius: 12px;
+		background: var(--brand-surface);
+		color: var(--brand-ink);
+	}
+	.license-head {
+		display: grid;
+		gap: 4px;
+		margin-bottom: 6px;
+	}
+	.license-kicker {
+		font: 10px/1.6 var(--font-mono, "JetBrains Mono", monospace);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--brand-muted);
+	}
+	.license-title {
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 1.5;
+		color: var(--brand-ink);
+	}
+	.license-url {
+		display: inline-block;
+		font: 12px/1.6 var(--font-mono, "JetBrains Mono", monospace);
+		color: var(--brand-accent);
+		text-decoration: none;
+		word-break: break-all;
+	}
+	.license-url:hover {
+		text-decoration: underline;
+	}
+	.license-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px 28px;
+		margin: 14px 0 0;
+		padding-top: 12px;
+		border-top: 1px solid var(--brand-line);
+	}
+	.license-meta > div {
+		display: grid;
+		gap: 2px;
+	}
+	.license-meta dt {
+		font: 10px/1.5 var(--font-mono, "JetBrains Mono", monospace);
+		color: var(--brand-muted);
+	}
+	.license-meta dd {
+		margin: 0;
+		font-size: 13px;
+		line-height: 1.6;
+		color: var(--brand-body);
+	}
+	.license-meta dd a {
+		color: var(--brand-accent);
+		text-decoration: none;
+	}
+	.license-meta dd a:hover {
+		text-decoration: underline;
+	}
+</style>

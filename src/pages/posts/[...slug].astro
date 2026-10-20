@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from "astro:content";
-import * as path from "node:path";
 import Comment from "@components/comment/index.astro";
 import Markdown from "@components/common/Markdown.astro";
 import EncryptedPost from "@components/features/EncryptedPost.astro";
@@ -18,18 +17,17 @@ import utc from "dayjs/plugin/utc";
 import AiSummary from "@/components/common/AiSummary.astro";
 import CoverImage from "@/components/common/CoverImage.astro";
 import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
+import InteractiveMathEnhancer from "@/components/features/InteractiveMathEnhancer.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import RelatedArticles from "@/components/features/RelatedArticles.astro";
 import SeriesNav from "@/components/features/SeriesNav.astro";
 import PostMetadata from "@/components/layout/PostMeta.astro";
-import SharePoster from "@/components/misc/SharePoster.svelte";
 import { coverImageConfig } from "@/config/coverImageConfig";
 import { licenseConfig } from "@/config/licenseConfig";
 import { profileConfig } from "@/config/profileConfig";
 import { siteConfig } from "@/config/siteConfig";
-import { sponsorConfig } from "@/config/sponsorConfig";
 import { brandTranslations } from "@/i18n/brand";
 import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
@@ -61,9 +59,7 @@ export async function getStaticPaths() {
 }
 
 const { entry, localeZhUrl, localeEnUrl } = Astro.props;
-const { Content, headings } = await render(entry);
-
-const { remarkPluginFrontmatter } = await render(entry);
+const { Content, headings, remarkPluginFrontmatter } = await render(entry);
 
 // 全站已发布文章只取一次，阅读链、系列导航与相关阅读都从这一份数据派生。
 // 加密文章不进入任何导航，避免把读者带到需要密码的页面。
@@ -148,60 +144,6 @@ const readingTimeMeta = {
 // 处理随机图：如果image为"api"，则从配置的API获取随机图
 const processedImage = processCoverImageSync(entry.data.image, entry.id);
 const apiUrls = getApiUrlList(entry.data.image, entry.id);
-
-let posterCoverUrl = processedImage;
-if (processedImage) {
-	const isLocal = !(
-		processedImage.startsWith("/") ||
-		processedImage.startsWith("http") ||
-		processedImage.startsWith("https") ||
-		processedImage.startsWith("data:")
-	);
-	if (isLocal) {
-		const basePath = getFileDirFromPath(entry.filePath || "");
-		const files = import.meta.glob<ImageMetadata>(
-			"../../**/*.{png,jpg,jpeg,webp,avif}",
-			{
-				import: "default",
-			},
-		);
-		let normalizedPath = path
-			.normalize(path.join("../../", basePath, processedImage))
-			.replace(/\\/g, "/");
-		const file = files[normalizedPath];
-		if (file) {
-			const img = await file();
-			posterCoverUrl = img.src;
-		}
-	}
-}
-
-// 处理头像URL
-let posterAvatarUrl: string | null = profileConfig.avatar || null;
-if (posterAvatarUrl) {
-	const isLocalAvatar = !(
-		posterAvatarUrl.startsWith("/") ||
-		posterAvatarUrl.startsWith("http") ||
-		posterAvatarUrl.startsWith("https") ||
-		posterAvatarUrl.startsWith("data:")
-	);
-	if (isLocalAvatar) {
-		const files = import.meta.glob<ImageMetadata>(
-			"../../**/*.{png,jpg,jpeg,webp,avif}",
-			{
-				import: "default",
-			},
-		);
-		const normalizedPath = path
-			.normalize(path.join("../../", posterAvatarUrl))
-			.replace(/\\/g, "/");
-		const file = files[normalizedPath];
-		if (file) {
-			const img = await file();
-			posterAvatarUrl = img.src;
-		}
-	}
-}
 
 dayjs.extend(utc);
 
@@ -410,73 +352,6 @@ const jsonLd = {
             <Content />
           </Markdown>
 
-          {/* 打赏按钮 & 分享按钮 */}
-          {
-            (siteConfig.post.sharePoster || (sponsorConfig.showButtonInPost && siteConfig.pages.sponsor)) && (
-              <div class="mb-6 rounded-xl onload-animation">
-                <div class="p-6 bg-(--license-block-bg) rounded-xl">
-                  <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 flex-1">
-                      <div class="h-12 w-12 rounded-lg bg-(--primary) flex items-center justify-center text-white dark:text-black/70 shrink-0">
-                        <Icon is:inline
-                          name={sponsorConfig.showButtonInPost &&
-                          siteConfig.pages.sponsor
-                            ? "material-symbols:favorite"
-                            : "material-symbols:share"}
-                          class="text-2xl"
-                        />
-                      </div>
-                      <div>
-                        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
-                          {
-                            sponsorConfig.showButtonInPost && siteConfig.pages.sponsor
-                              ? i18n(I18nKey.sponsorButton)
-                              : i18n(I18nKey.shareOnSocial)
-                          }
-                        </h3>
-                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                          {
-                            sponsorConfig.showButtonInPost && siteConfig.pages.sponsor
-                              ? i18n(I18nKey.sponsorButtonText)
-                              : i18n(I18nKey.shareOnSocialDescription)
-                          }
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      {
-                        siteConfig.post.sharePoster && (
-                          <SharePoster
-                            client:load
-                            title={entry.data.title}
-                            author={profileConfig.name}
-                            description={entry.data.description || entry.data.title}
-                            pubDate={formatDateToYYYYMMDD(entry.data.published)}
-                            coverImage={posterCoverUrl}
-                            url={Astro.url.href}
-                            siteTitle={siteConfig.title}
-                            avatar={posterAvatarUrl}
-                          />
-                        )
-                      }
-                      {
-                        sponsorConfig.showButtonInPost && siteConfig.pages.sponsor && (
-                          <a
-                            href={url("/sponsor/")}
-                            class="inline-flex items-center gap-2 px-6 py-3 bg-(--primary) text-white dark:text-black/70 rounded-lg font-medium hover:bg-(--primary)/80 hover:scale-105 active:scale-95 transition-all whitespace-nowrap"
-                          >
-                            <span>{i18n(I18nKey.sponsor)}</span>
-                            <Icon is:inline name="fa7-solid:arrow-right" class="text-sm" />
-                          </a>
-                        )
-                      }
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          }
-
           {
             licenseConfig.enable && (
               <License
@@ -487,7 +362,7 @@ const jsonLd = {
                 sourceLink={entry.data.sourceLink}
                 licenseName={entry.data.licenseName}
                 licenseUrl={entry.data.licenseUrl}
-                class="mb-6 rounded-xl license-container onload-animation"
+                class="mb-6 license-container onload-animation"
               />
             )
           }
@@ -497,76 +372,10 @@ const jsonLd = {
           <Markdown class="mb-6 markdown-content onload-animation">
             <Content />
           </Markdown>
+          <InteractiveMathEnhancer />
 
           {/* 思维导图 */}
           <Mindmap graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)} client:load />
-
-          {/* 打赏按钮 & 分享按钮 */}
-          {
-            (siteConfig.post.sharePoster || (sponsorConfig.showButtonInPost && siteConfig.pages.sponsor)) && (
-              <div class="mb-6 rounded-xl onload-animation">
-                <div class="p-6 bg-(--license-block-bg) rounded-xl">
-                  <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 flex-1">
-                      <div class="h-12 w-12 rounded-lg bg-(--primary) flex items-center justify-center text-white dark:text-black/70 shrink-0">
-                        <Icon is:inline
-                          name={sponsorConfig.showButtonInPost &&
-                          siteConfig.pages.sponsor
-                            ? "material-symbols:favorite"
-                            : "material-symbols:share"}
-                          class="text-2xl"
-                        />
-                      </div>
-                      <div>
-                        <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
-                          {
-                            sponsorConfig.showButtonInPost && siteConfig.pages.sponsor
-                              ? i18n(I18nKey.sponsorButton)
-                              : i18n(I18nKey.shareOnSocial)
-                          }
-                        </h3>
-                        <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                          {
-                            sponsorConfig.showButtonInPost && siteConfig.pages.sponsor
-                              ? i18n(I18nKey.sponsorButtonText)
-                              : i18n(I18nKey.shareOnSocialDescription)
-                          }
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      {
-                        siteConfig.post.sharePoster && (
-                          <SharePoster
-                            client:load
-                            title={entry.data.title}
-                            author={profileConfig.name}
-                            description={entry.data.description || entry.data.title}
-                            pubDate={formatDateToYYYYMMDD(entry.data.published)}
-                            coverImage={posterCoverUrl}
-                            url={Astro.url.href}
-                            siteTitle={siteConfig.title}
-                            avatar={posterAvatarUrl}
-                          />
-                        )
-                      }
-                      {
-                        sponsorConfig.showButtonInPost && siteConfig.pages.sponsor && (
-                          <a
-                            href={url("/sponsor/")}
-                            class="inline-flex items-center gap-2 px-6 py-3 bg-(--primary) text-white dark:text-black/70 rounded-lg font-medium hover:bg-(--primary)/80 hover:scale-105 active:scale-95 transition-all whitespace-nowrap"
-                          >
-                            <span>{i18n(I18nKey.sponsor)}</span>
-                            <Icon is:inline name="fa7-solid:arrow-right" class="text-sm" />
-                          </a>
-                        )
-                      }
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          }
 
           {
             licenseConfig.enable && (
@@ -578,7 +387,7 @@ const jsonLd = {
                 sourceLink={entry.data.sourceLink}
                 licenseName={entry.data.licenseName}
                 licenseUrl={entry.data.licenseUrl}
-                class="mb-6 rounded-xl license-container onload-animation"
+                class="mb-6 license-container onload-animation"
               />
             )
           }

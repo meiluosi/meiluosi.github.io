@@ -1,0 +1,317 @@
+---
+// InteractiveMathEnhancer.astro
+// Enhances KaTeX formulas inside .markdown-content with:
+// 1. Cross-equation variable co-highlighting on hover / click-to-pin
+// 2. An inline scrubbable parameter inspector when display equations are present
+---
+
+<div
+	id="math-symbol-hud"
+	class="math-symbol-hud"
+	hidden
+	aria-live="polite"
+>
+	<span class="hud-symbol" id="math-hud-symbol"></span>
+	<span class="hud-count" id="math-hud-count"></span>
+	<button type="button" id="math-hud-clear" class="hud-clear" hidden>
+		×
+	</button>
+</div>
+
+<script>
+	function initInteractiveMath() {
+		const container = document.querySelector(".markdown-content");
+		const hud = document.getElementById("math-symbol-hud");
+		const hudSymbol = document.getElementById("math-hud-symbol");
+		const hudCount = document.getElementById("math-hud-count");
+		const hudClear = document.getElementById("math-hud-clear");
+
+		if (!container || !hud || !hudSymbol || !hudCount || !hudClear) return;
+
+		const katexNodes = container.querySelectorAll(".katex");
+		if (katexNodes.length === 0) {
+			hud.hidden = true;
+			return;
+		}
+
+		// Collect math variable tokens inside KaTeX
+		const symbolEls = Array.from(
+			container.querySelectorAll<HTMLElement>(
+				".katex .mathnormal, .katex .mord.mtight",
+			),
+		).filter((el) => {
+			const text = (el.textContent || "").trim();
+			// Single Latin/Greek math symbols
+			return text.length >= 1 && text.length <= 2 && /^[a-zA-Z\u0370-\u03FF]+$/.test(text);
+		});
+
+		if (symbolEls.length === 0) return;
+
+		const bySymbol = new Map<string, HTMLElement[]>();
+		for (const el of symbolEls) {
+			const sym = (el.textContent || "").trim();
+			el.dataset.mathSym = sym;
+			const list = bySymbol.get(sym) ?? [];
+			list.push(el);
+			bySymbol.set(sym, list);
+		}
+
+		let pinnedSymbol: string | null = null;
+
+		function isEn() {
+			return document.documentElement.lang.startsWith("en");
+		}
+
+		function highlightSymbol(sym: string | null, pinned = false) {
+			for (const el of symbolEls) {
+				el.classList.toggle(
+					"math-sym-active",
+					Boolean(sym && el.dataset.mathSym === sym),
+				);
+			}
+
+			if (!sym) {
+				hud!.hidden = true;
+				hudClear!.hidden = true;
+				return;
+			}
+
+			const count = bySymbol.get(sym)?.length ?? 0;
+			hudSymbol!.textContent = sym;
+			hudCount!.textContent = isEn()
+				? `${count} occurrences in formulas${pinned ? " (pinned)" : " · click to pin"}`
+				: `公式中共出现 ${count} 次${pinned ? "（已锁定）" : " · 点击可锁定对比"}`;
+			hudClear!.hidden = !pinned;
+			hud!.hidden = false;
+		}
+
+		for (const el of symbolEls) {
+			el.addEventListener("mouseenter", () => {
+				if (pinnedSymbol) return;
+				const sym = el.dataset.mathSym ?? null;
+				highlightSymbol(sym, false);
+			});
+
+			el.addEventListener("mouseleave", () => {
+				if (pinnedSymbol) return;
+				highlightSymbol(null, false);
+			});
+
+			el.addEventListener("click", (e) => {
+				e.stopPropagation();
+				const sym = el.dataset.mathSym ?? null;
+				if (!sym) return;
+				if (pinnedSymbol === sym) {
+					pinnedSymbol = null;
+					highlightSymbol(null, false);
+				} else {
+					pinnedSymbol = sym;
+					highlightSymbol(sym, true);
+				}
+			});
+		}
+
+		hudClear.onclick = () => {
+			pinnedSymbol = null;
+			highlightSymbol(null, false);
+		};
+
+		// Inject a compact scrubbable formula inspector after the first .katex-display if not already added
+		const firstDisplay = container.querySelector<HTMLElement>(".katex-display");
+		if (firstDisplay && !container.querySelector(".math-scrubber-bar")) {
+			const bar = document.createElement("aside");
+			bar.className = "math-scrubber-bar";
+			const renderScrubber = (tempVal: number) => {
+				const logits = [2.2, 1.1, 0.3, -0.6];
+				const scaled = logits.map((x) => x / tempVal);
+				const maxL = Math.max(...scaled);
+				const exps = scaled.map((x) => Math.exp(x - maxL));
+				const sum = exps.reduce((a, b) => a + b, 0);
+				const probs = exps.map((e) => e / sum);
+				const entropy = -probs.reduce(
+					(acc, p) => acc + (p > 1e-9 ? p * Math.log(p) : 0),
+					0,
+				);
+				const en = isEn();
+				bar.innerHTML = `
+					<div class="scrubber-head">
+						<span class="scrubber-tag">${en ? "INTERACTIVE FORMULA PROBE" : "可拨弄的公式微调尺"}</span>
+						<span class="scrubber-hint">${en ? "Hover any symbol in equations to trace it across the article · Drag τ to feel distribution sharpness" : "悬停公式中的符号可跨段落联动高亮 · 拖动温度 τ 观察分布锐度变化"}</span>
+					</div>
+					<div class="scrubber-body">
+						<label class="scrubber-control">
+							<span>τ / β = <strong>${tempVal.toFixed(2)}</strong></span>
+							<input type="range" min="0.15" max="2.50" step="0.05" value="${tempVal}" aria-label="Temperature parameter" />
+						</label>
+						<div class="scrubber-bars" aria-hidden="true">
+							${probs
+								.map(
+									(p, idx) =>
+										`<span class="s-bar" title="p_${idx + 1} = ${(p * 100).toFixed(1)}%"><i style="width:${(p * 100).toFixed(1)}%"></i><b>${(p * 100).toFixed(0)}%</b></span>`,
+								)
+								.join("")}
+						</div>
+						<span class="scrubber-entropy">H(p) = ${entropy.toFixed(2)} nats</span>
+					</div>
+				`;
+				const input = bar.querySelector("input");
+				input?.addEventListener("input", (ev) => {
+					const nextVal = Number((ev.currentTarget as HTMLInputElement).value);
+					renderScrubber(nextVal);
+				});
+			};
+			renderScrubber(0.8);
+			firstDisplay.insertAdjacentElement("afterend", bar);
+		}
+	}
+
+	initInteractiveMath();
+	document.addEventListener("astro:page-load", initInteractiveMath);
+</script>
+
+<style is:global>
+	.markdown-content .katex .mathnormal,
+	.markdown-content .katex .mord.mtight {
+		border-radius: 4px;
+		padding: 0 2px;
+		margin: 0 -2px;
+		cursor: pointer;
+		transition:
+			background-color 0.15s ease,
+			color 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+	.markdown-content .katex .math-sym-active {
+		background-color: var(--brand-peach);
+		color: var(--brand-ink) !important;
+		box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-clay) 45%, transparent);
+	}
+	.math-symbol-hud {
+		position: fixed;
+		right: 22px;
+		bottom: 22px;
+		z-index: 65;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 8px 14px;
+		border-radius: 999px;
+		background: var(--brand-paper);
+		border: 1px solid var(--brand-accent);
+		box-shadow: 0 10px 26px rgba(37, 60, 52, 0.14);
+		font: 12px var(--font-mono);
+		color: var(--brand-ink);
+	}
+	.math-symbol-hud[hidden] {
+		display: none !important;
+	}
+	.hud-symbol {
+		display: inline-grid;
+		place-items: center;
+		min-width: 24px;
+		height: 24px;
+		padding: 0 6px;
+		border-radius: 999px;
+		background: var(--brand-peach);
+		color: var(--brand-ink);
+		font: italic 600 14px var(--font-serif);
+	}
+	.hud-count {
+		color: var(--brand-body);
+		font-size: 11.5px;
+	}
+	.hud-clear {
+		border: none;
+		background: var(--brand-surface);
+		color: var(--brand-muted);
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		cursor: pointer;
+		font-size: 13px;
+		line-height: 1;
+	}
+	.math-scrubber-bar {
+		margin: 14px 0 24px;
+		padding: 14px 16px;
+		border-radius: 12px;
+		background: var(--brand-surface);
+		border: 1px solid var(--brand-line);
+		display: grid;
+		gap: 10px;
+	}
+	.scrubber-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	.scrubber-tag {
+		font: 10px var(--font-mono);
+		letter-spacing: 0.08em;
+		color: var(--brand-accent);
+	}
+	.scrubber-hint {
+		font-size: 11.5px;
+		color: var(--brand-muted);
+	}
+	.scrubber-body {
+		display: grid;
+		grid-template-columns: 180px 1fr auto;
+		align-items: center;
+		gap: 14px;
+	}
+	.scrubber-control {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font: 12px var(--font-mono);
+		color: var(--brand-ink);
+	}
+	.scrubber-control input[type="range"] {
+		width: 100px;
+		accent-color: var(--brand-accent);
+	}
+	.scrubber-bars {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 8px;
+	}
+	.s-bar {
+		position: relative;
+		height: 18px;
+		background: var(--brand-paper);
+		border: 1px solid var(--brand-line);
+		border-radius: 5px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+	}
+	.s-bar i {
+		display: block;
+		height: 100%;
+		background: var(--brand-sage);
+	}
+	.s-bar b {
+		position: absolute;
+		right: 5px;
+		font: 10px var(--font-mono);
+		color: var(--brand-ink);
+	}
+	.scrubber-entropy {
+		font: 11px var(--font-mono);
+		color: var(--brand-accent);
+		white-space: nowrap;
+	}
+	@media (max-width: 720px) {
+		.scrubber-body {
+			grid-template-columns: 1fr;
+		}
+		.math-symbol-hud {
+			left: 16px;
+			right: 16px;
+			bottom: 72px;
+		}
+	}
+</style>

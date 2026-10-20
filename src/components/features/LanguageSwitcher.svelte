@@ -103,9 +103,10 @@ function applyLocale(next: BrandLocale) {
 		localizedTitle?.dataset[next === "en" ? "localeTitleEn" : "localeTitleZh"];
 	if (localizedTitle && titleValue) localizedTitle.textContent = titleValue;
 	for (const meta of document.querySelectorAll<HTMLMetaElement>(
-		'meta[data-locale-title-zh][data-locale-title-en]',
+		"meta[data-locale-title-zh][data-locale-title-en]",
 	)) {
-		const value = meta.dataset[next === "en" ? "localeTitleEn" : "localeTitleZh"];
+		const value =
+			meta.dataset[next === "en" ? "localeTitleEn" : "localeTitleZh"];
 		if (value) meta.content = value;
 	}
 	const description = document.querySelector<HTMLMetaElement>(
@@ -119,10 +120,12 @@ function applyLocale(next: BrandLocale) {
 		description.content = descriptionValue;
 	}
 	for (const meta of document.querySelectorAll<HTMLMetaElement>(
-		'meta[data-locale-description-zh][data-locale-description-en]',
+		"meta[data-locale-description-zh][data-locale-description-en]",
 	)) {
 		const value =
-			meta.dataset[next === "en" ? "localeDescriptionEn" : "localeDescriptionZh"];
+			meta.dataset[
+				next === "en" ? "localeDescriptionEn" : "localeDescriptionZh"
+			];
 		if (value) meta.content = value;
 	}
 	document.dispatchEvent(
@@ -150,5 +153,40 @@ onMount(() => {
 </button>
 
 <style>
-	.language-switcher{white-space:nowrap;flex-shrink:0;border:1px solid rgba(37,60,52,.2);border-radius:999px;background:transparent;color:var(--brand-accent);padding:6px 9px;font:8px "JetBrains Mono",monospace;letter-spacing:.08em;cursor:pointer;transition:border-color .2s,color .2s}.language-switcher:hover,.language-switcher:focus-visible{border-color:var(--brand-accent);color:var(--brand-ink)}.language-switcher:focus-visible{outline:2px solid var(--brand-accent);outline-offset:3px}
+	.language-switcher {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		white-space: nowrap;
+		flex-shrink: 0;
+		height: 36px;
+		min-width: 42px;
+		padding: 0 11px;
+		border: 1px solid var(--brand-line);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--brand-accent);
+		font: 500 11px/1 var(--font-mono, "JetBrains Mono", monospace);
+		letter-spacing: 0.06em;
+		cursor: pointer;
+		transition:
+			border-color var(--motion-fast, 160ms),
+			color var(--motion-fast, 160ms),
+			background-color var(--motion-fast, 160ms);
+	}
+	.language-switcher:hover,
+	.language-switcher:focus-visible {
+		border-color: var(--brand-accent);
+		background: var(--brand-surface);
+		color: var(--brand-ink);
+	}
+	.language-switcher:focus-visible {
+		outline: 2px solid var(--brand-accent);
+		outline-offset: 3px;
+	}
+	@media (max-width: 700px) {
+		.language-switcher {
+			height: 40px;
+		}
+	}
 </style>

@@ -39,6 +39,7 @@ const label = isEnglish
 							<a
 								class="series-nav-link"
 								href={`${basePath}${item.slug}/`}
+								data-series-slug={item.slug}
 								aria-label={
 									isEnglish
 										? `Part ${item.order}: ${item.title}`
@@ -54,6 +55,36 @@ const label = isEnglish
 		</nav>
 	)
 }
+
+<script>
+	// Mark current series article as visited/read in localStorage and badge visited links.
+	(function initSeriesProgress() {
+		const KEY = "feng-yu-series-read";
+		const nav = document.querySelector<HTMLElement>("[data-series-nav]");
+		if (!nav) return;
+		try {
+			const raw = localStorage.getItem(KEY);
+			const readSet = new Set<string>(raw ? JSON.parse(raw) : []);
+			const currentSlug = location.pathname
+				.replace(/^\/(en\/)?posts\//, "")
+				.replace(/\/$/, "");
+			if (currentSlug) {
+				readSet.add(currentSlug);
+				localStorage.setItem(KEY, JSON.stringify([...readSet]));
+			}
+			nav
+				.querySelectorAll<HTMLAnchorElement>("[data-series-slug]")
+				.forEach((link) => {
+					const slug = link.dataset.seriesSlug;
+					if (slug && readSet.has(slug)) {
+						link.dataset.read = "true";
+					}
+				});
+		} catch {
+			/* Storage unavailable; series links remain normal. */
+		}
+	})();
+</script>
 
 <style>
 	.series-nav {
@@ -128,6 +159,11 @@ const label = isEnglish
 	.series-nav-link:hover {
 		border-color: var(--brand-accent);
 		color: var(--brand-accent);
+	}
+
+	.series-nav-link[data-read="true"] {
+		background: var(--brand-sage);
+		border-color: rgba(65, 99, 79, 0.35);
 	}
 
 	.series-nav-link:focus-visible {

@@ -13,54 +13,167 @@ const sections = headings
 		text: heading.text.replace(/#\s*$/, "").trim(),
 	}));
 ---
+
 <div class="reading-navigation">
-	<a href="/notes/" data-notes-return data-i18n="reading.return" data-i18n-zh="← 返回笔记目录" data-i18n-en="← Back to notes">{english ? "← Back to notes" : "← 返回笔记目录"}</a>
-	{sections.length > 0 && <details class="reading-toc"><summary data-i18n="reading.contents" data-i18n-zh="本篇目录" data-i18n-en="ON THIS PAGE">{english ? "ON THIS PAGE" : "本篇目录"}</summary><nav aria-label={english ? "Article sections" : "文章章节"}><ol>{sections.map((heading) => <li class:list={{ nested: heading.depth === 3 }}><a href={`#${encodeURIComponent(heading.slug)}`} data-reading-heading={heading.slug}>{heading.text}</a></li>)}</ol></nav></details>}
+	<a
+		href="/notes/"
+		data-notes-return
+		data-i18n="reading.return"
+		data-i18n-zh="← 返回笔记目录"
+		data-i18n-en="← Back to notes"
+	>
+		{english ? "← Back to notes" : "← 返回笔记目录"}
+	</a>
+	{sections.length > 0 && (
+		<>
+			<details class="reading-toc">
+				<summary
+					data-i18n="reading.contents"
+					data-i18n-zh="本篇目录"
+					data-i18n-en="ON THIS PAGE"
+				>
+					{english ? "ON THIS PAGE" : "本篇目录"}
+				</summary>
+				<nav aria-label={english ? "Article sections" : "文章章节"}>
+					<ol>
+						{sections.map((heading) => (
+							<li class:list={{ nested: heading.depth === 3 }}>
+								<a
+									href={`#${encodeURIComponent(heading.slug)}`}
+									data-reading-heading={heading.slug}
+								>
+									{heading.text}
+								</a>
+							</li>
+						))}
+					</ol>
+				</nav>
+			</details>
+			<button
+				type="button"
+				class="mobile-toc-fab"
+				data-mobile-toc-fab
+				hidden
+				aria-expanded="false"
+				aria-label={english ? "Toggle table of contents" : "展开或收起目录"}
+			>
+				<span data-i18n="reading.contentsFab" data-i18n-zh="目录" data-i18n-en="Contents">
+					{english ? "Contents" : "目录"}
+				</span>
+			</button>
+		</>
+	)}
 </div>
 <script>
-	const returnLink = document.querySelector<HTMLAnchorElement>("[data-notes-return]");
+	const returnLink =
+		document.querySelector<HTMLAnchorElement>("[data-notes-return]");
 	try {
-		const saved = JSON.parse(sessionStorage.getItem("feng-yu-notes-return") ?? "null");
+		const saved = JSON.parse(
+			sessionStorage.getItem("feng-yu-notes-return") ?? "null",
+		);
 		if (saved?.url && returnLink) {
 			const destination = new URL(saved.url, location.origin);
-			if (destination.origin === location.origin && destination.pathname === "/notes/") {
-				destination.searchParams.set("return", "1"); returnLink.href = destination.href;
+			if (
+				destination.origin === location.origin &&
+				destination.pathname === "/notes/"
+			) {
+				destination.searchParams.set("return", "1");
+				returnLink.href = destination.href;
 			}
 		}
-	} catch { /* The plain notes link remains usable. */ }
+	} catch {
+		/* The plain notes link remains usable. */
+	}
 	const toc = document.querySelector<HTMLDetailsElement>(".reading-toc");
+	const fab = document.querySelector<HTMLButtonElement>("[data-mobile-toc-fab]");
 	const desktop = matchMedia("(min-width: 1180px)");
-	const links = [...document.querySelectorAll<HTMLAnchorElement>("[data-reading-heading]")];
-	const headings = links.map((link) => document.getElementById(link.dataset.readingHeading ?? "")).filter((item): item is HTMLElement => Boolean(item));
+	const links = [
+		...document.querySelectorAll<HTMLAnchorElement>("[data-reading-heading]"),
+	];
+	const headings = links
+		.map((link) => document.getElementById(link.dataset.readingHeading ?? ""))
+		.filter((item): item is HTMLElement => Boolean(item));
 	let pending = 0;
-	// 目录只有固定（>=1180px）或用户手动展开时可见；不可见时不逐帧比较标题位置
-	const tocVisible = () => desktop.matches || toc?.open === true;
-	// 与 CSS 的 scroll-margin-top: 5.5rem 对齐（跳转后标题落在 88px 处），阈值略大，避免高亮落到上一条
+
+	const closeMobileSheet = () => {
+		if (!toc) return;
+		delete toc.dataset.mobileSheet;
+		if (!desktop.matches) toc.open = false;
+		fab?.setAttribute("aria-expanded", "false");
+	};
+
+	const tocVisible = () =>
+		desktop.matches ||
+		toc?.open === true ||
+		toc?.dataset.mobileSheet === "open";
+
 	const highlight = () => {
 		if (pending) {
 			cancelAnimationFrame(pending);
 			pending = 0;
 		}
+		if (fab) {
+			const showFab = !desktop.matches && window.scrollY > 380;
+			fab.hidden = !showFab;
+			if (!showFab && toc?.dataset.mobileSheet === "open") {
+				closeMobileSheet();
+			}
+		}
 		if (!tocVisible()) return;
-		const current = headings.filter((heading) => heading.getBoundingClientRect().top <= 96).at(-1) ?? headings[0];
+		const current =
+			headings
+				.filter((heading) => heading.getBoundingClientRect().top <= 96)
+				.at(-1) ?? headings[0];
 		for (const link of links) {
-			if (link.dataset.readingHeading === current?.id) link.setAttribute("aria-current", "location");
+			if (link.dataset.readingHeading === current?.id)
+				link.setAttribute("aria-current", "location");
 			else link.removeAttribute("aria-current");
 		}
 	};
-	// scroll 回调只安排一帧，布局读取全部推迟到 rAF 里的 highlight
+
 	const schedule = () => {
-		if (pending || !tocVisible()) return;
+		if (pending) return;
 		pending = requestAnimationFrame(highlight);
 	};
+
 	const sync = () => {
-		if (toc) toc.open = desktop.matches;
+		if (toc) {
+			if (desktop.matches) {
+				delete toc.dataset.mobileSheet;
+				toc.open = true;
+			} else {
+				toc.open = false;
+			}
+		}
 		schedule();
 	};
+
 	const onLinkClick = () => {
-		if (toc && !desktop.matches) toc.open = false;
+		if (toc && !desktop.matches) {
+			closeMobileSheet();
+		}
 	};
-	// bfcache 返回时保留监听；真正卸载时才拆，避免切页残留重复监听
+
+	const onFabClick = () => {
+		if (!toc || desktop.matches) return;
+		const isSheetOpen = toc.dataset.mobileSheet === "open";
+		if (isSheetOpen) {
+			closeMobileSheet();
+		} else {
+			toc.dataset.mobileSheet = "open";
+			toc.open = true;
+			fab?.setAttribute("aria-expanded", "true");
+			schedule();
+		}
+	};
+
+	const onKeydown = (event: KeyboardEvent) => {
+		if (event.key === "Escape" && toc?.dataset.mobileSheet === "open") {
+			closeMobileSheet();
+			fab?.focus();
+		}
+	};
+
 	const onPageHide = (event: PageTransitionEvent) => {
 		if (event.persisted) return;
 		if (pending) {
@@ -69,18 +182,136 @@ const sections = headings
 		}
 		window.removeEventListener("scroll", schedule);
 		window.removeEventListener("pagehide", onPageHide);
+		window.removeEventListener("keydown", onKeydown);
 		desktop.removeEventListener("change", sync);
 		toc?.removeEventListener("toggle", schedule);
+		fab?.removeEventListener("click", onFabClick);
 		for (const link of links) link.removeEventListener("click", onLinkClick);
 	};
+
 	window.addEventListener("scroll", schedule, { passive: true });
 	window.addEventListener("pagehide", onPageHide);
+	window.addEventListener("keydown", onKeydown);
 	desktop.addEventListener("change", sync);
 	toc?.addEventListener("toggle", schedule);
+	fab?.addEventListener("click", onFabClick);
 	sync();
 	highlight();
 	for (const link of links) link.addEventListener("click", onLinkClick);
 </script>
 <style>
-	.reading-navigation{font-size:13px;color:var(--brand-accent);padding:24px clamp(20px,6vw,72px) 0}.reading-navigation>a{text-decoration:none}.reading-toc{margin-top:18px;border:1px solid var(--brand-line);border-radius:10px;padding:12px 16px;background:var(--brand-paper)}summary{cursor:pointer;font:11px/1.8 "JetBrains Mono",monospace;color:var(--brand-accent)}ol{list-style:none;margin:12px 0 0;padding:0;max-height:55vh;overflow:auto;overscroll-behavior:contain}li{padding:5px 0;line-height:1.7}.nested{padding-left:12px;font-size:12px}li a{display:block;color:var(--brand-muted);text-decoration:none;border-left:2px solid transparent;padding-left:8px}li a[aria-current]{border-color:var(--brand-accent);color:var(--brand-ink);font-weight:600}li a:hover{color:var(--brand-accent)}:global(#post-container .markdown-content :is(h2,h3)[id]){scroll-margin-top:5.5rem}@media(max-width:700px){:global(#post-container .markdown-content :is(h2,h3)[id]){scroll-margin-top:7.5rem}}@media(min-width:1180px){.reading-toc{position:fixed;right:20px;top:120px;width:clamp(200px,16vw,240px);z-index:5;margin:0;padding:16px 12px;background:var(--brand-paper)}ol{max-height:calc(100vh - 230px)}:global(#content-wrapper){padding-right:max(clamp(20px,6vw,72px),calc(36px + clamp(200px,16vw,240px) - (100vw - 980px) / 2))}}@media(max-width:700px){.reading-navigation{padding:24px 7vw 0}}
+	.reading-navigation {
+		font-size: 13px;
+		color: var(--brand-accent);
+		padding: 24px clamp(20px, 6vw, 72px) 0;
+	}
+	.reading-navigation > a {
+		text-decoration: none;
+	}
+	.reading-toc {
+		margin-top: 18px;
+		border: 1px solid var(--brand-line);
+		border-radius: 10px;
+		padding: 12px 16px;
+		background: var(--brand-paper);
+	}
+	.reading-toc[data-mobile-sheet="open"] {
+		position: fixed;
+		right: 16px;
+		bottom: 68px;
+		width: min(310px, calc(100vw - 32px));
+		z-index: 65;
+		margin: 0;
+		background: var(--brand-paper);
+		box-shadow: 0 18px 48px rgba(37, 60, 52, 0.18);
+	}
+	.mobile-toc-fab {
+		position: fixed;
+		right: 16px;
+		bottom: 20px;
+		z-index: 66;
+		height: 38px;
+		padding: 0 14px;
+		border: 1px solid var(--brand-accent);
+		border-radius: 999px;
+		background: var(--brand-paper);
+		color: var(--brand-ink);
+		font: 500 12px/1 var(--font-mono, "JetBrains Mono", monospace);
+		box-shadow: 0 8px 24px rgba(37, 60, 52, 0.14);
+		cursor: pointer;
+	}
+	.mobile-toc-fab[hidden] {
+		display: none;
+	}
+	summary {
+		cursor: pointer;
+		font: 11px/1.8 var(--font-mono, "JetBrains Mono", monospace);
+		color: var(--brand-accent);
+	}
+	ol {
+		list-style: none;
+		margin: 12px 0 0;
+		padding: 0;
+		max-height: 55vh;
+		overflow: auto;
+		overscroll-behavior: contain;
+	}
+	li {
+		padding: 5px 0;
+		line-height: 1.7;
+	}
+	.nested {
+		padding-left: 12px;
+		font-size: 12px;
+	}
+	li a {
+		display: block;
+		color: var(--brand-muted);
+		text-decoration: none;
+		border-left: 2px solid transparent;
+		padding-left: 8px;
+	}
+	li a[aria-current] {
+		border-color: var(--brand-accent);
+		color: var(--brand-ink);
+		font-weight: 600;
+	}
+	li a:hover {
+		color: var(--brand-accent);
+	}
+	:global(#post-container .markdown-content :is(h2, h3)[id]) {
+		scroll-margin-top: 5.5rem;
+	}
+	@media (max-width: 700px) {
+		:global(#post-container .markdown-content :is(h2, h3)[id]) {
+			scroll-margin-top: 7.5rem;
+		}
+		.reading-navigation {
+			padding: 24px 7vw 0;
+		}
+	}
+	@media (min-width: 1180px) {
+		.mobile-toc-fab {
+			display: none !important;
+		}
+		.reading-toc {
+			position: fixed;
+			right: 20px;
+			top: 120px;
+			width: clamp(200px, 16vw, 240px);
+			z-index: 5;
+			margin: 0;
+			padding: 16px 12px;
+			background: var(--brand-paper);
+		}
+		ol {
+			max-height: calc(100vh - 230px);
+		}
+		:global(#content-wrapper) {
+			padding-right: max(
+				clamp(20px, 6vw, 72px),
+				calc(36px + clamp(200px, 16vw, 240px) - (100vw - 980px) / 2)
+			);
+		}
+	}
 </style>

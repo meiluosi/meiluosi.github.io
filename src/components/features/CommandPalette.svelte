@@ -89,6 +89,31 @@ function displayTitle(item: PaletteItem): string {
 	return english ? (item.titleEn ?? item.title) : item.title;
 }
 
+interface HighlightSegment {
+	text: string;
+	match: boolean;
+}
+
+function highlightText(text: string, rawQuery: string): HighlightSegment[] {
+	const terms = rawQuery
+		.trim()
+		.split(/\s+/)
+		.filter((t) => t.length > 0)
+		.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+	if (terms.length === 0 || !text) return [{ text, match: false }];
+	const regex = new RegExp(`(${terms.join("|")})`, "gi");
+	const parts = text.split(regex);
+	const lowerTerms = new Set(
+		rawQuery.trim().toLowerCase().split(/\s+/).filter(Boolean),
+	);
+	return parts
+		.filter((part) => part.length > 0)
+		.map((part) => ({
+			text: part,
+			match: lowerTerms.has(part.toLowerCase()),
+		}));
+}
+
 function metaLabel(item: PaletteItem): string {
 	const kind =
 		item.kind === "page"
@@ -270,6 +295,12 @@ onMount(() => {
 	window.addEventListener("palette:open", onPaletteOpen);
 	document.addEventListener("site-locale-change", onLocaleChange);
 
+	const win = window as Window & { __paletteOpenPending?: boolean };
+	if (win.__paletteOpenPending) {
+		win.__paletteOpenPending = false;
+		open();
+	}
+
 	return () => {
 		document.removeEventListener("keydown", onKeydown);
 		window.removeEventListener("palette:open", onPaletteOpen);
@@ -357,8 +388,16 @@ $effect(() => {
 							activeIndex = index;
 						}}
 					>
-						<span class="palette-option-title">{displayTitle(item)}</span>
-						<span class="palette-option-meta">{metaLabel(item)}</span>
+						<span class="palette-option-title">
+							{#each highlightText(displayTitle(item), query) as seg}
+								{#if seg.match}<mark class="palette-mark">{seg.text}</mark>{:else}{seg.text}{/if}
+							{/each}
+						</span>
+						<span class="palette-option-meta">
+							{#each highlightText(metaLabel(item), query) as seg}
+								{#if seg.match}<mark class="palette-mark">{seg.text}</mark>{:else}{seg.text}{/if}
+							{/each}
+						</span>
 					</li>
 				{/each}
 			</ul>
@@ -501,6 +540,13 @@ $effect(() => {
 		line-height: 1.5;
 		color: var(--brand-muted);
 		overflow-wrap: anywhere;
+	}
+
+	.palette-mark {
+		background: var(--brand-peach);
+		color: var(--brand-ink);
+		padding: 0 2px;
+		border-radius: 3px;
 	}
 
 	.palette-note {

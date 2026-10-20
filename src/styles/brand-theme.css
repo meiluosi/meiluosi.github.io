@@ -33,6 +33,10 @@
 	--link-underline: var(--brand-sage);
 	--link-hover: var(--brand-surface);
 	--toc-item-active: var(--brand-accent);
+	/* Typography tokens: editorial serif for primary titles, clean sans for body/headings, mono for metadata. */
+	--font-serif: "Iowan Old Style", "Songti SC", "Noto Serif SC", "STSong", Georgia, serif;
+	--font-sans: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 	/* Motion scale: the single source for brand pages, reading layouts and page transitions. */
 	--motion-fast: 160ms;
 	--motion-base: 220ms;
