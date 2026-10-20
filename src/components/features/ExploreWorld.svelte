@@ -3,6 +3,8 @@ import { onMount, tick } from "svelte";
 import { researchThreads } from "@/data/researchThreads";
 import type { WorldController, WorldLocale, WorldQuality } from "./world/create-world";
 import WorldPoster from "./world/WorldPoster.svelte";
+import { computeCelestialState, getCurrentSolarHour } from "@/utils/celestial";
+import { playLatchClick } from "@/utils/haptics";
 
 interface Props { immersive?: boolean; compact?: boolean; }
 let { immersive = false, compact = false }: Props = $props();
@@ -24,6 +26,20 @@ let quality = $state<WorldQuality>("light");
 let selected = $state<(typeof destinations)[number] | null>(null);
 let panelCollapsed = $state(false);
 let previewTrigger: HTMLElement | null = null;
+let solarHour = $state(getCurrentSolarHour());
+const celestial = $derived(computeCelestialState(solarHour));
+const celestialEmoji = $derived(
+	celestial.period === "dawn"
+		? "🌅"
+		: celestial.period === "noon"
+			? "☀️"
+			: celestial.period === "sunset"
+				? "🌇"
+				: "🌙",
+);
+const celestialLabel = $derived(
+	locale === "en" ? celestial.labelEn : celestial.labelZh,
+);
 const stationCopy = {
 	"llm-systems": {
 		label: "文字桌", labelEn: "Word desk", sceneLabel: "文字桌", sceneLabelEn: "The word desk",
@@ -104,6 +120,14 @@ function changeQuality(): void {
 	quality = quality === "light" ? "full" : "light";
 	controller?.setQuality(quality);
 }
+function cycleDaylight(): void {
+	const hours = [6.5, 12.0, 18.0, 23.5];
+	const nextIdx = hours.findIndex((h) => h > solarHour + 0.5);
+	const nextHour = nextIdx === -1 ? hours[0] : hours[nextIdx];
+	solarHour = nextHour;
+	controller?.setSolarHour(solarHour);
+	playLatchClick();
+}
 function onWindowKeyDown(event: KeyboardEvent): void {
 	if (event.key === "Escape" && selected) {
 		event.preventDefault();
@@ -127,7 +151,11 @@ async function startScene(): Promise<void> {
 		if (disposed || !canvas) return;
 		controller = createWorld({
 			canvas, stage, stations: destinations, immersive, locale,
-			onReady: () => { sceneReady = true; loading = false; },
+			onReady: () => {
+				sceneReady = true;
+				loading = false;
+				controller?.setSolarHour(solarHour);
+			},
 			onSelect: (id) => { const station = destinations.find((item) => item.id === id); if (station) void openStation(station); },
 			onOverview: () => { selected = null; },
 			onNotice: (zh, en) => { noticeZh = zh; noticeEn = en; },
@@ -176,6 +204,7 @@ onMount(() => {
 			<button type="button" onclick={resetView} title={locale === "en" ? "Restore the overview (Home)" : "恢复总览视角（Home）"}><span aria-hidden="true">⌖</span> {locale === "en" ? "Overview" : "总览"}</button>
 			<button type="button" onclick={() => controller?.resetRover()} title={locale === "en" ? "Return rover to the start (R)" : "小车回到起点（R）"}><span aria-hidden="true">↺</span> {locale === "en" ? "Reset rover" : "回起点"}</button>
 			<button type="button" onclick={changeQuality} aria-pressed={quality === "full"} title={locale === "en" ? "Full quality adds shadows and finer resolution" : "完整画质增加投影和显示精度"}>{locale === "en" ? "Quality:" : "画质："} {quality === "full" ? (locale === "en" ? "Full" : "完整") : (locale === "en" ? "Light" : "轻量")}</button>
+			<button type="button" class="celestial-btn" onclick={cycleDaylight} title={locale === "en" ? "Cycle celestial daylight (Dawn / Noon / Sunset / Night)" : "切换天象光影周期（晨曦 / 正午 / 晚霞 / 静夜）"}><span aria-hidden="true">{celestialEmoji}</span> {celestialLabel}</button>
 			<button type="button" onclick={toggleAnimation} disabled={reducedMotion} aria-pressed={animationPaused || reducedMotion} title={locale === "en" ? "Pause ambient animation; driving and camera controls stay available" : "暂停环境动效，仍可驾驶与调整镜头"}>{reducedMotion ? (locale === "en" ? "Reduced motion" : "已减少动态效果") : animationPaused ? (locale === "en" ? "Resume motion" : "继续动效") : (locale === "en" ? "Pause motion" : "暂停动效")}</button>
 			{#if immersive}<button type="button" onclick={toggleFollow} aria-pressed={followRover}>{locale === "en" ? "Follow rover" : "跟随小车"}</button>{/if}
 		</div>

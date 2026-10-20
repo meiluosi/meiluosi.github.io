@@ -1,0 +1,88 @@
+/**
+ * Tufte & Gwern inspired academic sidenotes and marginalia.
+ *
+ * Provides high-density scholarly reading ergonomics:
+ * On desktop (>= 1240px), sidenotes float into the right-hand margin.
+ * On mobile/tablet, sidenotes render inline with an unobtrusive left border.
+ */
+
+.markdown-content {
+	position: relative;
+}
+
+/* Sidenote / Marginnote block */
+.sidenote,
+.marginnote,
+aside.marginalia {
+	display: block;
+	font-size: 12px;
+	line-height: 1.75;
+	color: var(--brand-body);
+	background: var(--brand-surface);
+	border-left: 2px solid var(--brand-accent);
+	border-radius: 4px;
+	padding: 8px 12px;
+	margin: 14px 0;
+}
+
+.sidenote-number {
+	font: 600 11px var(--font-mono);
+	color: var(--brand-accent);
+	margin-right: 4px;
+}
+
+/* Wide screen margin float (>= 1280px) */
+@media (min-width: 1280px) {
+	.sidenote,
+	.marginnote,
+	aside.marginalia {
+		float: right;
+		clear: right;
+		margin-right: -240px;
+		width: 200px;
+		margin-top: 0;
+		margin-bottom: 14px;
+		padding: 6px 10px;
+		background: transparent;
+		border-left: 1px solid var(--brand-line);
+		border-radius: 0;
+		font-size: 11.5px;
+		line-height: 1.65;
+	}
+	.sidenote:hover,
+	.marginnote:hover,
+	aside.marginalia:hover {
+		border-left-color: var(--brand-accent);
+		color: var(--brand-ink);
+	}
+}
+
+/* Footnotes section at the end of article */
+.markdown-content .footnotes {
+	margin-top: 48px;
+	padding-top: 24px;
+	border-top: 1px dashed var(--brand-line);
+	font-size: 12.5px;
+	line-height: 1.8;
+	color: var(--brand-body);
+}
+
+.markdown-content .footnotes ol {
+	padding-left: 18px;
+	margin: 12px 0 0;
+}
+
+.markdown-content .footnotes li {
+	margin-bottom: 8px;
+}
+
+.markdown-content .data-footnote-backref {
+	color: var(--brand-accent);
+	text-decoration: none;
+	margin-left: 6px;
+	font-weight: 500;
+}
+
+.markdown-content .data-footnote-backref:hover {
+	text-decoration: underline;
+}

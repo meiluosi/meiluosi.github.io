@@ -1,6 +1,7 @@
 ---
 import Text from "@/components/common/BilingualText.astro";
 import ExploreMenu from "@/components/features/ExploreMenu.astro";
+import HapticToggle from "@/components/features/HapticToggle.svelte";
 import LanguageSwitcher from "@/components/features/LanguageSwitcher.svelte";
 import { navBarConfig } from "@/config";
 import { getBrandTranslation } from "@/i18n/brand";
@@ -66,6 +67,7 @@ const labelKeys: Record<string, string> = {
 			<kbd class="palette-trigger-kbd" aria-hidden="true">⌘K</kbd>
 		</button>
 		<ExploreMenu />
+		<HapticToggle client:load />
 		<LanguageSwitcher client:load />
 	</div>
 </header>

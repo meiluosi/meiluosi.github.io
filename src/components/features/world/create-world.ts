@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { planWorldRoute, WORLD_ROVER_CLEARANCE } from "./navigation";
+import { type CelestialState, computeCelestialState } from "@/utils/celestial";
 
 export type WorldQuality = "light" | "full";
 export type WorldLocale = "zh-CN" | "en";
@@ -19,6 +20,7 @@ export interface WorldController {
 	setAnimationPaused: (paused: boolean) => void;
 	setFollowRover: (follow: boolean) => void;
 	setLocale: (locale: WorldLocale) => void;
+	setSolarHour: (hour: number) => CelestialState;
 	dispose: () => void;
 }
 interface WorldOptions {
@@ -91,7 +93,8 @@ export function createWorld(options: WorldOptions): WorldController {
 	const world = new THREE.Group();
 	world.rotation.y = -0.12;
 	scene.add(world);
-	scene.add(new THREE.HemisphereLight(0xfff5e1, 0x849181, 1.4));
+	const hemi = new THREE.HemisphereLight(0xfff5e1, 0x849181, 1.4);
+	scene.add(hemi);
 	const sun = new THREE.DirectionalLight(0xffe4ba, 2.15);
 	sun.position.set(-5, 12, 7);
 	sun.castShadow = true;
@@ -773,6 +776,19 @@ export function createWorld(options: WorldOptions): WorldController {
 		setAnimationPaused(paused) { animationPaused = paused; previousTime = 0; schedule(); },
 		setFollowRover,
 		setLocale(next) { locale = next; labelUpdates.forEach((update) => update()); if (arrival) arrivalNotice(arrival); else if (nearby && !autoDestination) proximityNotice(nearby); else if (selected) noticeForStation(selected); else defaultNotice(); schedule(); },
+		setSolarHour(hour: number) {
+			const celestial = computeCelestialState(hour);
+			sun.position.set(celestial.sunPosition[0], celestial.sunPosition[1], celestial.sunPosition[2]);
+			sun.color.setHex(celestial.sunColor);
+			sun.intensity = celestial.sunIntensity;
+			hemi.color.setHex(celestial.hemiSkyColor);
+			hemi.groundColor.setHex(celestial.hemiGroundColor);
+			fill.color.setHex(celestial.fillColor);
+			fill.intensity = celestial.fillIntensity;
+			stage.style.background = celestial.stageBackgroundCss;
+			schedule();
+			return celestial;
+		},
 		dispose() {
 			disposed = true;
 			clearKeys();

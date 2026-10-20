@@ -1,6 +1,11 @@
 <script lang="ts">
 import { onMount } from "svelte";
 import {
+	playLatchClick,
+	playMechanicalTick,
+	playSlideTick,
+} from "@/utils/haptics";
+import {
 	computeRopeSnapshot,
 	type RopeScalingMode,
 } from "@/utils/rope-attention";
@@ -26,6 +31,7 @@ function shiftBoth(delta: number) {
 			: Math.max(minShift, delta);
 	queryPos += step;
 	keyPos += step;
+	playMechanicalTick(1.25);
 }
 
 function polarX(cx: number, r: number, rad: number): number {
@@ -88,7 +94,10 @@ onMount(() => {
 				max="64"
 				step="1"
 				value={queryPos}
-				oninput={(e) => (queryPos = Number(e.currentTarget.value))}
+				oninput={(e) => {
+					queryPos = Number(e.currentTarget.value);
+					playSlideTick(1);
+				}}
 			/>
 		</label>
 
@@ -104,7 +113,10 @@ onMount(() => {
 				max="64"
 				step="1"
 				value={keyPos}
-				oninput={(e) => (keyPos = Number(e.currentTarget.value))}
+				oninput={(e) => {
+					keyPos = Number(e.currentTarget.value);
+					playSlideTick(1);
+				}}
 			/>
 		</label>
 
@@ -147,7 +159,10 @@ onMount(() => {
 				<button
 					type="button"
 					class:active={mode === item.id}
-					onclick={() => (mode = item.id)}
+					onclick={() => {
+						mode = item.id;
+						playLatchClick();
+					}}
 				>
 					{english ? item.en : item.zh}
 				</button>

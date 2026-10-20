@@ -1,5 +1,10 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import {
+	playLatchClick,
+	playMechanicalTick,
+	playSlideTick,
+} from "@/utils/haptics";
 import { type KuhnCard, runKuhnCfr, terminalUtility } from "@/utils/cfr-poker";
 
 let english = $state(false);
@@ -46,6 +51,7 @@ function cardIndex(card: KuhnCard): number {
 }
 
 function dealHand() {
+	playLatchClick();
 	const c1 = Math.floor(Math.random() * 3);
 	let c2 = Math.floor(Math.random() * 2);
 	if (c2 >= c1) c2 += 1;
@@ -57,6 +63,7 @@ function dealHand() {
 
 function playHumanAction(action: "p" | "b") {
 	if (isTerminal(handHistory)) return;
+	playMechanicalTick(action === "b" ? 1.4 : 0.95);
 	const next = `${handHistory}${action}`;
 	handHistory = next;
 
@@ -161,6 +168,7 @@ onMount(() => {
 				oninput={(e) => {
 					pause();
 					iterations = Number(e.currentTarget.value);
+					playSlideTick(1);
 				}}
 			/>
 		</label>

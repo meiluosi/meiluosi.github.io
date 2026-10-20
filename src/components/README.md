@@ -36,6 +36,10 @@
 **功能组件**
 - `EncryptedContent.astro` - 加密内容组件
 - `EncryptedPost.astro` - 加密文章组件
+- `HapticToggle.svelte` - 机械微音效开关与偏好管理（Web Audio 纯合成无外部音频资源）
+- `HoverPreviewCard.svelte` - Gwern 风格文章与实验室双链悬浮即时预览卡片
+- `ReactiveProseBlock.svelte` - Bret Victor 风格段落行内数值拖动与文本/分布实时推演组件
+- `AttentionLensLab.svelte` - Transformer 机制可解释性：注意力探针与归纳回路（Induction Heads）实验台
 - `CfrPokerLab.svelte` - Kuhn Poker 反事实遗憾最小化（CFR）与纳什均衡交互实验台
 - `PreferenceAlignmentLab.svelte` - DPO 偏好对齐与 KL 锚定古德哈特前沿交互实验台
 - `RopeAttentionLab.svelte` - RoPE 旋转位置编码多频复平面星盘与相对距离衰减实验台

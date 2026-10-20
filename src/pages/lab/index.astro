@@ -3,6 +3,7 @@ import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
 import ResearchVisual from "@/components/features/ResearchVisual.astro";
 import MarginGadget3D from "@/components/features/MarginGadget3D.svelte";
+import ReactiveProseBlock from "@/components/features/ReactiveProseBlock.svelte";
 
 const experiments = [
 	{
@@ -74,6 +75,20 @@ const experiments = [
 		outcomeEn: "Verify translation invariance and long-range relative decay across six harmonic complex dials.",
 		tag: "ROPE / NTK SCALING",
 		path: "rope-attention",
+	},
+	{
+		href: "/lab/attention-lens/",
+		code: "06 / MECHANISTIC INTERPRETABILITY",
+		title: "Transformer 注意力探针与归纳回路",
+		titleEn: "Transformer attention lens & induction circuits",
+		question: "模型没有更新任何权重，仅仅靠上下文，它是怎么学会从前面的文字中‘抄答案’的？",
+		questionEn: "Without updating weights during inference, how does a model copy answers from in-context text?",
+		control: "输入任意序列，切换归纳头、前驱头与注意力水槽，直观观察 N×N 权重矩阵与流动",
+		controlEn: "Input custom sequences, toggle Induction Heads vs. Attention Sinks, and trace NxN attention heat flows",
+		outcome: "直观揭示大模型在上下文学习（ICL）与长程词元复制中的微观回路结构。",
+		outcomeEn: "Visually unpack the micro-circuits underlying in-context learning and pattern copying.",
+		tag: "INDUCTION HEADS / ATTENTION LENS",
+		path: "attention-lens",
 	},
 ];
 ---
@@ -186,7 +201,7 @@ const experiments = [
 							/>
 							<circle cx="145" cy="44" r="6" fill="var(--brand-peach)" stroke="var(--brand-clay)" stroke-width="1.5" />
 						</svg>
-					) : (
+					) : item.path === "rope-attention" ? (
 						<svg viewBox="0 0 300 110">
 							{[75, 150, 225].map((cx, idx) => (
 								<>
@@ -211,6 +226,25 @@ const experiments = [
 								</>
 							))}
 						</svg>
+					) : (
+						<svg viewBox="0 0 300 110">
+							{[0, 1, 2, 3, 4].map((row) =>
+								[0, 1, 2, 3, 4].map((col) => (
+									col <= row ? (
+										<rect
+											x={78 + col * 28}
+											y={14 + row * 18}
+											width="24"
+											height="14"
+											rx="3"
+											fill={col === row - 1 || (row === 4 && col === 1) ? "var(--brand-accent)" : col === 0 ? "var(--brand-clay)" : "var(--brand-surface)"}
+											stroke="var(--brand-line)"
+											stroke-width="1"
+										/>
+									) : null
+								))
+							)}
+						</svg>
 					)}
 				</div>
 				<Text as="h2" zh={item.title} en={item.titleEn} />
@@ -225,6 +259,10 @@ const experiments = [
 			</article>
 		))}
 	</div>
+
+	<section class="reactive-prose-showcase" style="margin-top:32px">
+		<ReactiveProseBlock client:visible />
+	</section>
 
 	<section class="gadget-showcase" style="margin-top:34px">
 		<MarginGadget3D client:visible />

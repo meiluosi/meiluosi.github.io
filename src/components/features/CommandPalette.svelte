@@ -1,5 +1,10 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import {
+	playLatchClick,
+	playMechanicalTick,
+	playShutterTick,
+} from "@/utils/haptics";
 
 type PaletteKind = "post" | "en-post" | "page";
 interface PaletteItem {
@@ -198,6 +203,7 @@ function open(): void {
 	status = items.length > 0 ? "ready" : "idle";
 	element.showModal();
 	isOpen = true;
+	playShutterTick();
 	void load();
 	requestAnimationFrame(() => inputEl?.focus());
 }
@@ -235,6 +241,7 @@ function handleDialogClick(event: MouseEvent): void {
 }
 
 function go(item: PaletteItem): void {
+	playLatchClick();
 	location.assign(item.href);
 }
 
@@ -247,6 +254,7 @@ function handleInputKeydown(event: KeyboardEvent): void {
 		if (!count) return;
 		const step = event.key === "ArrowDown" ? 1 : -1;
 		activeIndex = (activeIndex + step + count) % count;
+		playMechanicalTick(1.15);
 		return;
 	}
 	if (event.key === "Home") {

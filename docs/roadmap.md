@@ -372,6 +372,20 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
   4. `MarginGadget3D.svelte`：交互式三维数学与机械小摆件（三维鞍点曲面与动量逃逸、多频相位浑天仪、UCT 探索与利用力矩天平），支持拖拽旋转与 `prefers-reduced-motion`。
   5. `InteractiveMathEnhancer.astro`：文章页 KaTeX 公式符号跨段落悬停/点击锁定联动高亮与内联温度微调尺。
 
+## Phase 25：高密度学术阅读、机制探针与全感官交互系统（2026-10-21 完成）
+
+- [x] **Web Audio 纯合成机械微音效（Haptics）**：实现零外部音频文件加载（0KB 网络负荷）的原生 Web Audio 振荡器合成系统（快门轻响、齿轮发条齿卡塔声、拨动滑块微阻尼声与机械开关音），全站导航、命令面板、博弈台与 3D 摆件联动，支持 `localStorage` 偏好记忆与减弱动画模式静音。
+- [x] **Bret Victor 式动态响应段落（Explorable Reactive Prose）**：研发 `ReactiveProseBlock.svelte` 与 `reactive-prose.ts`，段落内嵌可直接水平拖动数值的桃色交互数字，拖动时正文描述、预测信息熵、困惑度、词元分布柱状图与 KV Cache 显存占用实时联动推演。
+- [x] **Gwern & Tufte 学术工效系统**：
+  1. `HoverPreviewCard.svelte`：全站内链与文献双向悬浮即时预览卡片，悬停时优雅浮现目标文章摘要、分类、标签与阅读耗时。
+  2. `tufte-marginalia.css`：宽屏（$\ge 1280\text{px}$）下学术侧边旁注（Sidenote）与文末脚注右边栏浮动对齐，窄屏平滑回退为内联边框块。
+- [x] **Transformer 机制可解释性探针（`/lab/attention-lens/`）**：
+  1. 完整实现 Anthropic 论文提出的归纳回路（Induction Circuit L2H4）、前驱词头（L1H1）、重复词头（L1H6）、局部衰减头与注意力水槽（Attention Sink L3H0）。
+  2. 交互式 $N \times N$ 因果下三角注意力热力图矩阵、Query-Key 词元聚焦路径与上下文学习复制现象验证。
+- [x] **3D 研究岛天象光影周期系统（Celestial Ephemeris）**：
+  1. `celestial.ts` 计算基于当地真实时间或手动微调的 24 小时太阳高度角、方位角、天空光色温与雾气投影。
+  2. `ExploreWorld.svelte` 接入晨曦薄雾（Dawn）、明朗正午（Noon）、金桃晚霞（Sunset）与静夜星辰（Night）四大天象周期切换。
+
 ## 版本记录
 
 ### 2026-10-18：侧边栏组件、i18n 死键与依赖下线

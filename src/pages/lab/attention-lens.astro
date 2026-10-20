@@ -1,0 +1,58 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import Text from "@/components/common/BilingualText.astro";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import AttentionLensLab from "@/components/features/AttentionLensLab.svelte";
+---
+
+<ExploreLayout
+	title="Transformer 注意力机制与归纳头实验"
+	titleEn="Transformer attention lens & induction head explorer"
+	description="直观观察多头注意力机制如何形成归纳头（Induction Head）、前驱头与注意力水槽，理解上下文学习与词元复制回路。"
+	descriptionEn="Interactive mechanistic interpretability workbench exploring Induction Heads, previous-token circuits, and attention sinks in Transformers."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="注意力探针：归纳回路与机制可解释性"
+			en="Attention Lens: Induction Circuits & Mechanistic Interpretability"
+		/>
+	</header>
+
+	<ResearchQuestion
+		question="模型没有更新任何权重，仅仅靠上下文，它是怎么学会从前面的文字中‘抄答案’的？"
+		questionEn="Without updating any weights during inference, how does a model learn to 'copy answers' from earlier in-context text?"
+		hint="选择「Induction Copy」范例并切换到「L2H4 归纳头」。将鼠标移动到末尾的 `visited` 词元行，观察注意力权重如何精准穿透序列，跨越多个词精准投射到先前跟随在 Alice visited 后面的 `Paris`。再切换「L3H0 注意力水槽」，看多余的注意力质量如何被吸收。"
+		hintEn="Select 'Induction Copy' and switch to L2H4 Induction Head. Hover over the second 'visited' query row: watch attention weight bypass intermediate tokens and sharply attend to 'Paris' from the earlier 'Alice visited Paris' occurrence."
+	/>
+
+	<AttentionLensLab client:load />
+	<noscript>
+		<p>
+			请启用 JavaScript 操作实验，或阅读下方的方法笔记。 / Enable JavaScript to
+			use the workbench, or read the notes below.
+		</p>
+	</noscript>
+
+	<section class="explore-section" style="margin-top:40px">
+		<Text
+			as="h2"
+			zh="什么是归纳回路（Induction Circuit）？"
+			en="What is an Induction Circuit?"
+		/>
+		<Text
+			as="p"
+			class="explore-body"
+			zh="在 Anthropic 的《Transformer 机制可解释性框架》中，归纳回路是解释大语言模型具有上下文学习（In-Context Learning）能力的关键微观结构。第一层的‘前驱词头’负责把前一个词元的信息转移到当前词向量中；第二层的‘归纳头’通过查询该合成向量，回溯匹配历史序列中同样出现的模式 [A]，进而直接预测先前紧随其后的 [B]。"
+			en="In Anthropic's Transformer Circuits research, Induction Circuits form the mechanistic foundation of in-context learning. A Layer-1 previous-token head writes preceding token information into the current residual stream; a Layer-2 induction head queries this composite representation to attend back to tokens that historically followed identical prefixes [A] -> [B]."
+		/>
+		<a class="explore-link" href="/posts/transformer-architecture-overview/">
+			<Text zh="查看 Transformer 架构推导与多头注意力笔记" en="Read the Transformer architecture derivation and multi-head attention note" /> ↗
+		</a>
+		<p>
+			<a class="explore-link" href="/lab/rope-attention/">
+				<Text zh="前往 RoPE 旋转位置编码星盘实验" en="Open the RoPE rotary position astrolabe workbench" /> ↗
+			</a>
+		</p>
+	</section>
+</ExploreLayout>

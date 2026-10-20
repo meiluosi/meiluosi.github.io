@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { playLatchClick, playSlideTick } from "@/utils/haptics";
 
 interface Props {
 	initialMode?: "saddle" | "astrolabe" | "balance";
@@ -354,6 +355,7 @@ onMount(() => {
 				onclick={() => {
 					mode = "saddle";
 					marbleT = 0;
+					playLatchClick();
 				}}
 			>
 				{english ? "01 Saddle" : "01 鞍点曲面"}
@@ -361,14 +363,20 @@ onMount(() => {
 			<button
 				type="button"
 				class:active={mode === "astrolabe"}
-				onclick={() => (mode = "astrolabe")}
+				onclick={() => {
+					mode = "astrolabe";
+					playLatchClick();
+				}}
 			>
 				{english ? "02 Gimbal" : "02 旋转浑天仪"}
 			</button>
 			<button
 				type="button"
 				class:active={mode === "balance"}
-				onclick={() => (mode = "balance")}
+				onclick={() => {
+					mode = "balance";
+					playLatchClick();
+				}}
 			>
 				{english ? "03 UCT Scale" : "03 力矩天平"}
 			</button>
@@ -413,6 +421,7 @@ onMount(() => {
 				oninput={(e) => {
 					param = Number(e.currentTarget.value);
 					if (mode === "saddle") marbleT = 0;
+					playSlideTick(1);
 				}}
 			/>
 		</label>

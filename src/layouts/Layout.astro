@@ -7,6 +7,7 @@ import BrandMotion from "@components/features/BrandMotion.astro";
 import CommandPalette from "@components/features/CommandPalette.svelte";
 import FancyboxManager from "@components/features/FancyboxManager.astro";
 import FontSetup from "@components/features/FontSetup.astro";
+import HoverPreviewCard from "@/components/features/HoverPreviewCard.svelte";
 
 import {
 	analyticsConfig,
@@ -327,6 +328,7 @@ const siteLang = lang.replace("_", "-");
 			})();
 		</script>
 		<CommandPalette client:idle />
+		<HoverPreviewCard client:idle />
 		<BrandMotion />
 		<FancyboxManager />
 	</body>

@@ -5,6 +5,7 @@
 @source '../';
 @import './transition.css';
 @import './custom-scrollbar.css';
+@import './tufte-marginalia.css';
 
 @plugin '@tailwindcss/typography';
 
