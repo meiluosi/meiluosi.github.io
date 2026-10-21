@@ -33,6 +33,14 @@ let rotY = $state(0.0);
 let isDragging3D = false;
 let drag3DStart = { x: 0, y: 0 };
 
+// Motion and visibility policy. The cosmos must not spin on its own when the
+// reader asked for reduced motion, and it must not burn frames while it is
+// scrolled out of view or the tab is in the background.
+let reduceMotion = $state(false);
+let isVisible = $state(true);
+let settleFrames = 0;
+let animRunning = false;
+
 interface SimNodeExt extends GraphNode {
 	x3d?: number;
 	y3d?: number;
@@ -64,7 +72,7 @@ let draggedNode: SimNodeExt | null = null;
 let simNodes = $state<SimNodeExt[]>([]);
 let simEdges = $state<GraphEdge[]>([]);
 
-const activeMaturityCount = $derived(() => {
+const activeMaturityCount = $derived.by(() => {
 	const counts: Record<string, number> = { all: simNodes.length };
 	for (const n of simNodes) {
 		counts[n.maturity] = (counts[n.maturity] || 0) + 1;
@@ -72,8 +80,35 @@ const activeMaturityCount = $derived(() => {
 	return counts;
 });
 
+// The canvas is a spatial view; this list is the same graph in plain text.
+// It is what keyboard and screen-reader users navigate, and it is the static
+// representation that stays usable without JavaScript.
+const listedNodes = $derived.by(() => {
+	const q = searchQuery.trim().toLowerCase();
+	return simNodes.filter((n) => {
+		const matchesFilter = activeFilter === "all" || n.maturity === activeFilter;
+		if (!matchesFilter) return false;
+		if (!q) return true;
+		return (
+			n.label.toLowerCase().includes(q) ||
+			(n.labelEn ?? "").toLowerCase().includes(q) ||
+			(n.category ?? "").toLowerCase().includes(q) ||
+			Boolean(n.tags?.some((t) => t.toLowerCase().includes(q)))
+		);
+	});
+});
+
+// Node-kind labels live in both languages so the plain-text index can be
+// localized by the same data-i18n mechanism the rest of the site uses. That
+// keeps the English page from flashing Chinese labels before hydration.
+const kindLabels: Record<GraphNode["kind"], { zh: string; en: string }> = {
+	hub: { zh: "研究方向", en: "Research direction" },
+	lab: { zh: "交互实验", en: "Interactive lab" },
+	post: { zh: "文章", en: "Article" },
+};
+
 // Connected neighbors for the selected node
-const connectedNeighbors = $derived(() => {
+const connectedNeighbors = $derived.by(() => {
 	if (!selectedNode) return [];
 	const id = selectedNode.id;
 	const neighborIds = new Set<string>();
@@ -84,17 +119,12 @@ const connectedNeighbors = $derived(() => {
 	return simNodes.filter((n) => neighborIds.has(n.id));
 });
 
-function initSimulation() {
-	if (!canvasEl) return;
-	const rect = canvasEl.getBoundingClientRect();
-	const width = rect.width || 800;
-	const height = rect.height || 600;
-
-	transform.x = width / 2;
-	transform.y = height / 2;
-
-	// Copy initial data with 3D celestial coordinates
-	simNodes = initialNodes.map((n, i) => {
+// Build the node list without touching the canvas, so the same data can be
+// rendered on the server. The plain-text node index below must exist in the
+// static HTML: it is the keyboard, screen-reader and no-JS path into the
+// graph, and the canvas is only its spatial view.
+function buildNodes(): SimNodeExt[] {
+	return initialNodes.map((n, i) => {
 		const angle = (i / initialNodes.length) * 2 * Math.PI;
 		const radius = 120 + (i % 4) * 55;
 
@@ -120,12 +150,17 @@ function initSimulation() {
 			speed = 0.0005;
 		}
 
+		// Deterministic jitter: the server render and the client hydration must
+		// agree, so nothing here may depend on Math.random().
+		const jitter = (seed: number) =>
+			Math.sin(seed * 12.9898) * 43758.5453 - Math.floor(Math.sin(seed * 12.9898) * 43758.5453) - 0.5;
+
 		return {
 			...n,
 			x: Math.cos(angle) * radius,
 			y: Math.sin(angle) * radius,
-			vx: (Math.random() - 0.5) * 2,
-			vy: (Math.random() - 0.5) * 2,
+			vx: jitter(i + 1),
+			vy: jitter(i + 101),
 			orbitRadius: r3d,
 			orbitSpeed: speed,
 			orbitAngle: angle,
@@ -138,10 +173,57 @@ function initSimulation() {
 			projScale: 1,
 		};
 	});
-	simEdges = [...initialEdges];
+}
+
+// The node list exists before the canvas does, so the server-rendered page
+// already carries the full graph as plain links.
+simNodes = buildNodes();
+simEdges = [...initialEdges];
+
+function initSimulation() {
+	if (!canvasEl) return;
+	const rect = canvasEl.getBoundingClientRect();
+	const width = rect.width || 800;
+	const height = rect.height || 600;
+
+	transform.x = width / 2;
+	transform.y = height / 2;
 }
 
 let animFrameId: number;
+
+// Start or resume the render loop. With reduced motion the loop only runs for
+// a short settle window after an interaction, then parks until something
+// asks for a new frame.
+function ensureAnimating(frames = 240) {
+	if (reduceMotion) settleFrames = Math.max(settleFrames, frames);
+	if (animRunning) return;
+	animRunning = true;
+	animFrameId = requestAnimationFrame(tickSimulation);
+}
+
+function parkAnimation() {
+	if (!animRunning) return;
+	cancelAnimationFrame(animFrameId);
+	animRunning = false;
+	settleFrames = 0;
+}
+
+function scheduleNextFrame() {
+	if (!isVisible) {
+		animRunning = false;
+		return;
+	}
+	if (reduceMotion) {
+		settleFrames -= 1;
+		if (settleFrames <= 0) {
+			animRunning = false;
+			return;
+		}
+	}
+	animFrameId = requestAnimationFrame(tickSimulation);
+}
+
 function tickSimulation() {
 	if (!canvasEl) return;
 	const ctx = canvasEl.getContext("2d");
@@ -154,7 +236,7 @@ function tickSimulation() {
 	// 3D CELESTIAL COSMOS MODE
 	if (viewMode === "3d") {
 		// Update cosmic rotation
-		if (!isDragging3D) {
+		if (!isDragging3D && !reduceMotion) {
 			rotY += 0.002;
 		}
 
@@ -166,7 +248,9 @@ function tickSimulation() {
 		const focal = 500;
 
 		for (const n of simNodes) {
-			n.orbitAngle = (n.orbitAngle || 0) + (n.orbitSpeed || 0.0005);
+			if (!reduceMotion) {
+				n.orbitAngle = (n.orbitAngle || 0) + (n.orbitSpeed || 0.0005);
+			}
 			const r = n.orbitRadius || 200;
 			const rawX = Math.cos(n.orbitAngle) * r;
 			const rawZ = Math.sin(n.orbitAngle) * r;
@@ -337,7 +421,7 @@ function tickSimulation() {
 		}
 
 		ctx.restore();
-		animFrameId = requestAnimationFrame(tickSimulation);
+		scheduleNextFrame();
 		return;
 	}
 
@@ -485,7 +569,7 @@ function tickSimulation() {
 	}
 
 	ctx.restore();
-	animFrameId = requestAnimationFrame(tickSimulation);
+	scheduleNextFrame();
 }
 
 function getNodeAt(x: number, y: number): SimNodeExt | null {
@@ -552,6 +636,7 @@ function handleMouseMove(e: MouseEvent) {
 			Math.min(1.1, rotX + (e.clientY - drag3DStart.y) * 0.006),
 		);
 		drag3DStart = { x: e.clientX, y: e.clientY };
+		ensureAnimating(120);
 		return;
 	}
 
@@ -598,6 +683,7 @@ function handleWheel(e: WheelEvent) {
 	transform.x = mx - ((mx - transform.x) / transform.k) * newK;
 	transform.y = my - ((my - transform.y) / transform.k) * newK;
 	transform.k = newK;
+	ensureAnimating(120);
 }
 
 function resetView() {
@@ -607,11 +693,13 @@ function resetView() {
 	transform.y = rect.height / 2;
 	transform.k = 1.0;
 	playShutterTick();
+	ensureAnimating(120);
 }
 
 function setFilter(filter: MaturityLevel | "all") {
 	activeFilter = filter;
 	playLatchClick();
+	ensureAnimating(180);
 }
 
 function focusNode(node: GraphNode) {
@@ -619,6 +707,7 @@ function focusNode(node: GraphNode) {
 	transform.x = (canvasEl?.width || 800) / 2 - (node.x || 0) * transform.k;
 	transform.y = (canvasEl?.height || 600) / 2 - (node.y || 0) * transform.k;
 	playLatchClick();
+	ensureAnimating(120);
 }
 
 function closeDrawer() {
@@ -633,6 +722,22 @@ onMount(() => {
 	sync();
 	document.addEventListener("site-locale-change", sync);
 
+	// Reduced motion: the reader asked for a still cosmos. Start on the 2D
+	// atlas, stop the automatic rotation and orbit drift, and only re-render
+	// for a short settle window after each interaction.
+	const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const applyMotionPreference = () => {
+		reduceMotion = motionQuery.matches;
+		if (reduceMotion) {
+			viewMode = "2d";
+			ensureAnimating(180);
+		} else {
+			ensureAnimating();
+		}
+	};
+	applyMotionPreference();
+	motionQuery.addEventListener("change", applyMotionPreference);
+
 	const handleResize = () => {
 		if (canvasEl) {
 			const rect = canvasEl.getBoundingClientRect();
@@ -641,16 +746,46 @@ onMount(() => {
 			const ctx = canvasEl.getContext("2d");
 			if (ctx) ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 		}
+		ensureAnimating(120);
 	};
 
 	handleResize();
 	initSimulation();
-	animFrameId = requestAnimationFrame(tickSimulation);
+	ensureAnimating();
 	window.addEventListener("resize", handleResize);
 
+	// Off-screen and background tabs must not keep the loop running.
+	const container = canvasEl?.closest(".canvas-container") ?? null;
+	let visibilityObserver: IntersectionObserver | undefined;
+	if (container && "IntersectionObserver" in window) {
+		visibilityObserver = new IntersectionObserver(
+			(entries) => {
+				const visible = entries.some((entry) => entry.isIntersecting);
+				isVisible = visible;
+				if (visible) ensureAnimating(120);
+				else parkAnimation();
+			},
+			{ threshold: 0 },
+		);
+		visibilityObserver.observe(container);
+	}
+	const handleVisibility = () => {
+		if (document.hidden) {
+			parkAnimation();
+		} else {
+			isVisible = true;
+			ensureAnimating(120);
+		}
+	};
+	document.addEventListener("visibilitychange", handleVisibility);
+
 	return () => {
+		parkAnimation();
 		cancelAnimationFrame(animFrameId);
+		visibilityObserver?.disconnect();
+		motionQuery.removeEventListener("change", applyMotionPreference);
 		window.removeEventListener("resize", handleResize);
+		document.removeEventListener("visibilitychange", handleVisibility);
 		document.removeEventListener("site-locale-change", sync);
 	};
 });
@@ -693,6 +828,7 @@ onMount(() => {
 					onclick={() => {
 						viewMode = "3d";
 						playShutterTick();
+						ensureAnimating(180);
 					}}
 				>
 					🪐 {english ? "3D Cosmos" : "3D 天球"}
@@ -704,6 +840,7 @@ onMount(() => {
 					onclick={() => {
 						viewMode = "2d";
 						playShutterTick();
+						ensureAnimating(180);
 					}}
 				>
 					🗺️ {english ? "2D Atlas" : "2D 拓扑"}
@@ -715,6 +852,7 @@ onMount(() => {
 				class="cosmos-search-input"
 				placeholder={english ? "Search concept or note…" : "搜索知识概念或笔记…"}
 				bind:value={searchQuery}
+				oninput={() => ensureAnimating(120)}
 			/>
 			<button type="button" class="btn-icon" onclick={resetView} title={english ? "Reset View" : "重置视图"}>
 				⟲
@@ -726,6 +864,7 @@ onMount(() => {
 	<div class="canvas-container">
 		<canvas
 			bind:this={canvasEl}
+			aria-hidden="true"
 			onmousedown={handleMouseDown}
 			onmousemove={handleMouseMove}
 			onmouseup={handleMouseUp}
@@ -781,7 +920,7 @@ onMount(() => {
 				<div class="neighbors-section">
 					<h4>{english ? "Connected Thoughts & Experiments:" : "关联思想与实验:"}</h4>
 					<div class="neighbor-list">
-						{#each connectedNeighbors() as nbr}
+						{#each connectedNeighbors as nbr}
 							<button type="button" class="neighbor-pill" onclick={() => focusNode(nbr)}>
 								<span>{MATURITY_DEFINITIONS[nbr.maturity]?.icon}</span>
 								<span>{english && nbr.labelEn ? nbr.labelEn : nbr.label}</span>
@@ -798,6 +937,71 @@ onMount(() => {
 			</aside>
 		{/if}
 	</div>
+
+	<!-- Plain-text node index: the keyboard and no-JS path into the same graph.
+		It lives outside the canvas container on purpose: the container keeps a
+		fixed height, so anything inside it would be clipped away. -->
+	<details class="node-index">
+		<summary>
+			<span
+				class="node-index-title"
+				data-i18n="graph.node.index"
+				data-i18n-zh="节点目录"
+				data-i18n-en="Node index"
+			>
+				节点目录
+			</span>
+			<span class="node-index-count">{listedNodes.length}</span>
+		</summary>
+		<p
+			class="node-index-note"
+			data-i18n="graph.node.note"
+			data-i18n-zh="把图谱里的每个节点以纯文本链接列出，顺序与拓扑图一致。画布只是同一份列表的空间化视图。"
+			data-i18n-en="Every node as a plain link, in the order the atlas draws them. The canvas is a spatial view of the same list."
+		>
+			把图谱里的每个节点以纯文本链接列出，顺序与拓扑图一致。画布只是同一份列表的空间化视图。
+		</p>
+		<ul>
+			{#each listedNodes as node (node.id)}
+				<li>
+					<a href={node.href}>
+						<span
+							class="node-index-badge"
+							style="background: {MATURITY_DEFINITIONS[node.maturity]?.badgeBg || 'transparent'}; color: {MATURITY_DEFINITIONS[node.maturity]?.color || 'inherit'}"
+						>
+							{MATURITY_DEFINITIONS[node.maturity]?.icon}
+						</span>
+						<span
+							class="node-index-label"
+							data-i18n="graph.node.title"
+							data-i18n-zh={node.label}
+							data-i18n-en={node.labelEn ?? node.label}
+						>
+							{english && node.labelEn ? node.labelEn : node.label}
+						</span>
+						<span
+							class="node-index-kind"
+							data-i18n="graph.node.kind"
+							data-i18n-zh={kindLabels[node.kind].zh}
+							data-i18n-en={kindLabels[node.kind].en}
+						>
+							{english ? kindLabels[node.kind].en : kindLabels[node.kind].zh}
+						</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+		{#if listedNodes.length === 0}
+			<p
+				class="node-index-empty"
+				data-i18n="graph.node.empty"
+				data-i18n-zh="没有节点符合当前的筛选与搜索条件。"
+				data-i18n-en="No node matches the current filter and search."
+			>
+				没有节点符合当前的筛选与搜索条件。
+			</p>
+		{/if}
+	</details>
 </div>
 
 <style>
@@ -954,6 +1158,109 @@ onMount(() => {
 		backdrop-filter: blur(4px);
 		padding: 4px 8px;
 		border-radius: 6px;
+	}
+
+	/* Plain-text node index: the accessible, no-JS path into the same graph */
+	.node-index {
+		margin: 0;
+		border: 1px solid var(--brand-line);
+		border-radius: 12px;
+		background: var(--brand-surface);
+	}
+
+	.node-index > summary {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 12px 16px;
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.node-index > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.node-index-title {
+		font: 500 13px/1.5 var(--font-sans, Inter, sans-serif);
+		color: var(--brand-ink);
+	}
+
+	.node-index-count {
+		margin-left: auto;
+		font: 10px/1.8 "JetBrains Mono", monospace;
+		color: var(--brand-muted);
+	}
+
+	.node-index-note {
+		margin: 0 16px 12px;
+		font-size: 12px;
+		line-height: 1.8;
+		color: var(--brand-muted);
+	}
+
+	.node-index ul {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 2px 18px;
+		margin: 0;
+		padding: 0 16px 16px;
+		list-style: none;
+	}
+
+	.node-index li a {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+		padding: 7px 0;
+		border-bottom: 1px solid var(--brand-line);
+		color: var(--brand-ink);
+		text-decoration: none;
+	}
+
+	.node-index li a:hover .node-index-label {
+		color: var(--brand-accent);
+	}
+
+	.node-index-badge {
+		flex: 0 0 auto;
+		font-size: 12px;
+		line-height: 1.6;
+	}
+
+	.node-index-label {
+		min-width: 0;
+		font-size: 13px;
+		line-height: 1.6;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.node-index-kind {
+		margin-left: auto;
+		flex: 0 0 auto;
+		font: 9px/1.8 "JetBrains Mono", monospace;
+		color: var(--brand-muted);
+	}
+
+	.node-index-empty {
+		margin: 0;
+		padding: 0 16px 18px;
+		font-size: 12px;
+		color: var(--brand-muted);
+	}
+
+	.node-index a:focus-visible,
+	.node-index summary:focus-visible {
+		outline: 2px solid var(--brand-accent);
+		outline-offset: 3px;
+	}
+
+	@media (max-width: 700px) {
+		.node-index ul {
+			grid-template-columns: minmax(0, 1fr);
+		}
 	}
 
 	/* Andy Matuschak Sliding Drawer */
