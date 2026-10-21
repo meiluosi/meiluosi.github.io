@@ -20,6 +20,15 @@
 | [design-archetypes.md](./design-archetypes.md) | 🏛️ 顶级个人学术站四大流派与设计哲学（解释性计算、数字花园、微交互工艺、长卷叙事） |
 | [case-study-evidence.md](./case-study-evidence.md) | 🧾 研究档案证据 — 项目事实、原文依据与待补充细节 |
 
+## 构建期校验
+
+| 脚本 | 作用 | 何时跑 |
+|------|------|--------|
+| `scripts/validate-frontmatter.js` | 拦下未加引号却含冒号的 YAML 标量（`title` / `description` 尤其容易踩） | 已接入 `pnpm build`，在 `astro build` 之前执行；也可单独 `pnpm validate:frontmatter` |
+| `scripts/audit-internal-links.js` | 扫描 `dist/` 里的站内链接，报告失效目标 | 构建后 `pnpm audit:links` |
+
+英文界面的本地化约定：`data-i18n-zh` / `data-i18n-en` 两条翻译路径都以 `data-i18n` 键作为选择器钩子，只有语言属性、没有 `data-i18n` 键的元素在客户端切换语言时不会跟着变。给这类元素补键时，纯文本用 `data-i18n` + 语言属性即可，含富文本的（如数字花园抽屉里的阶段列表）另加 `data-i18n-html="true"`，否则替换时会丢掉内部标签。
+
 ## 研究阅读体验的维护入口
 
 | 内容 | 维护位置 | 约定 |

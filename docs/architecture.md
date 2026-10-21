@@ -161,8 +161,8 @@ pnpm build
     ├── 3. scripts/generate-summaries.ts
     │       └── 有 AI_SUMMARY_API_KEY 时补充文章摘要；无 Key 时跳过
     │
-    ├── 4. scripts/generate-knowledge-graph.ts
-    │       └── 生成 src/constants/knowledge-graph.json
+    ├── 4. scripts/validate-frontmatter.js
+    │       └── 拦下未加引号却含冒号的 YAML 标量，给出文件与行号
     │
     ├── 5. astro build
     │       ├── 解析 content collections
@@ -170,12 +170,13 @@ pnpm build
     │       ├── 打包 Svelte 组件为 JS
     │       └── 输出到 dist/
     │
-    ├── 6. scripts/subset-fonts.ts
-    │       └── 字体子集化，减小字体文件大小
-    │
-    └── 7. pagefind --site dist
-            └── 生成全文搜索索引
+    └── 6. scripts/subset-fonts.ts
+            └── 字体子集化，减小字体文件大小
 ```
+
+全文搜索不再由构建期生成索引文件：`/api/note-search.json` 在构建时导出正文片段，
+`/api/palette.json` 导出命令面板条目，搜索与命令面板都直接读取这两份产物。
+构建后可用 `pnpm audit:links` 扫描 `dist/` 里的站内链接并报告失效目标。
 
 ---
 
