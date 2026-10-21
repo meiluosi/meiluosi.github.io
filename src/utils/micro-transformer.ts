@@ -65,6 +65,15 @@ export interface ForwardPassTrace {
 	entropy: number;
 	temperature: number;
 	topP: number;
+	ffnPerturbation: number;
+	hallucinationMode: boolean;
+	attentionRays: Array<{
+		fromIdx: number;
+		toIdx: number;
+		head0Weight: number;
+		head1Weight: number;
+		avgWeight: number;
+	}>;
 }
 
 export interface TransformerConfig {
@@ -286,6 +295,8 @@ export interface RunOptions {
 	topP?: number;
 	ablateHeads?: number[]; // [0] or [1]
 	noiseScale?: number; // 0.0 to 1.0
+	ffnPerturbation?: number; // 0.0 to 1.0
+	hallucinationMode?: boolean;
 	forcedSeed?: number;
 }
 
@@ -302,6 +313,8 @@ export function runForwardPass(
 		topP = 0.9,
 		ablateHeads = [],
 		noiseScale = 0.0,
+		ffnPerturbation = 0.0,
+		hallucinationMode = false,
 		forcedSeed,
 	} = options;
 
@@ -422,7 +435,12 @@ export function runForwardPass(
 	const ffnSilu = createMatrix(T, dFfn);
 	for (let t = 0; t < T; t++) {
 		for (let d = 0; d < dFfn; d++) {
-			ffnSilu[t][d] = silu(ffnGate[t][d]);
+			let act = silu(ffnGate[t][d]);
+			if (ffnPerturbation > 0 || hallucinationMode) {
+				const pert = hallucinationMode ? 0.75 : ffnPerturbation;
+				act += (Math.sin(t * 3.7 + d) * 0.8 + (Math.random() - 0.5)) * pert;
+			}
+			ffnSilu[t][d] = act;
 		}
 	}
 	const ffnOut = matmul(ffnSilu, model.wDown); // [T, dModel]
@@ -510,6 +528,28 @@ export function runForwardPass(
 		}
 	}
 
+	// 13. Attention Rays for dynamic laser arc streamlines
+	const attentionRays: Array<{
+		fromIdx: number;
+		toIdx: number;
+		head0Weight: number;
+		head1Weight: number;
+		avgWeight: number;
+	}> = [];
+	for (let i = 0; i < T; i++) {
+		for (let j = 0; j <= i; j++) {
+			const w0 = headTraces[0]?.attnWeights[i]?.[j] ?? 0;
+			const w1 = headTraces[1]?.attnWeights[i]?.[j] ?? 0;
+			attentionRays.push({
+				fromIdx: i,
+				toIdx: j,
+				head0Weight: w0,
+				head1Weight: w1,
+				avgWeight: (w0 + w1) / 2,
+			});
+		}
+	}
+
 	return {
 		tokens,
 		tokenIds,
@@ -529,5 +569,8 @@ export function runForwardPass(
 		entropy,
 		temperature,
 		topP,
+		ffnPerturbation,
+		hallucinationMode,
+		attentionRays,
 	};
 }

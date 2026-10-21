@@ -18,6 +18,9 @@ let activeStage = $state<number>(3); // Default to Attention stage
 let temperature = $state<number>(0.7);
 let topP = $state<number>(0.9);
 let noiseScale = $state<number>(0.0);
+let ffnPerturbation = $state<number>(0.0);
+let hallucinationMode = $state<boolean>(false);
+let hoveredTokenIdx = $state<number | null>(null);
 let ablateHead0 = $state<boolean>(false);
 let ablateHead1 = $state<boolean>(false);
 let hoveredMatrixCell = $state<{
@@ -84,6 +87,8 @@ const trace: ForwardPassTrace = $derived(
 		temperature,
 		topP,
 		noiseScale,
+		ffnPerturbation,
+		hallucinationMode,
 		ablateHeads: ablatedHeads,
 	}),
 );
@@ -155,15 +160,67 @@ onMount(() => {
 			</button>
 		</div>
 
-		<!-- Token Stream Tape -->
+		<!-- Token Stream Tape & Streamlines -->
 		<div class="token-tape-container">
-			<span class="control-label">{english ? "Prompt Tokens:" : "当前序列:"}</span>
+			<div class="tape-header">
+				<span class="control-label">{english ? "Prompt Tokens & Attention Streamlines:" : "当前序列与注意力光流射线:"}</span>
+				<span class="streamline-hint">{english ? "(Hover on any token to focus its attention arcs)" : "(悬停词元可高亮该位置投射给历史词元的注意力射线)"}</span>
+			</div>
+
+			<!-- Dynamic SVG Attention Laser Arcs -->
+			<div class="arcs-canvas-wrap">
+				<svg class="arcs-svg" viewBox="0 0 {Math.max(480, currentTokens.length * 68)} 44">
+					{#each currentTokens as _, i}
+						{#each currentTokens.slice(0, i + 1) as _, j}
+							{@const activeRayIdx = hoveredTokenIdx !== null ? hoveredTokenIdx : currentTokens.length - 1}
+							{@const ray = trace.attentionRays.find((r) => r.fromIdx === i && r.toIdx === j)}
+							{#if ray && (i === activeRayIdx)}
+								{@const x1 = 34 + i * 68}
+								{@const x2 = 34 + j * 68}
+								{@const midX = (x1 + x2) / 2}
+								{@const arcHeight = Math.min(38, Math.abs(x1 - x2) * 0.38 + 10)}
+								<path
+									d="M {x1} 42 Q {midX} {42 - arcHeight} {x2} 42"
+									fill="none"
+									stroke={ray.avgWeight > 0.3 ? "var(--brand-accent)" : "rgba(120, 150, 135, 0.4)"}
+									stroke-width={ray.avgWeight * 4.5 + 1}
+									stroke-opacity={Math.max(0.18, Math.min(1, ray.avgWeight * 1.4))}
+									stroke-linecap="round"
+								/>
+								{#if ray.avgWeight >= 0.22 && i !== j}
+									<text
+										x={midX}
+										y={42 - arcHeight - 2}
+										text-anchor="middle"
+										font-size="9"
+										fill="var(--brand-muted)"
+										font-family="monospace"
+									>
+										{(ray.avgWeight * 100).toFixed(0)}%
+									</text>
+								{/if}
+							{/if}
+						{/each}
+					{/each}
+				</svg>
+			</div>
+
 			<div class="token-tape">
 				{#each currentTokens as tok, i}
-					<span class="token-tag" class:last-tok={i === currentTokens.length - 1}>
+					<button
+						type="button"
+						class="token-tag"
+						class:last-tok={i === currentTokens.length - 1}
+						class:focused-ray={hoveredTokenIdx === i || (hoveredTokenIdx === null && i === currentTokens.length - 1)}
+						onmouseenter={() => {
+							hoveredTokenIdx = i;
+							playMechanicalTick(0.85 + i * 0.05);
+						}}
+						onmouseleave={() => (hoveredTokenIdx = null)}
+					>
 						<span class="pos-idx">{i}</span>
 						<span class="tok-text">{tok}</span>
-					</span>
+					</button>
 				{/each}
 			</div>
 			<!-- Appendable vocab drawer -->
@@ -514,6 +571,31 @@ onMount(() => {
 				/>
 			</div>
 
+			<!-- FFN Perturbation Slider -->
+			<div class="knob-group">
+				<label for="ffn-slider">
+					{english ? "FFN Neuron Jitter:" : "FFN 神经微扰:"}
+					<strong>{ffnPerturbation.toFixed(2)}</strong>
+				</label>
+				<input
+					id="ffn-slider"
+					type="range"
+					min="0.0"
+					max="1.0"
+					step="0.05"
+					bind:value={ffnPerturbation}
+					oninput={onSliderChange}
+				/>
+			</div>
+
+			<!-- Hallucination / Chaos Sandbox Toggle -->
+			<div class="knob-group">
+				<label class="toggle-pill chaos-pill" class:active={hallucinationMode}>
+					<input type="checkbox" bind:checked={hallucinationMode} onchange={() => playLatchClick()} />
+					<span>{english ? "🎭 Chaos / Hallucination" : "🎭 混沌/幻觉沙盒"}</span>
+				</label>
+			</div>
+
 			<!-- Head Ablation Toggles -->
 			<div class="ablation-toggles">
 				<span class="ablate-label">{english ? "Ablate Heads:" : "神经回路消融:"}</span>
@@ -588,7 +670,35 @@ onMount(() => {
 	.token-tape-container {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 6px;
+	}
+
+	.tape-header {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.streamline-hint {
+		font-size: 11px;
+		color: var(--brand-muted);
+		opacity: 0.85;
+	}
+
+	.arcs-canvas-wrap {
+		width: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding-bottom: 2px;
+	}
+
+	.arcs-svg {
+		width: 100%;
+		max-width: 100%;
+		height: 44px;
+		display: block;
 	}
 
 	.token-tape {
@@ -608,12 +718,20 @@ onMount(() => {
 		border-radius: 6px;
 		font-family: var(--font-mono, monospace);
 		font-size: 13px;
+		color: var(--brand-body);
+		cursor: pointer;
+		transition: all 0.15s ease;
 	}
 
 	.token-tag.last-tok {
 		border-color: var(--brand-accent);
 		background: rgba(92, 122, 107, 0.12);
 		font-weight: 600;
+	}
+
+	.token-tag.focused-ray {
+		border-color: var(--brand-accent);
+		box-shadow: 0 0 0 2px rgba(92, 122, 107, 0.25);
 	}
 
 	.pos-idx {
@@ -1167,5 +1285,11 @@ onMount(() => {
 		border-color: var(--brand-clay, #e07a5f);
 		color: var(--brand-clay, #e07a5f);
 		background: rgba(224, 122, 95, 0.1);
+	}
+
+	.toggle-pill.chaos-pill.active {
+		border-color: #9333ea;
+		color: #9333ea;
+		background: rgba(147, 51, 234, 0.12);
 	}
 </style>

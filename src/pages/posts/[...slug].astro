@@ -17,6 +17,8 @@ import utc from "dayjs/plugin/utc";
 import AiSummary from "@/components/common/AiSummary.astro";
 import CoverImage from "@/components/common/CoverImage.astro";
 import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
+import ArticleLocalGraph from "@/components/features/ArticleLocalGraph.svelte";
+import GardenMaturityBadge from "@/components/features/GardenMaturityBadge.astro";
 import InteractiveMathEnhancer from "@/components/features/InteractiveMathEnhancer.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
@@ -31,6 +33,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { brandTranslations } from "@/i18n/brand";
 import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
+import { findConnectedLabs } from "@/utils/digital-garden";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
 import { buildReadingChain } from "@/utils/reading-chain";
 import { buildRelatedByTags } from "@/utils/related-articles";
@@ -114,6 +117,12 @@ const relatedArticles = siteConfig.post.showRelatedByTags
 			currentSlug,
 		).filter((item) => !chainNeighbours.has(item.slug))
 	: [];
+
+const connectedLabs = findConnectedLabs(
+	entry.data.tags ?? [],
+	entry.data.category ?? "",
+	entry.data.title,
+);
 
 const bannerPostMeta = {
 	title: entry.data.title,
@@ -307,6 +316,9 @@ const jsonLd = {
         }
       </div>
 
+      <!-- 数字花园思想演进成熟度 -->
+      <GardenMaturityBadge post={entry} lang="zh" />
+
       <!-- 系列导航 -->
       {seriesItems.length > 0 && (
         <div class="onload-animation mb-6">
@@ -466,6 +478,22 @@ const jsonLd = {
     pubDate={entry.data.published}
     url={Astro.url.href}
     slug={removeFileExtension(entry.id)}
+  />
+
+  <!-- 知识邻域拓扑与 Andy Matuschak 滑动侧栈 -->
+  <ArticleLocalGraph
+    currentPost={{
+      slug: currentSlug,
+      title: entry.data.title,
+      category: entry.data.category || undefined,
+      tags: entry.data.tags,
+      maturity: entry.data.maturity,
+    }}
+    relatedArticles={relatedArticles}
+    seriesArticles={seriesItems}
+    connectedLabs={connectedLabs}
+    lang="zh"
+    client:load
   />
 
   <ReadingChain

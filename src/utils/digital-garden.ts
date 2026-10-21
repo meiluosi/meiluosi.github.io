@@ -286,3 +286,66 @@ export const CORE_HUBS: CoreHub[] = [
 		category: "Mechanistic Interpretability",
 	},
 ];
+
+/**
+ * Finds interactive computational labs connected to a specific article.
+ */
+export function findConnectedLabs(
+	postTags: string[] = [],
+	postCategory = "",
+	postTitle = "",
+): LabEntry[] {
+	const titleLower = postTitle.toLowerCase();
+	const catLower = postCategory.toLowerCase();
+	const tagsSet = new Set(postTags.map((t) => t.toLowerCase()));
+
+	const matches = LAB_ENTRIES.filter((lab) => {
+		// Tag overlap
+		const hasTagMatch = lab.tags.some(
+			(t) =>
+				tagsSet.has(t.toLowerCase()) ||
+				postTags.some((pt) => pt.includes(t) || t.includes(pt)),
+		);
+		if (hasTagMatch) return true;
+
+		// Category overlap
+		if (postCategory && lab.category.toLowerCase() === catLower) return true;
+
+		// Keyword heuristics
+		if (
+			titleLower.includes("transformer") &&
+			(lab.id.includes("transformer") || lab.id.includes("attention"))
+		) {
+			return true;
+		}
+		if (titleLower.includes("cfr") && lab.id.includes("cfr")) return true;
+		if (titleLower.includes("mcts") && lab.id.includes("mcts")) return true;
+		if (titleLower.includes("rope") && lab.id.includes("rope")) return true;
+		if (
+			(titleLower.includes("dpo") || titleLower.includes("对齐")) &&
+			lab.id.includes("dpo")
+		) {
+			return true;
+		}
+		if (
+			(titleLower.includes("因果") || titleLower.includes("causal")) &&
+			lab.id.includes("causal")
+		) {
+			return true;
+		}
+		if (
+			(titleLower.includes("预训练") || titleLower.includes("1b")) &&
+			lab.id.includes("model-pipeline")
+		) {
+			return true;
+		}
+
+		return false;
+	});
+
+	// If no match found, fallback to at least 1-2 representative labs
+	if (matches.length === 0) {
+		return LAB_ENTRIES.slice(0, 2);
+	}
+	return matches.slice(0, 3);
+}

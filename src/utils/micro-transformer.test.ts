@@ -63,3 +63,19 @@ test("MicroTransformer generates higher entropy with higher temperature", () => 
 		`Expected highTemp entropy (${highTemp.entropy}) > lowTemp entropy (${lowTemp.entropy})`,
 	);
 });
+
+test("MicroTransformer computes attention rays and supports hallucination perturbation", () => {
+	const trace = runForwardPass(["[BOS]", "the", "cat"], {
+		hallucinationMode: true,
+	});
+	assert.ok(trace.hallucinationMode === true);
+	assert.ok(trace.attentionRays.length > 0);
+
+	// For 3 tokens (indices 0, 1, 2), causal pairs: (0,0), (1,0), (1,1), (2,0), (2,1), (2,2) = 6 rays
+	assert.equal(trace.attentionRays.length, 6);
+
+	const lastRay = trace.attentionRays[trace.attentionRays.length - 1];
+	assert.equal(lastRay.fromIdx, 2);
+	assert.equal(lastRay.toIdx, 2);
+	assert.ok(lastRay.avgWeight >= 0);
+});

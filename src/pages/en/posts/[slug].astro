@@ -3,6 +3,8 @@ import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import Markdown from "@/components/common/Markdown.astro";
 import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
+import ArticleLocalGraph from "@/components/features/ArticleLocalGraph.svelte";
+import GardenMaturityBadge from "@/components/features/GardenMaturityBadge.astro";
 import InteractiveMathEnhancer from "@/components/features/InteractiveMathEnhancer.astro";
 import KatexManager from "@/components/features/KatexManager.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
@@ -16,6 +18,7 @@ import { siteConfig } from "@/config/siteConfig";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { buildConceptGraph } from "@/utils/article-concept-graph";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
+import { findConnectedLabs } from "@/utils/digital-garden";
 import { buildReadingChain } from "@/utils/reading-chain";
 import { buildRelatedByTags } from "@/utils/related-articles";
 import { removeFileExtension } from "@/utils/url-utils";
@@ -110,6 +113,12 @@ const relatedArticles = siteConfig.post.showRelatedByTags
 			entry.data.slug,
 		).filter((item) => !chainNeighbours.has(item.slug))
 	: [];
+
+const connectedLabs = findConnectedLabs(
+	entry.data.tags ?? [],
+	entry.data.category ?? "",
+	entry.data.title,
+);
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -225,6 +234,9 @@ const jsonLd = {
 			<div class="border-(--line-divider) border-dashed border-b mt-3 mb-5" />
 		</div>
 
+		<!-- Digital garden thought maturity badge -->
+		<GardenMaturityBadge post={source} lang="en" />
+
 		{seriesItems.length > 0 && (
 			<div class="onload-animation mb-6">
 				<SeriesNav
@@ -245,6 +257,22 @@ const jsonLd = {
 		<Mindmap
 			graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)}
 			english
+			client:load
+		/>
+
+		<!-- Local Knowledge Neighborhood & Andy Matuschak Sliding Drawer -->
+		<ArticleLocalGraph
+			currentPost={{
+				slug: entry.data.slug,
+				title: entry.data.title,
+				category: entry.data.category || undefined,
+				tags: entry.data.tags,
+				maturity: source?.data?.maturity,
+			}}
+			relatedArticles={relatedArticles}
+			seriesArticles={seriesItems}
+			connectedLabs={connectedLabs}
+			lang="en"
 			client:load
 		/>
 
