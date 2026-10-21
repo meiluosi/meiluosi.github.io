@@ -17,6 +17,7 @@
 | [integration-ideas.md](./integration-ideas.md) | 🔬 开源项目调研 — 可集成的开源项目详情与集成方案 |
 | [architecture.md](./architecture.md) | 🏗️ 项目架构说明 — 技术栈、目录结构、集成模式 |
 | [roadmap.md](./roadmap.md) | 🗺️ 开发路线图 — 分阶段的实施计划 |
+| [design-archetypes.md](./design-archetypes.md) | 🏛️ 顶级个人学术站四大流派与设计哲学（解释性计算、数字花园、微交互工艺、长卷叙事） |
 | [case-study-evidence.md](./case-study-evidence.md) | 🧾 研究档案证据 — 项目事实、原文依据与待补充细节 |
 
 ## 研究阅读体验的维护入口

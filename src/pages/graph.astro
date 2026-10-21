@@ -1,3 +1,320 @@
 ---
-return Astro.redirect("/work/#causal-inference", 301);
+import { getCollection } from "astro:content";
+import Text from "@/components/common/BilingualText.astro";
+import KnowledgeGraph from "@/components/features/KnowledgeGraph.svelte";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import { getSortedPosts } from "@/utils/content-utils";
+import {
+	CORE_HUBS,
+	type GraphEdge,
+	type GraphNode,
+	getPostMaturity,
+	LAB_ENTRIES,
+} from "@/utils/digital-garden";
+import { removeFileExtension } from "@/utils/url-utils";
+
+const publishedPosts = (await getSortedPosts()).filter(
+	(post) => !post.data.draft && !post.data.password,
+);
+const englishPosts = await getCollection("enPosts");
+
+// Build Graph Nodes
+const nodes: GraphNode[] = [];
+const edges: GraphEdge[] = [];
+
+// 1. Add Core Hubs
+for (const hub of CORE_HUBS) {
+	nodes.push({
+		id: hub.id,
+		label: hub.label,
+		labelEn: hub.labelEn,
+		kind: "hub",
+		maturity: "evergreen",
+		category: hub.category,
+		href: "/categories/",
+		excerpt: `全站核心知识支柱：${hub.label}`,
+		val: 18,
+	});
+}
+
+// 2. Add Labs
+for (const lab of LAB_ENTRIES) {
+	nodes.push({
+		id: lab.id,
+		label: lab.title,
+		labelEn: lab.titleEn,
+		kind: "lab",
+		maturity: lab.maturity,
+		category: lab.category,
+		href: lab.href,
+		tags: lab.tags,
+		excerpt: `交互实验仿真工作台：${lab.title}`,
+		val: 14,
+	});
+
+	// Connect lab to matching hub
+	if (lab.category.includes("Reinforcement") || lab.category.includes("Game")) {
+		edges.push({
+			source: lab.id,
+			target: "hub-rl",
+			type: "lab-link",
+			weight: 1.2,
+		});
+	} else if (lab.category.includes("Causal")) {
+		edges.push({
+			source: lab.id,
+			target: "hub-causal",
+			type: "lab-link",
+			weight: 1.2,
+		});
+	} else if (
+		lab.category.includes("Mechanistic") ||
+		lab.category.includes("Post-Training")
+	) {
+		edges.push({
+			source: lab.id,
+			target: "hub-interp",
+			type: "lab-link",
+			weight: 1.2,
+		});
+	} else {
+		edges.push({
+			source: lab.id,
+			target: "hub-llm",
+			type: "lab-link",
+			weight: 1.2,
+		});
+	}
+}
+
+// 3. Add Article Posts
+for (const post of publishedPosts) {
+	const slug = removeFileExtension(post.id);
+	const translation = englishPosts.find((en) => en.data.sourceId === slug);
+	const maturityMeta = getPostMaturity(post);
+	const nodeId = `post-${slug}`;
+
+	nodes.push({
+		id: nodeId,
+		label: post.data.title,
+		labelEn: translation?.data.title,
+		kind: "post",
+		maturity: maturityMeta.level,
+		category: post.data.category || "Uncategorized",
+		href: `/posts/${slug}/`,
+		tags: post.data.tags || [],
+		excerpt: post.data.description || translation?.data.description || "",
+		val: 8,
+	});
+
+	// Edge: Post -> Matching Hub
+	const cat = (post.data.category || "").toLowerCase();
+	const title = post.data.title.toLowerCase();
+
+	if (
+		cat.includes("reinforcement") ||
+		title.includes("强化学习") ||
+		title.includes("mcts") ||
+		title.includes("博弈")
+	) {
+		edges.push({
+			source: nodeId,
+			target: "hub-rl",
+			type: "category",
+			weight: 0.9,
+		});
+	} else if (
+		cat.includes("causal") ||
+		title.includes("因果") ||
+		title.includes("ducg") ||
+		title.includes("假设检验")
+	) {
+		edges.push({
+			source: nodeId,
+			target: "hub-causal",
+			type: "category",
+			weight: 0.9,
+		});
+	} else if (
+		title.includes("注意力") ||
+		title.includes("transformer") ||
+		title.includes("对齐") ||
+		title.includes("lora")
+	) {
+		edges.push({
+			source: nodeId,
+			target: "hub-interp",
+			type: "category",
+			weight: 0.9,
+		});
+	} else {
+		edges.push({
+			source: nodeId,
+			target: "hub-llm",
+			type: "category",
+			weight: 0.9,
+		});
+	}
+
+	// Edge: Post -> Specific Lab Connections
+	if (
+		title.includes("mcts") ||
+		title.includes("alphazero") ||
+		title.includes("alpha zero")
+	) {
+		edges.push({
+			source: nodeId,
+			target: "lab-mcts",
+			type: "lab-link",
+			weight: 1.5,
+		});
+	}
+	if (title.includes("cfr") || title.includes("博弈")) {
+		edges.push({
+			source: nodeId,
+			target: "lab-cfr",
+			type: "lab-link",
+			weight: 1.5,
+		});
+	}
+	if (title.includes("因果") || title.includes("ylearn")) {
+		edges.push({
+			source: nodeId,
+			target: "lab-causal",
+			type: "lab-link",
+			weight: 1.5,
+		});
+	}
+	if (title.includes("transformer")) {
+		edges.push({
+			source: nodeId,
+			target: "lab-attention-lens",
+			type: "lab-link",
+			weight: 1.3,
+		});
+		edges.push({
+			source: nodeId,
+			target: "lab-transformer-forward",
+			type: "lab-link",
+			weight: 1.5,
+		});
+		edges.push({
+			source: nodeId,
+			target: "lab-rope",
+			type: "lab-link",
+			weight: 1.2,
+		});
+	}
+	if (
+		title.includes("对齐") ||
+		title.includes("rlhf") ||
+		title.includes("dpo")
+	) {
+		edges.push({
+			source: nodeId,
+			target: "lab-dpo",
+			type: "lab-link",
+			weight: 1.5,
+		});
+	}
+	if (
+		title.includes("训练") ||
+		title.includes("1b") ||
+		title.includes("预训练")
+	) {
+		edges.push({
+			source: nodeId,
+			target: "lab-model-pipeline",
+			type: "lab-link",
+			weight: 1.4,
+		});
+	}
+}
+
+// 4. Connect posts in the same series or sharing >= 2 tags
+for (let i = 0; i < publishedPosts.length; i++) {
+	for (let j = i + 1; j < publishedPosts.length; j++) {
+		const p1 = publishedPosts[i];
+		const p2 = publishedPosts[j];
+		const id1 = `post-${removeFileExtension(p1.id)}`;
+		const id2 = `post-${removeFileExtension(p2.id)}`;
+
+		if (p1.data.series && p1.data.series === p2.data.series) {
+			edges.push({ source: id1, target: id2, type: "series", weight: 1.1 });
+			continue;
+		}
+
+		const tags1 = new Set(p1.data.tags || []);
+		let common = 0;
+		for (const t of p2.data.tags || []) {
+			if (tags1.has(t)) common++;
+		}
+		if (common >= 2) {
+			edges.push({
+				source: id1,
+				target: id2,
+				type: "tag-affinity",
+				weight: 0.6,
+			});
+		}
+	}
+}
 ---
+
+<ExploreLayout
+	title="全站知识星系与数字花园拓扑网络"
+	titleEn="Knowledge Cosmos & Digital Garden Topology"
+	description="可视化呈现 40+ 篇深度长文、7 大交互实验室与核心理论支柱之间的引力拓扑与思想生命周期（🌱萌芽/🌿成长/🌳常青/🔬待证）。"
+	descriptionEn="Force-directed topological cosmos connecting 40+ research notes, 7 interactive labs, and core theoretical pillars across thought maturity lifecycles."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="认知星系：全站网状知识拓扑与思想生命周期"
+			en="Knowledge Cosmos: Topological Network & Idea Lifecycles"
+		/>
+	</header>
+
+	<ResearchQuestion
+		question="如何打破传统的按时间线性归档，像探索星系一样纵览全站理论推导、代码实现与交互实验的交叉引力？"
+		questionEn="How do we transcend linear chronological archives and explore the gravitational web of theory, code, and live labs like a cosmos?"
+		hint="点击节点即可通过 Andy Matuschak 式叠放抽屉在侧边展开完整笔记摘要与跨领域连线；切换顶部 🌱萌芽 / 🌿成长 / 🌳常青 / 🔬待证 / ⚙️实验 过滤层，直观查看思想的成熟轨迹。"
+		hintEn="Click any node to slide out an Andy Matuschak stacked drawer with excerpts and connected thoughts. Toggle top filters (🌱 Seedling / 🌿 Budding / 🌳 Evergreen / 🔬 Speculative / ⚙️ Lab) to trace idea maturities."
+	/>
+
+	<KnowledgeGraph
+		client:load
+		initialNodes={nodes}
+		initialEdges={edges}
+	/>
+	<noscript>
+		<p>
+			请启用 JavaScript 浏览知识图谱，或访问 <a href="/notes/">文章列表</a>。 / Enable JavaScript to explore the cosmos or view the notes index.
+		</p>
+	</noscript>
+
+	<section class="explore-section" style="margin-top:40px">
+		<Text
+			as="h2"
+			zh="关于数字花园与思想生命周期（The Digital Garden）"
+			en="About the Digital Garden & Thought Maturity"
+		/>
+		<Text
+			as="p"
+			class="explore-body"
+			zh="本知识星系融合了 Andy Matuschak 的 Evergreen Notes 理念与 Gwern 的学术拓扑结构：知识不是孤立的一次性发表，而是不断滋养生长的生态。从带有开放问题的‘🌱 萌芽想法’，到具备数学推导的‘🌿 成长演进’，再到经过严格代码与定理闭环的‘🌳 常青基石’，读者可随时追踪每一条技术思考的演进脉络。"
+			en="This knowledge cosmos synthesizes Andy Matuschak's evergreen note philosophy with Gwern's topological citation density. Knowledge is an evolving ecosystem rather than a static feed. From nascent inquiries ('🌱 Seedling') to mathematical structures ('🌿 Budding') and rigorously proven foundations ('🌳 Evergreen'), readers can trace how ideas mature over time."
+		/>
+		<p>
+			<a class="explore-link" href="/notes/">
+				<Text zh="前往全部文章与筛选列表" en="Browse all notes in structured list" /> ↗
+			</a>
+		</p>
+		<p>
+			<a class="explore-link" href="/lab/">
+				<Text zh="前往算法与模型交互实验室" en="Explore all interactive laboratory workbenches" /> ↗
+			</a>
+		</p>
+	</section>
+</ExploreLayout>

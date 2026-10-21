@@ -5,6 +5,9 @@ export function mountNoteFilters(): () => void {
 	const formats = [
 		...root.querySelectorAll<HTMLButtonElement>("[data-note-format-filter]"),
 	];
+	const maturities = [
+		...root.querySelectorAll<HTMLButtonElement>("[data-note-maturity-filter]"),
+	];
 	const topics = [
 		...root.querySelectorAll<HTMLButtonElement>("[data-note-topic-filter]"),
 	];
@@ -57,10 +60,15 @@ export function mountNoteFilters(): () => void {
 		);
 	const active = new Map<HTMLElement, Animation>();
 	let format = "all";
+	let maturity = "all";
 	let topic = "all";
 	const syncButtons = () => {
 		for (const button of formats)
 			button.ariaPressed = String(button.dataset.noteFormatFilter === format);
+		for (const button of maturities)
+			button.ariaPressed = String(
+				button.dataset.noteMaturityFilter === maturity,
+			);
 		for (const button of topics)
 			button.ariaPressed = String(button.dataset.noteTopicFilter === topic);
 	};
@@ -73,6 +81,12 @@ export function mountNoteFilters(): () => void {
 			(button) => button.dataset.noteFormatFilter === nextFormat,
 		)
 			? nextFormat
+			: "all";
+		const nextMaturity = params.get("maturity") ?? "all";
+		maturity = maturities.some(
+			(button) => button.dataset.noteMaturityFilter === nextMaturity,
+		)
+			? nextMaturity
 			: "all";
 		const nextTopic = params.get("topic") ?? "all";
 		topic = topics.some(
@@ -109,6 +123,7 @@ export function mountNoteFilters(): () => void {
 		for (const [key, value] of [
 			["q", query],
 			["format", format === "all" ? "" : format],
+			["maturity", maturity === "all" ? "" : maturity],
 			["topic", topic === "all" ? "" : topic],
 		]) {
 			if (value) url.searchParams.set(key, value);
@@ -129,6 +144,7 @@ export function mountNoteFilters(): () => void {
 				: "";
 			entry.hidden =
 				(format !== "all" && entry.dataset.noteFormat !== format) ||
+				(maturity !== "all" && entry.dataset.noteMaturity !== maturity) ||
 				(topic !== "all" && entry.dataset.noteCategory !== topic) ||
 				(words.length > 0 &&
 					(!record || !words.every((word) => searchable.includes(word))));
@@ -264,14 +280,21 @@ export function mountNoteFilters(): () => void {
 		},
 		{ signal: events.signal },
 	);
-	for (const button of [...formats, ...topics]) {
+	for (const button of [...formats, ...maturities, ...topics]) {
 		button.addEventListener(
 			"click",
 			() => {
 				const isFormat = button.dataset.noteFormatFilter !== undefined;
+				const isMaturity = button.dataset.noteMaturityFilter !== undefined;
 				if (isFormat) format = button.dataset.noteFormatFilter ?? "all";
+				else if (isMaturity)
+					maturity = button.dataset.noteMaturityFilter ?? "all";
 				else topic = button.dataset.noteTopicFilter ?? "all";
-				for (const peer of isFormat ? formats : topics)
+				for (const peer of isFormat
+					? formats
+					: isMaturity
+						? maturities
+						: topics)
 					peer.ariaPressed = String(peer === button);
 				update();
 			},
@@ -281,11 +304,15 @@ export function mountNoteFilters(): () => void {
 	reset?.addEventListener(
 		"click",
 		() => {
-			format = topic = "all";
+			format = maturity = topic = "all";
 			if (input) input.value = "";
 			failed = false;
 			for (const button of formats)
 				button.ariaPressed = String(button.dataset.noteFormatFilter === "all");
+			for (const button of maturities)
+				button.ariaPressed = String(
+					button.dataset.noteMaturityFilter === "all",
+				);
 			for (const button of topics)
 				button.ariaPressed = String(button.dataset.noteTopicFilter === "all");
 			// The reset button disappears with the empty state, so return focus to a stable control.

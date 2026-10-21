@@ -1,0 +1,63 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import TransformerForwardLab from "@/components/features/TransformerForwardLab.svelte";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+---
+
+<ExploreLayout
+	title="Transformer 端侧单步前向推演与神经回路消融实验"
+	titleEn="In-browser Transformer Forward Pass & Circuit Ablation Lab"
+	description="纯前端自研轻量级 Micro-Transformer：逐步拆解词嵌入、正弦编码、QKV 线性投影、因果掩码注意力点积热力图、RMSNorm、SwiGLU 前馈网络与温度/核采样。"
+	descriptionEn="Zero-dependency in-browser Micro-Transformer: inspect embeddings, QKV projections, causal attention heatmaps, RMSNorm, SwiGLU FFN, and temperature/top-p token sampling."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="计算透明化：Transformer 单步前向推演与回路消融"
+			en="Computational Transparency: Transformer Forward Pass & Circuit Ablation"
+		/>
+	</header>
+
+	<ResearchQuestion
+		question="当我们在对话框敲下回车时，Transformer 内部千亿参数的矩阵乘法到底是如何在毫秒间吐出一个字符的？"
+		questionEn="When we press Enter in a chat box, how do the billon-parameter matrix multiplications inside a Transformer spit out a single token in milliseconds?"
+		hint="在上方序列选择预设或点击「+ 补词」。点击 1~5 导航步进，直观观察词嵌入、QKV 投影、下三角因果注意力、SwiGLU 升维门控与 Logits 概率分布。尝试拖动「采样温度 T」滑块或勾选「关闭 Head 0」，观察模型预测的熵值如何激增并改变下一个生成的词元！"
+		hintEn="Select presets or append vocabulary tokens. Step through pipeline tabs 1 to 5 to observe embeddings, QKV transformations, causal triangular attention maps, SwiGLU non-linear gating, and logits. Drag Temperature T or toggle 'Zero Head 0' to observe entropy shifts and altered token predictions in real time!"
+	/>
+
+	<TransformerForwardLab client:load />
+	<noscript>
+		<p>
+			请启用 JavaScript 操作实验，或阅读下方的方法笔记。 / Enable JavaScript to
+			use the workbench, or read the notes below.
+		</p>
+	</noscript>
+
+	<section class="explore-section" style="margin-top:40px">
+		<Text
+			as="h2"
+			zh="为什么需要端侧透明推演（The Computational Explainer）？"
+			en="Why In-Browser Computational Transparency?"
+		/>
+		<Text
+			as="p"
+			class="explore-body"
+			zh="在传统深度学习教材中，自注意力机制（Self-Attention）与前馈网络往往停留在抽象的静态矩阵公式 \\( \\text{Softmax}(QK^T / \\sqrt{d_k}) V \\) 上。本实验遵循 Andrej Karpathy (nanoGPT) 与 Distill.pub 的可计算解释学哲学，把完整的前向传播网络内嵌到浏览器端：每个浮点数、每层 RMSNorm 的方差归一、每头注意力的因果下三角遮蔽都是确定性计算出来的。读者不仅可以‘看’公式，更可以亲手‘消融’注意力头、调节温度超参数，建立对大模型内部齿轮的物理直觉。"
+			en="In standard deep learning textbooks, self-attention and feed-forward networks often remain frozen as abstract formulas. Adopting Andrej Karpathy's minimal implementation ethos and Distill.pub's computational explainer philosophy, this lab runs full forward passes directly inside your browser: every float, RMSNorm stabilization, and causal triangular mask is computed live. Readers can ablate heads, tweak sampling temperatures, and develop true physical intuition for how LLMs think."
+		/>
+		<a class="explore-link" href="/posts/2024-09-01-Transformer架构详解/">
+			<Text zh="查看 Transformer 架构推导与训练技巧长文" en="Read the comprehensive Transformer architecture & training guide" /> ↗
+		</a>
+		<p>
+			<a class="explore-link" href="/lab/attention-lens/">
+				<Text zh="前往注意力探针与归纳回路实验" en="Open the Attention Lens & Induction Circuit Lab" /> ↗
+			</a>
+		</p>
+		<p>
+			<a class="explore-link" href="/lab/rope-attention/">
+				<Text zh="前往 RoPE 旋转位置编码星盘实验" en="Open the RoPE Rotary Position Astrolabe Lab" /> ↗
+			</a>
+		</p>
+	</section>
+</ExploreLayout>

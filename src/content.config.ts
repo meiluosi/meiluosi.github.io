@@ -22,6 +22,8 @@ type PostsData = {
 		| "technical"
 		| "experiment"
 		| "reflection";
+	/** 数字花园思想成熟度分类 */
+	maturity?: "seedling" | "budding" | "evergreen" | "speculative";
 	lang: string;
 	pinned: boolean;
 	author: string;
@@ -60,6 +62,9 @@ const postsSchema: z.ZodType<PostsData> = z.object({
 		])
 		.optional()
 		.default("technical"),
+	maturity: z
+		.enum(["seedling", "budding", "evergreen", "speculative"])
+		.optional(),
 	lang: z.string().optional().default(""),
 	pinned: z.boolean().optional().default(false),
 	author: z.string().optional().default(""),
