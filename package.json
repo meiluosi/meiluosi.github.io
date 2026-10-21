@@ -8,7 +8,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
-    "build": "node scripts/generate-icons.js && npx tsx scripts/generate-lqips.ts && npx tsx scripts/generate-summaries.ts && astro build && npx tsx scripts/subset-fonts.ts",
+    "build": "node scripts/generate-icons.js && npx tsx scripts/generate-lqips.ts && npx tsx scripts/generate-summaries.ts && node scripts/validate-frontmatter.js && astro build && npx tsx scripts/subset-fonts.ts",
     "preview": "astro preview",
     "astro": "astro",
     "type-check": "tsc --noEmit --isolatedDeclarations",
@@ -17,6 +17,8 @@
     "lint": "biome check --write ./src",
     "preinstall": "npx only-allow pnpm",
     "icons": "node scripts/generate-icons.js",
+    "validate:frontmatter": "node scripts/validate-frontmatter.js",
+    "audit:links": "node scripts/audit-internal-links.js",
     "lqips": "npx tsx scripts/generate-lqips.ts",
     "summaries": "npx tsx scripts/generate-summaries.ts"
   },
