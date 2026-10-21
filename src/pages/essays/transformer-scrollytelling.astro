@@ -1,0 +1,74 @@
+---
+/**
+ * transformer-scrollytelling.astro
+ *
+ * Distill.pub-style interactive scrollytelling essay:
+ * Dual-column sticky reactive stage explaining Transformer forward pass mechanics.
+ */
+import Text from "@/components/common/BilingualText.astro";
+import ScrollytellingTransformer from "@/components/features/ScrollytellingTransformer.svelte";
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+	title="Transformer 计算漫游：五幕交互长卷"
+	titleEn="Transformer In-Depth: A Five-Act Computational Journey"
+	description="Distill 风格双栏交互叙事长卷：跟随滚轮亲手解剖离散词元、RoPE 星盘、因果自注意力与前馈神经网络计算舞台。"
+	descriptionEn="A Distill-style dual-column scrollytelling essay unravelling discrete embeddings, RoPE, causal attention, and SwiGLU forward pass mechanics."
+	setOGTypeArticle={true}
+>
+	<Navbar />
+	<main id="swup-container" class="scrolly-page-main" data-pagefind-body>
+		<div class="scrolly-wrapper">
+			<nav class="breadcrumb-nav">
+				<a href="/posts/2024-09-01-transformer架构详解/">
+					<Text zh="← 返回《Transformer 架构详解》理论长文" en="← Back to Transformer Architecture Theory" />
+				</a>
+				<span>·</span>
+				<a href="/lab/transformer-forward/">
+					<Text zh="进入白盒推演实验室 ⚡" en="Launch Forward Pass Sandbox ⚡" />
+				</a>
+			</nav>
+
+			<ScrollytellingTransformer client:load />
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.scrolly-page-main {
+		min-height: 100vh;
+		padding: 2rem 1.5rem 5rem;
+		background: var(--brand-paper);
+	}
+
+	.scrolly-wrapper {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.breadcrumb-nav {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		font-size: 13px;
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid var(--brand-line);
+	}
+
+	.breadcrumb-nav a {
+		color: var(--brand-accent);
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+	.breadcrumb-nav a:hover {
+		text-decoration: underline;
+	}
+
+	.breadcrumb-nav span {
+		color: var(--brand-muted);
+	}
+</style>

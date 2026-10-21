@@ -74,6 +74,14 @@ export interface ForwardPassTrace {
 		head1Weight: number;
 		avgWeight: number;
 	}>;
+	layerNorms: {
+		embeddingNorm: number;
+		mhaNorm: number;
+		residual1Norm: number;
+		ffnNorm: number;
+		residual2Norm: number;
+		finalNorm: number;
+	};
 }
 
 export interface TransformerConfig {
@@ -550,6 +558,22 @@ export function runForwardPass(
 		}
 	}
 
+	// 14. Layer-by-Layer Activation Energy Norms
+	function vectorNorm(v: number[]): number {
+		let sumSq = 0;
+		for (let i = 0; i < v.length; i++) sumSq += v[i] * v[i];
+		return Math.sqrt(sumSq);
+	}
+	const lastIdx = T - 1;
+	const layerNorms = {
+		embeddingNorm: vectorNorm(embeddings[lastIdx] ?? []),
+		mhaNorm: vectorNorm(mhaOutput[lastIdx] ?? []),
+		residual1Norm: vectorNorm(residual1[lastIdx] ?? []),
+		ffnNorm: vectorNorm(ffnOut[lastIdx] ?? []),
+		residual2Norm: vectorNorm(residual2[lastIdx] ?? []),
+		finalNorm: vectorNorm(norm2[lastIdx] ?? []),
+	};
+
 	return {
 		tokens,
 		tokenIds,
@@ -572,5 +596,6 @@ export function runForwardPass(
 		ffnPerturbation,
 		hallucinationMode,
 		attentionRays,
+		layerNorms,
 	};
 }

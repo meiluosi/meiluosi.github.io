@@ -115,7 +115,46 @@ function stepForwardAndAppend() {
 	currentTokens = [...currentTokens, next];
 }
 
+let isStreaming = $state<boolean>(false);
+let streamTimer: ReturnType<typeof setInterval> | null = null;
+const streamSpeedMs = 380;
+
+function toggleStreaming() {
+	if (isStreaming) {
+		stopStreaming();
+	} else {
+		startStreaming();
+	}
+}
+
+function startStreaming() {
+	if (isStreaming) return;
+	isStreaming = true;
+	playLatchClick();
+	streamTimer = setInterval(() => {
+		const next = trace.sampledNextToken.token;
+		playMechanicalTick(1.15);
+		if (currentTokens.length >= 8) {
+			currentTokens = currentTokens.slice(1);
+		}
+		currentTokens = [...currentTokens, next];
+		if (next === "[EOS]") {
+			stopStreaming();
+		}
+	}, streamSpeedMs);
+}
+
+function stopStreaming() {
+	if (streamTimer) {
+		clearInterval(streamTimer);
+		streamTimer = null;
+	}
+	isStreaming = false;
+	playLatchClick();
+}
+
 function resetSequence() {
+	stopStreaming();
 	currentTokens = ["[BOS]", "the"];
 	playLatchClick();
 }
@@ -136,6 +175,7 @@ onMount(() => {
 	sync();
 	document.addEventListener("site-locale-change", sync);
 	return () => {
+		if (streamTimer) clearInterval(streamTimer);
 		document.removeEventListener("site-locale-change", sync);
 	};
 });
@@ -505,13 +545,63 @@ onMount(() => {
 							<span class="m-val">{trace.temperature.toFixed(2)}</span>
 						</div>
 
-						<button type="button" class="btn-primary step-btn" onclick={stepForwardAndAppend}>
-							{english ? "⚡ Forward Step & Append" : "⚡ 前进一步并吐出 Token"}
-						</button>
+						<div class="step-actions">
+							<button type="button" class="btn-primary step-btn" onclick={stepForwardAndAppend}>
+								{english ? "⚡ Forward Step" : "⚡ 前进一步并吐出 Token"}
+							</button>
+							<button
+								type="button"
+								class="btn-stream"
+								class:active={isStreaming}
+								onclick={toggleStreaming}
+							>
+								{isStreaming ? (english ? "⏹ Stop Stream" : "⏹ 停止推演") : (english ? "▶ Continuous Stream" : "▶ 连续自回归推演")}
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		{/if}
+	</div>
+
+	<!-- Layer Activation Energy Flow Gauge -->
+	<div class="activation-energy-gauge">
+		<div class="gauge-header">
+			<span class="gauge-title">{english ? "⚡ Layer-by-Layer Activation Energy Norm (Signal Flow):" : "⚡ 各层激活向量 L2 模长能量计 (表征流转):"}</span>
+			<span class="gauge-hint">{english ? "Verifies activation stability across forward pass" : "实时检验深层隐向量模长，防止数值漂移"}</span>
+		</div>
+		<div class="gauge-grid">
+			<div class="gauge-cell">
+				<span class="g-name">Embed</span>
+				<div class="g-track"><div class="g-fill" style="width: {Math.min(100, trace.layerNorms.embeddingNorm * 22)}%"></div></div>
+				<span class="g-val">{trace.layerNorms.embeddingNorm.toFixed(2)}</span>
+			</div>
+			<div class="gauge-cell">
+				<span class="g-name">MHA</span>
+				<div class="g-track"><div class="g-fill" style="width: {Math.min(100, trace.layerNorms.mhaNorm * 22)}%"></div></div>
+				<span class="g-val">{trace.layerNorms.mhaNorm.toFixed(2)}</span>
+			</div>
+			<div class="gauge-cell">
+				<span class="g-name">Res 1</span>
+				<div class="g-track"><div class="g-fill" style="width: {Math.min(100, trace.layerNorms.residual1Norm * 22)}%"></div></div>
+				<span class="g-val">{trace.layerNorms.residual1Norm.toFixed(2)}</span>
+			</div>
+			<div class="gauge-cell">
+				<span class="g-name">FFN</span>
+				<div class="g-track"><div class="g-fill" style="width: {Math.min(100, trace.layerNorms.ffnNorm * 22)}%"></div></div>
+				<span class="g-val">{trace.layerNorms.ffnNorm.toFixed(2)}</span>
+			</div>
+			<div class="gauge-cell">
+				<span class="g-name">Res 2</span>
+				<div class="g-track"><div class="g-fill" style="width: {Math.min(100, trace.layerNorms.residual2Norm * 22)}%"></div></div>
+				<span class="g-val">{trace.layerNorms.residual2Norm.toFixed(2)}</span>
+			</div>
+			<div class="gauge-cell">
+				<span class="g-name">FinalNorm</span>
+				<div class="g-track"><div class="g-fill highlight" style="width: {Math.min(100, trace.layerNorms.finalNorm * 22)}%"></div></div>
+				<span class="g-val highlight">{trace.layerNorms.finalNorm.toFixed(2)}</span>
+			</div>
+		</div>
 	</div>
 
 	<!-- Bottom Interpretability & Ablation Sandbox Tray -->
@@ -1223,6 +1313,119 @@ onMount(() => {
 
 	.step-btn:hover {
 		opacity: 0.9;
+	}
+
+	.step-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-top: 8px;
+	}
+
+	.btn-stream {
+		padding: 8px 14px;
+		background: var(--brand-paper);
+		color: var(--brand-body);
+		border: 1px solid var(--brand-line);
+		border-radius: 8px;
+		font-size: 12.5px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.15s ease;
+	}
+
+	.btn-stream:hover {
+		border-color: var(--brand-accent);
+		color: var(--brand-accent);
+	}
+
+	.btn-stream.active {
+		background: rgba(224, 122, 95, 0.12);
+		border-color: var(--brand-clay, #e07a5f);
+		color: var(--brand-clay, #e07a5f);
+	}
+
+	/* Activation Energy Gauge */
+	.activation-energy-gauge {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding: 12px 16px;
+		background: var(--brand-surface);
+		border: 1px solid var(--brand-line);
+		border-radius: 10px;
+	}
+
+	.gauge-header {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	.gauge-title {
+		font-size: 12.5px;
+		font-weight: 600;
+		color: var(--brand-ink);
+	}
+
+	.gauge-hint {
+		font-size: 11px;
+		color: var(--brand-muted);
+	}
+
+	.gauge-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+		gap: 10px;
+	}
+
+	.gauge-cell {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 11px;
+	}
+
+	.g-name {
+		font-family: var(--font-mono, monospace);
+		width: 58px;
+		color: var(--brand-muted);
+		font-size: 10.5px;
+	}
+
+	.g-track {
+		flex: 1;
+		height: 8px;
+		background: var(--brand-paper);
+		border-radius: 999px;
+		border: 1px solid var(--brand-line);
+		overflow: hidden;
+	}
+
+	.g-fill {
+		height: 100%;
+		background: var(--brand-accent);
+		border-radius: 999px;
+		transition: width 0.2s ease;
+	}
+
+	.g-fill.highlight {
+		background: #10b981;
+	}
+
+	.g-val {
+		font-family: var(--font-mono, monospace);
+		font-size: 10.5px;
+		color: var(--brand-body);
+		width: 28px;
+		text-align: right;
+	}
+
+	.g-val.highlight {
+		color: #10b981;
+		font-weight: 600;
 	}
 
 	/* Interpretability Tray */

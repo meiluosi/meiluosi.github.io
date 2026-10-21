@@ -1,38 +1,159 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { LAB_ENTRIES } from "@/utils/digital-garden";
 import {
+	isHapticsEnabled,
 	playLatchClick,
 	playMechanicalTick,
 	playShutterTick,
+	playSlideTick,
+	setHapticsEnabled,
 } from "@/utils/haptics";
 
-type PaletteKind = "post" | "en-post" | "page";
+type PaletteKind = "post" | "en-post" | "page" | "action";
 interface PaletteItem {
 	id: string;
 	title: string;
 	titleEn?: string;
-	href: string;
+	href?: string;
 	tags: string[];
 	category: string;
+	categoryEn?: string;
 	description: string;
+	descriptionEn?: string;
 	kind: PaletteKind;
-	lang: "zh" | "en";
+	lang?: "zh" | "en";
+	icon?: string;
+	shortcut?: string;
+	handler?: () => void;
 }
 type Status = "idle" | "loading" | "ready" | "error";
 
-const MAX_RESULTS = 8;
+const MAX_RESULTS = 10;
 
 let dialogEl: HTMLDialogElement | undefined = $state<HTMLDialogElement>();
 let inputEl: HTMLInputElement | undefined = $state<HTMLInputElement>();
 let items = $state<PaletteItem[]>([]);
 let query = $state("");
 let activeIndex = $state(0);
+let activeTab = $state<"all" | "action" | "lab" | "post">("all");
 let english = $state(false);
 let status = $state<Status>("idle");
 let isOpen = $state(false);
 let loading = false;
 // Element that opened the palette; focus returns here on close.
 let returnFocus: HTMLElement | null = null;
+
+const builtinActions = $derived.by<PaletteItem[]>(() => {
+	const soundOn = typeof window !== "undefined" ? isHapticsEnabled() : true;
+	return [
+		{
+			id: "action-sound",
+			title: soundOn ? "静音全站触觉与机械音效" : "开启全站触觉与机械音效",
+			titleEn: soundOn
+				? "Mute All Sound & Mechanical Haptics"
+				: "Enable Sound & Mechanical Haptics",
+			category: "快速控制",
+			categoryEn: "Quick Control",
+			tags: ["sound", "audio", "haptics", "音效", "声音", "静音"],
+			description: "切换全站按键、齿轮与快门声效反馈",
+			descriptionEn: "Toggle procedural click and friction audio feedback",
+			kind: "action",
+			icon: soundOn ? "🔊" : "🔇",
+			shortcut: "> sound",
+			handler: () => {
+				const next = !isHapticsEnabled();
+				setHapticsEnabled(next);
+				if (next) playMechanicalTick(1.2);
+				close();
+			},
+		},
+		{
+			id: "action-lang",
+			title: english
+				? "切换至中文语言模式 (zh-CN)"
+				: "Switch to English Mode (en)",
+			titleEn: english ? "Switch to Chinese (zh-CN)" : "Switch to English (en)",
+			category: "快速控制",
+			categoryEn: "Quick Control",
+			tags: ["lang", "language", "chinese", "english", "双语", "中英"],
+			description: "无缝切换全站主界面双语模式",
+			descriptionEn: "Seamlessly toggle site-wide UI bilingual mode",
+			kind: "action",
+			icon: "🌐",
+			shortcut: "> lang",
+			handler: () => {
+				const cur = window.location.pathname;
+				let target = cur;
+				if (english && cur.startsWith("/en/")) {
+					target = cur.replace(/^\/en/, "") || "/";
+				} else if (!english && !cur.startsWith("/en/")) {
+					target = `/en${cur}`;
+				}
+				window.location.assign(target);
+				close();
+			},
+		},
+		{
+			id: "action-random-note",
+			title: "随机漫游：抽取一篇常青思想笔记",
+			titleEn: "I'm Feeling Lucky: Jump to Random Note",
+			category: "探索发现",
+			categoryEn: "Exploration",
+			tags: ["random", "lucky", "note", "随机", "漫游", "手气不错"],
+			description: "在数字花园中偶遇一篇深度思考",
+			descriptionEn: "Serendipitously explore a note in the digital garden",
+			kind: "action",
+			icon: "🎲",
+			shortcut: "> random",
+			handler: () => {
+				const notes = items.filter(
+					(it) => it.kind === "post" || it.kind === "en-post",
+				);
+				if (notes.length > 0) {
+					const pick = notes[Math.floor(Math.random() * notes.length)];
+					if (pick.href) window.location.assign(pick.href);
+				}
+				close();
+			},
+		},
+		{
+			id: "action-graph-3d",
+			title: "打开全站 3D 知识星云天球",
+			titleEn: "Open 3D Knowledge Cosmos & Orbits",
+			category: "全站图谱",
+			categoryEn: "Cosmos",
+			tags: ["graph", "3d", "cosmos", "知识图谱", "星空", "天球"],
+			description: "以三维引力轨道探索全站笔记与实验的拓扑联结",
+			descriptionEn: "Explore interlinked notes in 3D celestial orbital space",
+			kind: "action",
+			icon: "🪐",
+			shortcut: "> graph",
+			handler: () => {
+				window.location.assign("/graph/");
+				close();
+			},
+		},
+		// Labs
+		...LAB_ENTRIES.map((lab) => ({
+			id: `action-${lab.id}`,
+			title: `实验沙盒：${lab.title}`,
+			titleEn: `Lab: ${lab.titleEn}`,
+			category: "交互实验室",
+			categoryEn: "Interactive Labs",
+			tags: ["lab", "experiment", "沙盒", "仿真", ...lab.tags],
+			description: `直接启动可计算沙盒：${lab.category}`,
+			descriptionEn: `Launch interactive sandbox: ${lab.category}`,
+			kind: "action" as const,
+			icon: "⚡",
+			shortcut: `> ${lab.id.replace("lab-", "")}`,
+			handler: () => {
+				window.location.assign(lab.href);
+				close();
+			},
+		})),
+	];
+});
 
 const copy = $derived(
 	english
@@ -140,13 +261,25 @@ function matchScore(item: PaletteItem, terms: string[]): number {
 	const tags = item.tags.join(" ").toLowerCase();
 	const category = item.category.toLowerCase();
 	const description = item.description.toLowerCase();
+	const shortcut = (item.shortcut ?? "").toLowerCase();
 	let best = 0;
 	for (const term of terms) {
 		let score = 0;
-		if (title.startsWith(term) || titleEn.startsWith(term)) score = 4;
-		else if (title.includes(term) || titleEn.includes(term)) score = 3;
-		else if (tags.includes(term) || category.includes(term)) score = 2;
-		else if (description.includes(term)) score = 1;
+		if (
+			shortcut &&
+			(shortcut.includes(term) ||
+				shortcut.replace(">", "").trim().startsWith(term))
+		) {
+			score = 6;
+		} else if (title.startsWith(term) || titleEn.startsWith(term)) {
+			score = 5;
+		} else if (title.includes(term) || titleEn.includes(term)) {
+			score = 3;
+		} else if (tags.includes(term) || category.includes(term)) {
+			score = 2;
+		} else if (description.includes(term)) {
+			score = 1;
+		}
 		if (!score) return 0;
 		if (score > best) best = score;
 	}
@@ -155,25 +288,55 @@ function matchScore(item: PaletteItem, terms: string[]): number {
 
 const results = $derived.by(() => {
 	const rawQuery = query.trim();
-	const terms = rawQuery
+	const isCommandMode = rawQuery.startsWith(">") || rawQuery.startsWith(":");
+	const cleanQuery = isCommandMode ? rawQuery.slice(1).trim() : rawQuery;
+	const terms = cleanQuery
 		.toLowerCase()
 		.split(/\s+/)
 		.filter((term) => term.length > 0);
-	// A Chinese query still searches Chinese titles in English mode.
-	const hasCjk = /[\u3400-\u9fff]/.test(rawQuery);
-	// Empty query: the pages are the palette's default destinations.
-	if (terms.length === 0) {
-		return items.filter((item) => item.kind === "page").slice(0, MAX_RESULTS);
+	const hasCjk = /[\u3400-\u9fff]/.test(cleanQuery);
+
+	let pool: PaletteItem[] = [];
+	if (isCommandMode || activeTab === "action") {
+		pool = builtinActions;
+	} else if (activeTab === "lab") {
+		pool = builtinActions.filter((a) => a.id.startsWith("action-lab"));
+	} else if (activeTab === "post") {
+		pool = items.filter((it) => it.kind === "post" || it.kind === "en-post");
+	} else {
+		// All
+		pool = [...builtinActions, ...items];
 	}
+
+	// Empty query: default destinations
+	if (terms.length === 0) {
+		if (isCommandMode || activeTab === "action") {
+			return builtinActions.slice(0, MAX_RESULTS);
+		}
+		if (activeTab === "lab") {
+			return builtinActions
+				.filter((a) => a.id.startsWith("action-lab"))
+				.slice(0, MAX_RESULTS);
+		}
+		if (activeTab === "post") {
+			return items.filter((it) => it.kind === "post").slice(0, MAX_RESULTS);
+		}
+		// Default show quick actions + top pages
+		const defaultActions = builtinActions.slice(0, 4);
+		const defaultPages = items
+			.filter((item) => item.kind === "page")
+			.slice(0, 4);
+		return [...defaultActions, ...defaultPages];
+	}
+
 	const ranked: {
 		item: PaletteItem;
 		score: number;
 		langRank: number;
 		kindRank: number;
 	}[] = [];
-	for (const item of items) {
-		// In English mode the translated entry replaces its Chinese source,
-		// so the two do not show up as duplicate rows.
+
+	for (const item of pool) {
 		if (english && !hasCjk && item.kind === "post" && item.titleEn) continue;
 		const score = matchScore(item, terms);
 		if (!score) continue;
@@ -181,12 +344,13 @@ const results = $derived.by(() => {
 			item,
 			score,
 			langRank: (english ? item.lang === "en" : item.lang === "zh") ? 0 : 1,
-			kindRank: item.kind === "page" ? 0 : 1,
+			kindRank: item.kind === "action" ? 0 : item.kind === "page" ? 1 : 2,
 		});
 	}
+
 	ranked.sort(
 		(a, b) =>
-			b.score - a.score || a.langRank - b.langRank || a.kindRank - b.kindRank,
+			b.score - a.score || a.kindRank - b.kindRank || a.langRank - b.langRank,
 	);
 	return ranked.slice(0, MAX_RESULTS).map((entry) => entry.item);
 });
@@ -241,8 +405,14 @@ function handleDialogClick(event: MouseEvent): void {
 }
 
 function go(item: PaletteItem): void {
-	playLatchClick();
-	location.assign(item.href);
+	if (item.handler) {
+		item.handler();
+		return;
+	}
+	if (item.href) {
+		playLatchClick();
+		location.assign(item.href);
+	}
 }
 
 function handleInputKeydown(event: KeyboardEvent): void {
@@ -353,7 +523,7 @@ $effect(() => {
 				aria-autocomplete="list"
 				aria-activedescendant={results[activeIndex] ? `palette-option-${activeIndex}` : undefined}
 				aria-label={copy.label}
-				placeholder={copy.placeholder}
+				placeholder={english ? "Search notes or type > for actions (e.g. > sound, > lab)…" : "搜索笔记，或输入 > 执行指令 (如 > 音效, > 实验)…"}
 				autocomplete="off"
 				spellcheck="false"
 				oninput={() => {
@@ -363,6 +533,54 @@ $effect(() => {
 			/>
 			<button type="button" class="palette-close" onclick={close} aria-label={copy.close}>
 				<kbd>Esc</kbd>
+			</button>
+		</div>
+
+		<!-- Quick Filter Tabs -->
+		<div class="palette-tabs" role="tablist">
+			<button
+				type="button"
+				class="tab-btn"
+				class:active={activeTab === "all"}
+				onclick={() => {
+					activeTab = "all";
+					playMechanicalTick(1.0);
+				}}
+			>
+				{english ? "All" : "全部"}
+			</button>
+			<button
+				type="button"
+				class="tab-btn"
+				class:active={activeTab === "action"}
+				onclick={() => {
+					activeTab = "action";
+					playMechanicalTick(1.05);
+				}}
+			>
+				⚡ {english ? "Actions" : "快捷指令"}
+			</button>
+			<button
+				type="button"
+				class="tab-btn"
+				class:active={activeTab === "lab"}
+				onclick={() => {
+					activeTab = "lab";
+					playMechanicalTick(1.1);
+				}}
+			>
+				⚙️ {english ? "Labs" : "计算沙盒"}
+			</button>
+			<button
+				type="button"
+				class="tab-btn"
+				class:active={activeTab === "post"}
+				onclick={() => {
+					activeTab = "post";
+					playMechanicalTick(1.15);
+				}}
+			>
+				📄 {english ? "Notes" : "文章笔记"}
 			</button>
 		</div>
 
@@ -389,6 +607,7 @@ $effect(() => {
 					<li
 						id={`palette-option-${index}`}
 						class="palette-option"
+						class:is-action={item.kind === "action"}
 						role="option"
 						aria-selected={index === activeIndex}
 						onclick={() => go(item)}
@@ -396,16 +615,28 @@ $effect(() => {
 							activeIndex = index;
 						}}
 					>
-						<span class="palette-option-title">
-							{#each highlightText(displayTitle(item), query) as seg}
-								{#if seg.match}<mark class="palette-mark">{seg.text}</mark>{:else}{seg.text}{/if}
-							{/each}
-						</span>
-						<span class="palette-option-meta">
-							{#each highlightText(metaLabel(item), query) as seg}
-								{#if seg.match}<mark class="palette-mark">{seg.text}</mark>{:else}{seg.text}{/if}
-							{/each}
-						</span>
+						{#if item.icon}
+							<span class="palette-option-icon" aria-hidden="true">{item.icon}</span>
+						{/if}
+						<div class="palette-option-main">
+							<span class="palette-option-title">
+								{#each highlightText(displayTitle(item), query) as seg}
+									{#if seg.match}<mark class="palette-mark">{seg.text}</mark>{:else}{seg.text}{/if}
+								{/each}
+							</span>
+							<span class="palette-option-meta">
+								{#if item.kind === "action"}
+									<span class="action-desc">{english ? (item.descriptionEn ?? item.description) : item.description}</span>
+								{:else}
+									{#each highlightText(metaLabel(item), query) as seg}
+										{#if seg.match}<mark class="palette-mark">{seg.text}</mark>{:else}{seg.text}{/if}
+									{/each}
+								{/if}
+							</span>
+						</div>
+						{#if item.shortcut}
+							<kbd class="palette-shortcut-badge">{item.shortcut}</kbd>
+						{/if}
 					</li>
 				{/each}
 			</ul>
@@ -470,6 +701,35 @@ $effect(() => {
 		outline-offset: -2px;
 	}
 
+	.palette-tabs {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 8px 14px;
+		background: var(--brand-surface);
+		border-bottom: 1px solid var(--brand-line);
+		overflow-x: auto;
+	}
+
+	.tab-btn {
+		font-size: 11.5px;
+		padding: 3px 9px;
+		border-radius: 999px;
+		border: 1px solid var(--brand-line);
+		background: var(--brand-paper);
+		color: var(--brand-muted);
+		cursor: pointer;
+		white-space: nowrap;
+		transition: all 0.15s ease;
+	}
+
+	.tab-btn:hover,
+	.tab-btn.active {
+		border-color: var(--brand-accent);
+		color: var(--brand-accent);
+		background: rgba(92, 122, 107, 0.1);
+	}
+
 	.palette-icon {
 		width: 18px;
 		height: 18px;
@@ -520,11 +780,41 @@ $effect(() => {
 	}
 
 	.palette-option {
-		display: grid;
-		gap: 3px;
+		display: flex;
+		align-items: center;
+		gap: 10px;
 		padding: 9px 12px;
 		border-radius: 9px;
 		cursor: pointer;
+	}
+
+	.palette-option-icon {
+		font-size: 16px;
+		flex-shrink: 0;
+	}
+
+	.palette-option-main {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.palette-shortcut-badge {
+		font-family: var(--font-mono, monospace);
+		font-size: 10.5px;
+		padding: 2px 6px;
+		border-radius: 4px;
+		background: var(--brand-paper);
+		border: 1px solid var(--brand-line);
+		color: var(--brand-muted);
+		flex-shrink: 0;
+	}
+
+	.action-desc {
+		color: var(--brand-body);
+		font-size: 11.5px;
 	}
 
 	.palette-option:hover {

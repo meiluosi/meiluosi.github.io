@@ -26,14 +26,42 @@ let searchQuery = $state("");
 let selectedNode = $state<GraphNode | null>(null);
 let hoveredNode = $state<GraphNode | null>(null);
 
+// 3D Celestial Cosmos & 2D Layout State
+let viewMode = $state<"2d" | "3d">("3d");
+let rotX = $state(0.24);
+let rotY = $state(0.0);
+let isDragging3D = false;
+let drag3DStart = { x: 0, y: 0 };
+
+interface SimNodeExt extends GraphNode {
+	x3d?: number;
+	y3d?: number;
+	z3d?: number;
+	orbitRadius?: number;
+	orbitSpeed?: number;
+	orbitAngle?: number;
+	projX?: number;
+	projY?: number;
+	projZ?: number;
+	projScale?: number;
+}
+
+// Background cosmic stars
+const stars = Array.from({ length: 80 }, (_, i) => ({
+	x: Math.sin(i * 19.3) * 0.5 + 0.5,
+	y: Math.cos(i * 37.7) * 0.5 + 0.5,
+	r: (i % 3) * 0.5 + 0.7,
+	alpha: Math.sin(i * 7.1) * 0.25 + 0.45,
+}));
+
 // Transform / Pan / Zoom state
 let transform = $state({ x: 0, y: 0, k: 1 });
 let isDraggingCanvas = false;
 let dragStart = { x: 0, y: 0 };
-let draggedNode: GraphNode | null = null;
+let draggedNode: SimNodeExt | null = null;
 
 // Dynamic simulation nodes
-let simNodes = $state<GraphNode[]>([]);
+let simNodes = $state<SimNodeExt[]>([]);
 let simEdges = $state<GraphEdge[]>([]);
 
 const activeMaturityCount = $derived(() => {
@@ -65,16 +93,49 @@ function initSimulation() {
 	transform.x = width / 2;
 	transform.y = height / 2;
 
-	// Copy initial data
+	// Copy initial data with 3D celestial coordinates
 	simNodes = initialNodes.map((n, i) => {
 		const angle = (i / initialNodes.length) * 2 * Math.PI;
 		const radius = 120 + (i % 4) * 55;
+
+		// 3D celestial orbits
+		let r3d = 200;
+		let inclination = ((i % 5) - 2) * 0.18;
+		let speed = 0.0006 + (i % 3) * 0.0003;
+		if (n.kind === "hub") {
+			r3d = 30 + i * 8;
+			inclination = 0.05;
+			speed = 0.0002;
+		} else if (n.kind === "lab") {
+			r3d = 135;
+			inclination = 0.15 * (i % 2 === 0 ? 1 : -1);
+			speed = 0.0012;
+		} else if (n.maturity === "evergreen") {
+			r3d = 210;
+			inclination = 0.25 * (i % 2 === 0 ? 1 : -1);
+			speed = 0.0008;
+		} else {
+			r3d = 280 + (i % 3) * 35;
+			inclination = Math.sin(i * 1.5) * 0.45;
+			speed = 0.0005;
+		}
+
 		return {
 			...n,
 			x: Math.cos(angle) * radius,
 			y: Math.sin(angle) * radius,
 			vx: (Math.random() - 0.5) * 2,
 			vy: (Math.random() - 0.5) * 2,
+			orbitRadius: r3d,
+			orbitSpeed: speed,
+			orbitAngle: angle,
+			x3d: Math.cos(angle) * r3d,
+			y3d: Math.sin(inclination) * r3d,
+			z3d: Math.sin(angle) * r3d,
+			projX: 0,
+			projY: 0,
+			projZ: 0,
+			projScale: 1,
 		};
 	});
 	simEdges = [...initialEdges];
@@ -90,7 +151,197 @@ function tickSimulation() {
 	const width = canvasEl.width;
 	const height = canvasEl.height;
 
-	// Spring forces & Repulsion
+	// 3D CELESTIAL COSMOS MODE
+	if (viewMode === "3d") {
+		// Update cosmic rotation
+		if (!isDragging3D) {
+			rotY += 0.002;
+		}
+
+		// Calculate 3D positions and project
+		const cosY = Math.cos(rotY);
+		const sinY = Math.sin(rotY);
+		const cosX = Math.cos(rotX);
+		const sinX = Math.sin(rotX);
+		const focal = 500;
+
+		for (const n of simNodes) {
+			n.orbitAngle = (n.orbitAngle || 0) + (n.orbitSpeed || 0.0005);
+			const r = n.orbitRadius || 200;
+			const rawX = Math.cos(n.orbitAngle) * r;
+			const rawZ = Math.sin(n.orbitAngle) * r;
+			const rawY = n.y3d || 0;
+
+			// Rotate around Y
+			const x1 = rawX * cosY - rawZ * sinY;
+			const z1 = rawX * sinY + rawZ * cosY;
+
+			// Rotate around X
+			const y2 = rawY * cosX - z1 * sinX;
+			const z2 = rawY * sinX + z1 * cosX;
+			const x2 = x1;
+
+			const scale = Math.max(0.2, focal / (focal + z2 + 250));
+			n.projScale = scale;
+			n.projZ = z2;
+			n.projX = x2 * scale;
+			n.projY = y2 * scale;
+		}
+
+		// Render 3D Scene
+		ctx.clearRect(0, 0, width, height);
+
+		// Draw twinkling stars
+		ctx.save();
+		for (const star of stars) {
+			const sx = star.x * width;
+			const sy = star.y * height;
+			ctx.beginPath();
+			ctx.arc(sx, sy, star.r, 0, Math.PI * 2);
+			ctx.fillStyle = `rgba(180, 205, 195, ${star.alpha})`;
+			ctx.fill();
+		}
+		ctx.restore();
+
+		ctx.save();
+		ctx.translate(transform.x, transform.y);
+		ctx.scale(transform.k, transform.k);
+
+		// Draw faint 3D orbital rings
+		const orbitalRadii = [135, 210, 290];
+		ctx.save();
+		ctx.lineWidth = 1 / transform.k;
+		for (const or of orbitalRadii) {
+			ctx.beginPath();
+			ctx.strokeStyle = "rgba(92, 122, 107, 0.15)";
+			for (let step = 0; step <= 48; step++) {
+				const theta = (step / 48) * Math.PI * 2;
+				const rx = Math.cos(theta) * or;
+				const rz = Math.sin(theta) * or;
+				const rx1 = rx * cosY - rz * sinY;
+				const rz1 = rx * sinY + rz * cosY;
+				const ry2 = -rz1 * sinX;
+				const rz2 = rz1 * cosX;
+				const rscale = Math.max(0.2, focal / (focal + rz2 + 250));
+				const px = rx1 * rscale;
+				const py = ry2 * rscale;
+				if (step === 0) ctx.moveTo(px, py);
+				else ctx.lineTo(px, py);
+			}
+			ctx.stroke();
+		}
+		ctx.restore();
+
+		// Draw edges in 3D
+		const nodeMap = new Map(simNodes.map((n) => [n.id, n]));
+		for (const e of simEdges) {
+			const s = nodeMap.get(e.source);
+			const t = nodeMap.get(e.target);
+			if (!s || !t) continue;
+
+			const isConnectedToHover =
+				hoveredNode && (s.id === hoveredNode.id || t.id === hoveredNode.id);
+			const isConnectedToSelected =
+				selectedNode && (s.id === selectedNode.id || t.id === selectedNode.id);
+
+			ctx.beginPath();
+			ctx.moveTo(s.projX || 0, s.projY || 0);
+			ctx.lineTo(t.projX || 0, t.projY || 0);
+
+			if (isConnectedToHover || isConnectedToSelected) {
+				ctx.strokeStyle = "rgba(92, 122, 107, 0.85)";
+				ctx.lineWidth = 2.5 / transform.k;
+			} else {
+				const edgeAlpha = Math.max(
+					0.08,
+					Math.min(0.35, ((s.projScale || 1) + (t.projScale || 1)) * 0.16),
+				);
+				ctx.strokeStyle = `rgba(130, 160, 145, ${edgeAlpha})`;
+				ctx.lineWidth = 1 / transform.k;
+			}
+			ctx.stroke();
+		}
+
+		// Sort nodes by projZ ascending (draw back to front)
+		const sortedNodes = [...simNodes].sort(
+			(a, b) => (a.projZ || 0) - (b.projZ || 0),
+		);
+
+		// Draw 3D nodes
+		const qLower = searchQuery.trim().toLowerCase();
+		for (const n of sortedNodes) {
+			const isHovered = hoveredNode?.id === n.id;
+			const isSelected = selectedNode?.id === n.id;
+			const matchesSearch =
+				qLower.length === 0 ||
+				n.label.toLowerCase().includes(qLower) ||
+				Boolean(n.tags?.some((t) => t.toLowerCase().includes(qLower)));
+			const matchesFilter =
+				activeFilter === "all" || n.maturity === activeFilter;
+
+			const baseAlpha = matchesFilter && matchesSearch ? 1 : 0.15;
+			const depthAlpha = Math.max(0.3, Math.min(1.0, (n.projScale || 1) * 1.1));
+			const alpha = baseAlpha * depthAlpha;
+
+			const meta =
+				MATURITY_DEFINITIONS[n.maturity] || MATURITY_DEFINITIONS.budding;
+			const baseRadius = n.kind === "hub" ? 15 : n.kind === "lab" ? 12 : 8;
+			const radius = baseRadius * (n.projScale || 1) * (isHovered ? 1.35 : 1);
+
+			ctx.save();
+			ctx.globalAlpha = alpha;
+
+			// Glow aura
+			if (isHovered || isSelected || n.kind === "hub") {
+				ctx.beginPath();
+				ctx.arc(
+					n.projX || 0,
+					n.projY || 0,
+					radius + 6 * (n.projScale || 1),
+					0,
+					Math.PI * 2,
+				);
+				ctx.fillStyle =
+					n.kind === "hub"
+						? "rgba(92, 122, 107, 0.35)"
+						: "rgba(92, 122, 107, 0.22)";
+				ctx.fill();
+			}
+
+			// Sphere node
+			ctx.beginPath();
+			ctx.arc(n.projX || 0, n.projY || 0, radius, 0, Math.PI * 2);
+			ctx.fillStyle = meta.color;
+			ctx.fill();
+			ctx.strokeStyle = "#ffffff";
+			ctx.lineWidth = (1.5 * (n.projScale || 1)) / transform.k;
+			ctx.stroke();
+
+			// Label
+			if (
+				(n.projScale || 1) > 0.55 ||
+				isHovered ||
+				isSelected ||
+				n.kind === "hub"
+			) {
+				ctx.font = `${n.kind === "hub" ? "bold 13px" : "11px"} -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
+				ctx.fillStyle =
+					isHovered || isSelected ? "#1b2a26" : "rgba(40, 50, 45, 0.9)";
+				ctx.textAlign = "center";
+				const textY = (n.projY || 0) + radius + 13 * (n.projScale || 1);
+				const displayLabel = english && n.labelEn ? n.labelEn : n.label;
+				ctx.fillText(displayLabel, n.projX || 0, textY);
+			}
+
+			ctx.restore();
+		}
+
+		ctx.restore();
+		animFrameId = requestAnimationFrame(tickSimulation);
+		return;
+	}
+
+	// 2D PLANAR SPRING FORCE ATLAS MODE
 	const damping = 0.88;
 	const repulsion = 1800;
 	const springLen = 70;
@@ -237,8 +488,25 @@ function tickSimulation() {
 	animFrameId = requestAnimationFrame(tickSimulation);
 }
 
-function getNodeAt(x: number, y: number): GraphNode | null {
-	// Invert transform
+function getNodeAt(x: number, y: number): SimNodeExt | null {
+	if (viewMode === "3d") {
+		// Screen space coords relative to transform center and scale
+		const sx = (x - transform.x) / transform.k;
+		const sy = (y - transform.y) / transform.k;
+
+		// Check closest from front to back (descending projZ)
+		const sorted = [...simNodes].sort(
+			(a, b) => (b.projZ || 0) - (a.projZ || 0),
+		);
+		for (const n of sorted) {
+			const r = (n.kind === "hub" ? 18 : 13) * (n.projScale || 1);
+			const dist = Math.hypot((n.projX || 0) - sx, (n.projY || 0) - sy);
+			if (dist <= r) return n;
+		}
+		return null;
+	}
+
+	// 2D mode
 	const wx = (x - transform.x) / transform.k;
 	const wy = (y - transform.y) / transform.k;
 
@@ -262,6 +530,9 @@ function handleMouseDown(e: MouseEvent) {
 		draggedNode = hit;
 		selectedNode = hit;
 		playLatchClick();
+	} else if (viewMode === "3d") {
+		isDragging3D = true;
+		drag3DStart = { x: e.clientX, y: e.clientY };
 	} else {
 		isDraggingCanvas = true;
 		dragStart = { x: e.clientX - transform.x, y: e.clientY - transform.y };
@@ -274,7 +545,17 @@ function handleMouseMove(e: MouseEvent) {
 	const mx = e.clientX - rect.left;
 	const my = e.clientY - rect.top;
 
-	if (draggedNode) {
+	if (viewMode === "3d" && isDragging3D) {
+		rotY += (e.clientX - drag3DStart.x) * 0.006;
+		rotX = Math.max(
+			-1.1,
+			Math.min(1.1, rotX + (e.clientY - drag3DStart.y) * 0.006),
+		);
+		drag3DStart = { x: e.clientX, y: e.clientY };
+		return;
+	}
+
+	if (draggedNode && viewMode === "2d") {
 		draggedNode.x = (mx - transform.x) / transform.k;
 		draggedNode.y = (my - transform.y) / transform.k;
 		draggedNode.vx = 0;
@@ -301,6 +582,7 @@ function handleMouseMove(e: MouseEvent) {
 function handleMouseUp() {
 	draggedNode = null;
 	isDraggingCanvas = false;
+	isDragging3D = false;
 }
 
 function handleWheel(e: WheelEvent) {
@@ -402,6 +684,32 @@ onMount(() => {
 		</div>
 
 		<div class="search-and-reset">
+			<!-- 2D / 3D Mode Switcher -->
+			<div class="view-mode-toggle">
+				<button
+					type="button"
+					class="view-pill"
+					class:active={viewMode === "3d"}
+					onclick={() => {
+						viewMode = "3d";
+						playShutterTick();
+					}}
+				>
+					🪐 {english ? "3D Cosmos" : "3D 天球"}
+				</button>
+				<button
+					type="button"
+					class="view-pill"
+					class:active={viewMode === "2d"}
+					onclick={() => {
+						viewMode = "2d";
+						playShutterTick();
+					}}
+				>
+					🗺️ {english ? "2D Atlas" : "2D 拓扑"}
+				</button>
+			</div>
+
 			<input
 				type="search"
 				class="cosmos-search-input"
@@ -426,7 +734,17 @@ onMount(() => {
 
 		<!-- Watermark / Hint -->
 		<div class="canvas-hint">
-			<span>{english ? "Drag to pan · Scroll to zoom · Click node to inspect" : "按住拖拽漫游 · 滚轮缩放 · 点击节点展开卡片"}</span>
+			<span>
+				{#if viewMode === "3d"}
+					{english
+						? "🪐 Drag to orbit in 3D · Scroll to zoom · Click celestial note to open card"
+						: "🪐 拖拽可 360° 旋转宇宙星系 · 滚轮缩放天球 · 点击星体展开卡片"}
+				{:else}
+					{english
+						? "🗺️ Drag to pan · Scroll to zoom · Click node to inspect"
+						: "🗺️ 按住拖拽平移 · 滚轮缩放 · 点击节点展开卡片"}
+				{/if}
+			</span>
 		</div>
 
 		<!-- Andy Matuschak Sliding Drawer -->
@@ -545,7 +863,36 @@ onMount(() => {
 	.search-and-reset {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		gap: 8px;
+	}
+
+	.view-mode-toggle {
+		display: inline-flex;
+		align-items: center;
+		padding: 2px;
+		background: var(--brand-paper);
+		border: 1px solid var(--brand-line);
+		border-radius: 999px;
+	}
+
+	.view-pill {
+		font-size: 11.5px;
+		padding: 4px 10px;
+		border-radius: 999px;
+		border: none;
+		background: transparent;
+		color: var(--brand-muted);
+		cursor: pointer;
+		transition: all 0.15s ease;
+		white-space: nowrap;
+	}
+
+	.view-pill.active {
+		background: var(--brand-surface);
+		color: var(--brand-accent);
+		font-weight: 600;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 	}
 
 	.cosmos-search-input {

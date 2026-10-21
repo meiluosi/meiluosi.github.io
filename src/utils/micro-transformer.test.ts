@@ -78,4 +78,8 @@ test("MicroTransformer computes attention rays and supports hallucination pertur
 	assert.equal(lastRay.fromIdx, 2);
 	assert.equal(lastRay.toIdx, 2);
 	assert.ok(lastRay.avgWeight >= 0);
+
+	// Layer activation norms
+	assert.ok(trace.layerNorms.embeddingNorm > 0);
+	assert.ok(trace.layerNorms.finalNorm > 0);
 });
