@@ -358,7 +358,7 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 - [x] 第二卷后四篇：前向计算、batch、优化稳定性、小模型实验；整卷来源、算例和页面验收。
 - [x] 第三卷前三篇：任务示范、消息与模板、监督位置；来源、算例和页面验收。
 - [x] 第三卷后三篇：指令数据、LoRA/QLoRA、效果与退化评价；整卷验收。
-- [ ] 第四至第七卷正文与逐卷验收。
+- [ ] 第四至第七卷正文与逐卷验收。（累计 21/42：第四卷 01–03 已发布并完成页面验收，余 04–06 待写）
 
 ## Phase 24：架构减脂、学术杂志视觉收口与五项互动实验扩展（2026-10-21 完成）
 
@@ -385,6 +385,17 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 - [x] **3D 研究岛天象光影周期系统（Celestial Ephemeris）**：
   1. `celestial.ts` 计算基于当地真实时间或手动微调的 24 小时太阳高度角、方位角、天空光色温与雾气投影。
   2. `ExploreWorld.svelte` 接入晨曦薄雾（Dawn）、明朗正午（Noon）、金桃晚霞（Sunset）与静夜星辰（Night）四大天象周期切换。
+
+## Phase 26：四大流派落地与全站知识星系（2026-10-21 完成）
+
+依据 [design-archetypes.md](./design-archetypes.md) 的流派坐标，本轮把方向 A（解释性计算流）与方向 B（活体知识花园流）从原型推进到可用状态，并首次落地流派 4（交互式叙事长卷）。
+
+- [x] **方向 A 深化 · `/lab/transformer-forward/`**：`micro-transformer.ts` 的 `runForwardPass` 新增 `layerNorms`，返回 embedding → MHA → 残差 1 → FFN → 残差 2 → 最终归一化共 6 段的 L2 范数；`TransformerForwardLab.svelte` 以六段能量条显示信号流转，读者可把输出异常定位到具体残差支路。
+- [x] **方向 B 深化 · `/graph/` 全站知识星系**：`KnowledgeGraph.svelte` 在 2D 力导向布局之外增加 3D 天体星图模式——80 颗背景星、按节点类型（hub / lab / evergreen / 其他）分层的轨道半径与倾角、Y/X 双轴旋转与透视投影，并提供 2D / 3D 切换与重置视图。
+- [x] **方向 B 深化 · 思想生命周期与叠放抽屉**：`digital-garden.ts` 定义 🌱 萌芽 / 🌿 演进 / 🌳 常青 / 🔬 待证 / ⚙️ 实验五级元数据与启发式判定；`GardenMaturityBadge.astro` 渲染徽章；`ArticleLocalGraph.svelte` 提供 Andy Matuschak 式横向叠放抽屉，中英文文章页共用。
+- [x] **流派 3 · 全局控制台**：`CommandPalette.svelte` 从纯文章搜索升级为带 all / action / lab / post 分页的控制台，内置全站音效开关、8 个实验室直达与 `> sound` 类快捷提示。
+- [x] **流派 4 · Distill 式滚轮长卷（新增方向）**：新增 `ScrollytellingTransformer.svelte` 与 `/essays/transformer-scrollytelling/`，以双栏同步滚轮驱动五幕计算舞台——词元投影流形、RoPE 时空星盘、因果下三角注意力点积、多头归纳回路消融、SwiGLU 前馈门控与采样；`/lab/` 索引注册为第 8 个实验入口。
+- [x] **验证**：`pnpm check`（179 文件，0 error / 0 warning / 0 hint）、`pnpm type-check`、`npx tsx --test src/utils/*.test.ts`（35 项全通过）、完整 `pnpm build`（137 页）通过。
 
 ## 版本记录
 
@@ -505,4 +516,5 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 | 2026-09-30 | v1.44 | 根据简历完善双语个人经历；新增正文搜索与阅读返回、文章目录及延伸阅读理由、研究岛预览、因果互动实验和联系页复制邮箱；Now 不变 |
 | 2026-10-04 | v1.45 | 完成 RSI 导读、三条阅读路线、六项文献架、实验室和 MCTS 互动实验，以及双语概念预览、正文反向链接与本地阅读收藏；完成正式构建与桌面、手机验证 |
 | 2026-10-21 | v1.46 | 沉淀四大顶级流派设计哲学；上线第七实验室 `/lab/transformer-forward/`（端侧微模型 Forward Pass 单步推演与神经回路消融）；启用全站数字花园思想生命周期（🌱/🌿/🌳/🔬）与 `/graph/` 全站力导向交互知识星系 |
+| 2026-10-21 | v1.47 | 流派 4 落地：`/essays/transformer-scrollytelling/` Distill 式五幕滚轮长卷；`/graph/` 增加 3D 天体星图模式；命令面板升级为 all / action / lab / post 全局控制台；前向推演实验新增逐层激活能量范数 |
 
