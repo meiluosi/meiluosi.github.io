@@ -4,7 +4,7 @@ slug: strandbeest-evolution-history
 title: Twelve Periods of the Strandbeest
 editionLabel: ENGLISH EDITION · STRANDBEEST SERIES 1/3
 published: 2026-10-04T00:00:00.000Z
-draft: true
+draft: false
 description: "Theo Jansen has built wind-walking PVC \"beach animals\" since 1990. A period-by-period tour checked against his own website: where they failed and where they turned."
 tags:
   - Strandbeest
@@ -14,7 +14,7 @@ category: Strandbeest
 lang: en
 ---
 
-<!-- Checked against strandbeest.com/evolution period pages (accessed 2026-10-04). The Pregluton page was empty at the time; that row still rests on Wikipedia and is unverified. -->
+<!-- Checked against strandbeest.com/evolution period pages (accessed 2026-10-04, re-checked 2026-10-22). The Pregluton page was empty when this was written, so that row rested on Wikipedia; by the 2026-10-22 re-check it had text, and the entry below now follows it. -->
 
 ## What it is
 
@@ -51,13 +51,14 @@ Paraphrased from the period pages on his site.
 
 **Suicideem: a candid page.** Umerus pushed a crankshaft with pumps between its shoulders, using less air and walking more regularly than the earlier Percipiere family. On the beach, uneven terrain and loose sand threw off the crank timing, the powerful pumps broke its own backbone, and in the end it walked 26 seconds on the sand. It preferred museum floors. The 72-legged Siamesis repeated the story, and he converted it on the beach back to the old Percipiere system.
 
-**Aurum: what to do in weak wind.** At wind force five no sails are needed; gentle wind needs many large sails. The minimum wind to start the animals turned out to be 15 km/h.
+**Aurum: what to do in weak wind.** At wind force five no sails are needed; gentle wind needs many large sails. He writes that the minimum wind to start the animals turned out to be 15 km/h. That is his own statement on his website, not a measurement, and it comes without the animals' size, so it can only be read as an order of magnitude.
 
 **Volantum: taking off to escape sand.** Sand attracts strandbeests and buries them. Ader could fly up to six metres, letting sand blow underneath, but was still anchored to a post. Multi Tripodes (2020, 36 legs) was too heavy to fly; with 24 legs it should.
 
+**Pregluton: period zero (1986–1989).** When I wrote this the page on his site was still empty, so that row could only cite Wikipedia. By the 2026-10-22 re-check it had text: he calls it the period before the Gluton (1986–1989), says there were no animals of plastic tubing yet, that "life consisted exclusively of dreaming about life", and that he made virtual animals on the computer subject to an artificial evolution. The site lists the 1989 Vermiculus Antramentum as the first life form: a rod moving on a computer screen. Wikipedia counts it as period zero, and now he confirms that himself.
+
 ## Not verified
 
-- **Pregluton (1986–1989)**: Wikipedia lists it as period zero, but that page on his site was empty, so I do not know how he tells that part. The site's home page calls Vermiculus Antramentum (1989) the first life form, a rod moving on a computer screen.
 - **28 legs for Animaris Vulgaris** appears in press coverage; the Gluton page gives no leg count.
 - **"Inspired by Dawkins"** is Wikipedia's wording; his pages do not say it.
 
