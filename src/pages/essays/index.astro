@@ -1,0 +1,145 @@
+---
+import Text from "@/components/common/BilingualText.astro";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+
+const essays = [
+	{
+		href: "/essays/transformer-scrollytelling/",
+		code: "01 / SCROLLYTELLING THEATRE",
+		title: "Transformer 计算漫游：五幕交互长卷",
+		titleEn: "Transformer in depth: a five-act computational journey",
+		question:
+			"前向传播到底发生了什么？把词元、位置、注意力与前馈网络摊开成可以滚动的舞台。",
+		questionEn:
+			"What actually happens in a forward pass? Open tokens, position, attention, and the feed-forward stage into a stage you can scroll through.",
+		control: "双栏同步滚轮，右侧舞台随段落变形",
+		controlEn: "A dual-column scroll drives the stage as the prose advances",
+		tag: "DISTILL / TRANSFORMER / FIVE ACTS",
+	},
+	{
+		href: "/essays/strandbeest/",
+		code: "02 / MECHANISM & MOTION",
+		title: "把风变成一步：Strandbeest 机构与运动仿真",
+		titleEn: "Turning wind into a step: the Strandbeest mechanism",
+		question:
+			"三角形和圆，怎样让一只用塑料管搭成的动物真的迈出一步？",
+		questionEn:
+			"How do triangles and circles let an animal built from plastic tubing actually take a step?",
+		control: "拖动曲柄，实时求解连杆几何与足端轨迹",
+		controlEn: "Drag the crank to solve the linkage and the foot path live",
+		tag: "STRANDBEEST / LINKAGE / GEOMETRY",
+	},
+];
+---
+
+<ExploreLayout
+	title="交互长卷"
+	titleEn="Interactive essays"
+	description="把研究里的机制写成可以滚动的长卷：Transformer 前向传播的分幕推演，与 Strandbeest 连杆机构的运动仿真。"
+	descriptionEn="Research mechanisms written as scroll-driven essays: a staged tour of the Transformer forward pass, and a motion simulation of the Strandbeest linkage."
+>
+	<header class="explore-hero compact-page-heading">
+		<Text
+			as="h1"
+			zh="可以动手读的长文"
+			en="Essays you can operate"
+		/>
+		<Text
+			as="p"
+			zh="每篇长卷都把一个抽象机制拆成舞台：文字在左边推进，图形在右边跟着变形。全部计算在浏览器本地完成，不需要安装任何东西。"
+			en="Each essay turns an abstract mechanism into a stage: the prose advances on the left while the diagram transforms on the right. Every computation runs locally in the browser, with nothing to install."
+		/>
+	</header>
+
+	<div class="essay-grid">
+		{essays.map((item) => (
+			<article class="explore-card">
+				<p class="explore-kicker">{item.code}</p>
+				<h2>
+					<a href={item.href}>
+						<Text zh={item.title} en={item.titleEn} />
+					</a>
+				</h2>
+				<Text as="p" zh={item.question} en={item.questionEn} />
+				<p class="essay-control">
+					<span class="essay-control-label">
+						<Text zh="交互方式" en="Control" />
+					</span>
+					<Text zh={item.control} en={item.controlEn} />
+				</p>
+				<p class="essay-tag">{item.tag}</p>
+				<a class="explore-link" href={item.href}>
+					<Text zh="开始阅读" en="Start reading" /> ↗
+				</a>
+			</article>
+		))}
+	</div>
+
+	<section class="explore-section">
+		<Text as="h2" zh="为什么是长卷而不是幻灯片" en="Why a long scroll instead of slides" />
+		<Text
+			as="p"
+			zh="机制不是一页能讲完的。一次前向传播从离散词元开始，经过位置编码、因果注意力、门控前馈，最后才落到一个词元分布；把它压成一页，反而会丢掉中间那些真正需要看的量。长卷让每一步只承担一件事，读者可以用自己的节奏往下走。"
+			en="A mechanism does not fit on one page. A forward pass starts from discrete tokens, passes through position encoding, causal attention, gated feed-forward, and only then arrives at a token distribution. Compressed into one page, the quantities worth watching in the middle are exactly what gets lost. A long scroll lets each step carry one thing, and lets the reader set the pace."
+		/>
+		<Text
+			as="p"
+			zh="所有图形都由自研的轻量实现绘制，不引入重量级三维或绘图库；没有 JavaScript 时页面仍保留完整文字说明。数值是教学示例，用来展示机制如何运作，不代表任何模型的实测结果。"
+			en="Every figure is drawn by a small in-house implementation, without heavyweight 3D or charting libraries; with JavaScript disabled the page still keeps its full prose. The numbers are teaching examples that show how the mechanism behaves, not measurements from any trained model."
+		/>
+	</section>
+</ExploreLayout>
+
+<style>
+	.essay-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.essay-grid h2 {
+		font-size: 24px;
+		line-height: 1.45;
+		font-weight: 450;
+		letter-spacing: -0.03em;
+		margin: 12px 0 0;
+	}
+
+	.essay-grid h2 a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.essay-grid h2 a:hover {
+		color: var(--brand-accent);
+	}
+
+	.essay-control {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 10px;
+		margin-top: 14px;
+		font-size: 14px;
+		line-height: 1.8;
+		color: var(--brand-body);
+	}
+
+	.essay-control-label {
+		font: 10px/1.8 "JetBrains Mono", monospace;
+		letter-spacing: 0.1em;
+		color: var(--brand-accent);
+	}
+
+	.essay-tag {
+		margin-top: 14px;
+		font: 10px/1.8 "JetBrains Mono", monospace;
+		letter-spacing: 0.08em;
+		color: var(--brand-muted);
+	}
+
+	@media (max-width: 860px) {
+		.essay-grid {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+</style>
