@@ -24,43 +24,87 @@ interface Props {
 const { post, lang = "zh" } = Astro.props;
 const maturity: MaturityMeta = getPostMaturity(post);
 const isZh = lang === "zh";
+
+// The badge is rendered on Chinese article pages, so it starts in Chinese. The
+// `data-i18n` key is what lets the client-side language switch rewrite it:
+// both the pre-paint pass and the switcher look for the key plus an explicit
+// per-language value. Without the key the badge stayed Chinese on English
+// pages.
+const gardenCopy = {
+	trigger: { zh: "数字花园", en: "Digital Garden" },
+	title: {
+		zh: "🌿 什么是数字花园与思想演进？",
+		en: "🌿 What is a Digital Garden?",
+	},
+	intro: {
+		zh: "遵循 Maggie Appleton 与 Andy Matuschak 的常青笔记理念：这里不是按时间沉底的流水账，而是持续修剪打磨的知识生态。文章按成熟度经历：",
+		en: "Rooted in Andy Matuschak & Maggie Appleton's evergreen note taxonomy: articles are not ephemeral chronologies, but living organisms tended over time:",
+	},
+	explore: {
+		zh: "浏览全站数字花园与笔记全景 →",
+		en: "Explore full Digital Garden →",
+	},
+	stages: [
+		{
+			zh: "<strong>🌱 萌芽 (Seedling)</strong>: 发散灵感、读书摘录、开放猜想",
+			en: "<strong>🌱 Seedling</strong>: Raw inspiration, reading logs, open questions",
+		},
+		{
+			zh: "<strong>🌿 演进 (Budding)</strong>: 结构渐明、初步代码推导、积极修正",
+			en: "<strong>🌿 Budding</strong>: Structured thesis, early proofs, actively revised",
+		},
+		{
+			zh: "<strong>🌳 常青 (Evergreen)</strong>: 逻辑闭环、持久经得起检验的基石",
+			en: "<strong>🌳 Evergreen</strong>: Closed logic, enduring, foundational reference",
+		},
+		{
+			zh: "<strong>🔬 实验待证 (Speculative)</strong>: 结合沙盒与仿真探针的理论探索",
+			en: "<strong>🔬 Speculative</strong>: Empirical hypotheses coupled with lab instruments",
+		},
+	],
+};
 ---
 
 <div class="garden-maturity-container onload-animation" data-garden-maturity>
 	<div class="maturity-main-row">
 		<div class="badge-tag" style={`--badge-color: ${maturity.color}; --badge-bg: ${maturity.badgeBg};`}>
 			<span class="badge-icon" aria-hidden="true">{maturity.icon}</span>
-			<span class="badge-label" data-i18n-zh={maturity.labelZh} data-i18n-en={maturity.labelEn}>
+			<span class="badge-label" data-i18n={`notes.maturity.${maturity.level}`} data-i18n-zh={maturity.labelZh} data-i18n-en={maturity.labelEn}>
 				{isZh ? maturity.labelZh : maturity.labelEn}
 			</span>
 		</div>
 
-		<p class="maturity-desc" data-i18n-zh={maturity.descriptionZh} data-i18n-en={maturity.descriptionEn}>
+		<p class="maturity-desc" data-i18n="garden.maturity.desc" data-i18n-zh={maturity.descriptionZh} data-i18n-en={maturity.descriptionEn}>
 			{isZh ? maturity.descriptionZh : maturity.descriptionEn}
 		</p>
 
 		<details class="garden-philosophy-drawer">
 			<summary class="philosophy-trigger">
 				<span class="trigger-icon">ℹ</span>
-				<span class="trigger-text" data-i18n-zh="数字花园" data-i18n-en="Digital Garden">
-					{isZh ? "数字花园" : "Digital Garden"}
+				<span class="trigger-text" data-i18n="garden.trigger" data-i18n-zh={gardenCopy.trigger.zh} data-i18n-en={gardenCopy.trigger.en}>
+					{isZh ? gardenCopy.trigger.zh : gardenCopy.trigger.en}
 				</span>
 			</summary>
 			<div class="philosophy-popover">
-				<h4 data-i18n-zh="🌿 什么是数字花园与思想演进？" data-i18n-en="🌿 What is a Digital Garden?">
-					{isZh ? "🌿 什么是数字花园与思想演进？" : "🌿 What is a Digital Garden?"}
+				<h4 data-i18n="garden.title" data-i18n-zh={gardenCopy.title.zh} data-i18n-en={gardenCopy.title.en}>
+					{isZh ? gardenCopy.title.zh : gardenCopy.title.en}
 				</h4>
-				<p data-i18n-zh="遵循 Maggie Appleton 与 Andy Matuschak 的常青笔记理念：这里不是按时间沉底的流水账，而是持续修剪打磨的知识生态。文章按成熟度经历：" data-i18n-en="Rooted in Andy Matuschak & Maggie Appleton's evergreen note taxonomy: articles are not ephemeral chronologies, but living organisms tended over time:">
-					{isZh ? "遵循 Maggie Appleton 与 Andy Matuschak 的常青笔记理念：这里不是按时间沉底的流水账，而是持续修剪打磨的知识生态。文章按成熟度经历：" : "Rooted in Andy Matuschak & Maggie Appleton's evergreen note taxonomy: articles are not ephemeral chronologies, but living organisms tended over time:"}
+				<p data-i18n="garden.intro" data-i18n-zh={gardenCopy.intro.zh} data-i18n-en={gardenCopy.intro.en}>
+					{isZh ? gardenCopy.intro.zh : gardenCopy.intro.en}
 				</p>
 				<ul class="stages-list">
-					<li><strong>🌱 {isZh ? "萌芽 (Seedling)" : "Seedling"}</strong>: {isZh ? "发散灵感、读书摘录、开放猜想" : "Raw inspiration, reading logs, open questions"}</li>
-					<li><strong>🌿 {isZh ? "演进 (Budding)" : "Budding"}</strong>: {isZh ? "结构渐明、初步代码推导、积极修正" : "Structured thesis, early proofs, actively revised"}</li>
-					<li><strong>🌳 {isZh ? "常青 (Evergreen)" : "Evergreen"}</strong>: {isZh ? "逻辑闭环、持久经得起检验的基石" : "Closed logic, enduring, foundational reference"}</li>
-					<li><strong>🔬 {isZh ? "实验待证 (Speculative)" : "Speculative"}</strong>: {isZh ? "结合沙盒与仿真探针的理论探索" : "Empirical hypotheses coupled with lab instruments"}</li>
+					{gardenCopy.stages.map((stage) => (
+						<li
+							data-i18n="garden.stage"
+							data-i18n-html="true"
+							data-i18n-zh={stage.zh}
+							data-i18n-en={stage.en}
+							set:html={isZh ? stage.zh : stage.en}
+						/>
+					))}
 				</ul>
-				<a href="/notes/" class="garden-explore-link" data-i18n-zh="浏览全站数字花园与笔记全景 →" data-i18n-en="Explore full Digital Garden →">
-					{isZh ? "浏览全站数字花园与笔记全景 →" : "Explore full Digital Garden →"}
+				<a href="/notes/" class="garden-explore-link" data-i18n="garden.explore" data-i18n-zh={gardenCopy.explore.zh} data-i18n-en={gardenCopy.explore.en}>
+					{isZh ? gardenCopy.explore.zh : gardenCopy.explore.en}
 				</a>
 			</div>
 		</details>

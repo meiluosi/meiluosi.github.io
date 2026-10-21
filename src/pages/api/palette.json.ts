@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
+import { getCategoryLabel } from "@/data/category-labels";
 import { removeFileExtension } from "@/utils/url-utils";
 
 type PaletteKind = "post" | "en-post" | "page";
@@ -11,6 +12,8 @@ type PaletteItem = {
 	href: string;
 	tags: string[];
 	category: string;
+	/** 英文界面显示的分类名；缺省时回落到 `category`。 */
+	categoryEn?: string;
 	description: string;
 	kind: PaletteKind;
 	lang: "zh" | "en";
@@ -108,12 +111,63 @@ const pages: PaletteItem[] = [
 		lang: "zh",
 	},
 	{
+		id: "page-essays",
+		title: "交互长卷",
+		titleEn: "Interactive essays",
+		href: "/essays/",
+		tags: [
+			"长卷",
+			"交互",
+			"叙事",
+			"Transformer",
+			"Strandbeest",
+			"essays",
+			"scrollytelling",
+		],
+		category: "",
+		description: "可以动手读的长文：Transformer 前向传播与 Strandbeest 连杆机构的分幕推演。",
+		kind: "page",
+		lang: "zh",
+	},
+	{
+		id: "page-essays-transformer",
+		title: "Transformer 计算漫游：五幕交互长卷",
+		titleEn: "Transformer in depth: a five-act computational journey",
+		href: "/essays/transformer-scrollytelling/",
+		tags: [
+			"Transformer",
+			"前向传播",
+			"注意力",
+			"RoPE",
+			"SwiGLU",
+			"scrollytelling",
+		],
+		category: "交互长卷",
+		categoryEn: "Interactive essay",
+		description: "跟随滚轮解剖离散词元、RoPE 星盘、因果自注意力与门控前馈的五个计算舞台。",
+		kind: "page",
+		lang: "zh",
+	},
+	{
+		id: "page-essays-strandbeest",
+		title: "把风变成一步：Strandbeest 机构与运动仿真",
+		titleEn: "Turning wind into a step: the Strandbeest mechanism",
+		href: "/essays/strandbeest/",
+		tags: ["Strandbeest", "连杆", "几何", "仿真", "linkage", "geometry"],
+		category: "交互长卷",
+		categoryEn: "Interactive essay",
+		description: "拖动曲柄求解连杆几何，观察足端轨迹如何被三角形与圆决定。",
+		kind: "page",
+		lang: "zh",
+	},
+	{
 		id: "page-lab-cfr",
 		title: "Kuhn Poker 反事实遗憾最小化（CFR）实验",
 		titleEn: "Kuhn Poker CFR & Nash equilibrium workbench",
 		href: "/lab/cfr-poker/",
 		tags: ["CFR", "Kuhn Poker", "博弈", "纳什均衡", "game theory", "Nash"],
 		category: "实验",
+		categoryEn: "Experiment",
 		description: "在不完全信息博弈中观察反事实遗憾最小化怎样收敛至纳什均衡。",
 		kind: "page",
 		lang: "zh",
@@ -125,6 +179,7 @@ const pages: PaletteItem[] = [
 		href: "/lab/preference-alignment/",
 		tags: ["DPO", "RLHF", "偏好对齐", "KL", "Goodhart", "alignment"],
 		category: "实验",
+		categoryEn: "Experiment",
 		description: "探索 KL 温度系数 β 与奖励偏差如何决定模型校准与阿谀奉承。",
 		kind: "page",
 		lang: "zh",
@@ -143,6 +198,7 @@ const pages: PaletteItem[] = [
 			"attention",
 		],
 		category: "实验",
+		categoryEn: "Experiment",
 		description: "在多频复平面日晷上观察相对距离内积不变性与长上下文扩展。",
 		kind: "page",
 		lang: "zh",
@@ -161,6 +217,7 @@ const pages: PaletteItem[] = [
 			"interpretability",
 		],
 		category: "实验",
+		categoryEn: "Experiment",
 		description: "观察 Induction Head 归纳回路如何实现跨词元复制与上下文学习。",
 		kind: "page",
 		lang: "zh",
@@ -180,6 +237,7 @@ const pages: PaletteItem[] = [
 			"sampling",
 		],
 		category: "实验",
+		categoryEn: "Experiment",
 		description:
 			"纯前端自研 Micro-Transformer：词嵌入、QKV、因果掩码、SwiGLU 与温度核采样。",
 		kind: "page",
@@ -256,13 +314,17 @@ export const GET: APIRoute = async () => {
 	const postItems: PaletteItem[] = publishedPosts.map((post) => {
 		const id = removeFileExtension(post.id);
 		const translation = translationBySource.get(id);
+		const category = post.data.category ?? "";
 		return {
 			id: `zh:${post.id}`,
 			title: post.data.title,
 			...(translation ? { titleEn: translation.data.title } : {}),
 			href: `/posts/${id}/`,
 			tags: post.data.tags.slice(0, 8),
-			category: post.data.category ?? "",
+			category,
+			...(category
+				? { categoryEn: getCategoryLabel(category, "en") }
+				: {}),
 			description: trim(post.data.description ?? ""),
 			kind: "post",
 			lang: "zh",

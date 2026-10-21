@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { commentConfig } from "@/config";
+import { getCategoryLabel } from "@/data/category-labels";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
@@ -48,6 +49,14 @@ const {
 const path = customPath || (id ? `/posts/${id}` : "");
 const visibleTags =
 	typeof maxTags === "number" ? tags?.slice(0, maxTags) : tags;
+// 分类值来自内容集合，中英文两种写法都存在；这里各准备一份显示名，
+// 交给语言切换器在两种界面之间替换。
+const categoryLabelZh = category
+	? getCategoryLabel(category, "zh")
+	: i18n(I18nKey.uncategorized);
+const categoryLabelEn = category
+	? getCategoryLabel(category, "en")
+	: i18n(I18nKey.uncategorized);
 ---
 
 <div
@@ -112,10 +121,13 @@ const visibleTags =
           <a
             href={getCategoryUrl(category || "")}
             aria-label={`View all posts in the ${category} category`}
+            data-i18n="post.category"
+            data-i18n-zh={categoryLabelZh}
+            data-i18n-en={categoryLabelEn}
             class="link-lg transition text-(--content-meta) text-sm font-medium
               hover:text-(--primary) dark:hover:text-(--primary)"
           >
-            {category || i18n(I18nKey.uncategorized)}
+            {categoryLabelZh}
           </a>
         </div>
       </div>

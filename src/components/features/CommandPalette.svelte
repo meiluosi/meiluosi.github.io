@@ -251,7 +251,12 @@ function metaLabel(item: PaletteItem): string {
 		.slice(0, 2)
 		.map((tag) => `#${tag}`)
 		.join(" ");
-	return [item.category || kind, tags].filter(Boolean).join(" · ");
+	return [
+		(english ? (item.categoryEn ?? item.category) : item.category) || kind,
+		tags,
+	]
+		.filter(Boolean)
+		.join(" · ");
 }
 
 // 0 means "no match"; higher is better. Every term must hit something.
@@ -260,6 +265,7 @@ function matchScore(item: PaletteItem, terms: string[]): number {
 	const titleEn = (item.titleEn ?? "").toLowerCase();
 	const tags = item.tags.join(" ").toLowerCase();
 	const category = item.category.toLowerCase();
+	const categoryEn = (item.categoryEn ?? "").toLowerCase();
 	const description = item.description.toLowerCase();
 	const shortcut = (item.shortcut ?? "").toLowerCase();
 	let best = 0;
@@ -275,7 +281,11 @@ function matchScore(item: PaletteItem, terms: string[]): number {
 			score = 5;
 		} else if (title.includes(term) || titleEn.includes(term)) {
 			score = 3;
-		} else if (tags.includes(term) || category.includes(term)) {
+		} else if (
+			tags.includes(term) ||
+			category.includes(term) ||
+			categoryEn.includes(term)
+		) {
 			score = 2;
 		} else if (description.includes(term)) {
 			score = 1;
@@ -537,11 +547,16 @@ $effect(() => {
 		</div>
 
 		<!-- Quick Filter Tabs -->
-		<div class="palette-tabs" role="tablist">
+		<div
+			class="palette-tabs"
+			role="group"
+			aria-label={english ? "Filter results" : "筛选结果"}
+		>
 			<button
 				type="button"
 				class="tab-btn"
 				class:active={activeTab === "all"}
+				aria-pressed={activeTab === "all"}
 				onclick={() => {
 					activeTab = "all";
 					playMechanicalTick(1.0);
@@ -553,6 +568,7 @@ $effect(() => {
 				type="button"
 				class="tab-btn"
 				class:active={activeTab === "action"}
+				aria-pressed={activeTab === "action"}
 				onclick={() => {
 					activeTab = "action";
 					playMechanicalTick(1.05);
@@ -564,6 +580,7 @@ $effect(() => {
 				type="button"
 				class="tab-btn"
 				class:active={activeTab === "lab"}
+				aria-pressed={activeTab === "lab"}
 				onclick={() => {
 					activeTab = "lab";
 					playMechanicalTick(1.1);
@@ -575,6 +592,7 @@ $effect(() => {
 				type="button"
 				class="tab-btn"
 				class:active={activeTab === "post"}
+				aria-pressed={activeTab === "post"}
 				onclick={() => {
 					activeTab = "post";
 					playMechanicalTick(1.15);
