@@ -46,7 +46,12 @@ import AttentionLensLab from "@/components/features/AttentionLensLab.svelte";
 			zh="在 Anthropic 的《Transformer 机制可解释性框架》中，归纳回路是解释大语言模型具有上下文学习（In-Context Learning）能力的关键微观结构。第一层的‘前驱词头’负责把前一个词元的信息转移到当前词向量中；第二层的‘归纳头’通过查询该合成向量，回溯匹配历史序列中同样出现的模式 [A]，进而直接预测先前紧随其后的 [B]。"
 			en="In Anthropic's Transformer Circuits research, Induction Circuits form the mechanistic foundation of in-context learning. A Layer-1 previous-token head writes preceding token information into the current residual stream; a Layer-2 induction head queries this composite representation to attend back to tokens that historically followed identical prefixes [A] -> [B]."
 		/>
-		<a class="explore-link" href="/posts/transformer-architecture-overview/">
+		<a
+			class="explore-link"
+			href="/posts/2024-09-01-transformer架构详解/"
+			data-i18n-href-zh="/posts/2024-09-01-transformer架构详解/"
+			data-i18n-href-en="/en/posts/transformer-architecture-overview/"
+		>
 			<Text zh="查看 Transformer 架构推导与多头注意力笔记" en="Read the Transformer architecture derivation and multi-head attention note" /> ↗
 		</a>
 		<p>

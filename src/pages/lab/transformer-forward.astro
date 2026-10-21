@@ -46,7 +46,12 @@ import ExploreLayout from "@/layouts/ExploreLayout.astro";
 			zh="在传统深度学习教材中，自注意力机制（Self-Attention）与前馈网络往往停留在抽象的静态矩阵公式 \\( \\text{Softmax}(QK^T / \\sqrt{d_k}) V \\) 上。本实验遵循 Andrej Karpathy (nanoGPT) 与 Distill.pub 的可计算解释学哲学，把完整的前向传播网络内嵌到浏览器端：每个浮点数、每层 RMSNorm 的方差归一、每头注意力的因果下三角遮蔽都是确定性计算出来的。读者不仅可以‘看’公式，更可以亲手‘消融’注意力头、调节温度超参数，建立对大模型内部齿轮的物理直觉。"
 			en="In standard deep learning textbooks, self-attention and feed-forward networks often remain frozen as abstract formulas. Adopting Andrej Karpathy's minimal implementation ethos and Distill.pub's computational explainer philosophy, this lab runs full forward passes directly inside your browser: every float, RMSNorm stabilization, and causal triangular mask is computed live. Readers can ablate heads, tweak sampling temperatures, and develop true physical intuition for how LLMs think."
 		/>
-		<a class="explore-link" href="/posts/2024-09-01-Transformer架构详解/">
+		<a
+			class="explore-link"
+			href="/posts/2024-09-01-transformer架构详解/"
+			data-i18n-href-zh="/posts/2024-09-01-transformer架构详解/"
+			data-i18n-href-en="/en/posts/transformer-architecture-overview/"
+		>
 			<Text zh="查看 Transformer 架构推导与训练技巧长文" en="Read the comprehensive Transformer architecture & training guide" /> ↗
 		</a>
 		<p>
