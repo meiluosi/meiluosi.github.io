@@ -1,0 +1,71 @@
+---
+// InteractiveProseEnhancer: Automatically hydrates [data-reactive-prose] and [data-code-sandbox] in articles.
+---
+
+<script>
+	import { mount } from "svelte";
+	import CodeSandbox from "@/components/features/CodeSandbox.svelte";
+	import ReactiveProseBlock from "@/components/features/ReactiveProseBlock.svelte";
+
+	function hydrateInteractiveProse() {
+		// 1. Hydrate Reactive Prose Blocks
+		const proseContainers = document.querySelectorAll<HTMLElement>(
+			"[data-reactive-prose]:not([data-hydrated])",
+		);
+		proseContainers.forEach((el) => {
+			el.setAttribute("data-hydrated", "true");
+			const mode = (el.getAttribute("data-reactive-prose") || "sampling") as
+				| "sampling"
+				| "bpe"
+				| "dpo";
+			try {
+				mount(ReactiveProseBlock, {
+					target: el,
+					props: { mode },
+				});
+			} catch (e) {
+				console.error(
+					"[InteractiveProse] Failed to mount ReactiveProseBlock:",
+					e,
+				);
+			}
+		});
+
+		// 2. Hydrate Code Sandboxes
+		const sandboxContainers = document.querySelectorAll<HTMLElement>(
+			"[data-code-sandbox]:not([data-hydrated])",
+		);
+		sandboxContainers.forEach((el) => {
+			el.setAttribute("data-hydrated", "true");
+			// If data-code is provided, decode or use textContent
+			let code = el.getAttribute("data-code");
+			if (!code) {
+				const pre = el.querySelector("pre, code");
+				code = pre ? pre.textContent || "" : el.textContent || "";
+			}
+			const title = el.getAttribute("data-title") || "Python 算例验证";
+			const titleEn =
+				el.getAttribute("data-title-en") || "Interactive Python Sandbox";
+			const language = el.getAttribute("data-lang") || "python";
+
+			// Clear placeholder container
+			el.innerHTML = "";
+
+			try {
+				mount(CodeSandbox, {
+					target: el,
+					props: { code: code.trim(), title, titleEn, language },
+				});
+			} catch (e) {
+				console.error("[InteractiveProse] Failed to mount CodeSandbox:", e);
+			}
+		});
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", hydrateInteractiveProse);
+	} else {
+		hydrateInteractiveProse();
+	}
+	document.addEventListener("astro:page-load", hydrateInteractiveProse);
+</script>

@@ -57,6 +57,31 @@ $$
 
 第一次合并后减少八个位置，剩二十个；第二次再减少五个，剩十五个。这里计算的是这份教学语料的 token 数，没有加入任何特殊标记。
 
+<div data-code-sandbox data-title="BPE 相邻片段统计与首轮合并 (三条文本教学算例)" data-title-en="BPE Pair Frequency & Merge Sandbox">
+<pre><code># 教学验证：三条文本的 BPE 相邻片段统计与首轮合并
+from collections import Counter
+
+corpus = [
+    ("数 据 库", 5),
+    ("数 据 集", 3),
+    ("库 存", 2),
+]
+
+pairs = Counter()
+for text, freq in corpus:
+    words = text.split()
+    for i in range(len(words) - 1):
+        pairs[(words[i], words[i + 1])] += freq
+
+print("初始相邻对出现频次:")
+for (w1, w2), count in pairs.most_common():
+    print(f"  {w1} + {w2} -> {count} 次")
+
+best_pair, best_count = pairs.most_common(1)[0]
+print(f"\n最佳首轮合并对: {best_pair[0]} + {best_pair[1]}（出现 {best_count} 次）")
+</code></pre>
+</div>
+
 更短的序列不是凭空得到的：我们为此增加了两个词表条目。实际训练分词器时还要规定基础符号、边界、词表容量，以及频次相同怎样处理。
 
 对于新文本 `数据库存`，按照这两条已学会的规则，在允许合并的片段范围内会得到 `数据库 / 存`。这未必符合人想表达的“数据 / 库存”。分词器学习的是统计规则，不负责保证每个片段都是语义上的完整词。
@@ -112,6 +137,8 @@ SentencePiece 是一种分词工具，不能与某一种切分算法画等号。
 扩大词表可能缩短序列，也会增加相关矩阵的大小。对小模型，词表参数占比尤其值得检查。不能只看到“同样文本少了两成 token”，就宣布训练成本必然下降两成。
 
 一个更合理的决策至少同时看三项：同一批原始文本被切成多长、整个模型因此增加多少参数、实际硬件上的吞吐与内存怎样变化。前两项可以先离线统计，第三项需要真实测量。
+
+<div data-reactive-prose="bpe"></div>
 
 ## 中英文比例为什么会跟着分词器变化
 

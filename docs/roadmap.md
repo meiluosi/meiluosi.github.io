@@ -422,6 +422,26 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 验收时用独立探针页测得：`/graph/` 画布每帧重绘 78 个节点、80 颗背景星与全部标签，单帧绘制耗时 **3.2 ms**（2400×1280 后备缓冲，设备像素比 2）。据此判断该页并不「吃满一个核心」，先前把自动化交互超时归因于画布负载是不成立的——真实原因是自动化工具的可操作性检查与持续动画页面互相等待。为降低 CPU 曾尝试加 30 fps 帧率上限并按真实时间步长做运动补偿，但 2D 拓扑模式的力学路径在当时无法在浏览器里验收，于是按「不改没有验证过的分支」的原则整体回退，保留原有 60 fps 行为。/graph/ 的 2D 拓扑视图本轮未复验。
 
+## Phase 28：学术打印规范、英文 RSS 与解释性计算深化（2026-10-22 完成）
+
+本轮聚焦工效减脂、分发渠道完备与端侧可解释性计算深化（第一步与第二步全部落地）：
+
+- [x] **修复 `/graph/` sitemap 排除**：`astro.config.mjs` 中的 `redirectOnlyPaths` 移除 `"/graph/"`，全站认知星系与知识图谱页面正式进入 `dist/sitemap-0.xml` 供搜索引擎抓取。
+- [x] **修复知识图谱 Hub 链接跳转**：`src/pages/graph.astro` 中核心知识 Hub 从旧的 301 重定向地址 `"/categories/"` 改为 `getCategoryUrl(hub.category)`，点击直达 `/notes/?topic=...`，消除无谓网络重定向。
+- [x] **删除 3 个零引用死样式文件**：删除 `src/styles/photoswipe.css`（859B）、`src/styles/scrollbar.css`（1.9KB）、`src/styles/toc.css`（2.9KB），保持样式源码清晰。
+- [x] **编写论文级 `@media print` 学术打印样式**：新增 `src/styles/print.css` 并挂载至 `main.css`。剥离网页 UI、导航、抽屉、音频按钮与命令面板，纯白底墨黑字纸质对比；防止标题孤行与公式/代码块跨页断裂；Tufte 边注安全内联，外部超链接自动展开真实 URL。
+- [x] **新增 `/en/rss.xml` 英文独立订阅源**：新增 `src/pages/en/rss.xml.ts`，自动匹配源文章已发布的英文译文，输出规范英文 RSS 2.0 摘要源（10KB）；并在 `Layout.astro` 补充 `<link rel="alternate" type="application/rss+xml" title="枫语 (English)">`。
+- [x] **Bret Victor 风格可拖拽段落深度扩展（方案 A）**：`reactive-prose.ts` 与 `ReactiveProseBlock.svelte` 升级为支持 `sampling` / `bpe` / `dpo` 三大模式：
+  1. `bpe` 模式：支持拖动词表规模 $V$ 与文本字符数，联动计算压缩比、切分 Token 数、Embedding 参数量与 FP16 显存；
+  2. `dpo` 模式：支持拖动 $\beta$ 系数与成对对数概率差，联动计算隐式奖励差 $\Delta \hat{r}$、DPO 目标损失、反向传播梯度权重与 KL 漂移；
+  3. 深度嵌入预训练分词篇（`2026-10-20-llm-training-pretrain-01-tokenization.md`）与偏好对齐篇（`2026-10-20-llm-training-preference-04-dpo.md`）。
+- [x] **端侧轻量 Python / WebAssembly 运行沙盒（方案 B）**：研发 `CodeSandbox.svelte` 与 `InteractiveProseEnhancer.astro`：
+  1. 零首屏负载（0KB 初始包体积）：仅在读者点击「▶ 运行算例」时通过单例模式按需拉取 Pyodide WebAssembly 运行时；
+  2. 捕获 Python `sys.stdout` 与错误回溯，提供终端黑底风格输出框、运行耗时统计与代码重置；
+  3. 联动 Web Audio 快门音效 `playShutterTick()` 与成功轻音 `playMechanicalTick()`；
+  4. 深度嵌入分词手算篇（BPE 三文本频次统计与合并验证）与 DPO 篇（两词表损失与梯度手算验证）。
+- [x] **验收**：`pnpm check`（182 文件，0 error / 0 warning / 0 hint）、`pnpm type-check`、37 项端侧单元测试全通过、完整 `pnpm build`（184 页）通过，4710 个内部链接审计 0 断链。
+
 ## 版本记录
 
 ### 2026-10-18：侧边栏组件、i18n 死键与依赖下线

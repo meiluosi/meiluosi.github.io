@@ -119,6 +119,28 @@ $\beta=1$ 这一行可以完全手算：$\sigma(\log(14/11))=14/25=0.56$，损�
 
 梯度方向也可以验证。$\partial\ell/\partial h=-\beta\big(1-\sigma(\beta h)\big)$ 在任何 $\beta\gt0$ 时都为负，所以梯度下降总是把 $h$ 推大，即抬高 chosen 相对 rejected 的位置。在 $\beta=0.05,0.1,0.25,0.5,1,2$ 上逐一计算，符号一致，而绝对值从 $0.0248$ 单调增长到 $0.7634$。
 
+<div data-code-sandbox data-title="两词表 DPO 损失与梯度手算验证" data-title-en="Two-Vocab DPO Loss & Gradient Verification">
+<pre><code>import math
+
+def sigmoid(z):
+    return 1.0 / (1.0 + math.exp(-z))
+
+# 教学算例概率设置
+pi_yw, pi_yl = 0.42, 0.22
+ref_yw, ref_yl = 0.30, 0.20
+
+h = math.log(pi_yw / ref_yw) - math.log(pi_yl / ref_yl)
+print(f"对数比值差 h = log(14/11) = {h:.4f}")
+
+print("\n不同 beta 下的 DPO 损失与梯度检验:")
+for beta in [0.1, 0.5, 1.0]:
+    sig = sigmoid(beta * h)
+    loss = -math.log(sig)
+    grad = -beta * (1.0 - sig)
+    print(f"  beta={beta:.1f} | 隐式奖励差 beta*h={beta*h:.4f} | 损失={loss:.4f} | 梯度={grad:.4f}")
+</code></pre>
+</div>
+
 ## beta 到底控制什么
 
 beta 的作用常被一句"KL 系数"带过。它同时出现在两处，需要分开看。
@@ -144,6 +166,8 @@ $\beta$ 增大时最优解离参考策略越来越近。这正是"不许跑太�
 把两处放在一起，beta 并不是"对齐强度"旋钮。它同时缩放了隐式奖励和 KL 惩罚，真正被设定的是"奖励尺度相对于允许偏离程度"的比例。TRL 0.23.1 的 `beta` 默认值是 0.1，文档把它的作用描述为"偏离参考模型的程度，高 $\beta$ 意味着更少偏离"。[TRL 0.23.1 DPO Trainer](https://huggingface.co/docs/trl/v0.23.1/en/dpo_trainer)
 
 本站的[偏好对齐实验台](/lab/preference-alignment/)把 beta 与代理奖励偏差放在一起，可以直接看到代理奖励继续上升而真实效用越过拐点后回落。
+
+<div data-reactive-prose="dpo"></div>
 
 ## 为什么作用在序列概率上
 

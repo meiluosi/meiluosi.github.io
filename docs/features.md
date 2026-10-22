@@ -6,7 +6,14 @@
 
 ---
 
-## 当前执行方向（2026-10-21）
+## 当前执行方向（2026-10-22）
+
+落地 Phase 28（见 [roadmap.md](./roadmap.md)）：
+1. **学术工效与分发渠道**：编写论文级 `@media print` 样式；新增 `/en/rss.xml` 英文订阅源；修复 `/graph/` 的 Sitemap 排除与知识图谱 Hub 重定向缺陷；清理 3 个零引用废弃样式。
+2. **解释性计算深化（方案 A）**：`ReactiveProseBlock` 扩展至 `bpe` 与 `dpo` 模式，深度嵌入预训练分词篇与偏好对齐篇。
+3. **端侧轻量运行沙盒（方案 B）**：研发基于 Pyodide WebAssembly 的交互式 Python 代码沙盒 `CodeSandbox` 与自动挂载系统 `InteractiveProseEnhancer`，实现零首屏负载的端侧算例验证，并与 Web Audio 快门音效联动。
+
+## 历史执行方向（2026-10-21）
 
 落地全球顶级个人学术站四大流派设计（见 [design-archetypes.md](./design-archetypes.md)）：
 1. **方向 A（解释性计算流）**：新增第七实验室 `/lab/transformer-forward/`，端侧执行极简 Micro-Transformer 单步推演、矩阵注意力热力图与神经回路消融。**已上线并深化**（新增逐层激活能量范数）。

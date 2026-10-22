@@ -23,7 +23,13 @@ import remarkAdmonitionToBlockquoteCallout from "remark-admonition-to-blockquote
 import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
-import { expressiveCodeConfig, fontConfig, fontsList, plantumlConfig, siteConfig } from "./src/config";
+import {
+	expressiveCodeConfig,
+	fontConfig,
+	fontsList,
+	plantumlConfig,
+	siteConfig,
+} from "./src/config";
 import { collectUsedFontCssVars } from "./src/utils/fontHelper";
 import I18nKey from "./src/i18n/i18nKey";
 import { i18n } from "./src/i18n/translation";
@@ -53,10 +59,10 @@ const adapter = process.env.CF_WORKERS
 
 // 这些路由只负责把旧地址 301 到新地址，没有独立内容。
 // 让它们留在 sitemap 里会向搜索引擎提交一批空页面，所以统一排除。
+// 注意：/graph/ 在 Phase 26 已上线独立认知星系与知识图谱页面，不再作为跳转壳。
 const redirectOnlyPaths = new Set([
 	"/archive/",
 	"/categories/",
-	"/graph/",
 	"/guestbook/",
 	"/paths/",
 	"/reading/",
@@ -90,13 +96,26 @@ export default defineConfig({
 			.map((f) => {
 				let provider;
 				switch (f.provider) {
-					case "google": provider = fontProviders.google(); break;
-					case "fontsource": provider = fontProviders.fontsource(); break;
-					case "local": provider = fontProviders.local(); break;
-					case "bunny": provider = fontProviders.bunny(); break;
-					case "fontshare": provider = fontProviders.fontshare(); break;
-					case "npm": provider = fontProviders.npm(); break;
-					default: provider = f.provider;
+					case "google":
+						provider = fontProviders.google();
+						break;
+					case "fontsource":
+						provider = fontProviders.fontsource();
+						break;
+					case "local":
+						provider = fontProviders.local();
+						break;
+					case "bunny":
+						provider = fontProviders.bunny();
+						break;
+					case "fontshare":
+						provider = fontProviders.fontshare();
+						break;
+					case "npm":
+						provider = fontProviders.npm();
+						break;
+					default:
+						provider = f.provider;
 				}
 				return { ...f, provider };
 			});
@@ -223,7 +242,8 @@ export default defineConfig({
 	markdown: {
 		processor: unified({
 			remarkPlugins: [
-				...(siteConfig.post.rehypeCallouts.enablePythonMarkdownAdmonitions !== false
+				...(siteConfig.post.rehypeCallouts.enablePythonMarkdownAdmonitions !==
+				false
 					? [remarkAdmonitionToBlockquoteCallout]
 					: []),
 				remarkMath,

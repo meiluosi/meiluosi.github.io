@@ -6,6 +6,7 @@
 @import './transition.css';
 @import './custom-scrollbar.css';
 @import './tufte-marginalia.css';
+@import './print.css';
 
 @plugin '@tailwindcss/typography';
 

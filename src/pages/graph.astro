@@ -12,7 +12,7 @@ import {
 	getPostMaturity,
 	LAB_ENTRIES,
 } from "@/utils/digital-garden";
-import { removeFileExtension } from "@/utils/url-utils";
+import { getCategoryUrl, removeFileExtension } from "@/utils/url-utils";
 
 const publishedPosts = (await getSortedPosts()).filter(
 	(post) => !post.data.draft && !post.data.password,
@@ -32,7 +32,7 @@ for (const hub of CORE_HUBS) {
 		kind: "hub",
 		maturity: "evergreen",
 		category: hub.category,
-		href: "/categories/",
+		href: getCategoryUrl(hub.category),
 		excerpt: `全站核心知识支柱：${hub.label}`,
 		val: 18,
 	});

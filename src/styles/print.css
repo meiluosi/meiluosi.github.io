@@ -1,0 +1,206 @@
+/**
+ * Scholarly & Distill-grade Print Stylesheet (@media print)
+ *
+ * Optimizes reading output for paper printing and PDF export:
+ * - Strips web navigation, floating tools, audio toggles, and drawers.
+ * - Forces clean paper contrast (black ink on white paper, no ink-heavy backgrounds).
+ * - Avoids orphan headings (page-break-after: avoid) and formula/code splitting.
+ * - Inlines Tufte sidenotes safely within text margins.
+ * - Appends readable URLs to external hyperlinks.
+ */
+
+@media print {
+	@page {
+		margin: 20mm 15mm 20mm 15mm;
+		size: auto;
+	}
+
+	/* 1. Global Reset & High Contrast Typography */
+	html,
+	body {
+		background: #ffffff !important;
+		color: #111827 !important;
+		font-size: 11pt !important;
+		line-height: 1.65 !important;
+	}
+
+	*,
+	*::before,
+	*::after {
+		background: transparent !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+		color: inherit !important;
+		transition: none !important;
+		animation: none !important;
+	}
+
+	/* 2. Hide Non-Printable Web Controls */
+	nav,
+	header,
+	footer,
+	dialog,
+	.skip-link,
+	.navbar,
+	.explore-nav-container,
+	.explore-subnav,
+	.reading-progress,
+	.mobile-drawer,
+	.floating-toc-btn,
+	.palette,
+	.hover-preview-card,
+	.view-switch,
+	.filters,
+	.note-results,
+	.note-empty,
+	.cosmos-link-badge,
+	.command-palette,
+	.audio-indicator,
+	button,
+	[role="button"],
+	[data-command-trigger],
+	[data-preview-card] {
+		display: none !important;
+	}
+
+	/* 3. Article Containers & Layout Expansion */
+	#content-wrapper,
+	#post-container,
+	main,
+	article,
+	.reading-shell,
+	.markdown-content,
+	.custom-md {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		border: none !important;
+	}
+
+	/* 4. Headings & Orphan Control */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: #000000 !important;
+		font-weight: 700 !important;
+		break-after: avoid !important;
+		page-break-after: avoid !important;
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+	}
+
+	h1 {
+		font-size: 22pt !important;
+		line-height: 1.3 !important;
+		margin-bottom: 12pt !important;
+	}
+
+	h2 {
+		font-size: 15pt !important;
+		line-height: 1.35 !important;
+		margin-top: 18pt !important;
+		margin-bottom: 8pt !important;
+		border-bottom: 1pt solid #e5e7eb !important;
+		padding-bottom: 4pt !important;
+	}
+
+	h3 {
+		font-size: 12.5pt !important;
+		line-height: 1.4 !important;
+		margin-top: 14pt !important;
+		margin-bottom: 6pt !important;
+	}
+
+	p,
+	blockquote,
+	ul,
+	ol {
+		orphans: 3;
+		widows: 3;
+	}
+
+	/* 5. Formulas & Mathematics (KaTeX) */
+	.katex-display,
+	.katex-display-container {
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+		margin: 10pt 0 !important;
+		overflow: visible !important;
+	}
+
+	/* 6. Code Blocks */
+	pre,
+	code,
+	.expressive-code {
+		font-family: "JetBrains Mono", Consolas, monospace !important;
+		font-size: 9pt !important;
+		line-height: 1.45 !important;
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+		white-space: pre-wrap !important;
+		word-break: break-all !important;
+		border: 1pt solid #e5e7eb !important;
+		border-radius: 4pt !important;
+		padding: 8pt 10pt !important;
+		background: #f9fafb !important;
+	}
+
+	/* 7. Tufte Sidenotes & Marginalia */
+	.sidenote,
+	.marginnote,
+	aside.marginalia {
+		float: none !important;
+		clear: both !important;
+		width: 100% !important;
+		margin: 8pt 0 !important;
+		padding: 6pt 10pt !important;
+		border-left: 2.5pt solid #374151 !important;
+		background: #f9fafb !important;
+		font-size: 9.5pt !important;
+		line-height: 1.5 !important;
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+	}
+
+	/* 8. Hyperlink URL Annotation for External References */
+	.markdown-content a[href^="http"]:not([href*="meiluosi.github.io"])::after {
+		content: " (" attr(href) ")";
+		font-size: 80% !important;
+		opacity: 0.75 !important;
+		word-break: break-all !important;
+	}
+
+	/* 9. Images & Figures */
+	img,
+	figure,
+	svg {
+		max-width: 100% !important;
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+	}
+
+	/* 10. Tables */
+	table {
+		border-collapse: collapse !important;
+		width: 100% !important;
+		break-inside: avoid !important;
+		page-break-inside: avoid !important;
+		margin: 12pt 0 !important;
+	}
+
+	th,
+	td {
+		border: 1pt solid #d1d5db !important;
+		padding: 5pt 8pt !important;
+		font-size: 9.5pt !important;
+	}
+
+	th {
+		background: #f3f4f6 !important;
+		font-weight: 600 !important;
+	}
+}

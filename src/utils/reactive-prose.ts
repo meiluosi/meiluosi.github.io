@@ -141,3 +141,124 @@ export function computeReactiveProse(
 		proseSummaryEn,
 	};
 }
+
+export interface BpeCostState {
+	vocabSize: number;
+	textLengthChars: number;
+	hiddenDim: number;
+	compressionRatio: number; // chars per token
+	tokensCount: number;
+	embedParamsMillion: number;
+	embedMemoryMiB: number;
+	proseSummaryZh: string;
+	proseSummaryEn: string;
+}
+
+export function computeBpeCost(
+	vocabSize: number,
+	textLengthChars: number,
+	hiddenDim = 2048,
+): BpeCostState {
+	const safeV = Math.max(4000, Math.min(256000, Math.floor(vocabSize)));
+	const safeChars = Math.max(
+		100,
+		Math.min(1000000, Math.floor(textLengthChars)),
+	);
+
+	// Compression ratio grows logarithmically with vocabulary size V
+	const compressionRatio = Math.max(1.1, 0.45 * Math.log2(safeV / 1000) + 0.85);
+	const tokensCount = Math.max(1, Math.round(safeChars / compressionRatio));
+
+	// Embedding parameters: V * hiddenDim
+	const embedParamsMillion = (safeV * hiddenDim) / 1e6;
+	// FP16: 2 bytes per param
+	const embedMemoryMiB = (safeV * hiddenDim * 2) / (1024 * 1024);
+
+	const proseSummaryZh =
+		safeV <= 16000
+			? `当前为紧凑小词表（${(safeV / 1000).toFixed(0)}K），Embedding 仅占 ${embedMemoryMiB.toFixed(1)} MB 显存，但序列膨胀率高，相同文本需切分为 ${tokensCount} 个 token，显著抬高长上下文二次注意力计算。`
+			: safeV >= 96000
+				? `当前为超大词表（${(safeV / 1000).toFixed(0)}K），字符压缩比高达 ${compressionRatio.toFixed(2)}，序列收敛至仅 ${tokensCount} 个 token，但 Embedding 显存飙升至 ${embedMemoryMiB.toFixed(1)} MB，稀疏条目需要更多语料才能充分拟合。`
+				: `词表规模（${(safeV / 1000).toFixed(0)}K）处于当代平衡区间：压缩比为 ${compressionRatio.toFixed(2)}，${safeChars} 字符转换为约 ${tokensCount} 个 token，Embedding 占用 ${embedMemoryMiB.toFixed(1)} MB 显存。`;
+
+	const proseSummaryEn =
+		safeV <= 16000
+			? `Compact vocabulary (${(safeV / 1000).toFixed(0)}K): embedding requires only ${embedMemoryMiB.toFixed(1)} MB, but sequence expands to ${tokensCount} tokens, increasing O(L²) quadratic attention cost.`
+			: safeV >= 96000
+				? `Large vocabulary (${(safeV / 1000).toFixed(0)}K): high compression (${compressionRatio.toFixed(2)} chars/token), yielding only ${tokensCount} tokens, but embedding weights consume ${embedMemoryMiB.toFixed(1)} MB.`
+				: `Balanced vocabulary (${(safeV / 1000).toFixed(0)}K): compression ratio is ${compressionRatio.toFixed(2)}, turning ${safeChars} characters into ${tokensCount} tokens at ${embedMemoryMiB.toFixed(1)} MB embedding cost.`;
+
+	return {
+		vocabSize: safeV,
+		textLengthChars: safeChars,
+		hiddenDim,
+		compressionRatio: Math.round(compressionRatio * 100) / 100,
+		tokensCount,
+		embedParamsMillion: Math.round(embedParamsMillion * 10) / 10,
+		embedMemoryMiB: Math.round(embedMemoryMiB * 10) / 10,
+		proseSummaryZh,
+		proseSummaryEn,
+	};
+}
+
+export interface DpoDynamicsState {
+	beta: number;
+	chosenMargin: number; // log(pi_theta(yw)/pi_ref(yw))
+	rejectMargin: number; // log(pi_theta(yl)/pi_ref(yl))
+	implicitRewardMargin: number; // beta * (chosenMargin - rejectMargin)
+	loss: number; // -log(sigmoid(implicitRewardMargin))
+	gradientWeight: number; // sigmoid(-implicitRewardMargin)
+	approxKlDrift: number; // 0.5 * deltaLog^2
+	proseSummaryZh: string;
+	proseSummaryEn: string;
+}
+
+export function computeDpoDynamics(
+	beta: number,
+	chosenMargin: number,
+	rejectMargin: number,
+): DpoDynamicsState {
+	const safeBeta = Math.max(0.01, Math.min(2.0, beta));
+	const deltaLog = chosenMargin - rejectMargin;
+	const implicitRewardMargin = safeBeta * deltaLog;
+
+	const sigmoid = (z: number) => {
+		if (z >= 0) return 1 / (1 + Math.exp(-z));
+		const ez = Math.exp(z);
+		return ez / (1 + ez);
+	};
+
+	const loss =
+		implicitRewardMargin >= 0
+			? Math.log(1 + Math.exp(-implicitRewardMargin))
+			: -implicitRewardMargin + Math.log(1 + Math.exp(implicitRewardMargin));
+
+	const gradientWeight = sigmoid(-implicitRewardMargin);
+	const approxKlDrift = Math.max(0, 0.5 * deltaLog * deltaLog);
+
+	const proseSummaryZh =
+		safeBeta < 0.05
+			? `当前 β=${safeBeta.toFixed(2)} 极小，约束软化，隐式奖励放大为 ${implicitRewardMargin.toFixed(2)}，策略模型极易偏离参考模型（KL 漂移度估计 ${approxKlDrift.toFixed(1)}），面临古德哈特过优化风险。`
+			: safeBeta > 0.6
+				? `当前 β=${safeBeta.toFixed(2)} 偏大，对偏离参考施加严厉惩罚，隐式奖励被强行压缩至 ${implicitRewardMargin.toFixed(2)}，损失对偏好对的更新斜率较低（${(gradientWeight * 100).toFixed(0)}%）。`
+				: `当前 β=${safeBeta.toFixed(2)} 处于黄金平衡带，在偏好对间产生 ${implicitRewardMargin.toFixed(2)} 的可信奖励差，梯度权重为 ${(gradientWeight * 100).toFixed(0)}%，有效避免崩塌。`;
+
+	const proseSummaryEn =
+		safeBeta < 0.05
+			? `Beta=${safeBeta.toFixed(2)} is very low: weak KL constraint causes large implicit reward margin (${implicitRewardMargin.toFixed(2)}) and high drift (${approxKlDrift.toFixed(1)}), risking Goodhart reward hacking.`
+			: safeBeta > 0.6
+				? `Beta=${safeBeta.toFixed(2)} is high: strong reference anchoring restricts implicit reward to ${implicitRewardMargin.toFixed(2)}, resulting in conservative gradient updates (${(gradientWeight * 100).toFixed(0)}%).`
+				: `Beta=${safeBeta.toFixed(2)} is in the canonical zone: produces ${implicitRewardMargin.toFixed(2)} reward margin with ${(gradientWeight * 100).toFixed(0)}% gradient sensitivity, preventing policy collapse.`;
+
+	return {
+		beta: Math.round(safeBeta * 100) / 100,
+		chosenMargin: Math.round(chosenMargin * 100) / 100,
+		rejectMargin: Math.round(rejectMargin * 100) / 100,
+		implicitRewardMargin: Math.round(implicitRewardMargin * 100) / 100,
+		loss: Math.round(loss * 1000) / 1000,
+		gradientWeight: Math.round(gradientWeight * 1000) / 1000,
+		approxKlDrift: Math.round(approxKlDrift * 100) / 100,
+		proseSummaryZh,
+		proseSummaryEn,
+	};
+}

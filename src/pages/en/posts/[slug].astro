@@ -6,6 +6,7 @@ import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
 import ArticleLocalGraph from "@/components/features/ArticleLocalGraph.svelte";
 import GardenMaturityBadge from "@/components/features/GardenMaturityBadge.astro";
 import InteractiveMathEnhancer from "@/components/features/InteractiveMathEnhancer.astro";
+import InteractiveProseEnhancer from "@/components/features/InteractiveProseEnhancer.astro";
 import KatexManager from "@/components/features/KatexManager.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
@@ -253,6 +254,7 @@ const jsonLd = {
 			<Content />
 		</Markdown>
 		<InteractiveMathEnhancer />
+		<InteractiveProseEnhancer />
 
 		<Mindmap
 			graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)}

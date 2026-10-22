@@ -255,6 +255,12 @@ const siteLang = lang.replace("_", "-");
 			title={profileConfig.name}
 			href={`${Astro.site}rss.xml`}
 		/>
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={`${profileConfig.name} (English)`}
+			href={`${Astro.site}en/rss.xml`}
+		/>
 
 		<FontSetup />
 
