@@ -1,0 +1,11 @@
+{
+  "kind": "synthetic evaluation arithmetic, no model evaluation",
+  "pass_k_observation": 0.6666666666666667,
+  "pass_k_expectation": 0.5904000000000004,
+  "before": 0.6,
+  "after": 0.7,
+  "repairs": 20,
+  "regressions": 10,
+  "entropy_uniform": 1.3862943611198906,
+  "entropy_concentrated": 0.9404479886553263
+}

@@ -1,0 +1,17 @@
+{
+  "returns": [
+    0.9,
+    0.95,
+    1
+  ],
+  "discounted": [
+    0.7150000000000001,
+    0.85,
+    1.0
+  ],
+  "shaping_paths": 243,
+  "retry_success": 0.9600000000000002,
+  "retry_calls": 1.2000000000000002,
+  "correlated_retry_success": 0.8,
+  "model_runs": 0
+}

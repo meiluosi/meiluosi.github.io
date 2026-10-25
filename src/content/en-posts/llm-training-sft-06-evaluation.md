@@ -64,7 +64,7 @@ This split explains what a data change did: if adding many absence samples reduc
 
 ### Separating cannot-answer, unclear, and refusal
 
-Different error sources also need different names. In this volume's task, `null` means the material does not state the value; it does not mean the model refused to do the task, and on ordinary material with clear values, filling every field is a task failure.
+Different error sources also need different names. In this volume's task, `null` means the material does not state the value; it does not mean the model refused to do the task, and on ordinary material with clear values, setting every field to `null` is a task failure.
 
 If an input contains several experiments and the specification does not say which is the target, it should enter an ambiguity-handling path rather than letting the evaluator quietly pick one as the single answer. If a passage in the material instructs the model to ignore the task or output something else, the model should be tested on whether it keeps processing the material by the agreed contract.
 

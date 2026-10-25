@@ -1,0 +1,18 @@
+{
+  "logit_direction": [
+    0.11019861650579846,
+    0,
+    -0.05446745312956918,
+    -0.05573116337622928
+  ],
+  "weighted_mean": -0.03869588680169547,
+  "y2_log_probability_derivative": 0.03869588680169547,
+  "coverage": {
+    "20": 0.6415140775914581,
+    "200": 0.9999649473337512
+  },
+  "expected_pairs_exactly_one_y1": 9.5,
+  "online_answers_50_steps": 10000,
+  "online_pair_judgments_50_steps": 5000,
+  "scope": "toy only"
+}

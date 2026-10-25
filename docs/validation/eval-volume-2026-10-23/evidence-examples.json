@@ -1,0 +1,11 @@
+{
+  "stable_pairs": 8,
+  "total_pairs": 10,
+  "consistency": 0.8,
+  "win_fraction": 0.4,
+  "decisive_win_fraction": 0.5714285714285714,
+  "tie_half_score": 0.55,
+  "always_pass_agreement": 0.9,
+  "failure_detection": 0.0,
+  "judge_calls": 0
+}

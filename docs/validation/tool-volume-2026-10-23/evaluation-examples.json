@@ -1,0 +1,14 @@
+{
+  "subsets": 10,
+  "coverage": 1.0,
+  "reliability": 0.4,
+  "binomial_checks": 108,
+  "all_task_calls": 3,
+  "all_task_seconds": 9.5,
+  "success_only_calls": 1.5,
+  "amortized_calls": 6,
+  "before": 0.65,
+  "after": 0.75,
+  "regressions": 5,
+  "model_runs": 0
+}

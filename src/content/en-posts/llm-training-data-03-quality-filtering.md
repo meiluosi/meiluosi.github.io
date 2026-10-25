@@ -46,8 +46,6 @@ The left side is the odds of being called positive. The right side says those od
 
 Shortcuts can be probed directly: keep the body and change the title format, drop the source marker, or take the validation set from a different site than the training set. If changing only the title form moves the score substantially, the classifier is reading format, and raising the threshold then buys little content quality.
 
-The source's shortcut probes are the checks to run: re-title the same article and see whether the score changes sharply; strip the source marker; or let the training and validation sets come from different sites.
-
 ### Method two: score with a large model, then distill
 
 The other route is to write a scoring rubric, have a large model score a batch, and train a small model to imitate those scores. The rubric captures the large model's ability to handle complex requirements without paying the same inference cost on every page. FineWeb-Edu uses this educational-value filtering idea, and CCI3.0-HQ uses Qwen2-72B-Instruct to produce educational labels, training a regression head on frozen BGE-M3 representations before filtering; the paper's model experiments carry specific conditions such as roughly 0.5B parameters and 100B training tokens, and cannot be restated as "educational data is necessarily better".
@@ -59,10 +57,7 @@ Two gates stand in the way. The first is whether the large model understood the 
 Perplexity-based filtering asks how surprising a text is to a reference language model. If the model assigns low probability to the true next token, the average loss rises and so does the perplexity:
 
 $$
-\ell(x)=-\frac{1}{T}\sum_{t=1}^{T}
-\log p_{\mathrm{ref}}(x_t\mid x_{<t}),
-\qquad
-\operatorname{PPL}(x)=e^{\ell(x)}.
+\begin{aligned}\ell(x)&=-\frac1T\sum_{t=1}^{T}\log q_t,\\q_t&=p_{\mathrm{ref}}(x_t\mid x_{<t}),\\\operatorname{PPL}(x)&=e^{\ell(x)}.\end{aligned}
 $$
 
 Here $T$ is the number of valid prediction positions and $p_{\mathrm{ref}}$ is the reference model's probability for the true token. The negative log turns "high probability for the correct answer" into "small loss", and averaging over positions stops long documents from dominating through sheer length. To read the scale, the source uses a constructed example: if every true token receives probability 0.5, the perplexity is 2, and if every token receives 0.25, it is 4. These are stipulated probabilities, not statistics of real pages.

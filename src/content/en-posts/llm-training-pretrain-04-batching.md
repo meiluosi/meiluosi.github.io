@@ -108,7 +108,7 @@ If only three quarters of those positions are effective targets, one update carr
 | Non-padding tokens | How much non-padding content was read |
 | Effective targets | How many positions entered the loss directly |
 
-Throughput follows the same split. A speedup measured in input positions may only reflect less padding; counting effective targets is closer to the rate at which training signal is processed. The learning value of a target is not decided by its count alone.
+Throughput follows the same split. A higher input-position throughput can include padding that contributes no training targets. Count effective targets as well to see whether more training signal was actually processed per second. The learning value of a target is not decided by its count alone.
 
 ## A comparison that can expose boundary errors
 

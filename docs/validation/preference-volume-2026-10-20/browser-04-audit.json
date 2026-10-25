@@ -1,0 +1,42 @@
+[
+  {
+    "lang": "zh",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 12,
+    "wideFormulas": [],
+    "nodes": 47,
+    "title": "DPO 为什么能直接使用偏好对：目标、参考策略与 beta 的作用 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "wideFormulas": [],
+    "nodes": 19,
+    "title": "Why DPO Can Use Preference Pairs Directly: Objective, Reference Policy, and Beta - 枫语"
+  },
+  {
+    "lang": "zh",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 12,
+    "wideFormulas": [],
+    "nodes": 47,
+    "title": "DPO 为什么能直接使用偏好对：目标、参考策略与 beta 的作用 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "wideFormulas": [],
+    "nodes": 19,
+    "title": "Why DPO Can Use Preference Pairs Directly: Objective, Reference Policy, and Beta - 枫语"
+  }
+]

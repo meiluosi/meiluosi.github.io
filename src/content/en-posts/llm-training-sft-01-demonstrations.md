@@ -36,7 +36,7 @@ The source separates the ways this can go wrong, because they need different evi
 | Learning rate written as 0.002 | Numerical conversion error |
 | Every field set to `null` | Over-conservative; available information is dropped |
 
-The last two rows pull in opposite directions. One drops known values, the other adds unknown ones, and a single accuracy number cannot distinguish them. Collapsing all four into "the model does not obey instructions" removes the signal that a data intervention would need.
+The second and fourth rows show opposite errors: inventing an unknown value and dropping known values, and a single accuracy number cannot distinguish them. Collapsing all four into "the model does not obey instructions" removes the signal that a data intervention would need.
 
 ## From continuation to demonstration, and what a demonstration teaches
 
@@ -49,7 +49,7 @@ $$
 and supervising only the answer gives the per-example negative log-likelihood
 
 $$
-\ell(x,y)=-\sum_{t=1}^{m}\log p_\theta(y_t\mid x,y_{<t}).
+\begin{aligned}q_t&=p_\theta(y_t\mid x,y_{<t}),\\\ell(x,y)&=-\sum_{t=1}^{m}\log q_t.\end{aligned}
 $$
 
 The difference from pretraining is what counts as the target and how much of the sequence carries a target. Here $x$ includes the serialized prompt and the necessary control tokens, not just the natural-language material a reader sees. When several examples are combined, one further decision is required — averaging per token or per example — and the source deliberately defers that to the third note in this volume, keeping only the single-example sum here.

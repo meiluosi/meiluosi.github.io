@@ -93,7 +93,7 @@ $$
 p_j=\frac{\exp(z_j)}{\sum_{k=1}^{V}\exp(z_k)}
 $$
 
-Here $z_j$ is a candidate score and $V$ is the vocabulary size. The scores have no absolute scale: adding the same constant to all of them leaves the probabilities unchanged.
+Here $z_j$ is a candidate score and $V$ is the vocabulary size. Adding the same constant to every score leaves the probabilities unchanged. Multiplying all scores by a common factor generally changes the probabilities, so their differences and scale still matter.
 Take three candidates, "rains", "sunny", and "end", with scores $\log4$, $\log2$, and $\log2$. Exponentiating gives 4, 2, and 2; dividing by the total of 8 gives 0.5, 0.25, and 0.25. This is a locally hand-computable example. A real model has far more candidates, but the scoring logic is the same.
 
 The target here is "rains", so the loss is the negative log of the probability assigned to it:

@@ -1,0 +1,38 @@
+[
+  {
+    "lang": "zh",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 9,
+    "nodes": 59,
+    "title": "策略梯度怎样使用奖励：从四种回答到 baseline - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "nodes": 20,
+    "title": "How Policy Gradients Use Rewards: Four Responses and a Baseline - 枫语"
+  },
+  {
+    "lang": "zh",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 9,
+    "nodes": 59,
+    "title": "策略梯度怎样使用奖励：从四种回答到 baseline - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "nodes": 20,
+    "title": "How Policy Gradients Use Rewards: Four Responses and a Baseline - 枫语"
+  }
+]

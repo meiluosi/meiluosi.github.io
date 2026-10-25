@@ -1,0 +1,32 @@
+[
+  {
+    "file": "src/content/posts/2026-10-15-llm-training-data-04-dedup.md",
+    "width": 320,
+    "lang": "zh",
+    "url": "/posts/2026-10-15-llm-training-data-04-dedup/",
+    "title": "去重与评测污染：模型究竟学到了什么 - 枫语",
+    "overflow": false,
+    "katexErrors": 0,
+    "wide": [],
+    "nodes": 49,
+    "scrubbers": 0,
+    "branchNodes": 4,
+    "errors": [],
+    "pass": true
+  },
+  {
+    "file": "src/content/en-posts/llm-training-data-04-dedup-and-contamination.md",
+    "width": 320,
+    "lang": "en",
+    "url": "/en/posts/llm-training-data-04-dedup-and-contamination/",
+    "title": "Deduplication and Evaluation Contamination: What the Model Actually Learned - 枫语",
+    "overflow": false,
+    "katexErrors": 0,
+    "wide": [],
+    "nodes": 29,
+    "scrubbers": 0,
+    "branchNodes": 3,
+    "errors": [],
+    "pass": true
+  }
+]

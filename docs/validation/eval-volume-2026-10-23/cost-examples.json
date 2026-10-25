@@ -1,0 +1,18 @@
+{
+  "nonpadding": 2000,
+  "targets": 400,
+  "padding": 48,
+  "throughputs": [
+    4000,
+    800,
+    4096
+  ],
+  "approx_flops": 6000000000000000,
+  "attention_square_ratio": 2.0,
+  "assumed_bytes": 1600000000,
+  "assumed_gib": 1.4901161193847656,
+  "optimized_minutes": 65.0,
+  "speedup": 1.5384615384615385,
+  "search_hours": 20,
+  "hardware_measurements": 0
+}

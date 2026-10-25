@@ -1,0 +1,14 @@
+{
+  "paired_differences": [
+    4,
+    2,
+    1
+  ],
+  "paired_mean": 2.3333333333333335,
+  "cherry_picked_difference": 12,
+  "interaction": 7,
+  "mixture_A": 0.83,
+  "mixture_B": 0.88,
+  "standardized_B": 0.7999999999999999,
+  "training_runs": 0
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "constructed data only",
+  "length_correctness_correlation": 0.04434600701584926,
+  "checkpoint_correlations": [
+    0.9869982413952431,
+    -0.9486607745260337,
+    0.8397276770097116,
+    -0.9755265864504463
+  ],
+  "length_ratio": 3.4166666666666665,
+  "judge_selected_correct": 0.25,
+  "length_selected_correct": 0
+}

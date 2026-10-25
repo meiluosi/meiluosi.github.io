@@ -105,9 +105,7 @@ flowchart TD
 若参考模型给真实后续 token 的概率总是很低，这段文本的平均损失会高，困惑度也会高。公式是：
 
 $$
-\ell(x)=-\frac{1}{T}\sum_{t=1}^{T}
-\log p_{\mathrm{ref}}(x_t\mid x_{<t}),
-\qquad \operatorname{PPL}(x)=e^{\ell(x)}.
+\begin{aligned}\ell(x)&=-\frac1T\sum_{t=1}^{T}\log q_t,\\q_t&=p_{\mathrm{ref}}(x_t\mid x_{<t}),\\\operatorname{PPL}(x)&=e^{\ell(x)}.\end{aligned}
 $$
 
 这里 $T$ 是有效预测位置数，$p_{\mathrm{ref}}$ 是参考模型给真实 token 的概率。先取负对数，是为了让“给正确答案的概率越高”对应“损失越小”；再对位置平均，避免只因为文章长就有更大总损失。

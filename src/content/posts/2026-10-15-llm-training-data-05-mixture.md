@@ -67,8 +67,7 @@ $$
 形式上，可以写出混合目标：
 
 $$
-p_\alpha(x)=\sum_i\alpha_i p_i(x),\qquad
-\mathcal L(\theta;\alpha)=\sum_i\alpha_i\mathbb E_{x\sim p_i}[\ell_\theta(x)].
+\begin{aligned}p_\alpha(x)&=\sum_i\alpha_i p_i(x),\\L_i(\theta)&=\mathbb E_{x\sim p_i}[\ell_\theta(x)],\\\mathcal L(\theta;\alpha)&=\sum_i\alpha_i L_i(\theta).\end{aligned}
 $$
 
 它表示先按权重选来源，再从来源中取样。使用这个式子时，一定要交代 $x$ 是文档还是固定块、损失按什么平均，否则漂亮的公式也不能说明实际训练配方。

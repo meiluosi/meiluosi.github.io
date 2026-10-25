@@ -1,0 +1,26 @@
+[
+  {
+    "name": "examples",
+    "exit_code": 0,
+    "stdout": "{\n  \"kind\": \"teaching-example-checks\",\n  \"pair_record_valid\": true,\n  \"BT_probabilities\": [\n    0.5,\n    0.75,\n    0.8999999999999999,\n    0.25\n  ],\n  \"losses\": [\n    0.6931471805599453,\n    0.2876820724517809,\n    1.3862943611198908\n  ],\n  \"finite_difference_gradient_passed\": true,\n  \"translation_invariant\": true,\n  \"scaling_changes_probability\": true,\n  \"four_candidates_pairs\": [\n    [\n      0,\n      1\n    ],\n    [\n      0,\n      2\n    ],\n    [\n      0,\n      3\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      1,\n      3\n    ],\n    [\n      2,\n      3\n    ]\n  ],\n  \"scope\": \"Toy arithmetic and record structure only; no trained model.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "name": "dpo",
+    "exit_code": 0,
+    "stdout": "DPO loss, gradients, normalized counterexample and optimum identity passed\n",
+    "stderr": ""
+  },
+  {
+    "name": "online",
+    "exit_code": 0,
+    "stdout": "{\"logit_direction\": [0.11019861650579846, 0, -0.05446745312956918, -0.05573116337622928], \"weighted_mean\": -0.03869588680169547, \"y2_log_probability_derivative\": 0.03869588680169547, \"coverage\": {\"20\": 0.6415140775914581, \"200\": 0.9999649473337512}, \"expected_pairs_exactly_one_y1\": 9.5, \"online_answers_50_steps\": 10000, \"online_pair_judgments_50_steps\": 5000, \"scope\": \"toy only\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "correctness",
+    "exit_code": 0,
+    "stdout": "{\"scope\": \"constructed data only\", \"length_correctness_correlation\": 0.04434600701584926, \"checkpoint_correlations\": [0.9869982413952431, -0.9486607745260337, 0.8397276770097116, -0.9755265864504463], \"length_ratio\": 3.4166666666666665, \"judge_selected_correct\": 0.25, \"length_selected_correct\": 0}\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,590 @@
+[
+  {
+    "path": "src/content/posts/2026-10-15-llm-training-data-01-map.md",
+    "series": "\"大模型训练研究笔记 · 数据卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-data-01-corpus-map.md"
+    ],
+    "chars": 8103,
+    "headings": 8,
+    "sha256": "09a1d2fce42161a1cf018e3bf6add068e2525781232e3ec9bb29f63caeca240e",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-data-01-corpus-map.md": "aceca009c88e4457c5beb77760374d7eacc6e104c461a2ec02f8a56399c4335a"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-15-llm-training-data-02-cleaning.md",
+    "series": "\"大模型训练研究笔记 · 数据卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-data-02-cleaning.md"
+    ],
+    "chars": 5573,
+    "headings": 9,
+    "sha256": "7c7b168174af4776339080903f8297f5ec068566ab6f52112d9365446ca403c8",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-data-02-cleaning.md": "bc24b4370012a41f32d5f30fc800342f414e4c8752c95f6a41f1781dfdc291b7"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-15-llm-training-data-03-quality.md",
+    "series": "\"大模型训练研究笔记 · 数据卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-data-03-quality-filtering.md"
+    ],
+    "chars": 5620,
+    "headings": 9,
+    "sha256": "f0a69d62d241f70ffb503a387f3823fe9bf6d2752b9e3e8aa7492c942bb036ec",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-data-03-quality-filtering.md": "c07193dda69bf24350228009c3935f4d9bd7bd8059ecd60297b815a11e48ad69"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-15-llm-training-data-04-dedup.md",
+    "series": "\"大模型训练研究笔记 · 数据卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-data-04-dedup-and-contamination.md"
+    ],
+    "chars": 5530,
+    "headings": 10,
+    "sha256": "10855d2cfa1fbff002cf41890393571967ba3efaea0fb39833000eae4631507b",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-data-04-dedup-and-contamination.md": "ce7c2c71abb4a6ff539de24c97270e597d9200b718a8d0d265df8ba186c933a1"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-15-llm-training-data-05-mixture.md",
+    "series": "\"大模型训练研究笔记 · 数据卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-data-05-mixture.md"
+    ],
+    "chars": 5071,
+    "headings": 10,
+    "sha256": "5366176182d5450a183b1ea48458b303527c22c7537dc4266a631006b44a02df",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-data-05-mixture.md": "eaa8a0afcc4f0dd88b61505f0db5ccdcf1111b23bd5c6c2a876549b708c27836"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-15-llm-training-data-06-build.md",
+    "series": "\"大模型训练研究笔记 · 数据卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-data-06-traceable-corpus.md"
+    ],
+    "chars": 7940,
+    "headings": 13,
+    "sha256": "55b6c868134bdf80c14bd722be5ef35ef04c4764c790597bbdb167af35321e4a",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-data-06-traceable-corpus.md": "1fc0ba0dde3560388e2b9cf86c5c7e4d45ecd084985ef06a0c31020e7c7685d0"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-preference-01-feedback.md",
+    "series": "\"大模型训练研究笔记 · 偏好卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-preference-01-feedback.md"
+    ],
+    "chars": 3328,
+    "headings": 9,
+    "sha256": "d46c458c6c531ade44dd6c8517b5ff18bf584cd96a70675da047ab697c26ea32",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-preference-01-feedback.md": "3fbe3e8d81a3e74aebb18df79090a3129d770989588a9082e6eb1f44e96bd619"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-preference-02-pairs.md",
+    "series": "\"大模型训练研究笔记 · 偏好卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-preference-02-pairs.md"
+    ],
+    "chars": 4032,
+    "headings": 11,
+    "sha256": "86016469b09af5669e61ee6444d9ec34aa642fa606eeaed91dac4e0b57ac1a0b",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-preference-02-pairs.md": "4c722c8b7823f4cd1490af43be476585365e5548369b6025f370a15cc486e510"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-preference-03-reward-model.md",
+    "series": "\"大模型训练研究笔记 · 偏好卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-preference-03-reward-model.md"
+    ],
+    "chars": 4277,
+    "headings": 10,
+    "sha256": "7785ac4a89077f99e9a11ab4fffa1850307c08dd4499c1ecff6b0bc50da49f4a",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-preference-03-reward-model.md": "704373a0022d695b0d62c38fc1ec52c15429ac84c512ac477942787baf33b575"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-preference-04-dpo.md",
+    "series": "\"大模型训练研究笔记 · 偏好卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-preference-04-dpo.md"
+    ],
+    "chars": 9199,
+    "headings": 11,
+    "sha256": "fb6cf34dba8c2d30c322c3e1f8b41431d9093183125f1ef0c4f34a401582367e",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-preference-04-dpo.md": "d998c5ff77812a0c40eb4dbc517eb34232c0975599975ad97d44977694797dc7"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-preference-05-offline-vs-online.md",
+    "series": "\"大模型训练研究笔记 · 偏好卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-preference-05-offline-vs-online.md"
+    ],
+    "chars": 4705,
+    "headings": 11,
+    "sha256": "19e0872965a0532ff27c8ae97e1ddc4aaecfbd25ceef0caee39da9c478835a93",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-preference-05-offline-vs-online.md": "1e18ef8538e27138f6ba86b56531a41349b5e2ddaf79ce4a5f39f474842bce39"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-preference-06-score-vs-correctness.md",
+    "series": "\"大模型训练研究笔记 · 偏好卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-preference-06-score-vs-correctness.md"
+    ],
+    "chars": 7633,
+    "headings": 11,
+    "sha256": "7fd38b03b53268849a15086a51b5a5584ec9ac2de320305a9e1b31ab936d282e",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-preference-06-score-vs-correctness.md": "78ac071575d304068988ef07be1a7f83b1d733b5ea0b9c55e076653496f7f2d5"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-pretrain-01-tokenization.md",
+    "series": "\"大模型训练研究笔记 · 预训练卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-pretrain-01-tokenization.md"
+    ],
+    "chars": 5895,
+    "headings": 9,
+    "sha256": "c0362cd6a71e32755aa89f4b0a2a4be8131c8c585ee4d02fa722780556253a27",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-pretrain-01-tokenization.md": "78bfbb03fc8ccff8364d24e1171a072da46845871bd41e2bca4e1947f3c6a1c5"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-pretrain-02-objective.md",
+    "series": "\"大模型训练研究笔记 · 预训练卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-pretrain-02-objective.md"
+    ],
+    "chars": 6018,
+    "headings": 10,
+    "sha256": "941b667ee2fad39e4850cb0c0fd0fb1c8ce07b8ce989e8a8d16ff434d3ef9ae1",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-pretrain-02-objective.md": "dd72bf44501f4298c229de7c8395916acb133154f5d0ab76d416edb44e305806"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-pretrain-03-forward.md",
+    "series": "\"大模型训练研究笔记 · 预训练卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-pretrain-03-forward-pass.md"
+    ],
+    "chars": 5204,
+    "headings": 10,
+    "sha256": "7bb5082ba55df26b8a28105721679ce4679c2c5e24419a2f05483f1c317d6d52",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-pretrain-03-forward-pass.md": "3b0b2b673b0e7ca32303f238e0bbe7ce2bb50e49cf07b6d2ad0f4ff0216d7538"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-pretrain-04-batching.md",
+    "series": "\"大模型训练研究笔记 · 预训练卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-pretrain-04-batching.md"
+    ],
+    "chars": 5028,
+    "headings": 11,
+    "sha256": "f594fb75f4aa953f56b940a4afa31399ab1b2454cb2e4decc5c19ff603192d63",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-pretrain-04-batching.md": "1d5b8e96acae639b88174edbc697dc9b758aefa9884f56757b2fa18464b4a1e0"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-pretrain-05-optimization.md",
+    "series": "\"大模型训练研究笔记 · 预训练卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-pretrain-05-optimization-stability.md"
+    ],
+    "chars": 5172,
+    "headings": 10,
+    "sha256": "8e7dbd42de419fbf5809b94dd7fa28a1dde05c117bffa85d5f625e24c1b65cea",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-pretrain-05-optimization-stability.md": "b06b63a62e9ddca6f0e1f47e8df10abbd69b7d5a1e12f3e948030f05ea987d30"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-pretrain-06-experiment.md",
+    "series": "\"大模型训练研究笔记 · 预训练卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-pretrain-06-experiment-design.md"
+    ],
+    "chars": 5498,
+    "headings": 12,
+    "sha256": "387b797923d8f92587dbd3828da2de95ff385ad8dbb35477d05ade1334682b70",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-pretrain-06-experiment-design.md": "4553532897d5da2d9e7bebb0939d78b730d8b7b1ef0729b41e5efb452ce51b19"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-sft-01-demonstrations.md",
+    "series": "\"大模型训练研究笔记 · SFT卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-sft-01-demonstrations.md"
+    ],
+    "chars": 4329,
+    "headings": 9,
+    "sha256": "af6ba20a6013bc2580a8e365b8db299e22b5a1853f4fe50bf7977e33f8952720",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-sft-01-demonstrations.md": "5dc21588c13b62d71d16461a4d14f891daff588ef7208e8e5479dbac3012a002"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-sft-02-messages.md",
+    "series": "\"大模型训练研究笔记 · SFT卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-sft-02-messages-and-templates.md"
+    ],
+    "chars": 4748,
+    "headings": 10,
+    "sha256": "5b5d752057827eab5a218a955baa9ab9565168737a779511f2fa5f9c7eaa9e12",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-sft-02-messages-and-templates.md": "14370816b9feeca632274d702c43a13224c2cfecd0ef36c0e8e151808ae9fe23"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-sft-03-loss-mask.md",
+    "series": "\"大模型训练研究笔记 · SFT卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-sft-03-loss-mask.md"
+    ],
+    "chars": 5150,
+    "headings": 11,
+    "sha256": "37e1683bb31fbbcb86dc7e53fd60fb1fc790639fc93596fe4cbbb71019e6847c",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-sft-03-loss-mask.md": "e864201e42c2b2674929c9da04e2a97d044584ffd2ebf562370b11edbc8d2df5"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-sft-04-data.md",
+    "series": "\"大模型训练研究笔记 · SFT卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-sft-04-data-selection.md"
+    ],
+    "chars": 3757,
+    "headings": 9,
+    "sha256": "32e343cbd0db7e13101f85631125f3d302e8e427e679f1a5481eb8e9d5228fb0",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-sft-04-data-selection.md": "1a95da8b7e68087dbad3004148aabcc590e21bc9837349653831663254c1e898"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-sft-05-adaptation.md",
+    "series": "\"大模型训练研究笔记 · SFT卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-sft-05-adaptation.md"
+    ],
+    "chars": 4433,
+    "headings": 11,
+    "sha256": "ead0faadb90154d8b3041ede825138d0750e87b8bfbeb519d3578890f8e9c3c0",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-sft-05-adaptation.md": "daadc96561155413751eec2605554f8b6c4c2b486f66f58dd018692b8a509d5b"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-20-llm-training-sft-06-evaluation.md",
+    "series": "\"大模型训练研究笔记 · SFT卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-sft-06-evaluation.md"
+    ],
+    "chars": 4327,
+    "headings": 12,
+    "sha256": "12927f90a6db7d1589bc0123a0cc2b99fa7f2d0ebc32e0353623c57047471a3b",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-sft-06-evaluation.md": "05235de384b90e841a01aba0436769a3341ea3a30283009ddf221ce89beb3d0c"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-eval-01-experiments.md",
+    "series": "\"大模型训练研究笔记 · 评测复现卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-eval-01-experiments.md"
+    ],
+    "chars": 3615,
+    "headings": 9,
+    "sha256": "f37e5a62dc8d2fe05ee10d7b62a8b74931ba573a1abd9029d637cdf3bff3bb22",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-eval-01-experiments.md": "a3ac955680c763f47b393fdd17e4fff8755c1dd4f22ce2c493bef852fdfe4603"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-eval-02-evidence.md",
+    "series": "\"大模型训练研究笔记 · 评测复现卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-eval-02-evidence.md"
+    ],
+    "chars": 3527,
+    "headings": 10,
+    "sha256": "1d9462c33138e5f130afd0e899355e2d5492454cf3f8e9815c10a872113d8c40",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-eval-02-evidence.md": "a8e856516d8b36016132962d6c33583acb6649dc914b3318d88ab4bf92557e58"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-eval-03-costs.md",
+    "series": "\"大模型训练研究笔记 · 评测复现卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-eval-03-costs.md"
+    ],
+    "chars": 3791,
+    "headings": 9,
+    "sha256": "45a7be8a5b8ee1d89067333de07051a9f0a8a3edea738348a68be632d54cb81d",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-eval-03-costs.md": "095ba3252adcb8ecba8bb898c7482c25441f06a5a7a9df85bc2818627ac1dde1"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-eval-04-reproduction.md",
+    "series": "\"大模型训练研究笔记 · 评测复现卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-eval-04-reproduction.md"
+    ],
+    "chars": 3438,
+    "headings": 9,
+    "sha256": "9e3f14941962aa0b159290c26d2247dc7e82a92bf7579a3b6a801ff469a7831d",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-eval-04-reproduction.md": "47e0588a7fc9c3f4d6f5d8aeb224cad02712c9c1d9c068c81490c6ba7e29ecfe"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-eval-05-delivery.md",
+    "series": "\"大模型训练研究笔记 · 评测复现卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-eval-05-delivery.md"
+    ],
+    "chars": 4795,
+    "headings": 8,
+    "sha256": "7ccf8d4a8fecfebcd01c119ffc83a2869583f419431ca1a09677f929be65246f",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-eval-05-delivery.md": "3d4ef20cfe74277f8ea0b428e5da475fb2e3a1375fdb238d4e5a7f182c2c3522"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-eval-06-conclusions.md",
+    "series": "\"大模型训练研究笔记 · 评测复现卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-eval-06-conclusions.md"
+    ],
+    "chars": 4643,
+    "headings": 8,
+    "sha256": "8e82f6b77ea9ba000b0801e9eaea96b3751d61e48fd9bb1f891a8e62b2fc9df4",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-eval-06-conclusions.md": "dae4de85bf04602f092cee599bd5310cb5bdc57dee2a480b8a221ce4815b6e78"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-rl-01-formulation.md",
+    "series": "\"大模型训练研究笔记 · 推理强化学习卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-rl-01-formulation.md"
+    ],
+    "chars": 4531,
+    "headings": 10,
+    "sha256": "34ddac5e10d99eb08678dcb9c1c56238962412b8345688823e0931029090f012",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-rl-01-formulation.md": "cb721e98b2e99ddebf977cbbada03ce80905764379900704f948e7258e98482f"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-rl-02-verifiers.md",
+    "series": "\"大模型训练研究笔记 · 推理强化学习卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-rl-02-verifiers.md"
+    ],
+    "chars": 5457,
+    "headings": 9,
+    "sha256": "2098ed287cc60910fbc2aea72ab34c7bfb850fbf15cd928bee5133e5f7c770b2",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-rl-02-verifiers.md": "6629920189fa4ac14e155626037bdd86cdf06d3aa678052397b6baadc5495957"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-rl-03-policy-gradient.md",
+    "series": "\"大模型训练研究笔记 · 推理强化学习卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-rl-03-policy-gradient.md"
+    ],
+    "chars": 4735,
+    "headings": 9,
+    "sha256": "17624fd9a74574d7bc543494e4a6161440346ec6cc35dda1a3594f8facc6d033",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-rl-03-policy-gradient.md": "1989b8490613c8868b49f0ac01a14045718d456ecfe213abd9fed2d81f24ccd8"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-rl-04-ppo.md",
+    "series": "\"大模型训练研究笔记 · 推理强化学习卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-rl-04-ppo.md"
+    ],
+    "chars": 4962,
+    "headings": 10,
+    "sha256": "8ab33721c14eeec1cc9750c0b91b94348181047c0c8c9d538ff2940ead035d13",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-rl-04-ppo.md": "7ec9346eaf97fddccbb53f0a058abe143b0de863d82d606a48b599f372d78291"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-rl-05-grpo.md",
+    "series": "\"大模型训练研究笔记 · 推理强化学习卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-rl-05-grpo.md"
+    ],
+    "chars": 4576,
+    "headings": 10,
+    "sha256": "b4515dd59318a9980a9a09c6dfa18b396a3710555302f4a347c226c0c6ef9ee4",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-rl-05-grpo.md": "43375b808eee7ebfb58c6e56c030fa7b55d7610f9ed03b51cf69ad8726ac0223"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-rl-06-evaluation.md",
+    "series": "\"大模型训练研究笔记 · 推理强化学习卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-rl-06-evaluation.md"
+    ],
+    "chars": 4424,
+    "headings": 9,
+    "sha256": "a1f12c54924300ec2d177a46f29407247947e432871f54b5138de92881176581",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-rl-06-evaluation.md": "f66ce74d49472b1e4540230af79f949c17cdb1dd22a955dec9cb326186877ac3"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-tool-01-trajectories.md",
+    "series": "\"大模型训练研究笔记 · 工具交互卷\"",
+    "order": 1,
+    "english": [
+      "src/content/en-posts/llm-training-tool-01-trajectories.md"
+    ],
+    "chars": 5752,
+    "headings": 9,
+    "sha256": "6a51b6388b52c4307e709d1b6881ca380fc1765616751129ebb1381cb05d8929",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-tool-01-trajectories.md": "14770c111bd20a812b0d4b324e11cb04fdfa9fdcf96851e61079456152f905ee"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-tool-02-supervision.md",
+    "series": "\"大模型训练研究笔记 · 工具交互卷\"",
+    "order": 2,
+    "english": [
+      "src/content/en-posts/llm-training-tool-02-supervision.md"
+    ],
+    "chars": 4809,
+    "headings": 9,
+    "sha256": "ac6c9778752cdfa2649df2da7e2316c28a202f4a628086d48154495bda471270",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-tool-02-supervision.md": "1655c42eac423727074dfb91ab03b32d1c5e83db3ff249a314c625e386242e83"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-tool-03-rewards.md",
+    "series": "\"大模型训练研究笔记 · 工具交互卷\"",
+    "order": 3,
+    "english": [
+      "src/content/en-posts/llm-training-tool-03-rewards.md"
+    ],
+    "chars": 4545,
+    "headings": 8,
+    "sha256": "66a2a56233143f814c9a57ec537ff4dd2fd457f4d8b89f2560f7b0fbf56f1ed5",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-tool-03-rewards.md": "dfd4b43651c56912f9be9d7e8829ce1e01a77abd780ba0d30db97796ea91c537"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-tool-04-environments.md",
+    "series": "\"大模型训练研究笔记 · 工具交互卷\"",
+    "order": 4,
+    "english": [
+      "src/content/en-posts/llm-training-tool-04-environments.md"
+    ],
+    "chars": 3721,
+    "headings": 9,
+    "sha256": "40f954cbf69e2b622fa81d08876773ac8f6a5b1830dd002a2474d326fb7497a7",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-tool-04-environments.md": "3e80a26848a4dbe2abefe8a733a3de0bcfcd53d52effe2e3dc01902303f0fbcd"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-tool-05-failures.md",
+    "series": "\"大模型训练研究笔记 · 工具交互卷\"",
+    "order": 5,
+    "english": [
+      "src/content/en-posts/llm-training-tool-05-failures.md"
+    ],
+    "chars": 3661,
+    "headings": 8,
+    "sha256": "f2a1bb336589562a87684972b3b2f2917528a5615338c80e285546d54d30c481",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-tool-05-failures.md": "fd7da8804b6d3a0503d7d46463821eb7426161d512ba4f311fac01e7d30d7c08"
+    }
+  },
+  {
+    "path": "src/content/posts/2026-10-23-llm-training-tool-06-evaluation.md",
+    "series": "\"大模型训练研究笔记 · 工具交互卷\"",
+    "order": 6,
+    "english": [
+      "src/content/en-posts/llm-training-tool-06-evaluation.md"
+    ],
+    "chars": 3665,
+    "headings": 9,
+    "sha256": "f88d8d6822372abe48ee1f505eb016aa5f97571f4a287b2baeb143a4354ed7c1",
+    "englishSha256": {
+      "src/content/en-posts/llm-training-tool-06-evaluation.md": "8ede8ea55b763a8bed5b41922bb7f7f7dcb33ce7c1ffd9827af2fe5d18338ea3"
+    }
+  }
+]

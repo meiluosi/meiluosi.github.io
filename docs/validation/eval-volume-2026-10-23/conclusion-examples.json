@@ -1,0 +1,8 @@
+{
+  "scope": "constructed records, not model results",
+  "original_sha256": "e00a89958d82cec9858bcbb5e25dfab4336475034fa411ccf37cb7015cb632c1",
+  "mean_paired_pp": 2.3333333333333335,
+  "candidate_attempts": 4,
+  "candidate_completed": 3,
+  "rejected_protocol_mutations": 4
+}

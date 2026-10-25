@@ -51,7 +51,7 @@ The processing order is fixed as well, and a few of its orderings are load-beari
 Stages should be auditable. If a cleaning stage takes ten thousand records and keeps eight thousand, rejects fifteen hundred, and quarantines five hundred, the counts balance. Quarantine is the third bucket: a JSON parse failure or a missing required field cannot yet be judged, and it belongs in an explicit error record rather than being quietly discarded as low quality. For stages that only keep or reject, the check is
 
 $$
-N_{\mathrm{input}}=N_{\mathrm{kept}}+N_{\mathrm{rejected}}+N_{\mathrm{quarantined}}.
+\begin{aligned}N_{\mathrm{input}}&=N_{\mathrm{kept}}+N_{\mathrm{rejected}}\\&\quad+N_{\mathrm{quarantined}}.\end{aligned}
 $$
 
 When one input expands into several segments the equation no longer applies, and the parent records, child records, and their correspondence have to be checked instead of forcing the row counts to match. Each stage should leave three things: the kept data, the specific processing records, and the summary statistics. Deduplication additionally states which document represents the removed copies, scoring records the model and prompt version, and filtering records the threshold and the reason for each hit. Changing a threshold then only requires rerunning the dependent stages, while replacing the extractor changes the body text and normally requires rescoring, refingerprinting, and retokenizing; whether a cache can be reused depends on the inputs, configuration, code, and tool versions together.

@@ -1,0 +1,3 @@
+
+> meiluosi-blog@6.13.5 type-check /Users/meros/Documents/GitHub/meiluosi.github.io
+> tsc --noEmit --isolatedDeclarations

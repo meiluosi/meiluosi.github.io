@@ -1,0 +1,19 @@
+{
+  "stale_cache_reproduced": true,
+  "corrected_orders": [
+    {
+      "A": 2,
+      "B": 4
+    },
+    {
+      "B": 4,
+      "A": 2
+    }
+  ],
+  "observation_copy": true,
+  "keyed_fault_orders": 2,
+  "counter_reset": true,
+  "replay_mismatch_rejected": true,
+  "replay_exhaustion_rejected": true,
+  "scope": "serial in-memory fixture; no model calls"
+}

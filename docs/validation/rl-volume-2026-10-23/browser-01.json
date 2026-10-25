@@ -1,0 +1,38 @@
+[
+  {
+    "lang": "zh",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 6,
+    "nodes": 75,
+    "title": "语言模型怎样构成强化学习问题：从一次回答到策略更新 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "nodes": 27,
+    "title": "Formulating Language Model Reinforcement Learning: Responses, Rewards, and Updates - 枫语"
+  },
+  {
+    "lang": "zh",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 6,
+    "nodes": 75,
+    "title": "语言模型怎样构成强化学习问题：从一次回答到策略更新 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "nodes": 27,
+    "title": "Formulating Language Model Reinforcement Learning: Responses, Rewards, and Updates - 枫语"
+  }
+]

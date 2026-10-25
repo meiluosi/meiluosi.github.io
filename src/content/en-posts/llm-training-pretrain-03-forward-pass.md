@@ -36,7 +36,7 @@ One trap has to be recorded early: the same shape does not mean the same meaning
 
 The embedding matrix $E$ has $V$ rows and $d$ columns. Encountering id 7 means taking row 7, and after looking up every input the result has shape $[B,T,d]=[2,4,8]$.
 
-The base vector of a token is the same wherever it appears. In "the apple is delicious" and "Apple released a product", the initial lookup cannot know whether the token denotes fruit or a company. That distinction has to form later, when the representation is combined with context. An embedding vector is not a dictionary in which the first number is "fruitness" and the second is "companyness"; training never assigned coordinates such meanings.
+The base vector of a token is the same wherever it appears. In "the apple is delicious" and "apple released a product", assume the fragment `apple` receives the same token id in both sentences. Its initial lookup then cannot distinguish fruit from company; capitalization or different token boundaries could instead produce different ids. That distinction has to form later, when the representation is combined with context. An embedding vector is not a dictionary in which the first number is "fruitness" and the second is "companyness"; training never assigned coordinates such meanings.
 
 If a model uses additive positional embeddings, the position vector is added at this stage. Models using RoPE usually handle position inside attention, on the query and key. The two should not be stacked in a diagram as one mandatory flow.
 
@@ -45,7 +45,7 @@ If a model uses additive positional embeddings, the position vector is added at 
 For a representation $H$, one attention head produces three sets of trainable projections:
 
 $$
-Q=HW_Q,\qquad K=HW_K,\qquad U=HW_U
+\begin{aligned}Q&=HW_Q,\\K&=HW_K,\\U&=HW_U.\end{aligned}
 $$
 
 Here $U$ denotes what is usually called the value, so it does not collide with the vocabulary size $V$. The query is the vector used for matching at the current position, the key is the vector other positions are matched against, and the value is the content actually aggregated. All three are numerical transformations, not a natural-language question, keyword, and answer written in by hand.
@@ -53,7 +53,7 @@ Here $U$ denotes what is usually called the value, so it does not collide with t
 The current query is dotted with each key to form matching scores. After scaling and masking, a softmax over the visible positions weights the values:
 
 $$
-A=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M\right),\qquad O=AU
+\begin{aligned}S&=\frac{QK^\top}{\sqrt{d_k}}+M,\\A&=\operatorname{softmax}(S),\\O&=AU.\end{aligned}
 $$
 
 The softmax runs along the direction of the positions being read. $M$ is zero where reading is allowed and negative infinity where it is forbidden, so forbidden positions receive zero weight. The original Transformer's scaled dot-product attention and the decoder's causal mask are the source of this mechanism (Attention Is All You Need, section 3).
@@ -63,16 +63,16 @@ The scale factor is not decoration. If the components of the query and key are i
 Suppose one position may read three earlier positions, and the dot products and scaling produce the scores $\log2,0,0$. The weights are:
 
 $$
-(2,1,1)/(2+1+1)=(0.5,0.25,0.25)
+\begin{aligned}(2,1,1)/4\\=(0.5,0.25,0.25).\end{aligned}
 $$
 
 With values $(2,0)$, $(0,4)$, and $(2,2)$, the output is:
 
 $$
-0.5(2,0)+0.25(0,4)+0.25(2,2)=(1.5,1.5)
+\begin{aligned}&0.5(2,0)+0.25(0,4)\\&\quad+0.25(2,2)\\&=(1.5,1.5).\end{aligned}
 $$
 
-Attention therefore mixes information from several positions instead of selecting one. The highest-scoring position contributes most, but the result is not a copy of it. These weights should not be called "the model's explanation": an output projection, a residual, a feed-forward network, and other layers still follow, and the value magnitudes differ as well. A large weight at one position does not automatically mean a large causal influence on the final answer. A controlled substitution can probe whether a position affects the output, but the substitution may itself create an unnatural input. A weight visualization is an observation; a causal claim needs additional evidence.
+Attention therefore mixes information from several positions instead of selecting one. The highest-scoring position gets the largest coefficient, but a contribution also depends on its value vector. In this example, the first two weighted vectors, $(1,0)$ and $(0,1)$, have equal magnitude despite different weights. The result is not a copy of the highest-scoring value. These weights should not be called "the model's explanation": an output projection, a residual, a feed-forward network, and other layers still follow, and the value magnitudes differ as well. A large weight at one position does not automatically mean a large causal influence on the final answer. A controlled substitution can probe whether a position affects the output, but the substitution may itself create an unnatural input. A weight visualization is an observation; a causal claim needs additional evidence.
 
 Multi-head attention does not mean that capabilities are assigned by hand. With two heads of four dimensions each, the query, key, and value can be arranged as $[B,h,T,d_h]=[2,2,4,4]$, and the attention weights over all heads are also $[2,2,4,4]$, the last two dimensions being the query position and the position being read. Each head's output is concatenated back to eight dimensions and passed through the output projection, keeping the shape $[2,4,8]$ so the residual addition works. Heads have different parameters and may learn different matching patterns, but nobody specifies "the first head handles grammar and the second head handles facts". That anthropomorphic reading makes the head count look like a countable set of ability modules. Some models let several query heads share fewer key and value heads, so the three counts cannot be assumed equal; the shape example here covers ordinary multi-head attention only.
 
@@ -83,8 +83,7 @@ Multi-head attention does not mean that capabilities are assigned by hand. With 
 A core move in RoPE is to rotate the query and the key by position. In two dimensions, with $R(\theta)$ a rotation matrix, position $m$ rotated by $m\theta$ and position $n$ rotated by $n\theta$:
 
 $$
-(R(m\theta)q)^\top R(n\theta)k
-=q^\top R((n-m)\theta)k
+\begin{aligned}&(R(m\theta)q)^\top R(n\theta)k\\&=q^\top R((n-m)\theta)k.\end{aligned}
 $$
 
 The relative position $n-m$ has entered the dot product. Higher-dimensional forms apply different frequencies to different two-dimensional component pairs, and an implementation must fix the pairing and the frequency configuration (RoFormer, section 3). The identity explains how relative position enters the scoring; it does not prove that a model handles unbounded context reliably. Beyond the training length, the position distribution, the difficulty of the task, and implementation limits can all change, so raising the configured maximum length is not a validated long-context capability.

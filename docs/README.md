@@ -4,6 +4,14 @@
 
 ## 文档索引
 
+[第五卷审校记录](./reasoning-rl-research.md)：强化学习问题建模、教学算例和页面验收。
+
+[第六卷审校记录](./tool-training-research.md)：工具交互轨迹、环境契约与页面验收。
+
+[第七卷审校记录](./evaluation-reproducibility-research.md)：实验设计、评测证据与工程复现。
+
+[七卷最终验收记录](./llm-training-series-final-audit.md)：42 篇正文、英文概览与统一页面验收。
+
 | 文档 | 说明 |
 |------|------|
 | [site-editorial-cleanup.md](./site-editorial-cleanup.md) | 标题表达、导航精简与交互文献卡片 |

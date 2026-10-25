@@ -1,0 +1,45 @@
+{
+  "kind": "independent-teaching-example-checks",
+  "attention_weights": [
+    0.5,
+    0.25,
+    0.25
+  ],
+  "attention_output": [
+    1.5,
+    1.5
+  ],
+  "rope_identity": true,
+  "packed_document_b_visible_at_position_5": [
+    4,
+    5
+  ],
+  "effective_targets": 5,
+  "gradient_descent": {
+    "0.5": [
+      2,
+      1.0,
+      0.5,
+      0.25
+    ],
+    "1.5": [
+      2,
+      -1.0,
+      0.5,
+      -0.25
+    ],
+    "2.5": [
+      2,
+      -3.0,
+      4.5,
+      -6.75
+    ]
+  },
+  "clipped_gradient": [
+    1.2,
+    1.6
+  ],
+  "nominal_positions": 32768,
+  "effective_targets_at_75_percent": 24576,
+  "limitations": "Arithmetic and mask semantics only; no model training or benchmark."
+}

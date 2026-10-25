@@ -1,0 +1,42 @@
+[
+  {
+    "lang": "zh",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "wideFormulas": [],
+    "nodes": 50,
+    "title": "怎样用 SFT 学会工具接口：格式、参数与任务完成要分开检查 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "wideFormulas": [],
+    "nodes": 21,
+    "title": "SFT for Tool Interfaces: Syntax, Arguments, and Task Completion - 枫语"
+  },
+  {
+    "lang": "zh",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 2,
+    "wideFormulas": [],
+    "nodes": 50,
+    "title": "怎样用 SFT 学会工具接口：格式、参数与任务完成要分开检查 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "wideFormulas": [],
+    "nodes": 21,
+    "title": "SFT for Tool Interfaces: Syntax, Arguments, and Task Completion - 枫语"
+  }
+]

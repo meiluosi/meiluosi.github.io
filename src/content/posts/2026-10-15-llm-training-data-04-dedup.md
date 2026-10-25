@@ -72,7 +72,7 @@ A 的片段集合是“模型、型学、学习、习数、数据”，B 的片�
 Jaccard 相似度就是“共有的种类”除以“合起来的全部种类”：
 
 $$
-J(A,B)=\frac{|A\cap B|}{|A\cup B|}=\frac{3}{7}\approx0.429.
+\begin{aligned}J(A,B)&=\frac{|A\cap B|}{|A\cup B|}\\&=\frac37\approx0.429.\end{aligned}
 $$
 
 这个短句例子只是解释算法，不是建议用 0.429 或字符二元组作为真实语料阈值。方法背景可见[信息检索教材的近重复章节](https://nlp.stanford.edu/IR-book/html/htmledition/near-duplicates-and-shingling-1.html)。
@@ -96,14 +96,13 @@ MinHash 的想法是：不保存所有片段来比较，而是给每个集合做
 两篇文档什么时候会记住同一个？只有当它们合起来的片段中，排在最前面的恰好属于共有部分。共有部分占所有部分的比例，就是 Jaccard。因此，在理想随机排列下：
 
 $$
-P[h_{\min}(A)=h_{\min}(B)]=J(A,B).
+\begin{aligned}a&=h_{\min}(A),\\b&=h_{\min}(B),\\P[a=b]&=J(A,B).\end{aligned}
 $$
 
 这就是 MinHash 的核心。一次排队太不稳定，就换很多个独立排列，分别记录最前面的片段。若共有 $m$ 个签名位置，就用对应位置相同的比例估计相似度：
 
 $$
-\widehat J(A,B)=\frac{1}{m}\sum_{j=1}^{m}
-\mathbf{1}[h_j(A)=h_j(B)].
+\begin{aligned}I_j&=\mathbf1[h_j(A)=h_j(B)],\\\widehat J(A,B)&=\frac1m\sum_{j=1}^{m}I_j.\end{aligned}
 $$
 
 例如，100 个对应位置里有 80 个相同，估计值就是 0.8。它是估计，不是精确结论。注意比较的是第一个对第一个、第二个对第二个，不能把签名值混成一堆再数相同数量。

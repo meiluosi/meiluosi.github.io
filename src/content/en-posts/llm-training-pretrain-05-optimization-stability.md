@@ -79,7 +79,7 @@ A larger effective batch also changes the fluctuation of the gradient estimate a
 Warmup raises the learning rate gradually to a preset level at the start of training, which softens aggressive early updates, after which the rate may be lowered by a fixed rule. In the teaching design, the first one hundred updates warm up linearly to a maximum $\eta_{\max}$, and update $t$ uses:
 
 $$
-\eta_t=\eta_{\max}\min(t/100,1),\qquad t\ge1
+\begin{aligned}\eta_t&=\eta_{\max}\min(t/100,1),\\&\qquad t\ge1.\end{aligned}
 $$
 
 So the first update uses one percent of the maximum and the hundredth reaches it. Whether the step counter starts at zero or at one, and whether the scheduler advances before or after the update, are details that shift the schedule by a full step. Changing the effective batch also means the same one hundred updates consume a different number of tokens, so a warmup reported only as a percentage has to state whether its denominator is planned steps or a token budget. Warmup does not repair shifted labels, a wrong mask, or a validation set full of duplicates: when a curve misbehaves, confirm the task and the numbers before touching the schedule.

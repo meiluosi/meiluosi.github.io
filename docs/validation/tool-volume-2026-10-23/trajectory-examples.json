@@ -1,0 +1,31 @@
+{
+  "article_fixture": "passed",
+  "stock_pairs": 36,
+  "selections": {
+    "HZ": 18,
+    "SZ": 9,
+    "none": 9
+  },
+  "rejected_corruptions": [
+    "orphan-result",
+    "wrong-item",
+    "wrong-argument-type",
+    "unknown-tool",
+    "invented-stock",
+    "boolean-stock",
+    "stale-snapshot",
+    "duplicate-call-id",
+    "failure-as-stock",
+    "wrong-selection",
+    "false-reservation",
+    "wrong-result-warehouse",
+    "missing-result",
+    "duplicate-result",
+    "premature-final",
+    "action-after-final",
+    "result-before-call",
+    "unnecessary-query"
+  ],
+  "natural_language_semantics": "not checked",
+  "model_invocations": 0
+}

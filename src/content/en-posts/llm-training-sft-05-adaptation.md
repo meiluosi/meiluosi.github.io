@@ -56,7 +56,7 @@ $$
 BA=\begin{bmatrix}2&-2&0\\1&-1&0\end{bmatrix}.
 $$
 
-The second row is half the first, so the update can only vary along one independent direction. For the input $x=(3,1,4)^\top$, first $Ax=2$, then $B(Ax)=(4,2)^\top$. With $s=1$, the original output simply gains $(4,2)$. Multiplying the full matrix $BA$ by $x$ directly gives the same result. In this small example the original matrix has six parameters while the two factors together have five, so little is saved. LoRA's parameter advantage generally appears when the matrix dimensions are far larger than $r$; a rank of one by itself does not imply a large saving.
+The second row is half the first, so this matrix has rank one. With these factors fixed, its output lies along the direction given by $B$; training can change that direction by changing the factors. For the input $x=(3,1,4)^\top$, first $Ax=2$, then $B(Ax)=(4,2)^\top$. With $s=1$, the original output simply gains $(4,2)$. Multiplying the full matrix $BA$ by $x$ directly gives the same result. In this small example the original matrix has six parameters while the two factors together have five, so little is saved. LoRA's parameter advantage generally appears when the matrix dimensions are far larger than $r$; a rank of one by itself does not imply a large saving.
 
 ## How the parameter share is computed
 
@@ -74,7 +74,7 @@ Choosing target layers is a separate decision from choosing the rank: a higher r
 
 One LoRA initialization makes $A$ random and $B$ zero, so the initial increment is zero and the layer starts out consistent with the base layer ([LoRA initialization](https://arxiv.org/html/2106.09685v2#S4)). If both factors are zero, the ordinary gradient of the product is also zero at that step: the gradient of $A$ depends on $B$ and the gradient of $B$ depends on $A$, so the branch cannot start learning from that initialization. Under $A$ random and $B=0$, the gradient of $A$ may be zero at the first step, but $B$ usually receives signal; once $B$ is nonzero, $A$ starts to change. Seeing one factor unchanged at the start is not by itself evidence of a broken implementation.
 
-Real libraries support other initializations and scaling variants. The fixed-version PEFT documentation distinguishes standard scaling from a rank-stabilized option that uses a different rank scaling, so two comparisons that write the same $r$ while changing the scaling and initialization are not comparable ([PEFT 0.17.0 LoRA configuration](https://huggingface.co/docs/peft/v0.17.0/package_reference/lora)).
+Real libraries support other initializations and scaling variants. The fixed-version PEFT documentation distinguishes standard scaling from a rank-stabilized option that uses a different rank scaling, so equal $r$ does not isolate the effect of rank if scaling and initialization also change; the experiment then compares whole configurations ([PEFT 0.17.0 LoRA configuration](https://huggingface.co/docs/peft/v0.17.0/package_reference/lora)).
 
 Fewer trained weights does not remove the base model from the backward path. With the base weights frozen, their parameter gradients and optimizer state are usually unnecessary. Training the adapter still has to know how the output changes with the adapter, and gradients can propagate through frozen layers toward earlier trainable parts. Activations, temporary buffers, the base weights, and the adapter state therefore still occupy memory, and longer inputs and larger batches can still exhaust it.
 

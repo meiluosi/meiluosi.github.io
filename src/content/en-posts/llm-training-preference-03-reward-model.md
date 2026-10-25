@@ -86,7 +86,7 @@ Numerically, implementations usually use a stable log-sigmoid or softplus, to av
 If a constant $c(x)$ is added to every score for the same prompt, the difference is unchanged:
 
 $$
-[r_A+c(x)]-[r_B+c(x)]=r_A-r_B.
+\begin{aligned}r_A^{\prime}&=r_A+c(x),\\r_B^{\prime}&=r_B+c(x),\\r_A^{\prime}-r_B^{\prime}&=r_A-r_B.\end{aligned}
 $$
 
 So the pairs (2,1) and (102,101) give the same pairwise probability. A score of 102 cannot be said to be fifty-one times better than a score of 2 on another prompt.
@@ -106,7 +106,7 @@ A scalar carries an expressiveness assumption as well. For a fixed prompt, if th
 If a pair receives several independent judgments and A is chosen with proportion $q$, a soft-label cross-entropy can be used:
 
 $$
-\ell_q=-q\log p-(1-q)\log(1-p),
+\begin{aligned}\ell_q&=-q\log p\\&\quad-(1-q)\log(1-p).\end{aligned}
 $$
 
 where $p=\sigma(r_A-r_B)$. When the probability for the pair is treated as an independently adjustable quantity and no other constraint is imposed, the optimum is $p=q$.

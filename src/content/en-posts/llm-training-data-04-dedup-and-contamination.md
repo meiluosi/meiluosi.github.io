@@ -42,7 +42,7 @@ The normalization rules cannot be aggressive. Two configurations — "set the le
 A long document that differs by one line has a different whole-document fingerprint. Splitting the text into many consecutive small fragments and counting shared fragments identifies such cases. A fragment of this kind is a **shingle**. The source illustrates it with two short strings and two-character shingles, using Chinese text; written here in Latin script so the example survives translation, A = `abcdef` yields {ab, bc, cd, de, ef} and B = `abcdxy` yields {ab, bc, cd, dx, xy}. Three shingles are shared and seven distinct shingles appear in total, so the Jaccard similarity — shared kinds over all kinds — is
 
 $$
-J(A,B)=\frac{|A\cap B|}{|A\cup B|}=\frac{3}{7}\approx0.429.
+\begin{aligned}J(A,B)&=\frac{|A\cap B|}{|A\cup B|}\\&=\frac37\approx0.429.\end{aligned}
 $$
 
 That short string exists to explain the algorithm; it is not a recommendation to use 0.429 or character bigrams as a threshold on real corpora. The background for this method is the near-duplicates and shingling chapter of an information retrieval textbook. The shingle unit can be characters, words, or model tokens. Shorter shingles make ordinary phrases collide more often; longer ones let a small local edit break shingle agreement. Text shorter than the shingle length needs separate handling rather than being folded into one group of empty sets.
@@ -54,14 +54,13 @@ The important miss is containment. If a short document appears in full inside a 
 Even with shingle sets available, comparing every pair of a million documents is expensive: with $N$ documents there are about $N(N-1)/2$ pairs, so doubling the corpus roughly quadruples the work. MinHash replaces full sets with a short signature that estimates Jaccard. Imagine all possible shingles placed in a random order, where each document remembers only the first shingle that belongs to it. Two documents collide exactly when the earliest shingle among their combined set lies in the shared part, and the shared part's share of all shingles is the Jaccard similarity, so under ideal random ordering
 
 $$
-P[h_{\min}(A)=h_{\min}(B)]=J(A,B).
+\begin{aligned}a&=h_{\min}(A),\\b&=h_{\min}(B),\\P[a=b]&=J(A,B).\end{aligned}
 $$
 
 One ordering is too unstable, so many independent permutations are used and the first shingle under each is recorded. With $m$ signature positions, the estimate is the fraction of positions that agree:
 
 $$
-\widehat J(A,B)=\frac{1}{m}\sum_{j=1}^{m}
-\mathbf{1}[h_j(A)=h_j(B)].
+\begin{aligned}I_j&=\mathbf1[h_j(A)=h_j(B)],\\\widehat J(A,B)&=\frac1m\sum_{j=1}^{m}I_j.\end{aligned}
 $$
 
 With 100 positions agreeing in 80 cases, the estimate is 0.8 — an estimate, not a conclusion. Positions must be compared position by position; pooling the signature values and counting equal ones is a different procedure. Under ideal independence the estimate has variance $J(1-J)/m$, so longer signatures fluctuate less at the cost of computation, storage, and transfer. Real implementations approximate the random permutation with a hash family, which brings hash design and collisions into the picture, and every document must use the same shingle definition, normalization rules, and seed.
@@ -69,7 +68,7 @@ With 100 positions agreeing in 80 cases, the estimate is 0.8 — an estimate, no
 MinHash compresses each document but does not reduce the number of pairs, so LSH — locality-sensitive hashing — decides which pairs are worth comparing. The signature is split into $b$ bands of $r$ rows, and any single band that matches exactly puts two documents on a candidate list. With $b$ bands, $r$ rows each, and true similarity $s$, under ideal per-row independence a row matches with probability $s$, a whole band matches with probability $s^r$, and all bands differ with probability $(1-s^r)^b$, so the probability of becoming a candidate is
 
 $$
-P(\text{candidate}\mid s)=1-(1-s^r)^b.
+\begin{aligned}P(\text{candidate}\mid s)\\=1-(1-s^r)^b.\end{aligned}
 $$
 
 For $b=14$ and $r=8$, the resulting teaching values are:

@@ -1,0 +1,62 @@
+[
+  {
+    "page": "dist/en/posts/llm-training-sft-01-demonstrations/index.html",
+    "links": 84,
+    "broken": []
+  },
+  {
+    "page": "dist/en/posts/llm-training-sft-02-messages-and-templates/index.html",
+    "links": 81,
+    "broken": []
+  },
+  {
+    "page": "dist/en/posts/llm-training-sft-03-loss-mask/index.html",
+    "links": 83,
+    "broken": []
+  },
+  {
+    "page": "dist/en/posts/llm-training-sft-04-data-selection/index.html",
+    "links": 90,
+    "broken": []
+  },
+  {
+    "page": "dist/en/posts/llm-training-sft-05-adaptation/index.html",
+    "links": 87,
+    "broken": []
+  },
+  {
+    "page": "dist/en/posts/llm-training-sft-06-evaluation/index.html",
+    "links": 93,
+    "broken": []
+  },
+  {
+    "page": "dist/posts/2026-10-20-llm-training-sft-01-demonstrations/index.html",
+    "links": 111,
+    "broken": []
+  },
+  {
+    "page": "dist/posts/2026-10-20-llm-training-sft-02-messages/index.html",
+    "links": 100,
+    "broken": []
+  },
+  {
+    "page": "dist/posts/2026-10-20-llm-training-sft-03-loss-mask/index.html",
+    "links": 110,
+    "broken": []
+  },
+  {
+    "page": "dist/posts/2026-10-20-llm-training-sft-04-data/index.html",
+    "links": 105,
+    "broken": []
+  },
+  {
+    "page": "dist/posts/2026-10-20-llm-training-sft-05-adaptation/index.html",
+    "links": 113,
+    "broken": []
+  },
+  {
+    "page": "dist/posts/2026-10-20-llm-training-sft-06-evaluation/index.html",
+    "links": 116,
+    "broken": []
+  }
+]

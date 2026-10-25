@@ -1,0 +1,11 @@
+{
+  "kind": "article code and synthetic checks; no model training",
+  "output_cases": 18,
+  "enumerated_candidates": 10584,
+  "invalid_task_cases": 3,
+  "mutation_witnesses": 2,
+  "composite_reward_A": 0.6,
+  "composite_reward_B": 0.6,
+  "complete_success_A": 0.5,
+  "complete_success_B": 0.6
+}

@@ -89,7 +89,7 @@ $$
 如果对同一提示下所有回答都加上常数 $c(x)$，差值不变：
 
 $$
-[r_A+c(x)]-[r_B+c(x)]=r_A-r_B
+\begin{aligned}r_A^{\prime}&=r_A+c(x),\\r_B^{\prime}&=r_B+c(x),\\r_A^{\prime}-r_B^{\prime}&=r_A-r_B.\end{aligned}
 $$
 
 因此，(2,1) 与 (102,101) 给出相同的成对概率。单看“奖励为 102”，不能说回答比奖励为 2 的另一个提示好五十一倍。
@@ -115,7 +115,7 @@ $$
 如果同一对回答有多次独立判断，A 被选择的比例为 $q$，可以考虑使用软标签交叉熵：
 
 $$
-\ell_q=-q\log p-(1-q)\log(1-p)
+\begin{aligned}\ell_q&=-q\log p\\&\quad-(1-q)\log(1-p).\end{aligned}
 $$
 
 其中 $p=\sigma(r_A-r_B)$。在把这一对的概率当作独立可调量、且不加其他约束时，最优值为 $p=q$。

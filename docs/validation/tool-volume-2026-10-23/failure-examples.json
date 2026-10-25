@@ -1,0 +1,11 @@
+{
+  "first_action_targets": 1,
+  "recovery_targets": 1,
+  "wrong_action_targets": 0,
+  "stale_result_rejected": true,
+  "original_preserved": true,
+  "retained": 55,
+  "easy_fraction": 0.8181818181818182,
+  "model_runs": 0,
+  "scope": "event target selection and fixture execution; no tokenization"
+}

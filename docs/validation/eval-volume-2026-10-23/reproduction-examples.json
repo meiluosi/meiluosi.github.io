@@ -1,0 +1,29 @@
+{
+  "checkpoint": {
+    "w": 0.28,
+    "v": -1.8,
+    "step": 2
+  },
+  "resumed": {
+    "w": 0.514,
+    "v": -2.34,
+    "step": 3
+  },
+  "weights_only": {
+    "w": 0.35200000000000004,
+    "v": -0.72,
+    "step": 3
+  },
+  "changed_data": {
+    "w": 0.6140000000000001,
+    "v": -3.34,
+    "step": 3
+  },
+  "float_orders": [
+    1.0,
+    0.0
+  ],
+  "microbatch_mean": 0.6,
+  "token_mean": 0.8,
+  "neural_network_runs": 0
+}

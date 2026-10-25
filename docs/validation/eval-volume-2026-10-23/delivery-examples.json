@@ -1,0 +1,17 @@
+{
+  "scope": "toy arithmetic and protocol only",
+  "rounding_paths": [
+    "0.2",
+    "0.14",
+    "0.1"
+  ],
+  "paired_counts": {
+    "both_pass": 70,
+    "repaired": 5,
+    "regressed": 5,
+    "both_fail": 20
+  },
+  "reference_rate": 0.75,
+  "candidate_rate": 0.75,
+  "regressions": 5
+}

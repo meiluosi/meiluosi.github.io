@@ -1,0 +1,170 @@
+[
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_conclusions.py",
+    "exit": 0,
+    "stdout": "{\"scope\": \"constructed records, not model results\", \"original_sha256\": \"e00a89958d82cec9858bcbb5e25dfab4336475034fa411ccf37cb7015cb632c1\", \"mean_paired_pp\": 2.3333333333333335, \"candidate_attempts\": 4, \"candidate_completed\": 3, \"rejected_protocol_mutations\": 4}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_costs.py",
+    "exit": 0,
+    "stdout": "{\"nonpadding\": 2000, \"targets\": 400, \"padding\": 48, \"throughputs\": [4000, 800, 4096], \"approx_flops\": 6000000000000000, \"attention_square_ratio\": 2.0, \"assumed_bytes\": 1600000000, \"assumed_gib\": 1.4901161193847656, \"optimized_minutes\": 65.0, \"speedup\": 1.5384615384615385, \"search_hours\": 20, \"hardware_measurements\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_delivery.py",
+    "exit": 0,
+    "stdout": "{\"scope\": \"toy arithmetic and protocol only\", \"rounding_paths\": [\"0.2\", \"0.14\", \"0.1\"], \"paired_counts\": {\"both_pass\": 70, \"repaired\": 5, \"regressed\": 5, \"both_fail\": 20}, \"reference_rate\": 0.75, \"candidate_rate\": 0.75, \"regressions\": 5}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_evidence.py",
+    "exit": 0,
+    "stdout": "{\"stable_pairs\": 8, \"total_pairs\": 10, \"consistency\": 0.8, \"win_fraction\": 0.4, \"decisive_win_fraction\": 0.5714285714285714, \"tie_half_score\": 0.55, \"always_pass_agreement\": 0.9, \"failure_detection\": 0.0, \"judge_calls\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_experiments.py",
+    "exit": 0,
+    "stdout": "{\"paired_differences\": [4, 2, 1], \"paired_mean\": 2.3333333333333335, \"cherry_picked_difference\": 12, \"interaction\": 7, \"mixture_A\": 0.83, \"mixture_B\": 0.88, \"standardized_B\": 0.7999999999999999, \"training_runs\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_links.py",
+    "exit": 0,
+    "stdout": "[{\"page\": \"dist/en/posts/llm-training-eval-01-experiments/index.html\", \"links\": 57, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-eval-02-evidence/index.html\", \"links\": 54, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-eval-03-costs/index.html\", \"links\": 59, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-eval-04-reproduction/index.html\", \"links\": 58, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-eval-05-delivery/index.html\", \"links\": 60, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-eval-06-conclusions/index.html\", \"links\": 58, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-eval-01-experiments/index.html\", \"links\": 88, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-eval-02-evidence/index.html\", \"links\": 85, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-eval-03-costs/index.html\", \"links\": 94, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-eval-04-reproduction/index.html\", \"links\": 94, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-eval-05-delivery/index.html\", \"links\": 106, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-eval-06-conclusions/index.html\", \"links\": 102, \"broken\": []}]\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/eval-volume-2026-10-23/check_reproduction.py",
+    "exit": 0,
+    "stdout": "{\"checkpoint\": {\"w\": 0.28, \"v\": -1.8, \"step\": 2}, \"resumed\": {\"w\": 0.514, \"v\": -2.34, \"step\": 3}, \"weights_only\": {\"w\": 0.35200000000000004, \"v\": -0.72, \"step\": 3}, \"changed_data\": {\"w\": 0.6140000000000001, \"v\": -3.34, \"step\": 3}, \"float_orders\": [1.0, 0.0], \"microbatch_mean\": 0.6, \"token_mean\": 0.8, \"neural_network_runs\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/preference-volume-2026-10-20/check_correctness.py",
+    "exit": 0,
+    "stdout": "{\"scope\": \"constructed data only\", \"length_correctness_correlation\": 0.04434600701584926, \"checkpoint_correlations\": [0.9869982413952431, -0.9486607745260337, 0.8397276770097116, -0.9755265864504463], \"length_ratio\": 3.4166666666666665, \"judge_selected_correct\": 0.25, \"length_selected_correct\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/preference-volume-2026-10-20/check_dpo.py",
+    "exit": 0,
+    "stdout": "DPO loss, gradients, normalized counterexample and optimum identity passed\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/preference-volume-2026-10-20/check_examples.py",
+    "exit": 0,
+    "stdout": "{\n  \"kind\": \"teaching-example-checks\",\n  \"pair_record_valid\": true,\n  \"BT_probabilities\": [\n    0.5,\n    0.75,\n    0.8999999999999999,\n    0.25\n  ],\n  \"losses\": [\n    0.6931471805599453,\n    0.2876820724517809,\n    1.3862943611198908\n  ],\n  \"finite_difference_gradient_passed\": true,\n  \"translation_invariant\": true,\n  \"scaling_changes_probability\": true,\n  \"four_candidates_pairs\": [\n    [\n      0,\n      1\n    ],\n    [\n      0,\n      2\n    ],\n    [\n      0,\n      3\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      1,\n      3\n    ],\n    [\n      2,\n      3\n    ]\n  ],\n  \"scope\": \"Toy arithmetic and record structure only; no trained model.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/preference-volume-2026-10-20/check_online.py",
+    "exit": 0,
+    "stdout": "{\"logit_direction\": [0.11019861650579846, 0, -0.05446745312956918, -0.05573116337622928], \"weighted_mean\": -0.03869588680169547, \"y2_log_probability_derivative\": 0.03869588680169547, \"coverage\": {\"20\": 0.6415140775914581, \"200\": 0.9999649473337512}, \"expected_pairs_exactly_one_y1\": 9.5, \"online_answers_50_steps\": 10000, \"online_pair_judgments_50_steps\": 5000, \"scope\": \"toy only\"}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/pretrain-volume-2026-10-20/check_examples.py",
+    "exit": 0,
+    "stdout": "{\n  \"kind\": \"independent-teaching-example-checks\",\n  \"attention_weights\": [\n    0.5,\n    0.25,\n    0.25\n  ],\n  \"attention_output\": [\n    1.5,\n    1.5\n  ],\n  \"rope_identity\": true,\n  \"packed_document_b_visible_at_position_5\": [\n    4,\n    5\n  ],\n  \"effective_targets\": 5,\n  \"gradient_descent\": {\n    \"0.5\": [\n      2,\n      1.0,\n      0.5,\n      0.25\n    ],\n    \"1.5\": [\n      2,\n      -1.0,\n      0.5,\n      -0.25\n    ],\n    \"2.5\": [\n      2,\n      -3.0,\n      4.5,\n      -6.75\n    ]\n  },\n  \"clipped_gradient\": [\n    1.2,\n    1.6\n  ],\n  \"nominal_positions\": 32768,\n  \"effective_targets_at_75_percent\": 24576,\n  \"limitations\": \"Arithmetic and mask semantics only; no model training or benchmark.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_evaluation.py",
+    "exit": 0,
+    "stdout": "{\"kind\": \"synthetic evaluation arithmetic, no model evaluation\", \"pass_k_observation\": 0.6666666666666667, \"pass_k_expectation\": 0.5904000000000004, \"before\": 0.6, \"after\": 0.7, \"repairs\": 20, \"regressions\": 10, \"entropy_uniform\": 1.3862943611198906, \"entropy_concentrated\": 0.9404479886553263}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_formulation.py",
+    "exit": 0,
+    "stdout": "Arithmetic and boundary checks passed\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_grpo.py",
+    "exit": 0,
+    "stdout": "{\"kind\": \"constructed arithmetic, no GRPO model training\", \"population_std\": 0.4330127018922193, \"population_advantages\": [1.7320508075688774, -0.5773502691896258, -0.5773502691896258, -0.5773502691896258], \"sample_std\": 0.5, \"sample_advantages\": [1.5, -0.5, -0.5, -0.5], \"mixed_group_probabilities\": {\"4\": 0.5887999999999999, \"8\": 0.83222528}, \"sequence_mean\": 0.0, \"token_mean\": -0.6}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_links.py",
+    "exit": 0,
+    "stdout": "[{\"page\": \"dist/en/posts/llm-training-rl-01-formulation/index.html\", \"links\": 70, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-rl-02-verifiers/index.html\", \"links\": 68, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-rl-03-policy-gradient/index.html\", \"links\": 63, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-rl-04-ppo/index.html\", \"links\": 65, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-rl-05-grpo/index.html\", \"links\": 62, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-rl-06-evaluation/index.html\", \"links\": 67, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-rl-01-formulation/index.html\", \"links\": 131, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-rl-02-verifiers/index.html\", \"links\": 96, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-rl-03-policy-gradient/index.html\", \"links\": 112, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-rl-04-ppo/index.html\", \"links\": 123, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-rl-05-grpo/index.html\", \"links\": 113, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-rl-06-evaluation/index.html\", \"links\": 107, \"broken\": []}]\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_policy_gradient.py",
+    "exit": 0,
+    "stdout": "{\"kind\": \"finite-policy arithmetic, no LLM training\", \"gradient\": [0.16000000000000003, -0.06, -0.08000000000000002, -0.020000000000000004], \"updated_probabilities\": [0.20362400688512758, 0.2987897945360646, 0.3975904161711924, 0.09999578240761538], \"first_coordinate_variances\": {\"0\": 0.10240000000000002, \"0.2\": 0.05760000000000002, \"2\": 0.23040000000000005}, \"two_sample_inclusive\": [0.08000000000000002, -0.03, -0.04000000000000001, -0.010000000000000002], \"two_sample_loo\": [0.16000000000000003, -0.06, -0.08000000000000002, -0.020000000000000004]}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_ppo.py",
+    "exit": 0,
+    "stdout": "{\"kind\": \"constructed PPO arithmetic, no model training\", \"clip_cases\": [[2, 1.4, 2.4, 0], [2, 0.6, 1.2, 2], [-2, 0.6, -1.6, 0], [-2, 1.4, -2.8, -2]], \"td_residuals\": [0.2, 0.29999999999999993, 0.30000000000000004], \"gae_half\": [0.425, 0.44999999999999996, 0.30000000000000004], \"gae_one\": [0.8, 0.6, 0.30000000000000004], \"cutoff_bootstrap\": [0.49999999999999994, 0.29999999999999993]}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/rl-volume-2026-10-23/check_verifiers.py",
+    "exit": 0,
+    "stdout": "{\"kind\": \"article code and synthetic checks; no model training\", \"output_cases\": 18, \"enumerated_candidates\": 10584, \"invalid_task_cases\": 3, \"mutation_witnesses\": 2, \"composite_reward_A\": 0.6, \"composite_reward_B\": 0.6, \"complete_success_A\": 0.5, \"complete_success_B\": 0.6}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/sft-volume-2026-10-20/check_adaptation_evaluation.py",
+    "exit": 0,
+    "stdout": "{\n  \"kind\": \"independent-teaching-example-validation\",\n  \"BA\": [\n    [\n      2,\n      -2,\n      0\n    ],\n    [\n      1,\n      -1,\n      0\n    ]\n  ],\n  \"adapter_output\": [\n    4,\n    2\n  ],\n  \"full_matrix_parameters\": 16777216,\n  \"adapter_parameters\": 65536,\n  \"adapter_percentage\": 0.390625,\n  \"ideal_weight_storage_GiB\": {\n    \"4_bit\": 0.46566128730773926,\n    \"16_bit\": 1.862645149230957\n  },\n  \"paired_outcomes\": {\n    \"both_correct\": 66,\n    \"fixed\": 12,\n    \"regressed\": 4,\n    \"both_wrong\": 18\n  },\n  \"all_null_field_accuracy\": 0.6666666666666666,\n  \"boolean_step_rejected\": true,\n  \"scope\": \"Toy algebra, units and metric counts only; no training or hardware measurement.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/sft-volume-2026-10-20/check_examples.py",
+    "exit": 0,
+    "stdout": "{\n  \"kind\": \"published-teaching-example-validation\",\n  \"json_outer_and_inner_agree\": true,\n  \"answer\": {\n    \"model\": \"Cedar-30M\",\n    \"learning_rate\": 0.0002,\n    \"steps\": null\n  },\n  \"shifted_output_target_pairs\": [\n    [\n      4,\n      5\n    ],\n    [\n      5,\n      6\n    ],\n    [\n      6,\n      3\n    ]\n  ],\n  \"incorrect_output_mask_loses_first_answer\": true,\n  \"token_weighted_loss\": 2.6,\n  \"sample_weighted_loss\": 2.0,\n  \"scope\": \"Checks JSON serialization and toy label alignment, not a real tokenizer or training run.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_environments.py",
+    "exit": 0,
+    "stdout": "{\"stale_cache_reproduced\": true, \"corrected_orders\": [{\"A\": 2, \"B\": 4}, {\"B\": 4, \"A\": 2}], \"observation_copy\": true, \"keyed_fault_orders\": 2, \"counter_reset\": true, \"replay_mismatch_rejected\": true, \"replay_exhaustion_rejected\": true, \"scope\": \"serial in-memory fixture; no model calls\"}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_evaluation.py",
+    "exit": 0,
+    "stdout": "{\"subsets\": 10, \"coverage\": 1.0, \"reliability\": 0.4, \"binomial_checks\": 108, \"all_task_calls\": 3, \"all_task_seconds\": 9.5, \"success_only_calls\": 1.5, \"amortized_calls\": 6, \"before\": 0.65, \"after\": 0.75, \"regressions\": 5, \"model_runs\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_failures.py",
+    "exit": 0,
+    "stdout": "{\"first_action_targets\": 1, \"recovery_targets\": 1, \"wrong_action_targets\": 0, \"stale_result_rejected\": true, \"original_preserved\": true, \"retained\": 55, \"easy_fraction\": 0.8181818181818182, \"model_runs\": 0, \"scope\": \"event target selection and fixture execution; no tokenization\"}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_links.py",
+    "exit": 0,
+    "stdout": "[{\"page\": \"dist/en/posts/llm-training-tool-01-trajectories/index.html\", \"links\": 62, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-tool-02-supervision/index.html\", \"links\": 68, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-tool-03-rewards/index.html\", \"links\": 59, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-tool-04-environments/index.html\", \"links\": 64, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-tool-05-failures/index.html\", \"links\": 64, \"broken\": []}, {\"page\": \"dist/en/posts/llm-training-tool-06-evaluation/index.html\", \"links\": 56, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-tool-01-trajectories/index.html\", \"links\": 123, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-tool-02-supervision/index.html\", \"links\": 103, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-tool-03-rewards/index.html\", \"links\": 96, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-tool-04-environments/index.html\", \"links\": 105, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-tool-05-failures/index.html\", \"links\": 98, \"broken\": []}, {\"page\": \"dist/posts/2026-10-23-llm-training-tool-06-evaluation/index.html\", \"links\": 87, \"broken\": []}]\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_rewards.py",
+    "exit": 0,
+    "stdout": "{\"returns\": [0.9, 0.95, 1], \"discounted\": [0.7150000000000001, 0.85, 1.0], \"shaping_paths\": 243, \"retry_success\": 0.9600000000000002, \"retry_calls\": 1.2000000000000002, \"correlated_retry_success\": 0.8, \"model_runs\": 0}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_supervision.py",
+    "exit": 0,
+    "stdout": "{\"decision_event_indices\": [0, 2, 4], \"target_counts_once\": 20, \"target_counts_repeated\": 34, \"repeated_span_counts\": [12, 12, 10], \"token_mean\": 0.5, \"repeated_token_mean\": 0.5882352941176471, \"equal_decision_mean\": 0.5666666666666667, \"illustrative_rates\": {\"syntax\": 0.9, \"semantic\": 0.72, \"conditional_semantic\": 0.8, \"task\": 0.54}, \"scope\": \"event prefixes and synthetic labels; no tokenizer or model run\"}\n",
+    "stderr": ""
+  },
+  {
+    "script": "docs/validation/tool-volume-2026-10-23/check_trajectories.py",
+    "exit": 0,
+    "stdout": "{\"article_fixture\": \"passed\", \"stock_pairs\": 36, \"selections\": {\"HZ\": 18, \"SZ\": 9, \"none\": 9}, \"rejected_corruptions\": [\"orphan-result\", \"wrong-item\", \"wrong-argument-type\", \"unknown-tool\", \"invented-stock\", \"boolean-stock\", \"stale-snapshot\", \"duplicate-call-id\", \"failure-as-stock\", \"wrong-selection\", \"false-reservation\", \"wrong-result-warehouse\", \"missing-result\", \"duplicate-result\", \"premature-final\", \"action-after-final\", \"result-before-call\", \"unnecessary-query\"], \"natural_language_semantics\": \"not checked\", \"model_invocations\": 0}\n",
+    "stderr": ""
+  }
+]

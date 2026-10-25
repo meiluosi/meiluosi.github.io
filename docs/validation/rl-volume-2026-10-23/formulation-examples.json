@@ -1,0 +1,37 @@
+{
+  "kind": "constructed arithmetic only; no model run",
+  "expected_reward": 0.2,
+  "four_independent_samples": 0.5903999999999999,
+  "boundaries": [
+    {
+      "a": 2,
+      "b": 12,
+      "n": 4
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "n": 0
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "n": 0
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "n": 1
+    },
+    {
+      "a": 2,
+      "b": 5,
+      "n": 1
+    },
+    {
+      "a": 2,
+      "b": 6,
+      "n": 2
+    }
+  ]
+}

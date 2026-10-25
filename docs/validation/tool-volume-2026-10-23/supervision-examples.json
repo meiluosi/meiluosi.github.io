@@ -1,0 +1,24 @@
+{
+  "decision_event_indices": [
+    0,
+    2,
+    4
+  ],
+  "target_counts_once": 20,
+  "target_counts_repeated": 34,
+  "repeated_span_counts": [
+    12,
+    12,
+    10
+  ],
+  "token_mean": 0.5,
+  "repeated_token_mean": 0.5882352941176471,
+  "equal_decision_mean": 0.5666666666666667,
+  "illustrative_rates": {
+    "syntax": 0.9,
+    "semantic": 0.72,
+    "conditional_semantic": 0.8,
+    "task": 0.54
+  },
+  "scope": "event prefixes and synthetic labels; no tokenizer or model run"
+}

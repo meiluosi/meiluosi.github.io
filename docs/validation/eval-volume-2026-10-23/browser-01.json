@@ -1,0 +1,42 @@
+[
+  {
+    "lang": "zh",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 1,
+    "wideFormulas": [],
+    "nodes": 35,
+    "title": "怎样设计能回答问题的训练对照：假设、基线与重复实验 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "wideFormulas": [],
+    "nodes": 14,
+    "title": "Training Comparisons That Answer a Question: Hypotheses, Baselines, and Repeats - 枫语"
+  },
+  {
+    "lang": "zh",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 1,
+    "wideFormulas": [],
+    "nodes": 35,
+    "title": "怎样设计能回答问题的训练对照：假设、基线与重复实验 - 枫语"
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "overflow": false,
+    "katexErrors": 0,
+    "formulas": 0,
+    "wideFormulas": [],
+    "nodes": 14,
+    "title": "Training Comparisons That Answer a Question: Hypotheses, Baselines, and Repeats - 枫语"
+  }
+]

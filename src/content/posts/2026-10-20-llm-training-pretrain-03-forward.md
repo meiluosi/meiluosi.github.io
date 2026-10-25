@@ -49,7 +49,7 @@ lang: zh
 对当前序列的表示 $H$，一个注意力头通过三组可训练矩阵得到：
 
 $$
-Q=HW_Q,\qquad K=HW_K,\qquad U=HW_U
+\begin{aligned}Q&=HW_Q,\\K&=HW_K,\\U&=HW_U.\end{aligned}
 $$
 
 这里用 $U$ 表示通常叫做 value 的向量，避免与词表大小 $V$ 混淆。
@@ -59,7 +59,7 @@ $$
 当前位置的 query 与各位置的 key 做点积，形成匹配分数。缩放并加入遮罩后，对可见位置做 softmax，再加权汇总 value：
 
 $$
-A=\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}+M\right),\qquad O=AU
+\begin{aligned}S&=\frac{QK^\top}{\sqrt{d_k}}+M,\\A&=\operatorname{softmax}(S),\\O&=AU.\end{aligned}
 $$
 
 softmax 沿被读取的位置方向进行。$M$ 对允许读取的地方取零，对禁止读取的地方在数学上取负无穷。这样，被禁止的位置权重为零。原始 Transformer 的缩放点积注意力和解码端因果遮罩是这一机制的基础来源。[Attention Is All You Need，第 3 节](https://arxiv.org/html/1706.03762v7#S3)
@@ -71,16 +71,16 @@ softmax 沿被读取的位置方向进行。$M$ 对允许读取的地方取零�
 假设某个位置只允许读取前面三个位置。经过点积和缩放，它们的分数恰好是 $\log2,0,0$，对应权重为：
 
 $$
-(2,1,1)/(2+1+1)=(0.5,0.25,0.25)
+\begin{aligned}(2,1,1)/4\\=(0.5,0.25,0.25).\end{aligned}
 $$
 
 三个 value 向量分别是 $(2,0)$、$(0,4)$、$(2,2)$，那么输出为：
 
 $$
-0.5(2,0)+0.25(0,4)+0.25(2,2)=(1.5,1.5)
+\begin{aligned}&0.5(2,0)+0.25(0,4)\\&\quad+0.25(2,2)\\&=(1.5,1.5).\end{aligned}
 $$
 
-这说明注意力可以混合多个位置的信息，而不必只选一个。分数最高的位置贡献最大，但结果并不等于直接复制它。
+这说明注意力可以混合多个位置的信息，而不必只选一个。分数最高的位置获得最大的加权系数，但实际贡献还取决于 value 向量。本例前两个加权向量分别是 $(1,0)$ 和 $(0,1)$，虽然权重不同，向量长度却相同。结果也不等于直接复制分数最高的位置。
 
 也别把这组权重直接叫作“模型给出的解释”。后面还有输出投影、残差、前馈网络和其他层；各 value 的幅度也不同。某位置权重大，不自动意味着它对最终答案的因果影响最大。
 
@@ -105,8 +105,7 @@ $$
 **RoPE** 的一个核心做法是按位置旋转 query 和 key。二维情况下，设 $R(\theta)$ 是旋转矩阵，第 $m$ 个位置旋转 $m\theta$，第 $n$ 个位置旋转 $n\theta$，则：
 
 $$
-(R(m\theta)q)^\top R(n\theta)k
-=q^\top R((n-m)\theta)k
+\begin{aligned}&(R(m\theta)q)^\top R(n\theta)k\\&=q^\top R((n-m)\theta)k.\end{aligned}
 $$
 
 点积里出现了相对位置 $n-m$。高维形式可在不同二维分量对上使用不同频率；实际实现还需要固定维度配对方式和频率配置。[RoFormer，第 3 节](https://arxiv.org/html/2104.09864v5#S3)

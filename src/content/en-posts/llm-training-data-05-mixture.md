@@ -44,8 +44,7 @@ Taking blocks of equal length and equal valid position counts makes each block c
 The mixture objective can be written compactly:
 
 $$
-p_\alpha(x)=\sum_i\alpha_i p_i(x),\qquad
-\mathcal L(\theta;\alpha)=\sum_i\alpha_i\mathbb E_{x\sim p_i}[\ell_\theta(x)].
+\begin{aligned}p_\alpha(x)&=\sum_i\alpha_i p_i(x),\\L_i(\theta)&=\mathbb E_{x\sim p_i}[\ell_\theta(x)],\\\mathcal L(\theta;\alpha)&=\sum_i\alpha_i L_i(\theta).\end{aligned}
 $$
 
 It says: choose a source with the given weight, then sample from that source. Using it requires stating whether $x$ is a document or a fixed block, and how the loss is averaged; a clean formula does not by itself describe a training recipe.
@@ -82,7 +81,7 @@ $$
 N\left[1-\left(1-\frac1N\right)^m\right].
 $$
 
-The derivation considers one block: the probability of missing it once is $1-1/N$, the probability of missing it $m$ times in a row is $(1-1/N)^m$, and subtracting from one and multiplying by the block count gives the expectation. When $m=N$ and $N$ is large, only about 63.2 percent of distinct blocks are covered, and the rest are drawn repeatedly. Reading in a shuffled order without replacement covers all blocks in a full epoch. "One pass" cannot describe both loaders.
+The derivation considers one block: the probability of missing it once is $1-1/N$, the probability of missing it $m$ times in a row is $(1-1/N)^m$, and subtracting from one and multiplying by the block count gives the expectation. When $m=N$ and $N$ is large, only about 63.2 percent of distinct blocks are covered. The remaining blocks have not been seen; some of the covered blocks have been drawn more than once. Reading in a shuffled order without replacement covers all blocks in a full epoch. "One pass" cannot describe both loaders.
 
 ### Keep language and domain effects apart
 

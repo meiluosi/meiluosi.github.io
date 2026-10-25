@@ -1,0 +1,62 @@
+[
+  {
+    "file": "src/content/posts/2026-10-23-llm-training-eval-06-conclusions.md",
+    "width": 1440,
+    "lang": "zh",
+    "url": "/posts/2026-10-23-llm-training-eval-06-conclusions/",
+    "title": "怎样积累可复用的实验结论：版本、失败记录与下一轮决策 - 枫语",
+    "overflow": false,
+    "katexErrors": 0,
+    "wide": [],
+    "nodes": 50,
+    "scrubbers": 0,
+    "branchNodes": 5,
+    "errors": [],
+    "pass": true
+  },
+  {
+    "file": "src/content/posts/2026-10-23-llm-training-eval-06-conclusions.md",
+    "width": 320,
+    "lang": "zh",
+    "url": "/posts/2026-10-23-llm-training-eval-06-conclusions/",
+    "title": "怎样积累可复用的实验结论：版本、失败记录与下一轮决策 - 枫语",
+    "overflow": false,
+    "katexErrors": 0,
+    "wide": [],
+    "nodes": 50,
+    "scrubbers": 0,
+    "branchNodes": 5,
+    "errors": [],
+    "pass": true
+  },
+  {
+    "file": "src/content/en-posts/llm-training-eval-06-conclusions.md",
+    "width": 1440,
+    "lang": "en",
+    "url": "/en/posts/llm-training-eval-06-conclusions/",
+    "title": "Building Reusable Experimental Conclusions: Versions, Failures, and Decisions - 枫语",
+    "overflow": false,
+    "katexErrors": 0,
+    "wide": [],
+    "nodes": 16,
+    "scrubbers": 0,
+    "branchNodes": 4,
+    "errors": [],
+    "pass": true
+  },
+  {
+    "file": "src/content/en-posts/llm-training-eval-06-conclusions.md",
+    "width": 320,
+    "lang": "en",
+    "url": "/en/posts/llm-training-eval-06-conclusions/",
+    "title": "Building Reusable Experimental Conclusions: Versions, Failures, and Decisions - 枫语",
+    "overflow": false,
+    "katexErrors": 0,
+    "wide": [],
+    "nodes": 16,
+    "scrubbers": 0,
+    "branchNodes": 4,
+    "errors": [],
+    "pass": true
+  }
+]

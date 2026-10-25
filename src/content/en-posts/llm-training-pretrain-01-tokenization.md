@@ -19,7 +19,7 @@ lang: en
 
 ## Why subword units, and a byte-pair encoding example computed by hand
 
-Numbering every character separately is possible. For a small closed vocabulary of common characters it is easy to inspect. The difficulty sits in the word "only": technical corpora contain English identifiers, digits, spaces, code, emoji, and rare characters. A character-only table drops content, while a table of every common whole word fails on unseen words and spelling variants.
+Numbering every character separately is possible. For a small closed vocabulary of common characters it is easy to inspect. The difficulty sits in the word "only": technical corpora contain English identifiers, digits, spaces, code, emoji, and rare characters. A table restricted to common characters cannot represent every input, while a table of every common whole word fails on unseen words and spelling variants.
 
 Length pushes the same way. Splitting `optimizer` into its nine letters costs the model nine positions, whereas a vocabulary entry for the whole string may cost one. But a dedicated entry for every rare long string inflates the vocabulary, and those entries receive few training updates.
 
