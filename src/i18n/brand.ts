@@ -119,28 +119,24 @@ export const brandTranslations: Record<BrandLocale, BrandDictionary> = {
 		"home.hero.intro":
 			"Hi, I’m Feng Yu.<br/>I put learning, experiments, and system building on one long path toward recursive self-improvement (RSI) and AGI.",
 		"home.hero.explore": "Enter the research island",
-		"home.about.heading":
-			"Research interests",
+		"home.about.heading": "Research interests",
 		"home.about.question":
 			"Can intelligence understand, evaluate, and improve itself continuously?",
 		"home.about.mission":
 			"RSI is the long-term question: a path toward AGI through systems that can learn, receive feedback, and improve.",
 		"home.about.link": "A little more about me",
-		"home.now.heading":
-			"Current research",
+		"home.now.heading": "Current research",
 		"home.now.mission":
 			"RSI is the long-term question: a path toward AGI through systems that can learn, receive feedback, and improve.",
 		"home.now.models": "Learning & systems",
 		"home.now.feedback": "Feedback & self-improvement",
 		"home.now.causal": "Causality & evaluation",
 		"home.work.link": "View the full research archive",
-		"home.work.heading":
-			"Research projects",
+		"home.work.heading": "Research projects",
 		"home.work.copy":
 			"Model workflows, self-play, game learning, and causal analysis.<br/>Four paths toward one long-term question.",
 		"home.notes.link": "All notes",
-		"home.notes.heading":
-			"Technical articles",
+		"home.notes.heading": "Technical articles",
 		"home.notes.copy": "Read, experiment, get stuck, and write the trail down.",
 		"home.contact.pre": "Have an idea, a question, or just want to say hello?",
 		"home.contact.heading": "Contact",

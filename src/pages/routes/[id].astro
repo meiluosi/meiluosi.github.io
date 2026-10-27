@@ -1,0 +1,1101 @@
+---
+/**
+ * /routes/[id]/ 智能探索路线专属专题页
+ * 每个路线独立展示其底层问题、分支体系、批判反思、关联文章与交互实验
+ */
+import { getCollection } from "astro:content";
+import Text from "@/components/common/BilingualText.astro";
+import Lens01Behavioral from "@/components/features/route-lenses/Lens01Behavioral.svelte";
+import Lens02Psychometric from "@/components/features/route-lenses/Lens02Psychometric.svelte";
+import Lens03LearningEfficiency from "@/components/features/route-lenses/Lens03LearningEfficiency.svelte";
+import Lens04RationalResource from "@/components/features/route-lenses/Lens04RationalResource.svelte";
+import Lens05SymbolicLogic from "@/components/features/route-lenses/Lens05SymbolicLogic.svelte";
+import Lens06Connectionist from "@/components/features/route-lenses/Lens06Connectionist.svelte";
+import Lens07CausalModels from "@/components/features/route-lenses/Lens07CausalModels.svelte";
+import Lens08CyberneticsRL from "@/components/features/route-lenses/Lens08CyberneticsRL.svelte";
+import Lens09CognitiveArch from "@/components/features/route-lenses/Lens09CognitiveArch.svelte";
+import Lens10Neuroscience from "@/components/features/route-lenses/Lens10Neuroscience.svelte";
+import Lens11Developmental from "@/components/features/route-lenses/Lens11Developmental.svelte";
+import Lens12EmbodiedDynamics from "@/components/features/route-lenses/Lens12EmbodiedDynamics.svelte";
+import Lens13Autopoiesis from "@/components/features/route-lenses/Lens13Autopoiesis.svelte";
+import Lens14Sociocultural from "@/components/features/route-lenses/Lens14Sociocultural.svelte";
+import Lens15ExtendedMind from "@/components/features/route-lenses/Lens15ExtendedMind.svelte";
+import Lens16InformationPhysics from "@/components/features/route-lenses/Lens16InformationPhysics.svelte";
+import Lens17PhilosophyOfMind from "@/components/features/route-lenses/Lens17PhilosophyOfMind.svelte";
+import Lens18Consciousness from "@/components/features/route-lenses/Lens18Consciousness.svelte";
+import Lens19WisdomValues from "@/components/features/route-lenses/Lens19WisdomValues.svelte";
+import Lens20QuantumCognition from "@/components/features/route-lenses/Lens20QuantumCognition.svelte";
+import Navbar from "@/components/layout/Navbar.astro";
+import {
+	getRouteById,
+	getRouteDialogues,
+	getRouteStances,
+	INTELLIGENCE_ROUTES,
+	type RouteItem,
+} from "@/data/intelligenceRoutes";
+import Layout from "@/layouts/Layout.astro";
+import { getSortedPosts } from "@/utils/content-utils";
+import { resolvePostRoute } from "@/utils/route-matcher";
+import { removeFileExtension } from "@/utils/url-utils";
+
+export async function getStaticPaths() {
+	return INTELLIGENCE_ROUTES.map((route) => ({
+		params: { id: route.id },
+		props: { route },
+	}));
+}
+
+interface Props {
+	route: RouteItem;
+}
+
+const { route } = Astro.props;
+
+// 获取全站公开文章并筛选出属于该路线的文章
+const allPosts = (await getSortedPosts()).filter(
+	(post) => !post.data.draft && !post.data.password,
+);
+const englishPosts = await getCollection("enPosts");
+
+const matchedPosts = allPosts.filter((post) => {
+	const r = resolvePostRoute(post.data);
+	return r?.id === route.id;
+});
+
+const stances = getRouteStances(route.id);
+const dialogues = getRouteDialogues(route.id);
+
+const CLUSTER_ACCENT_MAP: Record<RouteItem["cluster"], string> = {
+	measurement: "#0d9488",
+	representation: "#0284c7",
+	embodiment: "#2f6b56",
+	collective: "#d97706",
+	mind: "#7c3aed",
+};
+const routeAccent = CLUSTER_ACCENT_MAP[route.cluster] ?? "var(--brand-accent)";
+
+// 计算上一条与下一条路线（用于环形漫游导航）
+const currentIndex = INTELLIGENCE_ROUTES.findIndex((r) => r.id === route.id);
+const prevRoute =
+	INTELLIGENCE_ROUTES[
+		(currentIndex - 1 + INTELLIGENCE_ROUTES.length) % INTELLIGENCE_ROUTES.length
+	];
+const nextRoute =
+	INTELLIGENCE_ROUTES[(currentIndex + 1) % INTELLIGENCE_ROUTES.length];
+
+const dateLabel = (date: Date) => {
+	return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+};
+---
+
+<Layout
+	title={`${route.roman} ${route.nameZh} — 智能探索路线`}
+	titleEn={`${route.roman} ${route.nameEn} — Paradigm Route`}
+	description={`${route.nameZh}：${route.coreThesisZh}`}
+	descriptionEn={`${route.nameEn}: ${route.coreThesisEn}`}
+>
+	<div class="route-single-page" data-brand-motion style={`--route-accent: ${routeAccent};`}>
+		<Navbar />
+		<main id="swup-container" class="route-container">
+			<!-- 顶部导航走廊 -->
+			<nav class="route-nav-bar" aria-label="路线导航">
+				<a href="/routes/" class="back-atlas">
+					← <Text zh="返回 20 路线全景地图" en="All 20 Paradigm Families" />
+				</a>
+				<div class="route-step-nav">
+					<a href={`/routes/${prevRoute.id}/`} class="step-link prev-link" title={prevRoute.nameZh}>
+						← <span class="step-num">{prevRoute.roman}</span> {prevRoute.nameZh}
+					</a>
+					<span class="step-divider" aria-hidden="true">|</span>
+					<a href={`/routes/${nextRoute.id}/`} class="step-link next-link" title={nextRoute.nameZh}>
+						<span class="step-num">{nextRoute.roman}</span> {nextRoute.nameZh} →
+					</a>
+				</div>
+			</nav>
+
+			<!-- 路线头衔与核心纲领 -->
+			<header class="route-hero">
+				<div class="route-badges">
+					<span class="badge-roman">ROUTE {route.roman}</span>
+					<span class="badge-pill cluster-pill">
+						<Text zh={route.clusterZh} en={route.clusterEn} />
+					</span>
+					<span class="badge-pill orbit-pill">
+						<Text zh={`母轨道 · ${route.superOrbitZh}`} en={`Super-Orbit: ${route.superOrbit}`} />
+					</span>
+					<span class="badge-pill level-pill">
+						<Text zh={`核心追问 · ${route.questionLevelZh}`} en={route.questionLevel} />
+					</span>
+				</div>
+
+				<h1 class="route-main-title">
+					<span class="title-zh">{route.nameZh}</span>
+					<span class="title-en">{route.nameEn}</span>
+				</h1>
+
+				<div class="thesis-banner">
+					<p class="thesis-kicker"><Text zh="核心立论" en="CORE THESIS" /></p>
+					<Text as="p" class="thesis-text" zh={route.coreThesisZh} en={route.coreThesisEn} />
+				</div>
+			</header>
+
+			<!-- 专属交互认知透镜：构建期按需分包挂载单路线沙盒（消除 95% 跨页冗余 JS/CSS） -->
+			<section class="content-block lens-block" aria-labelledby="lens-heading">
+				<div class="block-header">
+					<span class="block-num">00</span>
+					<h2 id="lens-heading">
+						<Text zh="交互认知透镜：一眼看懂本路线核心机制" en="Interactive Cognitive Lens: Paradigm Mechanism Sandbox" />
+					</h2>
+				</div>
+				{route.id === "behavioral" && <Lens01Behavioral client:visible />}
+				{route.id === "psychometric" && <Lens02Psychometric client:visible />}
+				{route.id === "learning-efficiency" && <Lens03LearningEfficiency client:visible />}
+				{route.id === "rational-resource" && <Lens04RationalResource client:visible />}
+				{route.id === "symbolic-logic" && <Lens05SymbolicLogic client:visible />}
+				{route.id === "connectionist" && <Lens06Connectionist client:visible />}
+				{route.id === "causal-world-models" && <Lens07CausalModels client:visible />}
+				{route.id === "cybernetics-rl" && <Lens08CyberneticsRL client:visible />}
+				{route.id === "cognitive-architectures" && <Lens09CognitiveArch client:visible />}
+				{route.id === "neuroscience" && <Lens10Neuroscience client:visible />}
+				{route.id === "developmental-openended" && <Lens11Developmental client:visible />}
+				{route.id === "embodied-dynamical" && <Lens12EmbodiedDynamics client:visible />}
+				{route.id === "autopoiesis-evolution" && <Lens13Autopoiesis client:visible />}
+				{route.id === "sociocultural-language" && <Lens14Sociocultural client:visible />}
+				{route.id === "collective-extended" && <Lens15ExtendedMind client:visible />}
+				{route.id === "information-physics" && <Lens16InformationPhysics client:visible />}
+				{route.id === "philosophy-of-mind" && <Lens17PhilosophyOfMind client:visible />}
+				{route.id === "consciousness-self" && <Lens18Consciousness client:visible />}
+				{route.id === "wisdom-values" && <Lens19WisdomValues client:visible />}
+				{route.id === "metaphysics-quantum" && <Lens20QuantumCognition client:visible />}
+			</section>
+
+			<!-- 分支体系详述 -->
+			<section class="content-block" aria-labelledby="branches-heading">
+				<div class="block-header">
+					<span class="block-num">01</span>
+					<h2 id="branches-heading"><Text zh="重要分支与代表理论" en="Key Theoretical Branches" /></h2>
+				</div>
+				<div class="branches-grid">
+					{route.branches.map((b, idx) => (
+						<article class="branch-card">
+							<span class="branch-idx">{idx + 1}</span>
+							<div class="branch-body">
+								<Text as="h3" zh={b.nameZh} en={b.nameEn} />
+								<Text as="p" zh={b.descZh} en={b.descEn} />
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<!-- 价值与批判性边界 -->
+			<section class="content-block" aria-labelledby="critique-heading">
+				<div class="block-header">
+					<span class="block-num">02</span>
+					<h2 id="critique-heading"><Text zh="解释价值与关键盲区" en="Explanatory Power & Blind Spots" /></h2>
+				</div>
+				<div class="critique-duo">
+					<div class="critique-panel panel-value">
+						<div class="panel-tag"><Text zh="✦ 解释价值与推进" en="✦ Explanatory Contribution" /></div>
+						<Text as="p" zh={route.valueZh} en={route.valueEn} />
+					</div>
+					<div class="critique-panel panel-limit">
+						<div class="panel-tag"><Text zh="⚠ 局限、盲区与不能过度推断之处" en="⚠ Critical Limitations & Boundaries" /></div>
+						<Text as="p" zh={route.limitationsZh} en={route.limitationsEn} />
+					</div>
+				</div>
+			</section>
+
+			<!-- 理论天平：核心分歧轴定位 -->
+			<section class="content-block" aria-labelledby="stances-heading">
+				<div class="block-header">
+					<span class="block-num">03</span>
+					<h2 id="stances-heading"><Text zh="理论天平：核心分歧轴定位" en="Theoretical Tension Scales" /></h2>
+				</div>
+				<p class="block-intro">
+					<Text 
+						zh="将此路线置于人类探索智能的根本分歧坐标系中，观察其立论重心与张力平衡点：" 
+						en="Situating this paradigm along core philosophical axes to visualize its theoretical stances:" 
+					/>
+				</p>
+				<div class="stances-list">
+					{stances.map((s) => {
+						const percent = Math.round(50 + s.position * 42);
+						return (
+							<div class="stance-item">
+								<div class="stance-title-row">
+									<strong class="axis-title">
+										<Text zh={s.axisNameZh} en={s.axisNameEn} />
+									</strong>
+									<span class="stance-badge">
+										{s.position < -0.3 ? (
+											<span class="badge-leaning"><Text zh={`倾向：${s.poleAZh}`} en={`Leaning: ${s.poleAEn}`} /></span>
+										) : s.position > 0.3 ? (
+											<span class="badge-leaning"><Text zh={`倾向：${s.poleBZh}`} en={`Leaning: ${s.poleBEn}`} /></span>
+										) : (
+											<span class="badge-balanced"><Text zh="两极张力 / 动态平衡" en="Dynamic Tension / Balanced" /></span>
+										)}
+									</span>
+								</div>
+								
+								<div class="scale-track-wrap" aria-hidden="true">
+									<div class="scale-pole pole-left">
+										<span class="pole-dot"></span>
+										<Text zh={s.poleAZh} en={s.poleAEn} />
+									</div>
+									<div class="scale-track">
+										<div class="track-center-mark"></div>
+										<div class="track-cursor" style={`left: ${percent}%;`}>
+											<span class="cursor-glow"></span>
+											<span class="cursor-pin"></span>
+										</div>
+									</div>
+									<div class="scale-pole pole-right">
+										<Text zh={s.poleBZh} en={s.poleBEn} />
+										<span class="pole-dot"></span>
+									</div>
+								</div>
+
+								<div class="stance-rationale">
+									<Text as="p" zh={s.rationaleZh} en={s.rationaleEn} />
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</section>
+
+			<!-- 思想交锋与互补拓扑：谁在批驳它？谁在补完它？ -->
+			{dialogues.length > 0 && (
+				<section class="content-block dialogue-block" aria-labelledby="dialogue-heading">
+					<div class="block-header">
+						<span class="block-num">03.5</span>
+						<h2 id="dialogue-heading">
+							<Text zh="思想交锋与互补走廊：跨路线批判与合流" en="Paradigm Dialogue: Critiques & Synergistic Bridges" />
+						</h2>
+					</div>
+					<p class="block-intro">
+						<Text
+							zh="没有任何单一学派垄断了智能的全部真相。顺着批驳与互补的引力线，跳转到与本路线深度咬合的相邻探索家族："
+							en="No single paradigm holds a monopoly on intelligence. Follow these dialectical tension links to explore rival critiques and complementary bridges:"
+						/>
+					</p>
+					<div class="dialogue-grid">
+						{dialogues.map((dlg) => {
+							const targetRoute = getRouteById(dlg.targetId);
+							if (!targetRoute) return null;
+							return (
+								<a
+									href={`/routes/${targetRoute.id}/`}
+									class={`dialogue-card ${dlg.relation === "critique" ? "is-critique" : "is-synergy"}`}
+								>
+									<div class="dlg-top">
+										<span class="dlg-badge">
+											{dlg.relation === "critique" ? (
+												<Text zh="⚡ 理论交锋 / 盲区批驳" en="⚡ Critical Counter-Paradigm" />
+											) : (
+												<Text zh="🔗 理论互补 / 合流桥梁" en="🔗 Synergistic Bridge" />
+											)}
+										</span>
+										<span class="dlg-target-pill">
+											ROUTE {targetRoute.roman} · <Text zh={targetRoute.nameZh} en={targetRoute.nameEn} /> ↗
+										</span>
+									</div>
+									<h3 class="dlg-title">
+										<Text zh={dlg.titleZh} en={dlg.titleEn} />
+									</h3>
+									<Text as="p" class="dlg-summary" zh={dlg.summaryZh} en={dlg.summaryEn} />
+								</a>
+							);
+						})}
+					</div>
+				</section>
+			)}
+
+			<!-- 站内关联交互实验 -->
+			{route.linkedLabs && route.linkedLabs.length > 0 && (
+				<section class="content-block labs-block" aria-labelledby="labs-heading">
+					<div class="block-header">
+						<span class="block-num">04</span>
+						<h2 id="labs-heading"><Text zh="动手验证：交互实验工作台" en="Interactive Lab Probes" /></h2>
+					</div>
+					<div class="labs-grid">
+						{route.linkedLabs.map((lab) => (
+							<a href={lab.href} class="lab-card">
+								<span class="lab-badge"><Text zh="可操作模拟" en="Interactive Lab" /></span>
+								<h3 class="lab-title"><Text zh={lab.nameZh} en={lab.nameEn} /></h3>
+								<span class="lab-action"><Text zh="进入实验台" en="Open Lab" /> ↗</span>
+							</a>
+						))}
+					</div>
+				</section>
+			)}
+
+			<!-- 属于该路线的研究笔记与文章 -->
+			<section class="content-block" aria-labelledby="posts-heading">
+				<div class="block-header">
+					<span class="block-num">05</span>
+					<div class="posts-heading-row">
+						<h2 id="posts-heading">
+							<Text zh="归属于该路线的探索笔记" en="Research Notes in this Route" />
+						</h2>
+						<span class="post-count-badge">
+							{matchedPosts.length} <Text zh="篇收录" en="Notes" />
+						</span>
+					</div>
+				</div>
+
+				{matchedPosts.length > 0 ? (
+					<div class="notes-list">
+						{matchedPosts.map((post) => {
+							const translation = englishPosts.find(
+								(entry) => entry.data.sourceId === removeFileExtension(post.id),
+							);
+							const postLink = `/posts/${removeFileExtension(post.id)}/`;
+							const enLink = translation ? `/en/posts/${translation.data.slug}/` : postLink;
+
+							return (
+								<article class="note-item">
+									<div class="note-meta">
+										<time datetime={post.data.published.toISOString()}>
+											{dateLabel(post.data.published)}
+										</time>
+										{post.data.format && (
+											<span class="note-format">{post.data.format}</span>
+										)}
+									</div>
+									<h3 class="note-title">
+										<a href={postLink} data-i18n-href-zh={postLink} data-i18n-href-en={enLink}>
+											<Text zh={post.data.title} en={translation?.data.title ?? post.data.title} />
+										</a>
+									</h3>
+									{post.data.description && (
+										<p class="note-desc">
+											<Text zh={post.data.description} en={translation?.data.description ?? post.data.description} />
+										</p>
+									)}
+									<div class="note-footer">
+										<a href={postLink} class="read-on">
+											<Text zh="阅读全文" en="Read note" /> ↗
+										</a>
+									</div>
+								</article>
+							);
+						})}
+					</div>
+				) : (
+					<div class="empty-notes">
+						<p><Text zh="此探索路线目前暂未收录独立长文，相关理论脉络正在持续整理中。" en="No dedicated essays published under this route yet. Notes in progress." /></p>
+						<a href="/notes/" class="browse-all-btn"><Text zh="查看全站全部文章" en="Browse All Writing" /> ↗</a>
+					</div>
+				)}
+			</section>
+
+			<!-- 尾部漫游走廊 -->
+			<footer class="route-footer">
+				<a href={`/routes/${prevRoute.id}/`} class="footer-step-link">
+					← <span class="step-lbl"><Text zh="上一路线" en="Previous Route" /></span>
+					<strong>{prevRoute.roman} {prevRoute.nameZh}</strong>
+				</a>
+				<a href="/routes/" class="footer-center-link">
+					<Text zh="回到 20 路线全景地图" en="Atlas Overview" />
+				</a>
+				<a href={`/routes/${nextRoute.id}/`} class="footer-step-link text-right">
+					<span class="step-lbl"><Text zh="下一路线" en="Next Route" /></span>
+					<strong>{nextRoute.roman} {nextRoute.nameZh}</strong> →
+				</a>
+			</footer>
+		</main>
+	</div>
+</Layout>
+
+<style>
+	.route-single-page {
+		background: var(--brand-paper);
+		color: var(--brand-ink);
+		min-height: 100vh;
+	}
+
+	.route-container {
+		max-width: 960px;
+		margin-inline: auto;
+		padding-inline: clamp(20px, 5vw, 48px);
+		padding-bottom: 90px;
+	}
+
+	/* 顶部导航 */
+	.route-nav-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 12px;
+		padding-block: 24px 18px;
+		border-bottom: 1px solid var(--brand-line);
+		font-size: 13px;
+	}
+
+	.back-atlas {
+		color: var(--brand-muted);
+		text-decoration: none;
+		transition: color 0.18s ease;
+	}
+
+	.back-atlas:hover {
+		color: var(--brand-clay);
+	}
+
+	.route-step-nav {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.step-link {
+		color: var(--brand-body);
+		text-decoration: none;
+		font-size: 12.5px;
+		transition: color 0.18s ease;
+	}
+
+	.step-link:hover {
+		color: var(--brand-accent);
+	}
+
+	.step-num {
+		font-family: var(--font-mono, monospace);
+		font-weight: 700;
+		color: var(--brand-clay);
+	}
+
+	.step-divider {
+		color: var(--brand-line);
+	}
+
+	/* Hero 主题头 */
+	.route-hero {
+		padding-block: 40px 32px;
+		border-bottom: 1px solid var(--brand-line);
+	}
+
+	.route-badges {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px 12px;
+		margin-bottom: 16px;
+	}
+
+	.badge-roman {
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		color: var(--brand-clay);
+	}
+
+	.badge-pill {
+		font-size: 11.5px;
+		padding: 2px 8px;
+		border-radius: 4px;
+		background: var(--brand-surface);
+		border: 1px solid var(--brand-line);
+		color: var(--brand-muted);
+	}
+
+	.route-main-title {
+		margin: 0 0 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.title-zh {
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(32px, 4.4vw, 48px);
+		line-height: 1.25;
+		font-weight: 400;
+		color: var(--brand-ink);
+	}
+
+	.title-en {
+		font-family: var(--font-sans, sans-serif);
+		font-size: clamp(17px, 2.2vw, 22px);
+		color: var(--brand-muted);
+		font-weight: 400;
+	}
+
+	.thesis-banner {
+		padding: 20px 24px;
+		background: var(--brand-surface);
+		border-left: 3px solid var(--brand-clay);
+		border-radius: 0 8px 8px 0;
+	}
+
+	.thesis-kicker {
+		font-family: var(--font-mono, monospace);
+		font-size: 11px;
+		letter-spacing: 0.14em;
+		color: var(--brand-clay);
+		margin: 0 0 6px 0;
+		font-weight: 600;
+	}
+
+	.thesis-text {
+		margin: 0;
+		font-size: 16px;
+		line-height: 1.95;
+		color: var(--brand-body);
+		font-family: var(--font-serif, serif);
+	}
+
+	/* 模块结构 */
+	.content-block {
+		padding-block: 48px;
+		border-bottom: 1px solid var(--brand-line);
+	}
+
+	.block-header {
+		display: flex;
+		align-items: baseline;
+		gap: 14px;
+		margin-bottom: 26px;
+	}
+
+	.block-num {
+		font-family: var(--font-mono, monospace);
+		font-size: 13px;
+		font-weight: 700;
+		color: var(--brand-muted);
+	}
+
+	.block-header h2 {
+		margin: 0;
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(21px, 2.6vw, 26px);
+		font-weight: 400;
+		color: var(--brand-ink);
+	}
+
+	.posts-heading-row {
+		display: flex;
+		align-items: baseline;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+
+	.post-count-badge {
+		font-size: 12.5px;
+		color: var(--brand-muted);
+		background: var(--brand-surface);
+		padding: 2px 8px;
+		border-radius: 999px;
+	}
+
+	/* 分支卡片 */
+	.branches-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 18px;
+	}
+
+	.branch-card {
+		display: flex;
+		gap: 16px;
+		padding: 18px 20px;
+		background: rgb(250 251 248 / 90%);
+		border: 1px solid var(--brand-line);
+		border-radius: 8px;
+	}
+
+	.branch-idx {
+		font-family: var(--font-mono, monospace);
+		font-size: 13px;
+		color: var(--brand-clay);
+		font-weight: bold;
+	}
+
+	.branch-body :global(h3) {
+		margin: 0 0 6px;
+		font-size: 16px;
+		font-family: var(--font-serif, serif);
+		color: var(--brand-ink);
+	}
+
+	.branch-body :global(p) {
+		margin: 0;
+		font-size: 13.5px;
+		line-height: 1.75;
+		color: var(--brand-body);
+	}
+
+	/* 价值与局限 */
+	.critique-duo {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+	}
+
+	.critique-panel {
+		padding: 20px 22px;
+		border-radius: 8px;
+		background: rgb(250 251 248 / 80%);
+		border: 1px solid var(--brand-line);
+	}
+
+	.panel-tag {
+		font-size: 12.5px;
+		font-weight: 600;
+		margin-bottom: 8px;
+	}
+
+	.panel-value {
+		border-left: 3px solid var(--brand-accent);
+	}
+
+	.panel-value .panel-tag {
+		color: var(--brand-accent);
+	}
+
+	.panel-limit {
+		border-left: 3px solid var(--brand-clay);
+	}
+
+	.panel-limit .panel-tag {
+		color: var(--brand-clay);
+	}
+
+	.critique-panel :global(p) {
+		margin: 0;
+		font-size: 14px;
+		line-height: 1.85;
+		color: var(--brand-body);
+	}
+
+	/* 理论天平刻度表 */
+	.block-intro {
+		margin: 0 0 24px;
+		font-size: 14.5px;
+		line-height: 1.8;
+		color: var(--brand-body);
+	}
+
+	.stances-list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.stance-item {
+		padding: 20px 24px;
+		border-radius: 8px;
+		background: rgb(250 251 248 / 85%);
+		border: 1px solid var(--brand-line);
+		transition: border-color 0.2s ease;
+	}
+
+	.stance-item:hover {
+		border-color: var(--brand-clay);
+	}
+
+	.stance-title-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-bottom: 14px;
+	}
+
+	.axis-title {
+		font-family: var(--font-serif, serif);
+		font-size: 16px;
+		color: var(--brand-ink);
+	}
+
+	.stance-badge {
+		font-size: 12px;
+	}
+
+	.badge-leaning {
+		color: var(--brand-clay);
+		background: rgb(145 86 56 / 10%);
+		padding: 2px 10px;
+		border-radius: 999px;
+		font-weight: 500;
+	}
+
+	.badge-balanced {
+		color: var(--brand-accent);
+		background: rgb(65 99 79 / 10%);
+		padding: 2px 10px;
+		border-radius: 999px;
+		font-weight: 500;
+	}
+
+	.scale-track-wrap {
+		display: grid;
+		grid-template-columns: minmax(110px, 1.2fr) minmax(180px, 2.5fr) minmax(110px, 1.2fr);
+		align-items: center;
+		gap: 16px;
+		margin-block: 10px 14px;
+	}
+
+	.scale-pole {
+		font-size: 12.5px;
+		color: var(--brand-muted);
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.pole-left {
+		justify-content: flex-start;
+		text-align: left;
+	}
+
+	.pole-right {
+		justify-content: flex-end;
+		text-align: right;
+	}
+
+	.pole-dot {
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--brand-line);
+		flex-shrink: 0;
+	}
+
+	.scale-track {
+		position: relative;
+		height: 8px;
+		border-radius: 999px;
+		background: var(--brand-surface);
+		border: 1px solid var(--brand-line);
+	}
+
+	.track-center-mark {
+		position: absolute;
+		left: 50%;
+		top: -3px;
+		bottom: -3px;
+		width: 2px;
+		background: var(--brand-line);
+		transform: translateX(-50%);
+	}
+
+	.track-cursor {
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 16px;
+		height: 16px;
+		display: grid;
+		place-items: center;
+		pointer-events: none;
+	}
+
+	.cursor-glow {
+		position: absolute;
+		inset: -3px;
+		border-radius: 50%;
+		background: rgb(145 86 56 / 25%);
+		filter: blur(2px);
+	}
+
+	.cursor-pin {
+		position: relative;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: var(--brand-clay);
+		box-shadow: 0 0 6px var(--brand-clay);
+	}
+
+	.stance-rationale :global(p) {
+		margin: 0;
+		font-size: 13.5px;
+		line-height: 1.75;
+		color: var(--brand-body);
+	}
+
+	/* 交互实验卡片 */
+	.labs-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 16px;
+	}
+
+	.lab-card {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 18px 20px;
+		border-radius: 8px;
+		background: rgb(243 199 172 / 16%);
+		border: 1px solid rgb(145 86 56 / 25%);
+		text-decoration: none;
+		transition: all 0.2s ease;
+	}
+
+	.lab-card:hover {
+		background: rgb(243 199 172 / 30%);
+		border-color: var(--brand-clay);
+		box-shadow: 0 4px 14px rgb(145 86 56 / 12%);
+	}
+
+	.lab-badge {
+		font-size: 11px;
+		color: var(--brand-clay);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.lab-title {
+		margin: 0;
+		font-family: var(--font-serif, serif);
+		font-size: 17px;
+		color: var(--brand-ink);
+	}
+
+	.lab-action {
+		font-size: 12.5px;
+		color: var(--brand-clay);
+		margin-top: auto;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	/* 文章列表 */
+	.notes-list {
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+	}
+
+	.note-item {
+		padding: 22px 24px;
+		border: 1px solid var(--brand-line);
+		border-radius: 8px;
+		background: rgb(250 251 248 / 85%);
+		transition: border-color 0.18s ease;
+	}
+
+	.note-item:hover {
+		border-color: var(--brand-accent);
+	}
+
+	.note-meta {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 8px;
+		font-size: 12px;
+		color: var(--brand-muted);
+	}
+
+	.note-format {
+		background: var(--brand-surface);
+		padding: 1px 6px;
+		border-radius: 4px;
+	}
+
+	.note-title {
+		margin: 0 0 8px;
+		font-family: var(--font-serif, Georgia, serif);
+		font-size: 19px;
+		line-height: 1.5;
+	}
+
+	.note-title a {
+		color: var(--brand-ink);
+		text-decoration: none;
+	}
+
+	.note-title a:hover {
+		color: var(--brand-accent);
+	}
+
+	.note-desc {
+		margin: 0 0 12px;
+		font-size: 14.5px;
+		line-height: 1.8;
+		color: var(--brand-body);
+	}
+
+	.read-on {
+		font-size: 13px;
+		color: var(--brand-accent);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-color: var(--brand-clay);
+	}
+
+	.read-on:hover {
+		color: var(--brand-clay);
+	}
+
+	.empty-notes {
+		padding: 28px;
+		text-align: center;
+		background: var(--brand-surface);
+		border-radius: 8px;
+		color: var(--brand-muted);
+	}
+
+	.empty-notes p {
+		margin: 0 0 12px;
+		font-size: 14px;
+	}
+
+	.browse-all-btn {
+		font-size: 13px;
+		color: var(--brand-accent);
+	}
+
+	/* 尾部走廊 */
+	.route-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 36px;
+		gap: 16px;
+		font-size: 13.5px;
+	}
+
+	.footer-step-link {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		color: var(--brand-body);
+		text-decoration: none;
+	}
+
+	.footer-step-link:hover strong {
+		color: var(--brand-clay);
+	}
+
+	.text-right {
+		text-align: right;
+	}
+
+	.step-lbl {
+		font-size: 11px;
+		color: var(--brand-muted);
+	}
+
+	.footer-center-link {
+		color: var(--route-accent, var(--brand-accent));
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-color: var(--brand-clay);
+	}
+
+	/* 思想交锋与互补走廊样式 */
+	.dialogue-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 18px;
+	}
+
+	.dialogue-card {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 20px 22px;
+		border-radius: 14px;
+		border: 1px solid var(--brand-line);
+		background: var(--brand-surface);
+		text-decoration: none;
+		color: inherit;
+		transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+	}
+
+	.dialogue-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 12px 26px rgba(20, 30, 24, 0.07);
+	}
+
+	.dialogue-card.is-critique {
+		border-left: 4px solid #ea580c;
+	}
+
+	.dialogue-card.is-synergy {
+		border-left: 4px solid var(--route-accent, #0d9488);
+	}
+
+	.dlg-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px;
+		font-size: 12px;
+	}
+
+	.dlg-badge {
+		font-weight: 700;
+		letter-spacing: 0.04em;
+	}
+
+	.dialogue-card.is-critique .dlg-badge {
+		color: #ea580c;
+	}
+
+	.dialogue-card.is-synergy .dlg-badge {
+		color: var(--route-accent, #0d9488);
+	}
+
+	.dlg-target-pill {
+		font-family: var(--font-mono);
+		font-size: 11.5px;
+		padding: 3px 9px;
+		border-radius: 999px;
+		background: rgba(120, 140, 130, 0.12);
+		color: var(--brand-ink);
+	}
+
+	.dlg-title {
+		font-size: 17px;
+		font-weight: 700;
+		margin: 0;
+		color: var(--brand-ink);
+	}
+
+	.dlg-summary {
+		font-size: 14px;
+		line-height: 1.65;
+		margin: 0;
+		color: var(--brand-body);
+	}
+
+	@media (max-width: 760px) {
+		.branches-grid,
+		.critique-duo,
+		.dialogue-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.scale-track-wrap {
+			grid-template-columns: 1fr;
+			gap: 8px;
+		}
+
+		.pole-right {
+			justify-content: flex-start;
+			text-align: left;
+		}
+
+		.route-footer {
+			flex-direction: column;
+			gap: 20px;
+			align-items: stretch;
+		}
+
+		.text-right {
+			text-align: left;
+		}
+	}
+</style>

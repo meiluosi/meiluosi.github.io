@@ -1,0 +1,311 @@
+{
+  "date": "2026-10-28",
+  "kind": "exact-synthetic-method-check",
+  "protocolSHA256": "80f65c2db023f2e89d160b9b8f5e67bc2b1e36ca20a76fac9042e4404244a6a4",
+  "scriptSHA256": "789007403ebb0471d399fd337e8f73134198b5ccbb0a561a0bb732e2d2dec566",
+  "histories": {
+    "0000": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "1111": [
+      "0",
+      "1/2",
+      "3/4",
+      "7/8",
+      "15/16"
+    ],
+    "1100": [
+      "0",
+      "1/2",
+      "3/4",
+      "3/8",
+      "3/16"
+    ],
+    "0011": [
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "3/4"
+    ]
+  },
+  "conditions": [
+    {
+      "history": "0000",
+      "reset": false,
+      "support": 0,
+      "state": "0",
+      "output": "0"
+    },
+    {
+      "history": "0000",
+      "reset": false,
+      "support": 1,
+      "state": "0",
+      "output": "1"
+    },
+    {
+      "history": "0000",
+      "reset": true,
+      "support": 0,
+      "state": "0",
+      "output": "0"
+    },
+    {
+      "history": "0000",
+      "reset": true,
+      "support": 1,
+      "state": "0",
+      "output": "1"
+    },
+    {
+      "history": "1111",
+      "reset": false,
+      "support": 0,
+      "state": "15/16",
+      "output": "15/16"
+    },
+    {
+      "history": "1111",
+      "reset": false,
+      "support": 1,
+      "state": "15/16",
+      "output": "31/16"
+    },
+    {
+      "history": "1111",
+      "reset": true,
+      "support": 0,
+      "state": "0",
+      "output": "0"
+    },
+    {
+      "history": "1111",
+      "reset": true,
+      "support": 1,
+      "state": "0",
+      "output": "1"
+    },
+    {
+      "history": "1100",
+      "reset": false,
+      "support": 0,
+      "state": "3/16",
+      "output": "3/16"
+    },
+    {
+      "history": "1100",
+      "reset": false,
+      "support": 1,
+      "state": "3/16",
+      "output": "19/16"
+    },
+    {
+      "history": "1100",
+      "reset": true,
+      "support": 0,
+      "state": "0",
+      "output": "0"
+    },
+    {
+      "history": "1100",
+      "reset": true,
+      "support": 1,
+      "state": "0",
+      "output": "1"
+    },
+    {
+      "history": "0011",
+      "reset": false,
+      "support": 0,
+      "state": "3/4",
+      "output": "3/4"
+    },
+    {
+      "history": "0011",
+      "reset": false,
+      "support": 1,
+      "state": "3/4",
+      "output": "7/4"
+    },
+    {
+      "history": "0011",
+      "reset": true,
+      "support": 0,
+      "state": "0",
+      "output": "0"
+    },
+    {
+      "history": "0011",
+      "reset": true,
+      "support": 1,
+      "state": "0",
+      "output": "1"
+    }
+  ],
+  "feedback": {
+    "loopBaseline": [
+      {
+        "t": 0,
+        "x": "0",
+        "e": "1"
+      },
+      {
+        "t": 1,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 2,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 3,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 4,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 5,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 6,
+        "x": "1/2",
+        "e": "1/2"
+      }
+    ],
+    "replayBaseline": [
+      {
+        "t": 0,
+        "x": "0",
+        "e": "1"
+      },
+      {
+        "t": 1,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 2,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 3,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 4,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 5,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 6,
+        "x": "1/2",
+        "e": "1/2"
+      }
+    ],
+    "loopPerturbed": [
+      {
+        "t": 0,
+        "x": "0",
+        "e": "1"
+      },
+      {
+        "t": 1,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 2,
+        "x": "1",
+        "e": "1/2"
+      },
+      {
+        "t": 3,
+        "x": "3/4",
+        "e": "3/4"
+      },
+      {
+        "t": 4,
+        "x": "3/4",
+        "e": "3/4"
+      },
+      {
+        "t": 5,
+        "x": "3/4",
+        "e": "3/4"
+      },
+      {
+        "t": 6,
+        "x": "3/4",
+        "e": "3/4"
+      }
+    ],
+    "replayPerturbed": [
+      {
+        "t": 0,
+        "x": "0",
+        "e": "1"
+      },
+      {
+        "t": 1,
+        "x": "1/2",
+        "e": "1/2"
+      },
+      {
+        "t": 2,
+        "x": "1",
+        "e": "1/2"
+      },
+      {
+        "t": 3,
+        "x": "3/4",
+        "e": "1/2"
+      },
+      {
+        "t": 4,
+        "x": "5/8",
+        "e": "1/2"
+      },
+      {
+        "t": 5,
+        "x": "9/16",
+        "e": "1/2"
+      },
+      {
+        "t": 6,
+        "x": "17/32",
+        "e": "1/2"
+      }
+    ]
+  },
+  "checks": {
+    "terminal_states": true,
+    "same_removal_loss": true,
+    "history_at_fixed_support": true,
+    "order_not_exposure_count": true,
+    "state_reset_mediates_history": true,
+    "baseline_trajectory_equivalence": true,
+    "feedback_intervention": true,
+    "synchronous_negative_control": true
+  },
+  "limits": "Constructed finite models; not a replication of developmental, perceptual-crossing or autopoiesis experiments. Feedback is not itself a criterion of cognitive constitution."
+}

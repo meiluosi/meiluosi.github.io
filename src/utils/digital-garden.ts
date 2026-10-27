@@ -154,6 +154,11 @@ export interface GraphNode {
 	y?: number;
 	vx?: number;
 	vy?: number;
+	routeId?: string;
+	routeName?: string;
+	routeNameEn?: string;
+	routeRoman?: string;
+	cluster?: string;
 }
 
 export interface GraphEdge {

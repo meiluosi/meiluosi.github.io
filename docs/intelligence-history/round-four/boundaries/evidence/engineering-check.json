@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-28",
+  "check": {
+    "command": "pnpm check",
+    "exitCode": 0,
+    "files": 192,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0
+  },
+  "typeCheck": {
+    "command": "pnpm type-check",
+    "exitCode": 0
+  },
+  "build": {
+    "command": "AI_SUMMARY_API_KEY= pnpm build",
+    "exitCode": 0,
+    "pages": 247,
+    "initialAttempt": "local tsx IPC permission failure; rerun with required local permission succeeded"
+  },
+  "assetsBefore": {
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0"
+  },
+  "assetsAfter": {
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0"
+  },
+  "assetsUnchanged": true,
+  "externalSummaryCallsDisabled": true,
+  "siteSourceEditsByThisPhase": false,
+  "scope": "Current shared working tree, including pre-existing edits from other work. No commit, deployment or publication."
+}

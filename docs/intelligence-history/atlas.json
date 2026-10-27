@@ -1,0 +1,4361 @@
+{
+  "schemaVersion": 1,
+  "title": "智能问题演进史·第一轮候选底稿",
+  "updatedAt": "2026-10-23",
+  "stage": "round-one-candidate",
+  "scope": "探索性检索与候选建档；不等于系统综述、全文解读或截至2026年的完整前沿覆盖。",
+  "clusters": [
+    {
+      "id": "measurement",
+      "name": "表现、测量与效率"
+    },
+    {
+      "id": "representation",
+      "name": "表征、推断与控制"
+    },
+    {
+      "id": "embodiment",
+      "name": "系统、组织与具身"
+    },
+    {
+      "id": "collective",
+      "name": "集体、媒介与物理"
+    },
+    {
+      "id": "mind",
+      "name": "语义、意识与价值"
+    }
+  ],
+  "routes": [
+    {
+      "id": "behavioral",
+      "index": 1,
+      "name": "行为表现与操作性路线",
+      "cluster": "measurement",
+      "questionLevel": "criteria",
+      "branches": [
+        "行为主义",
+        "图灵式行为判定",
+        "任务能力路线",
+        "能力维度模型"
+      ],
+      "question": "什么表现可以支持智能判定，操作性检验与解释之间有什么距离？",
+      "searchTerms": [
+        "behaviorism operational definition intelligence",
+        "Turing imitation game objections",
+        "行为主义 操作性定义 智能判定"
+      ],
+      "existingMaterials": [
+        "src/pages/rsi.astro",
+        "docs/rsi-reading-notebook.md"
+      ],
+      "gaps": [
+        "行为主义与图灵式判定不能合并为同一个理论。",
+        "需补认知能力测试、行为充分性批评及当代交互评测原始来源。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "psychometric",
+      "index": 2,
+      "name": "心理测量与能力结构路线",
+      "cluster": "measurement",
+      "questionLevel": "measurement",
+      "branches": [
+        "一般智力因素 (g)",
+        "CHC 层级模型",
+        "过程重叠理论",
+        "多元智能与成功智力"
+      ],
+      "question": "测验相关意味着一个总能力、多个能力还是过程重叠？",
+      "searchTerms": [
+        "general intelligence g factor CHC",
+        "measurement invariance intelligence cross cultural",
+        "智力 测量效度 一般因素 CHC"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2024-08-15-统计学基础与假设检验.md"
+      ],
+      "gaps": [
+        "补 Cattell、Horn 与后续 CHC 整合，区分模型版本。",
+        "补文化偏差、测量不变性、复现及多元智能批评；现有统计文章只是方法基础。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "learning-efficiency",
+      "index": 3,
+      "name": "学习效率与泛化路线",
+      "cluster": "measurement",
+      "questionLevel": "measurement",
+      "branches": [
+        "技能获取效率 (Chollet ARC)",
+        "结构性与组合性泛化",
+        "计算学习理论 (Valiant PAC)"
+      ],
+      "question": "获得新技能的效率与泛化怎样区别于已有技能水平？",
+      "searchTerms": [
+        "sample efficiency compositional generalization priors",
+        "PAC learning ARC evaluation contamination",
+        "学习效率 组合泛化 先验 评测"
+      ],
+      "existingMaterials": [
+        "src/pages/rsi.astro",
+        "docs/evaluation-reproducibility-research.md",
+        "src/content/posts/2026-10-21-fly-connectome-05-meta-learning.md"
+      ],
+      "gaps": [
+        "补迁移、系统性泛化与分布外评测的失败案例。",
+        "ARC、PAC 与人类少样本学习的任务及先验口径需对齐；近年基准只先定位 ARC-AGI-2，未完成截至2026年的前沿检索。"
+      ],
+      "pilot": true,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "rational-resource",
+      "index": 4,
+      "name": "理性、适应与资源约束路线",
+      "cluster": "measurement",
+      "questionLevel": "mechanism",
+      "branches": [
+        "通用智能形式化 (Legg-Hutter / AIXI)",
+        "有限理性与资源理性 (Simon / Griffiths)",
+        "生态理性与快速启发式 (Gigerenzer)",
+        "知识与资源不足下的适应 (NARS / 王培)"
+      ],
+      "question": "知识与资源不足时，怎样定义合理的适应与决策？",
+      "searchTerms": [
+        "bounded rationality ecological rationality",
+        "AIXI universal intelligence resource rational analysis",
+        "有限理性 资源理性 NARS"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2024-6-30-应用CFR实现德州扑克对战.md",
+        "src/content/posts/2024-08-15-统计学基础与假设检验.md"
+      ],
+      "gaps": [
+        "补 NARS/王培原始论文与资源不足定义，当前尚未建节点。",
+        "补 AIXI 不可计算性、启发式反例与资源理性批评；CFR 是特定博弈方法，不是路线历史的替代。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "symbolic-logic",
+      "index": 5,
+      "name": "符号、逻辑、搜索与组合路线",
+      "cluster": "representation",
+      "questionLevel": "mechanism",
+      "branches": [
+        "物理符号系统假说 (Newell & Simon)",
+        "启发式搜索与规划",
+        "结构映射与类比推理 (Gentner)",
+        "程序归纳与神经符号系统"
+      ],
+      "question": "结构、符号和搜索怎样支持推理、组合与类比？",
+      "searchTerms": [
+        "physical symbol system heuristic search",
+        "structure mapping program induction neural symbolic",
+        "符号系统 类比 程序归纳 搜索"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2024-08-20-MCTS算法深度解析.md",
+        "src/content/posts/2024-6-30-Alpha Zero算法实现五子棋.md"
+      ],
+      "gaps": [
+        "补 Logic Theorist、GPS、框架问题、规划和 UCT 的一手节点。",
+        "神经符号不是单一路线；需按可检验的组合能力区分不同实现。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "connectionist",
+      "index": 6,
+      "name": "连接主义、统计学习与表征路线",
+      "cluster": "representation",
+      "questionLevel": "mechanism",
+      "branches": [
+        "分布式表征与连接主义",
+        "深层表征与流形学习",
+        "预测与自监督学习",
+        "Scaling Law 经验路线"
+      ],
+      "question": "分布式连接如何学习表示，训练规模如何改变能力与限制？",
+      "searchTerms": [
+        "connectionism perceptron representation learning",
+        "backpropagation scaling laws limitations",
+        "连接主义 表征学习 感知机 规模规律"
+      ],
+      "existingMaterials": [
+        "docs/llm-training-series-plan.md",
+        "docs/llm-training-series-progress.md",
+        "src/content/posts/2024-09-01-Transformer架构详解.md"
+      ],
+      "gaps": [
+        "补统计学习理论、连接主义早期独立起源、深层网络复兴和样本/计算权衡。",
+        "现有大模型文章丰富，但不能用当代训练流程反推整条历史；需补神经网络失败与竞争解释。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "causal-world-models",
+      "index": 7,
+      "name": "概率推断、因果模型与世界模型路线",
+      "cluster": "representation",
+      "questionLevel": "mechanism",
+      "branches": [
+        "贝叶斯认知科学 (Tenenbaum)",
+        "因果阶梯与结构因果模型 (Pearl)",
+        "预测编码与自由能推断",
+        "世界模型与隐空间模拟 (Ha / LeCun)"
+      ],
+      "question": "怎样利用概率、因果与可预测动态形成对世界的可用解释？",
+      "searchTerms": [
+        "Bayesian cognition causal identification world models",
+        "do calculus latent dynamics model based planning",
+        "概率推断 因果识别 世界模型"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2024-6-30-动态不确定性因果图模型理论.md",
+        "src/content/posts/2024-6-30-应用Ylearn框架实现因果推断.md",
+        "src/content/posts/2024-07-28-模型基础强化学习.md"
+      ],
+      "gaps": [
+        "概率图、结构因果模型和潜在动态模型须保留不同分支。",
+        "补因果发现、预测编码原始论文与模型误差/干预反例；DUCG 与主流因果模型要单独比较。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "cybernetics-rl",
+      "index": 8,
+      "name": "控制论、强化学习与主动推断路线",
+      "cluster": "representation",
+      "questionLevel": "mechanism",
+      "branches": [
+        "好调节器定理与控制论 (Wiener / Ashby)",
+        "强化学习与策略优化 (Sutton & Barto)",
+        "主动推断与自由能框架 (Friston)",
+        "赋能度与行动可控性 (Empowerment)"
+      ],
+      "question": "反馈、奖励、调节与主动推断分别怎样使行动获得方向？",
+      "searchTerms": [
+        "cybernetics requisite variety good regulator",
+        "temporal difference Q learning active inference",
+        "控制论 强化学习 主动推断 奖励"
+      ],
+      "existingMaterials": [
+        "docs/reasoning-rl-research.md",
+        "src/content/posts/2024-06-09-强化学习笔记记录.md",
+        "src/content/posts/2024-07-28-模型基础强化学习.md"
+      ],
+      "gaps": [
+        "补 Bellman 动态规划、Watkins 1989 论文、策略梯度与关键不稳定性反例。",
+        "补主动推断的具体算法与反方比较，不能用自由能综述替代其全部历史；补 empowerment。"
+      ],
+      "pilot": true,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "cognitive-architectures",
+      "index": 9,
+      "name": "认知架构与多机制协作路线",
+      "cluster": "embodiment",
+      "questionLevel": "mechanism",
+      "branches": [
+        "统一认知架构 (ACT-R / Soar)",
+        "心智社会 (Minsky)",
+        "元认知与自我监控",
+        "创造性认知与概念空间 (Boden)"
+      ],
+      "question": "多种认知机制怎样在同一系统中协作？",
+      "searchTerms": [
+        "ACT star ACT R Soar cognitive architecture",
+        "standard model mind metacognition",
+        "认知架构 工作记忆 元认知"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2024-10-13-LLM-Agent开发指南.md"
+      ],
+      "gaps": [
+        "补 ACT-R 各版本、元认知与创造性架构的一手实验。",
+        "LLM Agent 指南只可作为工程对照，不能等同 ACT-R/Soar 的心理学解释。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "neuroscience",
+      "index": 10,
+      "name": "神经科学路线",
+      "cluster": "embodiment",
+      "questionLevel": "mechanism",
+      "branches": [
+        "顶额叶整合理论 (P-FIT)",
+        "网络神经科学",
+        "共享执行控制资源"
+      ],
+      "question": "神经结构、可塑性与网络动态怎样解释认知能力？",
+      "searchTerms": [
+        "P FIT intelligence network neuroscience",
+        "connectome intervention cognitive mechanism",
+        "神经可塑性 连接组 智力 脑网络"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2026-10-21-fly-connectome-01-circuit-and-framework.md",
+        "src/content/posts/2026-10-21-fly-connectome-11-summary.md"
+      ],
+      "gaps": [
+        "补病损、干预与纵向研究，避免只用相关影像。",
+        "果蝇连接组与人类智力并非同一测量对象；补学习规则、结构与功能之间的桥接证据。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "developmental-openended",
+      "index": 11,
+      "name": "发展、建构与开放式学习路线",
+      "cluster": "embodiment",
+      "questionLevel": "origin",
+      "branches": [
+        "发展建构主义 (Piaget)",
+        "核心知识与早期先验 (Spelke)",
+        "内在动机与好奇心驱动 (Oudeyer)",
+        "开放式自演化与 RSI (Stanley)"
+      ],
+      "question": "智能如何在发展和自发探索中形成新的能力？",
+      "searchTerms": [
+        "development sensorimotor intelligence core knowledge",
+        "intrinsic motivation novelty search open ended POET",
+        "发展心理学 内在动机 开放式学习"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2026-10-03-recursive-self-improvement-research.md",
+        "src/content/posts/2026-10-21-fly-connectome-05-meta-learning.md"
+      ],
+      "gaps": [
+        "个体发展、进化搜索、自动课程与递归自我改进必须分层。",
+        "补发展实验的修订、好奇心失败和开放性度量；不能把自动生成任务认定为无界改进。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "embodied-dynamical",
+      "index": 12,
+      "name": "具身、生态、生成与动力系统路线",
+      "cluster": "embodiment",
+      "questionLevel": "boundary",
+      "branches": [
+        "形态计算 (Morphological Computation)",
+        "生态心理学与示能 (Gibson)",
+        "行为式机器人 (Brooks / 包容式架构)",
+        "行动生成论 (Enactivism)"
+      ],
+      "question": "身体、环境与行动耦合怎样参与认知？",
+      "searchTerms": [
+        "ecological perception affordances enactivism",
+        "subsumption dynamic systems morphological computation",
+        "具身认知 示能 动力系统 形态计算"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2026-10-04-strandbeest-leg-linkage.md",
+        "src/content/posts/2026-10-04-re-evolving-the-strandbeest-leg.md",
+        "src/content/posts/2026-10-04-strandbeest-evolution-history.md"
+      ],
+      "gaps": [
+        "补 Gibson 原始实验、被动行走和具身观点的批评。",
+        "连杆动力学是教学/工程入口，不能凭形态优化直接宣称认知；区分生态、生成和机器人各分支。"
+      ],
+      "pilot": true,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "autopoiesis-evolution",
+      "index": 13,
+      "name": "生命、自维持与演化路线",
+      "cluster": "embodiment",
+      "questionLevel": "origin",
+      "branches": [
+        "自创生理论 (Maturana & Varela)",
+        "多尺度基底认知 (Michael Levin)",
+        "生态演化适应"
+      ],
+      "question": "生命组织、自维持、适应与智能之间有哪些关系？",
+      "searchTerms": [
+        "autopoiesis biological autonomy basal cognition",
+        "bioelectricity multiscale agency TAME",
+        "自创生 生物自主性 基底认知"
+      ],
+      "existingMaterials": [],
+      "gaps": [
+        "补 Maturana 1970、原西语自创生文本、适应性与自维持的区别。",
+        "补基底认知的独立实验和反对解释；目前偏重少数学者，需要扩大来源谱系。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "no-dedicated-note-located"
+    },
+    {
+      "id": "sociocultural-language",
+      "index": 14,
+      "name": "社会文化与语言路线",
+      "cluster": "collective",
+      "questionLevel": "boundary",
+      "branches": [
+        "社会文化历史学派 (Vygotsky)",
+        "共享意向性与合作 (Tomasello)",
+        "累积式文化演化 (Cultural Brain)"
+      ],
+      "question": "语言、社会交往和文化传承怎样改变认知？",
+      "searchTerms": [
+        "Vygotsky social mediation thought language",
+        "shared intentionality cumulative cultural evolution",
+        "社会文化 语言中介 共享意向性"
+      ],
+      "existingMaterials": [],
+      "gaps": [
+        "补俄文原典及译本比较，补语言发展和非西方社会的实证研究。",
+        "需要反方证据与文化差异，不能由合作案例推出人类认知的唯一机制。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "no-dedicated-note-located"
+    },
+    {
+      "id": "collective-extended",
+      "index": 15,
+      "name": "集体、分布式与延展心智路线",
+      "cluster": "collective",
+      "questionLevel": "boundary",
+      "branches": [
+        "延展心智假说 (Clark & Chalmers)",
+        "分布式认知 (Hutchins)",
+        "群体智慧与去中心化协调 (Hayek)"
+      ],
+      "question": "认知的单位能否跨越个体，延展到工具和群体？",
+      "searchTerms": [
+        "distributed cognition extended mind critique",
+        "collective intelligence group factor coordination",
+        "分布式认知 延展心智 群体智能"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2024-07-20-多智能体强化学习.md",
+        "src/content/posts/2024-6-30-新型群体智能算法对比实验.md"
+      ],
+      "gaps": [
+        "补耦合—构成批评、群体因素复现及协调失效。",
+        "工程多智能体与人类群体认知分开；分散协调不预设全局最优或主体体验。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "information-physics",
+      "index": 16,
+      "name": "信息、压缩、复杂系统与物理路线",
+      "cluster": "collective",
+      "questionLevel": "mechanism",
+      "branches": [
+        "理解即压缩 (Kolmogorov / 索罗门诺夫归纳)",
+        "信息瓶颈理论 (Tishby)",
+        "因果熵与未来选择最大化",
+        "自组织临界性 (Criticality)"
+      ],
+      "question": "信息、压缩与物理原则能解释智能的哪些方面？",
+      "searchTerms": [
+        "algorithmic probability MDL information bottleneck",
+        "criticality neuronal avalanches causal entropic forces",
+        "信息压缩 算法概率 临界性 因果熵"
+      ],
+      "existingMaterials": [
+        "src/content/posts/2026-10-20-llm-training-pretrain-01-tokenization.md"
+      ],
+      "gaps": [
+        "补 Kolmogorov 复杂度、可计算近似与物理成本原始工作。",
+        "对压缩、预测、理解之间的推论分别立证；补临界性统计检验与不同形态计算度量的比较。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "philosophy-of-mind",
+      "index": 17,
+      "name": "语义、理解与心灵哲学路线",
+      "cluster": "mind",
+      "questionLevel": "value",
+      "branches": [
+        "中文屋论证与生物自然主义 (Searle)",
+        "符号接地问题 (Harnad)",
+        "意向立场 (Dennett)",
+        "功能主义与计算主义"
+      ],
+      "question": "形式操作、意义与理解之间有什么关系？",
+      "searchTerms": [
+        "Chinese room systems reply symbol grounding",
+        "functionalism intentional stance meaning form",
+        "中文屋 符号接地 功能主义 理解"
+      ],
+      "existingMaterials": [
+        "src/pages/rsi.astro"
+      ],
+      "gaps": [
+        "补功能主义早期论证、外在论和中文屋的系统回应/机器人回应。",
+        "需要原文论证重建，不把学者立场直接写成结论；现有互动页面只提供问题入口。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "consciousness-self",
+      "index": 18,
+      "name": "意识、情感与自我路线",
+      "cluster": "mind",
+      "questionLevel": "value",
+      "branches": [
+        "全局工作空间理论 (Baars / Dehaene)",
+        "整合信息理论 (Tononi IIT)",
+        "注意图式理论 (Graziano)",
+        "感受态与躯体标记 (Damasio)"
+      ],
+      "question": "智能表现、意识通达、体验、情感与自我怎样区分？",
+      "searchTerms": [
+        "global neuronal workspace IIT adversarial collaboration",
+        "somatic marker consciousness access phenomenology",
+        "意识通达 整合信息 情感 自我"
+      ],
+      "existingMaterials": [],
+      "gaps": [
+        "补注意图式、情感实验争论、自我模型及 IIT 各版本差异。",
+        "对抗性实验需核对预注册、预测、实际指标和作者回应；本轮未读附录，不能宣称裁决理论。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "no-dedicated-note-located"
+    },
+    {
+      "id": "wisdom-values",
+      "index": 19,
+      "name": "智慧、价值与跨文化路线",
+      "cluster": "mind",
+      "questionLevel": "value",
+      "branches": [
+        "实践智慧 (Aristotle Phronesis)",
+        "心性智识与修养 (儒道传统)",
+        "觉察与执念解构 (佛学认知传统)",
+        "适应性智能与平衡理论 (Sternberg)"
+      ],
+      "question": "聪明、智慧和价值判断在不同传统中怎样被区分？",
+      "searchTerms": [
+        "phronesis wisdom Berlin wisdom paradigm",
+        "Mengzi xin xing prajna textual interpretation",
+        "实践智慧 心性 般若 跨文化 测量"
+      ],
+      "existingMaterials": [
+        "src/pages/rsi.astro"
+      ],
+      "gaps": [
+        "古典原作成书、编纂、注疏与译本分别建档；当前三个原典入口不能代表全部传统。",
+        "补道家与其他文化、当代跨文化智慧测量和规范性批评；发现出版社摘要串书，须以实际文本复核。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "related-materials-located"
+    },
+    {
+      "id": "metaphysics-quantum",
+      "index": 20,
+      "name": "形而上学、非经典计算与量子路线",
+      "cluster": "mind",
+      "questionLevel": "boundary",
+      "branches": [
+        "泛心论与双面论 (Panpsychism)",
+        "非可计算性与量子脑假说 (Penrose & Hameroff)",
+        "量子认知决策模型 (Busemeyer)"
+      ],
+      "question": "心智是否需要非经典物理或超出常规计算的解释？",
+      "searchTerms": [
+        "Lucas Penrose Godel mind objections",
+        "Orch OR decoherence microtubules criticism",
+        "非算法心智 量子意识 退相干"
+      ],
+      "existingMaterials": [],
+      "gaps": [
+        "现有候选集中于 Gödel/Lucas/Penrose/Orch OR，尚未覆盖泛心论、量子认知概率模型等独立分支。",
+        "补反方与回应原文、可证伪预测及生物物理证据；量子概率建模不等于脑内量子意识。"
+      ],
+      "pilot": false,
+      "inventoryStatus": "no-dedicated-note-located"
+    }
+  ],
+  "sources": [
+    {
+      "id": "watson-1913",
+      "title": "Psychology as the Behaviorist Views It",
+      "authors": "John B. Watson",
+      "year": 1913,
+      "kind": "paper",
+      "url": "https://psychclassics.yorku.ca/Watson/views",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "selected-sections",
+      "readLocator": "原文转载的书目信息与开篇方法宣言；未读完整正文。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "titchener-1914",
+      "title": "On Psychology as the Behaviorist Views It",
+      "authors": "E. B. Titchener",
+      "year": 1914,
+      "kind": "critique",
+      "url": "https://psychclassics.yorku.ca/Titchener/watson.htm",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "turing-1950",
+      "title": "Computing Machinery and Intelligence",
+      "authors": "A. M. Turing",
+      "year": 1950,
+      "kind": "paper",
+      "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "legg-definitions-2007",
+      "title": "A Collection of Definitions of Intelligence",
+      "authors": "Shane Legg; Marcus Hutter",
+      "year": 2007,
+      "kind": "review",
+      "url": "https://www.hutter1.net/ai/idefs.pdf",
+      "sourceType": "author-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "chollet-2019",
+      "title": "On the Measure of Intelligence",
+      "authors": "François Chollet",
+      "year": 2019,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/1911.01547",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "arXiv 题名、作者、提交/修订历史与摘要（当前 v2）；未读正文。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "spearman-1904",
+      "title": "General Intelligence, Objectively Determined and Measured",
+      "authors": "Charles Spearman",
+      "year": 1904,
+      "kind": "paper",
+      "url": "https://www.jstor.org/stable/1412107",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "metadata",
+      "readLocator": "JSTOR 题名、作者、卷期、页码与 DOI；正文未读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "binet-simon-1905",
+      "title": "Méthodes nouvelles pour le diagnostic du niveau intellectuel des anormaux",
+      "authors": "Alfred Binet; Théodore Simon",
+      "year": 1904,
+      "kind": "paper",
+      "url": "https://www.persee.fr/doc/psy_0003-5033_1904_num_11_1_3675",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "Persée 目录标卷年 1904；通常引用作 1905。本轮保留 1904–1905 范围，待核扫描版权与实际出刊记录。"
+    },
+    {
+      "id": "thurstone-1938",
+      "title": "Primary Mental Abilities",
+      "authors": "L. L. Thurstone",
+      "year": 1938,
+      "kind": "book",
+      "url": "https://wellcomecollection.org/works/aq4k648g",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "gardner-1983",
+      "title": "Frames of Mind: The Theory of Multiple Intelligences",
+      "authors": "Howard Gardner",
+      "year": 1983,
+      "kind": "book",
+      "url": "https://search.worldcat.org/title/750754464",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "carroll-1993",
+      "title": "Human Cognitive Abilities: A Survey of Factor-Analytic Studies",
+      "authors": "John B. Carroll",
+      "year": 1993,
+      "kind": "book",
+      "url": "https://www.cambridge.org/core/books/human-cognitive-abilities/F83D5EADF14A453F6350FF3DD39631C8",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "kovacs-conway-2016",
+      "title": "Process Overlap Theory: A Unified Account of the General Factor of Intelligence",
+      "authors": "Kristof Kovacs; Andrew R. A. Conway",
+      "year": 2016,
+      "kind": "paper",
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/1047840X.2016.1153946",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "valiant-1984",
+      "title": "A Theory of the Learnable",
+      "authors": "Leslie G. Valiant",
+      "year": 1984,
+      "kind": "paper",
+      "url": "https://doi.org/10.1145/1968.1972",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "fodor-pylyshyn-1988",
+      "title": "Connectionism and Cognitive Architecture: A Critical Analysis",
+      "authors": "Jerry A. Fodor; Zenon W. Pylyshyn",
+      "year": 1988,
+      "kind": "critique",
+      "url": "https://www.sciencedirect.com/science/article/pii/0010027788900315",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "lake-2015",
+      "title": "Human-level Concept Learning through Probabilistic Program Induction",
+      "authors": "Brenden M. Lake; Ruslan Salakhutdinov; Joshua B. Tenenbaum",
+      "year": 2015,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26659050/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "arc-agi-2-2025",
+      "title": "ARC-AGI-2: A New Challenge for Frontier AI Reasoning Systems",
+      "authors": "ARC Prize; Greg Kamradt（发布说明）",
+      "year": 2025,
+      "kind": "benchmark",
+      "url": "https://arcprize.org/blog/arc-agi-2-technical-report",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "metadata",
+      "readLocator": "官方发布说明标题、作者和 2025-05-20 日期及小节目录；技术报告 PDF 未读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "simon-1955",
+      "title": "A Behavioral Model of Rational Choice",
+      "authors": "Herbert A. Simon",
+      "year": 1955,
+      "kind": "paper",
+      "url": "https://doi.org/10.2307/1884852",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "gigerenzer-goldstein-1996",
+      "title": "Reasoning the Fast and Frugal Way: Models of Bounded Rationality",
+      "authors": "Gerd Gigerenzer; Daniel G. Goldstein",
+      "year": 1996,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8888650/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "hutter-2005",
+      "title": "Universal Artificial Intelligence: Sequential Decisions Based on Algorithmic Probability",
+      "authors": "Marcus Hutter",
+      "year": 2005,
+      "kind": "book",
+      "url": "https://www.hutter1.net/ai/uaibook.htm",
+      "sourceType": "author-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "legg-hutter-2007",
+      "title": "Universal Intelligence: A Definition of Machine Intelligence",
+      "authors": "Shane Legg; Marcus Hutter",
+      "year": 2007,
+      "kind": "paper",
+      "url": "https://www.hutter1.net/ai/iorx.pdf",
+      "sourceType": "author-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "lieder-griffiths-2020",
+      "title": "Resource-rational Analysis: Understanding Human Cognition as the Optimal Use of Limited Computational Resources",
+      "authors": "Falk Lieder; Thomas L. Griffiths",
+      "year": 2020,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30714890/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "节点采用期刊卷年 2020；在线发表与卷年不同，具体版本需深读时固定。"
+    },
+    {
+      "id": "mccarthy-1959",
+      "title": "Programs with Common Sense",
+      "authors": "John McCarthy",
+      "year": 1959,
+      "kind": "paper",
+      "url": "https://www-formal.stanford.edu/jmc/mcc59/mcc59.html",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "newell-simon-1976",
+      "title": "Computer Science as Empirical Inquiry: Symbols and Search",
+      "authors": "Allen Newell; Herbert A. Simon",
+      "year": 1976,
+      "kind": "paper",
+      "url": "https://www.computerhistory.org/chess/doc-431614f691642/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "metadata",
+      "readLocator": "Computer History Museum 的原文档案题名、CACM 卷期与 1976-03 日期；扫描件未读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "gentner-1983",
+      "title": "Structure-Mapping: A Theoretical Framework for Analogy",
+      "authors": "Dedre Gentner",
+      "year": 1983,
+      "kind": "paper",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0364021383800093",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "ellis-2021",
+      "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+      "authors": "Kevin Ellis et al.",
+      "year": 2021,
+      "kind": "paper",
+      "url": "https://dspace.mit.edu/entities/publication/86d768ab-558f-4fb1-b92e-9288de643ccb",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "mcculloch-pitts-1943",
+      "title": "A Logical Calculus of the Ideas Immanent in Nervous Activity",
+      "authors": "Warren S. McCulloch; Walter Pitts",
+      "year": 1943,
+      "kind": "paper",
+      "url": "https://doi.org/10.1007/BF02478259",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "rosenblatt-1958",
+      "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain",
+      "authors": "Frank Rosenblatt",
+      "year": 1958,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13602029/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "minsky-papert-1969",
+      "title": "Perceptrons: An Introduction to Computational Geometry",
+      "authors": "Marvin Minsky; Seymour A. Papert",
+      "year": 1969,
+      "kind": "book",
+      "url": "https://mitpress.mit.edu/9780262130431/perceptrons/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "rumelhart-1986",
+      "title": "Learning Representations by Back-propagating Errors",
+      "authors": "David E. Rumelhart; Geoffrey E. Hinton; Ronald J. Williams",
+      "year": 1986,
+      "kind": "paper",
+      "url": "https://doi.org/10.1038/323533a0",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "krizhevsky-2012",
+      "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+      "authors": "Alex Krizhevsky; Ilya Sutskever; Geoffrey E. Hinton",
+      "year": 2012,
+      "kind": "paper",
+      "url": "https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "vaswani-2017",
+      "title": "Attention Is All You Need",
+      "authors": "Ashish Vaswani et al.",
+      "year": 2017,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "kaplan-2020",
+      "title": "Scaling Laws for Neural Language Models",
+      "authors": "Jared Kaplan et al.",
+      "year": 2020,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "pearl-1988",
+      "title": "Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference",
+      "authors": "Judea Pearl",
+      "year": 1988,
+      "kind": "book",
+      "url": "https://www.sciencedirect.com/book/monograph/9780080514895/probabilistic-reasoning-in-intelligent-systems",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "pearl-1995",
+      "title": "A Causal Calculus for Statistical Research",
+      "authors": "Judea Pearl",
+      "year": 1995,
+      "kind": "paper",
+      "url": "https://proceedings.mlr.press/r0/pearl95a.html",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "PMLR 题名、作者、会议、页码和摘要；未读 PDF。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "tenenbaum-2011",
+      "title": "How to Grow a Mind: Statistics, Structure, and Abstraction",
+      "authors": "Joshua B. Tenenbaum; Charles Kemp; Thomas L. Griffiths; Noah D. Goodman",
+      "year": 2011,
+      "kind": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21393536/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "ha-2018",
+      "title": "World Models",
+      "authors": "David Ha; Jürgen Schmidhuber",
+      "year": 2018,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/1803.10122",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "schrittwieser-2019",
+      "title": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model",
+      "authors": "Julian Schrittwieser et al.",
+      "year": 2019,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/1911.08265",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "arXiv 题名、v1/v2 日期与当前 v2 摘要；未读正文。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "节点采用 arXiv v1 2019-11-19；当前摘要页展示 v2（2020-02-21），Nature 期刊版发表于 2020。"
+    },
+    {
+      "id": "wiener-1948",
+      "title": "Cybernetics: Or Control and Communication in the Animal and the Machine",
+      "authors": "Norbert Wiener",
+      "year": 1948,
+      "kind": "book",
+      "url": "https://mitpress.mit.edu/9780262537841/cybernetics-or-control-and-communication-in-the-animal-and-the-machine/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "链接为现代再版，出版方说明原作首次发表于 1948；读本版本仍待选定。"
+    },
+    {
+      "id": "ashby-1956",
+      "title": "An Introduction to Cybernetics",
+      "authors": "W. Ross Ashby",
+      "year": 1956,
+      "kind": "book",
+      "url": "https://www.biodiversitylibrary.org/item/26977",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "conant-ashby-1970",
+      "title": "Every Good Regulator of a System Must Be a Model of That System",
+      "authors": "Roger C. Conant; W. Ross Ashby",
+      "year": 1970,
+      "kind": "paper",
+      "url": "https://doi.org/10.1080/00207727008920220",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "sutton-1988",
+      "title": "Learning to Predict by the Methods of Temporal Differences",
+      "authors": "Richard S. Sutton",
+      "year": 1988,
+      "kind": "paper",
+      "url": "https://doi.org/10.1007/BF00115009",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "watkins-dayan-1992",
+      "title": "Q-learning",
+      "authors": "Christopher J. C. H. Watkins; Peter Dayan",
+      "year": 1992,
+      "kind": "paper",
+      "url": "https://doi.org/10.1007/BF00992698",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "friston-2010",
+      "title": "The Free-energy Principle: A Unified Brain Theory?",
+      "authors": "Karl Friston",
+      "year": 2010,
+      "kind": "review",
+      "url": "https://doi.org/10.1038/nrn2787",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "silver-2017",
+      "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm",
+      "authors": "David Silver et al.",
+      "year": 2017,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/1712.01815",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "arXiv v1 题名、作者、2017-12-05 日期与摘要；未读正文。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "anderson-1983",
+      "title": "The Architecture of Cognition",
+      "authors": "John R. Anderson",
+      "year": 1983,
+      "kind": "book",
+      "url": "https://books.google.com/books/about/The_Architecture_of_Cognition.html?id=1OtfQgAACAAJ",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "minsky-1986",
+      "title": "The Society of Mind",
+      "authors": "Marvin Minsky",
+      "year": 1986,
+      "kind": "book",
+      "url": "https://search.worldcat.org/title/223353010",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "soar-1987",
+      "title": "SOAR: An Architecture for General Intelligence",
+      "authors": "John E. Laird; Allen Newell; Paul S. Rosenbloom",
+      "year": 1987,
+      "kind": "paper",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/0004370287900506",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "newell-1990",
+      "title": "Unified Theories of Cognition",
+      "authors": "Allen Newell",
+      "year": 1990,
+      "kind": "book",
+      "url": "https://catalogue.bnf.fr/ark:/12148/cb35529460g",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "laird-2017",
+      "title": "A Standard Model of the Mind: Toward a Common Computational Framework across Artificial Intelligence, Cognitive Science, Neuroscience, and Robotics",
+      "authors": "John E. Laird; Christian Lebiere; Paul S. Rosenbloom",
+      "year": 2017,
+      "kind": "paper",
+      "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2744/0",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "AAAI 题名、作者、2017 引用信息与摘要；未读 PDF。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "hebb-1949",
+      "title": "The Organization of Behavior: A Neuropsychological Theory",
+      "authors": "D. O. Hebb",
+      "year": 1949,
+      "kind": "book",
+      "url": "https://search.worldcat.org/title/1175395",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "marr-1982",
+      "title": "Vision: A Computational Investigation into the Human Representation and Processing of Visual Information",
+      "authors": "David Marr",
+      "year": 1982,
+      "kind": "book",
+      "url": "https://academic.oup.com/mit-press-scholarship-online/book/13528",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "链接为后续 MIT Press 版本，说明原作 1982；原版与所读版本页码不能混用。"
+    },
+    {
+      "id": "jung-haier-2007",
+      "title": "The Parieto-Frontal Integration Theory (P-FIT) of Intelligence: Converging Neuroimaging Evidence",
+      "authors": "Rex E. Jung; Richard J. Haier",
+      "year": 2007,
+      "kind": "review",
+      "url": "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/abs/parietofrontal-integration-theory-pfit-of-intelligence-converging-neuroimaging-evidence/175ECF09153B51136C21325465C6A86F",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "barbey-2018",
+      "title": "Network Neuroscience Theory of Human Intelligence",
+      "authors": "Aron K. Barbey",
+      "year": 2018,
+      "kind": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29167088/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "schlegel-2024",
+      "title": "Whole-brain Annotation and Multi-connectome Cell Typing of Drosophila",
+      "authors": "Philipp Schlegel et al.",
+      "year": 2024,
+      "kind": "paper",
+      "url": "https://www.nature.com/articles/s41586-024-07686-5",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "piaget-1936",
+      "title": "La naissance de l'intelligence chez l'enfant",
+      "authors": "Jean Piaget",
+      "year": 1936,
+      "kind": "book",
+      "url": "https://www.fondationjeanpiaget.ch/fjp/site/presentation/index.php?DOCID=1177",
+      "sourceType": "author-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "节点采用法文原作 1936；1952 英译另记，不能代替原作日期。"
+    },
+    {
+      "id": "spelke-2007",
+      "title": "Core Knowledge",
+      "authors": "Elizabeth S. Spelke; Katherine D. Kinzler",
+      "year": 2007,
+      "kind": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17181705/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "节点采用期刊卷年 2007；出版方标 online first 为 2006-12-20。",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "oudeyer-2007",
+      "title": "Intrinsic Motivation Systems for Autonomous Mental Development",
+      "authors": "Pierre-Yves Oudeyer; Frédéric Kaplan; Verena V. Hafner",
+      "year": 2007,
+      "kind": "paper",
+      "url": "https://www.pyoudeyer.com/ims.pdf",
+      "sourceType": "author-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "lehman-stanley-2011",
+      "title": "Abandoning Objectives: Evolution through the Search for Novelty Alone",
+      "authors": "Joel Lehman; Kenneth O. Stanley",
+      "year": 2011,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20868264/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "wang-poet-2019",
+      "title": "Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning Environments and Their Solutions",
+      "authors": "Rui Wang; Joel Lehman; Jeff Clune; Kenneth O. Stanley",
+      "year": 2019,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/1901.01753",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "arXiv 题名、v1/v3 日期与摘要；未读方法、实验或附录。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "gibson-1979",
+      "title": "The Ecological Approach to Visual Perception",
+      "authors": "James J. Gibson",
+      "year": 1979,
+      "kind": "book",
+      "url": "https://search.worldcat.org/title/The-ecological-approach-to-visual-perception/oclc/4929611",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "brooks-1986",
+      "title": "A Robust Layered Control System for a Mobile Robot",
+      "authors": "Rodney A. Brooks",
+      "year": 1986,
+      "kind": "paper",
+      "url": "https://doi.org/10.1109/JRA.1986.1087032",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "brooks-1991",
+      "title": "Intelligence without Representation",
+      "authors": "Rodney A. Brooks",
+      "year": 1991,
+      "kind": "paper",
+      "url": "https://www.sciencedirect.com/science/article/pii/000437029190053M",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "varela-1991",
+      "title": "The Embodied Mind: Cognitive Science and Human Experience",
+      "authors": "Francisco J. Varela; Evan Thompson; Eleanor Rosch",
+      "year": 1991,
+      "kind": "book",
+      "url": "https://mitpress.mit.edu/9780262220422/the-embodied-mind/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "metadata",
+      "readLocator": "MIT Press 题名、作者、1991 精装与 1992 平装日期及出版介绍；未读书。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "thelen-smith-1994",
+      "title": "A Dynamic Systems Approach to the Development of Cognition and Action",
+      "authors": "Esther Thelen; Linda B. Smith",
+      "year": 1994,
+      "kind": "book",
+      "url": "https://mitpress.mit.edu/9780262200950/a-dynamic-systems-approach-to-the-development-of-cognition-and-action/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "zahedi-ay-2013",
+      "title": "Quantifying Morphological Computation",
+      "authors": "Keyan Zahedi; Nihat Ay",
+      "year": 2013,
+      "kind": "paper",
+      "url": "https://www.mdpi.com/1099-4300/15/5/1887",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "darwin-1859",
+      "title": "On the Origin of Species",
+      "authors": "Charles Darwin",
+      "year": 1859,
+      "kind": "book",
+      "url": "https://darwin-online.org.uk/content/record?itemID=F373",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "varela-maturana-uribe-1974",
+      "title": "Autopoiesis: The Organization of Living Systems, Its Characterization and a Model",
+      "authors": "Francisco G. Varela; Humberto R. Maturana; R. Uribe",
+      "year": 1974,
+      "kind": "paper",
+      "url": "https://repositorio.uchile.cl/bitstream/handle/2250/160309/item_34548860810.pdf",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "weber-varela-2002",
+      "title": "Life after Kant: Natural Purposes and the Autopoietic Foundations of Biological Individuality",
+      "authors": "Andreas Weber; Francisco J. Varela",
+      "year": 2002,
+      "kind": "paper",
+      "url": "https://www.ias-research.net/wp-content/uploads/2018/02/Weber_Varela_Life_after_Kant_2002.pdf",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "levin-2019",
+      "title": "The Computational Boundary of a Self: Developmental Bioelectricity Drives Multicellularity and Scale-Free Cognition",
+      "authors": "Michael Levin",
+      "year": 2019,
+      "kind": "perspective",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02688/full",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "出版页 HYPOTHESIS AND THEORY 类型、题名及摘要开头；未读后续论证和实验来源。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "levin-2022",
+      "title": "Technological Approach to Mind Everywhere: An Experimentally-Grounded Framework for Understanding Diverse Bodies and Minds",
+      "authors": "Michael Levin",
+      "year": 2022,
+      "kind": "perspective",
+      "url": "https://doi.org/10.3389/fnsys.2022.768201",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "vygotsky-1934",
+      "title": "Thinking and Speaking / Thought and Language",
+      "authors": "Lev S. Vygotsky",
+      "year": 1934,
+      "kind": "book",
+      "url": "https://www.marxists.org/archive/vygotsky/works/words/index.htm",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "网页标原作写于 1934，所用英译涉及 1962 与其他译者；需检查删节和底本。"
+    },
+    {
+      "id": "boyd-richerson-1985",
+      "title": "Culture and the Evolutionary Process",
+      "authors": "Robert Boyd; Peter J. Richerson",
+      "year": 1985,
+      "kind": "book",
+      "url": "https://press.uchicago.edu/ucp/books/book/chicago/C/bo5970597.html",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "tomasello-1999",
+      "title": "The Cultural Origins of Human Cognition",
+      "authors": "Michael Tomasello",
+      "year": 1999,
+      "kind": "book",
+      "url": "https://www.jstor.org/stable/j.ctvjsf4jc",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "tomasello-2005",
+      "title": "Understanding and Sharing Intentions: The Origins of Cultural Cognition",
+      "authors": "Michael Tomasello; Malinda Carpenter; Josep Call; Tanya Behne; Henrike Moll",
+      "year": 2005,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16262930/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "henrich-2015",
+      "title": "The Secret of Our Success: How Culture Is Driving Human Evolution, Domesticating Our Species, and Making Us Smart",
+      "authors": "Joseph Henrich",
+      "year": 2015,
+      "kind": "book",
+      "url": "https://henrich.fas.harvard.edu/publications/secret-our-success-how-culture-driving-human-evolution-domesticating-our",
+      "sourceType": "author-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "作者页面出版信息与图书内容提要；不是原书阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "hayek-1945",
+      "title": "The Use of Knowledge in Society",
+      "authors": "F. A. Hayek",
+      "year": 1945,
+      "kind": "paper",
+      "url": "https://www.econlib.org/library/Essays/hykKnw.html",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "hutchins-1995",
+      "title": "Cognition in the Wild",
+      "authors": "Edwin Hutchins",
+      "year": 1995,
+      "kind": "book",
+      "url": "https://pages.ucsd.edu/~ehutchins/citw.html",
+      "sourceType": "author-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "selected-sections",
+      "readLocator": "作者页面的 1995 出版说明与 Introduction 开篇导航实地研究背景；未读完整引言或书。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "clark-chalmers-1998",
+      "title": "The Extended Mind",
+      "authors": "Andy Clark; David Chalmers",
+      "year": 1998,
+      "kind": "paper",
+      "url": "https://doi.org/10.1093/analys/58.1.7",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "couzin-2005",
+      "title": "Effective Leadership and Decision-making in Animal Groups on the Move",
+      "authors": "Iain D. Couzin; Jens Krause; Nigel R. Franks; Simon A. Levin",
+      "year": 2005,
+      "kind": "paper",
+      "url": "https://www.nature.com/articles/nature03236",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "woolley-2010",
+      "title": "Evidence for a Collective Intelligence Factor in the Performance of Human Groups",
+      "authors": "Anita Williams Woolley et al.",
+      "year": 2010,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20929725/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "shannon-1948",
+      "title": "A Mathematical Theory of Communication",
+      "authors": "Claude E. Shannon",
+      "year": 1948,
+      "kind": "paper",
+      "url": "https://doi.org/10.1002/j.1538-7305.1948.tb01338.x",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "solomonoff-1964",
+      "title": "A Formal Theory of Inductive Inference, Part I",
+      "authors": "Ray J. Solomonoff",
+      "year": 1964,
+      "kind": "paper",
+      "url": "https://doi.org/10.1016/S0019-9958(64)90223-2",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "rissanen-1978",
+      "title": "Modeling by Shortest Data Description",
+      "authors": "Jorma Rissanen",
+      "year": 1978,
+      "kind": "paper",
+      "url": "https://www.sciencedirect.com/science/article/pii/0005109878900055",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "tishby-1999",
+      "title": "The Information Bottleneck Method",
+      "authors": "Naftali Tishby; Fernando C. Pereira; William Bialek",
+      "year": 2000,
+      "kind": "paper",
+      "url": "https://arxiv.org/abs/physics/0004057",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "arXiv 题名、作者、2000-04-24 提交日期与摘要；1999 会议口径待核。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "已打开 arXiv 元数据与摘要，提交日期为 2000-04-24；1999 Allerton 会议线索尚待核对会议记录。"
+    },
+    {
+      "id": "beggs-plenz-2003",
+      "title": "Neuronal Avalanches in Neocortical Circuits",
+      "authors": "John M. Beggs; Dietmar Plenz",
+      "year": 2003,
+      "kind": "paper",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6741045/",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "wissner-gross-2013",
+      "title": "Causal Entropic Forces",
+      "authors": "Alexander D. Wissner-Gross; Cameron E. Freer",
+      "year": 2013,
+      "kind": "paper",
+      "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.168702",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "putnam-1967",
+      "title": "Psychological Predicates",
+      "authors": "Hilary Putnam",
+      "year": 1967,
+      "kind": "chapter",
+      "url": "https://philpapers.org/versions/PUTPP-2",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "书目线索列 1967 原章；1975 重印题名为 The Nature of Mental States，原文尚未核对。"
+    },
+    {
+      "id": "searle-1980",
+      "title": "Minds, Brains, and Programs",
+      "authors": "John R. Searle",
+      "year": 1980,
+      "kind": "paper",
+      "url": "https://cse.buffalo.edu/~rapaport/Papers/Papers.by.Others/Searle/searle80.html",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "dennett-1987",
+      "title": "The Intentional Stance",
+      "authors": "Daniel C. Dennett",
+      "year": 1987,
+      "kind": "book",
+      "url": "https://mitpress.mit.edu/9780262040938/the-intentional-stance/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "harnad-1990",
+      "title": "The Symbol Grounding Problem",
+      "authors": "Stevan Harnad",
+      "year": 1990,
+      "kind": "paper",
+      "url": "https://www.southampton.ac.uk/~harnad/Papers/Harnad/harnad90.sgproblem.html",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "bender-koller-2020",
+      "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data",
+      "authors": "Emily M. Bender; Alexander Koller",
+      "year": 2020,
+      "kind": "paper",
+      "url": "https://aclanthology.org/2020.acl-main.463/",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "abstract",
+      "readLocator": "ACL Anthology 的题名、作者、2020 会议信息与摘要；未读正文。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "baars-1988",
+      "title": "A Cognitive Theory of Consciousness",
+      "authors": "Bernard J. Baars",
+      "year": 1988,
+      "kind": "book",
+      "url": "https://ccrg.cs.memphis.edu/assets/papers/1988/Baars-A%20Cognitive%20Theory%20of%20Consciousness.pdf",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "damasio-1994",
+      "title": "Descartes' Error: Emotion, Reason, and the Human Brain",
+      "authors": "Antonio R. Damasio",
+      "year": 1994,
+      "kind": "book",
+      "url": "https://www.loc.gov/item/94028473/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "chalmers-1995",
+      "title": "Facing Up to the Problem of Consciousness",
+      "authors": "David J. Chalmers",
+      "year": 1995,
+      "kind": "paper",
+      "url": "https://consc.net/consciousness/",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "链接为作者作品目录，已定位 1995 文献；下一轮需取得目标文章正文。"
+    },
+    {
+      "id": "tononi-2004",
+      "title": "An Information Integration Theory of Consciousness",
+      "authors": "Giulio Tononi",
+      "year": 2004,
+      "kind": "paper",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC543470/",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "dehaene-changeux-2011",
+      "title": "Experimental and Theoretical Approaches to Conscious Processing",
+      "authors": "Stanislas Dehaene; Jean-Pierre Changeux",
+      "year": 2011,
+      "kind": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21521609/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "cogitate-2025",
+      "title": "Adversarial Testing of Global Neuronal Workspace and Integrated Information Theories of Consciousness",
+      "authors": "COGITATE Consortium et al.",
+      "year": 2025,
+      "kind": "paper",
+      "url": "https://www.nature.com/articles/s41586-025-08888-1",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "aristotle-ethics",
+      "title": "Nicomachean Ethics, Book VI",
+      "authors": "Aristotle; W. D. Ross（译）",
+      "year": null,
+      "kind": "primary-text",
+      "url": "https://classics.mit.edu/Aristotle/nicomachaen.html",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "record-checked",
+      "readingStatus": "metadata",
+      "readLocator": "MIT 原典译文目录、350 B.C.E 标注和 W. D. Ross 译者；第 VI 卷正文尚未读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "原作采用 MIT 页面约前 350 年的传统标注，作为事件的约数日期；W. D. Ross 译本与网页所据版本的出版年尚待核对，不把原作约数当作译本年。"
+    },
+    {
+      "id": "mengzi-jinxin",
+      "title": "孟子·尽心上",
+      "authors": "孟子及传承编纂者（作者归属与成书待考）",
+      "year": null,
+      "kind": "primary-text",
+      "url": "https://ctext.org/mengzi/jin-xin-i/ens",
+      "sourceType": "primary-repository",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "accessNote": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "id": "nagarjuna-mmk",
+      "title": "Mūlamadhyamakakārikā / The Fundamental Wisdom of the Middle Way",
+      "authors": "Nāgārjuna; Jay L. Garfield（1995 英译与释读）",
+      "year": 1995,
+      "kind": "primary-text",
+      "url": "https://academic.oup.com/book/50348",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "所列 1995 是 Garfield 英译与释读的出版年，不是原典成书年；检索到的出版社摘要疑似串书，禁止据该摘要概述理论。"
+    },
+    {
+      "id": "sternberg-1998",
+      "title": "A Balance Theory of Wisdom",
+      "authors": "Robert J. Sternberg",
+      "year": 1998,
+      "kind": "paper",
+      "url": "https://journals.sagepub.com/doi/full/10.1037/1089-2680.2.4.347",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "baltes-staudinger-2000",
+      "title": "Wisdom: A Metaheuristic (Pragmatic) to Orchestrate Mind and Virtue toward Excellence",
+      "authors": "Paul B. Baltes; Ursula M. Staudinger",
+      "year": 2000,
+      "kind": "paper",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11392856/",
+      "sourceType": "bibliographic-record",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "lucas-1961",
+      "title": "Minds, Machines and Gödel",
+      "authors": "J. R. Lucas",
+      "year": 1961,
+      "kind": "paper",
+      "url": "https://www.cambridge.org/core/journals/philosophy/article/minds-machines-and-godel1/727219EDEB5DD3679E56CF3D335C90C1",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "penrose-1989",
+      "title": "The Emperor's New Mind: Concerning Computers, Minds, and the Laws of Physics",
+      "authors": "Roger Penrose",
+      "year": 1989,
+      "kind": "book",
+      "url": "https://academic.oup.com/book/40643",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "hameroff-penrose-1996",
+      "title": "Orchestrated Reduction of Quantum Coherence in Brain Microtubules: A Model for Consciousness",
+      "authors": "Stuart Hameroff; Roger Penrose",
+      "year": 1996,
+      "kind": "paper",
+      "url": "https://www.sciencedirect.com/science/article/pii/0378475496804769",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "tegmark-2000",
+      "title": "Importance of Quantum Decoherence in Brain Processes",
+      "authors": "Max Tegmark",
+      "year": 2000,
+      "kind": "paper",
+      "url": "https://doi.org/10.1103/PhysRevE.61.4194",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23"
+    },
+    {
+      "id": "hameroff-penrose-2014",
+      "title": "Consciousness in the Universe: A Review of the Orch OR Theory",
+      "authors": "Stuart Hameroff; Roger Penrose",
+      "year": 2014,
+      "kind": "review",
+      "url": "https://doi.org/10.1016/j.plrev.2013.08.002",
+      "sourceType": "publisher-or-archive",
+      "discoveryStatus": "located",
+      "readingStatus": "discovery-only",
+      "readLocator": "检索结果中的题名、年份及可见摘要/目录线索；尚未全文阅读。",
+      "checkedAt": "2026-10-23",
+      "versionNote": "节点采用期刊卷年 2014；DOI 中 2013 不自动代表最终刊年。"
+    }
+  ],
+  "events": [
+    {
+      "id": "e-watson-1913",
+      "title": "以可观察行为重设研究对象",
+      "date": {
+        "start": 1913,
+        "end": 1913,
+        "label": "1913",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "behavioral"
+      ],
+      "question": "心理学怎样减少对内省的依赖？",
+      "approach": "以行为的预测与控制组织实验问题。",
+      "openQuestion": "行为研究的操作性是否足以回答理解与意识？",
+      "sourceIds": [
+        "watson-1913"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-titchener-1914",
+      "title": "行为主义纲领的早期回应",
+      "date": {
+        "start": 1914,
+        "end": 1914,
+        "label": "1914",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "behavioral"
+      ],
+      "question": "排除意识是否改变了研究对象而非解决了旧问题？",
+      "approach": "从心理学对象与方法的区分批评行为主义纲领。",
+      "openQuestion": "准确重建双方使用 consciousness 与 observation 的语义。",
+      "sourceIds": [
+        "titchener-1914"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-turing-1950",
+      "title": "模仿游戏与操作性判定",
+      "date": {
+        "start": 1950,
+        "end": 1950,
+        "label": "1950",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "behavioral"
+      ],
+      "question": "怎样把机器能否思考转化为可讨论的检验？",
+      "approach": "提出模仿游戏并讨论反对意见与学习机器。",
+      "openQuestion": "通过特定行为检验与具有一般智能之间需要哪些额外论证？",
+      "sourceIds": [
+        "turing-1950"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-legg-definitions-2007",
+      "title": "汇集不同智能定义",
+      "date": {
+        "start": 2007,
+        "end": 2007,
+        "label": "2007",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "behavioral"
+      ],
+      "question": "不同领域对 intelligence 使用了哪些不相同的标准？",
+      "approach": "收集并比较多种定义，为形式化问题提供入口。",
+      "openQuestion": "回查被收录定义的原始语境，避免把汇编当作统一共识。",
+      "sourceIds": [
+        "legg-definitions-2007"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-chollet-2019",
+      "title": "从任务技能转向技能获取效率",
+      "date": {
+        "start": 2019,
+        "end": 2019,
+        "label": "2019",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "behavioral",
+        "learning-efficiency"
+      ],
+      "question": "高任务分数是否测到了获得新技能的能力？",
+      "approach": "区分技能、先验、经验与泛化，提出 ARC 作为探索性测量。",
+      "openQuestion": "先验怎样计入，任务覆盖和训练污染怎样限制解释？",
+      "sourceIds": [
+        "chollet-2019"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-spearman-1904",
+      "title": "一般因素与测验相关",
+      "date": {
+        "start": 1904,
+        "end": 1904,
+        "label": "1904",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "psychometric"
+      ],
+      "question": "不同任务的表现为什么相关？",
+      "approach": "通过测验相关与因素思想研究共同能力成分。",
+      "openQuestion": "统计共同因素能否直接解释为单一心理机制？",
+      "sourceIds": [
+        "spearman-1904"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-binet-simon-1905",
+      "title": "诊断用途的任务测验",
+      "date": {
+        "start": 1904,
+        "end": 1905,
+        "label": "1904/1905（待核）",
+        "basis": "volume-publication-unresolved",
+        "precision": "range"
+      },
+      "routeIds": [
+        "psychometric"
+      ],
+      "question": "怎样为教育与诊断判断建立可操作的任务集合？",
+      "approach": "通过不同难度的任务考察儿童表现；原文历史用语需保留语境。",
+      "openQuestion": "卷年 1904 与通常使用的 1905 如何对应？不得把诊断用途直接推广为普遍能力本体。",
+      "sourceIds": [
+        "binet-simon-1905"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-thurstone-1938",
+      "title": "多种基本能力",
+      "date": {
+        "start": 1938,
+        "end": 1938,
+        "label": "1938",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "psychometric"
+      ],
+      "question": "测验相关必须用一个总因素解释吗？",
+      "approach": "用多因素结构研究不同基本心理能力。",
+      "openQuestion": "旋转、任务选择与样本怎样影响得到的能力结构？",
+      "sourceIds": [
+        "thurstone-1938"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-gardner-1983",
+      "title": "扩展智能的能力范围",
+      "date": {
+        "start": 1983,
+        "end": 1983,
+        "label": "1983",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "psychometric"
+      ],
+      "question": "标准心理测验是否遗漏重要的人类能力？",
+      "approach": "提出多元智能分类，扩大讨论对象。",
+      "openQuestion": "分类依据、各维度独立性与可测性有哪些支持及批评？",
+      "sourceIds": [
+        "gardner-1983"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-carroll-1993",
+      "title": "能力的层级结构",
+      "date": {
+        "start": 1993,
+        "end": 1993,
+        "label": "1993",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "psychometric"
+      ],
+      "question": "不同因素分析结果能否纳入一个多层结构？",
+      "approach": "综合既有因素分析研究，建立三层能力框架。",
+      "openQuestion": "三层模型与后续 CHC 整合不能混为同一发表事件；跨群体不变性待补。",
+      "sourceIds": [
+        "carroll-1993"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-kovacs-conway-2016",
+      "title": "以过程重叠解释一般因素",
+      "date": {
+        "start": 2016,
+        "end": 2016,
+        "label": "2016",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "psychometric"
+      ],
+      "question": "测验的正相关能否来自多个任务共享过程？",
+      "approach": "提出领域一般与领域特定过程重叠的解释。",
+      "openQuestion": "哪些可区分的预测能对照单一共同原因模型？",
+      "sourceIds": [
+        "kovacs-conway-2016"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-valiant-1984",
+      "title": "把可学习性变为形式问题",
+      "date": {
+        "start": 1984,
+        "end": 1984,
+        "label": "1984",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "learning-efficiency"
+      ],
+      "question": "在有限样本和计算约束下，哪些概念可以学习？",
+      "approach": "用学习协议、错误容限与概率保证界定可学习性。",
+      "openQuestion": "分布假设和概念类如何限定保证，能否解释开放世界迁移？",
+      "sourceIds": [
+        "valiant-1984"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-fodor-pylyshyn-1988",
+      "title": "系统性与组合性的挑战",
+      "date": {
+        "start": 1988,
+        "end": 1988,
+        "label": "1988",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "learning-efficiency",
+        "symbolic-logic",
+        "connectionist"
+      ],
+      "question": "学会一组表达或关系为何应当带来相关组合能力？",
+      "approach": "比较连接主义与经典架构，提出系统性等解释要求。",
+      "openQuestion": "后续神经模型在哪些严格测试中回应了批评，哪些只是换了任务？",
+      "sourceIds": [
+        "fodor-pylyshyn-1988"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-lake-2015",
+      "title": "少样本概念学习与生成程序",
+      "date": {
+        "start": 2015,
+        "end": 2015,
+        "label": "2015",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "learning-efficiency",
+        "symbolic-logic"
+      ],
+      "question": "人如何从极少例子获得可迁移的概念？",
+      "approach": "以概率程序归纳表达构成结构与生成过程。",
+      "openQuestion": "字符任务中的先验和人为设计占多少作用，如何跨域检验？",
+      "sourceIds": [
+        "lake-2015"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-arc-agi-2-2025",
+      "title": "更新抽象推理测量",
+      "date": {
+        "start": 2025,
+        "end": 2025,
+        "label": "2025",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "learning-efficiency"
+      ],
+      "question": "当既有评测被大量适配，怎样继续区分泛化能力？",
+      "approach": "发布新任务集与技术报告，讨论人类校准和评测设置。",
+      "openQuestion": "需固定报告版本、推理预算与私有测试口径；不引用动态排行榜作历史事实。",
+      "sourceIds": [
+        "arc-agi-2-2025"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-simon-1955",
+      "title": "有限理性",
+      "date": {
+        "start": 1955,
+        "end": 1955,
+        "label": "1955",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "rational-resource"
+      ],
+      "question": "信息和计算资源不足时怎样理解理性选择？",
+      "approach": "将行为决策放到实际认知与环境约束下讨论。",
+      "openQuestion": "满足化的搜索与停止规则如何实证区分于优化？",
+      "sourceIds": [
+        "simon-1955"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-gigerenzer-goldstein-1996",
+      "title": "快速节俭启发式",
+      "date": {
+        "start": 1996,
+        "end": 1996,
+        "label": "1996",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "rational-resource"
+      ],
+      "question": "使用更少信息的规则何时仍能做好推断？",
+      "approach": "比较简单启发式与更复杂方法在特定环境中的表现。",
+      "openQuestion": "成功依赖哪些环境结构；必须补反例与样本外评估。",
+      "sourceIds": [
+        "gigerenzer-goldstein-1996"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-hutter-2005",
+      "title": "通用序贯决策的形式化",
+      "date": {
+        "start": 2005,
+        "end": 2005,
+        "label": "2005",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "rational-resource"
+      ],
+      "question": "能否统一未知环境中的预测与行动选择？",
+      "approach": "结合算法概率与序贯决策构建通用智能形式框架。",
+      "openQuestion": "不可计算性、先验与效用设定如何影响工程可实现性？",
+      "sourceIds": [
+        "hutter-2005"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-legg-hutter-2007",
+      "title": "跨环境的智能度量",
+      "date": {
+        "start": 2007,
+        "end": 2007,
+        "label": "2007",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "rational-resource"
+      ],
+      "question": "能否在不同环境上用统一形式评价智能体？",
+      "approach": "用环境复杂度加权的期望表现提出形式化度量。",
+      "openQuestion": "环境权重与奖励尺度的选择，如何连接可执行测验？",
+      "sourceIds": [
+        "legg-hutter-2007"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-lieder-griffiths-2020",
+      "title": "把计算成本纳入认知解释",
+      "date": {
+        "start": 2020,
+        "end": 2020,
+        "label": "2020",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "rational-resource"
+      ],
+      "question": "行为偏离理想最优是否来自合理的资源分配？",
+      "approach": "在有限计算资源下分析认知策略的效用。",
+      "openQuestion": "成本模型是否独立确定，还是事后适配行为？",
+      "sourceIds": [
+        "lieder-griffiths-2020"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-mccarthy-1959",
+      "title": "常识知识与推理程序",
+      "date": {
+        "start": 1959,
+        "end": 1959,
+        "label": "1959",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "symbolic-logic"
+      ],
+      "question": "程序如何接受陈述性知识并据此采取行动？",
+      "approach": "提出 Advice Taker，以形式化知识支持推理。",
+      "openQuestion": "常识获取、默认推理与环境变化怎样处理？",
+      "sourceIds": [
+        "mccarthy-1959"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-newell-simon-1976",
+      "title": "物理符号系统与搜索",
+      "date": {
+        "start": 1976,
+        "end": 1976,
+        "label": "1976",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "symbolic-logic"
+      ],
+      "question": "一般智能行动需要哪些计算结构？",
+      "approach": "提出物理符号系统假说并讨论启发式搜索。",
+      "openQuestion": "必要性和充分性的主张分别由什么证据支持，反例如何界定？",
+      "sourceIds": [
+        "newell-simon-1976"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-gentner-1983",
+      "title": "类比中的关系结构映射",
+      "date": {
+        "start": 1983,
+        "end": 1983,
+        "label": "1983",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "symbolic-logic"
+      ],
+      "question": "类比为什么常保留关系而非表面属性？",
+      "approach": "以结构映射描述源域与目标域之间的关系对应。",
+      "openQuestion": "表征从何而来，如何处理候选类比的搜索与评价？",
+      "sourceIds": [
+        "gentner-1983"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-ellis-2021",
+      "title": "程序库与搜索策略共同学习",
+      "date": {
+        "start": 2021,
+        "end": 2021,
+        "label": "2021",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "symbolic-logic"
+      ],
+      "question": "怎样减少程序归纳对手工库和昂贵搜索的依赖？",
+      "approach": "以交替学习方式积累可复用抽象并改进搜索。",
+      "openQuestion": "初始语言、任务分布和搜索预算如何限制开放泛化？",
+      "sourceIds": [
+        "ellis-2021"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-mcculloch-pitts-1943",
+      "title": "神经活动的逻辑模型",
+      "date": {
+        "start": 1943,
+        "end": 1943,
+        "label": "1943",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "简单神经元怎样组成可计算的逻辑结构？",
+      "approach": "以形式神经元和网络构造连接逻辑与神经活动。",
+      "openQuestion": "模型的简化假设与真实神经系统差异多大？",
+      "sourceIds": [
+        "mcculloch-pitts-1943"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-rosenblatt-1958",
+      "title": "从样本调整连接",
+      "date": {
+        "start": 1958,
+        "end": 1958,
+        "label": "1958",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "识别能力能否通过经验改变连接而获得？",
+      "approach": "以感知机研究学习与模式识别。",
+      "openQuestion": "具体模型可表达哪些函数，学习结论依赖什么条件？",
+      "sourceIds": [
+        "rosenblatt-1958"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-minsky-papert-1969",
+      "title": "感知机能力边界",
+      "date": {
+        "start": 1969,
+        "end": 1969,
+        "label": "1969",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "一类感知机的表示能力受哪些结构限制？",
+      "approach": "形式分析特定感知机类的计算能力。",
+      "openQuestion": "限制适用于哪些模型，不能外推为所有神经网络都不可行。",
+      "sourceIds": [
+        "minsky-papert-1969"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-rumelhart-1986",
+      "title": "多层网络中的误差分配",
+      "date": {
+        "start": 1986,
+        "end": 1986,
+        "label": "1986",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "隐藏层怎样得到有用的学习信号？",
+      "approach": "通过反向传播误差调整内部表示。",
+      "openQuestion": "梯度传播能运行与能获得有用泛化之间还缺什么？不宣称此文是反向传播最早起源。",
+      "sourceIds": [
+        "rumelhart-1986"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-krizhevsky-2012",
+      "title": "大规模视觉学习的工程转折",
+      "date": {
+        "start": 2012,
+        "end": 2012,
+        "label": "2012",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "深层模型如何在大规模图像识别任务中训练？",
+      "approach": "结合卷积结构、训练技巧、数据与计算实现识别系统。",
+      "openQuestion": "分别识别架构、数据和计算贡献，不把分类成功扩张为通用理解。",
+      "sourceIds": [
+        "krizhevsky-2012"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-vaswani-2017",
+      "title": "以注意力组织序列建模",
+      "date": {
+        "start": 2017,
+        "end": 2017,
+        "label": "2017",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "序列建模能否摆脱循环结构的部分限制？",
+      "approach": "使用注意力、多头机制和位置表示构成 Transformer。",
+      "openQuestion": "原始翻译证据与后来通用模型表现需分别考证。",
+      "sourceIds": [
+        "vaswani-2017"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-kaplan-2020",
+      "title": "规模与损失的经验关系",
+      "date": {
+        "start": 2020,
+        "end": 2020,
+        "label": "2020",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "connectionist"
+      ],
+      "question": "模型、数据和训练计算怎样影响语言建模损失？",
+      "approach": "研究受测范围内的经验缩放关系。",
+      "openQuestion": "损失规律的区间、数据分布与能力外推边界是什么？",
+      "sourceIds": [
+        "kaplan-2020"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-pearl-1988",
+      "title": "概率图中的不确定性推理",
+      "date": {
+        "start": 1988,
+        "end": 1988,
+        "label": "1988",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "causal-world-models"
+      ],
+      "question": "怎样在不完整证据下组合知识与推断？",
+      "approach": "以图结构表示依赖并组织概率推理。",
+      "openQuestion": "概率依赖本身不能自动给出干预因果关系。",
+      "sourceIds": [
+        "pearl-1988"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-pearl-1995",
+      "title": "区分观察与干预",
+      "date": {
+        "start": 1995,
+        "end": 1995,
+        "label": "1995",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "causal-world-models"
+      ],
+      "question": "观察到 X 与主动设定 X 为什么不是一回事？",
+      "approach": "引入干预记号与推理规则研究可识别的因果效应。",
+      "openQuestion": "图和结构假设来自哪里，哪些效应不可识别？",
+      "sourceIds": [
+        "pearl-1995"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-tenenbaum-2011",
+      "title": "结构先验与概率学习",
+      "date": {
+        "start": 2011,
+        "end": 2011,
+        "label": "2011",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "causal-world-models"
+      ],
+      "question": "有限数据为何能支持丰富概念与抽象？",
+      "approach": "讨论结构化表示与概率推断的结合。",
+      "openQuestion": "先验的来源和结构学习的计算成本如何解释？",
+      "sourceIds": [
+        "tenenbaum-2011"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-ha-2018",
+      "title": "压缩环境动态并训练策略",
+      "date": {
+        "start": 2018,
+        "end": 2018,
+        "label": "2018",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "causal-world-models"
+      ],
+      "question": "能否利用学习到的环境表示与动态支持控制？",
+      "approach": "学习压缩表示和时序模型，并将其提供给策略。",
+      "openQuestion": "模型误差会怎样累积，模拟成功能否转移到真实环境？",
+      "sourceIds": [
+        "ha-2018"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-schrittwieser-2019",
+      "title": "学习用于规划的模型",
+      "date": {
+        "start": 2019,
+        "end": 2019,
+        "label": "2019",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "causal-world-models",
+        "cybernetics-rl"
+      ],
+      "question": "不知道完整环境规则时怎样进行搜索规划？",
+      "approach": "学习与奖励、价值和策略相关的模型并结合搜索。",
+      "openQuestion": "任务相关模型不必完整重建环境；预印本 2019 与 Nature 2020 分开。",
+      "sourceIds": [
+        "schrittwieser-2019"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-wiener-1948",
+      "title": "反馈与控制的共同语言",
+      "date": {
+        "start": 1948,
+        "end": 1948,
+        "label": "1948",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl"
+      ],
+      "question": "动物与机器的调节过程有什么可共同研究的结构？",
+      "approach": "以反馈、控制和通信连接不同系统。",
+      "openQuestion": "共享描述是否足以解释学习、目的和智能？",
+      "sourceIds": [
+        "wiener-1948"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-ashby-1956",
+      "title": "调节能力与多样性",
+      "date": {
+        "start": 1956,
+        "end": 1956,
+        "label": "1956",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl"
+      ],
+      "question": "调节器需要怎样的变化范围才能应对扰动？",
+      "approach": "分析系统、稳定性和必要多样性。",
+      "openQuestion": "数学条件怎样对应实际智能系统的状态与扰动？",
+      "sourceIds": [
+        "ashby-1956"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-conant-ashby-1970",
+      "title": "调节与模型的形式关系",
+      "date": {
+        "start": 1970,
+        "end": 1970,
+        "label": "1970",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl",
+        "causal-world-models"
+      ],
+      "question": "优良调节器在什么条件下需要具有系统模型结构？",
+      "approach": "给出调节器与系统之间关系的形式论证。",
+      "openQuestion": "定理中的 model 与现代可学习世界模型是否同义？逐项检查假设。",
+      "sourceIds": [
+        "conant-ashby-1970"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-sutton-1988",
+      "title": "从相邻预测差异中学习",
+      "date": {
+        "start": 1988,
+        "end": 1988,
+        "label": "1988",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl"
+      ],
+      "question": "尚未看到最终结果时如何更新预测？",
+      "approach": "使用时间差分误差逐步调整预测。",
+      "openQuestion": "自举、采样分布和函数近似在什么条件下会失效？",
+      "sourceIds": [
+        "sutton-1988"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-watkins-dayan-1992",
+      "title": "动作价值学习的收敛条件",
+      "date": {
+        "start": 1992,
+        "end": 1992,
+        "label": "1992",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl"
+      ],
+      "question": "怎样从交互经验学习行动价值？",
+      "approach": "分析 Q-learning 并给出特定条件下的收敛证明。",
+      "openQuestion": "探索覆盖、学习率和表示的条件是否满足；与 1989 学位论文区分。",
+      "sourceIds": [
+        "watkins-dayan-1992"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-friston-2010",
+      "title": "自由能框架的统一解释尝试",
+      "date": {
+        "start": 2010,
+        "end": 2010,
+        "label": "2010",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl",
+        "causal-world-models"
+      ],
+      "question": "知觉、学习和行动能否共享一个形式原则？",
+      "approach": "讨论用自由能框架连接若干脑理论。",
+      "openQuestion": "自由能原则与具体主动推断算法分层；哪些预测可以区分替代解释？",
+      "sourceIds": [
+        "friston-2010"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-silver-2017",
+      "title": "搜索与自我对弈相互改进",
+      "date": {
+        "start": 2017,
+        "end": 2017,
+        "label": "2017",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cybernetics-rl",
+        "symbolic-logic"
+      ],
+      "question": "能否用自我对弈数据改进策略与价值估计？",
+      "approach": "组合搜索、策略价值网络和自我对弈。",
+      "openQuestion": "规则已知、任务封闭和训练预算限定什么；不等同于通用自我改进。",
+      "sourceIds": [
+        "silver-2017"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-anderson-1983",
+      "title": "认知架构与知识使用",
+      "date": {
+        "start": 1983,
+        "end": 1983,
+        "label": "1983",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cognitive-architectures"
+      ],
+      "question": "记忆、技能获得和执行怎样由一套架构解释？",
+      "approach": "以 ACT* 的结构和过程组织认知理论。",
+      "openQuestion": "须区分 ACT* 与后续 ACT-R 版本，不将名称倒置到同一年。",
+      "sourceIds": [
+        "anderson-1983"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-minsky-1986",
+      "title": "多机制协作的心智解释",
+      "date": {
+        "start": 1986,
+        "end": 1986,
+        "label": "1986",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cognitive-architectures"
+      ],
+      "question": "复杂思考能否由许多简单过程共同产生？",
+      "approach": "以多种局部机制及其组织讨论心智。",
+      "openQuestion": "解释性比喻怎样转为可检验的机制与实现？",
+      "sourceIds": [
+        "minsky-1986"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-soar-1987",
+      "title": "统一问题求解与学习",
+      "date": {
+        "start": 1987,
+        "end": 1987,
+        "label": "1987",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cognitive-architectures"
+      ],
+      "question": "如何在一套架构内连接选择、子目标与学习？",
+      "approach": "以问题空间、产生式和 chunking 等机制构建 Soar。",
+      "openQuestion": "不同任务的模型拟合和通用性证据需分开。",
+      "sourceIds": [
+        "soar-1987"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-newell-1990",
+      "title": "跨任务的统一认知理论",
+      "date": {
+        "start": 1990,
+        "end": 1990,
+        "label": "1990",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cognitive-architectures"
+      ],
+      "question": "分散的局部实验如何约束一个整体理论？",
+      "approach": "提出跨认知任务和时间尺度的统一理论要求。",
+      "openQuestion": "统一框架在哪些任务形成了可失败的预测？",
+      "sourceIds": [
+        "newell-1990"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-laird-2017",
+      "title": "比较认知架构的共同结构",
+      "date": {
+        "start": 2017,
+        "end": 2017,
+        "label": "2017",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "cognitive-architectures"
+      ],
+      "question": "不同架构之间有哪些可共同讨论的组件与约束？",
+      "approach": "提出标准模型作为共同框架的研究议程。",
+      "openQuestion": "共同框架不等于已验证的统一心智机制。",
+      "sourceIds": [
+        "laird-2017"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-hebb-1949",
+      "title": "从可塑性到行为组织",
+      "date": {
+        "start": 1949,
+        "end": 1949,
+        "label": "1949",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "neuroscience"
+      ],
+      "question": "细胞活动如何形成可持续的心理组织？",
+      "approach": "以细胞集合等假设连接神经变化与行为。",
+      "openQuestion": "历史假说、现代可塑性实验与形式化学习规则需要分别记录。",
+      "sourceIds": [
+        "hebb-1949"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-marr-1982",
+      "title": "解释计算的多个层次",
+      "date": {
+        "start": 1982,
+        "end": 1982,
+        "label": "1982",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "neuroscience"
+      ],
+      "question": "只知道神经实现是否足以理解视觉计算？",
+      "approach": "区分计算问题、表示与算法、物理实现的解释层次。",
+      "openQuestion": "视觉案例如何外推到其他认知功能，层次之间怎样约束？",
+      "sourceIds": [
+        "marr-1982"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-jung-haier-2007",
+      "title": "脑区整合与智力差异",
+      "date": {
+        "start": 2007,
+        "end": 2007,
+        "label": "2007",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "neuroscience"
+      ],
+      "question": "智力差异是否与一组脑区的整合有关？",
+      "approach": "综合神经影像证据提出顶额叶整合理论。",
+      "openQuestion": "影像相关、病损证据与因果机制分别支持到哪里？",
+      "sourceIds": [
+        "jung-haier-2007"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-barbey-2018",
+      "title": "从局部脑区到网络动态",
+      "date": {
+        "start": 2018,
+        "end": 2018,
+        "label": "2018",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "neuroscience"
+      ],
+      "question": "整体网络组织怎样参与智能行为？",
+      "approach": "从网络拓扑和动态整合讨论人类智能。",
+      "openQuestion": "静态连接能否说明动态认知，预测个体差异是否具有跨样本效度？",
+      "sourceIds": [
+        "barbey-2018"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-schlegel-2024",
+      "title": "全脑连接组的结构资料",
+      "date": {
+        "start": 2024,
+        "end": 2024,
+        "label": "2024",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "neuroscience"
+      ],
+      "question": "怎样获得可复用的细胞类型与连接结构地图？",
+      "approach": "整合果蝇全脑注释和跨连接组细胞类型比较。",
+      "openQuestion": "结构地图本身不能证明学习算法或智能机制，需连接行为干预。",
+      "sourceIds": [
+        "schlegel-2024"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-piaget-1936",
+      "title": "感觉运动智能的发生",
+      "date": {
+        "start": 1936,
+        "end": 1936,
+        "label": "1936",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "developmental-openended"
+      ],
+      "question": "婴儿的感知行动怎样逐步形成认知结构？",
+      "approach": "通过发展观察研究同化、顺应与感觉运动组织。",
+      "openQuestion": "原始观察样本与后续跨情境证据如何对照？1936 原著与 1952 英译分开。",
+      "sourceIds": [
+        "piaget-1936"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-spelke-2007",
+      "title": "早期认知的核心知识",
+      "date": {
+        "start": 2007,
+        "end": 2007,
+        "label": "2007",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "developmental-openended"
+      ],
+      "question": "婴幼儿学习是否依赖某些早期结构？",
+      "approach": "总结对象、数量、空间与主体等领域的核心知识研究。",
+      "openQuestion": "早期出现不自动等于先天，如何排除经验和任务解释？",
+      "sourceIds": [
+        "spelke-2007"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-oudeyer-2007",
+      "title": "让系统选择自己的学习任务",
+      "date": {
+        "start": 2007,
+        "end": 2007,
+        "label": "2007",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "developmental-openended"
+      ],
+      "question": "没有外部逐步指定任务时，学习如何继续？",
+      "approach": "研究内在动机和学习进展驱动的探索。",
+      "openQuestion": "探索多样性与可迁移能力提升应怎样分别测量？",
+      "sourceIds": [
+        "oudeyer-2007"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-lehman-stanley-2011",
+      "title": "用新颖性应对欺骗性目标",
+      "date": {
+        "start": 2011,
+        "end": 2011,
+        "label": "2011",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "developmental-openended"
+      ],
+      "question": "固定目标是否会让搜索错过必要的中间行为？",
+      "approach": "以行为新颖性驱动进化搜索。",
+      "openQuestion": "行为描述空间和新颖性度量如何左右结果？",
+      "sourceIds": [
+        "lehman-stanley-2011"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-wang-poet-2019",
+      "title": "环境与解法共同扩展",
+      "date": {
+        "start": 2019,
+        "end": 2019,
+        "label": "2019",
+        "basis": "preprint-v1",
+        "precision": "year"
+      },
+      "routeIds": [
+        "developmental-openended"
+      ],
+      "question": "怎样同时生成挑战并学习解决挑战？",
+      "approach": "配对环境生成、智能体优化和跨环境迁移。",
+      "openQuestion": "有限演示中的持续扩展不等于无界开放性或递归自我改进。",
+      "sourceIds": [
+        "wang-poet-2019"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-gibson-1979",
+      "title": "生态知觉与行动可能性",
+      "date": {
+        "start": 1979,
+        "end": 1979,
+        "label": "1979",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "embodied-dynamical"
+      ],
+      "question": "知觉怎样与环境中可采取的行动相联系？",
+      "approach": "以生态信息与 affordances 研究知觉。",
+      "openQuestion": "直接知觉主张怎样与实验和内部表征解释比较？",
+      "sourceIds": [
+        "gibson-1979"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-brooks-1986",
+      "title": "分层行为控制机器人",
+      "date": {
+        "start": 1986,
+        "end": 1986,
+        "label": "1986",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "embodied-dynamical"
+      ],
+      "question": "机器人能否避免集中式建模与规划的部分困难？",
+      "approach": "用分层控制与行为协调构建移动机器人。",
+      "openQuestion": "局部行为鲁棒性如何扩展到长期规划与新任务？",
+      "sourceIds": [
+        "brooks-1986"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-brooks-1991",
+      "title": "对集中表征路线的挑战",
+      "date": {
+        "start": 1991,
+        "end": 1991,
+        "label": "1991",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "embodied-dynamical"
+      ],
+      "question": "智能行为一定需要完整的中心世界表示吗？",
+      "approach": "主张从与环境实时交互的增量系统研究智能。",
+      "openQuestion": "representation 在批评中具体指什么；不把机器人演示写成对所有表征的反证。",
+      "sourceIds": [
+        "brooks-1991"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-varela-1991",
+      "title": "生成认知与具身经验",
+      "date": {
+        "start": 1991,
+        "end": 1991,
+        "label": "1991",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "embodied-dynamical"
+      ],
+      "question": "认知如何在行动、身体和经验中形成？",
+      "approach": "连接认知科学、现象学与佛教思想，发展生成式研究视角。",
+      "openQuestion": "哲学论证、经验研究与跨文化借用需要分别定位。",
+      "sourceIds": [
+        "varela-1991"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-thelen-smith-1994",
+      "title": "认知与行动的发展动力学",
+      "date": {
+        "start": 1994,
+        "end": 1994,
+        "label": "1994",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "embodied-dynamical",
+        "developmental-openended"
+      ],
+      "question": "发展变化必须解释为内部固定阶段的展开吗？",
+      "approach": "用多因素耦合与动力系统研究发展中的认知和行动。",
+      "openQuestion": "模型是否产生区别于阶段或表示理论的可检验预测？",
+      "sourceIds": [
+        "thelen-smith-1994"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-zahedi-ay-2013",
+      "title": "量化身体形态的贡献",
+      "date": {
+        "start": 2013,
+        "end": 2013,
+        "label": "2013",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "embodied-dynamical"
+      ],
+      "question": "身体与环境分担了多少行为生成工作？",
+      "approach": "提出信息论视角的形态计算量化方案。",
+      "openQuestion": "度量是否依赖变量划分，机械便利与计算能力是否被混同？",
+      "sourceIds": [
+        "zahedi-ay-2013"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-darwin-1859",
+      "title": "适应的历史解释",
+      "date": {
+        "start": 1859,
+        "end": 1859,
+        "label": "1859",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "autopoiesis-evolution"
+      ],
+      "question": "复杂适应如何由代际变化形成？",
+      "approach": "以自然选择解释生物适应的形成。",
+      "openQuestion": "这是智能起源研究的背景入口，不能直接当作认知机制证据。",
+      "sourceIds": [
+        "darwin-1859"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-varela-maturana-uribe-1974",
+      "title": "自创生的组织定义",
+      "date": {
+        "start": 1974,
+        "end": 1974,
+        "label": "1974",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "autopoiesis-evolution"
+      ],
+      "question": "什么组织关系使一个系统持续生成自身？",
+      "approach": "描述自创生组织并给出最小模拟模型。",
+      "openQuestion": "自生成、自维持、适应与智能之间的推论需要哪些额外条件？",
+      "sourceIds": [
+        "varela-maturana-uribe-1974"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-weber-varela-2002",
+      "title": "生命个体与自然目的",
+      "date": {
+        "start": 2002,
+        "end": 2002,
+        "label": "2002",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "autopoiesis-evolution"
+      ],
+      "question": "生命系统的目的性如何从组织和存在条件理解？",
+      "approach": "以自创生和生物个体性讨论自然目的。",
+      "openQuestion": "目的性的哲学论证如何接上可操作的生命与认知研究？",
+      "sourceIds": [
+        "weber-varela-2002"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-levin-2019",
+      "title": "多尺度主体边界假说",
+      "date": {
+        "start": 2019,
+        "end": 2019,
+        "label": "2019",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "autopoiesis-evolution"
+      ],
+      "question": "细胞与组织的目标性活动如何界定系统的尺度？",
+      "approach": "提出尺度可变的认知与主体边界研究假说。",
+      "openQuestion": "具体生物电干预证据与认知解释的外推需要分开。",
+      "sourceIds": [
+        "levin-2019"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-levin-2022",
+      "title": "比较不同基底上的认知",
+      "date": {
+        "start": 2022,
+        "end": 2022,
+        "label": "2022",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "autopoiesis-evolution"
+      ],
+      "question": "怎样研究非常规身体与基底的认知能力？",
+      "approach": "提出 TAME 研究框架与干预视角。",
+      "openQuestion": "实验结果、框架定义和关于心智的广泛推断分别支持什么？",
+      "sourceIds": [
+        "levin-2022"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-vygotsky-1934",
+      "title": "语言中介与认知发展",
+      "date": {
+        "start": 1934,
+        "end": 1934,
+        "label": "1934",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "question": "个体思维如何与社会交往及语言发展关联？",
+      "approach": "研究概念形成、言语与思维的发生关系。",
+      "openQuestion": "1934 原作与 1962 等英译的删节、编排和词义差异待核。",
+      "sourceIds": [
+        "vygotsky-1934"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-boyd-richerson-1985",
+      "title": "文化传递的演化模型",
+      "date": {
+        "start": 1985,
+        "end": 1985,
+        "label": "1985",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "question": "文化变化如何与遗传和个体学习相互作用？",
+      "approach": "用形式模型研究社会学习与文化演化。",
+      "openQuestion": "传递规则的经验依据及模型与历史解释的距离是什么？",
+      "sourceIds": [
+        "boyd-richerson-1985"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-tomasello-1999",
+      "title": "文化积累与人类认知",
+      "date": {
+        "start": 1999,
+        "end": 1999,
+        "label": "1999",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "question": "人类认知的特殊性如何与文化学习联系？",
+      "approach": "从社会认知、模仿与文化积累解释认知发展。",
+      "openQuestion": "物种比较和文化比较的证据如何支持特定机制？",
+      "sourceIds": [
+        "tomasello-1999"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-tomasello-2005",
+      "title": "共享意向性",
+      "date": {
+        "start": 2005,
+        "end": 2005,
+        "label": "2005",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "question": "理解他人目标与共同开展活动有什么区别？",
+      "approach": "提出共享意向性在合作和文化认知中的作用。",
+      "openQuestion": "概念如何操作化，动机与表示贡献怎样区分？",
+      "sourceIds": [
+        "tomasello-2005"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-henrich-2015",
+      "title": "累积文化与认知生态",
+      "date": {
+        "start": 2015,
+        "end": 2015,
+        "label": "2015",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "question": "个体并不理解的知识为何仍能长期积累？",
+      "approach": "综合文化演化与人类研究讨论群体积累。",
+      "openQuestion": "案例选择、替代解释和不同文化的覆盖需核对。",
+      "sourceIds": [
+        "henrich-2015"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-hayek-1945",
+      "title": "分散知识的协调问题",
+      "date": {
+        "start": 1945,
+        "end": 1945,
+        "label": "1945",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "collective-extended"
+      ],
+      "question": "无法集中全部局部知识时怎样协调行动？",
+      "approach": "以价格等机制讨论分散知识的使用。",
+      "openQuestion": "经济协调是否以及在何种意义上构成认知？不预设全局最优。",
+      "sourceIds": [
+        "hayek-1945"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-hutchins-1995",
+      "title": "把认知分析单位扩展到系统",
+      "date": {
+        "start": 1995,
+        "end": 1995,
+        "label": "1995",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "collective-extended"
+      ],
+      "question": "导航计算怎样分布在人、工具和操作规程中？",
+      "approach": "通过实地研究分析分布式认知系统。",
+      "openQuestion": "系统边界怎样划定，外部支持与认知构成如何区分？",
+      "sourceIds": [
+        "hutchins-1995"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-clark-chalmers-1998",
+      "title": "延展心智假说",
+      "date": {
+        "start": 1998,
+        "end": 1998,
+        "label": "1998",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "collective-extended"
+      ],
+      "question": "外部工具何时可以被视为认知过程的一部分？",
+      "approach": "提出积极外在论与功能等价等论证。",
+      "openQuestion": "可靠耦合是否足以构成心智，需纳入反对意见。",
+      "sourceIds": [
+        "clark-chalmers-1998"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-couzin-2005",
+      "title": "局部信息与群体方向",
+      "date": {
+        "start": 2005,
+        "end": 2005,
+        "label": "2005",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "collective-extended"
+      ],
+      "question": "少数知情个体怎样影响群体行动？",
+      "approach": "用群体运动模型研究局部交互和信息传递。",
+      "openQuestion": "模型演示、动物实测与人类集体智能之间不能直接类推。",
+      "sourceIds": [
+        "couzin-2005"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-woolley-2010",
+      "title": "群体任务表现的共同因素",
+      "date": {
+        "start": 2010,
+        "end": 2010,
+        "label": "2010",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "collective-extended",
+        "psychometric"
+      ],
+      "question": "群体在不同任务上的表现是否有共同成分？",
+      "approach": "以多任务群体表现研究集体智能因素。",
+      "openQuestion": "任务组合、成员构成与独立复现如何影响结论？",
+      "sourceIds": [
+        "woolley-2010"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-shannon-1948",
+      "title": "通信中的信息量",
+      "date": {
+        "start": 1948,
+        "end": 1948,
+        "label": "1948",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "information-physics"
+      ],
+      "question": "怎样量化有噪声条件下的信息传输？",
+      "approach": "建立熵、编码与信道容量的数学研究框架。",
+      "openQuestion": "通信信息量与语义、理解、智能需要哪些桥接假设？",
+      "sourceIds": [
+        "shannon-1948"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-solomonoff-1964",
+      "title": "算法概率与归纳",
+      "date": {
+        "start": 1964,
+        "end": 1964,
+        "label": "1964",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "information-physics",
+        "rational-resource"
+      ],
+      "question": "能否形式化依据有限序列预测后续观察？",
+      "approach": "以程序描述和算法概率研究归纳。",
+      "openQuestion": "不可计算性、参考机器依赖和有限资源近似怎样处理？",
+      "sourceIds": [
+        "solomonoff-1964"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-rissanen-1978",
+      "title": "用描述长度选择模型",
+      "date": {
+        "start": 1978,
+        "end": 1978,
+        "label": "1978",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "information-physics"
+      ],
+      "question": "拟合程度与模型复杂度怎样共同权衡？",
+      "approach": "以数据和模型的描述长度进行模型选择。",
+      "openQuestion": "编码选择与任务目标如何影响所谓最短解释？",
+      "sourceIds": [
+        "rissanen-1978"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-tishby-1999",
+      "title": "保留与目标相关的信息",
+      "date": {
+        "start": 1999,
+        "end": 2000,
+        "label": "1999/2000（待核）",
+        "basis": "conference-preprint-unresolved",
+        "precision": "range"
+      },
+      "routeIds": [
+        "information-physics"
+      ],
+      "question": "压缩输入时应保留什么？",
+      "approach": "在压缩输入与保留对目标的信息之间建立优化问题。",
+      "openQuestion": "1999 会议与 2000 arXiv 日期需分开；目标相关性不能直接等同理解。",
+      "sourceIds": [
+        "tishby-1999"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-beggs-plenz-2003",
+      "title": "神经活动的级联现象",
+      "date": {
+        "start": 2003,
+        "end": 2003,
+        "label": "2003",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "information-physics",
+        "neuroscience"
+      ],
+      "question": "神经群体活动是否具有可描述的级联统计规律？",
+      "approach": "分析神经元雪崩及其分布特征。",
+      "openQuestion": "幂律证据、临界性解释和智能功能之间还需要哪些检验？",
+      "sourceIds": [
+        "beggs-plenz-2003"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-wissner-gross-2013",
+      "title": "未来可能性与目标性行为",
+      "date": {
+        "start": 2013,
+        "end": 2013,
+        "label": "2013",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "information-physics"
+      ],
+      "question": "保持未来行动可能性能否产生某些适应性行为？",
+      "approach": "提出因果熵力的形式方案并研究模型行为。",
+      "openQuestion": "模型情境、约束和时间范围如何决定结果，不视为智能定义的完成。",
+      "sourceIds": [
+        "wissner-gross-2013"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-putnam-1967",
+      "title": "心理状态的功能刻画",
+      "date": {
+        "start": 1967,
+        "end": 1967,
+        "label": "1967",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "philosophy-of-mind"
+      ],
+      "question": "心理状态是否必须由某种特定物理材料定义？",
+      "approach": "通过功能组织讨论心理谓词与多重实现。",
+      "openQuestion": "原章与 1975 重印题名 The Nature of Mental States 待逐项核对。",
+      "sourceIds": [
+        "putnam-1967"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-searle-1980",
+      "title": "中文屋对形式操作的质疑",
+      "date": {
+        "start": 1980,
+        "end": 1980,
+        "label": "1980",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "philosophy-of-mind"
+      ],
+      "question": "按规则操作符号是否足以构成理解？",
+      "approach": "以思想实验挑战强 AI 的特定主张并回应异议。",
+      "openQuestion": "系统回应、机器人回应等分别针对哪个前提，不能只保留原始反对论证。",
+      "sourceIds": [
+        "searle-1980"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-dennett-1987",
+      "title": "意向立场与预测",
+      "date": {
+        "start": 1987,
+        "end": 1987,
+        "label": "1987",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "philosophy-of-mind"
+      ],
+      "question": "何时把系统解释为有信念和欲望有用？",
+      "approach": "以意向立场讨论行为预测和心智归属。",
+      "openQuestion": "预测策略的有效性与内在理解的本体判断如何区分？",
+      "sourceIds": [
+        "dennett-1987"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-harnad-1990",
+      "title": "符号接地",
+      "date": {
+        "start": 1990,
+        "end": 1990,
+        "label": "1990",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "philosophy-of-mind"
+      ],
+      "question": "符号的意义怎样避免完全依赖外部解释者？",
+      "approach": "讨论感知类别与符号系统的连接。",
+      "openQuestion": "感知关联是否足以产生语义，抽象概念怎样接地？",
+      "sourceIds": [
+        "harnad-1990"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-bender-koller-2020",
+      "title": "形式与意义在语言模型中的边界",
+      "date": {
+        "start": 2020,
+        "end": 2020,
+        "label": "2020",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "philosophy-of-mind",
+        "connectionist"
+      ],
+      "question": "只学习语言形式能支持什么关于理解的结论？",
+      "approach": "区分形式与意义并提出相关论证。",
+      "openQuestion": "前提适用于哪些训练信号，多模态与交互如何改变讨论？",
+      "sourceIds": [
+        "bender-koller-2020"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-baars-1988",
+      "title": "全局工作空间",
+      "date": {
+        "start": 1988,
+        "end": 1988,
+        "label": "1988",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "consciousness-self"
+      ],
+      "question": "局部处理如何成为可被多个系统使用的信息？",
+      "approach": "以工作空间与信息广播提出意识的认知理论。",
+      "openQuestion": "意识通达、报告能力和现象体验分别怎样定义和测量？",
+      "sourceIds": [
+        "baars-1988"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-damasio-1994",
+      "title": "情感与决策",
+      "date": {
+        "start": 1994,
+        "end": 1994,
+        "label": "1994",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "consciousness-self"
+      ],
+      "question": "理性决策能否脱离身体状态和情感？",
+      "approach": "结合神经心理学病例讨论情感与决策的联系。",
+      "openQuestion": "躯体标记假说、病例证据与后续实验争论需要分别读取。",
+      "sourceIds": [
+        "damasio-1994"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-chalmers-1995",
+      "title": "意识的解释困难",
+      "date": {
+        "start": 1995,
+        "end": 1995,
+        "label": "1995",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "consciousness-self"
+      ],
+      "question": "解释认知功能是否同时解释了主观体验？",
+      "approach": "区分功能问题与体验的解释问题。",
+      "openQuestion": "应记录不同回应，而非把困难问题当作已经证明不可解决。",
+      "sourceIds": [
+        "chalmers-1995"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-tononi-2004",
+      "title": "整合信息的意识理论",
+      "date": {
+        "start": 2004,
+        "end": 2004,
+        "label": "2004",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "consciousness-self"
+      ],
+      "question": "能否把意识的特征与系统整合信息联系起来？",
+      "approach": "提出整合信息理论的早期形式。",
+      "openQuestion": "不同 IIT 版本的公理和计算不能混用；与经验指标的对应待核。",
+      "sourceIds": [
+        "tononi-2004"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-dehaene-changeux-2011",
+      "title": "意识通达的实验与机制",
+      "date": {
+        "start": 2011,
+        "end": 2011,
+        "label": "2011",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "consciousness-self"
+      ],
+      "question": "怎样对照有意识和无意识加工？",
+      "approach": "综合神经测量与全局神经工作空间机制。",
+      "openQuestion": "报告、注意和意识的混杂如何控制？",
+      "sourceIds": [
+        "dehaene-changeux-2011"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-cogitate-2025",
+      "title": "竞争理论的对抗性检验",
+      "date": {
+        "start": 2025,
+        "end": 2025,
+        "label": "2025",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "consciousness-self"
+      ],
+      "question": "如何预先约定能区分意识理论的预测？",
+      "approach": "通过跨理论合作开展预先设计的经验比较。",
+      "openQuestion": "哪些具体预测受到挑战，不能概括成某理论整体获胜或被证伪。",
+      "sourceIds": [
+        "cogitate-2025"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-aristotle-ethics",
+      "title": "实践智慧与具体判断",
+      "date": {
+        "start": -350,
+        "end": -350,
+        "label": "约前350年",
+        "basis": "traditional-dating",
+        "precision": "approximate"
+      },
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "question": "善于达成目的是否等于明智地行动？",
+      "approach": "区分实践智慧等理智能力并考察具体情境中的判断。",
+      "openQuestion": "网页使用约公元前 350 年；成书与传本年代须另作考证，不能等同现代智能测量。",
+      "sourceIds": [
+        "aristotle-ethics"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-mengzi-jinxin",
+      "title": "心性、修养与判断",
+      "date": {
+        "start": null,
+        "end": null,
+        "label": "先秦·成书待考",
+        "basis": "textual-tradition",
+        "precision": "unknown"
+      },
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "question": "认识自身、道德修养与行动判断怎样相关？",
+      "approach": "从原典语境研究心、性、知与修养的关系。",
+      "openQuestion": "明确底本和注疏，避免用现代 intelligence 直接替换古典概念。",
+      "sourceIds": [
+        "mengzi-jinxin"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-nagarjuna-mmk",
+      "title": "概念、缘起与智慧的原典入口",
+      "date": {
+        "start": null,
+        "end": null,
+        "label": "古典·成书待考",
+        "basis": "textual-tradition",
+        "precision": "unknown"
+      },
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "question": "概念执取与认识的局限怎样被论证？",
+      "approach": "以原典与现代译释进入中观的论证问题。",
+      "openQuestion": "古典成书年代未核；出版页摘要疑似串书，不能用于解释原典内容，须对照实际译本。",
+      "sourceIds": [
+        "nagarjuna-mmk"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-sternberg-1998",
+      "title": "以平衡和共同善讨论智慧",
+      "date": {
+        "start": 1998,
+        "end": 1998,
+        "label": "1998",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "question": "评价目标和权衡利益是否属于智慧？",
+      "approach": "提出在多类利益、时间范围与环境适应方式之间平衡的理论。",
+      "openQuestion": "价值前提、文化差异和测量操作化怎样处理？",
+      "sourceIds": [
+        "sternberg-1998"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-baltes-staudinger-2000",
+      "title": "智慧研究的心理学框架",
+      "date": {
+        "start": 2000,
+        "end": 2000,
+        "label": "2000",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "question": "有关人生实践的判断怎样进入经验研究？",
+      "approach": "讨论智慧作为有关人生实践的知识与判断框架。",
+      "openQuestion": "评分准则、文化适用性与规范性前提需分别审查。",
+      "sourceIds": [
+        "baltes-staudinger-2000"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-lucas-1961",
+      "title": "从不完备性到心智的争论",
+      "date": {
+        "start": 1961,
+        "end": 1961,
+        "label": "1961",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "metaphysics-quantum"
+      ],
+      "question": "形式系统的限制能否推出人类心智超越机器？",
+      "approach": "借 Gödel 结果提出反机械论论证。",
+      "openQuestion": "人类一致性等前提是否成立；数学定理与心智推论不可混同。",
+      "sourceIds": [
+        "lucas-1961"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-penrose-1989",
+      "title": "非算法心智与物理问题",
+      "date": {
+        "start": 1989,
+        "end": 1989,
+        "label": "1989",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "metaphysics-quantum"
+      ],
+      "question": "心智是否需要超出常规计算的物理解释？",
+      "approach": "从数学、物理与意识问题提出非算法性论点。",
+      "openQuestion": "论证、物理假说与实验事实逐层分开。",
+      "sourceIds": [
+        "penrose-1989"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-hameroff-penrose-1996",
+      "title": "Orch OR 的模型提案",
+      "date": {
+        "start": 1996,
+        "end": 1996,
+        "label": "1996",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "metaphysics-quantum"
+      ],
+      "question": "量子过程怎样可能参与意识机制？",
+      "approach": "提出微管中量子相干与客观坍缩的意识模型。",
+      "openQuestion": "生物条件、相干时间和意识对应关系需要什么独立证据？",
+      "sourceIds": [
+        "hameroff-penrose-1996"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-tegmark-2000",
+      "title": "脑内量子相干的时间尺度质疑",
+      "date": {
+        "start": 2000,
+        "end": 2000,
+        "label": "2000",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "metaphysics-quantum"
+      ],
+      "question": "相关量子状态能否在脑内持续到认知所需的时间？",
+      "approach": "计算特定模型下的退相干时间并提出批评。",
+      "openQuestion": "参数与模型选择如何受到回应，不把单一估算当作所有量子效应的否定。",
+      "sourceIds": [
+        "tegmark-2000"
+      ],
+      "claimStatus": "candidate"
+    },
+    {
+      "id": "e-hameroff-penrose-2014",
+      "title": "Orch OR 的修订与回应",
+      "date": {
+        "start": 2014,
+        "end": 2014,
+        "label": "2014",
+        "basis": "publication",
+        "precision": "year"
+      },
+      "routeIds": [
+        "metaphysics-quantum"
+      ],
+      "question": "原假说面对批评与新证据怎样调整？",
+      "approach": "回顾 Orch OR 并讨论相关论据与争议。",
+      "openQuestion": "核对与 1996 版本的变化及反方回应；作者综述不能替代独立验证。",
+      "sourceIds": [
+        "hameroff-penrose-2014"
+      ],
+      "claimStatus": "candidate"
+    }
+  ],
+  "relations": [
+    {
+      "id": "compare-general-factor",
+      "from": "e-spearman-1904",
+      "to": "e-woolley-2010",
+      "type": "editorial-comparison",
+      "question": "个体与群体的共同因素，是否测量相同构念？",
+      "sourceIds": [
+        "spearman-1904",
+        "woolley-2010"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-bounded-learning",
+      "from": "e-simon-1955",
+      "to": "e-chollet-2019",
+      "type": "editorial-comparison",
+      "question": "资源约束与技能获取效率怎样共同进入智能评价？",
+      "sourceIds": [
+        "simon-1955",
+        "chollet-2019"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-representation",
+      "from": "e-newell-simon-1976",
+      "to": "e-brooks-1991",
+      "type": "editorial-comparison",
+      "question": "不同作者所说的 representation 是否指同一种结构？",
+      "sourceIds": [
+        "newell-simon-1976",
+        "brooks-1991"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-model",
+      "from": "e-conant-ashby-1970",
+      "to": "e-schrittwieser-2019",
+      "type": "editorial-comparison",
+      "question": "调节器定理与学习的规划模型使用了哪些不同假设？",
+      "sourceIds": [
+        "conant-ashby-1970",
+        "schrittwieser-2019"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-priors",
+      "from": "e-lake-2015",
+      "to": "e-spelke-2007",
+      "type": "editorial-comparison",
+      "question": "程序归纳先验与儿童核心知识能够怎样比较？",
+      "sourceIds": [
+        "lake-2015",
+        "spelke-2007"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-autonomy",
+      "from": "e-friston-2010",
+      "to": "e-varela-maturana-uribe-1974",
+      "type": "editorial-comparison",
+      "question": "自维持、自由能与行动的关系需要哪些桥接论证？",
+      "sourceIds": [
+        "friston-2010",
+        "varela-maturana-uribe-1974"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-semantic-grounding",
+      "from": "e-harnad-1990",
+      "to": "e-bender-koller-2020",
+      "type": "editorial-comparison",
+      "question": "符号接地与形式/意义区分在训练信号上提出什么要求？",
+      "sourceIds": [
+        "harnad-1990",
+        "bender-koller-2020"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-locus",
+      "from": "e-hutchins-1995",
+      "to": "e-levin-2019",
+      "type": "editorial-comparison",
+      "question": "认知边界从工具系统扩展到生物多尺度时，判据是否改变？",
+      "sourceIds": [
+        "hutchins-1995",
+        "levin-2019"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    },
+    {
+      "id": "compare-wisdom",
+      "from": "e-sternberg-1998",
+      "to": "e-legg-hutter-2007",
+      "type": "editorial-comparison",
+      "question": "价值判断与目标达成效率为何不能直接用同一分数合并？",
+      "sourceIds": [
+        "sternberg-1998",
+        "legg-hutter-2007"
+      ],
+      "evidenceStatus": "editorial-inference",
+      "basis": "本站提出的比较问题；两份来源分别提供研究入口，未主张直接引用、影响或继承。"
+    }
+  ]
+}

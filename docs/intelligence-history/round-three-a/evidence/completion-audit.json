@@ -1,0 +1,721 @@
+{
+  "asOf": "2026-10-27",
+  "timezone": "Asia/Shanghai",
+  "status": "passed-for-declared-scope",
+  "scope": "第三轮A批执行计划12项；不代表第三轮B—E、完整路线史、全部文献全文阅读或作者实验的全面复现。",
+  "counts": {
+    "nodes": 34,
+    "sources": 41,
+    "claims": 109,
+    "relations": 33,
+    "questionCards": 3,
+    "versionComparisons": 2,
+    "generatedFiles": 82,
+    "routeSVGs": 14,
+    "graphNodes": 39
+  },
+  "requirements": [
+    {
+      "id": "learning",
+      "requirement": "学习样板补链",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/learning-efficiency.md",
+        "notes/e-fodor-pylyshyn-1988.md",
+        "notes/e-smolensky-1988-bbs.md",
+        "relations.md"
+      ],
+      "reviewOutcome": "Fodor原论证和Smolensky直接回应已有指定范围阅读；SCAN／MLC关系以原文定位为据，未把特定任务结果推广成一般系统性定论。",
+      "nodeIds": [
+        "e-fodor-pylyshyn-1988",
+        "e-smolensky-1988-bbs"
+      ]
+    },
+    {
+      "id": "control",
+      "requirement": "控制样板补链",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/cybernetics-rl.md",
+        "notes/e-wiener-1948.md",
+        "notes/e-bellman-1952.md",
+        "notes/e-klyubin-2005.md",
+        "notes/e-friston-2010.md"
+      ],
+      "reviewOutcome": "指定基础材料、赋能度与主动推断分支齐备；概率、控制目标和状态变量保持区分。Wiener实际再版与原作年分别保存。",
+      "nodeIds": [
+        "e-wiener-1948",
+        "e-bellman-1952",
+        "e-klyubin-2005",
+        "e-friston-2010"
+      ]
+    },
+    {
+      "id": "embodiment",
+      "requirement": "具身样板补链",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/embodied-dynamical.md",
+        "notes/e-varela-1991.md",
+        "notes/e-thelen-smith-1994.md",
+        "notes/e-beer-1995.md"
+      ],
+      "reviewOutcome": "生成论、发展时间尺度及主体环境耦合分析分别记录。Thelen吸引子解释的未充分验证、Beer模拟的假设均保留。",
+      "nodeIds": [
+        "e-varela-1991",
+        "e-thelen-smith-1994",
+        "e-beer-1995"
+      ]
+    },
+    {
+      "id": "versions",
+      "requirement": "Brooks和MuZero版本对照",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "versions/brooks-1985-1986.md",
+        "versions/muzero-2019-2020.md"
+      ],
+      "reviewOutcome": "已逐项对照两侧所列正文范围，共3+5项；Reanalyze已存在于2019v1。网页载体、缺失公式及未核图形明确列出。不是全篇逐字校勘。",
+      "nodeIds": [
+        "e-brooks-1986",
+        "e-schrittwieser-2019"
+      ]
+    },
+    {
+      "id": "symbolic-logic",
+      "requirement": "符号逻辑路线",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/symbolic-logic.md"
+      ],
+      "reviewOutcome": "覆盖常识形式化、搜索、规划、符号假说、类比、系统性争论、结构绑定与程序归纳；不把不同问题排成必然替代链。",
+      "nodeIds": [
+        "e-fodor-pylyshyn-1988",
+        "e-smolensky-1988-bbs",
+        "e-newell-simon-1976",
+        "e-gentner-1983",
+        "e-mccarthy-1959",
+        "e-strips-1971",
+        "e-hart-nilsson-raphael-1968",
+        "e-ellis-2021",
+        "e-smolensky-1990"
+      ]
+    },
+    {
+      "id": "connectionist",
+      "requirement": "连接主义路线",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/connectionist.md"
+      ],
+      "reviewOutcome": "覆盖形式神经元、感知机、隐藏层训练、分布式结构、预测编码、现代视觉训练、程序归纳与捷径学习；形式、训练与评测结论分开。",
+      "nodeIds": [
+        "e-fodor-pylyshyn-1988",
+        "e-smolensky-1988-bbs",
+        "e-ellis-2021",
+        "e-mcculloch-pitts-1943",
+        "e-rosenblatt-1958",
+        "e-rumelhart-1986",
+        "e-smolensky-1990",
+        "e-krizhevsky-2012",
+        "e-geirhos-2020",
+        "e-rao-ballard-1999"
+      ]
+    },
+    {
+      "id": "causal-world-models",
+      "requirement": "概率因果与世界模型路线",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/causal-world-models.md"
+      ],
+      "reviewOutcome": "覆盖概率推断、结构因果及同期讨论、结构先验、预测编码、自由能提案、潜在动态与规划；MuZero训练和泛化边界单列。",
+      "nodeIds": [
+        "e-bellman-1952",
+        "e-strips-1971",
+        "e-pearl-1982",
+        "e-pearl-1995",
+        "e-rao-ballard-1999",
+        "e-tenenbaum-2011",
+        "e-ha-2018",
+        "e-hafner-2019",
+        "e-friston-2010",
+        "e-schrittwieser-2019"
+      ]
+    },
+    {
+      "id": "cognitive-architectures",
+      "requirement": "认知架构路线",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "routes/cognitive-architectures.md"
+      ],
+      "reviewOutcome": "覆盖符号系统、解释层次、Soar、ACT-R、共同模型及异质知识批评；统一理论约束与架构可失败预测有明确条件。",
+      "nodeIds": [
+        "e-smolensky-1988-bbs",
+        "e-newell-simon-1976",
+        "e-anderson-2004",
+        "e-chella-frixione-lieto-2017",
+        "e-laird-2017",
+        "e-soar-1987"
+      ]
+    },
+    {
+      "id": "questions",
+      "requirement": "三张跨路线问题卡",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "questions/q-model-representation.md",
+        "questions/q-learning-generalization.md",
+        "questions/q-agent-environment.md"
+      ],
+      "reviewOutcome": "三卡均按新增分支回访：比较术语、任务、学习条件与主体环境贡献；原文依据与本站比较分开，全部区分实验为proposed-not-run。",
+      "nodeIds": []
+    },
+    {
+      "id": "replication",
+      "requirement": "一项正式复现",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "replication/protocol-v1.md",
+        "replication/protocol.md",
+        "replication/README.md",
+        "replication/results.json",
+        "replication/traces.csv",
+        "replication/baird-six-state.svg",
+        "replication/requirements.txt"
+      ],
+      "reviewOutcome": "Baird六状态图1独立实现，核对预先协议、原文、代码、结果、参数敏感性与符号冲突；实际迭代与矩阵幂分开。图5速度实验未列入复现范围。",
+      "nodeIds": [
+        "e-baird-1995"
+      ]
+    },
+    {
+      "id": "figures-literature",
+      "requirement": "可编辑图与文献夹同步",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "research.json",
+        "atlas.html",
+        "literature.md",
+        "claims.md",
+        "relations.md"
+      ],
+      "reviewOutcome": "82文件由统一数据生成，七条路线共14张SVG和14份路线Mermaid；稳定ID指向节点、来源与关系，第一二轮快照不回写。",
+      "nodeIds": []
+    },
+    {
+      "id": "unified-audit",
+      "requirement": "统一内容与工程验收",
+      "status": "passed-for-declared-scope",
+      "evidence": [
+        "plan.md",
+        "validation.md",
+        "evidence/browser-checks.json"
+      ],
+      "reviewOutcome": "逐项复核全部节点主张、关系、问题卡、版本和有限范围复现；下列工程检查通过。材料缺口在各路线和来源中保留。",
+      "nodeIds": []
+    }
+  ],
+  "contentReview": {
+    "method": "人工回访已读原文及记录，对齐问题、机制、成立条件、主张定位、关系依据、版本口径、未覆盖范围与下一问；程序验证引用和文件，不能替代论证审查。",
+    "nodeIdsReviewed": [
+      "e-baird-1995",
+      "e-fodor-pylyshyn-1988",
+      "e-smolensky-1988-bbs",
+      "e-bellman-1952",
+      "e-varela-1991",
+      "e-wiener-1948",
+      "e-newell-simon-1976",
+      "e-gentner-1983",
+      "e-mccarthy-1959",
+      "e-strips-1971",
+      "e-hart-nilsson-raphael-1968",
+      "e-ellis-2021",
+      "e-anderson-2004",
+      "e-chella-frixione-lieto-2017",
+      "e-laird-2017",
+      "e-soar-1987",
+      "e-mcculloch-pitts-1943",
+      "e-rosenblatt-1958",
+      "e-rumelhart-1986",
+      "e-smolensky-1990",
+      "e-krizhevsky-2012",
+      "e-geirhos-2020",
+      "e-pearl-1982",
+      "e-pearl-1995",
+      "e-rao-ballard-1999",
+      "e-tenenbaum-2011",
+      "e-ha-2018",
+      "e-hafner-2019",
+      "e-klyubin-2005",
+      "e-friston-2010",
+      "e-thelen-smith-1994",
+      "e-beer-1995",
+      "e-brooks-1986",
+      "e-schrittwieser-2019"
+    ],
+    "relationIdsReviewed": [
+      "r-smolensky-fodor-response",
+      "r-fodor-smolensky-objection",
+      "r-bellman-baird-comparison",
+      "r-gentner-fodor-terminology",
+      "r-wiener-baird-stability",
+      "r-mccarthy-strips-planning",
+      "r-astar-dreamcoder-search",
+      "r-anderson-chella-critique",
+      "r-fodor-scan-evaluation",
+      "r-fodor-mlc-response",
+      "r-anderson-standard",
+      "r-standard-chella",
+      "r-soar-standard",
+      "r-symbol-system-soar",
+      "r-mcp-rosenblatt",
+      "r-rosenblatt-backprop",
+      "r-fodor-tpr",
+      "r-smolensky-bbs-tpr",
+      "r-backprop-alexnet",
+      "r-alexnet-shortcuts",
+      "r-belief-intervention",
+      "r-causal-structural-priors",
+      "r-tpr-hierarchical-prior",
+      "r-predictive-coding-world-models",
+      "r-world-models-planet",
+      "r-strips-planet",
+      "r-rao-friston-coding",
+      "r-free-energy-epistemic",
+      "r-empowerment-active-inference",
+      "r-gibson-empowerment",
+      "r-enaction-development",
+      "r-development-coupled-dynamics",
+      "r-brooks-beer-state"
+    ],
+    "claimBasisCounts": {
+      "source-reported": 105,
+      "derived": 2,
+      "editorial-inference": 2
+    },
+    "relationStatusCounts": {
+      "source-checked": 2,
+      "editorial": 18,
+      "source-supported": 13
+    },
+    "independentlyReplicatedClaimIds": [
+      "e-baird-1995-c3"
+    ],
+    "keyDecisions": [
+      "18条本站比较保持虚线；15条可定位关系不一概解释为思想继承。同年直接争论保留双向边。",
+      "Fodor—SCAN／MLC有文献定位；特定任务中的成功或失败不自动证明所有条件下的系统性。",
+      "Thelen 1994事件与1996所读版本分别记录；实时协调、发展过程、对吸引子解释的证据限制分开。",
+      "Beer 1995引用Ashby 1960及Maturana／Varela 1980／1987，未借用其他年份节点制造历史继承关系。",
+      "MuZero Reanalyze与表1主要数字已见2019v1；未依据文件名把NTNU课件误作2020期刊版。",
+      "Brooks期刊原文转录与页面AI摘要分开；14–15页、16页开头及19–23页所列段落是实际范围。",
+      "Smolensky回应68–69页此前的提取截断已补读；阅读范围随新增阅读更新，第二轮快照保留。",
+      "Baird符号方向强表述未被本参数支持，式7符号冲突以本站判断登记；不藏掉失败、不更改预先验收标准。"
+    ],
+    "remainingScope": "各来源unreadScope和各路线gaps均保留；问题卡实验未运行，版本对照非全篇校勘，Baird图5与其他模型未复现。"
+  },
+  "sourceChecks": [
+    {
+      "id": "baird-1995-july",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "a32e916f75e4ca626c470d24fe0a3e587c14bd10edfae686fc9edf7498831979",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "baird-1999-thesis",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "f9651058cf69b741ecc359298e4cf0e6708cfb8e4d6c733eb804f510e3654536",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "fodor-pylyshyn-1988",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "fcee0873886d02d961fa798b418cefcf22498f1d0997f0034b15f2510bd9bdf5",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "smolensky-1988-bbs",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "6e812be92c4c1348471b702b5fea235f430adc0e1de011f43f0042d7371cc4b5",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "bellman-1952",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "58ccf880b967862f7b2c909844b71a0a195cef6306429b637955f67fefc3b204",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "varela-thompson-rosch-1991",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "6503593c5b43711a81e5e5d28e3f4e18d260e4b0dc7bdf919e79dd50e42bdc6e",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "wiener-1961-1985",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "f733dde90a70fe090b5209ac7ca391e86f3ed4477b0a2ebd7054747d8ed0d857",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "newell-simon-1976",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "ebfa0d6415f2fe7d019288ec8329a0fe997600bcedab57abf32e60cf169a9316",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "gentner-1983",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "3374d309ec8eb96d03dac6ce5801ca4cf7daa9594f07952d04ecf6b04f529969",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "mccarthy-1959-retrospective",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "04b439b126f87e51fc4c85b8db114fddeeafc7f4b2234e1b8f3b474d6ea9b79c",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "strips-1971-ijcai",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "293e2f5613b940bfa7f0f053d5669423fe08813cb23e19f1a356a8c47ea1c4bc",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "hart-nilsson-raphael-1968",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "68905780affa771f22b0b6b83dde669bbce9246a62384d7d77ab9494f046e46e",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "dreamcoder-2021",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "dc551c57c4d7b46d378f6449209c3a8355507603e47b69003cdfc2f686cafa1f",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "anderson-2004",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "536f4ca80fe940875954fcbf4a655162723a0faa528726837d906f263addb781",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "chella-frixione-lieto-2017",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "029b821305ba4a35cc82e5cef2c3256a49e052d645f9525598141ff61473c47b",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "lake-baroni-2018",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "7961052c8c0a113ac7b7c8ba992f58eb88b5665d777b1d695df3eb23b8c56350",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "lake-baroni-2023",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "0f7720ff2037c704806781a311172b9f55e4b2edc8ee82ff1a2336f83ac09b50",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "laird-2017",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": null,
+      "sha256": null,
+      "carrier": "web-original-text-or-transcription"
+    },
+    {
+      "id": "soar-1987",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": null,
+      "sha256": null,
+      "carrier": "web-original-text-or-transcription"
+    },
+    {
+      "id": "mcculloch-pitts-1943",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "f977a9c0278dacf7b45dd144c089eb363a955e905ffef1fdb96ba0622f311151",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "rosenblatt-1958",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "9c2228eeb866cd8ce4b45ad02ecdac9fcf34f196c12075a2eab0ba82bf995d37",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "rumelhart-1986",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "d26997baf588222109d32545604a2a2ed400dc769a21fd49a5acdc4a955396ae",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "smolensky-1990",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "e6460dcb065a8d8781a9be6bc66c2b207dc7908881b97dec759b2b68cb6cadcb",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "krizhevsky-2012",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "90137160c57217953d5f61857e64ca58e85f06e1b13b4f475c918b1b582b9771",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "geirhos-2020-v5",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "da93a1633b56f6590836afaf3794c6131d38d53629e2cf9d219deb274d91ec15",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "pearl-1982",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "8bfd6c94c5263ec0a7a6336c9aa5a6562221e4b7847440a927f7a292ba5bcfe6",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "pearl-1995-journal",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "0a9dd3218e541acbf26aeff5865e3c70cb662cd7de50e1234d016f1af5da8927",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "cox-wermuth-1995",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "0a9dd3218e541acbf26aeff5865e3c70cb662cd7de50e1234d016f1af5da8927",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "rao-ballard-1999",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "5805862c6ba254f3e0f86dbab4bb4ba74490a5bcce3fdaccd91396d567c0bed2",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "tenenbaum-2011",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "d42537f90a75727e8e0108ad85dd33f7e50cbb3276cb5feff1f2667b9bda3a70",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "ha-2018-v1",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "2d8c288eecc6ecd925f2e9fc181a371d666408a7aba142519f7d4298d368916e",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "hafner-2019",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "1c3aee51ab99649e970815a7f8bccae8c7711addbfc8d50c4853a0d2e742f26a",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "klyubin-2005",
+      "readingStatus": "full-text",
+      "localPDFHashMatches": true,
+      "sha256": "19bd4594ea68f6aafd44ce2c929de315ab78c5b14d82a4c930b3cbe76bc47ba6",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "friston-2010",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "aeb47a0a36ada532bb5632108b1931c8ae4ab11c4e62b012bf0c3548ffd86e1f",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "friston-2015",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "e86b3d84a52499271fbf12db8cd7701778f32a2b37c110217189b20949c213c8",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "thelen-smith-1994",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "37b87c83ee1b81a551e33b9b54100f1738cb0322f13374dae187a1d8e8632746",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "beer-1995",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "4c5e13247371f80fc8889f329c7d5331b58ee6e52e0227e0c9ce4e05bf35ea29",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "brooks-1986",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "39ecc5feed013f9101fcdde9ceff9b337f4acabcfd3c2aadcb26dd892b15871f",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "schrittwieser-2019",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": true,
+      "sha256": "971eb94abb7a8d9afc2fe758a06dba2f6dabbbcfb0a5b52c2d84c2011513ee3b",
+      "carrier": "local-pdf"
+    },
+    {
+      "id": "brooks-1986-journal",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": null,
+      "sha256": null,
+      "carrier": "web-original-text-or-transcription"
+    },
+    {
+      "id": "schrittwieser-2020-journal",
+      "readingStatus": "selected-sections",
+      "localPDFHashMatches": null,
+      "sha256": null,
+      "carrier": "web-original-text-or-transcription"
+    }
+  ],
+  "replicationAudit": {
+    "scriptSHA256": "527ee7b26762d49a6fe6048e8d7f8784cc8bf608e1413098c2057bcd23a84085",
+    "protocolSHA256": "d877f93d7204c82737bda810d82a53b3874b56cf07e82076c9837ea3436479b4",
+    "resultsSHA256": "0ce5092fec9a02a8810a56084186d6a47493dbb636aacd283671556ea09abb82",
+    "tracesSHA256": "7c58e7b0df2be229909e31ed362d7909260273d784b256017ac6140c13c48d23",
+    "traceRows": 836,
+    "primaryEndpointsMatch": true,
+    "existingRunRecheckedNotRerun": true,
+    "numericalChecks": {
+      "featureRank": 6,
+      "scalarMatrixMaxErrors": {
+        "direct": 3.836930773104541e-13,
+        "residual": 6.661338147750939e-15
+      },
+      "finiteDifferenceGradientMaxError": 1.1373924024837834e-10,
+      "residualMSEIncreasingSteps": 0,
+      "iterativeMatrixPowerAndValueSpaceAgreement": true,
+      "independentTwoDimensionalReductionAgreement": true
+    },
+    "interpretation": {
+      "divergenceReplicated": true,
+      "fixedSignInfinityClaimSupportedByThisRun": false,
+      "residualConvergenceSupportedBySpectrum": true,
+      "paperFigure5Replicated": false,
+      "generalNonlinearConvergenceTested": false
+    },
+    "figureViewed": true
+  },
+  "engineeringChecks": {
+    "generators": {
+      "generate-intelligence-history.mjs": {
+        "files": 6,
+        "exitCode": 0,
+        "output": "{\n  \"mode\": \"check\",\n  \"routes\": 20,\n  \"events\": 106,\n  \"sources\": 106,\n  \"relations\": 9,\n  \"reading\": {\n    \"discovery-only\": 89,\n    \"metadata\": 5,\n    \"abstract\": 10,\n    \"selected-sections\": 2,\n    \"full-text\": 0\n  },\n  \"generated\": [\n    \"README.md\",\n    \"round-one.md\",\n    \"reading-queue.md\",\n    \"timeline.svg\",\n    \"timeline.mmd\",\n    \"atlas.html\"\n  ]\n}"
+      },
+      "generate-intelligence-history-round-two.mjs": {
+        "files": 46,
+        "exitCode": 0,
+        "output": "检查 46 个文件；25节点，16关系。第一轮基线保持一致。"
+      },
+      "generate-intelligence-history-round-three-a.mjs": {
+        "files": 82,
+        "exitCode": 0,
+        "output": "Verified 82 files; 34 nodes, 41 sources. Batch remains completed."
+      }
+    },
+    "svgXML": {
+      "routes": 14,
+      "replication": 1,
+      "passed": true
+    },
+    "browserReport": "browser-checks.json",
+    "browserStatus": "completed",
+    "browserChecks": 21,
+    "browserConsoleErrors": [],
+    "project": {
+      "astro": {
+        "files": 188,
+        "errors": 0,
+        "warnings": 0,
+        "hints": 0,
+        "exitCode": 0
+      },
+      "typescript": {
+        "exitCode": 0
+      },
+      "build": {
+        "pages": 243,
+        "exitCode": 0,
+        "externalSummaryCalls": false,
+        "warnings": [
+          "chunks over 500 kB",
+          "deprecated npm config",
+          "public/robots.txt takes precedence over dynamic route"
+        ]
+      },
+      "diffCheck": {
+        "exitCode": 0
+      }
+    },
+    "logSHA256": {
+      "check-final.log": "7e738ffc4ad5a708a79423a750d2baac355a530794b46702315cc53d6c0ec6bf",
+      "type-check-final.log": "0458b7b260f2fab6895b13a01cf8124febb6899cd177e661b5cd8db1cd31e2fb",
+      "build-final.log": "4bd390b25cb7071abe93563fe95e80df969ee72d49fa8007711aea4e489d41c0"
+    },
+    "fingerprints": {
+      "src/constants/icons.ts": {
+        "sha256": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+        "unchanged": true
+      },
+      "src/constants/lqips.json": {
+        "sha256": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0",
+        "unchanged": true
+      },
+      "docs/intelligence-history/atlas.json": {
+        "sha256": "ea0b8ad24c1ae1bf7432a31afa75d2744d1f107b2c2c191e18a0f4ca714a8776",
+        "unchanged": true
+      },
+      "docs/intelligence-history/round-two/research.json": {
+        "sha256": "eb32094d73cdfbcfded963dcf86b96f24cbf8ef8c740495042d7f73ac2d96443",
+        "unchanged": true
+      }
+    },
+    "xmlRuntimeNote": "默认系统Python的expat动态链接不兼容；本检查改用应用提供的Python成功解析相同文件。",
+    "localMarkdownLinks": {
+      "files": 59,
+      "targets": 677,
+      "broken": [],
+      "scope": "A批全部Markdown及本次维护的四份项目索引／方案文档；检查本地文件目标，非外网可用性检查。"
+    }
+  },
+  "researchSHA256": "390071aef4a4fd8daa5ea8a2cecd9b80ee9e88fc16d8df9cb0447c7a0c1cffa7",
+  "planSHA256": "96853dd2a5a0f83495f459c4f8ca3a05c468ab64ab4dc5a112dc3e67880fd51a",
+  "validationSHA256": "6fe1558cadc0652d8fd475446c55cde0b0e79a9c36a10bc2d663a1758d42d1c2"
+}

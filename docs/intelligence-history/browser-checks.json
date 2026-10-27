@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-23",
+  "observed": {
+    "chartScrollWidth": 1000,
+    "chartWidth": 528,
+    "pageWidth": 560,
+    "routeOptionCount": 21,
+    "selectedTitle": "2019 · 从任务技能转向技能获取效率",
+    "source": "https://arxiv.org/abs/1911.01547",
+    "viewport": 560
+  },
+  "consoleWarningsAndErrors": [],
+  "interactionsChecked": [
+    "all-route-overview",
+    "route-03-selection",
+    "route-08-selection",
+    "route-12-selection",
+    "route-19-classical-dates",
+    "svg-event-click",
+    "text-index-click"
+  ]
+}

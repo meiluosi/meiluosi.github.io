@@ -12,6 +12,7 @@ import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import RelatedArticles from "@/components/features/RelatedArticles.astro";
+import RouteCoordinateBadge from "@/components/features/RouteCoordinateBadge.astro";
 import SeriesNav from "@/components/features/SeriesNav.astro";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import { profileConfig } from "@/config/profileConfig";
@@ -22,6 +23,7 @@ import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { findConnectedLabs } from "@/utils/digital-garden";
 import { buildReadingChain } from "@/utils/reading-chain";
 import { buildRelatedByTags } from "@/utils/related-articles";
+import { resolvePostRoute } from "@/utils/route-matcher";
 import { removeFileExtension } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
@@ -56,6 +58,7 @@ const { Content, headings, remarkPluginFrontmatter } = await render(entry);
 
 const words = Math.round(Number(remarkPluginFrontmatter.words ?? 0));
 const minutes = Math.max(1, Math.ceil(words / 220));
+const postRoute = resolvePostRoute(entry.data);
 
 // 英文页的阅读链只包含真正发布的译文，顺序与中文页一致（同主题优先）。
 const [englishEntries, publicSources] = await Promise.all([
@@ -237,6 +240,9 @@ const jsonLd = {
 
 		<!-- Digital garden thought maturity badge -->
 		<GardenMaturityBadge post={source} lang="en" />
+
+		<!-- Intelligence inquiry route badge -->
+		{postRoute && <RouteCoordinateBadge route={postRoute} lang="en" />}
 
 		{seriesItems.length > 0 && (
 			<div class="onload-animation mb-6">

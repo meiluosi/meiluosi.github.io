@@ -1,18 +1,61 @@
 ---
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
-import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
 import ModelPipeline from "@/components/features/ModelPipeline.svelte";
+import ResearchQuestion from "@/components/features/ResearchQuestion.astro";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+
 const article = "/posts/2026-07-08-1b模型全链路实验计划/";
 const articleEn = "/en/posts/local-1b-model-workflow/";
 const readingSteps = [
-	{ title: "数据", titleEn: "Data", text: "记录来源和许可，先去重，再按文档关联组划分 train / validation / test。训练集更新参数，验证集选配置，测试集留给最终比较。", textEn: "Record sources and licenses, deduplicate, then split related document groups into train / validation / test. Training updates parameters, validation guides configurations, and test data is reserved for final comparisons." },
-	{ title: "分词", titleEn: "Tokenization", text: "只在训练集上拟合词表并冻结版本，验证编解码与特殊 token。教学 BPE 可演示高频组合合并；工程分词器必须另行验证文本回环与数据打包。", textEn: "Fit a vocabulary only on training data, freeze its version, and verify decoding and special tokens. The teaching BPE demonstrates frequent-pair merges; the engineering tokenizer needs separate round-trip and packing checks." },
-	{ title: "随机初始化预训练", titleEn: "Pretraining from random weights", text: "用随机初始化的 decoder-only Transformer 预测下一个 token。先用 tiny 做少量更新，验证有限损失、梯度、保存和恢复；再测量约 30M 首个完整实验的成本。", textEn: "Train a randomly initialized decoder-only Transformer to predict the next token. First run a few tiny updates to verify finite loss, gradients, saving, and resuming; then measure the cost of a first complete experiment around 30M parameters." },
-	{ title: "SFT", titleEn: "SFT", text: "从自己的基座继续训练，固定对话模板，提示词作为上下文，assistant 回答与结束符计入损失，padding 不计入。保存模板与掩码规则。", textEn: "Continue from your own base model with a fixed chat template. Prompts provide context; assistant responses and stop tokens contribute to loss while padding does not. Save the template and mask rules." },
-	{ title: "DPO", titleEn: "DPO", text: "为同一提示准备 chosen / rejected，固定 SFT 参考模型。相对参考的回答对数概率差进入偏好损失；训练后仍要检查长度、格式与基础任务能力。", textEn: "Pair chosen/rejected responses to the same prompt and freeze an SFT reference. The response log-probability gap relative to the reference determines preference loss. Check length, format, and base-task performance afterwards." },
-	{ title: "评测", titleEn: "Evaluation", text: "固定数据、分词器与掩码，按目标 token 数汇总 NLL，perplexity = exp(NLL)。分别报告任务、格式和偏好指标，保留样本数与原始输出。", textEn: "Fix the data, tokenizer, and masks. Aggregate NLL by target-token count; perplexity = exp(NLL). Report task, format, and preference metrics separately, keeping sample counts and raw outputs." },
-	{ title: "部署与下一轮", titleEn: "Deployment and the next iteration", text: "一起导出权重、配置、分词器、模板、环境与模型说明。干净环境独立加载并核对固定输入；量化单独复测。把失败样例送回下一轮数据与评测设计。", textEn: "Export weights, configuration, tokenizer, template, environment, and model card together. Load independently in a clean environment and compare fixed inputs; re-evaluate quantization separately. Feed failure cases into the next data and evaluation design." },
+	{
+		title: "数据",
+		titleEn: "Data",
+		text: "记录来源和许可，先去重，再按文档关联组划分 train / validation / test。训练集更新参数，验证集选配置，测试集留给最终比较。",
+		textEn:
+			"Record sources and licenses, deduplicate, then split related document groups into train / validation / test. Training updates parameters, validation guides configurations, and test data is reserved for final comparisons.",
+	},
+	{
+		title: "分词",
+		titleEn: "Tokenization",
+		text: "只在训练集上拟合词表并冻结版本，验证编解码与特殊 token。教学 BPE 可演示高频组合合并；工程分词器必须另行验证文本回环与数据打包。",
+		textEn:
+			"Fit a vocabulary only on training data, freeze its version, and verify decoding and special tokens. The teaching BPE demonstrates frequent-pair merges; the engineering tokenizer needs separate round-trip and packing checks.",
+	},
+	{
+		title: "随机初始化预训练",
+		titleEn: "Pretraining from random weights",
+		text: "用随机初始化的 decoder-only Transformer 预测下一个 token。先用 tiny 做少量更新，验证有限损失、梯度、保存和恢复；再测量约 30M 首个完整实验的成本。",
+		textEn:
+			"Train a randomly initialized decoder-only Transformer to predict the next token. First run a few tiny updates to verify finite loss, gradients, saving, and resuming; then measure the cost of a first complete experiment around 30M parameters.",
+	},
+	{
+		title: "SFT",
+		titleEn: "SFT",
+		text: "从自己的基座继续训练，固定对话模板，提示词作为上下文，assistant 回答与结束符计入损失，padding 不计入。保存模板与掩码规则。",
+		textEn:
+			"Continue from your own base model with a fixed chat template. Prompts provide context; assistant responses and stop tokens contribute to loss while padding does not. Save the template and mask rules.",
+	},
+	{
+		title: "DPO",
+		titleEn: "DPO",
+		text: "为同一提示准备 chosen / rejected，固定 SFT 参考模型。相对参考的回答对数概率差进入偏好损失；训练后仍要检查长度、格式与基础任务能力。",
+		textEn:
+			"Pair chosen/rejected responses to the same prompt and freeze an SFT reference. The response log-probability gap relative to the reference determines preference loss. Check length, format, and base-task performance afterwards.",
+	},
+	{
+		title: "评测",
+		titleEn: "Evaluation",
+		text: "固定数据、分词器与掩码，按目标 token 数汇总 NLL，perplexity = exp(NLL)。分别报告任务、格式和偏好指标，保留样本数与原始输出。",
+		textEn:
+			"Fix the data, tokenizer, and masks. Aggregate NLL by target-token count; perplexity = exp(NLL). Report task, format, and preference metrics separately, keeping sample counts and raw outputs.",
+	},
+	{
+		title: "部署与下一轮",
+		titleEn: "Deployment and the next iteration",
+		text: "一起导出权重、配置、分词器、模板、环境与模型说明。干净环境独立加载并核对固定输入；量化单独复测。把失败样例送回下一轮数据与评测设计。",
+		textEn:
+			"Export weights, configuration, tokenizer, template, environment, and model card together. Load independently in a clean environment and compare fixed inputs; re-evaluate quantization separately. Feed failure cases into the next data and evaluation design.",
+	},
 ];
 ---
 <ExploreLayout title="小模型全链路训练" titleEn="A small model, end to end" description="从数据与分词开始，连接随机初始化预训练、SFT、DPO、评测与本地部署。面向 Apple M4 Air / 16 GiB 的教学互动与测量驱动规划。" descriptionEn="Connect data, tokenization, pretraining from random weights, SFT, DPO, evaluation, and local deployment. Teaching interactions and a measurement-led plan for MacBook Air M4 with 16 GiB memory.">

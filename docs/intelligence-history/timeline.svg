@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="2234" viewBox="0 0 1000 2234" role="img" aria-labelledby="history-title history-desc">
+<title id="history-title">智能问题演进史：20 条路线候选时间线</title>
+<desc id="history-desc">106 个候选事件。横轴为出版年份，纵轴为研究路线。编号对应路线底稿的节点序号。时间顺序不表示历史影响。古典文本另列，所有结论待深入审校。</desc>
+<rect width="1000" height="2234" fill="#fffdf8"/>
+<g font-family="system-ui, PingFang SC, sans-serif" fill="#263c35">
+<text x="24" y="36" font-size="23" font-weight="600">智能问题演进史 · 第一轮候选全景</text>
+<text x="24" y="63" font-size="13">2026-10-23 · 106 个独立事件 · 图中编号可点击；仅表示年代位置，不表示继承</text>
+<line x1="360" x2="360" y1="105" y2="2050" stroke="#dfe5de"/><text x="360" y="99" text-anchor="middle" font-size="12">1850</text>
+<line x1="526.6666666666667" x2="526.6666666666667" y1="105" y2="2050" stroke="#dfe5de"/><text x="526.6666666666667" y="99" text-anchor="middle" font-size="12">1900</text>
+<line x1="693.3333333333334" x2="693.3333333333334" y1="105" y2="2050" stroke="#dfe5de"/><text x="693.3333333333334" y="99" text-anchor="middle" font-size="12">1950</text>
+<line x1="860" x2="860" y1="105" y2="2050" stroke="#dfe5de"/><text x="860" y="99" text-anchor="middle" font-size="12">2000</text>
+<line x1="960" x2="960" y1="105" y2="2050" stroke="#dfe5de"/><text x="960" y="99" text-anchor="middle" font-size="12">2030</text>
+<text x="24" y="100" font-size="13">路线／研究对象</text><text x="960" y="83" text-anchor="end" font-size="12">现代出版年份（等比例）</text>
+<g data-route="behavioral"><line x1="360" x2="960" y1="150" y2="150" stroke="#d4ddd5"/>
+<text x="24" y="150" font-size="14">01 行为表现与操作性</text>
+<a href="round-one.md#e-watson-1913" data-event="e-watson-1913" aria-label="1.1 1913 以可观察行为重设研究对象"><title>1.1 1913 以可观察行为重设研究对象</title><circle cx="570" cy="150" r="10" fill="#986044"/><text x="570" y="154" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<line x1="573.3333333333334" x2="573.3333333333334" y1="150" y2="118" stroke="#c1cbc3"/>
+<a href="round-one.md#e-titchener-1914" data-event="e-titchener-1914" aria-label="1.2 1914 行为主义纲领的早期回应"><title>1.2 1914 行为主义纲领的早期回应</title><circle cx="573.3333333333334" cy="118" r="10" fill="#986044"/><text x="573.3333333333334" y="122" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-turing-1950" data-event="e-turing-1950" aria-label="1.3 1950 模仿游戏与操作性判定"><title>1.3 1950 模仿游戏与操作性判定</title><circle cx="693.3333333333334" cy="150" r="10" fill="#986044"/><text x="693.3333333333334" y="154" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-legg-definitions-2007" data-event="e-legg-definitions-2007" aria-label="1.4 2007 汇集不同智能定义"><title>1.4 2007 汇集不同智能定义</title><circle cx="883.3333333333334" cy="150" r="10" fill="#986044"/><text x="883.3333333333334" y="154" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-chollet-2019" data-event="e-chollet-2019" aria-label="1.5 2019 从任务技能转向技能获取效率"><title>1.5 2019 从任务技能转向技能获取效率</title><circle cx="923.3333333333334" cy="150" r="10" fill="#986044"/><text x="923.3333333333334" y="154" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="psychometric"><line x1="360" x2="960" y1="246" y2="246" stroke="#d4ddd5"/>
+<text x="24" y="246" font-size="14">02 心理测量与能力结构</text>
+<line x1="540" x2="543.3333333333334" y1="246" y2="246" stroke="#986044" stroke-width="4"/>
+<a href="round-one.md#e-binet-simon-1905" data-event="e-binet-simon-1905" aria-label="2.1 1904/1905（待核） 诊断用途的任务测验"><title>2.1 1904/1905（待核） 诊断用途的任务测验</title><circle cx="541.6666666666666" cy="246" r="10" fill="#986044"/><text x="541.6666666666666" y="250" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<line x1="540" x2="540" y1="246" y2="214" stroke="#c1cbc3"/>
+<a href="round-one.md#e-spearman-1904" data-event="e-spearman-1904" aria-label="2.2 1904 一般因素与测验相关"><title>2.2 1904 一般因素与测验相关</title><circle cx="540" cy="214" r="10" fill="#986044"/><text x="540" y="218" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-thurstone-1938" data-event="e-thurstone-1938" aria-label="2.3 1938 多种基本能力"><title>2.3 1938 多种基本能力</title><circle cx="653.3333333333333" cy="246" r="10" fill="#986044"/><text x="653.3333333333333" y="250" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-gardner-1983" data-event="e-gardner-1983" aria-label="2.4 1983 扩展智能的能力范围"><title>2.4 1983 扩展智能的能力范围</title><circle cx="803.3333333333334" cy="246" r="10" fill="#986044"/><text x="803.3333333333334" y="250" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-carroll-1993" data-event="e-carroll-1993" aria-label="2.5 1993 能力的层级结构"><title>2.5 1993 能力的层级结构</title><circle cx="836.6666666666666" cy="246" r="10" fill="#986044"/><text x="836.6666666666666" y="250" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-woolley-2010" data-event="e-woolley-2010" aria-label="2.6 2010 群体任务表现的共同因素"><title>2.6 2010 群体任务表现的共同因素</title><circle cx="893.3333333333333" cy="246" r="10" fill="#986044"/><text x="893.3333333333333" y="250" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+<line x1="913.3333333333334" x2="913.3333333333334" y1="246" y2="225" stroke="#c1cbc3"/>
+<a href="round-one.md#e-kovacs-conway-2016" data-event="e-kovacs-conway-2016" aria-label="2.7 2016 以过程重叠解释一般因素"><title>2.7 2016 以过程重叠解释一般因素</title><circle cx="913.3333333333334" cy="225" r="10" fill="#986044"/><text x="913.3333333333334" y="229" font-size="11" text-anchor="middle" fill="#ffffff">7</text></a>
+</g>
+<g data-route="learning-efficiency"><line x1="360" x2="960" y1="342" y2="342" stroke="#d4ddd5"/>
+<text x="24" y="342" font-size="14">03 学习效率与泛化</text>
+<a href="round-one.md#e-valiant-1984" data-event="e-valiant-1984" aria-label="3.1 1984 把可学习性变为形式问题"><title>3.1 1984 把可学习性变为形式问题</title><circle cx="806.6666666666667" cy="342" r="10" fill="#986044"/><text x="806.6666666666667" y="346" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<line x1="820" x2="820" y1="342" y2="321" stroke="#c1cbc3"/>
+<a href="round-one.md#e-fodor-pylyshyn-1988" data-event="e-fodor-pylyshyn-1988" aria-label="3.2 1988 系统性与组合性的挑战"><title>3.2 1988 系统性与组合性的挑战</title><circle cx="820" cy="321" r="10" fill="#986044"/><text x="820" y="325" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-lake-2015" data-event="e-lake-2015" aria-label="3.3 2015 少样本概念学习与生成程序"><title>3.3 2015 少样本概念学习与生成程序</title><circle cx="910" cy="342" r="10" fill="#986044"/><text x="910" y="346" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="923.3333333333334" x2="923.3333333333334" y1="342" y2="321" stroke="#c1cbc3"/>
+<a href="round-one.md#e-chollet-2019" data-event="e-chollet-2019" aria-label="3.4 2019 从任务技能转向技能获取效率"><title>3.4 2019 从任务技能转向技能获取效率</title><circle cx="923.3333333333334" cy="321" r="10" fill="#986044"/><text x="923.3333333333334" y="325" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-arc-agi-2-2025" data-event="e-arc-agi-2-2025" aria-label="3.5 2025 更新抽象推理测量"><title>3.5 2025 更新抽象推理测量</title><circle cx="943.3333333333334" cy="342" r="10" fill="#986044"/><text x="943.3333333333334" y="346" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="rational-resource"><line x1="360" x2="960" y1="438" y2="438" stroke="#d4ddd5"/>
+<text x="24" y="438" font-size="14">04 理性、适应与资源约束</text>
+<a href="round-one.md#e-simon-1955" data-event="e-simon-1955" aria-label="4.1 1955 有限理性"><title>4.1 1955 有限理性</title><circle cx="710" cy="438" r="10" fill="#986044"/><text x="710" y="442" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-solomonoff-1964" data-event="e-solomonoff-1964" aria-label="4.2 1964 算法概率与归纳"><title>4.2 1964 算法概率与归纳</title><circle cx="740" cy="438" r="10" fill="#986044"/><text x="740" y="442" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-gigerenzer-goldstein-1996" data-event="e-gigerenzer-goldstein-1996" aria-label="4.3 1996 快速节俭启发式"><title>4.3 1996 快速节俭启发式</title><circle cx="846.6666666666667" cy="438" r="10" fill="#986044"/><text x="846.6666666666667" y="442" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-hutter-2005" data-event="e-hutter-2005" aria-label="4.4 2005 通用序贯决策的形式化"><title>4.4 2005 通用序贯决策的形式化</title><circle cx="876.6666666666667" cy="438" r="10" fill="#986044"/><text x="876.6666666666667" y="442" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="883.3333333333334" x2="883.3333333333334" y1="438" y2="406" stroke="#c1cbc3"/>
+<a href="round-one.md#e-legg-hutter-2007" data-event="e-legg-hutter-2007" aria-label="4.5 2007 跨环境的智能度量"><title>4.5 2007 跨环境的智能度量</title><circle cx="883.3333333333334" cy="406" r="10" fill="#986044"/><text x="883.3333333333334" y="410" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-lieder-griffiths-2020" data-event="e-lieder-griffiths-2020" aria-label="4.6 2020 把计算成本纳入认知解释"><title>4.6 2020 把计算成本纳入认知解释</title><circle cx="926.6666666666666" cy="438" r="10" fill="#986044"/><text x="926.6666666666666" y="442" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+</g>
+<g data-route="symbolic-logic"><line x1="360" x2="960" y1="534" y2="534" stroke="#d4ddd5"/>
+<text x="24" y="534" font-size="14">05 符号、逻辑、搜索与组合</text>
+<a href="round-one.md#e-mccarthy-1959" data-event="e-mccarthy-1959" aria-label="5.1 1959 常识知识与推理程序"><title>5.1 1959 常识知识与推理程序</title><circle cx="723.3333333333333" cy="534" r="10" fill="#386c59"/><text x="723.3333333333333" y="538" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-newell-simon-1976" data-event="e-newell-simon-1976" aria-label="5.2 1976 物理符号系统与搜索"><title>5.2 1976 物理符号系统与搜索</title><circle cx="780" cy="534" r="10" fill="#386c59"/><text x="780" y="538" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-gentner-1983" data-event="e-gentner-1983" aria-label="5.3 1983 类比中的关系结构映射"><title>5.3 1983 类比中的关系结构映射</title><circle cx="803.3333333333334" cy="534" r="10" fill="#386c59"/><text x="803.3333333333334" y="538" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="820" x2="820" y1="534" y2="513" stroke="#c1cbc3"/>
+<a href="round-one.md#e-fodor-pylyshyn-1988" data-event="e-fodor-pylyshyn-1988" aria-label="5.4 1988 系统性与组合性的挑战"><title>5.4 1988 系统性与组合性的挑战</title><circle cx="820" cy="513" r="10" fill="#386c59"/><text x="820" y="517" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-lake-2015" data-event="e-lake-2015" aria-label="5.5 2015 少样本概念学习与生成程序"><title>5.5 2015 少样本概念学习与生成程序</title><circle cx="910" cy="534" r="10" fill="#386c59"/><text x="910" y="538" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<line x1="916.6666666666667" x2="916.6666666666667" y1="534" y2="502" stroke="#c1cbc3"/>
+<a href="round-one.md#e-silver-2017" data-event="e-silver-2017" aria-label="5.6 2017 搜索与自我对弈相互改进"><title>5.6 2017 搜索与自我对弈相互改进</title><circle cx="916.6666666666667" cy="502" r="10" fill="#386c59"/><text x="916.6666666666667" y="506" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+<line x1="930" x2="930" y1="534" y2="555" stroke="#c1cbc3"/>
+<a href="round-one.md#e-ellis-2021" data-event="e-ellis-2021" aria-label="5.7 2021 程序库与搜索策略共同学习"><title>5.7 2021 程序库与搜索策略共同学习</title><circle cx="930" cy="555" r="10" fill="#386c59"/><text x="930" y="559" font-size="11" text-anchor="middle" fill="#ffffff">7</text></a>
+</g>
+<g data-route="connectionist"><line x1="360" x2="960" y1="630" y2="630" stroke="#d4ddd5"/>
+<text x="24" y="630" font-size="14">06 连接主义、统计学习与表征</text>
+<a href="round-one.md#e-mcculloch-pitts-1943" data-event="e-mcculloch-pitts-1943" aria-label="6.1 1943 神经活动的逻辑模型"><title>6.1 1943 神经活动的逻辑模型</title><circle cx="670" cy="630" r="10" fill="#386c59"/><text x="670" y="634" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-rosenblatt-1958" data-event="e-rosenblatt-1958" aria-label="6.2 1958 从样本调整连接"><title>6.2 1958 从样本调整连接</title><circle cx="720" cy="630" r="10" fill="#386c59"/><text x="720" y="634" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-minsky-papert-1969" data-event="e-minsky-papert-1969" aria-label="6.3 1969 感知机能力边界"><title>6.3 1969 感知机能力边界</title><circle cx="756.6666666666666" cy="630" r="10" fill="#386c59"/><text x="756.6666666666666" y="634" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-rumelhart-1986" data-event="e-rumelhart-1986" aria-label="6.4 1986 多层网络中的误差分配"><title>6.4 1986 多层网络中的误差分配</title><circle cx="813.3333333333333" cy="630" r="10" fill="#386c59"/><text x="813.3333333333333" y="634" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="820" x2="820" y1="630" y2="598" stroke="#c1cbc3"/>
+<a href="round-one.md#e-fodor-pylyshyn-1988" data-event="e-fodor-pylyshyn-1988" aria-label="6.5 1988 系统性与组合性的挑战"><title>6.5 1988 系统性与组合性的挑战</title><circle cx="820" cy="598" r="10" fill="#386c59"/><text x="820" y="602" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-krizhevsky-2012" data-event="e-krizhevsky-2012" aria-label="6.6 2012 大规模视觉学习的工程转折"><title>6.6 2012 大规模视觉学习的工程转折</title><circle cx="900" cy="630" r="10" fill="#386c59"/><text x="900" y="634" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+<line x1="916.6666666666667" x2="916.6666666666667" y1="630" y2="609" stroke="#c1cbc3"/>
+<a href="round-one.md#e-vaswani-2017" data-event="e-vaswani-2017" aria-label="6.7 2017 以注意力组织序列建模"><title>6.7 2017 以注意力组织序列建模</title><circle cx="916.6666666666667" cy="609" r="10" fill="#386c59"/><text x="916.6666666666667" y="613" font-size="11" text-anchor="middle" fill="#ffffff">7</text></a>
+<a href="round-one.md#e-bender-koller-2020" data-event="e-bender-koller-2020" aria-label="6.8 2020 形式与意义在语言模型中的边界"><title>6.8 2020 形式与意义在语言模型中的边界</title><circle cx="926.6666666666666" cy="630" r="10" fill="#386c59"/><text x="926.6666666666666" y="634" font-size="11" text-anchor="middle" fill="#ffffff">8</text></a>
+<line x1="926.6666666666666" x2="926.6666666666666" y1="630" y2="662" stroke="#c1cbc3"/>
+<a href="round-one.md#e-kaplan-2020" data-event="e-kaplan-2020" aria-label="6.9 2020 规模与损失的经验关系"><title>6.9 2020 规模与损失的经验关系</title><circle cx="926.6666666666666" cy="662" r="10" fill="#386c59"/><text x="926.6666666666666" y="666" font-size="11" text-anchor="middle" fill="#ffffff">9</text></a>
+</g>
+<g data-route="causal-world-models"><line x1="360" x2="960" y1="726" y2="726" stroke="#d4ddd5"/>
+<text x="24" y="726" font-size="14">07 概率推断、因果模型与世界模型</text>
+<a href="round-one.md#e-conant-ashby-1970" data-event="e-conant-ashby-1970" aria-label="7.1 1970 调节与模型的形式关系"><title>7.1 1970 调节与模型的形式关系</title><circle cx="760" cy="726" r="10" fill="#386c59"/><text x="760" y="730" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-pearl-1988" data-event="e-pearl-1988" aria-label="7.2 1988 概率图中的不确定性推理"><title>7.2 1988 概率图中的不确定性推理</title><circle cx="820" cy="726" r="10" fill="#386c59"/><text x="820" y="730" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-pearl-1995" data-event="e-pearl-1995" aria-label="7.3 1995 区分观察与干预"><title>7.3 1995 区分观察与干预</title><circle cx="843.3333333333334" cy="726" r="10" fill="#386c59"/><text x="843.3333333333334" y="730" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-friston-2010" data-event="e-friston-2010" aria-label="7.4 2010 自由能框架的统一解释尝试"><title>7.4 2010 自由能框架的统一解释尝试</title><circle cx="893.3333333333333" cy="726" r="10" fill="#386c59"/><text x="893.3333333333333" y="730" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="896.6666666666667" x2="896.6666666666667" y1="726" y2="694" stroke="#c1cbc3"/>
+<a href="round-one.md#e-tenenbaum-2011" data-event="e-tenenbaum-2011" aria-label="7.5 2011 结构先验与概率学习"><title>7.5 2011 结构先验与概率学习</title><circle cx="896.6666666666667" cy="694" r="10" fill="#386c59"/><text x="896.6666666666667" y="698" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-ha-2018" data-event="e-ha-2018" aria-label="7.6 2018 压缩环境动态并训练策略"><title>7.6 2018 压缩环境动态并训练策略</title><circle cx="920" cy="726" r="10" fill="#386c59"/><text x="920" y="730" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+<line x1="923.3333333333334" x2="923.3333333333334" y1="726" y2="694" stroke="#c1cbc3"/>
+<a href="round-one.md#e-schrittwieser-2019" data-event="e-schrittwieser-2019" aria-label="7.7 2019 学习用于规划的模型"><title>7.7 2019 学习用于规划的模型</title><circle cx="923.3333333333334" cy="694" r="10" fill="#386c59"/><text x="923.3333333333334" y="698" font-size="11" text-anchor="middle" fill="#ffffff">7</text></a>
+</g>
+<g data-route="cybernetics-rl"><line x1="360" x2="960" y1="822" y2="822" stroke="#d4ddd5"/>
+<text x="24" y="822" font-size="14">08 控制论、强化学习与主动推断</text>
+<a href="round-one.md#e-wiener-1948" data-event="e-wiener-1948" aria-label="8.1 1948 反馈与控制的共同语言"><title>8.1 1948 反馈与控制的共同语言</title><circle cx="686.6666666666666" cy="822" r="10" fill="#386c59"/><text x="686.6666666666666" y="826" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-ashby-1956" data-event="e-ashby-1956" aria-label="8.2 1956 调节能力与多样性"><title>8.2 1956 调节能力与多样性</title><circle cx="713.3333333333334" cy="822" r="10" fill="#386c59"/><text x="713.3333333333334" y="826" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-conant-ashby-1970" data-event="e-conant-ashby-1970" aria-label="8.3 1970 调节与模型的形式关系"><title>8.3 1970 调节与模型的形式关系</title><circle cx="760" cy="822" r="10" fill="#386c59"/><text x="760" y="826" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-sutton-1988" data-event="e-sutton-1988" aria-label="8.4 1988 从相邻预测差异中学习"><title>8.4 1988 从相邻预测差异中学习</title><circle cx="820" cy="822" r="10" fill="#386c59"/><text x="820" y="826" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="833.3333333333333" x2="833.3333333333333" y1="822" y2="801" stroke="#c1cbc3"/>
+<a href="round-one.md#e-watkins-dayan-1992" data-event="e-watkins-dayan-1992" aria-label="8.5 1992 动作价值学习的收敛条件"><title>8.5 1992 动作价值学习的收敛条件</title><circle cx="833.3333333333333" cy="801" r="10" fill="#386c59"/><text x="833.3333333333333" y="805" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-friston-2010" data-event="e-friston-2010" aria-label="8.6 2010 自由能框架的统一解释尝试"><title>8.6 2010 自由能框架的统一解释尝试</title><circle cx="893.3333333333333" cy="822" r="10" fill="#386c59"/><text x="893.3333333333333" y="826" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+<a href="round-one.md#e-silver-2017" data-event="e-silver-2017" aria-label="8.7 2017 搜索与自我对弈相互改进"><title>8.7 2017 搜索与自我对弈相互改进</title><circle cx="916.6666666666667" cy="822" r="10" fill="#386c59"/><text x="916.6666666666667" y="826" font-size="11" text-anchor="middle" fill="#ffffff">7</text></a>
+<line x1="923.3333333333334" x2="923.3333333333334" y1="822" y2="790" stroke="#c1cbc3"/>
+<a href="round-one.md#e-schrittwieser-2019" data-event="e-schrittwieser-2019" aria-label="8.8 2019 学习用于规划的模型"><title>8.8 2019 学习用于规划的模型</title><circle cx="923.3333333333334" cy="790" r="10" fill="#386c59"/><text x="923.3333333333334" y="794" font-size="11" text-anchor="middle" fill="#ffffff">8</text></a>
+</g>
+<g data-route="cognitive-architectures"><line x1="360" x2="960" y1="918" y2="918" stroke="#d4ddd5"/>
+<text x="24" y="918" font-size="14">09 认知架构与多机制协作</text>
+<a href="round-one.md#e-anderson-1983" data-event="e-anderson-1983" aria-label="9.1 1983 认知架构与知识使用"><title>9.1 1983 认知架构与知识使用</title><circle cx="803.3333333333334" cy="918" r="10" fill="#426e8a"/><text x="803.3333333333334" y="922" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<line x1="813.3333333333333" x2="813.3333333333333" y1="918" y2="897" stroke="#c1cbc3"/>
+<a href="round-one.md#e-minsky-1986" data-event="e-minsky-1986" aria-label="9.2 1986 多机制协作的心智解释"><title>9.2 1986 多机制协作的心智解释</title><circle cx="813.3333333333333" cy="897" r="10" fill="#426e8a"/><text x="813.3333333333333" y="901" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<line x1="816.6666666666666" x2="816.6666666666666" y1="918" y2="939" stroke="#c1cbc3"/>
+<a href="round-one.md#e-soar-1987" data-event="e-soar-1987" aria-label="9.3 1987 统一问题求解与学习"><title>9.3 1987 统一问题求解与学习</title><circle cx="816.6666666666666" cy="939" r="10" fill="#426e8a"/><text x="816.6666666666666" y="943" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-newell-1990" data-event="e-newell-1990" aria-label="9.4 1990 跨任务的统一认知理论"><title>9.4 1990 跨任务的统一认知理论</title><circle cx="826.6666666666667" cy="918" r="10" fill="#426e8a"/><text x="826.6666666666667" y="922" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-laird-2017" data-event="e-laird-2017" aria-label="9.5 2017 比较认知架构的共同结构"><title>9.5 2017 比较认知架构的共同结构</title><circle cx="916.6666666666667" cy="918" r="10" fill="#426e8a"/><text x="916.6666666666667" y="922" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="neuroscience"><line x1="360" x2="960" y1="1014" y2="1014" stroke="#d4ddd5"/>
+<text x="24" y="1014" font-size="14">10 神经科学</text>
+<a href="round-one.md#e-hebb-1949" data-event="e-hebb-1949" aria-label="10.1 1949 从可塑性到行为组织"><title>10.1 1949 从可塑性到行为组织</title><circle cx="690" cy="1014" r="10" fill="#426e8a"/><text x="690" y="1018" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-marr-1982" data-event="e-marr-1982" aria-label="10.2 1982 解释计算的多个层次"><title>10.2 1982 解释计算的多个层次</title><circle cx="800" cy="1014" r="10" fill="#426e8a"/><text x="800" y="1018" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-beggs-plenz-2003" data-event="e-beggs-plenz-2003" aria-label="10.3 2003 神经活动的级联现象"><title>10.3 2003 神经活动的级联现象</title><circle cx="870" cy="1014" r="10" fill="#426e8a"/><text x="870" y="1018" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="883.3333333333334" x2="883.3333333333334" y1="1014" y2="993" stroke="#c1cbc3"/>
+<a href="round-one.md#e-jung-haier-2007" data-event="e-jung-haier-2007" aria-label="10.4 2007 脑区整合与智力差异"><title>10.4 2007 脑区整合与智力差异</title><circle cx="883.3333333333334" cy="993" r="10" fill="#426e8a"/><text x="883.3333333333334" y="997" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-barbey-2018" data-event="e-barbey-2018" aria-label="10.5 2018 从局部脑区到网络动态"><title>10.5 2018 从局部脑区到网络动态</title><circle cx="920" cy="1014" r="10" fill="#426e8a"/><text x="920" y="1018" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<line x1="940" x2="940" y1="1014" y2="993" stroke="#c1cbc3"/>
+<a href="round-one.md#e-schlegel-2024" data-event="e-schlegel-2024" aria-label="10.6 2024 全脑连接组的结构资料"><title>10.6 2024 全脑连接组的结构资料</title><circle cx="940" cy="993" r="10" fill="#426e8a"/><text x="940" y="997" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+</g>
+<g data-route="developmental-openended"><line x1="360" x2="960" y1="1110" y2="1110" stroke="#d4ddd5"/>
+<text x="24" y="1110" font-size="14">11 发展、建构与开放式学习</text>
+<a href="round-one.md#e-piaget-1936" data-event="e-piaget-1936" aria-label="11.1 1936 感觉运动智能的发生"><title>11.1 1936 感觉运动智能的发生</title><circle cx="646.6666666666667" cy="1110" r="10" fill="#426e8a"/><text x="646.6666666666667" y="1114" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-thelen-smith-1994" data-event="e-thelen-smith-1994" aria-label="11.2 1994 认知与行动的发展动力学"><title>11.2 1994 认知与行动的发展动力学</title><circle cx="840" cy="1110" r="10" fill="#426e8a"/><text x="840" y="1114" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-oudeyer-2007" data-event="e-oudeyer-2007" aria-label="11.3 2007 让系统选择自己的学习任务"><title>11.3 2007 让系统选择自己的学习任务</title><circle cx="883.3333333333334" cy="1110" r="10" fill="#426e8a"/><text x="883.3333333333334" y="1114" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="883.3333333333334" x2="883.3333333333334" y1="1110" y2="1078" stroke="#c1cbc3"/>
+<a href="round-one.md#e-spelke-2007" data-event="e-spelke-2007" aria-label="11.4 2007 早期认知的核心知识"><title>11.4 2007 早期认知的核心知识</title><circle cx="883.3333333333334" cy="1078" r="10" fill="#426e8a"/><text x="883.3333333333334" y="1082" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="896.6666666666667" x2="896.6666666666667" y1="1110" y2="1131" stroke="#c1cbc3"/>
+<a href="round-one.md#e-lehman-stanley-2011" data-event="e-lehman-stanley-2011" aria-label="11.5 2011 用新颖性应对欺骗性目标"><title>11.5 2011 用新颖性应对欺骗性目标</title><circle cx="896.6666666666667" cy="1131" r="10" fill="#426e8a"/><text x="896.6666666666667" y="1135" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-wang-poet-2019" data-event="e-wang-poet-2019" aria-label="11.6 2019 环境与解法共同扩展"><title>11.6 2019 环境与解法共同扩展</title><circle cx="923.3333333333334" cy="1110" r="10" fill="#426e8a"/><text x="923.3333333333334" y="1114" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+</g>
+<g data-route="embodied-dynamical"><line x1="360" x2="960" y1="1206" y2="1206" stroke="#d4ddd5"/>
+<text x="24" y="1206" font-size="14">12 具身、生态、生成与动力系统</text>
+<a href="round-one.md#e-gibson-1979" data-event="e-gibson-1979" aria-label="12.1 1979 生态知觉与行动可能性"><title>12.1 1979 生态知觉与行动可能性</title><circle cx="790" cy="1206" r="10" fill="#426e8a"/><text x="790" y="1210" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-brooks-1986" data-event="e-brooks-1986" aria-label="12.2 1986 分层行为控制机器人"><title>12.2 1986 分层行为控制机器人</title><circle cx="813.3333333333333" cy="1206" r="10" fill="#426e8a"/><text x="813.3333333333333" y="1210" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<line x1="830" x2="830" y1="1206" y2="1185" stroke="#c1cbc3"/>
+<a href="round-one.md#e-brooks-1991" data-event="e-brooks-1991" aria-label="12.3 1991 对集中表征路线的挑战"><title>12.3 1991 对集中表征路线的挑战</title><circle cx="830" cy="1185" r="10" fill="#426e8a"/><text x="830" y="1189" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="830" x2="830" y1="1206" y2="1227" stroke="#c1cbc3"/>
+<a href="round-one.md#e-varela-1991" data-event="e-varela-1991" aria-label="12.4 1991 生成认知与具身经验"><title>12.4 1991 生成认知与具身经验</title><circle cx="830" cy="1227" r="10" fill="#426e8a"/><text x="830" y="1231" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-thelen-smith-1994" data-event="e-thelen-smith-1994" aria-label="12.5 1994 认知与行动的发展动力学"><title>12.5 1994 认知与行动的发展动力学</title><circle cx="840" cy="1206" r="10" fill="#426e8a"/><text x="840" y="1210" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-zahedi-ay-2013" data-event="e-zahedi-ay-2013" aria-label="12.6 2013 量化身体形态的贡献"><title>12.6 2013 量化身体形态的贡献</title><circle cx="903.3333333333334" cy="1206" r="10" fill="#426e8a"/><text x="903.3333333333334" y="1210" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+</g>
+<g data-route="autopoiesis-evolution"><line x1="360" x2="960" y1="1302" y2="1302" stroke="#d4ddd5"/>
+<text x="24" y="1302" font-size="14">13 生命、自维持与演化</text>
+<a href="round-one.md#e-darwin-1859" data-event="e-darwin-1859" aria-label="13.1 1859 适应的历史解释"><title>13.1 1859 适应的历史解释</title><circle cx="390" cy="1302" r="10" fill="#426e8a"/><text x="390" y="1306" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-varela-maturana-uribe-1974" data-event="e-varela-maturana-uribe-1974" aria-label="13.2 1974 自创生的组织定义"><title>13.2 1974 自创生的组织定义</title><circle cx="773.3333333333333" cy="1302" r="10" fill="#426e8a"/><text x="773.3333333333333" y="1306" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-weber-varela-2002" data-event="e-weber-varela-2002" aria-label="13.3 2002 生命个体与自然目的"><title>13.3 2002 生命个体与自然目的</title><circle cx="866.6666666666667" cy="1302" r="10" fill="#426e8a"/><text x="866.6666666666667" y="1306" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-levin-2019" data-event="e-levin-2019" aria-label="13.4 2019 多尺度主体边界假说"><title>13.4 2019 多尺度主体边界假说</title><circle cx="923.3333333333334" cy="1302" r="10" fill="#426e8a"/><text x="923.3333333333334" y="1306" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="933.3333333333334" x2="933.3333333333334" y1="1302" y2="1281" stroke="#c1cbc3"/>
+<a href="round-one.md#e-levin-2022" data-event="e-levin-2022" aria-label="13.5 2022 比较不同基底上的认知"><title>13.5 2022 比较不同基底上的认知</title><circle cx="933.3333333333334" cy="1281" r="10" fill="#426e8a"/><text x="933.3333333333334" y="1285" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="sociocultural-language"><line x1="360" x2="960" y1="1398" y2="1398" stroke="#d4ddd5"/>
+<text x="24" y="1398" font-size="14">14 社会文化与语言</text>
+<a href="round-one.md#e-vygotsky-1934" data-event="e-vygotsky-1934" aria-label="14.1 1934 语言中介与认知发展"><title>14.1 1934 语言中介与认知发展</title><circle cx="640" cy="1398" r="10" fill="#725f7d"/><text x="640" y="1402" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-boyd-richerson-1985" data-event="e-boyd-richerson-1985" aria-label="14.2 1985 文化传递的演化模型"><title>14.2 1985 文化传递的演化模型</title><circle cx="810" cy="1398" r="10" fill="#725f7d"/><text x="810" y="1402" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-tomasello-1999" data-event="e-tomasello-1999" aria-label="14.3 1999 文化积累与人类认知"><title>14.3 1999 文化积累与人类认知</title><circle cx="856.6666666666666" cy="1398" r="10" fill="#725f7d"/><text x="856.6666666666666" y="1402" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="876.6666666666667" x2="876.6666666666667" y1="1398" y2="1377" stroke="#c1cbc3"/>
+<a href="round-one.md#e-tomasello-2005" data-event="e-tomasello-2005" aria-label="14.4 2005 共享意向性"><title>14.4 2005 共享意向性</title><circle cx="876.6666666666667" cy="1377" r="10" fill="#725f7d"/><text x="876.6666666666667" y="1381" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-henrich-2015" data-event="e-henrich-2015" aria-label="14.5 2015 累积文化与认知生态"><title>14.5 2015 累积文化与认知生态</title><circle cx="910" cy="1398" r="10" fill="#725f7d"/><text x="910" y="1402" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="collective-extended"><line x1="360" x2="960" y1="1494" y2="1494" stroke="#d4ddd5"/>
+<text x="24" y="1494" font-size="14">15 集体、分布式与延展心智</text>
+<a href="round-one.md#e-hayek-1945" data-event="e-hayek-1945" aria-label="15.1 1945 分散知识的协调问题"><title>15.1 1945 分散知识的协调问题</title><circle cx="676.6666666666667" cy="1494" r="10" fill="#725f7d"/><text x="676.6666666666667" y="1498" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-hutchins-1995" data-event="e-hutchins-1995" aria-label="15.2 1995 把认知分析单位扩展到系统"><title>15.2 1995 把认知分析单位扩展到系统</title><circle cx="843.3333333333334" cy="1494" r="10" fill="#725f7d"/><text x="843.3333333333334" y="1498" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<line x1="853.3333333333333" x2="853.3333333333333" y1="1494" y2="1473" stroke="#c1cbc3"/>
+<a href="round-one.md#e-clark-chalmers-1998" data-event="e-clark-chalmers-1998" aria-label="15.3 1998 延展心智假说"><title>15.3 1998 延展心智假说</title><circle cx="853.3333333333333" cy="1473" r="10" fill="#725f7d"/><text x="853.3333333333333" y="1477" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-couzin-2005" data-event="e-couzin-2005" aria-label="15.4 2005 局部信息与群体方向"><title>15.4 2005 局部信息与群体方向</title><circle cx="876.6666666666667" cy="1494" r="10" fill="#725f7d"/><text x="876.6666666666667" y="1498" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="893.3333333333333" x2="893.3333333333333" y1="1494" y2="1473" stroke="#c1cbc3"/>
+<a href="round-one.md#e-woolley-2010" data-event="e-woolley-2010" aria-label="15.5 2010 群体任务表现的共同因素"><title>15.5 2010 群体任务表现的共同因素</title><circle cx="893.3333333333333" cy="1473" r="10" fill="#725f7d"/><text x="893.3333333333333" y="1477" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="information-physics"><line x1="360" x2="960" y1="1590" y2="1590" stroke="#d4ddd5"/>
+<text x="24" y="1590" font-size="14">16 信息、压缩、复杂系统与物理</text>
+<a href="round-one.md#e-shannon-1948" data-event="e-shannon-1948" aria-label="16.1 1948 通信中的信息量"><title>16.1 1948 通信中的信息量</title><circle cx="686.6666666666666" cy="1590" r="10" fill="#725f7d"/><text x="686.6666666666666" y="1594" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-solomonoff-1964" data-event="e-solomonoff-1964" aria-label="16.2 1964 算法概率与归纳"><title>16.2 1964 算法概率与归纳</title><circle cx="740" cy="1590" r="10" fill="#725f7d"/><text x="740" y="1594" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-rissanen-1978" data-event="e-rissanen-1978" aria-label="16.3 1978 用描述长度选择模型"><title>16.3 1978 用描述长度选择模型</title><circle cx="786.6666666666667" cy="1590" r="10" fill="#725f7d"/><text x="786.6666666666667" y="1594" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="856.6666666666666" x2="860" y1="1590" y2="1590" stroke="#725f7d" stroke-width="4"/>
+<a href="round-one.md#e-tishby-1999" data-event="e-tishby-1999" aria-label="16.4 1999/2000（待核） 保留与目标相关的信息"><title>16.4 1999/2000（待核） 保留与目标相关的信息</title><circle cx="858.3333333333334" cy="1590" r="10" fill="#725f7d"/><text x="858.3333333333334" y="1594" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<line x1="870" x2="870" y1="1590" y2="1569" stroke="#c1cbc3"/>
+<a href="round-one.md#e-beggs-plenz-2003" data-event="e-beggs-plenz-2003" aria-label="16.5 2003 神经活动的级联现象"><title>16.5 2003 神经活动的级联现象</title><circle cx="870" cy="1569" r="10" fill="#725f7d"/><text x="870" y="1573" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-wissner-gross-2013" data-event="e-wissner-gross-2013" aria-label="16.6 2013 未来可能性与目标性行为"><title>16.6 2013 未来可能性与目标性行为</title><circle cx="903.3333333333334" cy="1590" r="10" fill="#725f7d"/><text x="903.3333333333334" y="1594" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+</g>
+<g data-route="philosophy-of-mind"><line x1="360" x2="960" y1="1686" y2="1686" stroke="#d4ddd5"/>
+<text x="24" y="1686" font-size="14">17 语义、理解与心灵哲学</text>
+<a href="round-one.md#e-putnam-1967" data-event="e-putnam-1967" aria-label="17.1 1967 心理状态的功能刻画"><title>17.1 1967 心理状态的功能刻画</title><circle cx="750" cy="1686" r="10" fill="#7a6635"/><text x="750" y="1690" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-searle-1980" data-event="e-searle-1980" aria-label="17.2 1980 中文屋对形式操作的质疑"><title>17.2 1980 中文屋对形式操作的质疑</title><circle cx="793.3333333333333" cy="1686" r="10" fill="#7a6635"/><text x="793.3333333333333" y="1690" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-dennett-1987" data-event="e-dennett-1987" aria-label="17.3 1987 意向立场与预测"><title>17.3 1987 意向立场与预测</title><circle cx="816.6666666666666" cy="1686" r="10" fill="#7a6635"/><text x="816.6666666666666" y="1690" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="826.6666666666667" x2="826.6666666666667" y1="1686" y2="1665" stroke="#c1cbc3"/>
+<a href="round-one.md#e-harnad-1990" data-event="e-harnad-1990" aria-label="17.4 1990 符号接地"><title>17.4 1990 符号接地</title><circle cx="826.6666666666667" cy="1665" r="10" fill="#7a6635"/><text x="826.6666666666667" y="1669" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-bender-koller-2020" data-event="e-bender-koller-2020" aria-label="17.5 2020 形式与意义在语言模型中的边界"><title>17.5 2020 形式与意义在语言模型中的边界</title><circle cx="926.6666666666666" cy="1686" r="10" fill="#7a6635"/><text x="926.6666666666666" y="1690" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<g data-route="consciousness-self"><line x1="360" x2="960" y1="1782" y2="1782" stroke="#d4ddd5"/>
+<text x="24" y="1782" font-size="14">18 意识、情感与自我</text>
+<a href="round-one.md#e-baars-1988" data-event="e-baars-1988" aria-label="18.1 1988 全局工作空间"><title>18.1 1988 全局工作空间</title><circle cx="820" cy="1782" r="10" fill="#7a6635"/><text x="820" y="1786" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<line x1="840" x2="840" y1="1782" y2="1761" stroke="#c1cbc3"/>
+<a href="round-one.md#e-damasio-1994" data-event="e-damasio-1994" aria-label="18.2 1994 情感与决策"><title>18.2 1994 情感与决策</title><circle cx="840" cy="1761" r="10" fill="#7a6635"/><text x="840" y="1765" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<line x1="843.3333333333334" x2="843.3333333333334" y1="1782" y2="1803" stroke="#c1cbc3"/>
+<a href="round-one.md#e-chalmers-1995" data-event="e-chalmers-1995" aria-label="18.3 1995 意识的解释困难"><title>18.3 1995 意识的解释困难</title><circle cx="843.3333333333334" cy="1803" r="10" fill="#7a6635"/><text x="843.3333333333334" y="1807" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<a href="round-one.md#e-tononi-2004" data-event="e-tononi-2004" aria-label="18.4 2004 整合信息的意识理论"><title>18.4 2004 整合信息的意识理论</title><circle cx="873.3333333333333" cy="1782" r="10" fill="#7a6635"/><text x="873.3333333333333" y="1786" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-dehaene-changeux-2011" data-event="e-dehaene-changeux-2011" aria-label="18.5 2011 意识通达的实验与机制"><title>18.5 2011 意识通达的实验与机制</title><circle cx="896.6666666666667" cy="1782" r="10" fill="#7a6635"/><text x="896.6666666666667" y="1786" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+<a href="round-one.md#e-cogitate-2025" data-event="e-cogitate-2025" aria-label="18.6 2025 竞争理论的对抗性检验"><title>18.6 2025 竞争理论的对抗性检验</title><circle cx="943.3333333333334" cy="1782" r="10" fill="#7a6635"/><text x="943.3333333333334" y="1786" font-size="11" text-anchor="middle" fill="#ffffff">6</text></a>
+</g>
+<g data-route="wisdom-values"><line x1="360" x2="960" y1="1878" y2="1878" stroke="#d4ddd5"/>
+<text x="24" y="1878" font-size="14">19 智慧、价值与跨文化</text>
+<a href="round-one.md#e-sternberg-1998" data-event="e-sternberg-1998" aria-label="19.2 1998 以平衡和共同善讨论智慧"><title>19.2 1998 以平衡和共同善讨论智慧</title><circle cx="853.3333333333333" cy="1878" r="10" fill="#7a6635"/><text x="853.3333333333333" y="1882" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<line x1="860" x2="860" y1="1878" y2="1846" stroke="#c1cbc3"/>
+<a href="round-one.md#e-baltes-staudinger-2000" data-event="e-baltes-staudinger-2000" aria-label="19.3 2000 智慧研究的心理学框架"><title>19.3 2000 智慧研究的心理学框架</title><circle cx="860" cy="1846" r="10" fill="#7a6635"/><text x="860" y="1850" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+</g>
+<g data-route="metaphysics-quantum"><line x1="360" x2="960" y1="1974" y2="1974" stroke="#d4ddd5"/>
+<text x="24" y="1974" font-size="14">20 形而上学、非经典计算与量子</text>
+<a href="round-one.md#e-lucas-1961" data-event="e-lucas-1961" aria-label="20.1 1961 从不完备性到心智的争论"><title>20.1 1961 从不完备性到心智的争论</title><circle cx="730" cy="1974" r="10" fill="#7a6635"/><text x="730" y="1978" font-size="11" text-anchor="middle" fill="#ffffff">1</text></a>
+<a href="round-one.md#e-penrose-1989" data-event="e-penrose-1989" aria-label="20.2 1989 非算法心智与物理问题"><title>20.2 1989 非算法心智与物理问题</title><circle cx="823.3333333333334" cy="1974" r="10" fill="#7a6635"/><text x="823.3333333333334" y="1978" font-size="11" text-anchor="middle" fill="#ffffff">2</text></a>
+<a href="round-one.md#e-hameroff-penrose-1996" data-event="e-hameroff-penrose-1996" aria-label="20.3 1996 Orch OR 的模型提案"><title>20.3 1996 Orch OR 的模型提案</title><circle cx="846.6666666666667" cy="1974" r="10" fill="#7a6635"/><text x="846.6666666666667" y="1978" font-size="11" text-anchor="middle" fill="#ffffff">3</text></a>
+<line x1="860" x2="860" y1="1974" y2="1953" stroke="#c1cbc3"/>
+<a href="round-one.md#e-tegmark-2000" data-event="e-tegmark-2000" aria-label="20.4 2000 脑内量子相干的时间尺度质疑"><title>20.4 2000 脑内量子相干的时间尺度质疑</title><circle cx="860" cy="1953" r="10" fill="#7a6635"/><text x="860" y="1957" font-size="11" text-anchor="middle" fill="#ffffff">4</text></a>
+<a href="round-one.md#e-hameroff-penrose-2014" data-event="e-hameroff-penrose-2014" aria-label="20.5 2014 Orch OR 的修订与回应"><title>20.5 2014 Orch OR 的修订与回应</title><circle cx="906.6666666666666" cy="1974" r="10" fill="#7a6635"/><text x="906.6666666666666" y="1978" font-size="11" text-anchor="middle" fill="#ffffff">5</text></a>
+</g>
+<text x="24" y="2075" font-size="13">全部节点为候选；编号与各路线底稿一致。区间日期取中点定位，完整口径见节点详情。</text>
+<text x="24" y="2104" font-size="14" font-weight="600">古典文本入口（单列，不与现代轴等比例；译本年不作为原作年代）</text>
+<a href="round-one.md#e-aristotle-ethics" data-event="e-aristotle-ethics"><text x="24" y="2132" font-size="14">约前350年 · 实践智慧与具体判断</text></a>
+<a href="round-one.md#e-mengzi-jinxin" data-event="e-mengzi-jinxin"><text x="24" y="2160" font-size="14">先秦·成书待考 · 心性、修养与判断</text></a>
+<a href="round-one.md#e-nagarjuna-mmk" data-event="e-nagarjuna-mmk"><text x="24" y="2188" font-size="14">古典·成书待考 · 概念、缘起与智慧的原典入口</text></a>
+</g></svg>

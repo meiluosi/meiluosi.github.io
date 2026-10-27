@@ -1,15 +1,46 @@
 ---
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
 import ExploreWorld from "@/components/features/ExploreWorld.svelte";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+
 const stations = [
-	{ number: "01", title: "文本编码与模型训练", titleEn: "Text encoding and model training", text: "在文字桌前，把一句话拆开，看看它怎样走向预测、训练与评测。", textEn: "At the word desk, take a sentence apart and follow it into prediction, training, and evaluation.", href: "/lab/model-pipeline/", link: "从一句话开始", linkEn: "Start with a sentence" },
-	{ number: "02", title: "搜索预算与决策质量", titleEn: "Search budget and decision quality", text: "在棋盘旁停一会儿，沿着搜索树看看，下一步还有哪些可能。", textEn: "Pause beside the board and follow a search tree to see what the next move could be.", href: "/lab/mcts/", link: "沿着棋局想一想", linkEn: "Think through a move" },
-	{ number: "03", title: "因果效应与干预评估", titleEn: "Causal effects and intervention evaluation", text: "换一种安排，观察两组人的差异。这里用模拟数据，把问题放慢一点。", textEn: "Change the assignment and observe two groups. Simulated data lets us slow the question down.", href: "/lab/causal-playground/", link: "换个角度观察", linkEn: "Try another point of view" },
+	{
+		number: "01",
+		title: "文本编码与模型训练",
+		titleEn: "Text encoding and model training",
+		text: "在文字桌前，把一句话拆开，看看它怎样走向预测、训练与评测。",
+		textEn:
+			"At the word desk, take a sentence apart and follow it into prediction, training, and evaluation.",
+		href: "/lab/model-pipeline/",
+		link: "从一句话开始",
+		linkEn: "Start with a sentence",
+	},
+	{
+		number: "02",
+		title: "搜索预算与决策质量",
+		titleEn: "Search budget and decision quality",
+		text: "在棋盘旁停一会儿，沿着搜索树看看，下一步还有哪些可能。",
+		textEn:
+			"Pause beside the board and follow a search tree to see what the next move could be.",
+		href: "/lab/mcts/",
+		link: "沿着棋局想一想",
+		linkEn: "Think through a move",
+	},
+	{
+		number: "03",
+		title: "因果效应与干预评估",
+		titleEn: "Causal effects and intervention evaluation",
+		text: "换一种安排，观察两组人的差异。这里用模拟数据，把问题放慢一点。",
+		textEn:
+			"Change the assignment and observe two groups. Simulated data lets us slow the question down.",
+		href: "/lab/causal-playground/",
+		link: "换个角度观察",
+		linkEn: "Try another point of view",
+	},
 ];
 ---
-<ExploreLayout title="研究岛" titleEn="Research island" description="一张文字桌、一盘棋和一处观察台。到枫语的小岛，沿着好奇心动手看看。" descriptionEn="A word desk, a board, and an observation table. Follow a question around Feng Yu's little island.">
-	<header class="world-heading compact-page-heading"><Text as="h1" zh="人工智能研究工作台" en="AI research workspace" /></header>
+<ExploreLayout title="研究花园" titleEn="Research garden" description="文字桌、棋盘与观星台。在自由漫步的数字花园中，沿着好奇心动手看看。" descriptionEn="A word desk, a board, and an observation table. Wander freely in Feng Yu's 3D knowledge garden.">
+	<header class="world-heading compact-page-heading"><Text as="h1" zh="三维探索花园与研究工作台" en="3D Research Garden & Workspace" /></header>
 	<div class="world-stage"><ExploreWorld immersive client:idle /><noscript><p>请启用 JavaScript 探索三维场景，也可以从下方直接进入实验。 / Enable JavaScript for the 3D scene, or open an experiment below.</p></noscript></div>
 	<div class="world-caption"><Text as="span" zh="模型训练、搜索决策与因果评估的交互实验入口。" en="Interactive experiments in model training, search, and causal evaluation." /><a href="/notes/"><Text zh="查看技术文章" en="Browse technical articles" /> ↗</a></div>
 	<section class="world-stations" aria-label="研究装置" data-i18n-aria-label-zh="研究装置" data-i18n-aria-label-en="Research installations">{stations.map((station) => <article><span class="station-number">{station.number} /</span><Text as="h2" zh={station.title} en={station.titleEn} /><Text as="p" zh={station.text} en={station.textEn} /><a class="explore-link" href={station.href}><Text zh={station.link} en={station.linkEn} /> ↗</a></article>)}</section>

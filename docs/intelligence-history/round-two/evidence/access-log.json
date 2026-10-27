@@ -1,0 +1,361 @@
+[
+  {
+    "id": "valiant-1984",
+    "url": "https://courses.grainger.illinois.edu/ece544na/fa2014/valiant84.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://courses.grainger.illinois.edu/ece544na/fa2014/valiant84.pdf', '-o', '/private/tmp/intelligence-history-r2/valiant-1984.pdf']' returned non-zero exit status 6.",
+    "selection": "reviewed-node",
+    "readScope": "§1–3，PDF 1–4 / 印刷页 1134–1137；证明部分未逐条复核"
+  },
+  {
+    "id": "chollet-2019",
+    "url": "https://arxiv.org/pdf/1911.01547",
+    "status": "downloaded",
+    "bytes": 1280262,
+    "sha256": "773b9ecec3df33e664ab5a784f9e48818e7fd0d8e211b3243f4f4e0fdecb2fee",
+    "pages": 64,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "引言；PDF27–28、46–47、53–54；未逐式复核全部算法信息论定义"
+  },
+  {
+    "id": "lake-2015",
+    "url": "https://www.cs.toronto.edu/~rsalakhu/papers/LakeEtAl2015Science.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://www.cs.toronto.edu/~rsalakhu/papers/LakeEtAl2015Science.pdf', '-o', '/private/tmp/intelligence-history-r2/lake-2015.pdf']' returned non-zero exit status 6.",
+    "selection": "reviewed-node",
+    "readScope": "正文 PDF 1–3及第4页开头；未读补充材料全部实验"
+  },
+  {
+    "id": "fodor-pylyshyn-1988",
+    "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf', '-o', '/private/tmp/intelligence-history-r2/fodor-pylyshyn-1988.pdf']' returned non-zero exit status 6.",
+    "selection": "not-selected",
+    "readScope": "本轮未形成审校节点；下载不代表已读。"
+  },
+  {
+    "id": "lake-baroni-2018",
+    "url": "https://proceedings.mlr.press/v80/lake18a/lake18a.pdf",
+    "status": "downloaded",
+    "bytes": 1057858,
+    "sha256": "7961052c8c0a113ac7b7c8ba992f58eb88b5665d777b1d695df3eb23b8c56350",
+    "pages": 10,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "§2及§4实验，PDF2、4–7；未逐页读全部附录"
+  },
+  {
+    "id": "loula-2018",
+    "url": "https://aclanthology.org/W18-5413.pdf",
+    "status": "downloaded",
+    "bytes": 218107,
+    "sha256": "9b2d006f3c2c3cd30b2f4ded10f884e7e1699605ec757397c8d4b0e9fd347458",
+    "pages": 7,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "正文PDF1–6；PDF5表2、3已视觉核对"
+  },
+  {
+    "id": "keysers-2020",
+    "url": "https://arxiv.org/pdf/1912.09713",
+    "status": "downloaded",
+    "bytes": 2162587,
+    "sha256": "ee3b29af6eab5388ac1ef09871c547341727ab5d461ba1baab146f5ebf5ffc67",
+    "pages": 38,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "正文PDF1–3、6–8；附录未全面复核"
+  },
+  {
+    "id": "lake-baroni-2023",
+    "url": "https://www.nature.com/articles/s41586-023-06668-3.pdf",
+    "status": "downloaded",
+    "bytes": 5624295,
+    "sha256": "0f7720ff2037c704806781a311172b9f55e4b2edc8ee82ff1a2336f83ac09b50",
+    "pages": 23,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "正文PDF2–6；未全面核对Methods与补充材料"
+  },
+  {
+    "id": "geirhos-2020",
+    "url": "https://arxiv.org/pdf/2004.07780",
+    "status": "downloaded",
+    "bytes": 4158487,
+    "sha256": "da93a1633b56f6590836afaf3794c6131d38d53629e2cf9d219deb274d91ec15",
+    "pages": 29,
+    "downloadedAt": "2026-10-25",
+    "selection": "not-selected",
+    "readScope": "本轮未形成审校节点；下载不代表已读。"
+  },
+  {
+    "id": "arc-agi-2-report-2025",
+    "url": "https://arxiv.org/pdf/2505.11831",
+    "status": "downloaded",
+    "bytes": 786451,
+    "sha256": "98e5c4b9eda4da776d8e6160d280b30ace36d416d8af4c82b9a14f599bc0235d",
+    "pages": 13,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "v1 PDF1、5–7；v2 PDF1–7；版本差异保留，不混用统计口径"
+  },
+  {
+    "id": "goodale-mascarenhas-2026",
+    "url": "https://aclanthology.org/2026.tacl-1.73.pdf",
+    "status": "downloaded",
+    "bytes": 418760,
+    "sha256": "9d110323fa3f57fff30bffd1b08d34739da7ce67d8ea03ebab31d1bbe0143960",
+    "pages": 14,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF1、4–10；未复核全部后续训练实验与补充材料"
+  },
+  {
+    "id": "hanneke-2026",
+    "url": "https://arxiv.org/pdf/2605.13840",
+    "status": "downloaded",
+    "bytes": 702227,
+    "sha256": "1c0518e82a49effdfd89f198bd9d37a70ea9d7696cfa2ac36a7ee5c3b817c45a",
+    "pages": 60,
+    "downloadedAt": "2026-10-25",
+    "selection": "not-selected",
+    "readScope": "本轮未形成审校节点；下载不代表已读。"
+  },
+  {
+    "id": "arc2-v1",
+    "url": "https://arxiv.org/pdf/2505.11831v1",
+    "status": "downloaded",
+    "bytes": 786397,
+    "sha256": "142137fa390bac8c921eed95894ca0b40eabf311614487e1a4e7906cc3360a90",
+    "pages": 13,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "v1 PDF1、5–7；v2 PDF1–7；版本差异保留，不混用统计口径"
+  },
+  {
+    "id": "ashby-1956",
+    "url": "https://ashby.info/Ashby-Introduction-to-Cybernetics.pdf",
+    "status": "failed",
+    "failure": "float floor division by zero",
+    "selection": "reviewed-node",
+    "readScope": "§11/5–11/11，印刷页204–209 / PDF109–111；未通读专著"
+  },
+  {
+    "id": "conant-ashby-1970",
+    "url": "https://governance.foundation/assets/frameworks/other/Conant_Ashby%20Every%20Good%20Regulator%20of%20a%20system%20must%20be%20a%20model%20of%20that%20system.pdf",
+    "status": "downloaded",
+    "bytes": 194997,
+    "sha256": "fba0430f1196748e81915a11860948b5dbb249e861b9a086953b67420362ec7d",
+    "pages": 10,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF2–3、7–9，形式设定、模型定义、定理与证明论证；未核对全部原刊排版"
+  },
+  {
+    "id": "sutton-1988",
+    "url": "https://jmvidal.cse.sc.edu/library/sutton88a.pdf",
+    "status": "downloaded",
+    "bytes": 2663339,
+    "sha256": "f1153204158bffd641cdd5ac23995cbdb4c74c34cb92022de4b54e8be6739d6e",
+    "pages": 36,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF3、6–7、16–17；§2机制与§4定理2；未逐项审证明附录"
+  },
+  {
+    "id": "williams-1992",
+    "url": "https://gwern.net/doc/reinforcement-learning/model-free/1992-williams.pdf",
+    "status": "downloaded",
+    "bytes": 648357,
+    "sha256": "e1029df5459f4a83bf33a876df018ee4f7b628b210bb9d047a6d60ec13f7c838",
+    "pages": 28,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "§3–4，PDF5–7；即时奖励情形；未审读延迟奖励扩展和证明附录"
+  },
+  {
+    "id": "baird-1995",
+    "url": "https://leemon.com/papers/1995b.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://leemon.com/papers/1995b.pdf', '-o', '/private/tmp/intelligence-history-r2/baird-1995.pdf']' returned non-zero exit status 60.",
+    "selection": "reviewed-node",
+    "readScope": "转录§2–5、图1及方程3–9；未完整审读随机转移扩展"
+  },
+  {
+    "id": "friston-2015",
+    "url": "https://chrismathys.com/wp-content/uploads/2015/05/Friston-et-al.-2015-Active-inference-and-epistemic-value.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://chrismathys.com/wp-content/uploads/2015/05/Friston-et-al.-2015-Active-inference-and-epistemic-value.pdf', '-o', '/private/tmp/intelligence-history-r2/friston-2015.pdf']' returned non-zero exit status 56.",
+    "selection": "reviewed-node",
+    "readScope": "PDF3、6–9、13–14；形式设定、价值分解及T迷宫设置；未完整审读附录"
+  },
+  {
+    "id": "schrittwieser-2019",
+    "url": "https://arxiv.org/pdf/1911.08265v1",
+    "status": "downloaded",
+    "bytes": 2701646,
+    "sha256": "971eb94abb7a8d9afc2fe758a06dba2f6dabbbcfb0a5b52c2d84c2011513ee3b",
+    "pages": 21,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "v1 PDF2、4–5；机制、训练目标与实验设置；未复核全部附录表"
+  },
+  {
+    "id": "brooks-1986",
+    "url": "https://jmvidal.cse.sc.edu/library/brooks86a.pdf",
+    "status": "downloaded",
+    "bytes": 1648517,
+    "sha256": "39ecc5feed013f9101fcdde9ceff9b337f4acabcfd3c2aadcb26dd892b15871f",
+    "pages": 26,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "扫描本PDF1、8、20已视觉阅读；§2.2、图3、§7；不是整篇完成"
+  },
+  {
+    "id": "mcgeer-1990",
+    "url": "https://courses.ece.ucsb.edu/ECE594/594D_F13Byl/papers/McGeer90.pdf",
+    "status": "downloaded",
+    "bytes": 19047849,
+    "sha256": "901598f47b6c611ec2f897279dd02192d99dfff68ee2f9cf5a8eb6889591fca6",
+    "pages": 21,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF2、6；动机、逐步映射及图6已视觉核对；附录公式仅定位未审校"
+  },
+  {
+    "id": "wilson-2002",
+    "url": "https://worrydream.com/refs/Wilson_M_2002_-_Six_views_of_embodied_cognition.pdf",
+    "status": "downloaded",
+    "bytes": 240917,
+    "sha256": "6dfbeaaeeed7f46847652902017e370f53e293009a28d3ff1178a2f0db862cdd",
+    "pages": 12,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF1、5–6；六类主张及外部卸载/系统边界论证"
+  },
+  {
+    "id": "gibson-1979",
+    "url": "https://web.eecs.umich.edu/~stellayu/teach/2023action/papers/1979gibsonAffordance.pdf",
+    "status": "downloaded",
+    "bytes": 408685,
+    "sha256": "2b0b8882869f7b1716de46f2134407f6a2ab6871b01f9703b52c23bcd3bac0a4",
+    "pages": 15,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "节选PDF1–2、12–15；供给性定义、光学信息、误知觉及总结"
+  },
+  {
+    "id": "thelen-2001",
+    "url": "https://www.cs.utexas.edu/~jsinapov/teaching/cs378/readings/W4/S0140525X01003910a.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://www.cs.utexas.edu/~jsinapov/teaching/cs378/readings/W4/S0140525X01003910a.pdf', '-o', '/private/tmp/intelligence-history-r2/thelen-2001.pdf']' returned non-zero exit status 7.",
+    "selection": "reviewed-node",
+    "readScope": "§4.2、§6.1、姿态实验讨论；PDF15、18–20、27–28；Ruffman评论PDF61；非全文完成"
+  },
+  {
+    "id": "zahedi-ay-2013",
+    "url": "https://arxiv.org/pdf/1301.6975",
+    "status": "downloaded",
+    "bytes": 2423715,
+    "sha256": "be1e156128835fe13b7730f8b3cf2186cbc64147197ee60d0627b31ada6f4c68",
+    "pages": 21,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF3–6、16–17；因果图、两种定义、讨论与结论；未复核全部实验"
+  },
+  {
+    "id": "ghazi-zahedi-rauh-2015",
+    "url": "https://arxiv.org/pdf/1503.05113",
+    "status": "downloaded",
+    "bytes": 718995,
+    "sha256": "368ec7a7d1771185afd3d689e649de400f6b3bd32ac380add3a272dac2a34d43",
+    "pages": 8,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF1–3、4部分、6–7；信息分解和讨论；优化计算附录未复核"
+  },
+  {
+    "id": "watkins-dayan-1992",
+    "url": "https://www.gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf",
+    "status": "downloaded",
+    "bytes": 685568,
+    "sha256": "3f1938a6001991f3171e13a93196fc8fc27978f18c87445321bb25058f35776f",
+    "pages": 14,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "§1–3，PDF1–4；PDF4定理步长条件已视觉核对；证明附录未完整审读"
+  },
+  {
+    "id": "brooks-1991",
+    "url": "https://people.csail.mit.edu/brooks/papers/representation.pdf",
+    "status": "downloaded",
+    "bytes": 171701,
+    "sha256": "c6eca85a62c4851bcb8679c848a6719c8129b14af71305a2f6cafdf0afe06f76",
+    "pages": 12,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "§6–8，PDF7–8、10–12；摘要、实机与增长限制、参考文献3"
+  },
+  {
+    "id": "beer-1995",
+    "url": "https://core.ac.uk/download/pdf/82396438.pdf",
+    "status": "failed",
+    "failure": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '55', 'https://core.ac.uk/download/pdf/82396438.pdf', '-o', '/private/tmp/intelligence-history-r2/beer-1995.pdf']' returned non-zero exit status 56.",
+    "selection": "not-selected",
+    "readScope": "本轮未形成审校节点；下载不代表已读。"
+  },
+  {
+    "id": "friston-2015",
+    "url": "https://theisticscience.com/papers/tree/PredictivePsych/Friston-CogNeuro2015.pdf",
+    "status": "downloaded",
+    "bytes": 1159136,
+    "sha256": "e86b3d84a52499271fbf12db8cd7701778f32a2b37c110217189b20949c213c8",
+    "pages": 30,
+    "downloadedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "PDF3、6–9、13–14；形式设定、价值分解及T迷宫设置；未完整审读附录"
+  },
+  {
+    "id": "ashby-1956",
+    "status": "extracted-with-fallback",
+    "note": "原PDF已下载；layout提取失败后改普通文本提取。指定章节已读。",
+    "selection": "reviewed-node",
+    "readScope": "§11/5–11/11，印刷页204–209 / PDF109–111；未通读专著"
+  },
+  {
+    "id": "baird-1995",
+    "status": "web-selected-sections",
+    "url": "https://anyflip.com/cmku/bmxj/basic/",
+    "note": "原文镜像转录§2–5；作者站证书异常，没有关闭证书校验。",
+    "selection": "reviewed-node",
+    "readScope": "转录§2–5、图1及方程3–9；未完整审读随机转移扩展"
+  },
+  {
+    "id": "valiant-1984",
+    "url": "https://courses.grainger.illinois.edu/ece544na/fa2014/valiant84.pdf",
+    "status": "web-selected-sections-read",
+    "accessedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "§1–3，PDF 1–4 / 印刷页 1134–1137；证明部分未逐条复核",
+    "note": "网页工具读取PDF正文；本地下载失败另记，不以失败记录代替阅读记录。"
+  },
+  {
+    "id": "lake-2015",
+    "url": "https://www.cs.toronto.edu/~rsalakhu/papers/LakeEtAl2015Science.pdf",
+    "status": "web-selected-sections-read",
+    "accessedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "正文 PDF 1–3及第4页开头；未读补充材料全部实验",
+    "note": "网页工具读取PDF正文；本地下载失败另记，不以失败记录代替阅读记录。"
+  },
+  {
+    "id": "thelen-2001",
+    "url": "https://www.cs.utexas.edu/~jsinapov/teaching/cs378/readings/W4/S0140525X01003910a.pdf",
+    "status": "web-selected-sections-read",
+    "accessedAt": "2026-10-25",
+    "selection": "reviewed-node",
+    "readScope": "§4.2、§6.1、姿态实验讨论；PDF15、18–20、27–28；Ruffman评论PDF61；非全文完成",
+    "note": "网页工具读取PDF正文；本地下载失败另记，不以失败记录代替阅读记录。"
+  }
+]

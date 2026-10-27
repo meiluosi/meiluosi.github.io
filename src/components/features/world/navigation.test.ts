@@ -56,9 +56,14 @@ test("station routes reach their destination without crossing a plinth or the co
 	});
 	let checked = 0;
 	for (const start of starts) {
-		if (!insideIsland(start) || stations.some((station) =>
-			separation(start, station) < WORLD_ROVER_CLEARANCE - tolerance,
-		)) continue;
+		if (
+			!insideIsland(start) ||
+			stations.some(
+				(station) =>
+					separation(start, station) < WORLD_ROVER_CLEARANCE - tolerance,
+			)
+		)
+			continue;
 		for (const goal of goals) {
 			const description = `${JSON.stringify(start)} → ${JSON.stringify(goal)}`;
 			const route = planWorldRoute(start, goal, stations);
@@ -67,10 +72,14 @@ test("station routes reach their destination without crossing a plinth or the co
 			let previous = start;
 			for (const point of route) {
 				// The walkable ellipse is convex, so its straight segments are also inside.
-				assert.ok(insideIsland(point), `Route leaves the coast: ${description}`);
+				assert.ok(
+					insideIsland(point),
+					`Route leaves the coast: ${description}`,
+				);
 				for (const station of stations) {
 					assert.ok(
-						distanceToSegment(station, previous, point) >= WORLD_ROVER_CLEARANCE - tolerance,
+						distanceToSegment(station, previous, point) >=
+							WORLD_ROVER_CLEARANCE - tolerance,
 						`Route clips ${station.id}: ${description}`,
 					);
 				}
@@ -79,5 +88,7 @@ test("station routes reach their destination without crossing a plinth or the co
 			checked++;
 		}
 	}
-	context.diagnostic(`${checked} routes checked, including exact obstacle contact and coastal starts.`);
+	context.diagnostic(
+		`${checked} routes checked, including exact obstacle contact and coastal starts.`,
+	);
 });

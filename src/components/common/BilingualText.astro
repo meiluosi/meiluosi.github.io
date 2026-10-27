@@ -2,7 +2,18 @@
 export interface Props {
 	zh: string;
 	en: string;
-	as?: "span" | "p" | "h1" | "h2" | "h3" | "h4" | "strong" | "small" | "label" | "summary" | "option";
+	as?:
+		| "span"
+		| "p"
+		| "h1"
+		| "h2"
+		| "h3"
+		| "h4"
+		| "strong"
+		| "small"
+		| "label"
+		| "summary"
+		| "option";
 	class?: string;
 }
 const { zh, en, as: Tag = "span", class: className }: Props = Astro.props;

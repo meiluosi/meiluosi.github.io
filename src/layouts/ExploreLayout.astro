@@ -1,23 +1,60 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Navbar from "@/components/layout/Navbar.astro";
 import Text from "@/components/common/BilingualText.astro";
-interface Props { title: string; titleEn: string; description: string; descriptionEn: string; }
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
+
+interface Props {
+	title: string;
+	titleEn: string;
+	description: string;
+	descriptionEn: string;
+}
 const { title, titleEn, description, descriptionEn } = Astro.props;
+const pathname = Astro.url.pathname;
+
 const links = [
-	{ href: "/world/", zh: "研究岛", en: "Research island" },
-	{ href: "/rsi/", zh: "智能手记", en: "Intelligence notebook" },
-	{ href: "/library/", zh: "文献架", en: "Library" },
-	{ href: "/lab/", zh: "实验室", en: "Lab" },
-	{ href: "/essays/", zh: "交互长卷", en: "Essays" },
+	{
+		href: "/routes/",
+		zh: "智能路线 (20)",
+		en: "20 Routes",
+		match: (p: string) => p.startsWith("/routes"),
+	},
+	{
+		href: "/books/",
+		zh: "书稿与专著",
+		en: "Living Books",
+		match: (p: string) => p.startsWith("/books"),
+	},
+	{
+		href: "/lab/",
+		zh: "交互实验室",
+		en: "Interactive Lab",
+		match: (p: string) =>
+			p.startsWith("/lab") ||
+			p.startsWith("/essays") ||
+			p.startsWith("/rsi") ||
+			p.startsWith("/world"),
+	},
+	{
+		href: "/graph/",
+		zh: "知识星图",
+		en: "Knowledge Cosmos",
+		match: (p: string) => p.startsWith("/graph"),
+	},
+	{
+		href: "/library/",
+		zh: "文献架",
+		en: "Library",
+		match: (p: string) => p.startsWith("/library"),
+	},
 ];
 ---
 <Layout title={title} titleEn={`${titleEn} — Feng Yu`} description={description} descriptionEn={descriptionEn}>
 	<Navbar />
 	<div class="explore-shell" data-brand-motion>
-		<nav class="explore-sections" aria-label="探索栏目" data-i18n-aria-label-zh="探索栏目" data-i18n-aria-label-en="Explore sections">{links.map((link) => <a href={link.href} aria-current={Astro.url.pathname.startsWith(link.href) ? "page" : undefined}><Text zh={link.zh} en={link.en} /></a>)}</nav>
+		<nav class="explore-sections" aria-label="探索栏目" data-i18n-aria-label-zh="探索栏目" data-i18n-aria-label-en="Explore sections">{links.map((link) => <a href={link.href} aria-current={link.match(pathname) ? "page" : undefined}><Text zh={link.zh} en={link.en} /></a>)}</nav>
 		<main id="swup-container"><slot /></main>
-		<footer class="explore-footer"><Text zh="人工智能研究资料与交互实验。" en="AI research references and interactive experiments." /><a href="/notes/"><Text zh="回到全部笔记 ↗" en="Back to all notes ↗" /></a></footer>
+		<footer class="explore-footer"><Text zh="人工智能研究资料、体系专著与交互实验。" en="AI research monographs, references, and interactive experiments." /><a href="/notes/"><Text zh="回到全部笔记 ↗" en="Back to all notes ↗" /></a></footer>
 	</div>
 </Layout>
 <style is:global>

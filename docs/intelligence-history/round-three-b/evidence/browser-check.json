@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": "behavioral",
+      "nodes": 8
+    },
+    {
+      "route": "psychometric",
+      "nodes": 11
+    },
+    {
+      "route": "rational-resource",
+      "nodes": 7
+    }
+  ],
+  "mobileWidth": 390,
+  "overflow": false,
+  "pageErrors": [],
+  "keyboard": "directory and SVG Enter verified",
+  "relationSVGTextClipping": []
+}

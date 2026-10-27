@@ -1,18 +1,22 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	let english = $state(false);
-	let bias = $state(60);
-	let effect = $state(20);
-	const share = $derived(50 + bias / 2);
-	const treated = $derived(40 + 80 * share / 100 + effect);
-	const control = $derived(40 + 80 * (1 - share / 100));
-	const observed = $derived(treated - control);
-	const signed = (value: number) => `${value > 0 ? "+" : ""}${value.toFixed(0)}`;
-	onMount(() => {
-		const sync = () => { english = document.documentElement.lang.startsWith("en"); };
-		sync(); document.addEventListener("site-locale-change", sync);
-		return () => document.removeEventListener("site-locale-change", sync);
-	});
+import { onMount } from "svelte";
+
+let english = $state(false);
+let bias = $state(60);
+let effect = $state(20);
+const share = $derived(50 + bias / 2);
+const treated = $derived(40 + (80 * share) / 100 + effect);
+const control = $derived(40 + 80 * (1 - share / 100));
+const observed = $derived(treated - control);
+const signed = (value: number) => `${value > 0 ? "+" : ""}${value.toFixed(0)}`;
+onMount(() => {
+	const sync = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	sync();
+	document.addEventListener("site-locale-change", sync);
+	return () => document.removeEventListener("site-locale-change", sync);
+});
 </script>
 
 <section class="experiment" aria-label={english ? "Coupon selection experiment" : "优惠券选择偏差实验"}>

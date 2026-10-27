@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-28",
+  "browser": "Microsoft Edge via Playwright, headless",
+  "viewports": [
+    "1440×1000",
+    "390×844"
+  ],
+  "conclusionsKeyboardToggle": 6,
+  "caseFilterTypes": 6,
+  "modelStates": 3,
+  "circuitStates": 4,
+  "deepLink": "p4 opened",
+  "svgTextBounds": [
+    {
+      "textCount": 21,
+      "outside": []
+    },
+    {
+      "textCount": 20,
+      "outside": []
+    }
+  ],
+  "duplicateIDs": [],
+  "directLocalHrefCount": 69,
+  "brokenLocalLinks": [],
+  "roundFourMobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "rootMobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "rootRoutes": 20,
+  "rootQuestionCards": 15,
+  "rootBatchESize": 4,
+  "rootSearch": "退相干 and zero-results checked",
+  "scriptErrors": []
+}

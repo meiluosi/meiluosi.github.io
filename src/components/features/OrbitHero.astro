@@ -1,0 +1,1014 @@
+---
+/**
+ * OrbitHero: 「何谓智能？」天体引力轨道系统
+ *
+ * 宇宙与天体系统隐喻：以最本质的追问「什么是智能？」作为恒星引力源，
+ * 周围环绕着探索智能不同切面的四条行星轨道：
+ * 1. 具身与涌现 (Embodied & Mechanics)
+ * 2. 语言与表征 (Language & Space)
+ * 3. 因果与决策 (Causality & Agency)
+ * 4. 递归与自我 (Recursion & Meta-cognition)
+ */
+import Text from "@/components/common/BilingualText.astro";
+
+const planets = [
+	{
+		id: "embodied",
+		roman: "I",
+		nameZh: "具身涌现",
+		nameEn: "Embodied",
+		orbitIndex: 1,
+		color: "var(--brand-accent)",
+		speed: "34s",
+		delay: "0s",
+		questionZh: "无生命的连杆几何，何以走出生命的步态？",
+		questionEn:
+			"How can simple mechanical linkages produce a gait that feels alive?",
+		cluesZh: "仿生连杆 · 物理动力学 · 几何约束",
+		cluesEn: "Strandbeest · Mechanics · Physical Constraints",
+		href: "/world/",
+		linkTextZh: "探索具身机械",
+		linkTextEn: "Explore Mechanics",
+		routes: [
+			{
+				id: "embodied-dynamical",
+				roman: "12",
+				nameZh: "具身动力学",
+				nameEn: "Embodied & Dynamics",
+			},
+			{
+				id: "autopoiesis-evolution",
+				roman: "13",
+				nameZh: "生命自创生",
+				nameEn: "Autopoiesis",
+			},
+			{
+				id: "neuroscience",
+				roman: "10",
+				nameZh: "神经科学",
+				nameEn: "Neuroscience",
+			},
+		],
+	},
+	{
+		id: "representation",
+		roman: "II",
+		nameZh: "语言表征",
+		nameEn: "Representation",
+		orbitIndex: 2,
+		color: "var(--brand-blue)",
+		speed: "48s",
+		delay: "-12s",
+		questionZh: "海量统计模式的累积，何时跨越为真正的理解？",
+		questionEn:
+			"When does the accumulation of statistics cross over into true understanding?",
+		cluesZh: "高维嵌入 · 注意力回路 · 语料世界",
+		cluesEn: "Embeddings · Attention Lens · Pretraining Corpora",
+		href: "/lab/rope-attention/",
+		linkTextZh: "探究注意力机制",
+		linkTextEn: "Inspect Attention",
+		routes: [
+			{
+				id: "connectionist",
+				roman: "06",
+				nameZh: "连接主义与深层表征",
+				nameEn: "Connectionism",
+			},
+			{
+				id: "symbolic-logic",
+				roman: "05",
+				nameZh: "符号与逻辑搜索",
+				nameEn: "Symbolic Logic",
+			},
+			{
+				id: "sociocultural-language",
+				roman: "14",
+				nameZh: "社会语言中介",
+				nameEn: "Sociocultural Language",
+			},
+			{
+				id: "information-physics",
+				roman: "16",
+				nameZh: "信息物理与压缩",
+				nameEn: "Compression Physics",
+			},
+		],
+	},
+	{
+		id: "causality",
+		roman: "III",
+		nameZh: "因果决策",
+		nameEn: "Causality",
+		orbitIndex: 3,
+		color: "var(--brand-clay)",
+		speed: "66s",
+		delay: "-24s",
+		questionZh: "相关并非因果，机器如何推演‘如果不曾发生’？",
+		questionEn:
+			"Correlation is not causation. How does a machine reason counterfactually?",
+		cluesZh: "反事实推断 · 蒙特卡洛树搜索 · 博弈策略",
+		cluesEn: "Counterfactuals · MCTS · CFR Poker",
+		href: "/lab/causal-playground/",
+		linkTextZh: "进入因果推断实验",
+		linkTextEn: "Open Causal Lab",
+		routes: [
+			{
+				id: "causal-world-models",
+				roman: "07",
+				nameZh: "概率因果与世界模型",
+				nameEn: "Causal Models",
+			},
+			{
+				id: "cybernetics-rl",
+				roman: "08",
+				nameZh: "控制论与强化学习",
+				nameEn: "Cybernetics & RL",
+			},
+			{
+				id: "rational-resource",
+				roman: "04",
+				nameZh: "理性与资源约束",
+				nameEn: "Resource Rationality",
+			},
+			{
+				id: "behavioral",
+				roman: "01",
+				nameZh: "行为表现判定",
+				nameEn: "Behavioral Criteria",
+			},
+		],
+	},
+	{
+		id: "recursion",
+		roman: "IV",
+		nameZh: "递归自我",
+		nameEn: "Recursion",
+		orbitIndex: 4,
+		color: "var(--brand-ink)",
+		speed: "88s",
+		delay: "-40s",
+		questionZh: "智能系统能否具备自省能力，并持续重构自身策略？",
+		questionEn:
+			"Can an intelligent system reflect on its own policy and iteratively refine itself?",
+		cluesZh: "递归自我改进 (RSI) · 偏好对齐 · 元认知",
+		cluesEn: "Recursive Self-Improvement · DPO · Meta-cognition",
+		href: "/rsi/",
+		linkTextZh: "阅读 RSI 长期问题",
+		linkTextEn: "Read RSI Notes",
+		routes: [
+			{
+				id: "developmental-openended",
+				roman: "11",
+				nameZh: "开放式学习与 RSI",
+				nameEn: "Open-ended Learning",
+			},
+			{
+				id: "cognitive-architectures",
+				roman: "09",
+				nameZh: "认知架构与元认知",
+				nameEn: "Meta-cognition",
+			},
+			{
+				id: "learning-efficiency",
+				roman: "03",
+				nameZh: "学习效率与泛化",
+				nameEn: "Sample Efficiency",
+			},
+			{
+				id: "wisdom-values",
+				roman: "19",
+				nameZh: "实践智慧与价值",
+				nameEn: "Wisdom & Ethics",
+			},
+		],
+	},
+];
+---
+
+<section class="orbit-hero-wrapper" aria-label="核心思考与探索轨道">
+	<div class="orbit-stage" id="orbit-stage" data-brand-motion>
+		<!-- 漫射光晕与星云场 -->
+		<div class="space-glow" aria-hidden="true"></div>
+
+		<!-- 天体轨道与星体系统 -->
+		<div class="kepler-system" id="kepler-system">
+			<!-- 轨道线与行星 -->
+			{planets.map((planet) => (
+				<div 
+					class={`orbit-ring orbit-ring-${planet.orbitIndex}`} 
+					style={`--orbit-duration: ${planet.speed}; --orbit-delay: ${planet.delay};`}
+					data-planet-id={planet.id}
+				>
+					<div class="orbit-track" aria-hidden="true"></div>
+					<div class="planet-carrier">
+						<button 
+							type="button"
+							class="planet-node" 
+							data-planet-btn={planet.id}
+							aria-label={`${planet.nameZh} / ${planet.nameEn}`}
+							title={`${planet.nameZh}: ${planet.questionZh}`}
+						>
+							<span class="planet-sphere" style={`--planet-color: ${planet.color};`}>
+								<span class="planet-core"></span>
+								<span class="planet-aura"></span>
+							</span>
+							<span class="planet-badge">
+								<span class="badge-roman">{planet.roman}</span>
+								<Text class="badge-label" zh={planet.nameZh} en={planet.nameEn} />
+							</span>
+						</button>
+					</div>
+				</div>
+			))}
+
+			<!-- 核心引力源：何谓智能？ -->
+			<div class="gravitational-center">
+				<div class="sun-flare" aria-hidden="true"></div>
+				<div class="center-content">
+					<p class="super-title">
+						<Text zh="本质课题" en="FOUNDATIONAL INQUIRY" />
+					</p>
+					<h1 class="core-title">
+						<Text zh="何谓智能？" en="What is Intelligence?" />
+					</h1>
+					<p class="core-sub">
+						<Text 
+							zh="从物理具身、语言表征，到因果决策与递归自我重构。" 
+							en="From embodied physics and latent spaces to causal reasoning and recursive self-improvement." 
+						/>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 动态问答展板（随悬停或点击行星而共振联动） -->
+		<div class="orbit-inspector" id="orbit-inspector" aria-live="polite">
+			{planets.map((planet, idx) => (
+				<div 
+					class={`inspector-card ${idx === 0 ? "is-active" : ""}`} 
+					data-card-id={planet.id}
+				>
+					<div class="card-meta">
+						<span class="card-tag">
+							<span class="tag-roman">{planet.roman}</span>
+							<Text zh={planet.nameZh} en={planet.nameEn} />
+						</span>
+						<span class="card-clues">
+							<Text zh={planet.cluesZh} en={planet.cluesEn} />
+						</span>
+					</div>
+					<p class="card-question">
+						<Text zh={planet.questionZh} en={planet.questionEn} />
+					</p>
+					<div class="card-routes">
+						<span class="routes-label"><Text zh="覆盖路线专题：" en="Inquiry Routes:" /></span>
+						<div class="routes-pills">
+							{planet.routes.map((r) => (
+								<a href={`/routes/${r.id}/`} class="planet-route-pill" title={`进入路线专题：${r.roman} ${r.nameZh}`}>
+									<span class="pill-roman">{r.roman}</span>
+									<Text zh={r.nameZh} en={r.nameEn} />
+									<span aria-hidden="true" class="mini-arrow">↗</span>
+								</a>
+							))}
+						</div>
+					</div>
+					<div class="card-action">
+						<a href={planet.href} class="inspector-link">
+							<Text zh={planet.linkTextZh} en={planet.linkTextEn} />
+							<span aria-hidden="true" class="arrow">→</span>
+						</a>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<!-- 移动端与键盘可访问快捷导航按键 -->
+		<div class="orbit-quick-nav" role="tablist" aria-label="探索轨道选择">
+			{planets.map((planet, idx) => (
+				<button 
+					type="button" 
+					role="tab"
+					class={`quick-btn ${idx === 0 ? "active" : ""}`} 
+					data-quick-target={planet.id}
+					aria-selected={idx === 0 ? "true" : "false"}
+				>
+					<span class="nav-dot" style={`background-color: ${planet.color};`}></span>
+					<Text zh={planet.nameZh} en={planet.nameEn} />
+				</button>
+			))}
+		</div>
+
+		<!-- 通往 20 路线地图的专属入口 -->
+		<div class="atlas-bridge">
+			<a href="/routes/" class="atlas-link">
+				<span class="atlas-icon">🧭</span>
+				<Text zh="查看智能的 20 个路线家族与分歧地图" en="Explore the 20 Paradigm Families & Divergence Map" />
+				<span aria-hidden="true" class="arrow">↗</span>
+			</a>
+		</div>
+	</div>
+</section>
+
+<script>
+	function initOrbitHero() {
+		const stage = document.getElementById("orbit-stage");
+		const kepler = document.getElementById("kepler-system");
+		if (!stage || !kepler) return;
+
+		const cards = stage.querySelectorAll<HTMLElement>(".inspector-card");
+		const planetBtns = stage.querySelectorAll<HTMLElement>("[data-planet-btn]");
+		const quickBtns = stage.querySelectorAll<HTMLElement>("[data-quick-target]");
+		const rings = stage.querySelectorAll<HTMLElement>(".orbit-ring");
+
+		let isLockedByUser = false;
+		let lockTimer: number | undefined;
+
+		function activatePlanet(id: string, lock = false) {
+			if (lock) {
+				isLockedByUser = true;
+				window.clearTimeout(lockTimer);
+				lockTimer = window.setTimeout(() => {
+					isLockedByUser = false;
+				}, 6000);
+			}
+
+			// 更新卡片激活状态
+			cards.forEach((card) => {
+				const matches = card.dataset.cardId === id;
+				card.classList.toggle("is-active", matches);
+			});
+
+			// 更新快捷按钮状态
+			quickBtns.forEach((btn) => {
+				const matches = btn.dataset.quickTarget === id;
+				btn.classList.toggle("active", matches);
+				btn.setAttribute("aria-selected", matches ? "true" : "false");
+			});
+
+			// 高亮对应轨道
+			rings.forEach((ring) => {
+				const matches = ring.dataset.planetId === id;
+				ring.classList.toggle("is-focused", matches);
+			});
+		}
+
+		// 绑定行星按钮悬停与点击
+		planetBtns.forEach((btn) => {
+			const id = btn.dataset.planetBtn;
+			if (!id) return;
+
+			btn.addEventListener("mouseenter", () => {
+				if (!isLockedByUser) {
+					activatePlanet(id, false);
+				}
+			});
+
+			btn.addEventListener("click", (e) => {
+				e.stopPropagation();
+				activatePlanet(id, true);
+			});
+
+			btn.addEventListener("focus", () => {
+				activatePlanet(id, false);
+			});
+		});
+
+		// 绑定快捷按钮点击
+		quickBtns.forEach((btn) => {
+			const id = btn.dataset.quickTarget;
+			if (!id) return;
+
+			btn.addEventListener("click", () => {
+				activatePlanet(id, true);
+			});
+		});
+
+		// 3D 鼠标引力透镜视差交互（克制微妙）
+		let mouseMoveReq: number | undefined;
+		const handlePointerMove = (e: PointerEvent) => {
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+			const rect = stage.getBoundingClientRect();
+			const x = e.clientX - rect.left - rect.width / 2;
+			const y = e.clientY - rect.top - rect.height / 2;
+
+			if (mouseMoveReq) cancelAnimationFrame(mouseMoveReq);
+			mouseMoveReq = requestAnimationFrame(() => {
+				const tiltX = -(y / (rect.height / 2)) * 3.5; // max ±3.5deg
+				const tiltY = (x / (rect.width / 2)) * 4.5;  // max ±4.5deg
+				kepler.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+				kepler.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+			});
+		};
+
+		const handlePointerLeave = () => {
+			if (mouseMoveReq) cancelAnimationFrame(mouseMoveReq);
+			kepler.style.setProperty("--tilt-x", "0deg");
+			kepler.style.setProperty("--tilt-y", "0deg");
+		};
+
+		stage.addEventListener("pointermove", handlePointerMove, { passive: true });
+		stage.addEventListener("pointerleave", handlePointerLeave, { passive: true });
+	}
+
+	// 监听初次加载以及 Swup 页面转换
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initOrbitHero, { once: true });
+	} else {
+		initOrbitHero();
+	}
+	document.addEventListener("swup:contentReplaced", initOrbitHero);
+</script>
+
+<style>
+	.orbit-hero-wrapper {
+		position: relative;
+		width: 100%;
+		padding-top: 18px;
+		padding-bottom: 34px;
+		border-bottom: 1px solid var(--brand-line);
+		overflow: hidden;
+	}
+
+	.orbit-stage {
+		position: relative;
+		width: 100%;
+		max-width: 1100px;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-block: 28px 16px;
+		perspective: 1200px;
+	}
+
+	/* 柔和背景微晕 */
+	.space-glow {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: 
+			radial-gradient(circle at 50% 40%, rgb(243 199 172 / 24%) 0%, transparent 58%),
+			radial-gradient(circle at 30% 65%, rgb(213 228 216 / 45%) 0%, transparent 62%),
+			radial-gradient(circle at 75% 35%, rgb(77 111 128 / 10%) 0%, transparent 55%);
+		filter: blur(28px);
+		z-index: 0;
+	}
+
+	/* 开普勒天体轨道系统容器 */
+	.kepler-system {
+		position: relative;
+		width: 100%;
+		height: 380px;
+		display: grid;
+		place-items: center;
+		transform-style: preserve-3d;
+		transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+		transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+		z-index: 1;
+	}
+
+	/* 引力中心核心 */
+	.gravitational-center {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+		pointer-events: auto;
+		max-width: 32em;
+		padding: 12px 24px;
+		border-radius: 999px;
+		background: radial-gradient(circle, rgb(250 251 248 / 92%) 0%, rgb(243 246 241 / 82%) 65%, transparent 100%);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+	}
+
+	.sun-flare {
+		position: absolute;
+		inset: -14px;
+		border-radius: 999px;
+		background: radial-gradient(circle, rgb(243 199 172 / 45%) 0%, rgb(65 99 79 / 8%) 60%, transparent 80%);
+		filter: blur(12px);
+		z-index: -1;
+		animation: pulseFlare 6s ease-in-out infinite alternate;
+	}
+
+	@keyframes pulseFlare {
+		0% { transform: scale(0.96); opacity: 0.6; }
+		100% { transform: scale(1.05); opacity: 0.95; }
+	}
+
+	.super-title {
+		font-family: var(--font-mono, monospace);
+		font-size: 11px;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--brand-clay);
+		margin: 0 0 6px 0;
+		font-weight: 500;
+	}
+
+	.core-title {
+		margin: 0;
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(34px, 4.4vw, 52px);
+		line-height: 1.25;
+		font-weight: 400;
+		color: var(--brand-ink);
+		letter-spacing: -0.015em;
+	}
+
+	.core-sub {
+		margin: 8px 0 0;
+		font-size: 13.5px;
+		line-height: 1.6;
+		color: var(--brand-body);
+		font-family: var(--font-sans, sans-serif);
+		letter-spacing: 0.01em;
+	}
+
+	/* 轨道环结构 */
+	.orbit-ring {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	/* 椭圆与倾角透视 */
+	.orbit-ring-1 {
+		width: 320px;
+		height: 190px;
+	}
+
+	.orbit-ring-2 {
+		width: 480px;
+		height: 250px;
+	}
+
+	.orbit-ring-3 {
+		width: 660px;
+		height: 310px;
+	}
+
+	.orbit-ring-4 {
+		width: 860px;
+		height: 360px;
+	}
+
+	/* 轨道虚线轨迹 */
+	.orbit-track {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		border: 1px dashed rgb(37 60 52 / 18%);
+		transition: border-color 0.3s ease, border-style 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.orbit-ring.is-focused .orbit-track {
+		border-color: var(--brand-clay);
+		border-style: solid;
+		box-shadow: 0 0 12px rgb(145 86 56 / 15%);
+	}
+
+	/* 行星载体沿轨道自转 */
+	.planet-carrier {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		animation: orbitRotate var(--orbit-duration, 40s) linear infinite;
+		animation-delay: var(--orbit-delay, 0s);
+	}
+
+	.orbit-ring:hover .planet-carrier,
+	.orbit-ring.is-focused .planet-carrier {
+		animation-play-state: paused;
+	}
+
+	@keyframes orbitRotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	/* 行星按钮节点 */
+	.planet-node {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: none;
+		border: none;
+		padding: 10px;
+		margin: 0;
+		cursor: pointer;
+		pointer-events: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 6px;
+		outline: none;
+		transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+	}
+
+	/* 反向旋转让字和行星始终朝正立方向 */
+	.planet-node {
+		animation: counterRotate var(--orbit-duration, 40s) linear infinite;
+		animation-delay: var(--orbit-delay, 0s);
+	}
+
+	.orbit-ring:hover .planet-node,
+	.orbit-ring.is-focused .planet-node {
+		animation-play-state: paused;
+		transform: translate(-50%, -50%) scale(1.18);
+	}
+
+	@keyframes counterRotate {
+		from {
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+		to {
+			transform: translate(-50%, -50%) rotate(-360deg);
+		}
+	}
+
+	/* 行星外观 */
+	.planet-sphere {
+		position: relative;
+		width: 14px;
+		height: 14px;
+		display: grid;
+		place-items: center;
+	}
+
+	.planet-core {
+		position: absolute;
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: var(--planet-color, var(--brand-ink));
+		box-shadow: 0 0 6px var(--planet-color);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.planet-aura {
+		position: absolute;
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		border: 1px solid var(--planet-color);
+		opacity: 0.35;
+		transition: transform 0.25s ease, opacity 0.25s ease;
+	}
+
+	.planet-node:hover .planet-core,
+	.orbit-ring.is-focused .planet-core {
+		transform: scale(1.3);
+		box-shadow: 0 0 10px var(--planet-color);
+	}
+
+	.planet-node:hover .planet-aura,
+	.orbit-ring.is-focused .planet-aura {
+		transform: scale(1.5);
+		opacity: 0.8;
+	}
+
+	/* 行星角标 */
+	.planet-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 2px 8px;
+		border-radius: 999px;
+		background: rgb(243 246 241 / 85%);
+		border: 1px solid var(--brand-line);
+		font-size: 11px;
+		color: var(--brand-ink);
+		white-space: nowrap;
+		box-shadow: 0 1px 4px rgb(0 0 0 / 4%);
+		backdrop-filter: blur(4px);
+		transition: all 0.2s ease;
+	}
+
+	.badge-roman {
+		font-family: var(--font-serif, serif);
+		font-size: 9.5px;
+		color: var(--brand-muted);
+		font-weight: 600;
+	}
+
+	.planet-node:hover .planet-badge,
+	.orbit-ring.is-focused .planet-badge {
+		background: var(--brand-paper);
+		border-color: var(--brand-clay);
+		color: var(--brand-clay);
+		box-shadow: 0 2px 8px rgb(145 86 56 / 15%);
+	}
+
+	/* 动态问答展板 */
+	.orbit-inspector {
+		position: relative;
+		width: 100%;
+		max-width: 780px;
+		min-height: 106px;
+		margin-top: 10px;
+		border-top: 1px solid var(--brand-line);
+		padding-top: 16px;
+		z-index: 5;
+	}
+
+	.inspector-card {
+		display: none;
+		flex-direction: column;
+		gap: 8px;
+		opacity: 0;
+		transform: translateY(6px);
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+
+	.inspector-card.is-active {
+		display: flex;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.card-meta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+
+	.card-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 12.5px;
+		font-weight: 600;
+		color: var(--brand-ink);
+		font-family: var(--font-serif, Georgia, serif);
+	}
+
+	.tag-roman {
+		color: var(--brand-clay);
+		font-style: italic;
+		font-weight: bold;
+	}
+
+	.card-clues {
+		font-size: 12px;
+		color: var(--brand-muted);
+		font-family: var(--font-mono, monospace);
+		letter-spacing: 0.02em;
+	}
+
+	.card-question {
+		margin: 0;
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(17px, 2.2vw, 21px);
+		line-height: 1.55;
+		color: var(--brand-ink);
+	}
+
+	.card-routes {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 6px 10px;
+		margin-top: 4px;
+	}
+
+	.routes-label {
+		font-size: 11.5px;
+		color: var(--brand-muted);
+		font-family: var(--font-mono, monospace);
+	}
+
+	.routes-pills {
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 6px 8px;
+	}
+
+	.planet-route-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 2px 7px;
+		border-radius: 4px;
+		background: rgb(243 246 241 / 80%);
+		border: 1px solid var(--brand-line);
+		font-size: 11.5px;
+		color: var(--brand-body);
+		text-decoration: none;
+		transition: all 0.18s ease;
+	}
+
+	.planet-route-pill:hover {
+		border-color: var(--brand-clay);
+		color: var(--brand-clay);
+		background: var(--brand-paper);
+	}
+
+	.pill-roman {
+		font-family: var(--font-mono, monospace);
+		font-weight: 700;
+		font-size: 10.5px;
+		color: var(--brand-clay);
+	}
+
+	.mini-arrow {
+		font-size: 10px;
+		opacity: 0.6;
+	}
+
+	.card-action {
+		display: flex;
+		align-items: center;
+		margin-top: 6px;
+	}
+
+	.inspector-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 13.5px;
+		color: var(--brand-accent);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-color: var(--brand-clay);
+		transition: color 0.18s ease;
+	}
+
+	.inspector-link:hover {
+		color: var(--brand-clay);
+	}
+
+	.inspector-link .arrow {
+		transition: transform 0.18s ease;
+	}
+
+	.inspector-link:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	/* 快捷导航按键 */
+	.orbit-quick-nav {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px 16px;
+		margin-top: 14px;
+		z-index: 5;
+	}
+
+	.quick-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 5px 12px;
+		border-radius: 999px;
+		background: transparent;
+		border: 1px solid var(--brand-line);
+		font-size: 12px;
+		color: var(--brand-muted);
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.quick-btn .nav-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		display: inline-block;
+		opacity: 0.6;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+	}
+
+	.quick-btn:hover {
+		border-color: var(--brand-accent);
+		color: var(--brand-ink);
+	}
+
+	.quick-btn.active {
+		border-color: var(--brand-clay);
+		background: rgb(243 246 241 / 95%);
+		color: var(--brand-ink);
+		font-weight: 500;
+		box-shadow: 0 1px 4px rgb(0 0 0 / 4%);
+	}
+
+	.quick-btn.active .nav-dot {
+		opacity: 1;
+		transform: scale(1.3);
+	}
+
+	/* 思想地图桥梁入口 */
+	.atlas-bridge {
+		margin-top: 18px;
+		z-index: 5;
+	}
+
+	.atlas-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 6px 16px;
+		border-radius: 999px;
+		background: rgb(243 199 172 / 18%);
+		border: 1px solid rgb(145 86 56 / 22%);
+		color: var(--brand-clay);
+		font-size: 13px;
+		text-decoration: none;
+		transition: all 0.2s ease;
+	}
+
+	.atlas-link:hover {
+		background: var(--brand-clay);
+		color: var(--brand-paper);
+		border-color: var(--brand-clay);
+		box-shadow: 0 2px 10px rgb(145 86 56 / 15%);
+	}
+
+	.atlas-icon {
+		font-size: 14px;
+	}
+
+	.atlas-link .arrow {
+		transition: transform 0.2s ease;
+	}
+
+	.atlas-link:hover .arrow {
+		transform: translate(2px, -2px);
+	}
+
+	/* 减弱动画适配 */
+	@media (prefers-reduced-motion: reduce) {
+		.planet-carrier,
+		.planet-node,
+		.sun-flare {
+			animation: none !important;
+		}
+	}
+
+	/* 移动端与小屏适配 */
+	@media (max-width: 900px) {
+		.kepler-system {
+			height: 350px;
+		}
+		.orbit-ring-1 { width: 280px; height: 170px; }
+		.orbit-ring-2 { width: 420px; height: 220px; }
+		.orbit-ring-3 { width: 560px; height: 270px; }
+		.orbit-ring-4 { width: 720px; height: 320px; }
+	}
+
+	@media (max-width: 640px) {
+		.orbit-stage {
+			padding-block: 16px 12px;
+		}
+		.kepler-system {
+			height: 300px;
+		}
+		.orbit-ring-1 { width: 220px; height: 140px; }
+		.orbit-ring-2 { width: 310px; height: 180px; }
+		.orbit-ring-3 { width: 390px; height: 230px; }
+		.orbit-ring-4 { display: none; /* 小屏收敛为三环，外环内容由快捷导航提供 */ }
+		.gravitational-center {
+			padding: 8px 16px;
+			max-width: 90%;
+		}
+		.core-title {
+			font-size: 30px;
+		}
+		.core-sub {
+			font-size: 12.5px;
+			line-height: 1.5;
+		}
+		.planet-badge {
+			padding: 1px 6px;
+			font-size: 10px;
+		}
+		.card-question {
+			font-size: 16px;
+		}
+		.orbit-inspector {
+			min-height: 115px;
+			padding-top: 12px;
+		}
+		.orbit-quick-nav {
+			gap: 8px 10px;
+			margin-top: 10px;
+		}
+		.quick-btn {
+			padding: 4px 10px;
+			font-size: 11px;
+		}
+	}
+</style>

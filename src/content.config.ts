@@ -24,6 +24,9 @@ type PostsData = {
 		| "reflection";
 	/** 数字花园思想成熟度分类 */
 	maturity?: "seedling" | "budding" | "evergreen" | "speculative";
+	/** 关联的智能探索路线编号或 ID（可选） */
+	route?: string | number;
+	routes?: string[];
 	lang: string;
 	pinned: boolean;
 	author: string;
@@ -65,6 +68,8 @@ const postsSchema: z.ZodType<PostsData> = z.object({
 	maturity: z
 		.enum(["seedling", "budding", "evergreen", "speculative"])
 		.optional(),
+	route: z.union([z.string(), z.number()]).optional(),
+	routes: z.array(z.string()).optional().default([]),
 	lang: z.string().optional().default(""),
 	pinned: z.boolean().optional().default(false),
 	author: z.string().optional().default(""),
@@ -109,6 +114,8 @@ type EnglishPostData = {
 	series?: string;
 	/** 系列内序号，从 1 开始（可选） */
 	seriesOrder?: number;
+	route?: string | number;
+	routes?: string[];
 	lang: "en";
 };
 
@@ -123,6 +130,8 @@ const enPostsSchema: z.ZodType<EnglishPostData> = z.object({
 	category: z.string().optional().nullable().default(""),
 	series: z.string().optional(),
 	seriesOrder: z.number().optional(),
+	route: z.union([z.string(), z.number()]).optional(),
+	routes: z.array(z.string()).optional().default([]),
 	lang: z.literal("en").default("en"),
 });
 

@@ -125,7 +125,8 @@ const pages: PaletteItem[] = [
 			"scrollytelling",
 		],
 		category: "",
-		description: "可以动手读的长文：Transformer 前向传播与 Strandbeest 连杆机构的分幕推演。",
+		description:
+			"可以动手读的长文：Transformer 前向传播与 Strandbeest 连杆机构的分幕推演。",
 		kind: "page",
 		lang: "zh",
 	},
@@ -144,7 +145,8 @@ const pages: PaletteItem[] = [
 		],
 		category: "交互长卷",
 		categoryEn: "Interactive essay",
-		description: "跟随滚轮解剖离散词元、RoPE 星盘、因果自注意力与门控前馈的五个计算舞台。",
+		description:
+			"跟随滚轮解剖离散词元、RoPE 星盘、因果自注意力与门控前馈的五个计算舞台。",
 		kind: "page",
 		lang: "zh",
 	},
@@ -322,9 +324,7 @@ export const GET: APIRoute = async () => {
 			href: `/posts/${id}/`,
 			tags: post.data.tags.slice(0, 8),
 			category,
-			...(category
-				? { categoryEn: getCategoryLabel(category, "en") }
-				: {}),
+			...(category ? { categoryEn: getCategoryLabel(category, "en") } : {}),
 			description: trim(post.data.description ?? ""),
 			kind: "post",
 			lang: "zh",

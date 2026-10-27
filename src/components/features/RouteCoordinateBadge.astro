@@ -1,0 +1,108 @@
+---
+/**
+ * RouteCoordinateBadge: 文章顶部的智能探索路线坐标徽章
+ */
+import Text from "@/components/common/BilingualText.astro";
+import type { RouteItem } from "@/data/intelligenceRoutes";
+
+export interface Props {
+	route: RouteItem;
+	lang?: "zh" | "en";
+}
+
+const { route } = Astro.props;
+---
+
+<div class="route-coordinate-banner onload-animation" data-brand-motion>
+	<a href={`/routes/${route.id}/`} class="coordinate-link" title={`进入路线专题页 · ${route.roman} ${route.nameZh}`}>
+		<span class="compass-icon" aria-hidden="true">🧭</span>
+		<span class="coordinate-meta">
+			<span class="coord-label">
+				<Text zh="探索路线" en="Inquiry Route" />
+			</span>
+			<span class="coord-roman">{route.roman}</span>
+			<strong class="coord-name">
+				<Text zh={route.nameZh} en={route.nameEn} />
+			</strong>
+		</span>
+		<span class="coord-orbit">
+			<Text zh={`母轨道 · ${route.superOrbitZh}`} en={route.superOrbit} />
+		</span>
+		<span class="coord-arrow" aria-hidden="true">↗</span>
+	</a>
+</div>
+
+<style>
+	.route-coordinate-banner {
+		margin-bottom: 20px;
+	}
+
+	.coordinate-link {
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px 12px;
+		padding: 6px 14px;
+		border-radius: 8px;
+		background: rgb(243 246 241 / 85%);
+		border: 1px solid var(--brand-line);
+		color: var(--brand-ink);
+		text-decoration: none;
+		font-size: 13px;
+		transition: all 0.2s ease;
+	}
+
+	.coordinate-link:hover {
+		border-color: var(--brand-clay);
+		background: rgb(250 251 248 / 95%);
+		box-shadow: 0 2px 10px rgb(145 86 56 / 10%);
+	}
+
+	.compass-icon {
+		font-size: 14px;
+		opacity: 0.85;
+	}
+
+	.coordinate-meta {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.coord-label {
+		color: var(--brand-muted);
+		font-size: 12px;
+	}
+
+	.coord-roman {
+		font-family: var(--font-mono, monospace);
+		font-weight: 700;
+		color: var(--brand-clay);
+		font-size: 12px;
+	}
+
+	.coord-name {
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: 13.5px;
+		font-weight: 500;
+		color: var(--brand-ink);
+	}
+
+	.coord-orbit {
+		font-size: 11px;
+		padding: 1px 6px;
+		border-radius: 4px;
+		background: var(--brand-surface);
+		color: var(--brand-muted);
+	}
+
+	.coord-arrow {
+		color: var(--brand-clay);
+		font-size: 12px;
+		transition: transform 0.2s ease;
+	}
+
+	.coordinate-link:hover .coord-arrow {
+		transform: translate(2px, -2px);
+	}
+</style>

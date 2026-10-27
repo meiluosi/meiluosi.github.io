@@ -1,9 +1,9 @@
 ---
+import { getCollection } from "astro:content";
 import ResearchVisual from "@/components/features/ResearchVisual.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import { caseStudies } from "@/data/caseStudies";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
 import { getSortedPosts } from "@/utils/content-utils";
 
 type Study = (typeof caseStudies)[number];
@@ -17,19 +17,39 @@ const normalize = (value: string) =>
 	value.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 
 export function getStaticPaths() {
-	return caseStudies.map((study) => ({ params: { slug: study.slug }, props: { study } }));
+	return caseStudies.map((study) => ({
+		params: { slug: study.slug },
+		props: { study },
+	}));
 }
 
 const { study } = Astro.props as Props;
-const post = posts.find((entry) => normalize(entry.id).includes(normalize(study.match)));
-if (!post) throw new Error(`Source article not found for case study: ${study.slug}`);
+const post = posts.find((entry) =>
+	normalize(entry.id).includes(normalize(study.match)),
+);
+if (!post)
+	throw new Error(`Source article not found for case study: ${study.slug}`);
 const sourceHref = `/posts/${post.id.replace(/\.mdx?$/, "")}/`;
 const translation = englishPosts.find(
-	(entry) => normalize(entry.data.sourceId) === normalize(post.id.replace(/\.mdx?$/, "")),
+	(entry) =>
+		normalize(entry.data.sourceId) ===
+		normalize(post.id.replace(/\.mdx?$/, "")),
 );
-const visualKind = study.slug === "local-1b-model-workflow" ? "model" : study.slug === "alphazero-gomoku" ? "search" : study.slug === "ylearn-causal-inference" ? "causal" : study.slug === "kuhn-poker-cfr" ? "cfr" : null;
-const shareImageKind = visualKind && visualKind !== "cfr" ? visualKind : undefined;
-const sourceHrefEn = translation ? `/en/posts/${translation.data.slug}/` : sourceHref;
+const visualKind =
+	study.slug === "local-1b-model-workflow"
+		? "model"
+		: study.slug === "alphazero-gomoku"
+			? "search"
+			: study.slug === "ylearn-causal-inference"
+				? "causal"
+				: study.slug === "kuhn-poker-cfr"
+					? "cfr"
+					: null;
+const shareImageKind =
+	visualKind && visualKind !== "cfr" ? visualKind : undefined;
+const sourceHrefEn = translation
+	? `/en/posts/${translation.data.slug}/`
+	: sourceHref;
 ---
 
 <Layout

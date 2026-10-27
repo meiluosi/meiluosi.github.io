@@ -11,15 +11,31 @@ export interface SelectionCard {
 }
 
 /** Explicit, deterministic rules; this function does not fit a model. */
-export function selectCards(rule: SelectionRule, scene: CardScene): SelectionCard[] {
-	const shapes = scene === "position"
-		? [false, true, true, false, false, true]
-		: [true, false, true, false, true, false];
+export function selectCards(
+	rule: SelectionRule,
+	scene: CardScene,
+): SelectionCard[] {
+	const shapes =
+		scene === "position"
+			? [false, true, true, false, false, true]
+			: [true, false, true, false, true, false];
 	return shapes.map((triangle, index) => {
 		const colorA = scene === "color" ? !triangle : triangle;
-		const selected = rule === "color" ? colorA : rule === "position" ? index % 2 === 0 : triangle;
+		const selected =
+			rule === "color"
+				? colorA
+				: rule === "position"
+					? index % 2 === 0
+					: triangle;
 		const expected = scene === "task" ? !triangle : triangle;
-		return { position: index + 1, triangle, colorA, selected, expected, correct: selected === expected };
+		return {
+			position: index + 1,
+			triangle,
+			colorA,
+			selected,
+			expected,
+			correct: selected === expected,
+		};
 	});
 }
 
@@ -48,7 +64,10 @@ export interface RepairEvaluation {
 	cost: number;
 }
 
-export function evaluateRepair(threshold: number, missCost: number): RepairEvaluation {
+export function evaluateRepair(
+	threshold: number,
+	missCost: number,
+): RepairEvaluation {
 	let inspected = 0;
 	let extraChecks = 0;
 	let missedRepairs = 0;
@@ -58,5 +77,10 @@ export function evaluateRepair(threshold: number, missCost: number): RepairEvalu
 		if (selected && !card.needsRepair) extraChecks += 1;
 		if (!selected && card.needsRepair) missedRepairs += 1;
 	}
-	return { inspected, extraChecks, missedRepairs, cost: extraChecks + missedRepairs * missCost };
+	return {
+		inspected,
+		extraChecks,
+		missedRepairs,
+		cost: extraChecks + missedRepairs * missCost,
+	};
 }

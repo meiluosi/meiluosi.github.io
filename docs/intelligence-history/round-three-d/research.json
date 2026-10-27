@@ -1,0 +1,1890 @@
+{
+  "schemaVersion": 3,
+  "asOf": "2026-10-27",
+  "status": "completed",
+  "batchLabel": "D",
+  "title": "社会与文化：语言、协作与智慧",
+  "scope": "三条路线；比较跨代传递、群体表现、认知构成与规范判断。古典材料按传世文本定位，不虚构精确成书年。",
+  "baselines": {
+    "atlas.json": "ea0b8ad24c1ae1bf7432a31afa75d2744d1f107b2c2c191e18a0f4ca714a8776",
+    "round-two/research.json": "eb32094d73cdfbcfded963dcf86b96f24cbf8ef8c740495042d7f73ac2d96443",
+    "round-three-a/research.json": "390071aef4a4fd8daa5ea8a2cecd9b80ee9e88fc16d8df9cb0447c7a0c1cffa7",
+    "round-three-b/research.json": "2d44a2f93659beba208a00f91bf236c694474d57d0338b849939df8ac4f8000e"
+  },
+  "routes": [
+    {
+      "id": "sociocultural-language",
+      "name": "社会文化与语言",
+      "narrative": [
+        "词义与思维共同发展，使语言成为需要解释的机制，而非现成输入。共享意向理论提出合作动机与理解意图的组合；新生手语提供代际结构变化的观察。",
+        "文化传递模型把学习者、示范者与群体规模连接起来。群体实验及其争论提醒我们区分个体学习改善与群体保存概率。累积文化的判据需要明确，不能只凭“文化”一词跨物种概括。"
+      ],
+      "gaps": [
+        "Boyd与Richerson 1985专著、Tomasello 1999及Henrich 2015专著未选读。",
+        "Vygotsky网页混合译本未与俄文校勘；Derex 2013本次仅读摘要，方法依2014争论不得反充原文全文。",
+        "非人类累积文化的原始实验、文化吸引理论与语言多样性仍需补读。"
+      ],
+      "status": "batch-scope-reviewed"
+    },
+    {
+      "id": "collective-extended",
+      "name": "集体、分布式与延展心智",
+      "narrative": [
+        "分散知识提出协调难题；驾驶舱案例将分析单位扩展为人、工具和程序组成的系统。延展心智进一步提出构成论题，并遭遇“认知标志”的质疑。",
+        "群体因素研究与复核的分歧集中在个体能力、互动和测量模型；估计实验显示意见收敛未必改善准确性。分布式分析、延展构成与群体高分并非同一个命题。"
+      ],
+      "gaps": [
+        "Hayek的机制论证不覆盖制度比较的全部实证；不把价格协调当成市场完美定理。",
+        "Hutchins 1995专著未读；本批新增的是驾驶舱论文作者稿。Clark回复为2006仓储稿，未逐字对照2010书章。",
+        "尚未重算Woolley与Bates数据，未系统纳入后续元分析；动物集群与长期组织协作仍待补读。"
+      ],
+      "status": "batch-scope-reviewed"
+    },
+    {
+      "id": "wisdom-values",
+      "name": "智慧、价值与跨文化",
+      "narrative": [
+        "实践智慧、良知、养生与缘起分别嵌在不同的伦理及解脱问题中，不能统一翻译成现代能力分数。",
+        "现代智慧研究将生活判断转成评分维度，也暴露“共同善”与跨文化可比性的困难。测量结果需要与规范承诺分开。"
+      ],
+      "gaps": [
+        "古典文本均为选读；未做希腊、梵文及汉籍写本校勘，也不代表传统全貌。",
+        "Sternberg 1998仅摘要已读，正文获取未成功；当前作者网站另列，不能倒填1998版措辞。",
+        "跨文化证据限所读日本与美国样本；儒道佛之外的伊斯兰、非洲及原住民传统待补。"
+      ],
+      "status": "batch-scope-reviewed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "hayek-1945",
+      "title": "The Use of Knowledge in Society",
+      "authors": [
+        "F. A. Hayek"
+      ],
+      "year": 1945,
+      "url": "https://www.econlib.org/library/Essays/hykKnw.html",
+      "version": "1945论文；Econlib公开转录。",
+      "readingStatus": "selected-sections",
+      "readScope": "§I–III的问题与知识分散段；§V锡例及§VI开头。",
+      "unreadScope": "未逐段审读全文，未重验经济史或制度效果。",
+      "checkedAt": "2026-10-27",
+      "sha256": "fd6a1b1f1c8c17f8cb17bf157a6e09660a4856289e2b22276476f42a2f37fabb",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "hutchins-cockpit-1995",
+      "title": "How a Cockpit Remembers Its Speeds",
+      "authors": [
+        "Edwin Hutchins"
+      ],
+      "year": 1995,
+      "url": "https://pages.ucsd.edu/~johnson/COGS102B/Hutchins95.pdf",
+      "version": "1995论文作者稿24页，自编页码；非《Cognition in the Wild》全书。",
+      "readingStatus": "selected-sections",
+      "readScope": "稿p2–3分析单位与材料来源；p20–21讨论。",
+      "unreadScope": "未细读p4–19工具操作全过程；未重做民族志观察。",
+      "checkedAt": "2026-10-27",
+      "sha256": "3220955994babfb1f6a604a82e939edaff94ee307f1e50764d6e5171aaefbacc",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "clark-chalmers-1998",
+      "title": "The Extended Mind",
+      "authors": [
+        "Andy Clark",
+        "David J. Chalmers"
+      ],
+      "year": 1998,
+      "url": "https://consc.net/papers/extended.html",
+      "version": "1998 Analysis论文；Chalmers作者网页。",
+      "readingStatus": "selected-sections",
+      "readScope": "§1–2开头；Otto笔记本的稳定、可及、默认认可条件及随后社会延展段。",
+      "unreadScope": "未逐段检验全部思想实验和脚注。",
+      "checkedAt": "2026-10-27",
+      "sha256": "376166c0a678916ddce59eed08321c775e268c1fe9fe3a8c16e1bfb66764eb5d",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "adams-aizawa-2001",
+      "title": "The Bounds of Cognition",
+      "authors": [
+        "Fred Adams",
+        "Ken Aizawa"
+      ],
+      "year": 2001,
+      "url": "https://imss-www.upmf-grenoble.fr/prevert/MasterICA/SpecialiteSC/FichiersPDF/articles/Adams_Azaiwa_The_bounds_of_cognition_2001.pdf",
+      "version": "Philosophical Psychology 14(1):43–64；平台2010上线不是原作年。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF2、4、6（刊p43、45、47）；摘要、分析单位讨论及认知标志问题。",
+      "unreadScope": "§2–4详细条件及逐项反驳未通读。",
+      "checkedAt": "2026-10-27",
+      "sha256": "e45abe51619329e97a5e7ef7371286cac4781af6b60827d51598b9daf613160b",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "clark-reply-2010",
+      "title": "Coupling, Constitution and the Cognitive Kind: A Reply to Adams and Aizawa",
+      "authors": [
+        "Andy Clark"
+      ],
+      "year": 2010,
+      "url": "https://era.ed.ac.uk/bitstream/1842/1443/1/coupling2.pdf",
+      "version": "实际读取Edinburgh仓储标为2006的coupling2稿；2010《The Extended Mind》书章为时间线出版锚点。",
+      "readingStatus": "selected-sections",
+      "readScope": "稿p6–7关于整合条件与认知部件的回应。",
+      "unreadScope": "未全文审读；未对照2010刊版p81–100，不能宣称文字一致。",
+      "checkedAt": "2026-10-27",
+      "sha256": "27ad6fc2efe9775fcf1a17fa449fdb7754f25ac6ce82b6b469e9ab3e1b7b5bd3",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "woolley-2010",
+      "title": "Evidence for a Collective Intelligence Factor in the Performance of Human Groups",
+      "authors": [
+        "Anita Williams Woolley",
+        "Christopher F. Chabris",
+        "Alex Pentland",
+        "Nada Hashmi",
+        "Thomas W. Malone"
+      ],
+      "year": 2010,
+      "url": "https://gwern.net/doc/iq/2010-woolley.pdf",
+      "version": "Science 330:686–688原刊PDF；首尾邻接文章不属本文。",
+      "readingStatus": "selected-sections",
+      "readScope": "p686摘要与任务问题；p687因素结果；p688相关、回归与开放问题。",
+      "unreadScope": "未读Supporting Online Material，未重算数据。",
+      "checkedAt": "2026-10-27",
+      "sha256": "e51e498cfdc74a249823398730cccda2fe4cb822c98fce15e2c432746b8862c8",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "lorenz-2011",
+      "title": "How Social Influence Can Undermine the Wisdom of Crowd Effect",
+      "authors": [
+        "Jan Lorenz",
+        "Heiko Rauhut",
+        "Frank Schweitzer",
+        "Dirk Helbing"
+      ],
+      "year": 2011,
+      "url": "https://web2.qatar.cmu.edu/~gdicaro/15382-Spring18/additional/social-influence-on-crowd-wisdom.pdf",
+      "version": "PNAS 108:9020–9025原刊PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF1摘要和估计定义；PDF5置信效应与讨论。",
+      "unreadScope": "未逐表审读及重算，未读SI与后续往来评论。",
+      "checkedAt": "2026-10-27",
+      "sha256": "6dd8b1618bfff671bcbda7b54496910e57cad7a627e7a357ad9be7e2ed296e12",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "bates-gupta-2017",
+      "title": "Smart Groups of Smart People: Evidence for IQ as the Origin of Collective Intelligence in the Performance of Human Groups",
+      "authors": [
+        "Timothy Bates",
+        "Shivani Gupta"
+      ],
+      "year": 2017,
+      "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/30119288/BatesGruptaI2016SmartGroupsOfSmartPeople.pdf",
+      "version": "2016 accepted author manuscript；2017 Intelligence 60:46–56出版。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF2摘要；PDF15总讨论；PDF16局限与统计效力开头。",
+      "unreadScope": "各研究方法及模型未完整审计；未复算原数据。",
+      "checkedAt": "2026-10-27",
+      "sha256": "42feced536150a314c535c77be7257934a33972c4b3faad0295395e5da42bd53",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "vygotsky-1934",
+      "title": "Thinking and Speech, Chapter 7: Thought and Word",
+      "authors": [
+        "Lev Vygotsky"
+      ],
+      "year": 1934,
+      "url": "https://www.marxists.org/archive/vygotsky/works/words/ch07.htm",
+      "version": "实际为Marxists Internet Archive混合英译网页：目录注明Hanfmann／Vakar与Norris Minick，非1934俄文原版。",
+      "readingStatus": "selected-sections",
+      "readScope": "第7章§1关于词义作为单位及词义发展；§2开头动态关系。通过网页检索读取，下载未成功。",
+      "unreadScope": "未校勘混合译文；第5、6章实验和第7章其余论证未系统审读。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "web-text",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "senghas-2004",
+      "title": "Children Creating Core Properties of Language: Evidence from an Emerging Sign Language in Nicaragua",
+      "authors": [
+        "Ann Senghas",
+        "Sotaro Kita",
+        "Aslı Özyürek"
+      ],
+      "year": 2004,
+      "url": "https://semantics.uchicago.edu/kennedy/classes/sum08/myths/senghas_kita_ozyurek.pdf",
+      "version": "Science 305:1779–1782；PDF含邻文，按本文标题和页码识别。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF2（p1780）样本与代际设计；PDF3（p1781）分解、排序及A–B–A结构讨论。",
+      "unreadScope": "未读支持材料和全部统计，未复查视频编码。",
+      "checkedAt": "2026-10-27",
+      "sha256": "0340534da9b35d63aecf2b663edd72cab7cbb917af6d1e0393cf07247f03b2d0",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "henrich-2004",
+      "title": "Demography and Cultural Evolution: How Adaptive Cultural Processes Can Produce Maladaptive Losses—The Tasmanian Case",
+      "authors": [
+        "Joseph Henrich"
+      ],
+      "year": 2004,
+      "url": "https://henrich.fas.harvard.edu/sites/g/files/omnuum5811/files/henrich/files/henrich_2004-2.pdf",
+      "version": "American Antiquity 69:197–214；作者仓储原刊PDF经网页工具读取，本地下载403。",
+      "readingStatus": "selected-sections",
+      "readScope": "刊p200–201（PDF5–6）模型设定；刊p209（PDF14）结尾关于人口与互动的限定。",
+      "unreadScope": "未完成塔斯马尼亚史料核查；附录公式虽取得文本但未逐式审计。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "PDF网页提取",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "derex-2013",
+      "title": "Experimental Evidence for the Influence of Group Size on Cultural Complexity",
+      "authors": [
+        "Maxime Derex",
+        "Marie-Pauline Beugin",
+        "Bernard Godelle",
+        "Michel Raymond"
+      ],
+      "year": 2013,
+      "url": "https://www.nature.com/articles/nature12774",
+      "version": "Nature 503:389–391；本地HTML仅开放摘要和书目信息。",
+      "readingStatus": "abstract-only",
+      "readScope": "原摘要全部。",
+      "unreadScope": "正文、Methods、补充信息未获取或选读；2014评论与回复另列，不能替代原文方法。",
+      "checkedAt": "2026-10-27",
+      "sha256": "c9f6df393699a5981a8bf7572a1a6fd2feb0fd7f95c4d60e2c301937ebcc9163",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "andersson-read-2014",
+      "title": "Group Size and Cultural Complexity; Derex et al. Reply",
+      "authors": [
+        "Claes Andersson",
+        "Dwight Read",
+        "Maxime Derex",
+        "Marie-Pauline Beugin",
+        "Bernard Godelle",
+        "Michel Raymond"
+      ],
+      "year": 2014,
+      "url": "https://publications.lib.chalmers.se/records/fulltext/200089/local_200089.pdf",
+      "version": "Nature 511:E1–E2，两篇往来文同一PDF，DOI nature13411／nature13412。",
+      "readingStatus": "selected-sections",
+      "readScope": "两页正文及两幅图注；未审计原始数据和所有公式的排版。",
+      "unreadScope": "未独立重算双方统计，未完整补读被引史料。",
+      "checkedAt": "2026-10-27",
+      "sha256": "c4db2a828173b115ce4a602abdca116869ad517d642e230385fe06bae7cca1f9",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "tomasello-2005",
+      "title": "Understanding and Sharing Intentions: The Origins of Cultural Cognition",
+      "authors": [
+        "Michael Tomasello",
+        "Malinda Carpenter",
+        "Josep Call",
+        "Tanya Behne",
+        "Henrike Moll"
+      ],
+      "year": 2005,
+      "url": "https://www.eva.mpg.de/documents/Cambridge/Tomasello_Understanding_BehBrainSci_2005_1555292.pdf",
+      "version": "BBS28目标论文675–691；61页PDF还含评论与回复。",
+      "readingStatus": "selected-sections",
+      "readScope": "p676问题及共享意向假说；p688–689发展路径及作者承认的证据缺口。",
+      "unreadScope": "其余经验综述未逐项读，后附评论与回复未读。",
+      "checkedAt": "2026-10-27",
+      "sha256": "2a66ff7feea9e7b2303e12600511c6958fb1e8f68542f21b3ac8647686a140ff",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "mesoudi-2018",
+      "title": "What Is Cumulative Cultural Evolution?",
+      "authors": [
+        "Alex Mesoudi",
+        "Alex Thornton"
+      ],
+      "year": 2018,
+      "url": "https://www.alexmesoudi.com/publication/mesoudi-what-2018/Mesoudi_Thornton_ProcB_2018.pdf",
+      "version": "Proc. R. Soc. B285:20180712作者公开原刊PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "p2–3核心标准及扩展标准开头。",
+      "unreadScope": "后文全部模型、物种实验与补表未系统审读。",
+      "checkedAt": "2026-10-27",
+      "sha256": "167a10836751ab0365ca4374a61b737fab93ca0b8cad8e30b43ceef44b8838ff",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "aristotle-ethics",
+      "title": "Nicomachean Ethics, Book VI",
+      "authors": [
+        "Aristotle",
+        "W. D. Ross（英译）"
+      ],
+      "year": null,
+      "url": "https://classics.mit.edu/Aristotle/nicomachaen.6.vi.html",
+      "version": "古希腊传世著作；实际读MIT Internet Classics的Ross英译。网页未提供足够底本信息，不设精确成书年。",
+      "readingStatus": "selected-sections",
+      "readScope": "卷VI第3–5节：知识、技艺与实践智慧的区分。",
+      "unreadScope": "希腊文、卷VI其余及全书未系统读或校勘。",
+      "checkedAt": "2026-10-27",
+      "sha256": "cade08f009b99c3af090acc33f5b41591a32e566a34b13fb1194002ec27865b0",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "mengzi-jinxin",
+      "title": "《孟子·尽心上》",
+      "authors": [
+        "孟子及传世编纂者"
+      ],
+      "year": null,
+      "url": "https://zh.wikisource.org/zh-hant/孟子/盡心上",
+      "version": "维基文库传世汉文，oldid=2637007；不把篇章精确归年。",
+      "readingStatus": "selected-sections",
+      "readScope": "第1、4、15、46章；同页第9章仅作语境参考。",
+      "unreadScope": "未校勘底本，其他篇章及后世良知论未读。",
+      "checkedAt": "2026-10-27",
+      "sha256": "91fc3e4257aa789b01d1671be98a39c657874bbac94913bcc1c6165eb1840ea4",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "zhuangzi-yangsheng",
+      "title": "《庄子·养生主》",
+      "authors": [
+        "庄子及传世编纂者"
+      ],
+      "year": null,
+      "url": "https://zh.wikisource.org/zh-hant/莊子/養生主",
+      "version": "维基文库传世汉文，oldid=11117686；内篇传统归属不等于精确成书日期。",
+      "readingStatus": "selected-sections",
+      "readScope": "篇首和庖丁段，含遇难处戒慎、动作放缓及文惠君得养生的收束。",
+      "unreadScope": "其余段落与郭象等注疏未研究，未做异文校勘。",
+      "checkedAt": "2026-10-27",
+      "sha256": "7908eaf50aa80aeec305fad371e01708b9d214a88da02ff622814c4680d8ce62",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "nagarjuna-24",
+      "title": "《中论·观四谛品第二十四》",
+      "authors": [
+        "龙树（论颂归属）",
+        "青目（释文归属）",
+        "鸠摩罗什（汉译）"
+      ],
+      "year": null,
+      "url": "https://buddhism.lib.ntu.edu.tw/FULLTEXT/sutra/chi_pdf/sutra13/T30n1564.pdf",
+      "version": "实际读CBETA 2023.Q4电子佛典PDF（NTU载体），含汉译偈与释文；非梵文校勘本。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF82–84（内页81–83）的二谛、依缘与无自性论证；PDF4编辑说明；PDF83像素已核对。",
+      "unreadScope": "其余品、梵藏文本与大正藏异文校勘未读。颂中“我说即是无”与次页释“即是空”不擅自改字。",
+      "checkedAt": "2026-10-27",
+      "sha256": "ecd6b5cf936c7b1385101dea82eda97352eefb0c482ea47fa253d6422993384c",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "sternberg-1998",
+      "title": "A Balance Theory of Wisdom",
+      "authors": [
+        "Robert J. Sternberg"
+      ],
+      "year": 1998,
+      "url": "https://journals.sagepub.com/doi/abs/10.1037/1089-2680.2.4.347",
+      "version": "Review of General Psychology 2:347–365；实际仅读出版商摘要。",
+      "readingStatus": "abstract-only",
+      "readScope": "摘要中共同善、三类利益与三类环境关系的定义。",
+      "unreadScope": "正文、测量讨论未读；PDF下载连接失败。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "web-text",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "sternberg-current",
+      "title": "Wisdom: Balance Theory of Wisdom（作者网站）",
+      "authors": [
+        "Robert J. Sternberg"
+      ],
+      "year": null,
+      "url": "https://www.robertjsternberg.com/wisdom",
+      "version": "无标注发布年的当前作者网页，访问2026-10-27；不是1998原文的替代本。",
+      "readingStatus": "selected-sections",
+      "readScope": "Balance Theory of Wisdom定义及共同善未有公认定义的段落。",
+      "unreadScope": "未追溯网页历次修订或其他著作。",
+      "checkedAt": "2026-10-27",
+      "sha256": "b0a418c18e567283d8a15d8d10a179dfb13009e2ce1520a06824398ce9b0c832",
+      "carrier": "HTML",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "baltes-staudinger-2000",
+      "title": "Wisdom: A Metaheuristic (Pragmatic) to Orchestrate Mind and Virtue Toward Excellence",
+      "authors": [
+        "Paul B. Baltes",
+        "Ursula M. Staudinger"
+      ],
+      "year": 2000,
+      "url": "https://pure.mpg.de/rest/items/item_2102711_4/component/file_2102710/content",
+      "version": "American Psychologist 55:122–136原刊扫描，MPG仓储内容接口。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF4–5（p125–126）五标准、相对价值的限制及出声思考评分。",
+      "unreadScope": "其他研究结果、附录评分示例未系统选读，未重新评分数据。",
+      "checkedAt": "2026-10-27",
+      "sha256": "09461bf5db7431cede92574afca97429df2df3116241dbbb0a2f01ab3dee71ac",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    },
+    {
+      "id": "grossmann-2012",
+      "title": "Aging and Wisdom: Culture Matters",
+      "authors": [
+        "Igor Grossmann",
+        "Mayumi Karasawa",
+        "Satoko Izumi",
+        "Jinkyung Na",
+        "Michael E. W. Varnum",
+        "Shinobu Kitayama",
+        "Richard E. Nisbett"
+      ],
+      "year": 2012,
+      "url": "https://uwaterloo.ca/wisdom-and-culture-lab/sites/default/files/uploads/files/Grossmann_culture.wisdom.preprint_0.pdf",
+      "version": "作者网站预刊稿27页，2012 Psychological Science 23:1059–1066。",
+      "readingStatus": "selected-sections",
+      "readScope": "稿p2摘要；p5–7样本、材料和六项编码；p11–13限制。",
+      "unreadScope": "全部结果表与补充材料未审计，未重算。",
+      "checkedAt": "2026-10-27",
+      "sha256": "d376639984d25c357452f7e5bb2adb81b3f24f67c90527bf369e60a99fc8842e",
+      "carrier": "PDF",
+      "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "e-hayek-1945",
+      "year": 1945,
+      "dateLabel": "1945",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "hayek-1945"
+      ],
+      "branch": "知识与价格信号",
+      "title": "分散知识如何协调",
+      "status": "claims-reviewed",
+      "question": "没有人掌握全部局部知识，如何协调行动？",
+      "mechanism": "以价格变化压缩稀缺性信息，允许行动者利用各自的时地知识。",
+      "assumptions": "参与者能响应信号；局部信息可通过交易关系传递。",
+      "claims": [
+        {
+          "id": "e-hayek-1945-dc1",
+          "sourceId": "hayek-1945",
+          "text": "作者把经济问题改写为利用分散且不完整的知识，而非单一头脑求解既定数据。",
+          "locator": "§I–III",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-hayek-1945-dc2",
+          "sourceId": "hayek-1945",
+          "text": "锡例说明参与者不必知道原始冲击的全部原因也可能调整用量。",
+          "locator": "§V–VI开头",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "机制论证不保证现实价格无噪声、无权力差异或实现共同善。"
+      ],
+      "nextQuestion": "协调改善由何种反馈与信息结构支持？",
+      "evidence": {
+        "kind": "经济机制论证",
+        "unit": "分散行动者与价格系统",
+        "observation": "解释性例子；无本批因果实证。",
+        "discriminator": "固定资源与目标，比较信息延迟、局部知识可用性及协调误差。"
+      },
+      "baselineEventId": "e-hayek-1945"
+    },
+    {
+      "id": "e-hutchins-cockpit-1995",
+      "year": 1995,
+      "dateLabel": "1995",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "hutchins-cockpit-1995"
+      ],
+      "branch": "人—工具—程序系统",
+      "title": "驾驶舱作为认知分析单位",
+      "status": "claims-reviewed",
+      "question": "进近速度的记忆究竟保存在哪里？",
+      "mechanism": "追踪速度标记、显示器、人员分工之间表征的传播和变换。",
+      "assumptions": "把驾驶舱整体选为分析单位，保持内部／外部相对于该单位定义。",
+      "claims": [
+        {
+          "id": "e-hutchins-cockpit-1995-dc1",
+          "sourceId": "hutchins-cockpit-1995",
+          "text": "作者以驾驶舱而非单个飞行员为单位，考察速度与机翼配置的对应信息。",
+          "locator": "稿p2–3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-hutchins-cockpit-1995-dc2",
+          "sourceId": "hutchins-cockpit-1995",
+          "text": "论文呈现基于操作手册和观察经验的风格化案例，系统记忆不等于飞行员记忆之和。",
+          "locator": "稿p2、20",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "系统分析本身不证明工具具有独立心智或意识。"
+      ],
+      "nextQuestion": "哪些外部媒介属性对系统表现具有可替代或不可替代作用？",
+      "evidence": {
+        "kind": "现场经验支持的系统分析",
+        "unit": "驾驶舱社会技术系统",
+        "observation": "作者说明观察经验；本篇为风格化过程解释。",
+        "discriminator": "保持人员知识不变，改变表征持久性和传递路径，测量错误类型。"
+      }
+    },
+    {
+      "id": "e-clark-chalmers-1998",
+      "year": 1998,
+      "dateLabel": "1998",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "clark-chalmers-1998"
+      ],
+      "branch": "延展心智论题",
+      "title": "稳定外部资源是否构成认知",
+      "status": "claims-reviewed",
+      "question": "外部存储只是帮助思考，还是属于思考系统？",
+      "mechanism": "按资源在行为控制中的功能角色比较内外记忆，提出主动外在论。",
+      "assumptions": "稳定可及、通常被调用且默认可信等整合条件成立。",
+      "claims": [
+        {
+          "id": "e-clark-chalmers-1998-dc1",
+          "sourceId": "clark-chalmers-1998",
+          "text": "作者提出环境可主动参与认知过程，而非只决定词语的外在指称。",
+          "locator": "§1–2",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-clark-chalmers-1998-dc2",
+          "sourceId": "clark-chalmers-1998",
+          "text": "Otto案例强调持续使用、容易获取、自动认可；作者对过去认可是否必要保留疑问。",
+          "locator": "Otto条件段：First, the notebook…及脚注",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "这是构成论证，不能由任何工具使用或性能提升直接推出。"
+      ],
+      "nextQuestion": "什么整合条件能区分偶然辅助与系统组成？",
+      "evidence": {
+        "kind": "哲学思想实验",
+        "unit": "个体与长期外部资源",
+        "observation": "功能类比及反例讨论。",
+        "discriminator": "保持内容相同，分别改变可靠性、访问摩擦和自动依赖；行为证据仍需构成桥梁。"
+      },
+      "baselineEventId": "e-clark-chalmers-1998"
+    },
+    {
+      "id": "e-adams-aizawa-2001",
+      "year": 2001,
+      "dateLabel": "2001",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "adams-aizawa-2001"
+      ],
+      "branch": "认知标志的异议",
+      "title": "扩大分析范围是否足够",
+      "status": "claims-reviewed",
+      "question": "同一行为结果是否足以证明同一种认知过程？",
+      "mechanism": "要求说明认知过程的特征，区分工具的因果作用与认知归属。",
+      "assumptions": "存在可用于识别认知过程的科学特征，不能只靠外部行为。",
+      "claims": [
+        {
+          "id": "e-adams-aizawa-2001-dc1",
+          "sourceId": "adams-aizawa-2001",
+          "text": "作者接受跨颅认知在逻辑或自然律上可能，却认为已有案例未证实其现实存在。",
+          "locator": "摘要，刊p43",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-adams-aizawa-2001-dc2",
+          "sourceId": "adams-aizawa-2001",
+          "text": "作者反对仅凭两套过程产生同一行为就将二者都认作认知。",
+          "locator": "刊p47，PDF6",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "本文立场是可修正的经验性颅内论；本批未审完全部论证。"
+      ],
+      "nextQuestion": "可用的认知标志是否预先排除了待检验的系统？",
+      "evidence": {
+        "kind": "哲学与方法论批评",
+        "unit": "认知过程的归属条件",
+        "observation": "概念反驳而非新实验。",
+        "discriminator": "比较构成标准的独立预测，避免把定义当结论。"
+      }
+    },
+    {
+      "id": "e-clark-reply-2010",
+      "year": 2010,
+      "dateLabel": "2010出版／2006稿",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "clark-reply-2010"
+      ],
+      "branch": "延展论的回复",
+      "title": "从工具本身转向整合条件",
+      "status": "claims-reviewed",
+      "question": "争议是否把“部件自身有认知”误当成论题？",
+      "mechanism": "强调一个资源成为既有主体认知系统的物理组成，不要求资源单独就是认知主体。",
+      "assumptions": "功能组织可跨越生物与非生物材料。",
+      "claims": [
+        {
+          "id": "e-clark-reply-2010-dc1",
+          "sourceId": "clark-reply-2010",
+          "text": "Clark区分部件自身是否认知与何种耦合使其纳入认知系统。",
+          "locator": "2006稿p6",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-clark-reply-2010-dc2",
+          "sourceId": "clark-reply-2010",
+          "text": "其回复依赖易用、可靠、自动部署的特定条件，而非所有因果耦合。",
+          "locator": "2006稿p6–7",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "本节点2010为出版锚点，所读论证来自2006稿；对话并未终结争论。"
+      ],
+      "nextQuestion": "整合条件能产生哪些超出方便叙述的可检验预期？",
+      "evidence": {
+        "kind": "哲学回应",
+        "unit": "功能整合的系统边界",
+        "observation": "对原批评的论证澄清。",
+        "discriminator": "设置同信息但低可靠／高摩擦对照，分离资源贡献与归属判断。"
+      }
+    },
+    {
+      "id": "e-woolley-2010",
+      "year": 2010,
+      "dateLabel": "2010",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "woolley-2010"
+      ],
+      "branch": "集体因素c",
+      "title": "群体表现是否有共同因素",
+      "status": "claims-reviewed",
+      "question": "一组人在多种任务上的表现能否由共同维度概括？",
+      "mechanism": "在两项研究中用群体任务协变提取因素并预测新任务。",
+      "assumptions": "任务、电池与群体构成对测量对象具有代表性。",
+      "claims": [
+        {
+          "id": "e-woolley-2010-dc1",
+          "sourceId": "woolley-2010",
+          "text": "两项研究涉及699人、每组2–5人，作者报告群体任务中的共同因素。",
+          "locator": "p686摘要；p687结果",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-woolley-2010-dc2",
+          "sourceId": "woolley-2010",
+          "text": "社会敏感性、轮流发言和女性比例与c的关联是样本中的统计结果；联合回归仅社会敏感性达到所报显著性。",
+          "locator": "p688相关及回归段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "相关和中介分析不等于干预因果，不可据此给个体性别或群体本质排序。"
+      ],
+      "nextQuestion": "控制个体能力与任务抽样后，互动是否仍解释跨任务差异？",
+      "evidence": {
+        "kind": "群体心理测量",
+        "unit": "群体而非人数作为统计单位",
+        "observation": "两项任务研究；未独立复算。",
+        "discriminator": "随机改变沟通方式，匹配个体能力，盲测未见任务。"
+      },
+      "baselineEventId": "e-woolley-2010"
+    },
+    {
+      "id": "e-lorenz-2011",
+      "year": 2011,
+      "dateLabel": "2011",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "lorenz-2011"
+      ],
+      "branch": "社会影响与估计聚合",
+      "title": "意见收敛可能掩盖误差",
+      "status": "claims-reviewed",
+      "question": "共享他人估计一定让群体更准吗？",
+      "mechanism": "比较无信息、平均信息和完整他人估计条件下的重复估计。",
+      "assumptions": "题目有可核对数值答案；聚合误差不等于价值判断。",
+      "claims": [
+        {
+          "id": "e-lorenz-2011-dc1",
+          "sourceId": "lorenz-2011",
+          "text": "144人实验中作者报告他人信息可降低估计多样性，却未带来相应群体误差改善。",
+          "locator": "PDF1摘要；PDF5讨论",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-lorenz-2011-dc2",
+          "sourceId": "lorenz-2011",
+          "text": "收敛伴随自信增加；作者同时限定效应与题目难度和原先自信有关。",
+          "locator": "PDF5置信效应、讨论末段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "不能推出一切交流有害；本批合成模型也不是此实验复现。"
+      ],
+      "nextQuestion": "何种信息共享提高独立证据而不只复制误差？",
+      "evidence": {
+        "kind": "受控估计实验",
+        "unit": "个体估计与群体聚合",
+        "observation": "行为实验，范围限选定题目与信息条件。",
+        "discriminator": "分开测准确性、多样性和校准，操纵信息独立性。"
+      }
+    },
+    {
+      "id": "e-bates-gupta-2017",
+      "year": 2017,
+      "dateLabel": "2017出版／2016稿",
+      "routeIds": [
+        "collective-extended"
+      ],
+      "sourceIds": [
+        "bates-gupta-2017"
+      ],
+      "branch": "对c来源的复核",
+      "title": "群体因素与个体能力的重叠",
+      "status": "claims-reviewed",
+      "question": "c是否代表独立于成员能力的群体属性？",
+      "mechanism": "以三项研究和联合潜变量模型比较个体能力与互动解释。",
+      "assumptions": "测量模型、任务选择及样本对结论有约束。",
+      "claims": [
+        {
+          "id": "e-bates-gupta-2017-dc1",
+          "sourceId": "bates-gupta-2017",
+          "text": "作者在其联合模型中报告个体能力与群体因素的重叠可设为100%，并未支持主要互动预测。",
+          "locator": "作者稿PDF15总讨论",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-bates-gupta-2017-dc2",
+          "sourceId": "bates-gupta-2017",
+          "text": "作者专设统计效力与局限讨论，不能把模型结果扩为所有组织的定律。",
+          "locator": "PDF16 Limitations and future directions开头",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "与Woolley不同样本和建模选择的争论尚不能由本批选读裁决；标题的因果措辞不替代干预。"
+      ],
+      "nextQuestion": "改变任务互依性和成员组合后，两种模型如何预测？",
+      "evidence": {
+        "kind": "复核与竞争测量模型",
+        "unit": "群体与成员潜变量",
+        "observation": "三研究报告；未独立重算。",
+        "discriminator": "统一电池、可靠性与分析协议，留出群体比较预测。"
+      }
+    },
+    {
+      "id": "e-vygotsky-1934",
+      "year": 1934,
+      "dateLabel": "1934",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "vygotsky-1934"
+      ],
+      "branch": "思维与语言",
+      "title": "词义成为发展的分析单位",
+      "status": "claims-reviewed",
+      "question": "如何研究思想与言语的内部关系？",
+      "mechanism": "以词义作为兼具言语和思维特征的分析单位，追踪意义的变化。",
+      "assumptions": "部分与整体的划分需保留待解释现象的特征。",
+      "claims": [
+        {
+          "id": "e-vygotsky-1934-dc1",
+          "sourceId": "vygotsky-1934",
+          "text": "第7章反对把思想和言语当作两个先验独立元素再外在相加，改以词义分析言语思维。",
+          "locator": "第7章§1",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-vygotsky-1934-dc2",
+          "sourceId": "vygotsky-1934",
+          "text": "词义及思想—词语关系被视为发展中的动态结构。",
+          "locator": "第7章§1末及§2开头",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "不是“所有思维都必须有语言”的证明；网页译本及原实验未完整核查。"
+      ],
+      "nextQuestion": "哪些变化来自个体成熟，哪些来自交往实践？",
+      "evidence": {
+        "kind": "发展理论",
+        "unit": "言语思维的词义单位",
+        "observation": "理论综合；实验支持本批未回溯。",
+        "discriminator": "固定任务材料，跟踪交往条件与词义使用的纵向变化。"
+      },
+      "baselineEventId": "e-vygotsky-1934"
+    },
+    {
+      "id": "e-senghas-2004",
+      "year": 2004,
+      "dateLabel": "2004",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "senghas-2004"
+      ],
+      "branch": "语言的社会传递",
+      "title": "新生手语的代际结构变化",
+      "status": "claims-reviewed",
+      "question": "儿童只是复制输入，还是重组表达结构？",
+      "mechanism": "比较三个接触年代队列对运动方式与路径的表达，并与有声语言伴随手势比较。",
+      "assumptions": "接触年龄与历史队列定义明确；队列比较不等于随机实验。",
+      "claims": [
+        {
+          "id": "e-senghas-2004-dc1",
+          "sourceId": "senghas-2004",
+          "text": "研究比较30名6岁前接触NSL的聋人（三队列各10人）与10名听人西班牙语手势。",
+          "locator": "p1780样本段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-senghas-2004-dc2",
+          "sourceId": "senghas-2004",
+          "text": "后续队列更偏好把方式、路径分开并顺序组合；论文也讨论层级表达与短期信息损失。",
+          "locator": "p1781开头及A–B–A段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "不能用小样本队列差异独立裁决全部先天／后天争论。"
+      ],
+      "nextQuestion": "代际重构如何与学习偏好、互动网络共同产生结构？",
+      "evidence": {
+        "kind": "自然发生语言的队列研究",
+        "unit": "手语社区与学习者队列",
+        "observation": "表达编码比较；未独立复算。",
+        "discriminator": "区分年龄、接触时长、队列网络和输入结构。"
+      }
+    },
+    {
+      "id": "e-henrich-2004",
+      "year": 2004,
+      "dateLabel": "2004",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "henrich-2004"
+      ],
+      "branch": "选择性模仿与传递损失",
+      "title": "文化技能的保存需要学习网络",
+      "status": "claims-reviewed",
+      "question": "个体善于择优学习，为何群体仍可能丢失复杂技能？",
+      "mechanism": "结合偏向高技能示范者的学习与带噪、平均有损的传递，分析有效学习池。",
+      "assumptions": "简化模型假定可找到最佳示范者并规定误差分布；N与互动机会有关。",
+      "claims": [
+        {
+          "id": "e-henrich-2004-dc1",
+          "sourceId": "henrich-2004",
+          "text": "模型把选择高技能示范者和不完美推断分成两种作用。",
+          "locator": "刊p200–201",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-henrich-2004-dc2",
+          "sourceId": "henrich-2004",
+          "text": "作者承认人口、密度、互动与技术并非独立，相关反馈仍需研究。",
+          "locator": "刊p209结尾",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "模型机制不等于特定社会的史实已证实，不据技术类别推断群体内在能力。"
+      ],
+      "nextQuestion": "网络可达性和传递保真度是否比总人口更直接？",
+      "evidence": {
+        "kind": "数学模型与历史解释",
+        "unit": "文化传递群体",
+        "observation": "模型预测；历史归因本批未验证。",
+        "discriminator": "固定总人数，改变示范者可达性与误差分布。"
+      }
+    },
+    {
+      "id": "e-derex-2013",
+      "year": 2013,
+      "dateLabel": "2013",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "derex-2013"
+      ],
+      "branch": "规模与文化保存",
+      "title": "把文化累积转成群体实验",
+      "status": "claims-reviewed",
+      "question": "群体规模能否影响技能保留与改进？",
+      "mechanism": "摘要报告采用双任务电脑游戏比较不同规模群体的文化表现。",
+      "assumptions": "任务产物可作为特定文化复杂性的操作指标。",
+      "claims": [
+        {
+          "id": "e-derex-2013-dc1",
+          "sourceId": "derex-2013",
+          "text": "作者摘要报告大群体较能保持复杂性、减少知识衰退并保留多样性。",
+          "locator": "开放摘要",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "本批仅核对摘要，不自行补写原文实验细节；后续评论对解释提出异议。"
+      ],
+      "nextQuestion": "群体保留概率的提升是否要求个体学习率提高？",
+      "evidence": {
+        "kind": "实验报告（本批仅摘要）",
+        "unit": "任务群体",
+        "observation": "作者报告，方法尚待全文核查。",
+        "discriminator": "预先区分群体保存与个体学习指标，比较相应零模型。"
+      }
+    },
+    {
+      "id": "e-andersson-read-2014",
+      "year": 2014,
+      "dateLabel": "2014",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "andersson-read-2014"
+      ],
+      "branch": "零模型与分析层级",
+      "title": "同一数据如何支持相反解释",
+      "status": "claims-reviewed",
+      "question": "“规模效应”究竟指群体保存，还是个体学习改善？",
+      "mechanism": "评论使用抽样零模型；回复质疑独立性和概率估计，并区分群体与个体层级。",
+      "assumptions": "比较前先固定估计对象；基线概率不能偷换。",
+      "claims": [
+        {
+          "id": "e-andersson-read-2014-dc1",
+          "sourceId": "andersson-read-2014",
+          "text": "Andersson与Read认为群体保留可能只是抽样效应，并据其零模型提出相反解读。",
+          "locator": "E1正文",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-andersson-read-2014-dc2",
+          "sourceId": "andersson-read-2014",
+          "text": "Derex等回复称抽样效应本可属于群体机制；其图注中个体正向趋势未显著。",
+          "locator": "E2正文与图1注",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "本批不裁决哪方统计正确；“趋势未显著”不能写成证明无效。"
+      ],
+      "nextQuestion": "在同一预先协议下，哪些条件能区分规模、依赖与学习变化？",
+      "evidence": {
+        "kind": "评论—回复争论",
+        "unit": "群体成功概率与个体行为",
+        "observation": "双向论证已读，数据未复核。",
+        "discriminator": "预先注册独立／相互依赖零模型及两个层级的效应。"
+      }
+    },
+    {
+      "id": "e-tomasello-2005",
+      "year": 2005,
+      "dateLabel": "2005",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "tomasello-2005"
+      ],
+      "branch": "共享意向假说",
+      "title": "共同目标与分享动机",
+      "status": "claims-reviewed",
+      "question": "理解他人目标为何还不够解释人类文化协作？",
+      "mechanism": "把意图理解与分享心理状态的动机结合，提出共同目标和对话式表征。",
+      "assumptions": "需要解释动机与能力如何在发展中相互作用。",
+      "claims": [
+        {
+          "id": "e-tomasello-2005-dc1",
+          "sourceId": "tomasello-2005",
+          "text": "作者提出共享意向需要理解目标之外的分享动机和协作结构。",
+          "locator": "p676",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-tomasello-2005-dc2",
+          "sourceId": "tomasello-2005",
+          "text": "作者承认特定社会经验如何关联个体发展差异的证据很少，对表征的生成机制尚无具体解释。",
+          "locator": "p689",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "人类独有是作者当时假说，本批不把它当全部物种比较已定论。"
+      ],
+      "nextQuestion": "哪些合作行为需要共同承诺，哪些只需并行目标？",
+      "evidence": {
+        "kind": "发展与比较理论综合",
+        "unit": "个体发展中的共同活动",
+        "observation": "理论整合；本批未逐项重审原始实验。",
+        "discriminator": "操纵共同承诺与信息共享，分别观察角色互换和联合修复。"
+      },
+      "baselineEventId": "e-tomasello-2005"
+    },
+    {
+      "id": "e-mesoudi-2018",
+      "year": 2018,
+      "dateLabel": "2018",
+      "routeIds": [
+        "sociocultural-language"
+      ],
+      "sourceIds": [
+        "mesoudi-2018"
+      ],
+      "branch": "核心与扩展标准",
+      "title": "为累积文化分解判据",
+      "status": "claims-reviewed",
+      "question": "不同研究是否在测量同一种“累积”？",
+      "mechanism": "分开行为变化、社会传递、表现改善及反复累积，并另列更强扩展条件。",
+      "assumptions": "必须明确改善指标；文化适应与遗传适合度不必相同。",
+      "claims": [
+        {
+          "id": "e-mesoudi-2018-dc1",
+          "sourceId": "mesoudi-2018",
+          "text": "核心标准同时要求变化、社会学习、表现改善及其重复累积，单次传播不够。",
+          "locator": "p2§2；p3开头",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-mesoudi-2018-dc2",
+          "sourceId": "mesoudi-2018",
+          "text": "作者反对把累积文化当作单一的人／非人分界，并区分核心与扩展现象。",
+          "locator": "p2§1末；p3§3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "这是建议性概念框架，不能代替各物种的原始行为证据。"
+      ],
+      "nextQuestion": "有无跨代依赖和超过单个学习者重建能力，应如何分别测量？",
+      "evidence": {
+        "kind": "概念与研究设计综述",
+        "unit": "传递序列及其表现标准",
+        "observation": "判据澄清，非新增实验。",
+        "discriminator": "设置同样时长的无传递对照，测累计收益及依赖链。"
+      }
+    },
+    {
+      "id": "e-aristotle-ethics",
+      "year": null,
+      "dateLabel": "古希腊／传世英译",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "aristotle-ethics"
+      ],
+      "branch": "实践判断",
+      "title": "实践智慧与好的生活",
+      "status": "claims-reviewed",
+      "question": "善于制作或推理，是否就善于决定如何生活？",
+      "mechanism": "区分必然对象的知识、制作的技艺与面向可变行动的实践智慧。",
+      "assumptions": "讨论以人的善及德性框架为前提。",
+      "claims": [
+        {
+          "id": "e-aristotle-ethics-dc1",
+          "sourceId": "aristotle-ethics",
+          "text": "卷VI第5节把实践智慧联系到对整体良好生活的审议，区分行动与制作。",
+          "locator": "VI.5（Ross英译）",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "现代“智能”不是此处原术语；不能直接还原为效用最大化或IQ。"
+      ],
+      "nextQuestion": "评价能力时，目标本身是否也需接受审议？",
+      "evidence": {
+        "kind": "规范哲学",
+        "unit": "实践行动者",
+        "observation": "概念论证，非心理量表。",
+        "discriminator": "先公开良好生活的规范前提，再分析手段与目的的分歧。"
+      },
+      "baselineEventId": "e-aristotle-ethics"
+    },
+    {
+      "id": "e-mengzi-jinxin",
+      "year": null,
+      "dateLabel": "先秦／传世汉文",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "mengzi-jinxin"
+      ],
+      "branch": "良知与道德实践",
+      "title": "知与仁义、修身的联系",
+      "status": "claims-reviewed",
+      "question": "知道什么与应如何对待人有何关系？",
+      "mechanism": "把知性、修身及亲亲敬长联系，重视所知在行动中的次序。",
+      "assumptions": "论证嵌在孟子仁义与心性的规范框架。",
+      "claims": [
+        {
+          "id": "e-mengzi-jinxin-dc1",
+          "sourceId": "mengzi-jinxin",
+          "text": "第15章以亲亲敬长说明良能良知；第46章强调知者也须知道当务之急。",
+          "locator": "尽心上15、46",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "良知不等于现代认知分数；文本中的人性论不是现代婴儿实验。"
+      ],
+      "nextQuestion": "当普遍关怀与关系义务冲突，如何说明判断依据？",
+      "evidence": {
+        "kind": "伦理文本",
+        "unit": "修身与关系中的行动者",
+        "observation": "原文概念选读，非跨文化普遍性证明。",
+        "discriminator": "通过明确冲突案例比较规范理由，不以单一量表裁定传统。"
+      },
+      "baselineEventId": "e-mengzi-jinxin"
+    },
+    {
+      "id": "e-zhuangzi-yangsheng",
+      "year": null,
+      "dateLabel": "先秦传统／传世汉文",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "zhuangzi-yangsheng"
+      ],
+      "branch": "养生与因势而行",
+      "title": "熟练行动仍需戒慎",
+      "status": "claims-reviewed",
+      "question": "娴熟行动如何避免强行消耗与僵化规则？",
+      "mechanism": "庖丁寓言以顺应结构、长期熟练及遇难谨慎描绘行动。",
+      "assumptions": "这是养生语境的寓言，不能当训练实验记录。",
+      "claims": [
+        {
+          "id": "e-zhuangzi-yangsheng-dc1",
+          "sourceId": "zhuangzi-yangsheng",
+          "text": "庖丁段同时写顺势熟练与遇复杂处谨慎放缓，结尾指向养生。",
+          "locator": "养生主：庖丁段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "不能只摘取“无需思考”而删去戒慎段，也不直接等同现代具身认知。"
+      ],
+      "nextQuestion": "熟练表现与反思调整之间的关系应怎样研究？",
+      "evidence": {
+        "kind": "哲学寓言",
+        "unit": "行动者与情境",
+        "observation": "文本论证，无实验验证。",
+        "discriminator": "作为问题来源比较自动化与困难情境调整；经验检验须另设。"
+      }
+    },
+    {
+      "id": "e-nagarjuna-24",
+      "year": null,
+      "dateLabel": "古典／姚秦汉译传本",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "nagarjuna-24"
+      ],
+      "branch": "中观的解释条件",
+      "title": "缘起、二谛与概念执取",
+      "status": "claims-reviewed",
+      "question": "无自性是否会破坏因果与实践？",
+      "mechanism": "区分世俗与第一义，回应空性使一切失效的反对，依条件成立解释现象。",
+      "assumptions": "须区分论颂、青目释与现代转录；论证服务于佛教解脱问题。",
+      "claims": [
+        {
+          "id": "e-nagarjuna-24-dc1",
+          "sourceId": "nagarjuna-24",
+          "text": "所读段落以二谛回应误解，并论证固定自性反而与因缘生灭冲突。",
+          "locator": "观四谛品；PDF82–84",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "空性不是物理真空、随机性或量子纠缠；此处不建立科学同一论。"
+      ],
+      "nextQuestion": "怎样讨论概念与解释条件而不把传统术语直接物理化？",
+      "evidence": {
+        "kind": "宗教哲学论证",
+        "unit": "因缘、自性与实践的概念关系",
+        "observation": "汉译文本选读，无现代物理验证。",
+        "discriminator": "先固定术语语境与推理前提；类比须另列且不可充当证据。"
+      }
+    },
+    {
+      "id": "e-sternberg-1998",
+      "year": 1998,
+      "dateLabel": "1998",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "sternberg-1998",
+        "sternberg-current"
+      ],
+      "branch": "平衡理论",
+      "title": "智慧把能力指向共同善",
+      "status": "claims-reviewed",
+      "question": "追求个人成功的能力如何与智慧区别？",
+      "mechanism": "以价值调节默会知识，在个人、人际、超个人利益及适应、塑造、选择环境间平衡。",
+      "assumptions": "共同善是规范承诺，需说明如何协商与辨认。",
+      "claims": [
+        {
+          "id": "e-sternberg-1998-dc1",
+          "sourceId": "sternberg-1998",
+          "text": "1998摘要把智慧定义为价值中介的默会知识应用，目标为共同善并协调多类利益。",
+          "locator": "1998摘要",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-sternberg-1998-dc2",
+          "sourceId": "sternberg-current",
+          "text": "作者当前网页说明平衡不等于等权，并承认共同善没有显然且公认的定义。",
+          "locator": "当前作者网页第Third段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "正文未读；当前作者网站的新表述不能倒记成1998原句。"
+      ],
+      "nextQuestion": "“共同善”的判断应由哪些受影响者参与？",
+      "evidence": {
+        "kind": "规范性心理理论（仅原摘要）",
+        "unit": "价值判断与行动选择",
+        "observation": "理论定义，不是所有社会已达共识。",
+        "discriminator": "公开利益冲突、时间尺度与权重理由，再看判断是否一致。"
+      },
+      "baselineEventId": "e-sternberg-1998"
+    },
+    {
+      "id": "e-baltes-staudinger-2000",
+      "year": 2000,
+      "dateLabel": "2000",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "baltes-staudinger-2000"
+      ],
+      "branch": "柏林智慧范式",
+      "title": "把生活判断转成评分协议",
+      "status": "claims-reviewed",
+      "question": "如何观察智慧相关知识而不只依赖声望？",
+      "mechanism": "以生活困境的出声思考记录，按事实知识、程序知识、生命周期情境、价值相对性、不确定性评分。",
+      "assumptions": "训练评分者能可靠应用这些具有理论承诺的标准。",
+      "claims": [
+        {
+          "id": "e-baltes-staudinger-2000-dc1",
+          "sourceId": "baltes-staudinger-2000",
+          "text": "范式提出五类标准，并以虚构人物生活难题的出声思考文本评定。",
+          "locator": "p125–126",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-baltes-staudinger-2000-dc2",
+          "sourceId": "baltes-staudinger-2000",
+          "text": "价值相对性不意味着完全相对主义，作者仍保留德性与共同善的要求。",
+          "locator": "p126开头",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "评分可靠不自动保证跨文化构念等价或规范正确。"
+      ],
+      "nextQuestion": "语言表达和评分文化会如何影响智慧表现？",
+      "evidence": {
+        "kind": "心理测量框架",
+        "unit": "生活判断文本及评分者",
+        "observation": "所读为测量协议；未复核报告效度。",
+        "discriminator": "匹配表达资源，交叉文化盲评并检查评分不变性。"
+      },
+      "baselineEventId": "e-baltes-staudinger-2000"
+    },
+    {
+      "id": "e-grossmann-2012",
+      "year": 2012,
+      "dateLabel": "2012",
+      "routeIds": [
+        "wisdom-values"
+      ],
+      "sourceIds": [
+        "grossmann-2012"
+      ],
+      "branch": "跨文化操作化",
+      "title": "智慧表现中的年龄与文化",
+      "status": "claims-reviewed",
+      "question": "智慧是否随年龄按同一路径增长？",
+      "mechanism": "比较东京与美国密歇根样本对人际和群际冲突的推理，进行六维编码。",
+      "assumptions": "样本、翻译、情境及编码规则限定外推。",
+      "claims": [
+        {
+          "id": "e-grossmann-2012-dc1",
+          "sourceId": "grossmann-2012",
+          "text": "作者报告年龄与智慧推理的关系在所采美日样本中不同，且随冲突领域变化。",
+          "locator": "稿p2；p11–12",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-grossmann-2012-dc2",
+          "sourceId": "grossmann-2012",
+          "text": "作者明确要求纵向、更多文化及机制实验，并质疑显性冲突解决是否普适标准。",
+          "locator": "稿p11–13",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": [
+        "横断面不等于同一个人随年龄变化；不能据样本差异概括所有文化成员。"
+      ],
+      "nextQuestion": "哪些维度具有跨语境稳定性，哪些依赖价值与任务？",
+      "evidence": {
+        "kind": "跨文化横断面研究",
+        "unit": "两个地区的年龄分层样本与推理文本",
+        "observation": "作者报告；未做纵向或数据复算。",
+        "discriminator": "纵向设计、双向翻译和交叉评分，分离队列、教育与情境。"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "d-r01",
+      "fromId": "e-vygotsky-1934",
+      "toId": "e-tomasello-2005",
+      "type": "explicit-adoption",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "tomasello-2005"
+      ],
+      "locator": "p689",
+      "explanation": "Tomasello明确使用Vygotskian内化解释的措辞，同时承认具体机制未明。"
+    },
+    {
+      "id": "d-r02",
+      "fromId": "e-senghas-2004",
+      "toId": "e-mesoudi-2018",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "senghas-2004",
+        "mesoudi-2018"
+      ],
+      "locator": "p1781；p2–3",
+      "explanation": "本站比较结构重组与累积判据，不宣称后文继承此实验。"
+    },
+    {
+      "id": "d-r03",
+      "fromId": "e-henrich-2004",
+      "toId": "e-andersson-read-2014",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "andersson-read-2014"
+      ],
+      "locator": "E1首段；E2回复",
+      "explanation": "往来争论明确追溯人口规模假说，但主要实证靶标是Derex实验。"
+    },
+    {
+      "id": "d-r04",
+      "fromId": "e-derex-2013",
+      "toId": "e-andersson-read-2014",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "andersson-read-2014"
+      ],
+      "locator": "E1–E2",
+      "explanation": "同一节点记录原论文遭批评及作者回复，保留分析单位争议。"
+    },
+    {
+      "id": "d-r05",
+      "fromId": "e-tomasello-2005",
+      "toId": "e-mesoudi-2018",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "tomasello-2005",
+        "mesoudi-2018"
+      ],
+      "locator": "p676；p2–3",
+      "explanation": "共享意向的机制假说不能代替累积文化的结果判据。"
+    },
+    {
+      "id": "d-r06",
+      "fromId": "e-hayek-1945",
+      "toId": "e-hutchins-cockpit-1995",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "hayek-1945",
+        "hutchins-cockpit-1995"
+      ],
+      "locator": "§I–III；稿p2–3",
+      "explanation": "二者都扩展个体之外的分析，任务与机制不同，未主张思想影响。"
+    },
+    {
+      "id": "d-r07",
+      "fromId": "e-clark-chalmers-1998",
+      "toId": "e-adams-aizawa-2001",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "adams-aizawa-2001"
+      ],
+      "locator": "刊p43、47",
+      "explanation": "作者明确批评延展心智对工具使用的构成解释。"
+    },
+    {
+      "id": "d-r08",
+      "fromId": "e-adams-aizawa-2001",
+      "toId": "e-clark-reply-2010",
+      "type": "direct-response",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "clark-reply-2010"
+      ],
+      "locator": "2006稿p6–7及标题",
+      "explanation": "回复针对Adams与Aizawa系列论文；不限定为逐条回应2001版。"
+    },
+    {
+      "id": "d-r09",
+      "fromId": "e-hutchins-cockpit-1995",
+      "toId": "e-clark-chalmers-1998",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "hutchins-cockpit-1995",
+        "clark-chalmers-1998"
+      ],
+      "locator": "稿p20；Otto条件段",
+      "explanation": "系统分析单位与心智构成论题分别成立，不能相互替证。"
+    },
+    {
+      "id": "d-r10",
+      "fromId": "e-woolley-2010",
+      "toId": "e-bates-gupta-2017",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "bates-gupta-2017"
+      ],
+      "locator": "稿PDF15–16",
+      "explanation": "复核对群体因素来源提出竞争模型；本批未重算。"
+    },
+    {
+      "id": "d-r11",
+      "fromId": "e-woolley-2010",
+      "toId": "e-lorenz-2011",
+      "type": "method-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "woolley-2010",
+        "lorenz-2011"
+      ],
+      "locator": "p688；PDF1、5",
+      "explanation": "跨任务群体因素与数值估计聚合是不同对象。"
+    },
+    {
+      "id": "d-r12",
+      "fromId": "e-aristotle-ethics",
+      "toId": "e-sternberg-1998",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "aristotle-ethics",
+        "sternberg-1998"
+      ],
+      "locator": "VI.5；摘要",
+      "explanation": "仅比较目的审议与共同善，不推断直接传承。"
+    },
+    {
+      "id": "d-r13",
+      "fromId": "e-mengzi-jinxin",
+      "toId": "e-zhuangzi-yangsheng",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "mengzi-jinxin",
+        "zhuangzi-yangsheng"
+      ],
+      "locator": "15、46章；庖丁段",
+      "explanation": "伦理知与养生寓言保留语境，非同一量表维度。"
+    },
+    {
+      "id": "d-r14",
+      "fromId": "e-zhuangzi-yangsheng",
+      "toId": "e-nagarjuna-24",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "zhuangzi-yangsheng",
+        "nagarjuna-24"
+      ],
+      "locator": "庖丁段；PDF82–84",
+      "explanation": "本站对照行动与概念执取，不建立历史影响或科学等价。"
+    },
+    {
+      "id": "d-r15",
+      "fromId": "e-sternberg-1998",
+      "toId": "e-baltes-staudinger-2000",
+      "type": "explicit-adoption",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "baltes-staudinger-2000"
+      ],
+      "locator": "p126理论比较段",
+      "explanation": "作者明确将Sternberg平衡利益的研究列为相关贡献，同时保留自身框架。"
+    },
+    {
+      "id": "d-r16",
+      "fromId": "e-baltes-staudinger-2000",
+      "toId": "e-grossmann-2012",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "baltes-staudinger-2000",
+        "grossmann-2012"
+      ],
+      "locator": "p125–126；稿p7、11–13",
+      "explanation": "比较两种评分协议和文化边界；不把两套维度当完全相同。"
+    }
+  ],
+  "questionCards": [
+    {
+      "id": "q-cultural-cumulation",
+      "title": "文化传递怎样改变能力",
+      "status": "editorial-comparison",
+      "question": "个体学会、群体保存与跨代累积如何区分？",
+      "definitions": [
+        {
+          "label": "发展中的词义",
+          "meaning": "思维与言语关系的形成。",
+          "nodeIds": [
+            "e-vygotsky-1934"
+          ]
+        },
+        {
+          "label": "共享意向",
+          "meaning": "共同目标与分享动机的机制假说。",
+          "nodeIds": [
+            "e-tomasello-2005"
+          ]
+        },
+        {
+          "label": "文化累积",
+          "meaning": "反复创新、社会传递和可定义的改善。",
+          "nodeIds": [
+            "e-mesoudi-2018"
+          ]
+        }
+      ],
+      "comparison": [
+        "语言结构变化不等于一般能力上升。",
+        "群体保留概率与个体学习效应必须分开；网络规模与总人口也不同。"
+      ],
+      "evidence": [
+        {
+          "nodeId": "e-senghas-2004",
+          "locator": "p1780–1781",
+          "comment": "队列中结构变化的有限观察。"
+        },
+        {
+          "nodeId": "e-andersson-read-2014",
+          "locator": "E1–E2",
+          "comment": "零模型与分析单位直接分歧。"
+        },
+        {
+          "nodeId": "e-mesoudi-2018",
+          "locator": "p2–3",
+          "comment": "固定累积的操作判据。"
+        }
+      ],
+      "distinguishingTest": {
+        "status": "proposed-not-run",
+        "intervention": "同样总人数与学习时间下改变跨代传递、示范者可达性。",
+        "measure": "个体掌握、群体保存及代际净改进分别计分。",
+        "controls": "匹配初始技能；设无传递、独立重建和有损传递对照。",
+        "interpretation": "只有代际收益超过匹配重建对照，才能支持该任务的累积贡献。"
+      },
+      "limits": [
+        "未实施新的人类实验；不能单凭这一设计裁决人类独特性。"
+      ],
+      "nextQuestion": "先补读Derex全文与补充数据，再预先指定层级模型。"
+    },
+    {
+      "id": "q-system-boundary",
+      "title": "群体更强是否意味着心智扩展",
+      "status": "editorial-comparison",
+      "question": "系统性能、认知分布与心智构成之间缺少哪一步？",
+      "definitions": [
+        {
+          "label": "系统分析",
+          "meaning": "将人、工具、程序共同列入解释单位。",
+          "nodeIds": [
+            "e-hutchins-cockpit-1995"
+          ]
+        },
+        {
+          "label": "认知构成",
+          "meaning": "外部资源在一定条件下属于认知系统。",
+          "nodeIds": [
+            "e-clark-chalmers-1998",
+            "e-adams-aizawa-2001",
+            "e-clark-reply-2010"
+          ]
+        },
+        {
+          "label": "群体因素",
+          "meaning": "多任务协变中的潜变量。",
+          "nodeIds": [
+            "e-woolley-2010",
+            "e-bates-gupta-2017"
+          ]
+        }
+      ],
+      "comparison": [
+        "工具贡献可由实验识别，构成论题另需明确判据。",
+        "c因素不自动揭示互动机制；误差相关性可破坏人数优势。"
+      ],
+      "evidence": [
+        {
+          "nodeId": "e-hutchins-cockpit-1995",
+          "locator": "稿p2、20",
+          "comment": "分析单位的改变。"
+        },
+        {
+          "nodeId": "e-clark-reply-2010",
+          "locator": "2006稿p6–7",
+          "comment": "整合条件不同于部件自己思考。"
+        },
+        {
+          "nodeId": "e-lorenz-2011",
+          "locator": "PDF5",
+          "comment": "收敛、自信和准确性分离。"
+        }
+      ],
+      "distinguishingTest": {
+        "status": "proposed-not-run",
+        "intervention": "固定个体能力与信息，改变通信网络、工具可靠性及访问成本。",
+        "measure": "任务迁移、错误协方差、修复代价和资源依赖程度。",
+        "controls": "匹配人数与预算；对比独立信息、共同误导和独立扰动。",
+        "interpretation": "性能变化支持因果贡献，是否构成心智仍须接受独立理论标准。"
+      },
+      "limits": [
+        "本批已运行的共享误差数学核验只检查聚合原理，不验证人类c因素。"
+      ],
+      "nextQuestion": "将前批资源预算扩展为组织协调和工具维护成本。"
+    },
+    {
+      "id": "q-wisdom-norms",
+      "title": "能力评价如何面对价值",
+      "status": "editorial-comparison",
+      "question": "何时评的是完成目标的能力，何时评的是目标与判断是否值得？",
+      "definitions": [
+        {
+          "label": "实践智慧",
+          "meaning": "在特定善的框架中审议行动。",
+          "nodeIds": [
+            "e-aristotle-ethics"
+          ]
+        },
+        {
+          "label": "伦理与修身",
+          "meaning": "良知嵌于仁义关系，不是中性分数。",
+          "nodeIds": [
+            "e-mengzi-jinxin"
+          ]
+        },
+        {
+          "label": "智慧操作化",
+          "meaning": "用生活推理维度评分，带有规范取舍。",
+          "nodeIds": [
+            "e-baltes-staudinger-2000",
+            "e-grossmann-2012"
+          ]
+        }
+      ],
+      "comparison": [
+        "保留儒、道、佛与古希腊问题语境，不把相似词汇合成一个古老IQ。",
+        "跨文化评分既要检查测量等价，也要公开共同善与权重的理由。"
+      ],
+      "evidence": [
+        {
+          "nodeId": "e-zhuangzi-yangsheng",
+          "locator": "庖丁段",
+          "comment": "熟练与戒慎并存。"
+        },
+        {
+          "nodeId": "e-nagarjuna-24",
+          "locator": "PDF82–84",
+          "comment": "避免把哲学语汇转成物理事实。"
+        },
+        {
+          "nodeId": "e-sternberg-1998",
+          "locator": "摘要；当前作者网页Third段",
+          "comment": "共同善不是未加说明的统一目标。"
+        },
+        {
+          "nodeId": "e-grossmann-2012",
+          "locator": "稿p11–13",
+          "comment": "情境与文化限制。"
+        }
+      ],
+      "distinguishingTest": {
+        "status": "proposed-not-run",
+        "intervention": "对同一价值冲突案例进行多语种、跨评分群体评审，提前记录规范标准。",
+        "measure": "评分一致性、理由结构、受影响者异议及对新情境的稳定性。",
+        "controls": "分开语言表达、事实知识和价值选择；不以多数票当终极规范证明。",
+        "interpretation": "区分测量失配与真实规范分歧，不能用统一分数掩盖后者。"
+      },
+      "limits": [
+        "规范正当性不能由一个经验实验直接推出；设计尚未执行。"
+      ],
+      "nextQuestion": "第四轮先整理不可互换的评价目标，再谈统一智能定义。"
+    }
+  ],
+  "revisits": [
+    {
+      "id": "d-revisit-1",
+      "batch": "round-three-b",
+      "questionCardId": "q-factor-mechanism",
+      "title": "从个体因素回到群体因素",
+      "original": "B批已区分协变因素与机制。",
+      "addition": "Woolley与Bates把同一问题带到群体层级；明确成员能力、任务互依和潜变量模型。",
+      "evidenceNodeIds": [
+        "e-woolley-2010",
+        "e-bates-gupta-2017"
+      ],
+      "nextStep": "优先获取数据与统一分析协议，暂不裁决c是否独立。"
+    },
+    {
+      "id": "d-revisit-2",
+      "batch": "round-three-a",
+      "questionCardId": "q-agent-environment",
+      "title": "环境何时成为系统组成",
+      "original": "A批考察主体与环境耦合。",
+      "addition": "D批加入构成条件的正反论证；因果耦合、分析边界与心智归属需分列。",
+      "evidenceNodeIds": [
+        "e-hutchins-cockpit-1995",
+        "e-adams-aizawa-2001",
+        "e-clark-reply-2010"
+      ],
+      "nextStep": "为环境干预增加可靠性、持久性与自动依赖条件。"
+    },
+    {
+      "id": "d-revisit-3",
+      "batch": "round-three-c",
+      "questionCardId": "q-development-openended",
+      "title": "从个体发展走向代际累积",
+      "original": "C批区分成熟、探索和开放式发展。",
+      "addition": "D批增加跨代社会传递与重建对照，避免将个体学习直接当文化累积。",
+      "evidenceNodeIds": [
+        "e-senghas-2004",
+        "e-mesoudi-2018"
+      ],
+      "nextStep": "区分个体成长、群体结构变化、代际累积三种时间尺度。"
+    }
+  ],
+  "versionComparisons": [],
+  "methodCheckTitle": "集体平均与共享误差",
+  "completedAt": "2026-10-27"
+}

@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "localPathReferences": 1092,
+  "explicitRoundFourAnchorsChecked": 76,
+  "legacyFragmentsPathOnly": 338,
+  "svgXMLDocuments": 3,
+  "historicalSnapshotsUnchanged": 7,
+  "sources": 10,
+  "sourceClaims": 21,
+  "conclusions": 6,
+  "evidenceAuditItems": 6,
+  "designsNotExecuted": 3,
+  "candidateAnnotations": 25,
+  "errors": [],
+  "scope": "Round-four documents and current global coverage/index. Historical target paths checked; historical dynamic anchors and external URLs are outside this structural audit."
+}

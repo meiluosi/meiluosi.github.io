@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-28",
+  "policy": "当前视图使用带日期的注释层；历史research.json与原批次生成文件保持不变。同ID匹配、同作品部分覆盖和相关不同作品分别计数。",
+  "routeGapOverrides": {
+    "connectionist": {
+      "gaps": [
+        "十个节点覆盖本批指定转折，不代表完整连接主义史。",
+        "C批已选读Hebb的1988重印所列片段；1949原书完整论证与版本校勘、感知机专著及Minsky–Papert 1969仍待补。不能用1958选段替代收敛定理。",
+        "张量积表示的网络实现、递归操作及Fodor–McLaughlin 1990后续批评尚未完成原文审校。",
+        "Transformer、规模规律和现代语言模型分支尚未展开；本批现代训练节点覆盖监督视觉及程序归纳，不声称覆盖全部现代模型。"
+      ],
+      "reason": "补入C批Hebb选读范围"
+    },
+    "embodied-dynamical": {
+      "gaps": [
+        "Brooks已核对实验范围与第二层实现的版本变化；期刊图中全部连线及硬件行为未独立复核。",
+        "Thelen与Smith仍限于第1章和第4章指定范围；Beer的全部相图推导和原始模拟未复核。C批已完成生物与发展的指定范围；其余长期学习和发展证据见C批缺口。",
+        "第四轮第二阶段新增Smith等1999实验1／6及2007互动理论、2009知觉交互的指定范围选读；原实验数据与长期发展机制尚未独立复核。"
+      ],
+      "reason": "补入第四轮动作与互动的选读增量，保留原书及模拟缺口"
+    },
+    "neuroscience": {
+      "gaps": [
+        "Marr多层解释虽在早期叙事中提及，尚无Vision原书独立笔记；连接组仅选读Schlegel指定范围，未审查全部FlyWire伴随论文。",
+        "Hebb仅选集重印；LTP仅摘要与354页讨论图像，原始记录和完整统计未重验；缺长期学习行为与突触干预的联合证据。",
+        "2018网络理论为观点文章，2023/2026预测检验留后续；本批不作截至2026年的完整综述。",
+        "第四轮补读Barbey的测量与病损方法、Jonas的任务限制；未独立复算影像和处理器代码。Barbey作者名单的当前更正见索引修订记录。"
+      ],
+      "reason": "纠正提及Marr与实际阅读的混淆，并登记补读"
+    },
+    "collective-extended": {
+      "gaps": [
+        "Hayek的机制论证不覆盖制度比较的全部实证；不把价格协调当成市场完美定理。",
+        "Hutchins 1995专著未读；本批新增的是驾驶舱论文作者稿。Clark回复为2006仓储稿，未逐字对照2010书章。",
+        "第四轮已补读Woolley补充材料指定页、Bates方法／局限、Riedl 2021多样本分析和2022更正；未复算数据或完成群体文献系统综述。动物集群与长期组织协作仍待补。",
+        "第四轮第二阶段补读延展认知的支持、反方与回复，核对驾驶舱任务转换和知觉交互的机会校正指标；未裁决统一的认知构成判据。"
+      ],
+      "reason": "登记第四轮两个阶段的群体证据与系统边界审计"
+    },
+    "developmental-openended": {
+      "gaps": [
+        "Piaget1936法文初版受访问验证限制，实际采用1952英译后续印次；未逐条核对婴儿观察记录和法英异文。",
+        "核心知识所引每个实验和跨文化证据未单独复核；新颖性、任务生成不等于递归自我改进或无限增长。",
+        "长期持续学习、灾难遗忘、开放性度量及POET后续版本仍待补读。",
+        "第四轮第二阶段选读Smith等1999实验1与6，明确年龄／等待时长及试次层次；短时效应不作为长期发展已识别的证据。Thelen等1984原刊未取得。"
+      ],
+      "reason": "登记第四轮第二阶段增量；旧路线文档保持历史快照"
+    },
+    "autopoiesis-evolution": {
+      "gaps": [
+        "此前C批为重印与转录选读；本轮原刊指定页的补核见下项。其余物种与演化经验材料未由本轮新增。",
+        "黏菌只核对指定实验正文；分子机制、跨实验室复现和Levin各项形态干预原始研究未全面审查。",
+        "Levin2022 TAME、独立批评和生命定义的其他传统仍为明确后续队列。",
+        "第四轮第二阶段取得1974原刊扫描，核对187–189、192–193页及§9成分参与例外；新增2005适应性定义与注8。原模拟、全部算法及生命—智能—体验的桥接仍未验证。"
+      ],
+      "reason": "登记第四轮第二阶段增量；旧路线文档保持历史快照"
+    }
+  },
+  "candidateMappings": [
+    {
+      "candidateId": "e-legg-definitions-2007",
+      "status": "related-different-work",
+      "coveredBy": "e-legg-hutter-2007",
+      "batch": "round-three-b",
+      "note": "round-three-b/notes/e-legg-hutter-2007.md",
+      "scope": "定义汇编与形式化通用智能论文不同。"
+    },
+    {
+      "candidateId": "e-thurstone-1938",
+      "status": "related-different-work",
+      "coveredBy": "e-thurstone-1934",
+      "batch": "round-three-b",
+      "note": "round-three-b/notes/e-thurstone-1934.md",
+      "scope": "1934论文不能替代1938专著。"
+    },
+    {
+      "candidateId": "e-hutter-2005",
+      "status": "related-different-work",
+      "coveredBy": "e-hutter-2000",
+      "batch": "round-three-b",
+      "note": "round-three-b/notes/e-hutter-2000.md",
+      "scope": "2000稿不能替代2005专著和后续证明。"
+    },
+    {
+      "candidateId": "e-minsky-papert-1969",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-vaswani-2017",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-kaplan-2020",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-pearl-1988",
+      "status": "related-different-work",
+      "coveredBy": "e-pearl-1982",
+      "batch": "round-three-a",
+      "note": "round-three-a/notes/e-pearl-1982.md",
+      "scope": "早期贝叶斯网络论文不能替代1988专著。"
+    },
+    {
+      "candidateId": "e-silver-2017",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-anderson-1983",
+      "status": "related-different-work",
+      "coveredBy": "e-anderson-2004",
+      "batch": "round-three-a",
+      "note": "round-three-a/notes/e-anderson-2004.md",
+      "scope": "2004架构论文不能替代ACT*原书。"
+    },
+    {
+      "candidateId": "e-minsky-1986",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-newell-1990",
+      "status": "related-different-work",
+      "coveredBy": "e-soar-1987",
+      "batch": "round-three-a",
+      "note": "round-three-a/notes/e-soar-1987.md",
+      "scope": "Soar论文不等于1990统一认知专著。"
+    },
+    {
+      "candidateId": "e-marr-1982",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "早期路线提到多层解释，但无Marr原书的独立阅读节点；不由概念提及补写为已读。"
+    },
+    {
+      "candidateId": "e-levin-2022",
+      "status": "related-different-work",
+      "coveredBy": "e-levin-2019",
+      "batch": "round-three-c",
+      "note": "round-three-c/notes/e-levin-2019.md",
+      "scope": "2019文章不能替代2022 TAME版本。"
+    },
+    {
+      "candidateId": "e-boyd-richerson-1985",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-tomasello-1999",
+      "status": "related-different-work",
+      "coveredBy": "e-tomasello-2005",
+      "batch": "round-three-d",
+      "note": "round-three-d/notes/e-tomasello-2005.md",
+      "scope": "共享意图论文与文化起源专著是不同作品。"
+    },
+    {
+      "candidateId": "e-henrich-2015",
+      "status": "related-different-work",
+      "coveredBy": "e-henrich-2004",
+      "batch": "round-three-d",
+      "note": "round-three-d/notes/e-henrich-2004.md",
+      "scope": "塔斯马尼亚模型论文与2015专著是不同作品。"
+    },
+    {
+      "candidateId": "e-hutchins-1995",
+      "status": "related-different-work",
+      "coveredBy": "e-hutchins-cockpit-1995",
+      "batch": "round-three-d",
+      "note": "round-three-d/notes/e-hutchins-cockpit-1995.md",
+      "scope": "同年驾驶舱论文与Cognition in the Wild专著不同。"
+    },
+    {
+      "candidateId": "e-couzin-2005",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-rissanen-1978",
+      "status": "no-mapped-reading",
+      "coveredBy": null,
+      "batch": null,
+      "note": null,
+      "scope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "candidateId": "e-dennett-1987",
+      "status": "related-different-work",
+      "coveredBy": "e-dennett-1981",
+      "batch": "round-three-e",
+      "note": "round-three-e/notes/e-dennett-1981.md",
+      "scope": "1981论文为相关入口，未核对其与1987书内章节异文；不替代原书。"
+    },
+    {
+      "candidateId": "e-baars-1988",
+      "status": "related-different-work",
+      "coveredBy": "e-dehaene-changeux-2011",
+      "batch": "round-three-e",
+      "note": "round-three-e/notes/e-dehaene-changeux-2011.md",
+      "scope": "后来的工作空间综述不能替代Baars原书。"
+    },
+    {
+      "candidateId": "e-damasio-1994",
+      "status": "related-different-work",
+      "coveredBy": "e-bechara-1997",
+      "batch": "round-three-e",
+      "note": "round-three-e/notes/e-bechara-1997.md",
+      "scope": "1997实验不能替代1994专著论证。"
+    },
+    {
+      "candidateId": "e-nagarjuna-mmk",
+      "status": "partial-work",
+      "coveredBy": "e-nagarjuna-24",
+      "batch": "round-three-d",
+      "note": "round-three-d/notes/e-nagarjuna-24.md",
+      "scope": "D批选读汉译《中论》第24品；只构成该作品的章节部分覆盖，不等于梵文或全书已读。"
+    },
+    {
+      "candidateId": "e-penrose-1989",
+      "status": "related-different-work",
+      "coveredBy": "e-hameroff-penrose-1996",
+      "batch": "round-three-e",
+      "note": "round-three-e/notes/e-hameroff-penrose-1996.md",
+      "scope": "联合物理假说论文不能替代1989著作。"
+    },
+    {
+      "candidateId": "e-hameroff-penrose-2014",
+      "status": "related-different-work",
+      "coveredBy": "e-hameroff-penrose-1996",
+      "batch": "round-three-e",
+      "note": "round-three-e/notes/e-hameroff-penrose-1996.md",
+      "scope": "1996版本不能替代2014修订和回应。"
+    }
+  ],
+  "sourceCorrections": [
+    {
+      "batch": "round-three-c",
+      "sourceId": "barbey-2012",
+      "field": "authors",
+      "old": "Chau Trinh",
+      "new": "Chad Forbes",
+      "reason": "原刊署名及作者实验室书目均为Chad Forbes。保留C批快照，在当前来源索引显示更正。",
+      "evidence": "https://www.decisionneurosciencelab.org/publications/",
+      "currentNote": "round-four/notes/barbey-2012.md"
+    }
+  ],
+  "phaseTwoReadingUpdates": {
+    "date": "2026-10-28",
+    "url": "round-four/boundaries/reading-updates.md",
+    "sourceRecords": 9,
+    "allSelectedSections": true,
+    "changesHistoricalNodeCounts": false
+  }
+}

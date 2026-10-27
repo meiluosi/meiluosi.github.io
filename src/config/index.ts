@@ -9,7 +9,6 @@ export type {
 	BackgroundWallpaperConfig,
 	CommentConfig,
 	CoverImageConfig,
-
 	ExpressiveCodeConfig,
 	FooterConfig,
 	LicenseConfig,
@@ -51,5 +50,5 @@ export { sidebarLayoutConfig } from "./sidebarConfig"; // 侧边栏布局配置
 // 核心配置
 export { siteConfig } from "./siteConfig"; // 站点基础配置
 export { sponsorConfig } from "./sponsorConfig"; // 打赏配置
-export { tagGroups, getTagGroupName, getTagGroupIcon } from "./tagGroupConfig"; // 标签分组体系
 export type { TagGroup } from "./tagGroupConfig";
+export { getTagGroupIcon, getTagGroupName, tagGroups } from "./tagGroupConfig"; // 标签分组体系

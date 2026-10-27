@@ -1,0 +1,1146 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-25",
+  "scope": "第二轮指定主张审校；第一轮 atlas.json 保持历史基线。本文件是第二轮节点与关系的唯一编辑源。",
+  "nodes": [
+    {
+      "id": "e-valiant-1984",
+      "year": 1984,
+      "routeId": "learning-efficiency",
+      "branch": "形式学习",
+      "title": "Valiant：学习需要怎样的协议？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://courses.grainger.illinois.edu/ece544na/fa2014/valiant84.pdf",
+        "version": "A Theory of the Learnable；CACM 27(11),1134–1142；Leslie Valiant",
+        "readingStatus": "selected-sections",
+        "readScope": "§1–3，PDF 1–4 / 印刷页 1134–1137；证明部分未逐条复核",
+        "id": "valiant-1984",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": null
+      },
+      "question": "什么样的概念能以可控制的样本与计算代价学会？",
+      "mechanism": "把学习环境、表示类、查询能力和成功概率写进协议；EXAMPLES 提供正例，ORACLE 允许成员查询。",
+      "assumptions": "原文的正例分布、单侧错误和查询条件必须逐一保留；不能直接替换为教材常用的双侧错误、有正负标签的 PAC 协议。",
+      "claims": [
+        {
+          "text": "原文要求高概率输出无假阳性的假设，并将正例分布上的漏判质量限制在 1/h；运行代价随规模与 h 多项式增长。",
+          "locator": "§2–3，印刷页 1135–1137",
+          "basis": "source-reported",
+          "id": "e-valiant-1984-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "定义与特定表示类的结果，不能推出所有现实概念可高效学习。",
+      "criticism": "本站审校：表示能力、可计算性与可学习性是三个问题；后续统一比较必须先对齐学习协议。",
+      "teachingExample": "设只有正例的二元属性概念：一个过窄假设可能没有假阳性却漏掉大量正例。",
+      "nextQuestion": "怎样把先验、查询和数据成本放到同一张比较表？",
+      "baselineEventId": "e-valiant-1984",
+      "dateBasis": "publication",
+      "dateLabel": "1984"
+    },
+    {
+      "id": "e-lake-2015",
+      "year": 2015,
+      "routeId": "learning-efficiency",
+      "branch": "概念生成",
+      "title": "Lake 等：一次观察如何学到生成过程？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://www.cs.toronto.edu/~rsalakhu/papers/LakeEtAl2015Science.pdf",
+        "version": "Human-level concept learning through probabilistic program induction；Science 350,1332–1338；Lake, Salakhutdinov, Tenenbaum",
+        "readingStatus": "selected-sections",
+        "readScope": "正文 PDF 1–3及第4页开头；未读补充材料全部实验",
+        "id": "lake-2015",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": null
+      },
+      "question": "为何人能从单个字符例子辨认并生成新实例？",
+      "mechanism": "概率程序把字符表示为笔画及其关系；类型程序生成具体书写实例，再生成图像；跨字符学习提供先验。",
+      "assumptions": "有手工建模的绘制原语和背景训练；背景阶段包含笔画生成信息。一次例子指新概念阶段。",
+      "claims": [
+        {
+          "text": "模型结合组合性、生成因果过程和学习如何学习；Omniglot 用于字符领域的少样本任务。",
+          "locator": "正文图1–3及印刷页1332–1335",
+          "basis": "source-reported",
+          "id": "e-lake-2015-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "本轮未复核全部量化结果，不发布人类等效的总括判断；字符成功不能外推任意概念。",
+      "criticism": "本站审校：比较方法时须分别记录背景图像、笔画轨迹、人工原语和测试例数。",
+      "teachingExample": "同一字形由两笔或三笔产生，会形成不同的变体预测。",
+      "nextQuestion": "生成式先验怎样迁移到没有明确笔画原语的领域？",
+      "baselineEventId": "e-lake-2015",
+      "dateBasis": "publication",
+      "dateLabel": "2015"
+    },
+    {
+      "id": "e-lake-baroni-2018",
+      "year": 2018,
+      "routeId": "learning-efficiency",
+      "branch": "组合泛化",
+      "title": "SCAN：随机切分掩盖了什么？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://proceedings.mlr.press/v80/lake18a/lake18a.pdf",
+        "version": "Generalization without systematicity；Lake & Baroni；ICML/PMLR80",
+        "readingStatus": "selected-sections",
+        "readScope": "§2及§4实验，PDF2、4–7；未逐页读全部附录",
+        "id": "lake-baroni-2018",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "7961052c8c0a113ac7b7c8ba992f58eb88b5665d777b1d695df3eb23b8c56350"
+      },
+      "question": "学会单个动作和组合规则后，能否执行新组合？",
+      "mechanism": "有限语法把指令映射为动作序列；分别用随机、长度和隔离原语切分测试序列模型。",
+      "assumptions": "结果对应2018年的模型、训练和切分；有限人工语法不代表全部自然语言。",
+      "claims": [
+        {
+          "text": "孤立 jump 的最佳测试表现仅1.2%；turn left 的组合表现较好，与 LTURN 在其他训练组合中已出现有关。",
+          "locator": "§4.3，PDF5–6",
+          "basis": "source-reported",
+          "id": "e-lake-baroni-2018-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "原论文没有同任务人类对照；失败不是神经网络不可能组合泛化的证明。",
+      "criticism": "Loula2018补充熟悉词组合控制；MLC2023表明改变训练任务分布可改善某些 SCAN 切分。",
+      "teachingExample": "让模型见过 walk twice 和 jump，单独检验 jump twice，而非随机抽已有模式。",
+      "nextQuestion": "怎样控制词汇熟悉度与组合新颖性这两个变量？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2018"
+    },
+    {
+      "id": "e-loula-2018",
+      "year": 2018,
+      "routeId": "learning-efficiency",
+      "branch": "组合泛化",
+      "title": "Loula 等：熟悉词能否形成新组合？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://aclanthology.org/W18-5413.pdf",
+        "version": "Rearranging the Familiar；Loula, Baroni, Lake；BlackboxNLP2018",
+        "readingStatus": "selected-sections",
+        "readScope": "正文PDF1–6；PDF5表2、3已视觉核对",
+        "id": "loula-2018",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "9b2d006f3c2c3cd30b2f4ded10f884e7e1699605ec757397c8d4b0e9fd347458"
+      },
+      "question": "SCAN失败是否仅因新词的表示没有训练好？",
+      "mechanism": "保留熟悉的词，系统地扣留动作、方向、修饰词组合；再控制填充词和组合示例数量。",
+      "assumptions": "不同初始切分的测试集大小并不一致；不能把整张表当单变量配对实验。",
+      "claims": [
+        {
+          "text": "扣留 Primitive around right 的准确率为2.46±2.68%；只扣留 jump around right 为98.43±0.54%，显示训练组合覆盖十分关键。",
+          "locator": "§3，PDF5表2；后续控制见§4–5",
+          "basis": "source-reported",
+          "id": "e-loula-2018-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "均值来自指定网络与5次运行；后续新增示例实验才更接近固定测试集合的比较。",
+      "criticism": "本站审校：能泛化一些组合与拥有广泛系统性不可互换；该实验也不支持所有网络均失败。",
+      "teachingExample": "固定 jump around right 测试，逐步添加 walk around right 等训练例。",
+      "nextQuestion": "怎样度量训练与测试在组合层面的差异？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2018"
+    },
+    {
+      "id": "e-chollet-2019",
+      "year": 2019,
+      "routeId": "learning-efficiency",
+      "branch": "智能测量",
+      "title": "Chollet：从任务得分转向技能习得效率",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://arxiv.org/pdf/1911.01547v2",
+        "version": "On the Measure of Intelligence；François Chollet；arXiv v2,2019-11-25",
+        "readingStatus": "selected-sections",
+        "readScope": "引言；PDF27–28、46–47、53–54；未逐式复核全部算法信息论定义",
+        "id": "chollet-2019",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "773b9ecec3df33e664ab5a784f9e48818e7fd0d8e211b3243f4f4e0fdecb2fee"
+      },
+      "question": "高任务得分能否区分知识积累、先验和适应能力？",
+      "mechanism": "按任务范围、先验、经验及泛化难度考察技能习得效率；ARC用少量网格例子诱发新规则。",
+      "assumptions": "任务范围与允许先验必须明确；所谓核心知识是设计假设。",
+      "claims": [
+        {
+          "text": "作者把 ARC 的效度、泛化难度量化及先验设定列为待解决问题，不能把它视为已建立的通用智能标尺。",
+          "locator": "§III.2，PDF53–54；设计见§III.1",
+          "basis": "source-reported",
+          "id": "e-chollet-2019-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "本轮未验证形式测度的可计算性，也未验证 ARC 与独立人类能力测量的相关性。",
+      "criticism": "本站审校：准确率、训练经验、搜索预算和测验效度需分别记录。",
+      "teachingExample": "两个系统同样答对，若一个使用大量领域示例或更高搜索预算，不能仅凭得分判断习得效率。",
+      "nextQuestion": "如何防止测验逐渐成为训练分布的一部分？",
+      "baselineEventId": "e-chollet-2019",
+      "dateBasis": "publication",
+      "dateLabel": "2019"
+    },
+    {
+      "id": "e-keysers-2020",
+      "year": 2020,
+      "routeId": "learning-efficiency",
+      "branch": "组合泛化",
+      "title": "CFQ：控制原子分布，改变组合分布",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://arxiv.org/pdf/1912.09713",
+        "version": "Measuring Compositional Generalization；Keysers 等；ICLR2020版，首预印本2019",
+        "readingStatus": "selected-sections",
+        "readScope": "正文PDF1–3、6–8；附录未全面复核",
+        "id": "keysers-2020",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "ee3b29af6eab5388ac1ef09871c547341727ab5d461ba1baab146f5ebf5ffc67"
+      },
+      "question": "怎样超越直觉切分，量化组合分布偏移？",
+      "mechanism": "DBCA用生成规则作原子、规则应用子图作组合；保持原子分布接近，构造最大组合差异 MCD 切分。",
+      "assumptions": "依赖已知生成规则和子图采样；CFQ是人工生成的问句到查询的任务。",
+      "claims": [
+        {
+          "text": "三种基线在 CFQ 随机切分均高于95%，在 MCD 均低于20%；超参数在随机切分调节，报告5次训练结果。",
+          "locator": "§5.1–5.2，PDF7–8，表4",
+          "basis": "source-reported",
+          "id": "e-keysers-2020-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "相关性不等于唯一因果解释；长度等差异仍可能共同变化。",
+      "criticism": "本站审校：若用与测试同分布的验证集反复调参，测量的问题会从未知分布泛化变成针对某类偏移的优化。",
+      "teachingExample": "让原子词的出现频率接近，但把特定嵌套方式留给测试。",
+      "nextQuestion": "自然语言没有生成轨迹时，组合差异如何可靠定义？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2020"
+    },
+    {
+      "id": "e-lake-baroni-2023",
+      "year": 2023,
+      "routeId": "learning-efficiency",
+      "branch": "组合泛化",
+      "title": "MLC：用任务分布训练组合能力",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://www.nature.com/articles/s41586-023-06668-3.pdf",
+        "version": "Human-like systematic generalization through a meta-learning neural network；Lake & Baroni；Nature623,115–121",
+        "readingStatus": "selected-sections",
+        "readScope": "正文PDF2–6；未全面核对Methods与补充材料",
+        "id": "lake-baroni-2023",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "0f7720ff2037c704806781a311172b9f55e4b2edc8ee82ff1a2336f83ac09b50"
+      },
+      "question": "训练方式能否让标准网络获得更强组合泛化并预测人的偏差？",
+      "mechanism": "Transformer在变化的解释语法任务中训练，把学习例子与查询共同作为输入；新任务中冻结权重。",
+      "assumptions": "训练任务分布、词表及人类偏差建模均提供先验；最佳人类对照运行不能当作所有种子的平均。",
+      "claims": [
+        {
+          "text": "指定 SCAN 词汇组合切分显著改善；作者同时报告 SCAN 长度和 COGS 结构切分错误率100%。",
+          "locator": "正文PDF5，表2及Discussion",
+          "basis": "source-reported",
+          "id": "e-lake-baroni-2023-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "人类式行为匹配不是机制同一；原文已承认对元训练分布之外任务及自然语言的推广未定。",
+      "criticism": "Goodale与Mascarenhas2026进一步测试原作者的最佳代数模型，在相近查询、符号置换和规则变化中发现失败。",
+      "teachingExample": "比较新单词替换与新句法规则两类变化，分别报告表现。",
+      "nextQuestion": "训练中获得的系统性在多大范围内稳定？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2023"
+    },
+    {
+      "id": "e-arc-agi-2-2025",
+      "year": 2025,
+      "routeId": "learning-efficiency",
+      "branch": "智能测量",
+      "title": "ARC-AGI-2：把人类校准与任务筛选纳入基准",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://arxiv.org/pdf/2505.11831v1",
+        "version": "ARC-AGI-2；Chollet,Knoop,Kamradt,Landers,Pinkard；v1提交2025-05-17，所取PDF封面日期2025-06-12；另对照v2",
+        "readingStatus": "selected-sections",
+        "readScope": "v1 PDF1、5–7；v2 PDF1–7；版本差异保留，不混用统计口径",
+        "id": "arc-agi-2-report-2025",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "142137fa390bac8c921eed95894ca0b40eabf311614487e1a4e7906cc3360a90"
+      },
+      "question": "怎样改善难度分布、旧任务泄漏风险和缺少统一人类基线的问题？",
+      "mechanism": "保持网格输入输出形式，超额生成任务，经人类测试、去重和难度校准筛选评测集合。",
+      "assumptions": "被筛选后的可解性与平均个体能力是两种统计量；训练集也不能等同于校准后的评测集。",
+      "claims": [
+        {
+          "text": "v1描述407名参与者、515次场次；任务筛选先要求至少两人解出子题，再验证评测题；“每题至少两人解出”不是人人得满分。",
+          "locator": "v1 §4–5，PDF5–7",
+          "basis": "source-reported",
+          "id": "e-arc-agi-2-2025-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "v2修改了部分汇总统计文字；本节点不引用实时榜单，也不把领域差异不显著当作通用智能效度证明。",
+      "criticism": "本站审校：人类可解性是筛选条件，不能独立验证基准是否覆盖一般智能。",
+      "teachingExample": "把“100道题各有人会”和“100人各会所有题”分开计算。",
+      "nextQuestion": "怎样建立独立于筛选过程的外部效度和长期抗污染检验？",
+      "baselineEventId": "e-arc-agi-2-2025",
+      "dateBasis": "publication",
+      "dateLabel": "2025"
+    },
+    {
+      "id": "e-goodale-mascarenhas-2026",
+      "year": 2026,
+      "routeId": "learning-efficiency",
+      "branch": "回应与批评",
+      "title": "系统性挑战：扩展测试能否推翻过强解释？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://aclanthology.org/2026.tacl-1.73.pdf",
+        "version": "Fodor and Pylyshyn’s Systematicity Challenge Still Stands；Goodale & Mascarenhas；TACL14,1619–1632；2026-07",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF1、4–10；未复核全部后续训练实验与补充材料",
+        "id": "goodale-mascarenhas-2026",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "9d110323fa3f57fff30bffd1b08d34739da7ce67d8ea03ebab31d1bbe0143960"
+      },
+      "question": "MLC的优秀行为是否足以解释系统性？",
+      "mechanism": "重用原作者最佳代数模型和代码，改变查询、词与颜色映射、规则重复次数，分别检查三层系统性。",
+      "assumptions": "该工作针对具体已训练模型与解释性主张；与MLC原文已承认的分布外限制应共同阅读。",
+      "claims": [
+        {
+          "text": "对100个查询种子遍历标签—颜色映射，作者报告51个在所有映射上正确，24个部分正确，25个全部错误。",
+          "locator": "§3.1，PDF8；§3.2–3.3，PDF9",
+          "basis": "source-reported",
+          "id": "e-goodale-mascarenhas-2026-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "本轮未重跑模型；这些反例不能证明所有神经网络在所有训练协议下都不可能系统泛化。",
+      "criticism": "本站审校：论文关于何种机制才算“解释”的哲学标准与可复验的行为失败应分开。",
+      "teachingExample": "在保持句法结构时交换两个原语，再在保持原语时改变规则，分解错误。",
+      "nextQuestion": "什么行为覆盖和机制证据，才足以支持可迁移的系统性？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2026"
+    },
+    {
+      "id": "e-ashby-1956",
+      "year": 1956,
+      "routeId": "cybernetics-rl",
+      "branch": "调节边界",
+      "title": "Ashby：调节者需要多少选择？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://ashby.info/Ashby-Introduction-to-Cybernetics.pdf",
+        "version": "An Introduction to Cybernetics；W. Ross Ashby；1956首版，1957第二次印刷，1999电子重排版",
+        "readingStatus": "selected-sections",
+        "readScope": "§11/5–11/11，印刷页204–209 / PDF109–111；未通读专著",
+        "id": "ashby-1956",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "26bd434d9b5d8e430c9b6aea107983249a7196b438502d4624847ab7b8c15da6"
+      },
+      "question": "面对扰动，要把结果限制在可接受范围内，需要怎样的调节能力？",
+      "mechanism": "用扰动—响应—结果表刻画调节；在每列没有重复结果等条件下，响应选择数限制可消除的结果多样性。",
+      "assumptions": "表的约束必须成立；传感、可选响应和目标集合都需明确。",
+      "claims": [
+        {
+          "text": "§11/5给出的计数下界是结果数至少为扰动数除以响应数；§11/9再讨论条件放宽。",
+          "locator": "§11/5–11/9，印刷页204–208",
+          "basis": "source-reported",
+          "id": "e-ashby-1956-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "必要的选择容量不保证选对，也不是越复杂越智能；本文只审校这一章的特定命题。",
+      "criticism": "本站审校：把该定理泛化为组织越大越好，遗漏了环境预处理和可利用结构。",
+      "teachingExample": "四种扰动、两种有效响应，枚举结果表看哪些扰动仍无法区分。",
+      "nextQuestion": "调节者怎样获得足够的信息并学会正确映射？",
+      "baselineEventId": "e-ashby-1956",
+      "dateBasis": "publication",
+      "dateLabel": "1956"
+    },
+    {
+      "id": "e-conant-ashby-1970",
+      "year": 1970,
+      "routeId": "cybernetics-rl",
+      "branch": "调节边界",
+      "title": "好调节器：模型究竟意味着什么？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://governance.foundation/assets/frameworks/other/Conant_Ashby%20Every%20Good%20Regulator%20of%20a%20system%20must%20be%20a%20model%20of%20that%20system.pdf",
+        "version": "Every Good Regulator of a System Must Be a Model of That System；Conant & Ashby；IJSS1(2),89–97；10页重排本",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF2–3、7–9，形式设定、模型定义、定理与证明论证；未核对全部原刊排版",
+        "id": "conant-ashby-1970",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "fba0430f1196748e81915a11860948b5dbb249e861b9a086953b67420362ec7d"
+      },
+      "question": "最简单的最优调节行为与被调节系统之间有何结构关系？",
+      "mechanism": "固定结果映射与系统分布，以结果熵最小为最优；从最优条件分布中选择确定响应，形成 S 到 R 的映射。",
+      "assumptions": "给定事件集合、结果映射及固定分布；原文简化假设最优分布产生唯一结果分布；“简单”按确定映射理解。",
+      "claims": [
+        {
+          "text": "定理中的模型首先是事件间映射；作者明确区分多种同态/同构意义，并允许同样最优但更复杂的调节器。",
+          "locator": "§4，重排本PDF7–9",
+          "basis": "source-reported",
+          "id": "e-conant-ashby-1970-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "不是任意控制任务的通用内部模拟器定理；低结果熵本身也不等于结果符合任意外加价值目标。",
+      "criticism": "本站审校：用它解释现代世界模型时，只能标为概念比较，不能伪造直接技术继承。",
+      "teachingExample": "两个不同世界状态只需同一响应时，调节模型可以合并它们。",
+      "nextQuestion": "任务相关模型需要保留世界的哪些区别？",
+      "baselineEventId": "e-conant-ashby-1970",
+      "dateBasis": "publication",
+      "dateLabel": "1970"
+    },
+    {
+      "id": "e-sutton-1988",
+      "year": 1988,
+      "routeId": "cybernetics-rl",
+      "branch": "价值学习",
+      "title": "TD：可以在结局到来之前学习吗？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://jmvidal.cse.sc.edu/library/sutton88a.pdf",
+        "version": "Learning to Predict by the Methods of Temporal Differences；Richard Sutton；Machine Learning3,9–44",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF3、6–7、16–17；§2机制与§4定理2；未逐项审证明附录",
+        "id": "sutton-1988",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "f1153204158bffd641cdd5ac23995cbdb4c74c34cb92022de4b54e8be6739d6e"
+      },
+      "question": "序列预测能否用相邻预测变化，逐步分配信用？",
+      "mechanism": "TD使用相邻预测之差；TD(λ)用随时间衰减的资格迹调节过去状态的更新。",
+      "assumptions": "本轮读到的定理2涉及吸收马尔可夫链、线性且独立的观察向量、足够小步长及每序列后更新。",
+      "claims": [
+        {
+          "text": "定理2是预测在期望中的渐近收敛结果；不是任意非线性函数逼近器的逐样本收敛保证。",
+          "locator": "§2.3，印刷页15；§4定理2，印刷页24–25",
+          "basis": "source-reported",
+          "id": "e-sutton-1988-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "预测学习与动作选择不同；本轮教学程序使用现代常见的表格 TD(0)记法，不冒充逐式复刻原文。",
+      "criticism": "Baird1995展示改变采样和共享参数后直接推广可以不稳定。",
+      "teachingExample": "走到终点才获得1分，先更新临近状态，再让预期沿路径向前传播。",
+      "nextQuestion": "预测误差如何成为控制策略的学习信号？",
+      "baselineEventId": "e-sutton-1988",
+      "dateBasis": "publication",
+      "dateLabel": "1988"
+    },
+    {
+      "id": "e-watkins-dayan-1992",
+      "year": 1992,
+      "routeId": "cybernetics-rl",
+      "branch": "价值学习",
+      "title": "Q-learning：不先建环境模型也能学控制",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://www.gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf",
+        "version": "Q-learning；Watkins & Dayan；Machine Learning8,279–292",
+        "readingStatus": "selected-sections",
+        "readScope": "§1–3，PDF1–4；PDF4定理步长条件已视觉核对；证明附录未完整审读",
+        "id": "watkins-dayan-1992",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "3f1938a6001991f3171e13a93196fc8fc27978f18c87445321bb25058f35776f"
+      },
+      "question": "未知转移概率和奖励时，怎样估计最优动作价值？",
+      "mechanism": "对访问的状态动作，用即时奖励加下一状态最大 Q 值构造目标，逐步更新表格。",
+      "assumptions": "有限马尔可夫状态动作、奖励有界、折扣小于1、每对状态动作无限采样；其步长和发散而平方和收敛。",
+      "claims": [
+        {
+          "text": "这些条件下表格 Q 值以概率1收敛到最优值；原文明确提醒其他表示可能不收敛。",
+          "locator": "§2定理，印刷页281–282 / PDF3–4",
+          "basis": "source-reported",
+          "id": "e-watkins-dayan-1992-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "渐近保证不说明有限数据效率；探索条件也不是算法自动满足的。",
+      "criticism": "本站审校：不可把表格证明当作深度强化学习稳定性的证明。",
+      "teachingExample": "在两条路径中比较即时小奖励与延迟大奖励，观察折扣和未探索路径的影响。",
+      "nextQuestion": "共享参数带来的泛化会不会破坏稳定性？",
+      "baselineEventId": "e-watkins-dayan-1992",
+      "dateBasis": "publication",
+      "dateLabel": "1992"
+    },
+    {
+      "id": "e-williams-1992",
+      "year": 1992,
+      "routeId": "cybernetics-rl",
+      "branch": "策略学习",
+      "title": "REINFORCE：直接调整动作概率",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://gwern.net/doc/reinforcement-learning/model-free/1992-williams.pdf",
+        "version": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning；Ronald J. Williams；Machine Learning8,229–256",
+        "readingStatus": "selected-sections",
+        "readScope": "§3–4，PDF5–7；即时奖励情形；未审读延迟奖励扩展和证明附录",
+        "id": "williams-1992",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "e1029df5459f4a83bf33a876df018ee4f7b628b210bb9d047a6d60ec13f7c838"
+      },
+      "question": "怎样在没有可微环境模型时沿期望奖励梯度学习？",
+      "mechanism": "使用奖励减基线，乘以动作概率对参数的对数导数，形成随机更新。",
+      "assumptions": "核心定理使用平稳的输入与奖励分布；基线须满足给定参数和输入时与所抽样输出条件独立等条件。",
+      "claims": [
+        {
+          "text": "相同步长时平均更新等于期望奖励梯度乘步长；这是期望方向性质。",
+          "locator": "§3–4，印刷页233–235，定理1",
+          "basis": "source-reported",
+          "id": "e-williams-1992-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "不保证每次更新都改善，也不保证非凸目标全局最优；方差与探索仍需处理。",
+      "criticism": "本站审校：基线不是可以任意依赖所选动作而仍保持无偏的数值。",
+      "teachingExample": "两个动作的随机奖励，枚举各动作概率与更新，验证期望梯度。",
+      "nextQuestion": "如何在降低估计方差的同时避免引入偏差？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "1992"
+    },
+    {
+      "id": "e-baird-1995",
+      "year": 1995,
+      "routeId": "cybernetics-rl",
+      "branch": "反例与修正",
+      "title": "Baird：共享参数为何能令价值学习发散？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://anyflip.com/cmku/bmxj/basic/",
+        "version": "Residual Algorithms；Leemon Baird；1995工作，公开9页镜像转录；作者PDF证书异常，未下载；CMU研讨会目录核对题名",
+        "readingStatus": "selected-sections",
+        "readScope": "转录§2–5、图1及方程3–9；未完整审读随机转移扩展",
+        "id": "baird-1995",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": null
+      },
+      "question": "表格收敛能否直接推广到函数逼近？",
+      "mechanism": "六状态星形例中共享权重让局部更新相互影响；残差梯度同时考虑目标端的参数变化。",
+      "assumptions": "本转录例是六状态；勿与其他版本的七状态反例混同。",
+      "claims": [
+        {
+          "text": "直接更新可发散；残差梯度以平方Bellman残差为目标，但可能收敛较慢。",
+          "locator": "§3–5、图1–2",
+          "basis": "source-reported",
+          "id": "e-baird-1995-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "转录公式有排版损失，未据此声称完成复现。",
+      "criticism": "本站审校：残差下降、预测准确及策略最优需分别验证。",
+      "teachingExample": "两状态共享一参数，比较更新前后其他状态受到的影响。",
+      "nextQuestion": "稳定性、样本效率与目标一致性如何兼顾？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "1995"
+    },
+    {
+      "id": "e-friston-2015",
+      "year": 2015,
+      "routeId": "cybernetics-rl",
+      "branch": "主动推断",
+      "title": "主动推断：为什么先去看线索？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://theisticscience.com/papers/tree/PredictivePsych/Friston-CogNeuro2015.pdf",
+        "version": "Active Inference and Epistemic Value；Friston,Rigoli,Ognibene,Mathys,Fitzgerald,Pezzulo；2015在线版，含前置页",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF3、6–9、13–14；形式设定、价值分解及T迷宫设置；未完整审读附录",
+        "id": "friston-2015",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "e86b3d84a52499271fbf12db8cd7701778f32a2b37c110217189b20949c213c8"
+      },
+      "question": "怎样把获取信息与达到偏好结果放进同一决策准则？",
+      "mechanism": "在离散部分可观察模型中对策略推断；负预期自由能分为偏好结果的外在价值和关于隐藏状态的信息增益。",
+      "assumptions": "需要指定生成模型、偏好及近似推断；示例假定模型结构和参数已学得，不能说从零发现环境。",
+      "claims": [
+        {
+          "text": "T迷宫设置有先看线索再去奖励位置的两步行动；论文用模拟比较信息价值项的作用。",
+          "locator": "方程3–6与 Inference and Planning；正文页6–7、11–12",
+          "basis": "source-reported",
+          "id": "e-friston-2015-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "模拟神经信号的相似性不是生物机制已验证；本轮未运行SPM原实验。",
+      "criticism": "本站审校：奖励最大化也可以通过信念状态规划体现信息价值；不能据此断言RL无法探索。",
+      "teachingExample": "奖励左右未知，先看可靠线索再选择，与直接猜测比较。",
+      "nextQuestion": "模型失配、偏好变化及信息成本如何影响行为？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2015"
+    },
+    {
+      "id": "e-schrittwieser-2019",
+      "year": 2019,
+      "routeId": "cybernetics-rl",
+      "branch": "模型与规划",
+      "title": "MuZero：只预测规划需要的东西",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://arxiv.org/pdf/1911.08265v1",
+        "version": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model；Schrittwieser等；2019首版预印本，后有2020期刊版",
+        "readingStatus": "selected-sections",
+        "readScope": "v1 PDF2、4–5；机制、训练目标与实验设置；未复核全部附录表",
+        "id": "schrittwieser-2019",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "971eb94abb7a8d9afc2fe758a06dba2f6dabbbcfb0a5b52c2d84c2011513ee3b"
+      },
+      "question": "规划是否必须重建每个像素或真实状态？",
+      "mechanism": "表示、潜在动力学和预测网络联合学习奖励、价值及策略；在潜在状态上树搜索，搜索结果反过来提供训练目标。",
+      "assumptions": "本版动力学为确定性；大量交互和搜索计算仍被使用；不同环境单独训练。",
+      "claims": [
+        {
+          "text": "潜在状态没有重建观测的直接要求；原文限制语义于支持未来奖励、价值和策略预测。",
+          "locator": "§1–3，PDF2、4",
+          "basis": "source-reported",
+          "id": "e-schrittwieser-2019-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "不是通用世界理解或跨所有任务的因果模型；扑克等不完全信息博弈未直接处理。",
+      "criticism": "本站审校：与1970模型定理可比较任务相关信息保留，但本轮没有证据建立直接历史影响。",
+      "teachingExample": "背景颜色不影响奖励时，潜在状态可能无需保存颜色。",
+      "nextQuestion": "换奖励或改变环境后，任务相关模型保留的信息是否还足够？",
+      "baselineEventId": "e-schrittwieser-2019",
+      "dateBasis": "preprint-v1",
+      "dateLabel": "2019"
+    },
+    {
+      "id": "e-gibson-1979",
+      "year": 1979,
+      "routeId": "embodied-dynamical",
+      "branch": "生态知觉",
+      "title": "Gibson：环境为这个身体提供什么？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://web.eecs.umich.edu/~stellayu/teach/2023action/papers/1979gibsonAffordance.pdf",
+        "version": "The Ecological Approach to Visual Perception；James J. Gibson；第8章重排节选，15页；不冒称原书页码",
+        "readingStatus": "selected-sections",
+        "readScope": "节选PDF1–2、12–15；供给性定义、光学信息、误知觉及总结",
+        "id": "gibson-1979",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "2b0b8882869f7b1716de46f2134407f6a2ab6871b01f9703b52c23bcd3bac0a4"
+      },
+      "question": "知觉是否能直接发现相对于行动者的行动可能性？",
+      "mechanism": "将供给性理解为动物与环境的互补关系；考察可被提取的光学不变量。",
+      "assumptions": "同一表面的支撑、可坐等属性取决于身体尺度与能力；直接知觉的解释需要有足够的可用信息。",
+      "claims": [
+        {
+          "text": "原文用儿童和成人的座面高度区分供给性，并讨论透明玻璃导致的误知觉。",
+          "locator": "第8章开头与 Misinformation for Affordances，节选PDF1–2、14",
+          "basis": "source-reported",
+          "id": "e-gibson-1979-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这一章的理论论证不等于所有供给性可无学习、无推断地读取；未通读全书。",
+      "criticism": "本站审校：真实行动可能性、感知到的可能性和学会的用途要区分。",
+      "teachingExample": "同一台阶对成人可跨越，对婴儿可能是障碍；玻璃看似可通行却并不可通行。",
+      "nextQuestion": "如何测量某个供给性的指定信息及误判条件？",
+      "baselineEventId": "e-gibson-1979",
+      "dateBasis": "publication",
+      "dateLabel": "1979"
+    },
+    {
+      "id": "e-brooks-1986",
+      "year": 1985,
+      "routeId": "embodied-dynamical",
+      "branch": "行为机器人",
+      "title": "包容架构：逐层增加可运行的行为",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://jmvidal.cse.sc.edu/library/brooks86a.pdf",
+        "version": "A Robust Layered Control System for a Mobile Robot；Rodney Brooks；实读MIT AI Memo864,1985-09；对应1986期刊节点，正文版本未逐页对勘",
+        "readingStatus": "selected-sections",
+        "readScope": "扫描本PDF1、8、20已视觉阅读；§2.2、图3、§7；不是整篇完成",
+        "id": "brooks-1986",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "39ecc5feed013f9101fcdde9ceff9b337f4acabcfd3c2aadcb26dd892b15871f"
+      },
+      "question": "怎样增加机器人能力，同时保留已能运行的底层行为？",
+      "mechanism": "按行为能力构建异步模块；高层通过抑制或替换信息流影响低层，低层继续运行。",
+      "assumptions": "依赖预设连接与人工设计模块；新增层需调试真实的交互接口。",
+      "claims": [
+        {
+          "text": "§2.2要求先调好底层，再接入高层；该1985备忘录摘要报告的是详细模拟中的控制演示。",
+          "locator": "扫描本印刷页7、19；封面摘要",
+          "basis": "source-reported",
+          "id": "e-brooks-1986-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "不能把这份备忘录的模拟直接写成1986期刊实机验证；本轮不替代版本对勘。",
+      "criticism": "本站审校：增量可运行不自动保证大规模模块组合仍容易调试。",
+      "teachingExample": "避障层持续运行，漫游层发方向建议，遇障碍时底层仍能介入。",
+      "nextQuestion": "当层数增加，冲突与长期目标怎样协调？",
+      "baselineEventId": "e-brooks-1986",
+      "dateBasis": "memo-first",
+      "dateLabel": "1985备忘录 / 1986期刊"
+    },
+    {
+      "id": "e-mcgeer-1990",
+      "year": 1990,
+      "routeId": "embodied-dynamical",
+      "branch": "被动动力学",
+      "title": "McGeer：行走能由身体动力学产生多少？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://courses.ece.ucsb.edu/ECE594/594D_F13Byl/papers/McGeer90.pdf",
+        "version": "Passive Dynamic Walking；Tad McGeer；IJRR9(2),62–82",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF2、6；动机、逐步映射及图6已视觉核对；附录公式仅定位未审校",
+        "id": "mcgeer-1990",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "901598f47b6c611ec2f897279dd02192d99dfff68ee2f9cf5a8eb6889591fca6"
+      },
+      "question": "步态的哪些部分可以交给机械结构与重力？",
+      "mechanism": "在浅斜坡上由重力和惯性维持步态；以一步到下一步的状态映射分析周期及扰动。",
+      "assumptions": "特定结构、地面坡度、接触和摩擦条件；能量来自重力势能变化。",
+      "claims": [
+        {
+          "text": "图6将实测步周期、步角与模型比较；纳入滚动摩擦才改善一致性。",
+          "locator": "§3、§5及图6，印刷页63、67",
+          "basis": "source-reported",
+          "id": "e-mcgeer-1990-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "没有主动驱动不等于没有能量来源；机械行走不直接证明认知或一般智能。",
+      "criticism": "本站审校：形态优势必须连同稳定域和环境条件报告，不能只展示成功轨迹。",
+      "teachingExample": "同一控制输入在不同阻尼和惯性下产生不同运动；改变坡度可失去稳定步态。",
+      "nextQuestion": "怎样与少量主动控制结合，并应对平地和扰动？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "1990"
+    },
+    {
+      "id": "e-brooks-1991",
+      "year": 1991,
+      "routeId": "embodied-dynamical",
+      "branch": "行为机器人",
+      "title": "Brooks：没有中央表征能做到哪里？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://people.csail.mit.edu/brooks/papers/representation.pdf",
+        "version": "Intelligence without Representation；Rodney Brooks；Artificial Intelligence47,139–159；作者重排PDF12页",
+        "readingStatus": "selected-sections",
+        "readScope": "§6–8，PDF7–8、10–12；摘要、实机与增长限制、参考文献3",
+        "id": "brooks-1991",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "c6eca85a62c4851bcb8679c848a6719c8129b14af71305a2f6cafdf0afe06f76"
+      },
+      "question": "是否必须先建立统一世界表征，才能产生有效行为？",
+      "mechanism": "完整感知—行动行为层在环境中运行，按固定拓扑互相影响；世界状态可直接触发行动。",
+      "assumptions": "论文针对简单智能和具体机器人；无需中央表征不等于没有内部状态、寄存器或局部表示。",
+      "claims": [
+        {
+          "text": "§8明确提出层数、行为复杂度和学习的开放问题；报告时实机最多三层，六层为模拟。",
+          "locator": "§6.2、§8.1–8.3，PDF7–8、10–11",
+          "basis": "source-reported",
+          "id": "e-brooks-1991-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "通向人类智能的路线是作者研究假设，不能当作已完成结果。",
+      "criticism": "Wilson2002将环境影响与认知系统边界分开；本站不把这篇工作反推为由海德格尔启发，作者§7.5明确否认。",
+      "teachingExample": "物体已到夹爪视野时触发抓取，但寻找、接近和抓取仍需协同。",
+      "nextQuestion": "长期规划、反事实与新任务学习怎样融入？",
+      "baselineEventId": "e-brooks-1991",
+      "dateBasis": "publication",
+      "dateLabel": "1991"
+    },
+    {
+      "id": "e-thelen-2001",
+      "year": 2001,
+      "routeId": "embodied-dynamical",
+      "branch": "发展动力学",
+      "title": "Thelen 等：A-not-B错误是否来自行动历史？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://www.cs.utexas.edu/~jsinapov/teaching/cs378/readings/W4/S0140525X01003910a.pdf",
+        "version": "The Dynamics of Embodiment；Thelen,Schöner,Scheier,Smith；BBS24，目标文+评论+回应合刊86页",
+        "readingStatus": "selected-sections",
+        "readScope": "§4.2、§6.1、姿态实验讨论；PDF15、18–20、27–28；Ruffman评论PDF61；非全文完成",
+        "id": "thelen-2001",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": null
+      },
+      "question": "婴儿反复伸向旧位置的错误，怎样随情境与历史变化？",
+      "mechanism": "动态场整合持续任务输入、短暂线索和先前伸手留下的记忆输入。",
+      "assumptions": "模型说明行为动力学；参数与具体神经机制的映射未确证。",
+      "claims": [
+        {
+          "text": "作者用模型解释延迟、重复与情境效应，并讨论改变姿态后错误减少。",
+          "locator": "§4.2、§6.1及PDF15",
+          "basis": "source-reported",
+          "id": "e-thelen-2001-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "姿态实验在此为作者对既有研究的论述，本轮未独立审原实验数据。",
+      "criticism": "Ruffman同期评论指出姿态改变也会改变注意；模型拟合不排除这种解释（PDF61）。",
+      "teachingExample": "重复向A后改指B，改变等待时间或姿态，分别观察竞争输入。",
+      "nextQuestion": "怎样设计控制，区分运动记忆与注意变化？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2001"
+    },
+    {
+      "id": "e-wilson-2002",
+      "year": 2002,
+      "routeId": "embodied-dynamical",
+      "branch": "概念审查",
+      "title": "Wilson：具身认知包含哪些不同主张？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://worrydream.com/refs/Wilson_M_2002_-_Six_views_of_embodied_cognition.pdf",
+        "version": "Six Views of Embodied Cognition；Margaret Wilson；Psychonomic Bulletin & Review9,625–636",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF1、5–6；六类主张及外部卸载/系统边界论证",
+        "id": "wilson-2002",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "6dfbeaaeeed7f46847652902017e370f53e293009a28d3ff1178a2f0db862cdd"
+      },
+      "question": "“身体重要”究竟支持哪些具体解释？",
+      "mechanism": "区分情境性、时间压力、外部卸载、环境属于认知系统、行动导向、离线认知以身体为基础六类命题。",
+      "assumptions": "各类命题需要独立论证；具体任务与系统边界影响解释。",
+      "claims": [
+        {
+          "text": "作者主张因果影响分布在环境中，并不足以单独推出必须把环境纳入认知系统。",
+          "locator": "Claim4，印刷页629–630",
+          "basis": "source-reported",
+          "id": "e-wilson-2002-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这是有理由的概念批评，不是实验已否证扩展认知；本轮未逐一追溯所引实验。",
+      "criticism": "本站审校：分支分类采用这些区别帮助提问，不把作者的结论当作全领域共识。",
+      "teachingExample": "纸笔参与计算可以降低记忆负担；这还留下如何划定研究系统边界的问题。",
+      "nextQuestion": "什么干预证据能区分外部辅助与认知过程的构成部分？",
+      "baselineEventId": null,
+      "dateBasis": "publication",
+      "dateLabel": "2002"
+    },
+    {
+      "id": "e-zahedi-ay-2013",
+      "year": 2013,
+      "routeId": "embodied-dynamical",
+      "branch": "形态计算",
+      "title": "Zahedi与Ay：怎样量化身体的贡献？",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://arxiv.org/pdf/1301.6975v2",
+        "version": "Quantifying Morphological Computation；Keyan Zahedi & Nihat Ay；2013 v2；Entropy15,1887–1915",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF3–6、16–17；因果图、两种定义、讨论与结论；未复核全部实验",
+        "id": "zahedi-ay-2013",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "be1e156128835fe13b7730f8b3cf2186cbc64147197ee60d0627b31ada6f4c68"
+      },
+      "question": "能否区分动作与身体—环境对下一状态的贡献？",
+      "mechanism": "在感觉运动回路中定义世界W（包括身体）、动作A和下一世界W′；比较有无动作条件、有无当前世界条件的预测分布。",
+      "assumptions": "依赖系统边界、变量选取和观测分辨率；外部世界状态通常不能直接取得。",
+      "claims": [
+        {
+          "text": "两种量化在完全确定的反应式系统中可能给出不同结果；作者承认最终概念选择未解决。",
+          "locator": "§3.2–3.3及§5–6，PDF5、16–17",
+          "basis": "source-reported",
+          "id": "e-zahedi-ay-2013-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "量化不直接测行为质量或智能程度；低动作影响也可能只是失去控制。",
+      "criticism": "Ghazi-Zahedi与Rauh2015进一步区分独有与协同信息，回应两种指标的差异。",
+      "teachingExample": "让下一状态分别由世界、动作、两者异或决定，比较条件信息。",
+      "nextQuestion": "如何把可观测的统计量与真正因果贡献分开？",
+      "baselineEventId": "e-zahedi-ay-2013",
+      "dateBasis": "publication",
+      "dateLabel": "2013"
+    },
+    {
+      "id": "e-ghazi-zahedi-rauh-2015",
+      "year": 2015,
+      "routeId": "embodied-dynamical",
+      "branch": "形态计算",
+      "title": "信息分解：身体独有贡献与协同贡献",
+      "status": "claims-reviewed",
+      "source": {
+        "url": "https://arxiv.org/pdf/1503.05113v1",
+        "version": "Quantifying Morphological Computation Based on an Information Decomposition of the Sensorimotor Loop；Ghazi-Zahedi & Rauh；arXiv提交2015-03-17；所取PDF封面2018-10-09，记录差异",
+        "readingStatus": "selected-sections",
+        "readScope": "PDF1–3、4部分、6–7；信息分解和讨论；优化计算附录未复核",
+        "id": "ghazi-zahedi-rauh-2015",
+        "checkedAt": "2026-10-25",
+        "verification": "仅核对所列原文主张；未独立复现论文结果。",
+        "sha256": "368ec7a7d1771185afd3d689e649de400f6b3bd32ac380add3a272dac2a34d43"
+      },
+      "question": "先前指标是否把身体贡献与身体—动作协同混在一起？",
+      "mechanism": "将关于W′的联合信息分解为共享、各方独有与协同部分；建议用世界独有信息表征形态贡献。",
+      "assumptions": "依赖所选择的信息分解定义；文中承认没有唯一规范分解。",
+      "claims": [
+        {
+          "text": "条件互信息包含独有信息与协同信息；文章的二元回路模拟将二者分开。",
+          "locator": "§3方程5–7、§5–6，PDF3、6–7",
+          "basis": "source-reported",
+          "id": "e-ghazi-zahedi-rauh-2015-c1",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "仍需要外部世界变量；讨论明确说明互信息是相关量，因果信息流属于后续研究。",
+      "criticism": "本站审校：分离统计信息不等于已测得身体的干预因果效应。",
+      "teachingExample": "独立公平二元W、A的异或：单看任一变量无信息，合看有1比特。",
+      "nextQuestion": "如何在真实机器人与部分观察条件下估计并验证这些量？",
+      "baselineEventId": null,
+      "dateBasis": "preprint-v1",
+      "dateLabel": "2015"
+    }
+  ],
+  "relations": [
+    {
+      "id": "r-lake-baroni-2018-loula-2018",
+      "fromId": "e-lake-baroni-2018",
+      "toId": "e-loula-2018",
+      "type": "method-extension",
+      "evidenceSourceId": "loula-2018",
+      "locator": "Loula2018 §1，PDF1",
+      "explanation": "后文明确说扩展SCAN框架，控制熟悉词组合；这是方法扩展证据。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-lake-baroni-2018-keysers-2020",
+      "fromId": "e-lake-baroni-2018",
+      "toId": "e-keysers-2020",
+      "type": "benchmark-reuse",
+      "evidenceSourceId": "keysers-2020",
+      "locator": "Keysers2020 §4–5，PDF6–8",
+      "explanation": "DBCA在SCAN及CFQ上构造和比较切分；不推断全部思想来源。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-lake-baroni-2018-lake-baroni-2023",
+      "fromId": "e-lake-baroni-2018",
+      "toId": "e-lake-baroni-2023",
+      "type": "benchmark-reuse",
+      "evidenceSourceId": "lake-baroni-2023",
+      "locator": "Lake与Baroni2023正文PDF4–5",
+      "explanation": "MLC重测SCAN词汇切分，另报告长度失败。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-loula-2018-lake-baroni-2023",
+      "fromId": "e-loula-2018",
+      "toId": "e-lake-baroni-2023",
+      "type": "benchmark-reuse",
+      "evidenceSourceId": "lake-baroni-2023",
+      "locator": "Lake与Baroni2023表2，PDF5",
+      "explanation": "重测around right等组合切分；训练协议改变，数字不可当纯架构对照。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-lake-baroni-2023-goodale-mascarenhas-2026",
+      "fromId": "e-lake-baroni-2023",
+      "toId": "e-goodale-mascarenhas-2026",
+      "type": "critique",
+      "evidenceSourceId": "goodale-mascarenhas-2026",
+      "locator": "Goodale与Mascarenhas2026 §2–3，PDF4–9",
+      "explanation": "明确重用原作者最佳代数模型，提出行为反例及解释标准批评。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-chollet-2019-arc-agi-2-2025",
+      "fromId": "e-chollet-2019",
+      "toId": "e-arc-agi-2-2025",
+      "type": "method-extension",
+      "evidenceSourceId": "arc-agi-2-report-2025",
+      "locator": "ARC-AGI-2 v1 §1、§4–5",
+      "explanation": "后文明确沿用原ARC框架并增加人类校准和筛选。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-sutton-1988-watkins-dayan-1992",
+      "fromId": "e-sutton-1988",
+      "toId": "e-watkins-dayan-1992",
+      "type": "method-relation",
+      "evidenceSourceId": "watkins-dayan-1992",
+      "locator": "Watkins与Dayan1992 §1，PDF1",
+      "explanation": "后文明确说明更新方式与TD相近；不称TD直接推出其收敛证明。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-watkins-dayan-1992-baird-1995",
+      "fromId": "e-watkins-dayan-1992",
+      "toId": "e-baird-1995",
+      "type": "critique",
+      "evidenceSourceId": "baird-1995",
+      "locator": "Baird1995 §2–4",
+      "explanation": "明确针对从表格收敛到一般函数逼近的推广提出反例。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-brooks-1986-brooks-1991",
+      "fromId": "e-brooks-1986",
+      "toId": "e-brooks-1991",
+      "type": "method-extension",
+      "evidenceSourceId": "brooks-1991",
+      "locator": "Brooks1991 §6.2与参考文献3，PDF7、12",
+      "explanation": "后文明确沿用包容架构并指向1986实现；本轮早期节点实读版本为1985备忘录。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-gibson-1979-wilson-2002",
+      "fromId": "e-gibson-1979",
+      "toId": "e-wilson-2002",
+      "type": "citation",
+      "evidenceSourceId": "wilson-2002",
+      "locator": "Wilson2002引言，PDF1",
+      "explanation": "引用Gibson的生态知觉作为思想来源之一；引用不等于验证其全部命题。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-brooks-1991-wilson-2002",
+      "fromId": "e-brooks-1991",
+      "toId": "e-wilson-2002",
+      "type": "citation",
+      "evidenceSourceId": "wilson-2002",
+      "locator": "Wilson2002 Claim3，PDF5",
+      "explanation": "讨论利用世界降低内部存储负担时直接引用Brooks1991。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-mcgeer-1990-ghazi-zahedi-rauh-2015",
+      "fromId": "e-mcgeer-1990",
+      "toId": "e-ghazi-zahedi-rauh-2015",
+      "type": "citation",
+      "evidenceSourceId": "ghazi-zahedi-rauh-2015",
+      "locator": "Ghazi-Zahedi与Rauh2015引言，PDF1",
+      "explanation": "明确用被动行走作为形态贡献实例；没有声称论文复现该机器人。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-zahedi-ay-2013-ghazi-zahedi-rauh-2015",
+      "fromId": "e-zahedi-ay-2013",
+      "toId": "e-ghazi-zahedi-rauh-2015",
+      "type": "method-extension",
+      "evidenceSourceId": "ghazi-zahedi-rauh-2015",
+      "locator": "Ghazi-Zahedi与Rauh2015引言及§6，PDF2、7",
+      "explanation": "后文明确以信息分解处理前文两种量化的差异。",
+      "status": "source-checked"
+    },
+    {
+      "id": "r-conant-ashby-1970-schrittwieser-2019",
+      "fromId": "e-conant-ashby-1970",
+      "toId": "e-schrittwieser-2019",
+      "type": "editorial-comparison",
+      "evidenceSourceId": "schrittwieser-2019",
+      "locator": "本站比较：Conant1970 §4；MuZero2019 §1–3",
+      "explanation": "两者都可用于提问任务相关信息保留，但模型定义、目标和证明对象不同；未发现直接历史影响证据。",
+      "status": "editorial"
+    },
+    {
+      "id": "r-conant-ashby-1970-brooks-1991",
+      "fromId": "e-conant-ashby-1970",
+      "toId": "e-brooks-1991",
+      "type": "editorial-comparison",
+      "evidenceSourceId": "brooks-1991",
+      "locator": "本站比较：调节事件映射与Brooks1991 §6–8",
+      "explanation": "结构上的模型关系与显式中央表征不是同一概念，表面冲突需先澄清语义。",
+      "status": "editorial"
+    },
+    {
+      "id": "r-thelen-2001-wilson-2002",
+      "fromId": "e-thelen-2001",
+      "toId": "e-wilson-2002",
+      "type": "editorial-comparison",
+      "evidenceSourceId": "wilson-2002",
+      "locator": "本站比较：Thelen2001 §4.2；Wilson2002 Claim4",
+      "explanation": "将动态耦合机制与认知系统边界区分；不声称Wilson在此直接批评2001目标文。",
+      "status": "editorial"
+    }
+  ],
+  "baseline": {
+    "path": "../atlas.json",
+    "sha256": "ea0b8ad24c1ae1bf7432a31afa75d2744d1f107b2c2c191e18a0f4ca714a8776",
+    "policy": "第一轮保持原状；本轮相同事件ID提供新的指定主张审校记录，不把其余候选自动升级。"
+  },
+  "routes": [
+    {
+      "id": "learning-efficiency",
+      "name": "学习效率与泛化",
+      "color": "#2563eb",
+      "question": "学会一道题，与获得可迁移的学习能力，有何不同？",
+      "narrative": [
+        "形式学习把问题变为可检验的协议：给什么经验、允许什么查询、能表示哪些概念、以什么概率和代价成功。Valiant 的原协议提醒我们，比较前先对齐这些条件。",
+        "概念生成与组合泛化提出另一层要求：新例子是否能通过已有部件重组得到？BPL让生成过程参与推断；SCAN及其后续工作把随机切分中看不出来的缺口显露出来，CFQ则尝试量化组合分布差异。",
+        "MLC说明训练任务分布可以显著改变某些组合泛化结果，但2023原文的结构外推失败和2026后续反例都限制了强解释。ARC线则追问怎样衡量技能习得效率；人类校准改善了基准设计，却仍留下外部效度问题。"
+      ],
+      "gaps": [
+        "Fodor与Pylyshyn1988原文的完整论证仍需单独深读；本轮只通过后续研究对其论证的讨论了解争论入口。",
+        "缺少现实任务、跨文化人类测试、最新模型与长期污染控制的系统检索；没有穷尽到2026年。"
+      ]
+    },
+    {
+      "id": "cybernetics-rl",
+      "name": "控制论、强化学习与主动推断",
+      "color": "#047857",
+      "question": "系统怎样维持目标、从反馈学习，并主动减少不确定性？",
+      "narrative": [
+        "Ashby关注可用调节选择的容量，Conant与Ashby讨论最简单最优调节器的映射结构。两者提供约束视角，但不是现成学习算法。模型一词也不能未经解释就等同现代神经世界模型。",
+        "TD、Q-learning和REINFORCE分别把序列预测、动作价值和随机策略变成可学习对象。保证来自各自条件；Baird的共享参数反例阻止我们把表格结果直接推广为一般函数逼近定理。",
+        "主动推断把偏好与信息获取放进策略评价；MuZero通过任务相关潜在模型支持搜索。这是不同问题设定下的分支，不能画成一个依次替代前者的阶梯。"
+      ],
+      "gaps": [
+        "Wiener与Bellman的原始工作、赋能度分支仍需补读，第一轮入口保留。",
+        "未执行原论文训练或SPM模拟；尚未系统比较主动推断与信念状态RL的等价条件及差异。"
+      ]
+    },
+    {
+      "id": "embodied-dynamical",
+      "name": "具身、生态与动力系统",
+      "color": "#b45309",
+      "question": "智能行为应在大脑、身体与环境的哪一层解释？",
+      "narrative": [
+        "Gibson从动物—环境关系界定供给性，Brooks从可运行的行为层构造机器人。前者是知觉理论，后者是架构与工程方法，两者不因都谈环境就成为同一种机制。",
+        "McGeer展示机械结构可贡献步态；Thelen等把行动历史引入婴儿错误模型。行为成功、动态描述、认知解释与神经实现需要不同证据，姿态实验的注意混杂也必须保留。",
+        "Wilson拆分具身认知命题，形态计算研究尝试量化身体与控制器的贡献。2013与2015指标的差异说明，系统边界、协同信息和因果性仍是核心问题。"
+      ],
+      "gaps": [
+        "Varela1991、Thelen与Smith1994专著及Beer动力系统框架未在本轮完成；行动生成论分支仍是明确缺口。",
+        "未开展机器人或婴儿实验复现；二元信息算例只能检查指标含义，不能替代真实身体证据。"
+      ]
+    }
+  ]
+}

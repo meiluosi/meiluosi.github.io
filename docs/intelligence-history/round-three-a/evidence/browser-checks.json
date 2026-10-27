@@ -1,0 +1,33 @@
+{
+  "asOf": "2026-10-27",
+  "scope": "A批最终工作台的图形与交互检查；内容审校另见completion-audit.json",
+  "browser": "Microsoft Edge headless, isolated temporary profile",
+  "status": "completed",
+  "nodes": 34,
+  "graphNodesVisited": 39,
+  "checks": [
+    "路线参数在初始化时保留",
+    "第二轮节点深链接及阅读状态正确",
+    "learning-efficiency/timeline节点覆盖、文字边界和点击通过",
+    "learning-efficiency/relations节点覆盖、文字边界和点击通过",
+    "symbolic-logic/timeline节点覆盖、文字边界和点击通过",
+    "symbolic-logic/relations节点覆盖、文字边界和点击通过",
+    "connectionist/timeline节点覆盖、文字边界和点击通过",
+    "connectionist/relations节点覆盖、文字边界和点击通过",
+    "causal-world-models/timeline节点覆盖、文字边界和点击通过",
+    "causal-world-models/relations节点覆盖、文字边界和点击通过",
+    "cybernetics-rl/timeline节点覆盖、文字边界和点击通过",
+    "cybernetics-rl/relations节点覆盖、文字边界和点击通过",
+    "cognitive-architectures/timeline节点覆盖、文字边界和点击通过",
+    "cognitive-architectures/relations节点覆盖、文字边界和点击通过",
+    "embodied-dynamical/timeline节点覆盖、文字边界和点击通过",
+    "embodied-dynamical/relations节点覆盖、文字边界和点击通过",
+    "键盘目录与外部锚点变更同步",
+    "brooks-1985-1986版本对照入口通过",
+    "muzero-2019-2020版本对照入口通过",
+    "批次与路线验收状态显示一致",
+    "390px窄屏无页面横向溢出，图在独立区域滚动"
+  ],
+  "consoleErrors": [],
+  "timezone": "Asia/Shanghai"
+}

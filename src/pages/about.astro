@@ -7,41 +7,52 @@ import Layout from "@/layouts/Layout.astro";
 
 const curiosities = [
 	{
-		title: "学会一件事，然后呢？",
-		titleEn: "What happens after learning?",
-		body: "模型怎样从文字里学会预测，一次反馈又怎样改变下一次选择？写代码、读论文、看它们出错，都是我接近这些问题的方式。",
-		bodyEn: "How does a model learn to predict from text, and how does feedback change its next choice? I explore these questions by reading papers, writing code, and watching where things go wrong.",
+		title: "具身与涌现：机械也能有步态",
+		titleEn: "Embodiment: A machine with a gait",
+		body: "在 Strandbeest 这样的仿生机械中，简单的连杆几何为什么能产生如同生物一般的步态？无机物质在力学约束下的自主协调，是理解具身智能的一面透镜。",
+		bodyEn:
+			"In mechanisms like Strandbeest, how can simple geometric linkages produce a gait that feels alive? Passive coordination under physical constraints offers a lens into embodied intelligence.",
 	},
 	{
-		title: "数字怎样描述世界",
-		titleEn: "How numbers describe the world",
-		body: "一个分数能说明多少事，又遗漏了什么？因果推理和数据分析让我反复想到这个问题，也提醒我留意数字背后的前提。",
-		bodyEn: "How much can a score tell us, and what does it leave out? Causal inference and data analysis keep bringing me back to the assumptions behind the numbers.",
+		title: "表征与语言：学会一件事，然后呢？",
+		titleEn: "Representation: What happens after learning?",
+		body: "模型怎样从海量文本中压缩出对世界的表征，统计规律又在何时跨越为语义理解？从语料构建、注意力机制到出错分析，都是我靠近这些问题的方式。",
+		bodyEn:
+			"How does a model compress world representations from text, and when do statistics cross over into semantic understanding? Corpus design, attention mechanisms, and error modes guide this inquiry.",
 	},
 	{
-		title: "机器也能有步态",
-		titleEn: "A machine with a gait",
-		body: "最近的好奇心还走向了 Strandbeest：几根连杆为什么能走出像生物一样的步子？在机械、几何与演化交汇的地方，有许多值得慢慢拆开看的东西。",
-		bodyEn: "Lately, my curiosity has also led me to Strandbeest. How can a handful of links produce a gait that feels alive? There is a lot to take apart and understand where mechanics, geometry, and evolution meet.",
+		title: "因果与决策：数字怎样描述世界",
+		titleEn: "Causality: How numbers describe the world",
+		body: "相关并不等于因果。一个智能体怎样区分‘看到了什么’与‘若采取行动会如何’？因果推理与博弈搜索让我反复审视反事实推演与决策的边界。",
+		bodyEn:
+			"Correlation is not causation. How does an agent distinguish seeing from doing? Causal inference and game-theoretic search prompt me to examine the boundaries of counterfactual reasoning.",
+	},
+	{
+		title: "递归与自我：智能如何审视并改进自身",
+		titleEn: "Recursion: How intelligence refines itself",
+		body: "递归自我改进（RSI）与元认知：一个智能系统能否具备对自身思维模式的自省能力，并以安全、可验证的方式持续重构自身策略？这是我长期的核心课题。",
+		bodyEn:
+			"Recursive self-improvement (RSI) and meta-cognition: can an intelligent system reflect on its own reasoning and iteratively reconstruct its policy in a safe, verifiable manner?",
 	},
 ];
 ---
 
-<Layout title="关于我 — 枫语" titleEn="About me — Feng Yu" description="我是冯宇，在这里写下关于智能、因果、机械和学习的好奇与思考。" descriptionEn="I’m Feng Yu. I write about intelligence, causality, mechanics, and the questions that come with learning.">
+<Layout title="关于我 — 枫语" titleEn="About me — Feng Yu" description="我是冯宇。以「智能是什么」为核心追问，记录关于具身物理、符号表征、因果模型与递归自我的思考。" descriptionEn="I’m Feng Yu. Centered on the question 'what is intelligence', I explore embodied physics, symbolic representation, causal models, and recursive self-improvement.">
 	<div class="about-page" data-brand-motion>
 		<Navbar />
 		<main id="swup-container">
 			<section class="about-hero compact-page-heading"><h1 id="about-title" data-motion-intro><Text zh="关于枫语" en="About Feng Yu" /></h1></section>
 			<section class="letter" aria-labelledby="letter-title" data-motion-reveal>
 				<h2 id="letter-title"><Text zh="个人简介" en="Profile" /></h2>
-				<div><figure class="portrait"><img src={avatar.src} alt="枫语的头像" data-i18n-alt-zh="枫语的头像" data-i18n-alt-en="Portrait of Feng Yu" width={avatar.width} height={avatar.height}/><figcaption><Text zh="枫语 · 冯宇" en="Feng Yu · 冯宇" /></figcaption></figure><Text as="p" class="lead" zh="我叫冯宇，是一名大模型算法工程师。这是我的个人博客，放着学习时写下的笔记、动手做过的尝试，还有一些仍在琢磨的问题。" en="My name is Feng Yu, and I’m an LLM algorithm engineer. This is my personal blog: a place for notes from learning, things I’ve tried making, and questions I’m still thinking through." />
-					<Text as="p" zh="我常从一个技术问题出发，写着写着，又碰到更大的疑问：什么算学会，怎样判断一次变化，为什么简单的东西能组合出复杂的行为。模型、反馈、因果和机械，让我从不同角度靠近这些问题。" en="I often start with a technical question and find a larger one along the way: what counts as learning, how to make sense of a change, or why simple parts can produce complex behavior. Models, feedback, causality, and mechanics give me different ways to approach them." />
-					<Text as="p" zh="递归自我改进（RSI）仍是我关心的长期问题。这里也给旁逸斜出的好奇心留一点位置：一段推导、一篇读后感，或者一台会走路的机器，都可以成为下一篇文章的起点。" en="Recursive self-improvement (RSI) remains a long-term interest. There is room here for curiosity to wander, too: a derivation, a reflection on something I’ve read, or a walking machine can all be the starting point for a piece of writing." />
+				<div><figure class="portrait"><img src={avatar.src} alt="枫语的头像" data-i18n-alt-zh="枫语的头像" data-i18n-alt-en="Portrait of Feng Yu" width={avatar.width} height={avatar.height}/><figcaption><Text zh="枫语 · 冯宇" en="Feng Yu · 冯宇" /></figcaption></figure><Text as="p" class="lead" zh="我叫冯宇，是一名大模型算法工程师。这是我的个人博客：放着学习时写下的笔记、动手做过的实验，以及一个始终在追问的核心母题——智能是什么？" en="My name is Feng Yu, and I’m an LLM algorithm engineer. This is my personal blog: a place for research notes, interactive experiments, and an enduring question — what is intelligence?" />
+					<Text as="p" zh="在日常的工程与算法实践中，我常与数据、损失函数和训练集群打交道。但穿过这些工程细节，最让我着迷的始终是那些本质性的疑问：简单的构件为何能涌现出复杂的协调？统计概率怎样凝聚出推理能力？智能体又如何知道‘如果当初换一种选择会怎样’？" en="In day-to-day engineering, I work with corpora, loss curves, and GPU clusters. Yet beyond implementation details, what captivates me are the foundational questions: how simple parts yield collective coordination, how statistical patterns crystallize into reasoning, and how an agent models counterfactuals." />
+					<Text as="p" zh="从机械连杆的具身步态，到大语言模型的表征空间；从因果推断的世界模型，到递归自我改进（RSI）与元认知——我将这些方向视作环绕在‘智能’这一引力核心周围的不同轨道。在这里，推导、代码、长文与可以亲自动手拨弄的小实验并存。" en="From the physical gait of mechanical linkages to the latent representations of LLMs; from causal world models to recursive self-improvement (RSI) — I view these as distinct orbits circling the core question of intelligence. Here, derivations, code, essays, and interactive probes sit side by side." />
+					<p><Text zh="我也将学术界探索智能的二十个主要传统整理成了一张思想地图。面对‘统一原理、共同组织、还是机制多样性’这三种期待，我不提前预设结论，而是记录每种理论解释了什么、又把什么留在了外面。欢迎查阅" en="I have also mapped out twenty major paradigm traditions of intelligence across disciplines. Rather than pre-selecting a single dogma, I seek to understand what each paradigm explains and what it leaves out. Explore the " /><a href="/routes/"><Text zh="智能的 20 个路线家族与分歧地图" en="Atlas of 20 Intelligence Paradigms" /></a><Text zh="。" en="." /></p>
 					<p><Text zh="你可以从一篇感兴趣的文章读起，也可以去看看那些能动手试的小实验。若有不同的想法，欢迎" en="Start with an article that catches your interest, or try one of the small interactive experiments. If something makes you think, feel free to " /><a href="/contact/"><Text zh="写信给我" en="write to me" /></a><Text zh="。" en="." /></p>
 				</div>
 			</section>
 			<section class="curiosities" aria-labelledby="curiosity-title" data-motion-reveal>
-				<h2 id="curiosity-title"><Text zh="研究方向" en="Research interests" /></h2>
+				<h2 id="curiosity-title"><Text zh="四条探索轨道" en="Four inquiry orbits" /></h2>
 				<div class="curiosity-list">{curiosities.map((item) => <article><Text as="h3" zh={item.title} en={item.titleEn} /><Text as="p" zh={item.body} en={item.bodyEn} /></article>)}</div>
 			</section>
 			<PersonalJourney />

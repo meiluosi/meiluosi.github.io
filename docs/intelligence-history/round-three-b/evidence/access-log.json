@@ -1,0 +1,634 @@
+{
+  "asOf": "2026-10-27",
+  "scope": "下载事件与后续阅读状态分别保存。早期受限网络DNS失败未全部保留逐次结果，以下下载清单以最终尝试记录为准；未下载PDF可据原始文本选读，但不产生本地PDF指纹。",
+  "entries": [
+    {
+      "id": "spearman-1904",
+      "url": "https://gwern.net/docs/iq/1904-spearman.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 92,
+      "bytes": 3728696,
+      "sha256": "d70c958b6e4233d3e00f867d5b32d348ab6f45753e63982195b5e46ff2320a72",
+      "readingStatus": "unread",
+      "batch": "batch01.results.json"
+    },
+    {
+      "id": "wang-1995",
+      "url": "https://cis.temple.edu/~wangp/Publication/thesis.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 181,
+      "bytes": 929692,
+      "sha256": "aeb1e08e16b95e7c960fa28e0405b6b356b3ff6c24913911d6f210e4c50a9810",
+      "readingStatus": "unread",
+      "batch": "batch01.results.json"
+    },
+    {
+      "id": "legg-hutter-2007",
+      "url": "https://www.hutter1.net/ai/iorx.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 49,
+      "bytes": 331547,
+      "sha256": "4227cbd1e4959779db875c4c78fad5b78976bb19c7ec01ddbe463cb92b7ba77d",
+      "readingStatus": "unread",
+      "batch": "batch01.results.json"
+    },
+    {
+      "id": "meredith-1993-publisher",
+      "url": "https://link.springer.com/content/pdf/10.1007/BF02294825.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Stream has ended unexpectedly",
+      "details": "",
+      "batch": "batch01.results.json"
+    },
+    {
+      "id": "gigerenzer-goldstein-1996",
+      "url": "https://web.mit.edu/curhan/www/docs/Articles/biases/Gigerenzer_Goldstein_Reasoning%20Fast%20and%20Frugal.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 20,
+      "bytes": 2361094,
+      "sha256": "07d75b55058d015f884e3b1eef32c778709b561666aa00e8b4dd6a1df2a5cebc",
+      "readingStatus": "unread",
+      "batch": "batch02.results.json"
+    },
+    {
+      "id": "lieder-griffiths-2020",
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 61,
+      "bytes": 1846197,
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9",
+      "readingStatus": "unread",
+      "batch": "batch02.results.json"
+    },
+    {
+      "id": "kovacs-conway-2016",
+      "url": "https://coglab.eu/wp-content/uploads/2023/07/kovacs-conway-process-overlap-theory.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 27,
+      "bytes": 1240735,
+      "sha256": "3d0545b102e7c87f8016bc405f0aea863279cd9538e6a74477b09992efd4d5f9",
+      "readingStatus": "unread",
+      "batch": "batch02.results.json"
+    },
+    {
+      "id": "chc-2018-slides",
+      "url": "https://www.iapsych.com/mindhubpub4.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://www.iapsych.com/mindhubpub4.pdf', '-o', '/private/tmp/intelligence-history-r3b/chc-2018-slides.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) LibreSSL/3.3.6: error:1404B410:SSL routines:ST_CONNECT:sslv3 alert handshake failure\n",
+      "batch": "batch02.results.json"
+    },
+    {
+      "id": "thurstone-1931",
+      "url": "https://stats.org.uk/factor-analysis/Thurstone1931.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://stats.org.uk/factor-analysis/Thurstone1931.pdf', '-o', '/private/tmp/intelligence-history-r3b/thurstone-1931.pdf']' returned non-zero exit status 60.",
+      "details": "curl: (60) SSL: no alternative certificate subject name matches target host name 'stats.org.uk'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the web page mentioned above.\n",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "gardner-1983-reprint",
+      "url": "https://www.crisrieder.org/thejourney/storage/2025/04/Howard-Gardner.-Frames-of-Mind-2.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 559,
+      "bytes": 3390243,
+      "sha256": "45b18ca47fa6da4172f4e8e8b8499026bbe0a2d4f41675b55a37150c55b54d2e",
+      "readingStatus": "unread",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "simon-1955",
+      "url": "https://cooperative-individualism.org/simon-herbert_a-behavioral-model-of-rational-choice-1955-feb.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 21,
+      "bytes": 1540725,
+      "sha256": "25bf76dd1b4370d6d66d53aecb311ea6d6f486141a3dd4b8d629d0ebe3c6dfcf",
+      "readingStatus": "unread",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "turing-1950",
+      "url": "https://www.csee.umbc.edu/courses/471/papers/turing.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 22,
+      "bytes": 91972,
+      "sha256": "3cd7c57944b7b53f18fb2a7c014fe2367f3576696a1d024c840151459da2f24e",
+      "readingStatus": "unread",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "searle-1980",
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 42,
+      "bytes": 5896034,
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731",
+      "readingStatus": "unread",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "agarwal-2021",
+      "url": "https://papers.nips.cc/paper/2021/file/f514cec81cb148559cf475e7426eed5e-Paper.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 17,
+      "bytes": 10255284,
+      "sha256": "7553e280d4a1560860bc5f6be2d70539fc5b510e0e3bb2d556824e51e9a80252",
+      "readingStatus": "unread",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "liang-2022-v1",
+      "url": "https://arxiv.org/pdf/2211.09110v1",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 163,
+      "bytes": 6099449,
+      "sha256": "eb365cc3cbb46cfb36fb272261c017a6456de54d9d96138ef39f3d647fd232f1",
+      "readingStatus": "unread",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "hernandez-dowe-2010",
+      "url": "https://citeseerx.ist.psu.edu/document?doi=12e31d52bca4b906a85cc6e2635fc7d261b7b298&repid=rep1&type=pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://citeseerx.ist.psu.edu/document?doi=12e31d52bca4b906a85cc6e2635fc7d261b7b298&repid=rep1&type=pdf', '-o', '/private/tmp/intelligence-history-r3b/hernandez-dowe-2010.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Failed to connect to web.archive.org port 443 after 75240 ms: Couldn't connect to server\n",
+      "batch": "batch03.results.json"
+    },
+    {
+      "id": "meredith-1993",
+      "url": "https://qpsy.snu.ac.kr/teaching/csm/meredith.1993.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://qpsy.snu.ac.kr/teaching/csm/meredith.1993.pdf', '-o', '/private/tmp/intelligence-history-r3b/meredith-1993.pdf']' returned non-zero exit status 6.",
+      "details": "curl: (6) Could not resolve host: qpsy.snu.ac.kr\n",
+      "batch": "batch04.results.json"
+    },
+    {
+      "id": "hutter-2000",
+      "url": "https://www.hutter1.net/ai/pkcunai.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 64,
+      "bytes": 460300,
+      "sha256": "41eec0ff1078133dfacfa1ef1fbf18b0838b70dba95234a15de2f77525ee179e",
+      "readingStatus": "unread",
+      "batch": "batch04.results.json"
+    },
+    {
+      "id": "mcgrew-2005",
+      "url": "https://www.iapsych.com/articles/mcgrew2005.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://www.iapsych.com/articles/mcgrew2005.pdf', '-o', '/private/tmp/intelligence-history-r3b/mcgrew-2005.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) LibreSSL/3.3.6: error:1404B410:SSL routines:ST_CONNECT:sslv3 alert handshake failure\n",
+      "batch": "batch04.results.json"
+    },
+    {
+      "id": "chc-2012",
+      "url": "https://www.iapsych.com/chcv2.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://www.iapsych.com/chcv2.pdf', '-o', '/private/tmp/intelligence-history-r3b/chc-2012.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) LibreSSL/3.3.6: error:1404B410:SSL routines:ST_CONNECT:sslv3 alert handshake failure\n",
+      "batch": "batch04.results.json"
+    },
+    {
+      "id": "mcgrew-2005-http",
+      "url": "http://www.iapsych.com/articles/mcgrew2005.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 21,
+      "bytes": 3914108,
+      "sha256": "dbd3fc3b84a6371c2d47cb76d07c829fc99e64784fe261bc6aff1a11b9b54d06",
+      "readingStatus": "unread",
+      "batch": "batch05.results.json"
+    },
+    {
+      "id": "chc-2012-http",
+      "url": "http://www.iapsych.com/chcv2.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "downloaded",
+      "pages": 11,
+      "bytes": 304052,
+      "sha256": "97eaf70f0438c0348ba02d0208f2e3783a5140aa2dd8aaca7ff20e9652f83612",
+      "readingStatus": "unread",
+      "batch": "batch05.results.json"
+    },
+    {
+      "id": "flanagan-dixon-chc",
+      "url": "https://static1.squarespace.com/static/637e439b27c8cd282176bc93/t/64469fdac34dc15e9e9ed5c9/1682350043960/CHC%2BTheory%2BArticle.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://static1.squarespace.com/static/637e439b27c8cd282176bc93/t/64469fdac34dc15e9e9ed5c9/1682350043960/CHC%2BTheory%2BArticle.pdf', '-o', '/private/tmp/intelligence-history-r3b/flanagan-dixon-chc.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) Recv failure: Connection reset by peer\n",
+      "batch": "batch05.results.json"
+    },
+    {
+      "id": "binet-1905-kite",
+      "url": "https://psychclassics.yorku.ca/Binet/binet1.htm",
+      "status": "downloaded",
+      "readingStatus": "unread",
+      "accessedAt": "2026-10-27",
+      "sha256": "d3e7b6a37b8a419fccd148a6111305e0f7c8f4711b47a4a099757ebfe65949ac",
+      "batch": "html-results.json"
+    },
+    {
+      "id": "cronbach-meehl-1955",
+      "url": "https://psychclassics.yorku.ca/Cronbach/construct.htm",
+      "status": "downloaded",
+      "readingStatus": "unread",
+      "accessedAt": "2026-10-27",
+      "sha256": "2ab6870b8077010c9711b43a6ebc303ea0e8c3aaf74db6706a033b0af6fcd8ea",
+      "batch": "html-results.json"
+    },
+    {
+      "id": "thurstone-1934",
+      "url": "https://psychclassics.yorku.ca/Thurstone/",
+      "status": "downloaded",
+      "readingStatus": "unread",
+      "accessedAt": "2026-10-27",
+      "sha256": "fdf6d4fdb142ccf9b10b83ff2819b9387de69c1d7a216206b07db9885aaf94b5",
+      "batch": "html-results.json"
+    },
+    {
+      "id": "chater-1997",
+      "url": "https://escholarship.org/uc/item/0nj6t8r0",
+      "status": "failed-empty-body",
+      "readingStatus": "unread",
+      "accessedAt": "2026-10-27",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "batch": "html-results.json",
+      "note": "下载器初始错误地将空响应记为downloaded；验收按空正文修正。"
+    },
+    {
+      "id": "watson-1913",
+      "url": "https://psychclassics.yorku.ca/Watson/views",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "web-transcription",
+      "version": "Psychological Review 20, 158–177；York University原文转录。",
+      "readScope": "网页正文开篇至Summary第5点；脚注1–6及7开头。以段落主题定位，网页未逐段显示原刊页码。",
+      "unreadScope": "脚注7末段及原刊排版未完整核对；提到的动物或人类实验未独立复现。",
+      "sha256": null
+    },
+    {
+      "id": "titchener-1914",
+      "url": "https://psychclassics.yorku.ca/Titchener/watson.htm",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "web-transcription",
+      "version": "Proceedings of the American Philosophical Society 53, 1–17；York University转录保留页码及脚注。",
+      "readScope": "印刷1–9、12–17页相关正文；脚注2、26、30–36及所列引用。重点研究对象、假设与证据、行为学与心理学关系。",
+      "unreadScope": "10–11页反驳意象的细节未完整读；Watson第二篇Image and Affection in Behavior未独立阅读全文。",
+      "sha256": null
+    },
+    {
+      "id": "spearman-1904",
+      "url": "https://gwern.net/docs/iq/1904-spearman.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "American Journal of Psychology 15(2), 201–292；92页JSTOR扫描副本，印刷页=PDF页+200。",
+      "readScope": "目录；印刷246–251、253–255、272–274、283–285页。实验安排、能力估计、测量误差修正、共同功能与结论。",
+      "unreadScope": "其余论证与附录数据未逐项读验；没有重算原始相关表或复现实验。",
+      "sha256": "d70c958b6e4233d3e00f867d5b32d348ab6f45753e63982195b5e46ff2320a72"
+    },
+    {
+      "id": "turing-1950",
+      "url": "https://www.csee.umbc.edu/courses/471/papers/turing.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "1950年论文的22页教学转录；页首误写Mind 49，正式卷号为59（LIX），433–460。转录§5注明一张表被省略；不用于表格或逐字校勘。",
+      "readScope": "PDF 1–3、6–8、17–22：§1–3、§5及§6开头、§6(9)与§7。",
+      "unreadScope": "§4及§6多数反对意见未完整审读；未逐字核对期刊扫描；不把未来预测当实验结果。",
+      "sha256": "3cd7c57944b7b53f18fb2a7c014fe2367f3576696a1d024c840151459da2f24e"
+    },
+    {
+      "id": "searle-1980",
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "BBS 3:417–457合刊扫描，42页；目标文章417–424，后含评论与答复。",
+      "readScope": "目标文章417–424（PDF 1–8），含六类答复、结论和注释。",
+      "unreadScope": "其余评论与作者答复未系统通读；Hofstadter评论另设阅读记录。",
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731"
+    },
+    {
+      "id": "hofstadter-1980",
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "同一期BBS开放评论，印刷433–434；与目标文章共用PDF载体。",
+      "readScope": "433页Hofstadter标题起至434页Libet标题前（PDF 17–18）。",
+      "unreadScope": "未把评论中的数量级估计当实测运行成本；未审读全部往返答复。",
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731"
+    },
+    {
+      "id": "binet-1905-kite",
+      "url": "https://psychclassics.yorku.ca/Binet/binet1.htm",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-html",
+      "version": "1916年Elizabeth S. Kite英译的网页转录。页首只列Binet且误列卷12；Persée原法文书目列Binet、Simon，1904卷11:191–244。节点保留惯用1905时间，卷年与译年分别记录。",
+      "readScope": "开头至量表总则、测验1开头；译者注12–13（押韵项目的语言替换）。",
+      "unreadScope": "未逐项审读全部30项；未核对完整法文与译文；未复核常模及诊断表现。",
+      "sha256": "d3e7b6a37b8a419fccd148a6111305e0f7c8f4711b47a4a099757ebfe65949ac"
+    },
+    {
+      "id": "thurstone-1934",
+      "url": "https://psychclassics.yorku.ca/Thurstone/",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-html",
+      "version": "Psychological Review 41:1–32网页转录；1933年9月APA会长演讲。此条不是1938年Primary Mental Abilities专著。",
+      "readScope": "开篇单因子方法与一般因子理论的区分；多因子矩阵、共同度与旋转问题；Alexander九项测验和Brown二十项测验的文字解释。",
+      "unreadScope": "未逐表复算相关矩阵、载荷和残差；图像与所有人格／态度例证未完整核验；1931论文与1938书另列缺口。",
+      "sha256": "fdf6d4fdb142ccf9b10b83ff2819b9387de69c1d7a216206b07db9885aaf94b5"
+    },
+    {
+      "id": "cronbach-meehl-1955",
+      "url": "https://psychclassics.yorku.ca/Cronbach/construct.htm",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-html",
+      "version": "Psychological Bulletin 52:281–302网页转录，保留印刷页标。",
+      "readScope": "281–284的效度区分；287–290的验证程序、干预与过程观察；290–292的法则网络及可观察约束。",
+      "unreadScope": "其余关于网络、解释失败和报告建议未完整审读；示例中的相关数值并非本站复现结果。",
+      "sha256": "2ab6870b8077010c9711b43a6ebc303ea0e8c3aaf74db6706a033b0af6fcd8ea"
+    },
+    {
+      "id": "chollet-2019",
+      "url": "https://arxiv.org/pdf/1911.01547v2",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf-from-round-two",
+      "version": "arXiv:1911.01547v2，2019-11-25；PDF题页仍标November 5。第二轮PDF指纹延续，历史ARC协议，不代表后续版本。",
+      "readScope": "第二轮记录已读导言、27–28、46–47、53–54；本批复核PDF 1、27–28、46–48。",
+      "unreadScope": "形式化定义的完整推导与全部ARC先验未逐项审读；未独立验证人的成绩、先验公平性或开发者未见测试题的条件。",
+      "sha256": "773b9ecec3df33e664ab5a784f9e48818e7fd0d8e211b3243f4f4e0fdecb2fee"
+    },
+    {
+      "id": "agarwal-2021",
+      "url": "https://papers.nips.cc/paper/2021/file/f514cec81cb148559cf475e7426eed5e-Paper.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "NeurIPS 2021主文PDF，17页；不是对rliable当前软件版本的评测。",
+      "readScope": "PDF 1–3、5–7：问题与形式化、协议变化、§4分层bootstrap、表现分布与IQM定义。",
+      "unreadScope": "PDF 4的完整实验设定、后续跨基准分析与补充材料未完整审读；未重跑作者RL实验或验证覆盖率数值。",
+      "sha256": "7553e280d4a1560860bc5f6be2d70539fc5b510e0e3bb2d556824e51e9a80252"
+    },
+    {
+      "id": "liang-2022-v1",
+      "url": "https://arxiv.org/pdf/2211.09110v1",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "arXiv:2211.09110v1，2022；163页。只描述该历史版本，不使用实时榜单。",
+      "readScope": "PDF 5–9（分类、多指标、标准化及条件）；88–89（§11结果、实现与聚合局限）。",
+      "unreadScope": "完整指标实现、各模型结果、§11.3后续、附录污染证据与统计分析未逐项复核。",
+      "sha256": "eb365cc3cbb46cfb36fb272261c017a6456de54d9d96138ef39f3d647fd232f1"
+    },
+    {
+      "id": "cattell-1963",
+      "url": "https://www.scribd.com/document/588358878/h-0046743",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "web-transcription",
+      "version": "Journal of Educational Psychology 54(1):1–22；公开原刊OCR转录，双栏有交错；不采纳平台AI摘要。",
+      "readScope": "题名与摘要；印刷页2–6理论段；19–20的Needed Research与Summary。",
+      "unreadScope": "方法与载荷表未完整核验；公式和双栏歧义处不作定量依据；1941／1943原作未读。",
+      "sha256": null
+    },
+    {
+      "id": "gardner-1983-reprint",
+      "url": "https://www.crisrieder.org/thejourney/storage/2025/04/Howard-Gardner.-Frames-of-Mind-2.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "首版1983；实际阅读后出电子重排版，含The First Thirty Years前言，eISBN 978-0-465-02434-6。未与首版逐字校勘。",
+      "readScope": "PDF 11前言开头；114–122第4章定义、前提及八类候选标准。",
+      "unreadScope": "未通读全书与各能力专章；不能把后出的措辞无条件当1983逐字原文；首版对校待补。",
+      "sha256": "45b18ca47fa6da4172f4e8e8b8499026bbe0a2d4f41675b55a37150c55b54d2e"
+    },
+    {
+      "id": "carroll-1993",
+      "url": "https://pdfcoffee.com/john-b-carroll-human-cognitive-abilities-a-survey-of-factor-analytic-studies-1993-pdf-pdf-free.html",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "web-transcription",
+      "version": "Cambridge University Press 1993书的公开OCR转录；使用原书印刷页标，未下载完整扫描校勘。",
+      "readScope": "第16章631–639：基本假设、三层结构、非严格树状关系及与Gf／Gc的比较。",
+      "unreadScope": "未重分析书中数据；图、原矩阵与全书其余章节未审读。",
+      "sha256": null
+    },
+    {
+      "id": "visser-2006",
+      "url": "https://www.researchgate.net/publication/222649028_Beyond_g_Putting_multiple_intelligences_theory_to_the_test",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "author-uploaded-web",
+      "version": "Intelligence 34(5):487–502；作者于2018上传的原刊全文转录，非2018新研究。",
+      "readScope": "487–488导论；§4假设；§5.1及§5.2.1–6；§6.3文字结论；§7.1（499–500）。",
+      "unreadScope": "未核验所有测验信度表与原始数据；§5.2.7后部分未完整读；Gardner后续回应未取得正文。",
+      "sha256": null
+    },
+    {
+      "id": "mcgrew-2005",
+      "url": "http://www.iapsych.com/articles/mcgrew2005.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "Contemporary Intellectual Assessment第二版第8章；作者网站扫描，每PDF页含两书页。",
+      "readScope": "印刷页136–137、144–145的章节范围、理论与测验实践整合。",
+      "unreadScope": "其余章节、图表及g分歧未完整审读；不将回忆性叙事当同时期记录。",
+      "sha256": "dbd3fc3b84a6371c2d47cb76d07c829fc99e64784fe261bc6aff1a11b9b54d06"
+    },
+    {
+      "id": "schneider-mcgrew-2013",
+      "url": "http://www.iapsych.com/chcv2.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "封面v2.2／01-03-13；图内仍标v2.1（2012），定义页同时保留v2.0和旧页脚。实际载体是2013摘要，不是2012完整书章。",
+      "readScope": "PDF 1–2、4–6：版本标签、摘要边界、Gf／记忆／流畅性与速度定义。",
+      "unreadScope": "未通读2012书章；摘要图尚未逐项复核；其余能力定义未完整审读。",
+      "sha256": "97eaf70f0438c0348ba02d0208f2e3783a5140aa2dd8aaca7ff20e9652f83612"
+    },
+    {
+      "id": "kovacs-conway-2016",
+      "url": "https://coglab.eu/wp-content/uploads/2023/07/kovacs-conway-process-overlap-theory.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "Psychological Inquiry 27(3):151–177，作者实验室PDF。",
+      "readScope": "PDF 1、3–4、12–14、21–22；印刷页163图8与公式已查看像素。",
+      "unreadScope": "未通读全部综述、评论与回应；未复现论文模型或经验数据。",
+      "sha256": "3d0545b102e7c87f8016bc405f0aea863279cd9538e6a74477b09992efd4d5f9"
+    },
+    {
+      "id": "jak-jorgensen-2017",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.01640/full",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "publisher-html",
+      "version": "Frontiers in Psychology 8:1640原刊HTML，2017-10-10。",
+      "readScope": "Introduction中的定义；Relations between the three concepts；Example与Discussion，含表1–5的网页文本。",
+      "unreadScope": "补充材料推导未读；公式图片未逐一校勘；未重跑Mplus或原始ESS数据。",
+      "sha256": null
+    },
+    {
+      "id": "simon-1955",
+      "url": "https://cooperative-individualism.org/simon-herbert_a-behavioral-model-of-rational-choice-1955-feb.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "Quarterly Journal of Economics 69(1):99–118；JSTOR载体首PDF页为封面。",
+      "readScope": "印刷页99–107、110、114：模型前提、满意化、信息收集和顺序选择、结论。",
+      "unreadScope": "108–109、111–113动态细节及115–118附录未完整读；未重建国际象棋例证。",
+      "sha256": "25bf76dd1b4370d6d66d53aecb311ea6d6f486141a3dd4b8d629d0ebe3c6dfcf"
+    },
+    {
+      "id": "wang-1995",
+      "url": "https://cis.temple.edu/~wangp/Publication/thesis.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "Indiana University博士论文，1995年8月；讨论NARS 3.0及未来4，不代表现行系统。PDF文字抽取有字体编码噪声。",
+      "readScope": "封面、摘要；印刷页11–17、80、89、91–92、147、149–153；目录。",
+      "unreadScope": "未通读语义、推理规则、全部系统例证及长期限制；未运行NARS。",
+      "sha256": "aeb1e08e16b95e7c960fa28e0405b6b356b3ff6c24913911d6f210e4c50a9810"
+    },
+    {
+      "id": "gigerenzer-goldstein-1996",
+      "url": "https://web.mit.edu/curhan/www/docs/Articles/biases/Gigerenzer_Goldstein_Reasoning%20Fast%20and%20Frugal.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "Psychological Review 103(4):650–669原刊PDF。",
+      "readScope": "650–654、656–659、665；重点为算法、模拟协议、658脚注4及限制。",
+      "unreadScope": "未复算附录数据或逐图校勘曲线；尚未阅读Chater等1997批评正文。",
+      "sha256": "07d75b55058d015f884e3b1eef32c778709b561666aa00e8b4dd6a1df2a5cebc"
+    },
+    {
+      "id": "hutter-2000",
+      "url": "https://www.hutter1.net/ai/pkcunai.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "作者站64页稿，封面Munich 31.03.2000／cs.AI/0004001；不是2005专著。",
+      "readScope": "封面目录；§4印刷页19–22；§10的53–57，含算法、主定理与限制；55页像素已核对。",
+      "unreadScope": "未通读所有证明、示例、视野问题及后续版本；未运行AIXI近似。",
+      "sha256": "41eec0ff1078133dfacfa1ef1fbf18b0838b70dba95234a15de2f77525ee179e"
+    },
+    {
+      "id": "legg-hutter-2007",
+      "url": "https://www.hutter1.net/ai/iorx.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "作者站49页稿，封面December 2007；本文页码按该PDF。",
+      "readScope": "17–23、27–28、39–42：交互、收益有界、定义、性质与常见批评；23页公式像素核对。",
+      "unreadScope": "未逐条审读全部历史综述、AIXI最优性证明与批评回应尾部；未实现通用测验。",
+      "sha256": "4227cbd1e4959779db875c4c78fad5b78976bb19c7ec01ddbe463cb92b7ba77d"
+    },
+    {
+      "id": "lieder-griffiths-2020",
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "BBS 43 e1；2019在线稿、2020卷年；61页合订PDF含评论与作者回应。",
+      "readScope": "目标文章1、4开头至bounded optimality段、5–6、14–15；5页公式2–4像素核对。",
+      "unreadScope": "未逐项读所有案例与实验证据；正文16结尾及全部评论不算已读；未运行作者模型。",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9"
+    },
+    {
+      "id": "davis-marcus-2020",
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "BBS 43 e7；同一合订PDF内独立评论。",
+      "readScope": "PDF 21末题名起至22页评论结束，完整评论正文。",
+      "unreadScope": "未独立核验评论引用的实验和事故例证。",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9"
+    },
+    {
+      "id": "dimov-2020",
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "BBS 43 e8；同一合订PDF内独立评论。",
+      "readScope": "PDF 22末题名起至23页Dingemanse题名前，完整评论正文。",
+      "unreadScope": "未核验其综述的全部认知架构研究。",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9"
+    },
+    {
+      "id": "lieder-griffiths-response-2020",
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "selected-sections-read",
+      "carrier": "local-pdf",
+      "version": "BBS 43 e27；同一合订PDF内作者回应，按实际PDF页码45起定位。",
+      "readScope": "PDF 45题名及R1至页末；46–47；48的R3到页末。",
+      "unreadScope": "其余回应和参考文献未完整审读；回应中的新例证未复算。",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9"
+    },
+    {
+      "id": "chater-1997-web-retry",
+      "url": "https://escholarship.org/uc/item/0nj6t8r0",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "网页工具返回429；正文未读。"
+    },
+    {
+      "id": "meredith-1993-abstract",
+      "url": "https://www.cambridge.org/core/product/identifier/S0033312300028337/type/journal_article",
+      "accessedAt": "2026-10-27",
+      "status": "metadata-and-abstract-only",
+      "note": "未取得原文正文；不将2025平台迁移时间当论文日期。"
+    },
+    {
+      "id": "europepmc-invariance-attempt",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4542644/fullTextXML",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "HTTP500，未取得XML。"
+    },
+    {
+      "id": "pmc-invariance-attempt",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5140785/",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "验证页面，未读取正文。"
+    },
+    {
+      "id": "visser-pdf",
+      "url": "https://www.researchgate.net/publication/profile/Beth-Visser/publication/222649028_Beyond_g_Putting_multiple_intelligences_theory_to_the_test/links/5a58a6b30f7e9b409dc55692/Beyond-g-Putting-multiple-intelligences-theory-to-the-test.pdf",
+      "accessedAt": "2026-10-27",
+      "status": "failed",
+      "error": "网页PDF链接404；作者上传正文转录已另读。"
+    }
+  ]
+}

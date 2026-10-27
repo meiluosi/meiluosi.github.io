@@ -2,8 +2,10 @@
 import { getCollection } from "astro:content";
 import Text from "@/components/common/BilingualText.astro";
 import ExploreWorldCompact from "@/components/features/ExploreWorldCompact.astro";
+import OrbitHero from "@/components/features/OrbitHero.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import { siteConfig } from "@/config/siteConfig";
+import { LIVING_BOOKS } from "@/data/livingBooks";
 import { now } from "@/data/now";
 import Layout from "@/layouts/Layout.astro";
 import { getSortedPosts } from "@/utils/content-utils";
@@ -80,48 +82,169 @@ const cards = reading.map((post) => {
 ---
 
 <Layout
-	title="人工智能研究与工程实践"
-	titleEn="AI research and engineering"
-	description="你好，我是枫语。研究范围，记录对智能、机械与世界的好奇。浏览文章，也拨弄一件小作品。"
-	descriptionEn="Feng Yu’s research and engineering notes on model training, reinforcement learning, causal inference, and interactive experiments."
+	title="何谓智能？ — 枫语"
+	titleEn="What is intelligence? — Feng Yu"
+	description="枫语的个人主页。以「智能是什么」为核心追问，记录从物理具身、语言表征到因果决策与递归自我改进的思考手记、体系专著与交互实验。"
+	descriptionEn="Feng Yu’s monographs, notes, and interactive experiments exploring the foundational question: what is intelligence?"
 >
 	<Navbar />
 	<main class="journal" id="swup-container" data-brand-motion>
-		<section class="welcome compact-page-heading"><h1><Text zh="人工智能研究与工程实践" en="AI research and engineering" /></h1></section>
+		<OrbitHero />
 
+		<!-- Stage 02: 体系化专著书架 (Living Books) -->
+		<section id="books" class="living-books-home" aria-labelledby="books-home-title">
+			<div class="section-heading">
+				<div>
+					<Text as="p" class="overline" zh="体系化专著 · LIVING MONOGRAPHS" en="LIVING MONOGRAPHS" />
+					<h2 id="books-home-title">
+						<Text zh="在线交互书稿与专著" en="Living Books & Interactive Monographs" />
+					</h2>
+				</div>
+				<a href="/books/">
+					<Text zh="进入专著书架" en="Open Bookshelf" /> <span aria-hidden="true">↗</span>
+				</a>
+			</div>
 
-
-		<section id="notes" class="writing" aria-labelledby="writing-title">
-			<div class="section-heading"><h2 id="writing-title"><Text zh="最新文章" en="Latest articles" /></h2><a href="/notes/"><Text zh="全部文章" en="All writing" /> <span aria-hidden="true">↗</span></a></div>
-			<div class="writing-grid">
-				{cards.map((post) => <article class:list={["writing-entry", { "picked-entry": post.isReflection }]}>
-					<p class="entry-context">{post.isReflection ? <Text zh="翻开一篇旧笔记" en="From the notebook" /> : <Text zh="最近写下" en="Recent writing" />}<span aria-hidden="true"> · </span><time datetime={post.data.published.toISOString().slice(0, 10)}>{post.data.published.getFullYear()}</time></p>
-					<h3><a href={post.href} data-i18n-href-zh={post.href} data-i18n-href-en={post.hrefEn}><Text zh={post.data.title} en={post.titleEn} /></a></h3>
-					<Text as="p" class="entry-intro" zh={post.intro} en={post.introEn} />
-					<a class="entry-link" href={post.href} data-i18n-href-zh={post.href} data-i18n-href-en={post.hrefEn}><Text zh="继续读" en="Read on" /> <span aria-hidden="true">↗</span></a>
-				</article>)}
+			<div class="books-home-grid">
+				{LIVING_BOOKS.map((book) => {
+					const chapterCount = book.volumes.reduce(
+						(acc, v) => acc + v.chapters.length,
+						0,
+					);
+					return (
+						<a
+							href={`/books/${book.id}/`}
+							class="book-home-card"
+							style={`--b-accent: ${book.accentColor}; --b-spine: ${book.spineColor};`}
+						>
+							<div class="book-home-meta">
+								<span class="book-home-roman">{book.roman}</span>
+								<span class="book-home-vols">
+									{book.volumes.length} VOLS · {chapterCount} CH.
+								</span>
+							</div>
+							<h3>
+								<Text zh={book.titleZh} en={book.titleEn} />
+							</h3>
+							<Text
+								as="p"
+								class="book-home-sub"
+								zh={book.subtitleZh}
+								en={book.subtitleEn}
+							/>
+							<span class="book-home-cta">
+								<Text zh="翻阅书稿与内嵌实验" en="Read monograph & labs" /> ↗
+							</span>
+						</a>
+					);
+				})}
 			</div>
 		</section>
 
+		<!-- Stage 03: 最新研究笔记 -->
+		<section id="notes" class="writing" aria-labelledby="writing-title">
+			<div class="section-heading">
+				<h2 id="writing-title"><Text zh="最新文章" en="Latest articles" /></h2>
+				<a href="/notes/"><Text zh="全部文章" en="All writing" /> <span aria-hidden="true">↗</span></a>
+			</div>
+			<div class="writing-grid">
+				{cards.map((post) => (
+					<article class:list={["writing-entry", { "picked-entry": post.isReflection }]}>
+						<p class="entry-context">
+							{post.isReflection ? (
+								<Text zh="翻开一篇旧笔记" en="From the notebook" />
+							) : (
+								<Text zh="最近写下" en="Recent writing" />
+							)}
+							<span aria-hidden="true"> · </span>
+							<time datetime={post.data.published.toISOString().slice(0, 10)}>
+								{post.data.published.getFullYear()}
+							</time>
+						</p>
+						<h3>
+							<a href={post.href} data-i18n-href-zh={post.href} data-i18n-href-en={post.hrefEn}>
+								<Text zh={post.data.title} en={post.titleEn} />
+							</a>
+						</h3>
+						<Text as="p" class="entry-intro" zh={post.intro} en={post.introEn} />
+						<a class="entry-link" href={post.href} data-i18n-href-zh={post.href} data-i18n-href-en={post.hrefEn}>
+							<Text zh="继续读" en="Read on" /> <span aria-hidden="true">↗</span>
+						</a>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<!-- Stage 04: 交互实验室与专题长卷 -->
 		<section class="a-small-world" id="work" aria-labelledby="world-heading">
 			<div class="world-intro">
-				<Text as="p" class="overline" zh="交互实验" en="Interactive experiments" />
-				<h2 id="world-heading"><Text zh="研究与实验工作台" en="Research and experimentation" /></h2>
-				<Text as="p" zh="通过交互实验查看模型训练流程、蒙特卡洛树搜索与因果效应估计。" en="Explore model training workflows, Monte Carlo tree search, and causal effect estimation through interactive experiments." />
-				<a class="read-link" href="/world/"><Text zh="打开研究工作台" en="Open the research workspace" /> <span aria-hidden="true">↗</span></a>
-				<div class="world-footpaths"><a href="/lab/model-pipeline/"><Text zh="从文字到模型" en="From text to a model" /></a><a href="/lab/mcts/"><Text zh="蒙特卡洛树搜索" en="Monte Carlo tree search" /></a><a href="/lab/cfr-poker/"><Text zh="Kuhn 扑克与 CFR" en="Kuhn Poker & CFR" /></a><a href="/lab/preference-alignment/"><Text zh="DPO 偏好对齐" en="DPO Alignment" /></a><a href="/lab/rope-attention/"><Text zh="RoPE 旋转星盘" en="RoPE Astrolabe" /></a><a href="/lab/attention-lens/"><Text zh="注意力归纳回路" en="Attention Lens" /></a><a href="/lab/causal-playground/"><Text zh="因果效应估计" en="Causal effect estimation" /></a></div>
+				<Text as="p" class="overline" zh="交互实验室与专题长卷" en="Interactive Lab & Essays" />
+				<h2 id="world-heading">
+					<Text zh="可以动手操作的机制舞台" en="Mechanisms you can operate" />
+				</h2>
+				<Text
+					as="p"
+					zh="从 Strandbeest 风吹动力兽连杆机构、Transformer 五幕前向传播，到小模型全链路训练、蒙特卡洛树搜索与因果效应估计。"
+					en="From the Strandbeest walking linkage and 5-act Transformer forward pass to small-model training, MCTS, and causal effect estimation."
+				/>
+				<a class="read-link" href="/lab/">
+					<Text zh="进入交互实验室 (/lab/)" en="Open the Interactive Lab (/lab/)" /> <span aria-hidden="true">↗</span>
+				</a>
+				<div class="world-footpaths">
+					<a href="/essays/strandbeest/">
+						<Text zh="长卷 · 风吹动力兽连杆仿真" en="Essay · Strandbeest Linkage" />
+					</a>
+					<a href="/essays/transformer-scrollytelling/">
+						<Text zh="长卷 · Transformer 五幕漫游" en="Essay · 5-Act Transformer" />
+					</a>
+					<a href="/lab/model-pipeline/">
+						<Text zh="实验 · 从文字到小模型" en="Lab · From text to a model" />
+					</a>
+					<a href="/lab/mcts/">
+						<Text zh="实验 · 蒙特卡洛树搜索" en="Lab · Monte Carlo tree search" />
+					</a>
+					<a href="/lab/cfr-poker/">
+						<Text zh="实验 · Kuhn 扑克与 CFR" en="Lab · Kuhn Poker & CFR" />
+					</a>
+					<a href="/lab/causal-playground/">
+						<Text zh="实验 · 因果效应估计" en="Lab · Causal effect estimation" />
+					</a>
+				</div>
 			</div>
 			<div class="world-preview"><ExploreWorldCompact /></div>
 		</section>
 
 		<section class="now-letter" id="now" aria-labelledby="now-title">
-			<div class="letter-meta"><h2 id="now-title"><Text zh="最近" en="Lately" /></h2><time datetime={lastActiveIso}>{lastActiveLabel}</time></div>
-			<div class="letter-copy"><Text as="p" zh={now.mission} en={now.missionEn} /><Text as="p" zh="有些问题适合写成长文，有些暂时只是一段笔记。先把它们留下，再慢慢连接起来。" en="Some questions grow into essays. Others are still a few lines in a notebook. I leave room for both, and for the connections that come later." /><div class="letter-links"><a href="/library/"><Text zh="翻翻资料架" en="Browse the reading shelf" /> ↗</a><a href="/rsi/"><Text zh="一个长期问题：智能如何改进自身" en="A longer question: how intelligence improves itself" /> ↗</a></div></div>
+			<div class="letter-meta">
+				<h2 id="now-title"><Text zh="最近" en="Lately" /></h2>
+				<time datetime={lastActiveIso}>{lastActiveLabel}</time>
+			</div>
+			<div class="letter-copy">
+				<Text as="p" zh={now.mission} en={now.missionEn} />
+				<Text
+					as="p"
+					zh="有些问题适合写成长文或汇入专著，有些暂时只是一段笔记。先把它们留下，再慢慢连接起来。"
+					en="Some questions grow into monographs or essays. Others are still a few lines in a notebook. I leave room for both, and for the connections that come later."
+				/>
+				<div class="letter-links">
+					<a href="/routes/"><Text zh="浏览 20 条智能路线" en="Explore the 20 Intelligence Routes" /> ↗</a>
+					<a href="/graph/"><Text zh="探索全站知识星图" en="Explore the Knowledge Cosmos" /> ↗</a>
+					<a href="/library/"><Text zh="翻翻原始文献架" en="Browse the reading shelf" /> ↗</a>
+				</div>
+			</div>
 		</section>
 
 		<footer class="journal-footer" id="contact">
-			<div><Text as="p" class="footer-title" zh="写封信，或者下次再来。" en="Write a note, or come back sometime." /><Text as="p" zh="如果某篇文章让你想到什么，欢迎告诉我。" en="If something here gives you an idea, I’d love to hear it." /></div>
-			<div class="footer-links"><a href="/contact/"><Text zh="联系我" en="Get in touch" /></a><a href="/rss/">RSS</a><a href="https://github.com/meiluosi" target="_blank" rel="noreferrer">GitHub ↗</a><span>© {new Date().getFullYear()} <Text zh="枫语" en="Feng Yu" /></span></div>
+			<div>
+				<Text as="p" class="footer-title" zh="写封信，或者下次再来。" en="Write a note, or come back sometime." />
+				<Text as="p" zh="如果某篇文章让你想到什么，欢迎告诉我。" en="If something here gives you an idea, I’d love to hear it." />
+			</div>
+			<div class="footer-links">
+				<a href="/contact/"><Text zh="联系我" en="Get in touch" /></a>
+				<a href="/rss/">RSS</a>
+				<a href="https://github.com/meiluosi" target="_blank" rel="noreferrer">GitHub ↗</a>
+				<span>© {new Date().getFullYear()} <Text zh="枫语" en="Feng Yu" /></span>
+			</div>
 		</footer>
 	</main>
 </Layout>
@@ -135,7 +258,64 @@ const cards = reading.map((post) => {
 	.journal p { margin: 0; }
 	:global(.journal .overline) { font-size: 13px; line-height: 1.8; letter-spacing: .035em; color: var(--brand-clay); }
 	.read-link { min-height: 44px; display: inline-flex; align-items: center; gap: 15px; font-size: 15px; text-decoration: underline !important; text-decoration-color: var(--brand-clay) !important; text-decoration-thickness: 1px !important; }
-	.writing { padding-block: 33px 70px; }
+
+	/* Living Books Home Section */
+	.living-books-home {
+		padding-block: 44px 48px;
+		border-bottom: 1px solid var(--brand-line);
+	}
+	.books-home-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 22px;
+	}
+	.book-home-card {
+		display: flex;
+		flex-direction: column;
+		padding: 24px 24px 22px;
+		border-radius: 14px;
+		border: 1px solid var(--brand-line);
+		border-left: 5px solid var(--b-accent, var(--brand-accent));
+		background: var(--brand-surface);
+		transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+	}
+	.book-home-card:hover {
+		transform: translateY(-3px);
+		border-color: var(--b-accent, var(--brand-accent));
+		box-shadow: 0 12px 28px rgba(23, 33, 28, 0.06);
+	}
+	.book-home-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font: 11px/1.5 "JetBrains Mono", monospace;
+		letter-spacing: 0.08em;
+		color: var(--brand-muted);
+		margin-bottom: 12px;
+	}
+	.book-home-roman {
+		color: var(--b-accent, var(--brand-accent));
+		font-weight: 700;
+	}
+	.book-home-card h3 {
+		font-size: 21px;
+		line-height: 1.45;
+		margin: 0 0 10px;
+		color: var(--brand-ink);
+	}
+	.book-home-card :global(.book-home-sub) {
+		font-size: 14px;
+		line-height: 1.8;
+		color: var(--brand-body);
+		margin-bottom: 18px;
+	}
+	.book-home-cta {
+		margin-top: auto;
+		font-size: 13px;
+		color: var(--b-accent, var(--brand-accent));
+	}
+
+	.writing { padding-block: 48px 70px; }
 	.section-heading { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; padding-bottom: 24px; }
 	.section-heading h2 { font-size: 27px; margin: 0; line-height: 1.5; }
 	.section-heading > a { font-size: 13px; flex-shrink: 0; padding-block: 10px; }
@@ -166,6 +346,7 @@ const cards = reading.map((post) => {
 	.footer-links a { padding-block: 6px; }
 	.footer-links > span { width: 100%; text-align: right; color: var(--brand-muted); font-size: 12px; }
 	@media (max-width: 900px) {
+		.books-home-grid { grid-template-columns: 1fr; }
 		.writing-grid { gap: 23px; }
 		.a-small-world { grid-template-columns: 1fr; gap: 20px; }
 		.world-intro h2 br { display: none; }
@@ -173,7 +354,8 @@ const cards = reading.map((post) => {
 		.world-footpaths { flex-direction: row; flex-wrap: wrap; gap: 10px 25px; }
 	}
 	@media (max-width: 620px) {
-		.writing { padding-block: 20px 42px; }
+		.living-books-home { padding-block: 30px 36px; }
+		.writing { padding-block: 30px 42px; }
 		.section-heading { align-items: start; gap: 17px; padding-bottom: 18px; }
 		.section-heading h2 { font-size: 24px; }
 		.writing-grid { grid-template-columns: 1fr; gap: 26px; }

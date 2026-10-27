@@ -25,8 +25,6 @@ export const en: Translation = {
 	[Key.minuteCount]: "minute",
 	[Key.minutesCount]: "minutes",
 
-
-
 	[Key.more]: "More",
 	[Key.collapse]: "Collapse",
 

@@ -1,0 +1,262 @@
+{
+  "checkedAt": "2026-10-23",
+  "scope": "106 条来源已通过定向网络检索或既有文献入口定位。此文件只记录本轮另行打开原始入口的32次尝试；未列入不等于链接失效，也不等于已经打开全文。检索结果只用于初筛。",
+  "openAttempts": [
+    {
+      "sourceId": "watson-1913",
+      "url": "https://psychclassics.yorku.ca/Watson/views",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "selected-sections",
+      "note": "原文转载的书目信息与开篇方法宣言；未读完整正文。"
+    },
+    {
+      "sourceId": "spearman-1904",
+      "url": "https://www.jstor.org/stable/1412107",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "metadata",
+      "note": "JSTOR 题名、作者、卷期、页码与 DOI；正文未读。"
+    },
+    {
+      "sourceId": "chollet-2019",
+      "url": "https://arxiv.org/abs/1911.01547",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "arXiv 题名、作者、提交/修订历史与摘要（当前 v2）；未读正文。"
+    },
+    {
+      "sourceId": "simon-1955",
+      "url": "https://doi.org/10.2307/1884852",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "newell-simon-1976",
+      "url": "https://www.computerhistory.org/chess/doc-431614f691642/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "metadata",
+      "note": "Computer History Museum 的原文档案题名、CACM 卷期与 1976-03 日期；扫描件未读。"
+    },
+    {
+      "sourceId": "rumelhart-1986",
+      "url": "https://doi.org/10.1038/323533a0",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "pearl-1995",
+      "url": "https://proceedings.mlr.press/r0/pearl95a.html",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "PMLR 题名、作者、会议、页码和摘要；未读 PDF。"
+    },
+    {
+      "sourceId": "sutton-1988",
+      "url": "https://doi.org/10.1007/BF00115009",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "soar-1987",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/0004370287900506",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "barbey-2018",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29167088/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "non-content-response",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "spelke-2007",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17181705/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "non-content-response",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "brooks-1991",
+      "url": "https://www.sciencedirect.com/science/article/pii/000437029190053M",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "levin-2022",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35401131/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "non-content-response",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "tomasello-2005",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16262930/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "non-content-response",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "clark-chalmers-1998",
+      "url": "https://doi.org/10.1093/analys/58.1.7",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "tishby-1999",
+      "url": "https://arxiv.org/abs/physics/0004057",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "arXiv 题名、作者、2000-04-24 提交日期与摘要；1999 会议口径待核。"
+    },
+    {
+      "sourceId": "turing-1950",
+      "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "silver-2017",
+      "url": "https://arxiv.org/abs/1712.01815",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "arXiv v1 题名、作者、2017-12-05 日期与摘要；未读正文。"
+    },
+    {
+      "sourceId": "schrittwieser-2019",
+      "url": "https://arxiv.org/abs/1911.08265",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "arXiv 题名、v1/v2 日期与当前 v2 摘要；未读正文。"
+    },
+    {
+      "sourceId": "laird-2017",
+      "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2744/0",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "AAAI 题名、作者、2017 引用信息与摘要；未读 PDF。"
+    },
+    {
+      "sourceId": "varela-1991",
+      "url": "https://mitpress.mit.edu/9780262220422/the-embodied-mind/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "metadata",
+      "note": "MIT Press 题名、作者、1991 精装与 1992 平装日期及出版介绍；未读书。"
+    },
+    {
+      "sourceId": "hutchins-1995",
+      "url": "https://pages.ucsd.edu/~ehutchins/citw.html",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "selected-sections",
+      "note": "作者页面的 1995 出版说明与 Introduction 开篇导航实地研究背景；未读完整引言或书。"
+    },
+    {
+      "sourceId": "bender-koller-2020",
+      "url": "https://aclanthology.org/2020.acl-main.463/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "ACL Anthology 的题名、作者、2020 会议信息与摘要；未读正文。"
+    },
+    {
+      "sourceId": "cogitate-2025",
+      "url": "https://www.nature.com/articles/s41586-025-08888-1",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "wang-poet-2019",
+      "url": "https://arxiv.org/abs/1901.01753",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "arXiv 题名、v1/v3 日期与摘要；未读方法、实验或附录。"
+    },
+    {
+      "sourceId": "levin-2019",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02688/full",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "出版页 HYPOTHESIS AND THEORY 类型、题名及摘要开头；未读后续论证和实验来源。"
+    },
+    {
+      "sourceId": "henrich-2015",
+      "url": "https://henrich.fas.harvard.edu/publications/secret-our-success-how-culture-driving-human-evolution-domesticating-our",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "abstract",
+      "note": "作者页面出版信息与图书内容提要；不是原书阅读。"
+    },
+    {
+      "sourceId": "tononi-2004",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC543470/",
+      "attemptedAt": "2026-10-23",
+      "outcome": "non-content-response",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "aristotle-ethics",
+      "url": "https://classics.mit.edu/Aristotle/nicomachaen.html",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "metadata",
+      "note": "MIT 原典译文目录、350 B.C.E 标注和 W. D. Ross 译者；第 VI 卷正文尚未读。"
+    },
+    {
+      "sourceId": "mengzi-jinxin",
+      "url": "https://ctext.org/mengzi/jin-xin-i/ens",
+      "attemptedAt": "2026-10-23",
+      "outcome": "fetch-failed",
+      "readingStatus": "discovery-only",
+      "note": "本轮尝试打开原始入口，但工具返回拒绝访问、重定向错误、验证码或空白壳；仅保留已检索到的元数据/摘要线索，未提升阅读状态。"
+    },
+    {
+      "sourceId": "penrose-1989",
+      "url": "https://academic.oup.com/book/40643",
+      "attemptedAt": "2026-10-23",
+      "outcome": "page-returned-not-reviewed",
+      "readingStatus": "discovery-only",
+      "note": "页面返回但未复核书目所在段落，保留仅定位状态。"
+    },
+    {
+      "sourceId": "arc-agi-2-2025",
+      "url": "https://arcprize.org/blog/arc-agi-2-technical-report",
+      "attemptedAt": "2026-10-23",
+      "outcome": "record-reviewed",
+      "readingStatus": "metadata",
+      "note": "官方发布说明标题、作者和 2025-05-20 日期及小节目录；技术报告 PDF 未读。"
+    }
+  ]
+}

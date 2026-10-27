@@ -1,0 +1,374 @@
+{
+  "protocolVersion": "2026-10-25-before-first-run-amendment-A",
+  "scope": "Six-state Fig.1, direct eq.3 with section-5 epoch sum, residual eq.6/8; not literal eq.7 or Fig.5 timing replication",
+  "sourceURL": "http://leemon.com/papers/1995b.pdf",
+  "sourceSHA256": "a32e916f75e4ca626c470d24fe0a3e587c14bd10edfae686fc9edf7498831979",
+  "sourceVersion": "15 Jul 1995 errata, 9 pages",
+  "parameters": {
+    "gamma": 0.99,
+    "alpha": 0.01,
+    "initialWeights": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      10.0
+    ],
+    "features": [
+      [
+        1.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.0,
+        0.0
+      ],
+      [
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "transition": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rewards": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "featureNormalization": "none",
+    "epochAggregation": "sum"
+  },
+  "checks": {
+    "featureRank": 6,
+    "scalarMatrixMaxErrors": {
+      "direct": 3.836930773104541e-13,
+      "residual": 6.661338147750939e-15
+    },
+    "finiteDifferenceGradientMaxError": 1.1373924024837834e-10,
+    "residualMSEIncreasingSteps": 0,
+    "iterativeMatrixPowerAndValueSpaceAgreement": true,
+    "independentTwoDimensionalReductionAgreement": true
+  },
+  "directValueEigenvalues": [
+    {
+      "real": 0.9600000000000003,
+      "imag": 0.0,
+      "abs": 0.9600000000000003
+    },
+    {
+      "real": 1.0042499999999999,
+      "imag": 0.002633913438198236,
+      "abs": 1.0042534540642614
+    },
+    {
+      "real": 1.0042499999999999,
+      "imag": -0.002633913438198236,
+      "abs": 1.0042534540642614
+    },
+    {
+      "real": 0.96,
+      "imag": 0.0,
+      "abs": 0.96
+    },
+    {
+      "real": 0.9600000000000003,
+      "imag": 0.0,
+      "abs": 0.9600000000000003
+    },
+    {
+      "real": 0.96,
+      "imag": 0.0,
+      "abs": 0.96
+    }
+  ],
+  "residualValueEigenvalues": [
+    {
+      "real": 0.8629718244423012,
+      "imag": 0.0,
+      "abs": 0.8629718244423012
+    },
+    {
+      "real": 0.9999981755576973,
+      "imag": 0.0,
+      "abs": 0.9999981755576973
+    },
+    {
+      "real": 0.9599999999999997,
+      "imag": 0.0,
+      "abs": 0.9599999999999997
+    },
+    {
+      "real": 0.9599999999999996,
+      "imag": 0.0,
+      "abs": 0.9599999999999996
+    },
+    {
+      "real": 0.96,
+      "imag": 0.0,
+      "abs": 0.96
+    },
+    {
+      "real": 0.9599999999999999,
+      "imag": 0.0,
+      "abs": 0.9599999999999999
+    }
+  ],
+  "sourceEquationConflict": {
+    "page": 4,
+    "printedEquation": 7,
+    "mainUsesEquation": 3,
+    "status": "suspected sign typo, researcher inference not author-confirmed",
+    "singleStateEq3Factor": 0.9999,
+    "singleStateLiteralEq7Factor": 1.0001,
+    "literalEq7ValueEigenvalues": [
+      {
+        "real": 1.0399999999999994,
+        "imag": 0.0,
+        "abs": 1.0399999999999994
+      },
+      {
+        "real": 0.9957499999999999,
+        "imag": 0.002633913438223435,
+        "abs": 0.9957534835490157
+      },
+      {
+        "real": 0.9957499999999999,
+        "imag": -0.002633913438223435,
+        "abs": 0.9957534835490157
+      },
+      {
+        "real": 1.04,
+        "imag": 0.0,
+        "abs": 1.04
+      },
+      {
+        "real": 1.0400000000000007,
+        "imag": 0.0,
+        "abs": 1.0400000000000007
+      },
+      {
+        "real": 1.04,
+        "imag": 0.0,
+        "abs": 1.04
+      }
+    ]
+  },
+  "primaryEndpoints": {
+    "direct": {
+      "step": 10000,
+      "method": "direct",
+      "evaluation": "iterative",
+      "bellmanMSE": 1.804418772150195e+39,
+      "valueRMSE": 7.306957706566063e+20,
+      "V1": 7.213904736388312e+20,
+      "V6": 7.755493396608782e+20,
+      "weightNorm": 5.379188891010381e+20
+    },
+    "residual": {
+      "step": 100000,
+      "method": "residual",
+      "evaluation": "iterative",
+      "bellmanMSE": 6.894723137269898e-05,
+      "valueRMSE": 2.0169987750204106,
+      "V1": 2.013602062897302,
+      "V6": 2.033897247178845,
+      "weightNorm": 8.730833362169871
+    }
+  },
+  "signChangesObserved": {
+    "direct": true,
+    "residual": false
+  },
+  "residualLongHorizon": [
+    {
+      "step": 100000,
+      "method": "residual",
+      "evaluation": "matrix-power",
+      "bellmanMSE": 6.894723137418003e-05,
+      "valueRMSE": 2.0169987750420746,
+      "V1": 2.0136020629189266,
+      "V6": 2.0338972472006915
+    },
+    {
+      "step": 1000000,
+      "method": "residual",
+      "evaluation": "matrix-power",
+      "bellmanMSE": 2.5840096248075908e-06,
+      "valueRMSE": 0.3904759428317357,
+      "V1": 0.3898183646590436,
+      "V6": 0.3937473612035264
+    },
+    {
+      "step": 10000000,
+      "method": "residual",
+      "evaluation": "matrix-power",
+      "bellmanMSE": 1.4127557452054765e-20,
+      "valueRMSE": 2.8872258657947352e-08,
+      "V1": 2.882363654066121e-08,
+      "V6": 2.9114151248624582e-08
+    },
+    {
+      "step": 50000000,
+      "method": "residual",
+      "evaluation": "matrix-power",
+      "bellmanMSE": 5.786171837394652e-84,
+      "valueRMSE": 5.8430941249628065e-40,
+      "V1": 5.83325410478206e-40,
+      "V6": 5.89204773099006e-40
+    }
+  ],
+  "sensitivity": [
+    {
+      "gamma": 0.9,
+      "alpha": 0.001,
+      "directValueSpectralRadius": 0.9997512190540203,
+      "residualValueSpectralRadius": 0.9999778326201123,
+      "sequentialDirectValueSpectralRadius": 0.9997499691313243
+    },
+    {
+      "gamma": 0.9,
+      "alpha": 0.01,
+      "directValueSpectralRadius": 0.9976221729693057,
+      "residualValueSpectralRadius": 0.9997783262011224,
+      "sequentialDirectValueSpectralRadius": 0.9974972679313008
+    },
+    {
+      "gamma": 0.95,
+      "alpha": 0.001,
+      "directValueSpectralRadius": 1.000125617110171,
+      "residualValueSpectralRadius": 0.9999950278550913,
+      "sequentialDirectValueSpectralRadius": 1.0001253805111472
+    },
+    {
+      "gamma": 0.95,
+      "alpha": 0.01,
+      "directValueSpectralRadius": 1.001311639800516,
+      "residualValueSpectralRadius": 0.9999502785509146,
+      "sequentialDirectValueSpectralRadius": 1.0012888072598718
+    },
+    {
+      "gamma": 0.99,
+      "alpha": 0.001,
+      "directValueSpectralRadius": 1.0004250346727634,
+      "residualValueSpectralRadius": 0.9999998175557697,
+      "sequentialDirectValueSpectralRadius": 1.000425770435344
+    },
+    {
+      "gamma": 0.99,
+      "alpha": 0.01,
+      "directValueSpectralRadius": 1.0042534540642616,
+      "residualValueSpectralRadius": 0.9999981755576973,
+      "sequentialDirectValueSpectralRadius": 1.0043281830711626
+    }
+  ],
+  "interpretation": {
+    "divergenceReplicated": true,
+    "fixedSignInfinityClaimSupportedByThisRun": false,
+    "residualConvergenceSupportedBySpectrum": true,
+    "paperFigure5Replicated": false,
+    "generalNonlinearConvergenceTested": false
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "platform": "macOS-26.2-arm64-arm-64bit"
+  },
+  "scriptSHA256": "527ee7b26762d49a6fe6048e8d7f8784cc8bf608e1413098c2057bcd23a84085",
+  "protocolSHA256": "d877f93d7204c82737bda810d82a53b3874b56cf07e82076c9837ea3436479b4"
+}

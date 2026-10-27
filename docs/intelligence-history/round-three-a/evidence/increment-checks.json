@@ -1,0 +1,49 @@
+{
+  "asOf": "2026-10-26",
+  "scope": "当前A批增量的数据及文件校验；不等于批次范围完成",
+  "sourceCount": 35,
+  "fingerprintedSources": 33,
+  "matchingPDFs": true,
+  "svgXMLFiles": 14,
+  "questionCards": 3,
+  "localMarkdownLinksChecked": 495,
+  "brokenLinks": [],
+  "generatedFiles": 76,
+  "projectChecks": {
+    "astro": {
+      "files": 188,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "typescript": "passed",
+    "build": {
+      "status": "passed",
+      "pages": 243,
+      "externalSummaryCalls": false
+    }
+  },
+  "fingerprints": {
+    "src/constants/icons.ts": {
+      "sha256": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+      "unchanged": true
+    },
+    "src/constants/lqips.json": {
+      "sha256": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0",
+      "unchanged": true
+    },
+    "docs/intelligence-history/atlas.json": {
+      "sha256": "ea0b8ad24c1ae1bf7432a31afa75d2744d1f107b2c2c191e18a0f4ca714a8776",
+      "unchanged": true
+    },
+    "docs/intelligence-history/round-two/research.json": {
+      "sha256": "eb32094d73cdfbcfded963dcf86b96f24cbf8ef8c740495042d7f73ac2d96443",
+      "unchanged": true
+    }
+  },
+  "nodes": 30,
+  "claims": 94,
+  "relations": 30,
+  "researchSHA256": "ae83031af8713a102bbd1cfcd58718197a29fc18f44e3b0c0a43bc6c46bdc813",
+  "graphNodesVisited": 34
+}

@@ -1,82 +1,343 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { dpoPairLoss, encodeToyBpe, maskedNll, trainingBudget, trainToyBpe } from "@/utils/model-pipeline";
-	let english = $state(false);
-	let active = $state(0);
-	let size = $state(0.15);
-	let context = $state(128);
-	let microbatch = $state(1);
-	let accumulation = $state(1);
-	let steps = $state(8);
-	let grouped = $state(true);
-	let mergeCount = $state(2);
-	let tokenizerInput = $state("lower");
-	let targetProbability = $state(0.4);
-	let assistantOnly = $state(true);
-	let policyGap = $state(0);
-	let beta = $state(0.1);
-	let tokenWeighted = $state(true);
-	let exportParts = $state([true, true, false, false]);
-	let throughput = $state<number | undefined>(undefined);
-	const trainingWords = ["low", "low", "lower", "lowest"];
-	const toyTokenizer = $derived(trainToyBpe(trainingWords, mergeCount));
-	const encodedWords = $derived(encodeToyBpe(tokenizerInput, toyTokenizer));
-	const pretrainProbabilities = $derived([0.25, targetProbability, 0.8, 0.01]);
-	const pretrainLoss = $derived(maskedNll(pretrainProbabilities, [true, true, true, false]));
-	const sftProbabilities = [0.05, 0.1, 0.1, 0.5, 0.4, 0.8, 0.01];
-	const sftMask = $derived([!assistantOnly, !assistantOnly, !assistantOnly, true, true, true, false]);
-	const sftLoss = $derived(maskedNll(sftProbabilities, sftMask));
-	const dpoLoss = $derived(dpoPairLoss(policyGap, 0, beta));
-	const fixedEvaluation = [
-		{ label: "A", short: [0.8, 0.8], long: Array<number>(8).fill(0.2) },
-		{ label: "B", short: [0.5, 0.5], long: Array<number>(8).fill(0.3) },
-	];
-	function meanNll(values: number[]) { return maskedNll(values, values.map(() => true)).mean ?? 0; }
-	function evaluationScore(row: typeof fixedEvaluation[number]) {
-		return tokenWeighted ? meanNll([...row.short, ...row.long]) : (meanNll(row.short) + meanNll(row.long)) / 2;
+import { onMount } from "svelte";
+import {
+	dpoPairLoss,
+	encodeToyBpe,
+	maskedNll,
+	trainingBudget,
+	trainToyBpe,
+} from "@/utils/model-pipeline";
+
+let english = $state(false);
+let active = $state(0);
+let size = $state(0.15);
+let context = $state(128);
+let microbatch = $state(1);
+let accumulation = $state(1);
+let steps = $state(8);
+let grouped = $state(true);
+let mergeCount = $state(2);
+let tokenizerInput = $state("lower");
+let targetProbability = $state(0.4);
+let assistantOnly = $state(true);
+let policyGap = $state(0);
+let beta = $state(0.1);
+let tokenWeighted = $state(true);
+let exportParts = $state([true, true, false, false]);
+let throughput = $state<number | undefined>(undefined);
+const trainingWords = ["low", "low", "lower", "lowest"];
+const toyTokenizer = $derived(trainToyBpe(trainingWords, mergeCount));
+const encodedWords = $derived(encodeToyBpe(tokenizerInput, toyTokenizer));
+const pretrainProbabilities = $derived([0.25, targetProbability, 0.8, 0.01]);
+const pretrainLoss = $derived(
+	maskedNll(pretrainProbabilities, [true, true, true, false]),
+);
+const sftProbabilities = [0.05, 0.1, 0.1, 0.5, 0.4, 0.8, 0.01];
+const sftMask = $derived([
+	!assistantOnly,
+	!assistantOnly,
+	!assistantOnly,
+	true,
+	true,
+	true,
+	false,
+]);
+const sftLoss = $derived(maskedNll(sftProbabilities, sftMask));
+const dpoLoss = $derived(dpoPairLoss(policyGap, 0, beta));
+const fixedEvaluation = [
+	{ label: "A", short: [0.8, 0.8], long: Array<number>(8).fill(0.2) },
+	{ label: "B", short: [0.5, 0.5], long: Array<number>(8).fill(0.3) },
+];
+function meanNll(values: number[]) {
+	return (
+		maskedNll(
+			values,
+			values.map(() => true),
+		).mean ?? 0
+	);
+}
+function evaluationScore(row: (typeof fixedEvaluation)[number]) {
+	return tokenWeighted
+		? meanNll([...row.short, ...row.long])
+		: (meanNll(row.short) + meanNll(row.long)) / 2;
+}
+let copyStatus = $state<"" | "ok" | "error">("");
+const stages = [
+	{
+		id: "data",
+		short: "数据",
+		shortEn: "Data",
+		title: "训练语料构建",
+		titleEn: "Training corpus construction",
+		description:
+			"记录语料来源和使用许可，清理空文本与异常样本，去重后按文档组划分数据。训练集用于更新参数，验证集用于选择配置，最终测试集留到比较方案时。",
+		descriptionEn:
+			"Record sources and licenses, clean empty or malformed examples, deduplicate, and split by document group. Training data updates parameters, validation data guides configuration, and the final test set is reserved for comparison.",
+		input: "原始文档 + 来源与许可清单",
+		inputEn: "Raw documents + source and license manifest",
+		output: "train / validation / test + 数据版本",
+		outputEn: "train / validation / test + data version",
+		check:
+			"同一文档、近重复文本和同源片段不能跨集合；后训练数据也要检查与评测集的重叠。",
+		checkEn:
+			"Keep documents, near-duplicates, and related chunks in one split. Also check post-training data for overlap with evaluation sets.",
+		artifact: "manifest.json · train.jsonl · validation.jsonl · test.jsonl",
+		action: "调整下方的切分方式，看看重复文档去了哪里。",
+		actionEn:
+			"Change the splitting rule below and see where the duplicate document goes.",
+	},
+	{
+		id: "tokenizer",
+		short: "分词",
+		shortEn: "Tokenizer",
+		title: "分词器训练与编码",
+		titleEn: "Tokenizer training and encoding",
+		description:
+			"只用训练语料拟合分词器，记录词表、特殊 token 和版本。把文档编码、追加结束标记，再按上下文长度打包；padding 部分不计入训练损失。",
+		descriptionEn:
+			"Fit the tokenizer on training text only and version its vocabulary and special tokens. Encode documents, add end markers, and pack sequences to the chosen context length. Mask padding out of the training loss.",
+		input: "训练语料 + 分词配置",
+		inputEn: "Training corpus + tokenizer configuration",
+		output: "固定分词器 + token 数据块",
+		outputEn: "Frozen tokenizer + token blocks",
+		check:
+			"检查编码/解码、特殊 token 与词表大小；验证集只能编码，不能参与拟合分词器。",
+		checkEn:
+			"Check encode/decode behavior, special tokens, and vocabulary size. Validation text is encoded but never used to fit the tokenizer.",
+		artifact: "tokenizer.json · tokenizer.meta.json",
+		action: "上下文长度影响每个训练序列能看到的范围，也影响显存与内存需求。",
+		actionEn:
+			"Context length controls how much each sequence can see and affects activation memory.",
+	},
+	{
+		id: "pretrain",
+		short: "预训练",
+		shortEn: "Pretrain",
+		title: "自回归预训练",
+		titleEn: "Autoregressive pretraining",
+		description:
+			"初始化一个小型 decoder-only Transformer，以自回归目标做完整参数训练。先打通少量更新、保存、恢复和固定集评估，再增加 token 预算。",
+		descriptionEn:
+			"Initialize a small decoder-only Transformer and train all its parameters with an autoregressive objective. First connect a few updates, saving, resuming, and fixed-set evaluation, then increase the token budget.",
+		input: "随机初始化模型 + 训练 token",
+		inputEn: "Randomly initialized model + training tokens",
+		output: "基座 checkpoint + 优化器状态 + 运行日志",
+		outputEn: "Base checkpoint + optimizer state + run log",
+		check:
+			"固定随机种子和验证集；检查 loss 是否有限、梯度是否有效、断点恢复后数据位置是否一致。",
+		checkEn:
+			"Fix the seed and validation set. Check finite loss, useful gradients, and consistent data position when resuming.",
+		artifact: "pretrain/checkpoint.pt · pretrain/report.json",
+		action:
+			"先用 tiny 做少量步 smoke test，再把约 30M 作为首个完整实验。100M 与 500M 都需要吞吐、峰值内存和磁盘测量后再决定。",
+		actionEn:
+			"First run a tiny smoke test, then use approximately 30M for the first full experiment. Both 100M and 500M require throughput, peak-memory, and disk measurements.",
+	},
+	{
+		id: "sft",
+		short: "指令微调",
+		shortEn: "SFT",
+		title: "指令监督微调",
+		titleEn: "Supervised instruction fine-tuning",
+		description:
+			"接续自己的预训练 checkpoint，统一对话模板，用指令与回答样本训练。只在需要学习的 assistant 回答部分计算损失，保持验证提示词和生成参数固定。",
+		descriptionEn:
+			"Continue from your own pretrained checkpoint with a consistent chat template and instruction-response examples. Compute loss on the intended assistant responses, and keep validation prompts and generation settings fixed.",
+		input: "自己的基座 checkpoint + 指令数据",
+		inputEn: "Your base checkpoint + instruction data",
+		output: "SFT checkpoint + 对话模板",
+		outputEn: "SFT checkpoint + chat template",
+		check: "核对标签掩码、角色边界与结束符；用相同提示词比较基座与 SFT 输出。",
+		checkEn:
+			"Check label masking, role boundaries, and stop tokens. Compare base and SFT outputs on the same prompts.",
+		artifact: "sft/checkpoint.pt · sft/report.json",
+		action: "小模型先学习清晰的输出格式和窄任务，目标与能力范围保持一致。",
+		actionEn:
+			"Use small models to learn clear formats and narrow tasks, with goals matched to their capacity.",
+	},
+	{
+		id: "dpo",
+		short: "偏好优化",
+		shortEn: "DPO",
+		title: "偏好优化",
+		titleEn: "Preference optimization",
+		description:
+			"为相同 prompt 准备 chosen / rejected 成对回答，以 SFT checkpoint 作为起点和固定参考。DPO 直接优化相对偏好，记录 β、数据构造方式与训练范围。",
+		descriptionEn:
+			"Prepare chosen/rejected responses to the same prompt, using the SFT checkpoint as both the starting policy and a frozen reference. DPO optimizes relative preferences; record beta, data construction, and which parameters are trained.",
+		input: "SFT checkpoint + 偏好对 + 固定参考",
+		inputEn: "SFT checkpoint + preference pairs + frozen reference",
+		output: "DPO checkpoint + 偏好训练日志",
+		outputEn: "DPO checkpoint + preference training log",
+		check:
+			"用独立偏好集比较 SFT 与 DPO，并检查格式、长度和基础能力变化。固定参考模型还会占用额外内存。",
+		checkEn:
+			"Compare SFT and DPO on held-out preferences, and check format, length, and base capabilities. The frozen reference model needs additional memory.",
+		artifact: "dpo/checkpoint.pt · dpo/report.json",
+		action:
+			"一次偏好分数提高，需要和其他指标一起判断；它本身不能代表通用能力提高。",
+		actionEn:
+			"Judge preference improvements together with other metrics; preference scores alone do not establish a general capability gain.",
+	},
+	{
+		id: "evaluate",
+		short: "评测",
+		shortEn: "Evaluate",
+		title: "模型评估与实验对比",
+		titleEn: "Model evaluation and experiment comparison",
+		description:
+			"保留随机初始化、预训练、SFT 与 DPO 四个快照。在固定文本上计算 token 加权 NLL 与 perplexity，在固定任务上比较格式、正确率和偏好，同时保留原始输出。",
+		descriptionEn:
+			"Keep random, pretrained, SFT, and DPO snapshots. Measure token-weighted NLL and perplexity on fixed text; compare format, accuracy, and preference on fixed tasks, keeping raw outputs.",
+		input: "各阶段 checkpoint + 冻结评测集",
+		inputEn: "Stage checkpoints + frozen evaluation sets",
+		output: "可追溯的指标表 + 原始生成结果",
+		outputEn: "Traceable metrics + raw generations",
+		check:
+			"只在相同分词器、语料与掩码下比较 perplexity；任务分数注明样本数和判分规则。",
+		checkEn:
+			"Compare perplexity only with the same tokenizer, corpus, and masking. Report sample counts and scoring rules for task metrics.",
+		artifact: "evaluation.json · summary.json",
+		action: "这里呈现流程和预算；训练曲线与能力结果将由实际运行日志生成。",
+		actionEn:
+			"This workbench shows the workflow and budget; learning curves and capability results will come from actual run logs.",
+	},
+	{
+		id: "deploy",
+		short: "部署",
+		shortEn: "Deploy",
+		title: "模型导出与部署",
+		titleEn: "Model export and deployment",
+		description:
+			"一起导出权重、配置、分词器、对话模板和模型说明。先验证本地加载和生成，再把量化作为独立比较，记录模型大小、质量变化与推理速度。",
+		descriptionEn:
+			"Export weights, configuration, tokenizer, chat template, and a model card together. Confirm local loading and generation first, then compare quantization separately, recording size, quality changes, and inference speed.",
+		input: "选定 checkpoint + 配套配置",
+		inputEn: "Selected checkpoint + matching configuration",
+		output: "本地推理入口 + 模型说明 + 复现命令",
+		outputEn: "Local inference entry + model card + reproduction commands",
+		check:
+			"同一提示词比较导出前后的生成；量化后重新评测，记录运行环境与生成参数。",
+		checkEn:
+			"Compare generations before and after export on the same prompts. Re-evaluate quantized models and record the environment and decoding settings.",
+		artifact: "checkpoint.pt · generate --chat · summary.json",
+		action:
+			"当前骨架直接加载 checkpoint 内嵌的权重、配置和分词器做本地 CLI 推理。格式转换与量化留待独立验证；失败样例回到下一轮数据和评测。",
+		actionEn:
+			"The current skeleton loads weights, configuration, and tokenizer embedded in the checkpoint for local CLI inference. Format conversion and quantization need separate validation; failure cases inform the next data and evaluation cycle.",
+	},
+];
+const documents = [
+	{
+		id: "A · 1",
+		group: "A",
+		text: "风吹过山谷。",
+		textEn: "Wind passes through the valley.",
+		split: "train",
+		naive: "train",
+	},
+	{
+		id: "A · 2",
+		group: "A",
+		text: "风吹过山谷。",
+		textEn: "Wind passes through the valley.",
+		split: "duplicate",
+		naive: "validation",
+	},
+	{
+		id: "B",
+		group: "B",
+		text: "河水流向大海。",
+		textEn: "The river flows toward the sea.",
+		split: "train",
+		naive: "train",
+	},
+	{
+		id: "C",
+		group: "C",
+		text: "种子在春天发芽。",
+		textEn: "Seeds sprout in spring.",
+		split: "validation",
+		naive: "validation",
+	},
+	{
+		id: "D",
+		group: "D",
+		text: "月光照亮了窗台。",
+		textEn: "Moonlight lights up the windowsill.",
+		split: "test",
+		naive: "test",
+	},
+];
+const current = $derived(stages[active]);
+const budget = $derived(
+	trainingBudget(size * 1_000_000, context, microbatch, accumulation, steps),
+);
+const memory = $derived(budget.stateGiB);
+const tokensPerStep = $derived(budget.tokensPerUpdate);
+const tokens = $derived(budget.tokens);
+const tokenDisplayDivisor = $derived(
+	tokens >= 1_000_000 ? 1_000_000 : tokens >= 1_000 ? 1_000 : 1,
+);
+const runHours = $derived(
+	throughput && Number.isFinite(throughput) && throughput > 0
+		? tokens / throughput / 3600
+		: null,
+);
+const tokensPerParameter = $derived(tokens / (size * 1_000_000));
+function t(zh: string, en: string) {
+	return english ? en : zh;
+}
+function number(value: number) {
+	return value.toLocaleString(english ? "en-US" : "zh-CN");
+}
+function choose(index: number) {
+	active = Math.max(0, Math.min(stages.length - 1, index));
+	copyStatus = "";
+}
+function settings() {
+	return {
+		stage: current.id,
+		size: String(size),
+		context: String(context),
+		microbatch: String(microbatch),
+		accumulation: String(accumulation),
+		steps: String(steps),
+	};
+}
+async function share() {
+	const url = new URL(location.href);
+	url.search = new URLSearchParams(settings()).toString();
+	history.replaceState({}, "", url);
+	try {
+		await navigator.clipboard.writeText(url.href);
+		copyStatus = "ok";
+	} catch {
+		copyStatus = "error";
 	}
-	let copyStatus = $state<"" | "ok" | "error">("");
-	const stages = [
-		{ id: "data", short: "数据", shortEn: "Data", title: "训练语料构建", titleEn: "Training corpus construction", description: "记录语料来源和使用许可，清理空文本与异常样本，去重后按文档组划分数据。训练集用于更新参数，验证集用于选择配置，最终测试集留到比较方案时。", descriptionEn: "Record sources and licenses, clean empty or malformed examples, deduplicate, and split by document group. Training data updates parameters, validation data guides configuration, and the final test set is reserved for comparison.", input: "原始文档 + 来源与许可清单", inputEn: "Raw documents + source and license manifest", output: "train / validation / test + 数据版本", outputEn: "train / validation / test + data version", check: "同一文档、近重复文本和同源片段不能跨集合；后训练数据也要检查与评测集的重叠。", checkEn: "Keep documents, near-duplicates, and related chunks in one split. Also check post-training data for overlap with evaluation sets.", artifact: "manifest.json · train.jsonl · validation.jsonl · test.jsonl", action: "调整下方的切分方式，看看重复文档去了哪里。", actionEn: "Change the splitting rule below and see where the duplicate document goes." },
-		{ id: "tokenizer", short: "分词", shortEn: "Tokenizer", title: "分词器训练与编码", titleEn: "Tokenizer training and encoding", description: "只用训练语料拟合分词器，记录词表、特殊 token 和版本。把文档编码、追加结束标记，再按上下文长度打包；padding 部分不计入训练损失。", descriptionEn: "Fit the tokenizer on training text only and version its vocabulary and special tokens. Encode documents, add end markers, and pack sequences to the chosen context length. Mask padding out of the training loss.", input: "训练语料 + 分词配置", inputEn: "Training corpus + tokenizer configuration", output: "固定分词器 + token 数据块", outputEn: "Frozen tokenizer + token blocks", check: "检查编码/解码、特殊 token 与词表大小；验证集只能编码，不能参与拟合分词器。", checkEn: "Check encode/decode behavior, special tokens, and vocabulary size. Validation text is encoded but never used to fit the tokenizer.", artifact: "tokenizer.json · tokenizer.meta.json", action: "上下文长度影响每个训练序列能看到的范围，也影响显存与内存需求。", actionEn: "Context length controls how much each sequence can see and affects activation memory." },
-		{ id: "pretrain", short: "预训练", shortEn: "Pretrain", title: "自回归预训练", titleEn: "Autoregressive pretraining", description: "初始化一个小型 decoder-only Transformer，以自回归目标做完整参数训练。先打通少量更新、保存、恢复和固定集评估，再增加 token 预算。", descriptionEn: "Initialize a small decoder-only Transformer and train all its parameters with an autoregressive objective. First connect a few updates, saving, resuming, and fixed-set evaluation, then increase the token budget.", input: "随机初始化模型 + 训练 token", inputEn: "Randomly initialized model + training tokens", output: "基座 checkpoint + 优化器状态 + 运行日志", outputEn: "Base checkpoint + optimizer state + run log", check: "固定随机种子和验证集；检查 loss 是否有限、梯度是否有效、断点恢复后数据位置是否一致。", checkEn: "Fix the seed and validation set. Check finite loss, useful gradients, and consistent data position when resuming.", artifact: "pretrain/checkpoint.pt · pretrain/report.json", action: "先用 tiny 做少量步 smoke test，再把约 30M 作为首个完整实验。100M 与 500M 都需要吞吐、峰值内存和磁盘测量后再决定。", actionEn: "First run a tiny smoke test, then use approximately 30M for the first full experiment. Both 100M and 500M require throughput, peak-memory, and disk measurements." },
-		{ id: "sft", short: "指令微调", shortEn: "SFT", title: "指令监督微调", titleEn: "Supervised instruction fine-tuning", description: "接续自己的预训练 checkpoint，统一对话模板，用指令与回答样本训练。只在需要学习的 assistant 回答部分计算损失，保持验证提示词和生成参数固定。", descriptionEn: "Continue from your own pretrained checkpoint with a consistent chat template and instruction-response examples. Compute loss on the intended assistant responses, and keep validation prompts and generation settings fixed.", input: "自己的基座 checkpoint + 指令数据", inputEn: "Your base checkpoint + instruction data", output: "SFT checkpoint + 对话模板", outputEn: "SFT checkpoint + chat template", check: "核对标签掩码、角色边界与结束符；用相同提示词比较基座与 SFT 输出。", checkEn: "Check label masking, role boundaries, and stop tokens. Compare base and SFT outputs on the same prompts.", artifact: "sft/checkpoint.pt · sft/report.json", action: "小模型先学习清晰的输出格式和窄任务，目标与能力范围保持一致。", actionEn: "Use small models to learn clear formats and narrow tasks, with goals matched to their capacity." },
-		{ id: "dpo", short: "偏好优化", shortEn: "DPO", title: "偏好优化", titleEn: "Preference optimization", description: "为相同 prompt 准备 chosen / rejected 成对回答，以 SFT checkpoint 作为起点和固定参考。DPO 直接优化相对偏好，记录 β、数据构造方式与训练范围。", descriptionEn: "Prepare chosen/rejected responses to the same prompt, using the SFT checkpoint as both the starting policy and a frozen reference. DPO optimizes relative preferences; record beta, data construction, and which parameters are trained.", input: "SFT checkpoint + 偏好对 + 固定参考", inputEn: "SFT checkpoint + preference pairs + frozen reference", output: "DPO checkpoint + 偏好训练日志", outputEn: "DPO checkpoint + preference training log", check: "用独立偏好集比较 SFT 与 DPO，并检查格式、长度和基础能力变化。固定参考模型还会占用额外内存。", checkEn: "Compare SFT and DPO on held-out preferences, and check format, length, and base capabilities. The frozen reference model needs additional memory.", artifact: "dpo/checkpoint.pt · dpo/report.json", action: "一次偏好分数提高，需要和其他指标一起判断；它本身不能代表通用能力提高。", actionEn: "Judge preference improvements together with other metrics; preference scores alone do not establish a general capability gain." },
-		{ id: "evaluate", short: "评测", shortEn: "Evaluate", title: "模型评估与实验对比", titleEn: "Model evaluation and experiment comparison", description: "保留随机初始化、预训练、SFT 与 DPO 四个快照。在固定文本上计算 token 加权 NLL 与 perplexity，在固定任务上比较格式、正确率和偏好，同时保留原始输出。", descriptionEn: "Keep random, pretrained, SFT, and DPO snapshots. Measure token-weighted NLL and perplexity on fixed text; compare format, accuracy, and preference on fixed tasks, keeping raw outputs.", input: "各阶段 checkpoint + 冻结评测集", inputEn: "Stage checkpoints + frozen evaluation sets", output: "可追溯的指标表 + 原始生成结果", outputEn: "Traceable metrics + raw generations", check: "只在相同分词器、语料与掩码下比较 perplexity；任务分数注明样本数和判分规则。", checkEn: "Compare perplexity only with the same tokenizer, corpus, and masking. Report sample counts and scoring rules for task metrics.", artifact: "evaluation.json · summary.json", action: "这里呈现流程和预算；训练曲线与能力结果将由实际运行日志生成。", actionEn: "This workbench shows the workflow and budget; learning curves and capability results will come from actual run logs." },
-		{ id: "deploy", short: "部署", shortEn: "Deploy", title: "模型导出与部署", titleEn: "Model export and deployment", description: "一起导出权重、配置、分词器、对话模板和模型说明。先验证本地加载和生成，再把量化作为独立比较，记录模型大小、质量变化与推理速度。", descriptionEn: "Export weights, configuration, tokenizer, chat template, and a model card together. Confirm local loading and generation first, then compare quantization separately, recording size, quality changes, and inference speed.", input: "选定 checkpoint + 配套配置", inputEn: "Selected checkpoint + matching configuration", output: "本地推理入口 + 模型说明 + 复现命令", outputEn: "Local inference entry + model card + reproduction commands", check: "同一提示词比较导出前后的生成；量化后重新评测，记录运行环境与生成参数。", checkEn: "Compare generations before and after export on the same prompts. Re-evaluate quantized models and record the environment and decoding settings.", artifact: "checkpoint.pt · generate --chat · summary.json", action: "当前骨架直接加载 checkpoint 内嵌的权重、配置和分词器做本地 CLI 推理。格式转换与量化留待独立验证；失败样例回到下一轮数据和评测。", actionEn: "The current skeleton loads weights, configuration, and tokenizer embedded in the checkpoint for local CLI inference. Format conversion and quantization need separate validation; failure cases inform the next data and evaluation cycle." },
-	];
-	const documents = [
-		{ id: "A · 1", group: "A", text: "风吹过山谷。", textEn: "Wind passes through the valley.", split: "train", naive: "train" },
-		{ id: "A · 2", group: "A", text: "风吹过山谷。", textEn: "Wind passes through the valley.", split: "duplicate", naive: "validation" },
-		{ id: "B", group: "B", text: "河水流向大海。", textEn: "The river flows toward the sea.", split: "train", naive: "train" },
-		{ id: "C", group: "C", text: "种子在春天发芽。", textEn: "Seeds sprout in spring.", split: "validation", naive: "validation" },
-		{ id: "D", group: "D", text: "月光照亮了窗台。", textEn: "Moonlight lights up the windowsill.", split: "test", naive: "test" },
-	];
-	const current = $derived(stages[active]);
-	const budget = $derived(trainingBudget(size * 1_000_000, context, microbatch, accumulation, steps));
-	const memory = $derived(budget.stateGiB);
-	const tokensPerStep = $derived(budget.tokensPerUpdate);
-	const tokens = $derived(budget.tokens);
-	const tokenDisplayDivisor = $derived(tokens >= 1_000_000 ? 1_000_000 : tokens >= 1_000 ? 1_000 : 1);
-	const runHours = $derived(throughput && Number.isFinite(throughput) && throughput > 0 ? tokens / throughput / 3600 : null);
-	const tokensPerParameter = $derived(tokens / (size * 1_000_000));
-	function t(zh: string, en: string) { return english ? en : zh; }
-	function number(value: number) { return value.toLocaleString(english ? "en-US" : "zh-CN"); }
-	function choose(index: number) { active = Math.max(0, Math.min(stages.length - 1, index)); copyStatus = ""; }
-	function settings() { return { stage: current.id, size: String(size), context: String(context), microbatch: String(microbatch), accumulation: String(accumulation), steps: String(steps) }; }
-	async function share() {
-		const url = new URL(location.href); url.search = new URLSearchParams(settings()).toString(); history.replaceState({}, "", url);
-		try { await navigator.clipboard.writeText(url.href); copyStatus = "ok"; } catch { copyStatus = "error"; }
-	}
-	onMount(() => {
-		const sync = () => { english = document.documentElement.lang.startsWith("en"); };
-		sync(); document.addEventListener("site-locale-change", sync);
-		const params = new URL(location.href).searchParams;
-		const queryStage = stages.findIndex((stage) => stage.id === params.get("stage")); if (queryStage >= 0) active = queryStage;
-		const read = (key: string, options: number[], fallback: number) => { const value = Number(params.get(key)); return options.includes(value) ? value : fallback; };
-		size = read("size", [0.15, 30, 100, 500], 0.15); context = read("context", [128, 256, 512, 1024], 128); microbatch = read("microbatch", [1, 2, 4], 1); accumulation = read("accumulation", [1, 8, 16, 32], 1); steps = read("steps", [8, 100, 1000, 5000, 25000], 8);
-		return () => document.removeEventListener("site-locale-change", sync);
-	});
+}
+onMount(() => {
+	const sync = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	sync();
+	document.addEventListener("site-locale-change", sync);
+	const params = new URL(location.href).searchParams;
+	const queryStage = stages.findIndex(
+		(stage) => stage.id === params.get("stage"),
+	);
+	if (queryStage >= 0) active = queryStage;
+	const read = (key: string, options: number[], fallback: number) => {
+		const value = Number(params.get(key));
+		return options.includes(value) ? value : fallback;
+	};
+	size = read("size", [0.15, 30, 100, 500], 0.15);
+	context = read("context", [128, 256, 512, 1024], 128);
+	microbatch = read("microbatch", [1, 2, 4], 1);
+	accumulation = read("accumulation", [1, 8, 16, 32], 1);
+	steps = read("steps", [8, 100, 1000, 5000, 25000], 8);
+	return () => document.removeEventListener("site-locale-change", sync);
+});
 </script>
 
 <section class="pipeline" aria-label={t("小模型全链路互动工作台", "Small-model pipeline workbench")}>

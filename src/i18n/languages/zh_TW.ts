@@ -25,8 +25,6 @@ export const zh_TW: Translation = {
 	[Key.minuteCount]: "分鐘",
 	[Key.minutesCount]: "分鐘",
 
-
-
 	[Key.more]: "更多",
 	[Key.collapse]: "收起",
 

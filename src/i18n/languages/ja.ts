@@ -25,8 +25,6 @@ export const ja: Translation = {
 	[Key.minuteCount]: "分",
 	[Key.minutesCount]: "分",
 
-
-
 	[Key.more]: "もっと",
 	[Key.collapse]: "折りたたむ",
 

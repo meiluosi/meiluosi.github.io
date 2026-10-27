@@ -1,15 +1,43 @@
 ---
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import Text from "@/components/common/BilingualText.astro";
 import { library } from "@/data/library";
-import { getResearchNotes, requireResearchNote } from "@/utils/research-content";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import {
+	getResearchNotes,
+	requireResearchNote,
+} from "@/utils/research-content";
+
 const notes = await getResearchNotes();
 const topics = [
- {id:"models",zh:"模型与训练",en:"Models & training",icon:"M12 3 3 8l9 5 9-5-9-5ZM3 12l9 5 9-5M3 16l9 5 9-5"},
- {id:"search",zh:"搜索与强化学习",en:"Search & reinforcement learning",icon:"M12 3v7M5 17v-7h14v7M2 17h6v4H2zM16 17h6v4h-6zM9 1h6v4H9z"},
- {id:"evaluation",zh:"因果推断与评估",en:"Causality & evaluation",icon:"M4 20V10m8 10V4m8 16v-7M2 20h20"},
+	{
+		id: "models",
+		zh: "模型与训练",
+		en: "Models & training",
+		icon: "M12 3 3 8l9 5 9-5-9-5ZM3 12l9 5 9-5M3 16l9 5 9-5",
+	},
+	{
+		id: "search",
+		zh: "搜索与强化学习",
+		en: "Search & reinforcement learning",
+		icon: "M12 3v7M5 17v-7h14v7M2 17h6v4H2zM16 17h6v4h-6zM9 1h6v4H9z",
+	},
+	{
+		id: "evaluation",
+		zh: "因果推断与评估",
+		en: "Causality & evaluation",
+		icon: "M4 20V10m8 10V4m8 16v-7M2 20h20",
+	},
 ];
-const shortTitles: Record<string,string> = {minimind:"MiniMind",nanochat:"nanochat","mcts-survey":"Monte Carlo Tree Search",alphazero:"AlphaZero","causal-remix":"Causal Inference: The Remix",ylearn:"YLearn",transformer:"Transformer",react:"ReAct"};
+const shortTitles: Record<string, string> = {
+	minimind: "MiniMind",
+	nanochat: "nanochat",
+	"mcts-survey": "Monte Carlo Tree Search",
+	alphazero: "AlphaZero",
+	"causal-remix": "Causal Inference: The Remix",
+	ylearn: "YLearn",
+	transformer: "Transformer",
+	react: "ReAct",
+};
 ---
 <ExploreLayout title="文献架" titleEn="Research library" description="模型训练、强化学习与因果推断的论文、教材及开源项目。" descriptionEn="Papers, textbooks, and open-source projects on model training, reinforcement learning, and causal inference.">
  <header class="explore-hero compact-page-heading"><Text as="h1" zh="研究文献与开源资料" en="Research literature and open-source resources" /></header>

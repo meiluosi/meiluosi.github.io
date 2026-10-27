@@ -8,6 +8,9 @@ export function mountNoteFilters(): () => void {
 	const maturities = [
 		...root.querySelectorAll<HTMLButtonElement>("[data-note-maturity-filter]"),
 	];
+	const clusters = [
+		...root.querySelectorAll<HTMLButtonElement>("[data-note-cluster-filter]"),
+	];
 	const topics = [
 		...root.querySelectorAll<HTMLButtonElement>("[data-note-topic-filter]"),
 	];
@@ -61,6 +64,7 @@ export function mountNoteFilters(): () => void {
 	const active = new Map<HTMLElement, Animation>();
 	let format = "all";
 	let maturity = "all";
+	let cluster = "all";
 	let topic = "all";
 	const syncButtons = () => {
 		for (const button of formats)
@@ -69,6 +73,8 @@ export function mountNoteFilters(): () => void {
 			button.ariaPressed = String(
 				button.dataset.noteMaturityFilter === maturity,
 			);
+		for (const button of clusters)
+			button.ariaPressed = String(button.dataset.noteClusterFilter === cluster);
 		for (const button of topics)
 			button.ariaPressed = String(button.dataset.noteTopicFilter === topic);
 	};
@@ -87,6 +93,12 @@ export function mountNoteFilters(): () => void {
 			(button) => button.dataset.noteMaturityFilter === nextMaturity,
 		)
 			? nextMaturity
+			: "all";
+		const nextCluster = params.get("cluster") ?? "all";
+		cluster = clusters.some(
+			(button) => button.dataset.noteClusterFilter === nextCluster,
+		)
+			? nextCluster
 			: "all";
 		const nextTopic = params.get("topic") ?? "all";
 		topic = topics.some(
@@ -124,6 +136,7 @@ export function mountNoteFilters(): () => void {
 			["q", query],
 			["format", format === "all" ? "" : format],
 			["maturity", maturity === "all" ? "" : maturity],
+			["cluster", cluster === "all" ? "" : cluster],
 			["topic", topic === "all" ? "" : topic],
 		]) {
 			if (value) url.searchParams.set(key, value);
@@ -145,6 +158,7 @@ export function mountNoteFilters(): () => void {
 			entry.hidden =
 				(format !== "all" && entry.dataset.noteFormat !== format) ||
 				(maturity !== "all" && entry.dataset.noteMaturity !== maturity) ||
+				(cluster !== "all" && entry.dataset.noteCluster !== cluster) ||
 				(topic !== "all" && entry.dataset.noteCategory !== topic) ||
 				(words.length > 0 &&
 					(!record || !words.every((word) => searchable.includes(word))));
@@ -280,21 +294,25 @@ export function mountNoteFilters(): () => void {
 		},
 		{ signal: events.signal },
 	);
-	for (const button of [...formats, ...maturities, ...topics]) {
+	for (const button of [...formats, ...maturities, ...clusters, ...topics]) {
 		button.addEventListener(
 			"click",
 			() => {
 				const isFormat = button.dataset.noteFormatFilter !== undefined;
 				const isMaturity = button.dataset.noteMaturityFilter !== undefined;
+				const isCluster = button.dataset.noteClusterFilter !== undefined;
 				if (isFormat) format = button.dataset.noteFormatFilter ?? "all";
 				else if (isMaturity)
 					maturity = button.dataset.noteMaturityFilter ?? "all";
+				else if (isCluster) cluster = button.dataset.noteClusterFilter ?? "all";
 				else topic = button.dataset.noteTopicFilter ?? "all";
 				for (const peer of isFormat
 					? formats
 					: isMaturity
 						? maturities
-						: topics)
+						: isCluster
+							? clusters
+							: topics)
 					peer.ariaPressed = String(peer === button);
 				update();
 			},
@@ -304,7 +322,7 @@ export function mountNoteFilters(): () => void {
 	reset?.addEventListener(
 		"click",
 		() => {
-			format = maturity = topic = "all";
+			format = maturity = cluster = topic = "all";
 			if (input) input.value = "";
 			failed = false;
 			for (const button of formats)
@@ -313,6 +331,8 @@ export function mountNoteFilters(): () => void {
 				button.ariaPressed = String(
 					button.dataset.noteMaturityFilter === "all",
 				);
+			for (const button of clusters)
+				button.ariaPressed = String(button.dataset.noteClusterFilter === "all");
 			for (const button of topics)
 				button.ariaPressed = String(button.dataset.noteTopicFilter === "all");
 			// The reset button disappears with the empty state, so return focus to a stable control.

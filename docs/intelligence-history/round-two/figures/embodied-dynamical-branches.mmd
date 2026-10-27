@@ -1,0 +1,28 @@
+%% 箭头种类必须保留；无连线不代表无关联。
+flowchart TB
+    subgraph g0["生态知觉"]
+        e_gibson_1979["1979 Gibson：环境为这个身体提供什么？"]
+    end
+    subgraph g1["行为机器人"]
+        e_brooks_1986["1985 包容架构：逐层增加可运行的行为"]
+        e_brooks_1991["1991 Brooks：没有中央表征能做到哪里？"]
+    end
+    subgraph g2["被动动力学"]
+        e_mcgeer_1990["1990 McGeer：行走能由身体动力学产生多少？"]
+    end
+    subgraph g3["发展动力学"]
+        e_thelen_2001["2001 Thelen 等：A-not-B错误是否来自行动历史？"]
+    end
+    subgraph g4["概念审查"]
+        e_wilson_2002["2002 Wilson：具身认知包含哪些不同主张？"]
+    end
+    subgraph g5["形态计算"]
+        e_zahedi_ay_2013["2013 Zahedi与Ay：怎样量化身体的贡献？"]
+        e_ghazi_zahedi_rauh_2015["2015 信息分解：身体独有贡献与协同贡献"]
+    end
+    e_brooks_1986 -- 方法扩展 --> e_brooks_1991
+    e_gibson_1979 -- 明确引用 --> e_wilson_2002
+    e_brooks_1991 -- 明确引用 --> e_wilson_2002
+    e_mcgeer_1990 -- 明确引用 --> e_ghazi_zahedi_rauh_2015
+    e_zahedi_ay_2013 -- 方法扩展 --> e_ghazi_zahedi_rauh_2015
+    e_thelen_2001 -. 本站比较 .-> e_wilson_2002

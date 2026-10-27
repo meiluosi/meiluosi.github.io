@@ -1,0 +1,106 @@
+{
+  "checkedAt": "2026-10-27",
+  "routes": [
+    {
+      "batch": "c",
+      "route": "neuroscience",
+      "nodeButtons": 7,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "c",
+      "route": "developmental-openended",
+      "nodeButtons": 6,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "c",
+      "route": "autopoiesis-evolution",
+      "nodeButtons": 6,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "d",
+      "route": "sociocultural-language",
+      "nodeButtons": 7,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "d",
+      "route": "collective-extended",
+      "nodeButtons": 8,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "d",
+      "route": "wisdom-values",
+      "nodeButtons": 7,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "e",
+      "route": "information-physics",
+      "nodeButtons": 6,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "e",
+      "route": "philosophy-of-mind",
+      "nodeButtons": 6,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "e",
+      "route": "consciousness-self",
+      "nodeButtons": 7,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    },
+    {
+      "batch": "e",
+      "route": "metaphysics-quantum",
+      "nodeButtons": 6,
+      "evidenceRows": 4,
+      "timelineTextClipping": [],
+      "relationTextClipping": [],
+      "mobileOverflow": false
+    }
+  ],
+  "global": {
+    "routes": 20,
+    "questionCards": 15,
+    "batchFilter": "E=4",
+    "nodeSearch": "退相干",
+    "emptyState": true,
+    "mobileWidth": 390,
+    "mobileOverflow": false
+  },
+  "pageErrors": [],
+  "keyboard": "All 10 routes: directory and SVG links with Enter"
+}

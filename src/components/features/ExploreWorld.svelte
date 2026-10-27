@@ -1,12 +1,19 @@
 <script lang="ts">
 import { onMount, tick } from "svelte";
 import { researchThreads } from "@/data/researchThreads";
-import type { WorldController, WorldLocale, WorldQuality } from "./world/create-world";
-import WorldPoster from "./world/WorldPoster.svelte";
 import { computeCelestialState, getCurrentSolarHour } from "@/utils/celestial";
 import { playLatchClick } from "@/utils/haptics";
+import type {
+	WorldController,
+	WorldLocale,
+	WorldQuality,
+} from "./world/create-world";
+import WorldPoster from "./world/WorldPoster.svelte";
 
-interface Props { immersive?: boolean; compact?: boolean; }
+interface Props {
+	immersive?: boolean;
+	compact?: boolean;
+}
 let { immersive = false, compact = false }: Props = $props();
 let stage: HTMLDivElement;
 let canvas = $state<HTMLCanvasElement>();
@@ -14,19 +21,36 @@ let panel = $state<HTMLElement>();
 let controller: WorldController | null = null;
 let disposed = false;
 let locale = $state<WorldLocale>("zh-CN");
-let noticeZh = $state("桌上有几个还没想完的问题，随意看看。");
-let noticeEn = $state("A few unfinished questions are on the table. Have a look around.");
+let noticeZh = $state("桌上有几个还没想完的问题，随意漫步看看。");
+let noticeEn = $state(
+	"A few unfinished questions are in the garden. Wander freely around.",
+);
 let webglAvailable = $state(true);
 let sceneReady = $state(false);
 let loading = $state(false);
 let animationPaused = $state(false);
 let reducedMotion = $state(false);
-let followRover = $state(false);
+let followRover = $state(true);
 let quality = $state<WorldQuality>("light");
 let selected = $state<(typeof destinations)[number] | null>(null);
 let panelCollapsed = $state(false);
 let previewTrigger: HTMLElement | null = null;
 let solarHour = $state(getCurrentSolarHour());
+
+// HUD States for Genshin-style mechanics
+let oculiCount = $state(0);
+let nearStationId = $state<string | null>(null);
+let bannerMessage = $state<{ title: string; subtitle: string } | null>(null);
+let bannerTimer: ReturnType<typeof setTimeout> | null = null;
+
+function showBanner(title: string, subtitle: string): void {
+	bannerMessage = { title, subtitle };
+	if (bannerTimer) clearTimeout(bannerTimer);
+	bannerTimer = setTimeout(() => {
+		bannerMessage = null;
+	}, 4500);
+}
+
 const celestial = $derived(computeCelestialState(solarHour));
 const celestialEmoji = $derived(
 	celestial.period === "dawn"
@@ -42,47 +66,98 @@ const celestialLabel = $derived(
 );
 const stationCopy = {
 	"llm-systems": {
-		label: "文字桌", labelEn: "Word desk", sceneLabel: "文字桌", sceneLabelEn: "The word desk",
-		question: "一句话怎样变成机器眼中的数字？", questionEn: "How does a sentence become numbers to a machine?",
-		workText: "从纸上的一句话开始，拆成词元，看看预测、训练与评测怎样接上。", workTextEn: "Start with a sentence on the page, turn it into tokens, and follow the connections between prediction, training, and evaluation.",
+		label: "文字桌",
+		labelEn: "Word desk",
+		sceneLabel: "文字桌",
+		sceneLabelEn: "The word desk",
+		question: "一句话怎样变成机器眼中的数字？",
+		questionEn: "How does a sentence become numbers to a machine?",
+		workText: "从纸上的一句话开始，拆成词元，看看预测、训练与评测怎样接上。",
+		workTextEn:
+			"Start with a sentence on the page, turn it into tokens, and follow the connections between prediction, training, and evaluation.",
 	},
 	"reinforcement-learning": {
-		label: "棋盘", labelEn: "The board", sceneLabel: "棋盘边", sceneLabelEn: "At the board",
-		question: "多想一步，选择会改变吗？", questionEn: "Would thinking one step further change the choice?",
-		workText: "棋盘上的一步，还可以往前想多远？展开一棵搜索树，看看尝试怎样留下线索。", workTextEn: "How far ahead can we look before placing a stone? Open a search tree and see what each attempt leaves behind.",
+		label: "棋盘",
+		labelEn: "The board",
+		sceneLabel: "棋盘边",
+		sceneLabelEn: "At the board",
+		question: "多想一步，选择会改变吗？",
+		questionEn: "Would thinking one step further change the choice?",
+		workText:
+			"棋盘上的一步，还可以往前想多远？展开一棵搜索树，看看尝试怎样留下线索。",
+		workTextEn:
+			"How far ahead can we look before placing a stone? Open a search tree and see what each attempt leaves behind.",
 	},
 	"causal-inference": {
-		label: "观察台", labelEn: "Observation", sceneLabel: "观察台", sceneLabelEn: "The observation desk",
-		question: "怎样辨认一次改变的原因？", questionEn: "How can we find the cause of a change?",
-		workText: "两组人看起来不同，差异来自哪里？换一种安排，在模拟数据里试着分辨。", workTextEn: "Two groups look different, but why? Change how things are assigned and explore the distinction with simulated data.",
+		label: "观察台",
+		labelEn: "Observation",
+		sceneLabel: "观察台",
+		sceneLabelEn: "The observation desk",
+		question: "怎样辨认一次改变的原因？",
+		questionEn: "How can we find the cause of a change?",
+		workText:
+			"两组人看起来不同，差异来自哪里？换一种安排，在模拟数据里试着分辨。",
+		workTextEn:
+			"Two groups look different, but why? Change how things are assigned and explore the distinction with simulated data.",
 	},
 };
-const destinations = researchThreads.map((thread) => ({ ...thread, ...stationCopy[thread.id] }));
+const destinations = researchThreads.map((thread) => ({
+	...thread,
+	...stationCopy[thread.id],
+}));
 const stationContent = {
 	"llm-systems": {
-		slug: "local-1b-model-workflow", zh: "小模型全链路训练", en: "End-to-end small-model training",
-		experiment: "/lab/model-pipeline/", experimentZh: "拆开一句话，试着预测下一个词", experimentEn: "Take a sentence apart and predict the next token",
-		path: "/work/local-1b-model-workflow/", pathZh: "从模型到智能系统", pathEn: "From models to intelligent systems",
+		slug: "local-1b-model-workflow",
+		zh: "小模型全链路训练",
+		en: "End-to-end small-model training",
+		experiment: "/lab/model-pipeline/",
+		experimentZh: "拆开一句话，试着预测下一个词",
+		experimentEn: "Take a sentence apart and predict the next token",
+		path: "/work/local-1b-model-workflow/",
+		pathZh: "从模型到智能系统",
+		pathEn: "From models to intelligent systems",
 	},
 	"reinforcement-learning": {
-		slug: "alphazero-gomoku", zh: "AlphaZero 五子棋", en: "AlphaZero Gomoku",
-		experiment: "/lab/mcts/", experimentZh: "沿着搜索树，多想一步", experimentEn: "Think one step further with a search tree",
-		path: "/work/alphazero-gomoku/", pathZh: "从搜索到自我对弈", pathEn: "From search to self-play",
+		slug: "alphazero-gomoku",
+		zh: "AlphaZero 五子棋",
+		en: "AlphaZero Gomoku",
+		experiment: "/lab/mcts/",
+		experimentZh: "沿着搜索树，多想一步",
+		experimentEn: "Think one step further with a search tree",
+		path: "/work/alphazero-gomoku/",
+		pathZh: "从搜索到自我对弈",
+		pathEn: "From search to self-play",
 	},
 	"causal-inference": {
-		slug: "ylearn-causal-inference", zh: "YLearn 因果分析", en: "YLearn causal inference",
-		experiment: "/lab/causal-playground/", experimentZh: "换一种安排，观察差异", experimentEn: "Change the assignment and observe the difference",
-		path: "/work/ylearn-causal-inference/", pathZh: "怎样判断改进有效", pathEn: "How to evaluate improvement",
+		slug: "ylearn-causal-inference",
+		zh: "YLearn 因果分析",
+		en: "YLearn causal inference",
+		experiment: "/lab/causal-playground/",
+		experimentZh: "换一种安排，观察差异",
+		experimentEn: "Change the assignment and observe the difference",
+		path: "/work/ylearn-causal-inference/",
+		pathZh: "怎样判断改进有效",
+		pathEn: "How to evaluate improvement",
 	},
 };
-const panelId = $derived(immersive ? "immersive-station-panel" : "home-station-panel");
-const instructionId = $derived(immersive ? "immersive-world-instructions" : "home-world-instructions");
+const panelId = $derived(
+	immersive ? "immersive-station-panel" : "home-station-panel",
+);
+const instructionId = $derived(
+	immersive ? "immersive-world-instructions" : "home-world-instructions",
+);
 
 function localized(item: { sceneLabel: string; sceneLabelEn: string }): string {
 	return locale === "en" ? item.sceneLabelEn : item.sceneLabel;
 }
-async function openStation(destination: (typeof destinations)[number]): Promise<void> {
-	if (!selected) previewTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+async function openStation(
+	destination: (typeof destinations)[number],
+): Promise<void> {
+	if (!selected)
+		previewTrigger =
+			document.activeElement instanceof HTMLElement
+				? document.activeElement
+				: null;
 	selected = destination;
 	panelCollapsed = false;
 	controller?.selectStation(destination.id);
@@ -144,34 +219,79 @@ function showFallback(): void {
 async function startScene(): Promise<void> {
 	if (loading || sceneReady || disposed || compact || !canvas) return;
 	loading = true;
-	noticeZh = "正在准备研究岛 · 可先点选下方站点";
-	noticeEn = "PREPARING THE ISLAND · STATION BUTTONS ARE READY";
+	noticeZh = "正在准备探索花园 · 可先点选下方站点";
+	noticeEn = "PREPARING THE GARDEN · STATION BUTTONS ARE READY";
 	try {
 		const { createWorld } = await import("./world/create-world");
 		if (disposed || !canvas) return;
 		controller = createWorld({
-			canvas, stage, stations: destinations, immersive, locale,
+			canvas,
+			stage,
+			stations: destinations,
+			immersive,
+			locale,
 			onReady: () => {
 				sceneReady = true;
 				loading = false;
 				controller?.setSolarHour(solarHour);
 			},
-			onSelect: (id) => { const station = destinations.find((item) => item.id === id); if (station) void openStation(station); },
-			onOverview: () => { selected = null; },
-			onNotice: (zh, en) => { noticeZh = zh; noticeEn = en; },
-			onMotionPreference: (reduced) => { reducedMotion = reduced; },
-			onFollowChange: (follow) => { followRover = follow; },
+			onSelect: (id) => {
+				const station = destinations.find((item) => item.id === id);
+				if (station) void openStation(station);
+			},
+			onOverview: () => {
+				selected = null;
+			},
+			onNotice: (zh, en) => {
+				noticeZh = zh;
+				noticeEn = en;
+			},
+			onMotionPreference: (reduced) => {
+				reducedMotion = reduced;
+			},
+			onFollowChange: (follow) => {
+				followRover = follow;
+			},
 			onError: showFallback,
+			onCollectOculus: (_idx, titleZh, titleEn) => {
+				oculiCount += 1;
+				playLatchClick();
+				showBanner(
+					locale === "en"
+						? "✨ Inspiration Spark Collected!"
+						: "✨ 获得灵感神瞳！",
+					locale === "en" ? titleEn : titleZh,
+				);
+			},
+			onStepPlate: (active) => {
+				if (active) {
+					playLatchClick();
+					showBanner(
+						locale === "en"
+							? "⚙️ Ancient Mechanism Triggered"
+							: "⚙️ 触发遗迹机关",
+						locale === "en"
+							? "Floating stones have aligned as a walkway!"
+							: "悬空浮石正在升起拼合为桥梁！",
+					);
+				}
+			},
+			onProximityStation: (stId) => {
+				nearStationId = stId;
+			},
 		});
 		if (selected) controller.selectStation(selected.id);
 	} catch (error) {
-		if (import.meta.env.DEV) console.warn("[ExploreWorld] Scene initialization failed", error);
+		if (import.meta.env.DEV)
+			console.warn("[ExploreWorld] Scene initialization failed", error);
 		if (!disposed) showFallback();
 	}
 }
 
 onMount(() => {
-	locale = document.documentElement.lang.toLowerCase().startsWith("en") ? "en" : "zh-CN";
+	locale = document.documentElement.lang.toLowerCase().startsWith("en")
+		? "en"
+		: "zh-CN";
 	const onLocaleChange = (event: Event) => {
 		locale = (event as CustomEvent<string>).detail === "en" ? "en" : "zh-CN";
 		controller?.setLocale(locale);
@@ -180,6 +300,7 @@ onMount(() => {
 	if (immersive && !compact) void startScene();
 	return () => {
 		disposed = true;
+		if (bannerTimer) clearTimeout(bannerTimer);
 		controller?.dispose();
 		controller = null;
 		document.removeEventListener("site-locale-change", onLocaleChange);
@@ -189,51 +310,179 @@ onMount(() => {
 
 <svelte:window onkeydown={onWindowKeyDown} />
 
-<div class="explore-world" class:immersive class:compact class:offline={!webglAvailable} class:ready={sceneReady} class:has-selection={selected !== null && !panelCollapsed} bind:this={stage}>
+<div
+	class="explore-world"
+	class:immersive
+	class:compact
+	class:offline={!webglAvailable}
+	class:ready={sceneReady}
+	class:has-selection={selected !== null && !panelCollapsed}
+	bind:this={stage}
+>
 	<div class="world-poster" aria-hidden="true"><WorldPoster {locale} /></div>
 	{#if compact}
-		<div class="compact-caption"><p>{locale === "en" ? "A desk, a board, and a place to look closer." : "一张桌、一盘棋，还有几个想继续追问的问题。"}</p><a href="/world/">{locale === "en" ? "Have a look around" : "进来随意看看"}<span aria-hidden="true">↗</span></a></div>
-	{:else}
-	<canvas bind:this={canvas} tabindex={webglAvailable && sceneReady ? 0 : -1} aria-hidden={!webglAvailable || !sceneReady} aria-describedby={instructionId} aria-label={locale === "en" ? "Interactive research island. Select a station, drag to rotate, or use WASD and arrow keys to move. Press Enter near a station. R returns the rover to the start; Home restores the view." : "互动研究岛。点选站点、拖动旋转，或用 WASD 与方向键移动。靠近站点后按 Enter；R 返回起点，Home 恢复视角。"}></canvas>
-	{#if !immersive && !sceneReady && webglAvailable}
-		<button type="button" class="world-launch" onclick={startScene} disabled={loading}><span aria-hidden="true">{loading ? "◌" : "▷"}</span>{loading ? (locale === "en" ? "Preparing…" : "正在准备…") : (locale === "en" ? "Start 3D here" : "在此启动 3D")}</button>
-	{/if}
-	<div class="world-status" role="status"><span class:offline={!webglAvailable}></span><span>{locale === "en" ? noticeEn : noticeZh}</span></div>
-	{#if sceneReady && webglAvailable}
-		<div class="world-toolbar" role="group" aria-label={locale === "en" ? "World controls" : "研究岛控制"}>
-			<button type="button" onclick={resetView} title={locale === "en" ? "Restore the overview (Home)" : "恢复总览视角（Home）"}><span aria-hidden="true">⌖</span> {locale === "en" ? "Overview" : "总览"}</button>
-			<button type="button" onclick={() => controller?.resetRover()} title={locale === "en" ? "Return rover to the start (R)" : "小车回到起点（R）"}><span aria-hidden="true">↺</span> {locale === "en" ? "Reset rover" : "回起点"}</button>
-			<button type="button" onclick={changeQuality} aria-pressed={quality === "full"} title={locale === "en" ? "Full quality adds shadows and finer resolution" : "完整画质增加投影和显示精度"}>{locale === "en" ? "Quality:" : "画质："} {quality === "full" ? (locale === "en" ? "Full" : "完整") : (locale === "en" ? "Light" : "轻量")}</button>
-			<button type="button" class="celestial-btn" onclick={cycleDaylight} title={locale === "en" ? "Cycle celestial daylight (Dawn / Noon / Sunset / Night)" : "切换天象光影周期（晨曦 / 正午 / 晚霞 / 静夜）"}><span aria-hidden="true">{celestialEmoji}</span> {celestialLabel}</button>
-			<button type="button" onclick={toggleAnimation} disabled={reducedMotion} aria-pressed={animationPaused || reducedMotion} title={locale === "en" ? "Pause ambient animation; driving and camera controls stay available" : "暂停环境动效，仍可驾驶与调整镜头"}>{reducedMotion ? (locale === "en" ? "Reduced motion" : "已减少动态效果") : animationPaused ? (locale === "en" ? "Resume motion" : "继续动效") : (locale === "en" ? "Pause motion" : "暂停动效")}</button>
-			{#if immersive}<button type="button" onclick={toggleFollow} aria-pressed={followRover}>{locale === "en" ? "Follow rover" : "跟随小车"}</button>{/if}
+		<div class="compact-caption">
+			<p>{locale === "en" ? "A desk, a board, and a place to look closer." : "一张桌、一盘棋，还有几个想继续追问的问题。"}</p>
+			<a href="/world/">{locale === "en" ? "Have a look around" : "进来随意看看"}<span aria-hidden="true">↗</span></a>
 		</div>
-	{/if}
-	<p class="world-controls" id={instructionId}>{sceneReady && webglAvailable ? (locale === "en" ? "Select to travel · Drag to orbit · Focus the scene to drive with WASD" : "点选自动前往 · 拖动旋转 · 点画布后可用 WASD 驾驶") : (locale === "en" ? "Three questions. One connected research journey." : "三个研究问题，沿尝试、反馈与评估相连。")}</p>
-	<nav class="world-shortcuts" aria-label={locale === "en" ? "Research stations" : "研究站点"}>
-		{#each destinations as destination}
-			<button type="button" class:active={selected?.id === destination.id} onclick={() => openStation(destination)} aria-expanded={selected?.id === destination.id} aria-controls={panelId}><span class="station-number">{destination.number}</span><span>{locale === "en" ? destination.labelEn : destination.label}</span><span class="station-arrow" aria-hidden="true">↗</span></button>
-		{/each}
-	</nav>
-	{#if selected && panelCollapsed}
-		<button type="button" class="reopen-preview" onclick={() => selected && openStation(selected)} aria-controls={panelId} aria-expanded="false">{locale === "en" ? "Open station details" : "展开站点内容"} ↗</button>
-	{/if}
-	{#if selected && !panelCollapsed}
-		{@const content = stationContent[selected.id]}
-		<section class="station-preview" id={panelId} bind:this={panel} tabindex="-1" aria-labelledby={`${panelId}-title`}>
-			<button class="preview-close" type="button" onclick={closeStation} aria-label={locale === "en" ? "Close station details" : "关闭站点详情"}>×</button>
-			<p class="preview-kicker">{localized(selected)}</p>
-			<h2 id={`${panelId}-title`}>{locale === "en" ? selected.questionEn : selected.question}</h2>
-			<a class="preview-main-link" href={content.experiment}><span>{locale === "en" ? "Try it" : "动手试试"}</span><strong>{locale === "en" ? content.experimentEn : content.experimentZh}</strong><b aria-hidden="true">↗</b></a>
-			<p class="preview-body">{locale === "en" ? selected.workTextEn : selected.workText}</p>
-			<div class="preview-links">
-				<a href={`/work/${content.slug}/`}><span>{locale === "en" ? "Read the notes" : "翻翻记录"}</span><strong>{locale === "en" ? content.en : content.zh}</strong><b aria-hidden="true">↗</b></a>
-				<a href={content.path}><span>{locale === "en" ? "Research case" : "研究案例"}</span><strong>{locale === "en" ? content.pathEn : content.pathZh}</strong><b aria-hidden="true">↗</b></a>
+	{:else}
+		<canvas
+			bind:this={canvas}
+			tabindex={webglAvailable && sceneReady ? 0 : -1}
+			aria-hidden={!webglAvailable || !sceneReady}
+			aria-describedby={instructionId}
+			aria-label={locale === "en" ? "Interactive 3D digital garden. Use WASD to walk, Space to jump, E to inspect notes, or click destinations." : "三维数字花园。用 WASD 漫步，空格跳跃，E 翻看手稿，或点选站点自动前往。"}
+		></canvas>
+
+		{#if !immersive && !sceneReady && webglAvailable}
+			<button type="button" class="world-launch" onclick={startScene} disabled={loading}>
+				<span aria-hidden="true">{loading ? "◌" : "▷"}</span>
+				{loading ? (locale === "en" ? "Preparing…" : "正在准备…") : (locale === "en" ? "Start 3D here" : "在此启动 3D")}
+			</button>
+		{/if}
+
+		<!-- Genshin-style Pickup / Achievement Banner -->
+		{#if bannerMessage}
+			<div class="genshin-banner">
+				<h4>{bannerMessage.title}</h4>
+				<p>{bannerMessage.subtitle}</p>
 			</div>
-			{#if sceneReady && webglAvailable}<button type="button" class="preview-explore" onclick={collapsePanel}>{locale === "en" ? "Put the note aside and look around" : "先放下纸条，看看桌上的东西"} <span aria-hidden="true">↙</span></button>{/if}
-		</section>
-	{/if}
-	<noscript><nav class="world-no-script" aria-label="研究方向"><a href="/lab/model-pipeline/">小模型全链路训练</a><a href="/lab/mcts/">MCTS 搜索实验</a><a href="/lab/causal-playground/">因果实验</a></nav></noscript>
+		{/if}
+
+		<!-- Near Station Interaction Prompt -->
+		{#if nearStationId && (!selected || panelCollapsed)}
+			{@const stObj = destinations.find((d) => d.id === nearStationId)}
+			{#if stObj}
+				<div class="interaction-prompt">
+					<button type="button" class="interact-action-btn" onclick={() => openStation(stObj)}>
+						<span class="key-pill">E</span>
+						<div class="prompt-text">
+							<strong>{locale === "en" ? stObj.sceneLabelEn : stObj.sceneLabel}</strong>
+							<small>{locale === "en" ? "Press E or click to open notes ↗" : "按 E 或点击翻开手稿 ↗"}</small>
+						</div>
+					</button>
+				</div>
+			{/if}
+		{/if}
+
+		<div class="world-status" role="status">
+			<span class:offline={!webglAvailable}></span>
+			<span>{locale === "en" ? noticeEn : noticeZh}</span>
+		</div>
+
+		{#if sceneReady && webglAvailable}
+			<div class="world-toolbar" role="group" aria-label={locale === "en" ? "World controls" : "研究岛控制"}>
+				<!-- Inspiration Oculi Counter -->
+				<div class="oculi-counter" title={locale === "en" ? "Inspiration Oculi gathered" : "已收集的灵感神瞳"}>
+					<span class="star-icon">✦</span>
+					<span class="count-num">{oculiCount} / 3</span>
+				</div>
+				<button type="button" onclick={resetView} title={locale === "en" ? "Restore overview (Home)" : "恢复总览视角（Home）"}>
+					<span aria-hidden="true">⌖</span> {locale === "en" ? "Overview" : "总览"}
+				</button>
+				<button type="button" onclick={() => controller?.resetRover()} title={locale === "en" ? "Return traveler to start (R)" : "漫步者回起点（R）"}>
+					<span aria-hidden="true">↺</span> {locale === "en" ? "Reset" : "回起点"}
+				</button>
+				<button type="button" onclick={changeQuality} aria-pressed={quality === "full"} title={locale === "en" ? "Full quality adds shadows and finer resolution" : "完整画质增加投影和显示精度"}>
+					{locale === "en" ? "Quality:" : "画质："} {quality === "full" ? (locale === "en" ? "Full" : "完整") : (locale === "en" ? "Light" : "轻量")}
+				</button>
+				<button type="button" class="celestial-btn" onclick={cycleDaylight} title={locale === "en" ? "Cycle celestial daylight (Dawn / Noon / Sunset / Night)" : "切换天象光影周期（晨曦 / 正午 / 晚霞 / 静夜）"}>
+					<span aria-hidden="true">{celestialEmoji}</span> {celestialLabel}
+				</button>
+				<button type="button" onclick={toggleAnimation} disabled={reducedMotion} aria-pressed={animationPaused || reducedMotion} title={locale === "en" ? "Pause ambient animation" : "暂停环境动效"}>
+					{reducedMotion ? (locale === "en" ? "Reduced motion" : "已减动效") : animationPaused ? (locale === "en" ? "Resume" : "继续动效") : (locale === "en" ? "Pause" : "暂停动效")}
+				</button>
+				{#if immersive}
+					<button type="button" onclick={toggleFollow} aria-pressed={followRover}>
+						{locale === "en" ? "Follow" : "跟随镜头"}
+					</button>
+				{/if}
+			</div>
+		{/if}
+
+		<p class="world-controls" id={instructionId}>
+			{sceneReady && webglAvailable
+				? (locale === "en"
+					? "WASD to walk · Space to jump · E to inspect · Drag to orbit · Click to navigate"
+					: "WASD 漫步 · 空格跳跃 · E 翻看手稿 · 拖动旋转 · 点选花径导引")
+				: (locale === "en"
+					? "Three questions. One connected research journey."
+					: "三个研究问题，沿尝试、反馈与评估相连。")}
+		</p>
+
+		<nav class="world-shortcuts" aria-label={locale === "en" ? "Research stations" : "研究站点"}>
+			{#each destinations as destination}
+				<button
+					type="button"
+					class:active={selected?.id === destination.id}
+					onclick={() => openStation(destination)}
+					aria-expanded={selected?.id === destination.id}
+					aria-controls={panelId}
+				>
+					<span class="station-number">{destination.number}</span>
+					<span>{locale === "en" ? destination.labelEn : destination.label}</span>
+					<span class="station-arrow" aria-hidden="true">↗</span>
+				</button>
+			{/each}
+		</nav>
+
+		{#if selected && panelCollapsed}
+			<button
+				type="button"
+				class="reopen-preview"
+				onclick={() => selected && openStation(selected)}
+				aria-controls={panelId}
+				aria-expanded="false"
+			>
+				{locale === "en" ? "Open station details" : "展开手稿记录"} ↗
+			</button>
+		{/if}
+
+		{#if selected && !panelCollapsed}
+			{@const content = stationContent[selected.id]}
+			<section
+				class="station-preview"
+				id={panelId}
+				bind:this={panel}
+				tabindex="-1"
+				aria-labelledby={`${panelId}-title`}
+			>
+				<button class="preview-close" type="button" onclick={closeStation} aria-label={locale === "en" ? "Close station details" : "关闭手稿记录"}>×</button>
+				<p class="preview-kicker">{localized(selected)}</p>
+				<h2 id={`${panelId}-title`}>{locale === "en" ? selected.questionEn : selected.question}</h2>
+				<a class="preview-main-link" href={content.experiment}>
+					<span>{locale === "en" ? "Try it" : "动手试试"}</span>
+					<strong>{locale === "en" ? content.experimentEn : content.experimentZh}</strong>
+					<b aria-hidden="true">↗</b>
+				</a>
+				<p class="preview-body">{locale === "en" ? selected.workTextEn : selected.workText}</p>
+				<div class="preview-links">
+					<a href={`/work/${content.slug}/`}>
+						<span>{locale === "en" ? "Read notes" : "翻翻记录"}</span>
+						<strong>{locale === "en" ? content.en : content.zh}</strong>
+						<b aria-hidden="true">↗</b>
+					</a>
+					<a href={content.path}>
+						<span>{locale === "en" ? "Research case" : "研究案例"}</span>
+						<strong>{locale === "en" ? content.pathEn : content.pathZh}</strong>
+						<b aria-hidden="true">↗</b>
+					</a>
+				</div>
+				{#if sceneReady && webglAvailable}
+					<button type="button" class="preview-explore" onclick={collapsePanel}>
+						{locale === "en" ? "Put note aside and continue walking" : "先放下纸条，在花园里逛逛"} <span aria-hidden="true">↙</span>
+					</button>
+				{/if}
+			</section>
+		{/if}
+
+		<noscript>
+			<nav class="world-no-script" aria-label="研究方向">
+				<a href="/lab/model-pipeline/">小模型全链路训练</a>
+				<a href="/lab/mcts/">MCTS 搜索实验</a>
+				<a href="/lab/causal-playground/">因果实验</a>
+			</nav>
+		</noscript>
 	{/if}
 </div>
 
@@ -250,87 +499,129 @@ onMount(() => {
 .world-launch:hover { background: var(--brand-ink); }
 .world-launch:disabled { opacity: .7; cursor: progress; }
 .world-launch span { font-size: 17px; }
-.world-status { position: absolute; right: 10%; top: 11%; display: flex; align-items: center; gap: 8px; max-width: 74%; color: var(--brand-body); font-size: 12px; line-height: 1.7; }
+
+/* Genshin Style Pickup Banner */
+.genshin-banner {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: linear-gradient(135deg, rgba(37, 56, 43, 0.94), rgba(48, 73, 56, 0.94));
+	border: 1px solid #c9b183;
+	border-radius: 8px;
+	color: #f7f3e8;
+	padding: 10px 24px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22), 0 0 16px rgba(201, 177, 131, 0.25);
+	animation: bannerIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.25);
+	z-index: 25;
+	text-align: center;
+	pointer-events: none;
+}
+.genshin-banner h4 { margin: 0; font-size: 13px; color: #ffd88a; letter-spacing: 0.04em; }
+.genshin-banner p { margin: 3px 0 0; font-size: 11px; color: #e5ede3; }
+
+@keyframes bannerIn {
+	from { opacity: 0; transform: translate(-50%, -15px) scale(0.94); }
+	to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+/* Near Station Interaction Prompt */
+.interaction-prompt {
+	position: absolute;
+	bottom: 22%;
+	left: 45%;
+	transform: translateX(-50%);
+	z-index: 15;
+	pointer-events: auto;
+	animation: floatPrompt 2s ease-in-out infinite;
+}
+.interact-action-btn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: rgba(30, 48, 36, 0.92);
+	backdrop-filter: blur(8px);
+	border: 1.5px solid #d4be8d;
+	border-radius: 28px;
+	padding: 6px 16px 6px 10px;
+	color: #fff;
+	cursor: pointer;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+	transition: transform 0.15s;
+}
+.interact-action-btn:hover { transform: scale(1.05); }
+.key-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	background: #eed8a1;
+	color: #2b3a2e;
+	font-weight: 700;
+	font-size: 12px;
+	border-radius: 50%;
+}
+.prompt-text { display: flex; flex-direction: column; text-align: left; }
+.prompt-text strong { font-size: 12px; color: #fcebd0; }
+.prompt-text small { font-size: 10px; color: #a9c7b0; }
+
+@keyframes floatPrompt {
+	0%, 100% { transform: translate(-50%, 0); }
+	50% { transform: translate(-50%, -4px); }
+}
+
+.world-status { position: absolute; right: 10%; top: 7%; display: flex; align-items: center; gap: 8px; max-width: 74%; color: var(--brand-body); font-size: 12px; line-height: 1.7; }
 .world-status > span:first-child { flex: 0 0 5px; height: 5px; border-radius: 50%; background: var(--brand-accent); }
 .world-status > span.offline:first-child { background: var(--brand-clay); }
-.world-toolbar { position: absolute; right: 10%; top: 17%; display: flex; flex-wrap: wrap; gap: 5px; pointer-events: auto; }
-.world-toolbar button { min-height: 44px; padding: 7px 11px; border: 1px solid var(--brand-line); border-radius: 20px; background: var(--brand-paper); color: var(--brand-accent); font-size: 12px; line-height: 1.5; cursor: pointer; }
+
+.world-toolbar { position: absolute; right: 10%; top: 12%; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: auto; align-items: center; }
+.oculi-counter {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 6px 11px;
+	background: var(--brand-paper);
+	border: 1px solid var(--brand-line);
+	border-radius: 20px;
+	font-size: 12px;
+	color: var(--brand-accent);
+}
+.star-icon { color: #d98e3b; font-size: 13px; }
+.count-num { font-family: monospace; font-size: 12px; font-weight: 600; }
+
+.world-toolbar button { min-height: 38px; padding: 6px 11px; border: 1px solid var(--brand-line); border-radius: 20px; background: var(--brand-paper); color: var(--brand-accent); font-size: 12px; line-height: 1.5; cursor: pointer; transition: background 150ms; }
 .world-toolbar button:hover, .world-toolbar button[aria-pressed="true"] { background: var(--brand-sage); }
 .world-toolbar button:disabled { opacity: .65; cursor: default; }
 .world-toolbar button > span { font-size: 13px; vertical-align: -1px; }
-.world-controls { position: absolute; right: 10%; bottom: 16%; margin: 0; color: var(--brand-muted); font-size: 12px; line-height: 1.8; }
+
+.world-controls { position: absolute; right: 10%; bottom: 15%; margin: 0; color: var(--brand-muted); font-size: 12px; line-height: 1.8; }
 .world-shortcuts { position: absolute; right: 10%; bottom: 6%; display: flex; gap: 6px; max-width: 90%; pointer-events: auto; }
 .world-shortcuts button { display: flex; align-items: center; gap: 7px; cursor: pointer; min-height: 44px; padding: 10px 11px; border: 1px solid var(--brand-line); border-radius: 8px; background: var(--brand-paper); color: var(--brand-accent); text-align: left; font-size: 14px; line-height: 1.5; transition: background 180ms ease, border-color 180ms ease; }
 .world-shortcuts button:hover, .world-shortcuts button.active { background: var(--brand-sage); border-color: var(--brand-accent); }
 .station-number { color: var(--brand-muted); font-size: 12px; }
 .station-arrow { font-size: 13px; }
-.station-preview { position: absolute; right: 9%; bottom: 20%; width: min(350px, 82%); max-height: min(440px, 64%); box-sizing: border-box; overflow: auto; overscroll-behavior: contain; pointer-events: auto; padding: 25px; border: 1px solid var(--brand-line); border-radius: 17px; background: var(--brand-paper); color: var(--brand-ink); box-shadow: 0 14px 60px rgb(37 60 52 / 15%); scrollbar-width: thin; }
+
+.station-preview { position: absolute; right: 9%; bottom: 18%; width: min(350px, 82%); max-height: min(450px, 64%); box-sizing: border-box; overflow: auto; overscroll-behavior: contain; pointer-events: auto; padding: 25px; border: 1px solid var(--brand-line); border-radius: 17px; background: var(--brand-paper); color: var(--brand-ink); box-shadow: 0 14px 60px rgb(37 60 52 / 15%); scrollbar-width: thin; }
 .station-preview:focus { outline: none; }
 .station-preview:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: -4px; }
 .preview-close { position: absolute; right: 6px; top: 4px; border: 0; border-radius: 50%; background: none; color: var(--brand-accent); font-size: 26px; cursor: pointer; width: 44px; height: 44px; }
 .preview-close:hover { background: var(--brand-sage); }
-.preview-kicker { font-size: 12px; line-height: 1.8; color: var(--brand-accent); margin: 0 24px 12px 0; }
-.station-preview h2 { font: 400 22px/1.5 Georgia, "Songti SC", serif; margin: 0; }
-.preview-body { font-size: 15px; line-height: 1.85; color: var(--brand-body); margin: 14px 0 18px; }
-.preview-explore { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; margin: 12px 0 0; padding: 6px 0; color: var(--brand-accent); background: none; border: 0; border-top: 1px solid var(--brand-line); text-align: left; font-size: 12px; line-height: 1.7; cursor: pointer; }
-.preview-explore:hover { color: var(--brand-clay); }
-.reopen-preview { position: absolute; right: 10%; bottom: 23%; max-width: 80%; pointer-events: auto; min-height: 44px; padding: 10px 15px; border: 1px solid var(--brand-line); border-radius: 10px; color: var(--brand-accent); background: var(--brand-paper); font-size: 12px; cursor: pointer; box-shadow: 0 5px 25px rgb(37 60 52 / 10%); }
-.preview-links { display: grid; gap: 7px; }
-.preview-links a, .preview-main-link { display: grid; grid-template-columns: 1fr auto; gap: 5px 9px; padding: 12px; border: 1px solid var(--brand-line); border-radius: 8px; color: var(--brand-ink); text-decoration: none; }
-.preview-main-link { margin-top: 17px; background: var(--brand-sage); }
-.preview-links a:hover, .preview-main-link:hover { border-color: var(--brand-accent); }
-.preview-links span, .preview-main-link > span { grid-column: 1; font-size: 12px; line-height: 1.5; color: var(--brand-accent); }
-.preview-links strong, .preview-main-link > strong { grid-column: 1; font-size: 15px; font-weight: 400; line-height: 1.6; }
-.preview-links b, .preview-main-link > b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 16px; font-weight: 400; color: var(--brand-accent); }
-.world-no-script { position: absolute; inset: auto 10% 30%; display: grid; gap: 12px; pointer-events: auto; font-size: 13px; }
-.world-no-script a { color: var(--brand-accent); }
-.immersive { position: relative; inset: auto; width: 100%; height: 100%; min-height: 500px; isolation: isolate; border-radius: inherit; background: radial-gradient(ellipse at 50% 45%, #e9efe1 0, var(--brand-paper) 73%); }
-.immersive .world-status { left: 22px; right: auto; top: auto; bottom: 88px; font-size: 12px; max-width: calc(100% - 44px); }
-.immersive .world-toolbar { left: 22px; right: auto; top: 20px; }
-.immersive .world-toolbar button { font-size: 12px; padding: 8px 12px; }
-.immersive .world-controls { left: 22px; right: 22px; top: auto; bottom: 114px; max-width: none; font-size: 12px; }
-.immersive .world-shortcuts { inset: auto 22px 20px; justify-content: center; max-width: none; }
-.immersive .world-shortcuts button { flex: 1; max-width: 250px; justify-content: space-between; min-height: 48px; font-size: 12px; }
-.immersive .station-preview { top: 75px; right: 20px; bottom: auto; width: 320px; max-height: calc(100% - 170px); }
-.immersive .reopen-preview { right: 22px; top: 80px; bottom: auto; }
-@media (max-width: 1000px) {
-	.world-shortcuts button { font-size: 12px; padding: 9px 7px; gap: 5px; }
-	.station-number { display: none; }
-	.world-controls { max-width: 77%; font-size: 12px; }
-	.immersive .world-controls { display: none; }
-}
-@media (max-width: 700px) {
-	.explore-world { inset: auto 0 52px; width: 100%; height: 360px; }
-	.explore-world canvas { touch-action: pan-y; }
-	.world-poster { inset: 3% 2% 19%; }
-	.world-launch { right: 6%; bottom: 23%; padding: 9px 14px; font-size: 12px; }
-	.world-status { right: 6%; left: 6%; top: 1%; max-width: none; font-size: 12px; }
-	.world-toolbar { top: 9%; right: 6%; left: 6%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-	.world-toolbar button { padding: 5px 8px; font-size: 12px; }
-	.world-controls { right: 6%; bottom: 17%; max-width: 88%; font-size: 12px; }
-	.world-shortcuts { inset: auto 5% 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: none; gap: 5px; }
-	.world-shortcuts button { padding: 8px 6px; min-height: 48px; font-size: 12px; justify-content: center; text-align: center; }
-	.station-arrow { display: none; }
-	.station-preview { position: fixed; inset: auto 14px 14px; width: auto; max-height: min(520px, 72svh); z-index: 40; padding: 23px; }
-	.station-preview h2 { font-size: 23px; }
-	.immersive { position: relative; inset: auto; height: 100%; min-height: 500px; }
-	.immersive .world-toolbar { top: 14px; left: 14px; right: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-	.immersive .world-toolbar button { padding: 7px 9px; font-size: 12px; }
-	.immersive .reopen-preview { top: 134px; right: 14px; font-size: 12px; }
-	.immersive .world-shortcuts { inset: auto 12px 12px; }
-	.immersive .world-shortcuts button { font-size: 12px; min-height: 48px; }
-	.immersive .world-status { left: 15px; right: 15px; bottom: 72px; top: auto; max-width: none; font-size: 12px; }
-	.immersive .station-preview { position: absolute; inset: auto 12px 102px; width: auto; max-height: calc(100% - 236px); padding: 21px; }
-	.immersive .station-preview h2 { font-size: 21px; }
-	.immersive.has-selection .world-status { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-	.explore-world canvas, .world-poster, .world-shortcuts button { transition: none; }
-}
-.compact { position: relative; inset: auto; width: 100%; height: auto; min-height: 0; overflow: visible; pointer-events: auto; }
-.compact .world-poster { position: relative; inset: auto; width: 100%; padding: 0; }
-.compact-caption { padding: 14px 0 0; border-top: 1px solid var(--brand-line); }
-.compact-caption p { margin: 0; max-width: 29em; color: var(--brand-body); font-size: 15px; line-height: 1.85; }
-.compact-caption a { display: inline-flex; align-items: center; gap: 22px; min-height: 44px; margin-top: 4px; color: var(--brand-accent); font-size: 14px; text-decoration: none; }
-.compact-caption a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.preview-kicker { font-size: 12px; color: var(--brand-clay); margin: 0 0 8px; }
+.station-preview h2 { font: 400 24px/1.5 Georgia, "Songti SC", serif; margin: 0 0 16px; }
+.preview-main-link { display: flex; flex-direction: column; gap: 4px; padding: 14px; margin-bottom: 16px; border: 1px solid var(--brand-line); border-radius: 10px; text-decoration: none; background: rgba(157, 189, 166, 0.12); position: relative; }
+.preview-main-link span { font-size: 11px; color: var(--brand-clay); }
+.preview-main-link strong { font-size: 14px; color: var(--brand-ink); font-weight: 500; }
+.preview-main-link b { position: absolute; right: 12px; top: 12px; font-size: 14px; color: var(--brand-accent); }
+.preview-body { font-size: 13px; line-height: 1.7; color: var(--brand-body); margin: 0 0 16px; }
+.preview-links { display: grid; gap: 8px; margin-bottom: 16px; }
+.preview-links a { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border: 1px solid var(--brand-line); border-radius: 8px; text-decoration: none; color: var(--brand-ink); font-size: 12px; }
+.preview-links a span { color: var(--brand-muted); }
+.preview-links a strong { font-weight: 500; }
+.preview-links a b { color: var(--brand-accent); }
+.preview-explore { width: 100%; padding: 9px; background: transparent; border: 1px dashed var(--brand-line); border-radius: 8px; color: var(--brand-accent); font-size: 12px; cursor: pointer; transition: background 150ms; }
+.preview-explore:hover { background: var(--brand-sage); }
+.reopen-preview { position: absolute; right: 10%; bottom: 20%; padding: 8px 14px; background: var(--brand-paper); border: 1px solid var(--brand-accent); border-radius: 20px; color: var(--brand-accent); font-size: 12px; cursor: pointer; pointer-events: auto; }
+
+.world-no-script { display: none; }
 </style>

@@ -1,5 +1,7 @@
 ---
-interface Props { kind: "model" | "search" | "causal" | "cfr"; }
+interface Props {
+	kind: "model" | "search" | "causal" | "cfr";
+}
 const { kind } = Astro.props;
 ---
 <div class={`research-visual ${kind}`} aria-hidden="true">

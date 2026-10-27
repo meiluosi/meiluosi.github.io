@@ -1,25 +1,40 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { evaluateRepair, REPAIR_CARDS } from "@/utils/rsi-experiments";
-	import "./notebook.css";
-	const uid = $props.id();
-	let missCost = $state(1);
-	let english = $state(false);
-	let ready = $state(false);
-	const say = (zh: string, en: string) => english ? en : zh;
-	const broad = $derived(evaluateRepair(4, missCost));
-	const narrow = $derived(evaluateRepair(8, missCost));
-	const verdict = $derived(broad.cost === narrow.cost
-		? say("按你给出的代价，两种做法打平。它们留下的工作和遗漏，仍然不一样。", "The two approaches tie under your chosen costs. They still leave different work and different omissions.")
+import { onMount } from "svelte";
+import { evaluateRepair, REPAIR_CARDS } from "@/utils/rsi-experiments";
+import "./notebook.css";
+
+const uid = $props.id();
+let missCost = $state(1);
+let english = $state(false);
+let ready = $state(false);
+const say = (zh: string, en: string) => (english ? en : zh);
+const broad = $derived(evaluateRepair(4, missCost));
+const narrow = $derived(evaluateRepair(8, missCost));
+const verdict = $derived(
+	broad.cost === narrow.cost
+		? say(
+				"按你给出的代价，两种做法打平。它们留下的工作和遗漏，仍然不一样。",
+				"The two approaches tie under your chosen costs. They still leave different work and different omissions.",
+			)
 		: broad.cost < narrow.cost
-			? say("按你给出的代价，“多检查一些”更合适。它多检查三本完好的书，却没有漏掉需要修补的那一本。", "Under your chosen costs, “Inspect more” is preferable. It checks three intact books unnecessarily but misses none that need repair.")
-			: say("按你给出的代价，“只查明显的”更合适。它省下三次多余检查，但漏掉了书 E。这笔账没有替你决定遗漏是否可以接受。", "Under your chosen costs, “Inspect obvious cases” is preferable. It avoids three unnecessary checks but misses book E. The calculation does not decide whether that omission is acceptable."));
-	onMount(() => {
-		ready = true;
-		const locale = () => { english = document.documentElement.lang.startsWith("en"); };
-		locale(); document.addEventListener("site-locale-change", locale);
-		return () => document.removeEventListener("site-locale-change", locale);
-	});
+			? say(
+					"按你给出的代价，“多检查一些”更合适。它多检查三本完好的书，却没有漏掉需要修补的那一本。",
+					"Under your chosen costs, “Inspect more” is preferable. It checks three intact books unnecessarily but misses none that need repair.",
+				)
+			: say(
+					"按你给出的代价，“只查明显的”更合适。它省下三次多余检查，但漏掉了书 E。这笔账没有替你决定遗漏是否可以接受。",
+					"Under your chosen costs, “Inspect obvious cases” is preferable. It avoids three unnecessary checks but misses book E. The calculation does not decide whether that omission is acceptable.",
+				),
+);
+onMount(() => {
+	ready = true;
+	const locale = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	locale();
+	document.addEventListener("site-locale-change", locale);
+	return () => document.removeEventListener("site-locale-change", locale);
+});
 </script>
 
 <div class="rsi-interactive">

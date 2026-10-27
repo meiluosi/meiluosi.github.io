@@ -1,0 +1,2464 @@
+{
+  "schemaVersion": 2,
+  "asOf": "2026-10-27",
+  "status": "completed",
+  "scope": "完成B批计划所列三条路线的指定原文选读、比较与方法核验；不宣称完整文献史。",
+  "baseline": {
+    "sha256": "ea0b8ad24c1ae1bf7432a31afa75d2744d1f107b2c2c191e18a0f4ca714a8776",
+    "roundTwoSHA256": "eb32094d73cdfbcfded963dcf86b96f24cbf8ef8c740495042d7f73ac2d96443",
+    "roundThreeASHA256": "390071aef4a4fd8daa5ea8a2cecd9b80ee9e88fc16d8df9cb0447c7a0c1cffa7"
+  },
+  "routes": [
+    {
+      "id": "behavioral",
+      "name": "行为表现与操作性路线",
+      "status": "batch-scope-reviewed",
+      "narrative": [
+        "这条路线持续改变评价对象：Watson提出观察行为的研究方法；Turing设计对话判定；Searle及直接评论追问行为判定能否承担理解解释。它们不是一个逐步被证实的同一理论。",
+        "后续评价把环境范围、技能获取、统计不确定性和多指标协议放到台前。Legg–Hutter给出形式环境加权；Chollet区分既有技能与获取效率；Agarwal和HELM分别提醒运行抽样与评测覆盖的边界。"
+      ],
+      "gaps": [
+        "未读取Block 1981全文及Hernández-Orallo–Dowe 2010交互测验正文；本批跨任务问题由ARC与HELM覆盖。",
+        "不追踪2022之后的排行榜与最新协议；HELM只按2022 v1，ARC只按2019 v2记录。"
+      ]
+    },
+    {
+      "id": "psychometric",
+      "name": "心理测量与能力结构路线",
+      "status": "batch-scope-reviewed",
+      "narrative": [
+        "Binet–Simon强调当下用途与施测条件，Spearman研究共同变化；Thurstone将单因子方法与一般能力假说分开。Gf／Gc与Carroll层级结构进一步改变能力描述的粒度，CHC把这些语言连接到测验覆盖。",
+        "Gardner、直接测验检验与过程重叠理论，让“有什么结构”和“由什么过程产生”分开。构念效度和不变性要求解释接触额外证据，不能仅凭稳定相关或高信度宣告机制与跨群体可比性。"
+      ],
+      "gaps": [
+        "Meredith 1993原文正文未取得；不变性的方法证据使用Jak–Jorgensen 2017，不能冒称补齐1993原文。",
+        "Thurstone 1938、Horn的关键扩展原作、2012完整CHC书章尚待阅读；1963和1993的公开OCR需用原版扫描复核图表。",
+        "Gardner首版与后出版本未校勘，2006回应未读；不根据单一大学样本裁决全部多元智能理论。"
+      ]
+    },
+    {
+      "id": "rational-resource",
+      "name": "理性、适应与资源约束路线",
+      "status": "batch-scope-reviewed",
+      "narrative": [
+        "Simon使计算容量和搜索次序进入合理选择；NARS把持续面对知识与资源不足写入系统前提；快速节俭启发式把策略好坏放回具体环境、信息权限和停止规则。",
+        "AIXI与通用智能度量提供形式理想，也留下不可计算性和先验选择；资源理性转向机制的成本收益建模。直接评论与作者回应将争论推进到约束如何独立测量、模型何时可被拒绝。"
+      ],
+      "gaps": [
+        "未通读Hutter 2005专著或后续AIXI证明；2000稿的保证只按所读条件表述。",
+        "Chater等1997直接批评获取失败；本批启发式边界由1996原文的协议和作者自限支持。",
+        "NARS限1995论文中的3.0；资源理性仅覆盖指定目标文章、两篇评论与部分回应，不代表当前全部研究。"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "watson-1913",
+      "title": "Psychology as the Behaviorist Views It",
+      "authors": [
+        "John B. Watson"
+      ],
+      "year": 1913,
+      "url": "https://psychclassics.yorku.ca/Watson/views",
+      "doi": null,
+      "version": "Psychological Review 20, 158–177；York University原文转录。",
+      "readingStatus": "selected-sections",
+      "readScope": "网页正文开篇至Summary第5点；脚注1–6及7开头。以段落主题定位，网页未逐段显示原刊页码。",
+      "unreadScope": "脚注7末段及原刊排版未完整核对；提到的动物或人类实验未独立复现。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "web-transcription",
+      "verification": "按所列网页原文范围审校；未核对全部原刊扫描图或独立复现其经验例子。"
+    },
+    {
+      "id": "titchener-1914",
+      "title": "On Psychology as the Behaviorist Views It",
+      "authors": [
+        "Edward Bradford Titchener"
+      ],
+      "year": 1914,
+      "url": "https://psychclassics.yorku.ca/Titchener/watson.htm",
+      "doi": null,
+      "version": "Proceedings of the American Philosophical Society 53, 1–17；York University转录保留页码及脚注。",
+      "readingStatus": "selected-sections",
+      "readScope": "印刷1–9、12–17页相关正文；脚注2、26、30–36及所列引用。重点研究对象、假设与证据、行为学与心理学关系。",
+      "unreadScope": "10–11页反驳意象的细节未完整读；Watson第二篇Image and Affection in Behavior未独立阅读全文。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "web-transcription",
+      "verification": "按所列网页原文范围审校；未核对全部原刊扫描图或独立复现其经验例子。"
+    },
+    {
+      "id": "spearman-1904",
+      "title": "General Intelligence, Objectively Determined and Measured",
+      "authors": [
+        "Charles Spearman"
+      ],
+      "year": 1904,
+      "url": "https://gwern.net/docs/iq/1904-spearman.pdf",
+      "doi": "10.2307/1412107",
+      "version": "American Journal of Psychology 15(2), 201–292；92页JSTOR扫描副本，印刷页=PDF页+200。",
+      "readingStatus": "selected-sections",
+      "readScope": "目录；印刷246–251、253–255、272–274、283–285页。实验安排、能力估计、测量误差修正、共同功能与结论。",
+      "unreadScope": "其余论证与附录数据未逐项读验；没有重算原始相关表或复现实验。",
+      "checkedAt": "2026-10-27",
+      "sha256": "d70c958b6e4233d3e00f867d5b32d348ab6f45753e63982195b5e46ff2320a72",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "turing-1950",
+      "title": "Computing Machinery and Intelligence",
+      "authors": [
+        "Alan M. Turing"
+      ],
+      "year": 1950,
+      "url": "https://www.csee.umbc.edu/courses/471/papers/turing.pdf",
+      "doi": "10.1093/mind/LIX.236.433",
+      "version": "1950年论文的22页教学转录；页首误写Mind 49，正式卷号为59（LIX），433–460。转录§5注明一张表被省略；不用于表格或逐字校勘。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–3、6–8、17–22：§1–3、§5及§6开头、§6(9)与§7。",
+      "unreadScope": "§4及§6多数反对意见未完整审读；未逐字核对期刊扫描；不把未来预测当实验结果。",
+      "checkedAt": "2026-10-27",
+      "sha256": "3cd7c57944b7b53f18fb2a7c014fe2367f3576696a1d024c840151459da2f24e",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "searle-1980",
+      "title": "Minds, brains, and programs",
+      "authors": [
+        "John R. Searle"
+      ],
+      "year": 1980,
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "doi": "10.1017/S0140525X00005756",
+      "version": "BBS 3:417–457合刊扫描，42页；目标文章417–424，后含评论与答复。",
+      "readingStatus": "selected-sections",
+      "readScope": "目标文章417–424（PDF 1–8），含六类答复、结论和注释。",
+      "unreadScope": "其余评论与作者答复未系统通读；Hofstadter评论另设阅读记录。",
+      "checkedAt": "2026-10-27",
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "hofstadter-1980",
+      "title": "Reductionism and religion（对Searle的评论）",
+      "authors": [
+        "Douglas R. Hofstadter"
+      ],
+      "year": 1980,
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "doi": null,
+      "version": "同一期BBS开放评论，印刷433–434；与目标文章共用PDF载体。",
+      "readingStatus": "selected-sections",
+      "readScope": "433页Hofstadter标题起至434页Libet标题前（PDF 17–18）。",
+      "unreadScope": "未把评论中的数量级估计当实测运行成本；未审读全部往返答复。",
+      "checkedAt": "2026-10-27",
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "binet-1905-kite",
+      "title": "New Methods for the Diagnosis of the Intellectual Level of Subnormals",
+      "authors": [
+        "Alfred Binet",
+        "Théodore Simon"
+      ],
+      "year": 1905,
+      "url": "https://psychclassics.yorku.ca/Binet/binet1.htm",
+      "doi": "10.3406/psy.1904.3675",
+      "version": "1916年Elizabeth S. Kite英译的网页转录。页首只列Binet且误列卷12；Persée原法文书目列Binet、Simon，1904卷11:191–244。节点保留惯用1905时间，卷年与译年分别记录。",
+      "readingStatus": "selected-sections",
+      "readScope": "开头至量表总则、测验1开头；译者注12–13（押韵项目的语言替换）。",
+      "unreadScope": "未逐项审读全部30项；未核对完整法文与译文；未复核常模及诊断表现。",
+      "checkedAt": "2026-10-27",
+      "sha256": "d3e7b6a37b8a419fccd148a6111305e0f7c8f4711b47a4a099757ebfe65949ac",
+      "carrier": "local-html",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。",
+      "metadataUrl": "https://www.persee.fr/doc/psy_0003-5033_1904_num_11_1_3675"
+    },
+    {
+      "id": "thurstone-1934",
+      "title": "The Vectors of Mind",
+      "authors": [
+        "Louis L. Thurstone"
+      ],
+      "year": 1934,
+      "url": "https://psychclassics.yorku.ca/Thurstone/",
+      "doi": null,
+      "version": "Psychological Review 41:1–32网页转录；1933年9月APA会长演讲。此条不是1938年Primary Mental Abilities专著。",
+      "readingStatus": "selected-sections",
+      "readScope": "开篇单因子方法与一般因子理论的区分；多因子矩阵、共同度与旋转问题；Alexander九项测验和Brown二十项测验的文字解释。",
+      "unreadScope": "未逐表复算相关矩阵、载荷和残差；图像与所有人格／态度例证未完整核验；1931论文与1938书另列缺口。",
+      "checkedAt": "2026-10-27",
+      "sha256": "fdf6d4fdb142ccf9b10b83ff2819b9387de69c1d7a216206b07db9885aaf94b5",
+      "carrier": "local-html",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "cronbach-meehl-1955",
+      "title": "Construct Validity in Psychological Tests",
+      "authors": [
+        "Lee J. Cronbach",
+        "Paul E. Meehl"
+      ],
+      "year": 1955,
+      "url": "https://psychclassics.yorku.ca/Cronbach/construct.htm",
+      "doi": "10.1037/h0040957",
+      "version": "Psychological Bulletin 52:281–302网页转录，保留印刷页标。",
+      "readingStatus": "selected-sections",
+      "readScope": "281–284的效度区分；287–290的验证程序、干预与过程观察；290–292的法则网络及可观察约束。",
+      "unreadScope": "其余关于网络、解释失败和报告建议未完整审读；示例中的相关数值并非本站复现结果。",
+      "checkedAt": "2026-10-27",
+      "sha256": "2ab6870b8077010c9711b43a6ebc303ea0e8c3aaf74db6706a033b0af6fcd8ea",
+      "carrier": "local-html",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "chollet-2019",
+      "title": "On the Measure of Intelligence",
+      "authors": [
+        "François Chollet"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1911.01547v2",
+      "doi": null,
+      "version": "arXiv:1911.01547v2，2019-11-25；PDF题页仍标November 5。第二轮PDF指纹延续，历史ARC协议，不代表后续版本。",
+      "readingStatus": "selected-sections",
+      "readScope": "第二轮记录已读导言、27–28、46–47、53–54；本批复核PDF 1、27–28、46–48。",
+      "unreadScope": "形式化定义的完整推导与全部ARC先验未逐项审读；未独立验证人的成绩、先验公平性或开发者未见测试题的条件。",
+      "checkedAt": "2026-10-27",
+      "sha256": "773b9ecec3df33e664ab5a784f9e48818e7fd0d8e211b3243f4f4e0fdecb2fee",
+      "carrier": "local-pdf-from-round-two",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。",
+      "carriedFrom": "round-two/research.json:chollet-2019"
+    },
+    {
+      "id": "agarwal-2021",
+      "title": "Deep Reinforcement Learning at the Edge of the Statistical Precipice",
+      "authors": [
+        "Rishabh Agarwal",
+        "Max Schwarzer",
+        "Pablo Samuel Castro",
+        "Aaron Courville",
+        "Marc G. Bellemare"
+      ],
+      "year": 2021,
+      "url": "https://papers.nips.cc/paper/2021/file/f514cec81cb148559cf475e7426eed5e-Paper.pdf",
+      "doi": null,
+      "version": "NeurIPS 2021主文PDF，17页；不是对rliable当前软件版本的评测。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–3、5–7：问题与形式化、协议变化、§4分层bootstrap、表现分布与IQM定义。",
+      "unreadScope": "PDF 4的完整实验设定、后续跨基准分析与补充材料未完整审读；未重跑作者RL实验或验证覆盖率数值。",
+      "checkedAt": "2026-10-27",
+      "sha256": "7553e280d4a1560860bc5f6be2d70539fc5b510e0e3bb2d556824e51e9a80252",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "liang-2022-v1",
+      "title": "Holistic Evaluation of Language Models",
+      "authors": [
+        "Percy Liang",
+        "Rishi Bommasani",
+        "Tony Lee",
+        "及共同作者"
+      ],
+      "year": 2022,
+      "url": "https://arxiv.org/pdf/2211.09110v1",
+      "doi": null,
+      "version": "arXiv:2211.09110v1，2022；163页。只描述该历史版本，不使用实时榜单。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 5–9（分类、多指标、标准化及条件）；88–89（§11结果、实现与聚合局限）。",
+      "unreadScope": "完整指标实现、各模型结果、§11.3后续、附录污染证据与统计分析未逐项复核。",
+      "checkedAt": "2026-10-27",
+      "sha256": "eb365cc3cbb46cfb36fb272261c017a6456de54d9d96138ef39f3d647fd232f1",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "cattell-1963",
+      "title": "Theory of fluid and crystallized intelligence: A critical experiment",
+      "authors": [
+        "Raymond B. Cattell"
+      ],
+      "year": 1963,
+      "url": "https://www.scribd.com/document/588358878/h-0046743",
+      "doi": "10.1037/h0046743",
+      "version": "Journal of Educational Psychology 54(1):1–22；公开原刊OCR转录，双栏有交错；不采纳平台AI摘要。",
+      "readingStatus": "selected-sections",
+      "readScope": "题名与摘要；印刷页2–6理论段；19–20的Needed Research与Summary。",
+      "unreadScope": "方法与载荷表未完整核验；公式和双栏歧义处不作定量依据；1941／1943原作未读。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "web-transcription",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "gardner-1983-reprint",
+      "title": "Frames of Mind: The Theory of Multiple Intelligences",
+      "authors": [
+        "Howard Gardner"
+      ],
+      "year": 1983,
+      "url": "https://www.crisrieder.org/thejourney/storage/2025/04/Howard-Gardner.-Frames-of-Mind-2.pdf",
+      "doi": null,
+      "version": "首版1983；实际阅读后出电子重排版，含The First Thirty Years前言，eISBN 978-0-465-02434-6。未与首版逐字校勘。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 11前言开头；114–122第4章定义、前提及八类候选标准。",
+      "unreadScope": "未通读全书与各能力专章；不能把后出的措辞无条件当1983逐字原文；首版对校待补。",
+      "checkedAt": "2026-10-27",
+      "sha256": "45b18ca47fa6da4172f4e8e8b8499026bbe0a2d4f41675b55a37150c55b54d2e",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "carroll-1993",
+      "title": "Human Cognitive Abilities: A Survey of Factor-Analytic Studies",
+      "authors": [
+        "John B. Carroll"
+      ],
+      "year": 1993,
+      "url": "https://pdfcoffee.com/john-b-carroll-human-cognitive-abilities-a-survey-of-factor-analytic-studies-1993-pdf-pdf-free.html",
+      "doi": null,
+      "version": "Cambridge University Press 1993书的公开OCR转录；使用原书印刷页标，未下载完整扫描校勘。",
+      "readingStatus": "selected-sections",
+      "readScope": "第16章631–639：基本假设、三层结构、非严格树状关系及与Gf／Gc的比较。",
+      "unreadScope": "未重分析书中数据；图、原矩阵与全书其余章节未审读。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "web-transcription",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "visser-2006",
+      "title": "Beyond g: Putting multiple intelligences theory to the test",
+      "authors": [
+        "Beth A. Visser",
+        "Michael C. Ashton",
+        "Philip A. Vernon"
+      ],
+      "year": 2006,
+      "url": "https://www.researchgate.net/publication/222649028_Beyond_g_Putting_multiple_intelligences_theory_to_the_test",
+      "doi": "10.1016/j.intell.2006.02.004",
+      "version": "Intelligence 34(5):487–502；作者于2018上传的原刊全文转录，非2018新研究。",
+      "readingStatus": "selected-sections",
+      "readScope": "487–488导论；§4假设；§5.1及§5.2.1–6；§6.3文字结论；§7.1（499–500）。",
+      "unreadScope": "未核验所有测验信度表与原始数据；§5.2.7后部分未完整读；Gardner后续回应未取得正文。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "author-uploaded-web",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "mcgrew-2005",
+      "title": "The Cattell–Horn–Carroll Theory of Cognitive Abilities: Past, Present, and Future",
+      "authors": [
+        "Kevin S. McGrew"
+      ],
+      "year": 2005,
+      "url": "http://www.iapsych.com/articles/mcgrew2005.pdf",
+      "doi": null,
+      "version": "Contemporary Intellectual Assessment第二版第8章；作者网站扫描，每PDF页含两书页。",
+      "readingStatus": "selected-sections",
+      "readScope": "印刷页136–137、144–145的章节范围、理论与测验实践整合。",
+      "unreadScope": "其余章节、图表及g分歧未完整审读；不将回忆性叙事当同时期记录。",
+      "checkedAt": "2026-10-27",
+      "sha256": "dbd3fc3b84a6371c2d47cb76d07c829fc99e64784fe261bc6aff1a11b9b54d06",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "schneider-mcgrew-2013",
+      "title": "The Cattell–Horn–Carroll Model of Intelligence v2.2: A visual tour and summary",
+      "authors": [
+        "W. Joel Schneider",
+        "Kevin S. McGrew"
+      ],
+      "year": 2013,
+      "url": "http://www.iapsych.com/chcv2.pdf",
+      "doi": null,
+      "version": "封面v2.2／01-03-13；图内仍标v2.1（2012），定义页同时保留v2.0和旧页脚。实际载体是2013摘要，不是2012完整书章。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–2、4–6：版本标签、摘要边界、Gf／记忆／流畅性与速度定义。",
+      "unreadScope": "未通读2012书章；摘要图尚未逐项复核；其余能力定义未完整审读。",
+      "checkedAt": "2026-10-27",
+      "sha256": "97eaf70f0438c0348ba02d0208f2e3783a5140aa2dd8aaca7ff20e9652f83612",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "kovacs-conway-2016",
+      "title": "Process Overlap Theory: A Unified Account of the General Factor of Intelligence",
+      "authors": [
+        "Kristof Kovacs",
+        "Andrew R. A. Conway"
+      ],
+      "year": 2016,
+      "url": "https://coglab.eu/wp-content/uploads/2023/07/kovacs-conway-process-overlap-theory.pdf",
+      "doi": "10.1080/1047840X.2016.1153946",
+      "version": "Psychological Inquiry 27(3):151–177，作者实验室PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1、3–4、12–14、21–22；印刷页163图8与公式已查看像素。",
+      "unreadScope": "未通读全部综述、评论与回应；未复现论文模型或经验数据。",
+      "checkedAt": "2026-10-27",
+      "sha256": "3d0545b102e7c87f8016bc405f0aea863279cd9538e6a74477b09992efd4d5f9",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "jak-jorgensen-2017",
+      "title": "Relating Measurement Invariance, Cross-Level Invariance, and Multilevel Reliability",
+      "authors": [
+        "Suzanne Jak",
+        "Terrence D. Jorgensen"
+      ],
+      "year": 2017,
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.01640/full",
+      "doi": "10.3389/fpsyg.2017.01640",
+      "version": "Frontiers in Psychology 8:1640原刊HTML，2017-10-10。",
+      "readingStatus": "selected-sections",
+      "readScope": "Introduction中的定义；Relations between the three concepts；Example与Discussion，含表1–5的网页文本。",
+      "unreadScope": "补充材料推导未读；公式图片未逐一校勘；未重跑Mplus或原始ESS数据。",
+      "checkedAt": "2026-10-27",
+      "sha256": null,
+      "carrier": "publisher-html",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "simon-1955",
+      "title": "A Behavioral Model of Rational Choice",
+      "authors": [
+        "Herbert A. Simon"
+      ],
+      "year": 1955,
+      "url": "https://cooperative-individualism.org/simon-herbert_a-behavioral-model-of-rational-choice-1955-feb.pdf",
+      "doi": "10.2307/1884852",
+      "version": "Quarterly Journal of Economics 69(1):99–118；JSTOR载体首PDF页为封面。",
+      "readingStatus": "selected-sections",
+      "readScope": "印刷页99–107、110、114：模型前提、满意化、信息收集和顺序选择、结论。",
+      "unreadScope": "108–109、111–113动态细节及115–118附录未完整读；未重建国际象棋例证。",
+      "checkedAt": "2026-10-27",
+      "sha256": "25bf76dd1b4370d6d66d53aecb311ea6d6f486141a3dd4b8d629d0ebe3c6dfcf",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "wang-1995",
+      "title": "Non-Axiomatic Reasoning System: Exploring the Essence of Intelligence",
+      "authors": [
+        "Pei Wang"
+      ],
+      "year": 1995,
+      "url": "https://cis.temple.edu/~wangp/Publication/thesis.pdf",
+      "doi": null,
+      "version": "Indiana University博士论文，1995年8月；讨论NARS 3.0及未来4，不代表现行系统。PDF文字抽取有字体编码噪声。",
+      "readingStatus": "selected-sections",
+      "readScope": "封面、摘要；印刷页11–17、80、89、91–92、147、149–153；目录。",
+      "unreadScope": "未通读语义、推理规则、全部系统例证及长期限制；未运行NARS。",
+      "checkedAt": "2026-10-27",
+      "sha256": "aeb1e08e16b95e7c960fa28e0405b6b356b3ff6c24913911d6f210e4c50a9810",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "gigerenzer-goldstein-1996",
+      "title": "Reasoning the Fast and Frugal Way: Models of Bounded Rationality",
+      "authors": [
+        "Gerd Gigerenzer",
+        "Daniel G. Goldstein"
+      ],
+      "year": 1996,
+      "url": "https://web.mit.edu/curhan/www/docs/Articles/biases/Gigerenzer_Goldstein_Reasoning%20Fast%20and%20Frugal.pdf",
+      "doi": "10.1037/0033-295X.103.4.650",
+      "version": "Psychological Review 103(4):650–669原刊PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "650–654、656–659、665；重点为算法、模拟协议、658脚注4及限制。",
+      "unreadScope": "未复算附录数据或逐图校勘曲线；尚未阅读Chater等1997批评正文。",
+      "checkedAt": "2026-10-27",
+      "sha256": "07d75b55058d015f884e3b1eef32c778709b561666aa00e8b4dd6a1df2a5cebc",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "hutter-2000",
+      "title": "A Theory of Universal Artificial Intelligence based on Algorithmic Complexity",
+      "authors": [
+        "Marcus Hutter"
+      ],
+      "year": 2000,
+      "url": "https://www.hutter1.net/ai/pkcunai.pdf",
+      "doi": null,
+      "version": "作者站64页稿，封面Munich 31.03.2000／cs.AI/0004001；不是2005专著。",
+      "readingStatus": "selected-sections",
+      "readScope": "封面目录；§4印刷页19–22；§10的53–57，含算法、主定理与限制；55页像素已核对。",
+      "unreadScope": "未通读所有证明、示例、视野问题及后续版本；未运行AIXI近似。",
+      "checkedAt": "2026-10-27",
+      "sha256": "41eec0ff1078133dfacfa1ef1fbf18b0838b70dba95234a15de2f77525ee179e",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "legg-hutter-2007",
+      "title": "Universal Intelligence: A Definition of Machine Intelligence",
+      "authors": [
+        "Shane Legg",
+        "Marcus Hutter"
+      ],
+      "year": 2007,
+      "url": "https://www.hutter1.net/ai/iorx.pdf",
+      "doi": null,
+      "version": "作者站49页稿，封面December 2007；本文页码按该PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "17–23、27–28、39–42：交互、收益有界、定义、性质与常见批评；23页公式像素核对。",
+      "unreadScope": "未逐条审读全部历史综述、AIXI最优性证明与批评回应尾部；未实现通用测验。",
+      "checkedAt": "2026-10-27",
+      "sha256": "4227cbd1e4959779db875c4c78fad5b78976bb19c7ec01ddbe463cb92b7ba77d",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "lieder-griffiths-2020",
+      "title": "Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources",
+      "authors": [
+        "Falk Lieder",
+        "Thomas L. Griffiths"
+      ],
+      "year": 2020,
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "doi": "10.1017/S0140525X1900061X",
+      "version": "BBS 43 e1；2019在线稿、2020卷年；61页合订PDF含评论与作者回应。",
+      "readingStatus": "selected-sections",
+      "readScope": "目标文章1、4开头至bounded optimality段、5–6、14–15；5页公式2–4像素核对。",
+      "unreadScope": "未逐项读所有案例与实验证据；正文16结尾及全部评论不算已读；未运行作者模型。",
+      "checkedAt": "2026-10-27",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "davis-marcus-2020",
+      "title": "Computational limits don’t fully explain human cognitive limitations",
+      "authors": [
+        "Ernest S. Davis",
+        "Gary F. Marcus"
+      ],
+      "year": 2020,
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "doi": "10.1017/S0140525X19001651",
+      "version": "BBS 43 e7；同一合订PDF内独立评论。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 21末题名起至22页评论结束，完整评论正文。",
+      "unreadScope": "未独立核验评论引用的实验和事故例证。",
+      "checkedAt": "2026-10-27",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "dimov-2020",
+      "title": "Uncovering cognitive constraints is the bottleneck in resource-rational analysis",
+      "authors": [
+        "Cvetomir Dimov"
+      ],
+      "year": 2020,
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "doi": "10.1017/S0140525X19001675",
+      "version": "BBS 43 e8；同一合订PDF内独立评论。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 22末题名起至23页Dingemanse题名前，完整评论正文。",
+      "unreadScope": "未核验其综述的全部认知架构研究。",
+      "checkedAt": "2026-10-27",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    },
+    {
+      "id": "lieder-griffiths-response-2020",
+      "title": "Advancing rational analysis to the algorithmic level",
+      "authors": [
+        "Falk Lieder",
+        "Thomas L. Griffiths"
+      ],
+      "year": 2020,
+      "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+      "doi": "10.1017/S0140525X19002012",
+      "version": "BBS 43 e27；同一合订PDF内作者回应，按实际PDF页码45起定位。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 45题名及R1至页末；46–47；48的R3到页末。",
+      "unreadScope": "其余回应和参考文献未完整审读；回应中的新例证未复算。",
+      "checkedAt": "2026-10-27",
+      "sha256": "9ca5002d52aa7a7fb2264d259b3e51319f1dcb7064674ba5d7bde74321f855f9",
+      "carrier": "local-pdf",
+      "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "e-spearman-1904",
+      "year": 1904,
+      "dateLabel": "1904",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "spearman-1904"
+      ],
+      "branch": "共同因素与测量误差",
+      "title": "测验相关怎样被解释为共同功能？",
+      "status": "claims-reviewed",
+      "question": "不同感官、学校任务和生活判断的表现是否共享某种成分？",
+      "mechanism": "将感官辨别与学校或熟人排名关联，并尝试校正测量误差、年龄及其他因素。",
+      "assumptions": "相关修正依赖重复测量可比等假设；学校成绩和年龄修正成绩承担的含义由作者解释。",
+      "claims": [
+        {
+          "id": "e-spearman-1904-c1",
+          "sourceId": "spearman-1904",
+          "text": "所用能力指标包括考试排名、按年龄调整的排名、教师判断及熟人对常识的排序；它们并非同一个直接观测量。",
+          "locator": "印刷249–251页",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-spearman-1904-c2",
+          "sourceId": "spearman-1904",
+          "text": "作者尝试校正观察误差，也指出把不同功能误当同一对象的重复测量会扭曲修正，甚至得到超过1的相关。",
+          "locator": "印刷253–255页",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-spearman-1904-c3",
+          "sourceId": "spearman-1904",
+          "text": "共同成分在原文表述为基本功能或功能群；作者要求更广泛佐证，并把其心理性质的讨论排除在本研究范围之外。",
+          "locator": "印刷272–273页；284页结论IV与VI",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "样本和操作程序不支持直接外推到任意人群或机器。原文关于感官判别近完全对应及年龄稳定性的强推断未在本项目重验；统计结构不能被本站升级为已识别的单一心理原因。",
+      "nextQuestion": "什么操纵或额外数据能区分共同原因与多过程重叠解释？",
+      "evaluation": {
+        "object": "感官辨别与多种智力估计的相关及共同成分",
+        "task": "声音、视觉、重量辨别；学校考试与他人排序",
+        "sample": "系列I 24名乡村学校儿童；II 36名；IV 33名预备学校男生；V 26名成人。系列之间有同校重复安排，不能简单相加。",
+        "metric": "原始与校正相关、组内和组间相关",
+        "validity": "能力指标的构念解释与相关修正条件须分别审查",
+        "resources": "个别／集体测试、练习、照明、疲劳和注意条件不同；系列III的控制不足由作者承认",
+        "uncertainty": "论文讨论误差修正；本批未重算系数与抽样误差。",
+        "priors": "感官与学校测验中的共同变化不等于排除了教育和经验。"
+      },
+      "baselineEventId": "e-spearman-1904"
+    },
+    {
+      "id": "e-binet-simon-1905",
+      "year": 1905,
+      "dateLabel": "1905（原刊卷年1904）",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "binet-1905-kite"
+      ],
+      "branch": "用途、施测与语言条件",
+      "title": "把儿童的当前表现放进分级量表",
+      "status": "claims-reviewed",
+      "question": "怎样对儿童当前的智力表现作有依据的分级判断？",
+      "mechanism": "用难度渐增且异质的短任务比较水平，结合医疗、教学及直接心理观察；规定施测环境和避免暗示的要求。",
+      "assumptions": "限定当下状态，不推定病因或未来；作者希望尽量排除学校知识，但这一愿望本身不是测量不受教育和文化影响的证明。",
+      "claims": [
+        {
+          "id": "e-binet-simon-1905-c1",
+          "sourceId": "binet-1905-kite",
+          "text": "作者限定研究为当前状态，不据此判断先天／后天病因或预后；量表被说明为实践上的等级分类，并非像长度一样可叠加的度量。",
+          "locator": "开篇；I. The Psychological Method中“scale properly speaking”段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-binet-simon-1905-c2",
+          "sourceId": "binet-1905-kite",
+          "text": "短时、异质、面向判断的项目与施测者观察共同组成方法；总则明确警告只记粗分及无意提示答案两种错误。",
+          "locator": "I. The Psychological Method；Measuring Scale of Intelligence／General recommendations",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-binet-simon-1905-c3",
+          "sourceId": "binet-1905-kite",
+          "text": "译者说明法文押韵项目不能机械照搬为英文，必须换成合适的英语词；同一表面任务在不同语言中的难度不可直接视为相同。",
+          "locator": "译者注12–13，末尾注释",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "历史术语仅保留在文献题名，正文采用现代中性措辞。该阅读范围不足以评价诊断准确率；不把1905量表等同于后来的IQ或1908年龄量表。",
+      "nextQuestion": "语言替换、教育经历与施测提示怎样改变分数的可比性？",
+      "evaluation": {
+        "object": "儿童当下的任务表现与实用分级",
+        "task": "难度渐增的异质短任务；本次只抽读测验1及总则",
+        "sample": "作者称来自医院和巴黎小学的试测；本次未复核完整样本",
+        "metric": "等级与项目通过情况；不假设等距",
+        "validity": "用途限定、施测者观察、语言适配均影响解释",
+        "resources": "作者主张总时长不超过约20分钟，以减少疲劳",
+        "uncertainty": "选读未复核量表信度、误差及常模。",
+        "priors": "语言、教育经历与施测提示可能改变任务难度。"
+      },
+      "baselineEventId": "e-binet-simon-1905"
+    },
+    {
+      "id": "e-watson-1913",
+      "year": 1913,
+      "dateLabel": "1913",
+      "baselineEventId": "e-watson-1913",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "watson-1913"
+      ],
+      "branch": "行为主义纲领",
+      "title": "行为资料能否独立成为心理学的研究对象？",
+      "status": "claims-reviewed",
+      "question": "研究行为的价值是否必须先由意识解释来证明？",
+      "mechanism": "将预测与控制行为设为研究目标，通过可操纵刺激、习惯与反应建立实验问题。",
+      "assumptions": "这是作者提出的研究纲领；对象、方法与成功标准共同改变，并非通用智能测试。",
+      "claims": [
+        {
+          "id": "e-watson-1913-c1",
+          "sourceId": "watson-1913",
+          "text": "作者把心理学目标放在行为的预测与控制，并认为内省不是必要方法；动物行为资料无须先被翻译为人的意识内容才有研究价值。",
+          "locator": "开篇第1段及行为资料独立价值讨论；Summary 2–3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-watson-1913-c2",
+          "sourceId": "watson-1913",
+          "text": "视觉辨别的例子要求区分波长与强度等实际控制变量；记忆例子关注学习速度、错误、曲线与保持。",
+          "locator": "正文vision例子与随后的memory段落",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-watson-1913-c3",
+          "sourceId": "watson-1913",
+          "text": "作者承认当时的行为方法还不能覆盖想象、判断等所有复杂过程，并承认其纲领仍有弱点。",
+          "locator": "正文复杂行为讨论及结论前两段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "统一方法的主张不等于已经证明物种间机制相同，也没有在本文建立智能总分。文中的历史人群称呼不转化为本站分类或能力结论。",
+      "nextQuestion": "什么证据能够区分行为预测成功与对心理过程的充分解释？",
+      "evaluation": {
+        "object": "行为及其刺激条件",
+        "task": "视觉辨别、记忆与习惯形成等论证例子",
+        "sample": "纲领文；不是一个统一样本的智能测验报告",
+        "metric": "速度、错误、保持、差异反应，按任务分别定义",
+        "validity": "作者主张行为数据的独立价值，尚需具体实验检验",
+        "resources": "训练次数与刺激条件在具体实验中控制；无统一计算预算",
+        "uncertainty": "观察与实验控制构成方法主张；没有标准化智能分数的不确定性估计。",
+        "priors": "学习史与环境是行为研究的解释背景，不能由单次输出消去。"
+      }
+    },
+    {
+      "id": "e-titchener-1914",
+      "year": 1914,
+      "dateLabel": "1914",
+      "baselineEventId": "e-titchener-1914",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "titchener-1914"
+      ],
+      "branch": "行为主义的直接批评",
+      "title": "改变研究立场能否取消原来的心理学问题？",
+      "status": "claims-reviewed",
+      "question": "行为研究完成后，经验与意识问题是否因此被解决？",
+      "mechanism": "区分研究对象的立场、观察资料和理论解释，追问行为资料是研究终点还是其他现象的迹象。",
+      "assumptions": "回应同时针对Watson两篇1913文章；脚注2区分A、B文，不能把所有批评归到一篇。",
+      "claims": [
+        {
+          "id": "e-titchener-1914-c1",
+          "sourceId": "titchener-1914",
+          "text": "Titchener认为改变观察立场产生新的研究方面，并不在逻辑上排除内省心理学的问题。",
+          "locator": "印刷6页",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-titchener-1914-c2",
+          "sourceId": "titchener-1914",
+          "text": "他区分可观察结果与解释框架，反对用预先假定所必然导出的结果当作该假定的独立证明。",
+          "locator": "印刷12页；脚注26",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-titchener-1914-c3",
+          "sourceId": "titchener-1914",
+          "text": "末段提出行为研究与心理学可以相互依赖；脚注36同时赞同不能严格给出心理现象的客观判据，不能把此文简化成反对所有行为实验。",
+          "locator": "印刷15–17页及脚注36",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这是方法与逻辑批评，不是内省法优越性的实验验证；研究者关于科学与技术的划分也属于其立场。",
+      "nextQuestion": "若行为被视作能力的证据，能力构念与观察结果之间需要哪些额外论证？",
+      "evaluation": {
+        "object": "研究立场、行为与心理解释的关系",
+        "task": "对Watson两文的概念和论证审查",
+        "sample": "无新增统一实验样本",
+        "metric": "论证是否循环、是否改变了问题",
+        "validity": "区分观察与理论；不能由方法选择直接推出理论胜出",
+        "resources": "未提出资源量化度量",
+        "uncertainty": "方法批评，未提供量化检验区间。",
+        "priors": "争论涉及如何获得心理学证据，不提供统一学习预算。"
+      }
+    },
+    {
+      "id": "e-thurstone-1934",
+      "year": 1934,
+      "dateLabel": "1934",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "thurstone-1934"
+      ],
+      "branch": "从单一共同因子到多维结构",
+      "title": "多因子描述与坐标选择",
+      "status": "claims-reviewed",
+      "question": "一个共同因子不够拟合时，应否据此否定一般能力？",
+      "mechanism": "把单共同因子方法作为多因子分析的特殊情况，区分测试特定方差、共同方差与误差；用测验簇及其关系寻找解释。",
+      "assumptions": "采用因素贡献可加的模型；相关与旋转确定的是描述约束，解释还需要心理学理由。",
+      "claims": [
+        {
+          "id": "e-thurstone-1934-c1",
+          "sourceId": "thurstone-1934",
+          "text": "明确区分Spearman的分析方法与一般智力假说：单因子判据失败表示需要更多共同因子，并不单独证明不存在一般能力。",
+          "locator": "开篇，从“We must distinguish”至“There is only one limited problem”",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-thurstone-1934-c2",
+          "sourceId": "thurstone-1934",
+          "text": "同一相关结构可以有不止一种因素表示；坐标的选择不能只凭统计就赋予唯一心理意义。",
+          "locator": "单因子表示的向量比喻；几何不确定性；Alexander九项测验解释",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-thurstone-1934-c3",
+          "sourceId": "thurstone-1934",
+          "text": "Alexander测验示例中，语言与操作两簇仍相关；作者因此提出以斜交坐标描述，未把多个能力简单等同于彼此独立。",
+          "locator": "Alexander九项测验解释中“In Alexander’s data”段",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "本条只覆盖1934文本，不把1938“基本心理能力”的具体名单前移，也不把因素数当已识别的神经机制数。原表与几何图尚未复算。",
+      "nextQuestion": "怎样在描述维度之后提出可以独立检验的能力过程模型？",
+      "evaluation": {
+        "object": "测验间共同结构",
+        "task": "多组心理测验及人格／态度例证；本文节点聚焦认知测验",
+        "sample": "复用Alexander、Brown等数据；本次未重建样本",
+        "metric": "相关、载荷、残差及簇间关系",
+        "validity": "坐标不唯一；样本与测验选择决定可解释范围",
+        "resources": "分析计算量与可获得的测验数据",
+        "uncertainty": "载荷与旋转未在本批复算；保留坐标不唯一性。",
+        "priors": "测验内容与经验构成因素解释的条件。"
+      }
+    },
+    {
+      "id": "e-turing-1950",
+      "year": 1950,
+      "dateLabel": "1950",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "turing-1950"
+      ],
+      "branch": "操作化与学习经历",
+      "title": "以模仿游戏重述机器思考问题",
+      "status": "claims-reviewed",
+      "question": "怎样把“机器能否思考”改写为可讨论、可实施的比较？",
+      "mechanism": "限制交流通道，以问答中的辨认表现重述问题；同时提出比较孩子程序及其教育过程。",
+      "assumptions": "协议限定为文字交流和数字计算机；假定足够存储、速度和适当程序；人的外形与动作能力不在该协议内。",
+      "claims": [
+        {
+          "id": "e-turing-1950-c1",
+          "sourceId": "turing-1950",
+          "text": "用机器替代模仿游戏中的A来重述原问题；文字通道排除外形和声音，同时承认机器可能以不同于人的方式思考。",
+          "locator": "§1–3，PDF 1–3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-turing-1950-c2",
+          "sourceId": "turing-1950",
+          "text": "五分钟询问后平均判断者正确辨认不超过70%的说法是作者面向未来的信念，不是当年测得的通过率。",
+          "locator": "§6开头，PDF 8",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-turing-1950-c3",
+          "sourceId": "turing-1950",
+          "text": "把初始结构、教育和其他经验区分开来；建议反复比较孩子程序的学习过程，也讨论推理步骤选择与速度。",
+          "locator": "§7，PDF 19–22",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "该文没有给出已验证的通用能力量尺。行为判别协议、学习机制设想和作者预测承担不同的证据角色；原文关于超感知的历史判断不被本站采用为事实。",
+      "nextQuestion": "怎样区分拟人对话表现、特定任务熟练程度和获得新技能的能力？",
+      "evaluation": {
+        "object": "机器在约定交流协议中的表现",
+        "task": "文字问答与身份辨认",
+        "sample": "理论设想；不是统一样本的结果报告",
+        "metric": "辨认率与询问时长；预测须标为预测",
+        "validity": "覆盖交流表现，不能自动覆盖身体能力或理解机制",
+        "resources": "存储、计算速度、程序、教育经历分别记录",
+        "uncertainty": "未来成功比例是预测；不是论文实施检验所得置信区间。",
+        "priors": "初始结构、教育与其他经验在§7分别讨论。"
+      },
+      "baselineEventId": "e-turing-1950"
+    },
+    {
+      "id": "e-cronbach-meehl-1955",
+      "year": 1955,
+      "dateLabel": "1955",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "cronbach-meehl-1955"
+      ],
+      "branch": "由操作与相关走向可检验解释",
+      "title": "构念效度：分数支持什么解释？",
+      "status": "claims-reviewed",
+      "question": "当没有一个公认的最终标准时，如何验证分数代表的能力？",
+      "mechanism": "把构念放入联系观察、任务与理论的法则网络；由解释生成可否证预测，用相关、干预和过程证据共同审查。",
+      "assumptions": "须说明用途、理论和样本条件；可观察后果必须公开，不能用循环解释消化反复的反证。",
+      "claims": [
+        {
+          "id": "e-cronbach-meehl-1955-c1",
+          "sourceId": "cronbach-meehl-1955",
+          "text": "预测效度、内容效度与构念效度承担不同问题；分数与一个标准相关，并未自动说明产生相关的属性是什么。",
+          "locator": "Four Types of Validation，281–283",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-cronbach-meehl-1955-c2",
+          "sourceId": "cronbach-meehl-1955",
+          "text": "高内部一致性是否支持效度取决于构念理论；训练只提高测验技巧而不改善目标表现，与真正改善目标能力有不同解释。",
+          "locator": "Validation Procedures，287–289",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-cronbach-meehl-1955-c3",
+          "sourceId": "cronbach-meehl-1955",
+          "text": "构念网络必须接触观察并给出明确推理步骤；纯粹合理化与不可检验的附加解释不算构念验证。",
+          "locator": "The Logic of Construct Validation／The Nomological Net，290–292",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这是一套验证逻辑，不是所有用途共用的效度系数，也不能仅凭“显著相关”宣告量表已经有效。",
+      "nextQuestion": "能否用事先提出的干预与跨任务预测，区分真正能力改善和测验适应？",
+      "evaluation": {
+        "object": "某个用途下对测验分数的解释",
+        "task": "由构念网络导出的多类观察与干预",
+        "sample": "方法论文举例；需为每次应用另定样本",
+        "metric": "预测符合程度、替代解释与证据累积",
+        "validity": "不存在脱离理论和用途的一次性通用有效标签",
+        "resources": "验证需要不同方法与额外观察，而非只重复同一测验",
+        "uncertainty": "信度不是效度的充分条件；需不同证据检查解释。",
+        "priors": "训练可能改善测验技巧或目标能力，需区分。"
+      }
+    },
+    {
+      "id": "e-simon-1955",
+      "year": 1955,
+      "dateLabel": "1955",
+      "routeIds": [
+        "rational-resource"
+      ],
+      "sourceIds": [
+        "simon-1955"
+      ],
+      "branch": "有限理性的决策问题",
+      "title": "把计算与信息限制纳入理性选择",
+      "status": "claims-reviewed",
+      "question": "在无法枚举所有结果时，如何定义可实行的合理选择？",
+      "mechanism": "简化收益表示，以满意阈值组织信息收集与顺序搜索。",
+      "assumptions": "阈值、可考虑选项、信息与环境均须说明；满意方案不保证存在或唯一。",
+      "claims": [
+        {
+          "id": "e-simon-1955-c1",
+          "sourceId": "simon-1955",
+          "text": "合理选择的约束包含决策者自身的计算与预测能力。",
+          "locator": "99–103",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-simon-1955-c2",
+          "sourceId": "simon-1955",
+          "text": "信息收集有成本；简化收益可允许只查找达到满意条件的方案。",
+          "locator": "104–107",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-simon-1955-c3",
+          "sourceId": "simon-1955",
+          "text": "顺序考察时可以选择先发现的满意方案；因此搜索次序进入行为解释。",
+          "locator": "110，§3.1",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这是模型提议，作者承认缺少全面经验知识；并未证明人总按此过程行动。",
+      "nextQuestion": "搜索次序、阈值和时间改变时，选择会怎样变化？",
+      "evaluation": {
+        "object": "受约束选择过程",
+        "task": "顺序选择与信息收集",
+        "sample": "理论模型及例证",
+        "metric": "满意条件与选择行为",
+        "validity": "需验证过程而非仅观察最终选择",
+        "resources": "信息成本、计算容量与可用时间",
+        "priors": "已有知识决定被考虑的选项",
+        "uncertainty": "模型提议未给出人类过程的统一误差估计。"
+      },
+      "baselineEventId": "e-simon-1955"
+    },
+    {
+      "id": "e-cattell-1963",
+      "year": 1963,
+      "dateLabel": "1963",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "cattell-1963"
+      ],
+      "branch": "能力、学习与经验",
+      "title": "流体与晶体能力的关键检验",
+      "status": "claims-reviewed",
+      "question": "不同测验中的共同变化是否需要区分新问题处理与已有学习成果？",
+      "mechanism": "区分Gf与Gc，并设计测验组合检验因素结构。",
+      "assumptions": "能力解释依赖任务、发展与学习经历；1963是检验论文，不能作为Gf／Gc概念首次出现年份。",
+      "claims": [
+        {
+          "id": "e-cattell-1963-c1",
+          "sourceId": "cattell-1963",
+          "text": "Gf与Gc分别强调适应新问题与已获得的判断技能；二者的学习关系并非“纯天赋对纯知识”的简单分割。",
+          "locator": "理论段，印刷页2–6",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-cattell-1963-c2",
+          "sourceId": "cattell-1963",
+          "text": "作者在摘要总结277名七、八年级学生的44变量分析支持两个一般能力因素；这是作者报告，本站未重算载荷。",
+          "locator": "Summary，19–20",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-cattell-1963-c3",
+          "sourceId": "cattell-1963",
+          "text": "作者要求在年龄、文化、时限及测验组合上进一步检验；该样本不能给出跨所有情境的定论。",
+          "locator": "Needed Research，19–20",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "不采纳文中的生物或遗传推测为已证实机制；OCR不能替代原表核验。",
+      "nextQuestion": "控制学习经历之后，哪些迁移或发展预测能区分Gf与Gc？",
+      "evaluation": {
+        "object": "能力结构与学习成果",
+        "task": "作者设计的多项能力测验",
+        "sample": "作者总结为277名七、八年级学生",
+        "metric": "因素模式；未复算原表",
+        "validity": "年龄、文化、时限和测验抽样影响解释",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "作者总结有结构支持，本批没有原表重算或稳健性结果。",
+        "priors": "Gf／Gc与既往学习有关，不能将Gf写为没有经验参与。"
+      }
+    },
+    {
+      "id": "e-searle-1980",
+      "year": 1980,
+      "dateLabel": "1980",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "searle-1980",
+        "hofstadter-1980"
+      ],
+      "branch": "评价解释的充分性",
+      "title": "中文房间：表现足以证明理解吗？",
+      "status": "claims-reviewed",
+      "question": "回答与母语者无法区分，是否足以推出系统理解了内容？",
+      "mechanism": "Searle以执行形式规则却不懂中文的思想实验质疑强AI的充分性主张，并讨论系统、机器人等答复；Hofstadter反驳其层次与复杂度直觉。",
+      "assumptions": "思想实验设定了规则程序和理想输入输出能力；系统边界、理解的含义与可实现规模本身属于争议。",
+      "claims": [
+        {
+          "id": "e-searle-1980-c1",
+          "sourceId": "searle-1980",
+          "text": "Searle区分作为研究工具的弱AI与声称正确程序本身构成心智解释的强AI；论证针对后者。",
+          "locator": "417–418，PDF 1–2",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-searle-1980-c2",
+          "sourceId": "searle-1980",
+          "text": "系统答复把理解归给人、规则和资料组成的整体；Searle通过内化全部规则的设想回应，并明确质疑图灵测试的充分性。",
+          "locator": "419，PDF 3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-searle-1980-c3",
+          "sourceId": "searle-1980",
+          "text": "Searle并不否认人工机器原则上能够思考；他否认仅凭形式程序就充分获得意向性。",
+          "locator": "422–424，PDF 6–8",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-searle-1980-c4",
+          "sourceId": "hofstadter-1980",
+          "text": "Hofstadter认为从有限故事问答跳到完整图灵测试改变了复杂度，并质疑用低层执行者的直觉否定高层系统性质。",
+          "locator": "433–434，PDF 17–18",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这是有明确反驳的哲学论证，不是证实机器不可能理解的实验。评论也没有给出经验上已验证的理解测验；不能据此裁定任何现代模型是否有心智。",
+      "nextQuestion": "若行为证据不足以唯一决定解释，还需要哪些机制、干预或跨情境证据？",
+      "evaluation": {
+        "object": "理解／意向性的充分条件",
+        "task": "思想实验中的故事问答；并非实测题库",
+        "sample": "无经验样本",
+        "metric": "论证的有效性与前提，而非通过率",
+        "validity": "明确区分行为归因和机制解释；系统层次仍有争议",
+        "resources": "理想化规则执行；评论提示规模与时间被抽象掉",
+        "uncertainty": "思想实验与直接评论；不提供经验效应量。",
+        "priors": "规则、理解与系统层次不能只凭输入输出标签替换。"
+      },
+      "baselineEventId": "e-searle-1980"
+    },
+    {
+      "id": "e-gardner-1983",
+      "year": 1983,
+      "dateLabel": "1983（据后出版本选读）",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "gardner-1983-reprint"
+      ],
+      "branch": "多元能力的界定标准",
+      "title": "扩大能力候选与证据类型",
+      "status": "claims-reviewed",
+      "question": "学校测验之外哪些活动也应进入智能解释？",
+      "mechanism": "从文化中有价值的问题解决与产品出发，以脑损伤、特殊发展、核心操作等多类线索判断候选能力。",
+      "assumptions": "选择标准含质性判断；文化价值与任务操作化必须明确。",
+      "claims": [
+        {
+          "id": "e-gardner-1983-c1",
+          "sourceId": "gardner-1983-reprint",
+          "text": "候选能力的判断结合多类证据，作者明确承认这不是一个机械决定的算法。",
+          "locator": "第4章Signs of an Intelligence，PDF 116–122",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-gardner-1983-c2",
+          "sourceId": "gardner-1983-reprint",
+          "text": "心理测量证据是标准之一；域内较强关系可支持候选划分，反面结果也需解释任务与策略混合。",
+          "locator": "第4章Support from Psychometric Findings，PDF 121",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "阅读的是后出版本中的理论章；尚不能据此判定每个能力域的独立性。",
+      "nextQuestion": "怎样把能力域转为可比较的任务，并预先规定什么结果算反证？",
+      "evaluation": {
+        "object": "文化实践中的能力候选",
+        "task": "异质问题解决与产品；本章提出标准",
+        "sample": "综合理论，非单次实验样本",
+        "metric": "多类证据的相互支持",
+        "validity": "标准质性，需独立操作化和反证条件",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "多类质性证据不是统一误差模型；各域须具体检验。",
+        "priors": "文化价值、专门训练和发展轨迹属于定义与评价背景。"
+      },
+      "baselineEventId": "e-gardner-1983"
+    },
+    {
+      "id": "e-carroll-1993",
+      "year": 1993,
+      "dateLabel": "1993",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "carroll-1993"
+      ],
+      "branch": "因素结构的层级整合",
+      "title": "将广窄能力放入三层结构",
+      "status": "claims-reviewed",
+      "question": "不同粒度的能力因素怎样共同描述测验相关？",
+      "mechanism": "以狭窄、宽广、一般三个层级组织能力，并通过测验载荷与跨研究预测解释因素。",
+      "assumptions": "基础模型偏向线性、可补偿贡献；因素解释需结合测验内容。",
+      "claims": [
+        {
+          "id": "e-carroll-1993-c1",
+          "sourceId": "carroll-1993",
+          "text": "三个层级描述概括程度，但不是每个因素只能归属一个父节点的严格树。",
+          "locator": "第16章631–639，层级资格条件与比较",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-carroll-1993-c2",
+          "sourceId": "carroll-1993",
+          "text": "因素解释有待预测与验证；层级结构本身没有确定一般能力的心理或神经实现。",
+          "locator": "第16章631–639，基本假设与Spearman／Cattell比较",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "此处是理论综合章节选读；不能把全书全部数据当作本批复核结果。",
+      "nextQuestion": "同一层级结构可以由哪些不同过程产生？",
+      "evaluation": {
+        "object": "测验能力结构的粒度",
+        "task": "多项能力测验的因素描述",
+        "sample": "本次未重建原研究样本",
+        "metric": "载荷、概括层级及跨研究解释",
+        "validity": "因素粒度受测验组合影响，机制需额外证据",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "本批没有重新估计层级因子的抽样不确定性。",
+        "priors": "因素抽样依赖测验组合及其内容；不能脱离经验解释。"
+      },
+      "baselineEventId": "e-carroll-1993"
+    },
+    {
+      "id": "e-wang-1995",
+      "year": 1995,
+      "dateLabel": "1995",
+      "routeIds": [
+        "rational-resource"
+      ],
+      "sourceIds": [
+        "wang-1995"
+      ],
+      "branch": "适应的工作定义与NARS",
+      "title": "把知识与资源不足作为常态",
+      "status": "claims-reviewed",
+      "question": "新任务、冲突知识和资源不足持续出现时，系统应如何工作？",
+      "mechanism": "以有限、实时、开放澄清工作定义；通过经验修正与优先级分配组织非公理推理。",
+      "assumptions": "输入仍受接口语言约束；适应假设未来与过去有一定相似性。",
+      "claims": [
+        {
+          "id": "e-wang-1995-c1",
+          "sourceId": "wang-1995",
+          "text": "作者将智能定义为信息处理系统在知识和资源不足时适应环境的能力，并区分有限、实时、开放三条件。",
+          "locator": "§2.2，13–17",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-wang-1995-c2",
+          "sourceId": "wang-1995",
+          "text": "任务获得相对资源份额；原子步骤与优先级调度支持持续输入。",
+          "locator": "第5章80、89、91–92",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-wang-1995-c3",
+          "sourceId": "wang-1995",
+          "text": "作者不声称优先级函数最优；NARS 3.0只处理原子项，复合项列为后续工作。",
+          "locator": "92；§8.3，151–153",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "工作定义、已实现机制与未来扩展分开；开放不等于能处理任意自然语言或已经具备通用智能。",
+      "nextQuestion": "经验顺序、任务竞争与遗忘改变时，适应表现是否仍稳定？",
+      "evaluation": {
+        "object": "在不足条件下持续适应",
+        "task": "接口语言中的推理任务流",
+        "sample": "设计论文；未运行系统",
+        "metric": "任务响应、经验依赖与资源分配",
+        "validity": "需具体任务流与基线检验定义的解释力",
+        "resources": "有限容量、实时压力、优先级与遗忘",
+        "priors": "经验影响知识和控制；输入可冲突",
+        "uncertainty": "本批未运行系统或量化跨任务稳定性。"
+      }
+    },
+    {
+      "id": "e-gigerenzer-goldstein-1996",
+      "year": 1996,
+      "dateLabel": "1996",
+      "routeIds": [
+        "rational-resource"
+      ],
+      "sourceIds": [
+        "gigerenzer-goldstein-1996"
+      ],
+      "branch": "搜索、停止与环境结构",
+      "title": "快速节俭启发式的生态检验",
+      "status": "claims-reviewed",
+      "question": "少用信息的决策规则在什么环境下能保持准确？",
+      "mechanism": "Take The Best按线索有效性顺序搜索，遇到首个可区分线索即停止；结合识别规则。",
+      "assumptions": "线索顺序与识别的有效性来自指定环境；不能省略这些知识的来源。",
+      "claims": [
+        {
+          "id": "e-gigerenzer-goldstein-1996-c1",
+          "sourceId": "gigerenzer-goldstein-1996",
+          "text": "规则明确区分搜索、停止和选择；不把所有线索加权相加。",
+          "locator": "653–654，算法步骤",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-gigerenzer-goldstein-1996-c2",
+          "sourceId": "gigerenzer-goldstein-1996",
+          "text": "作者在83座德国城市、9个生态线索的模拟中比较准确率与检索量；本研究不新增人的过程验证。",
+          "locator": "654、656–658",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-gigerenzer-goldstein-1996-c3",
+          "sourceId": "gigerenzer-goldstein-1996",
+          "text": "回归权重使用该环境全部目标值，并非通常训练／测试拆分；作者承认以城市排名回归可略优。",
+          "locator": "658及脚注4",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "查找线索数不是端到端时间；不能将此比赛写成所有任务、所有竞争算法上的优势。",
+      "nextQuestion": "保留相同学习信息并改变线索结构，优势是否保持？",
+      "evaluation": {
+        "object": "特定环境中的推断效率",
+        "task": "城市人口二选一；不同知识缺失状态",
+        "sample": "模拟个体；识别有效性参考26名学生先导",
+        "metric": "正确比例、检索线索数",
+        "validity": "环境、缺失编码、竞争方法目标与信息权限影响比较",
+        "resources": "检索成本；排序获取成本未完整计入",
+        "priors": "线索顺序与识别有效性是关键前提",
+        "uncertainty": "模拟重复不替代新环境外推；原数据未复算。"
+      },
+      "baselineEventId": "e-gigerenzer-goldstein-1996"
+    },
+    {
+      "id": "e-hutter-2000",
+      "year": 2000,
+      "dateLabel": "2000",
+      "routeIds": [
+        "rational-resource"
+      ],
+      "sourceIds": [
+        "hutter-2000"
+      ],
+      "branch": "形式最优与可计算性",
+      "title": "AIXI与有条件的资源有界近似",
+      "status": "claims-reviewed",
+      "question": "未知环境中怎样形式化选择，以及能否在有限时间实现？",
+      "mechanism": "把通用程序先验与序贯决策结合；资源有界构造枚举可证明有效的候选程序。",
+      "assumptions": "固定参考机、交互编码和规划视野；有限近似另有程序、时间与证明长度界。",
+      "claims": [
+        {
+          "id": "e-hutter-2000-c1",
+          "sourceId": "hutter-2000",
+          "text": "AIXI以程序长度加权环境并选择预期收益动作；核心定义不可计算。",
+          "locator": "摘要；§4，19–22",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-hutter-2000-c2",
+          "sourceId": "hutter-2000",
+          "text": "§10比较的是带收益下界证明的候选，其排序涉及可证明的自评收益，不是任意程序的真实表现统治。",
+          "locator": "54–56，式67–68及主定理",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-hutter-2000-c3",
+          "sourceId": "hutter-2000",
+          "text": "每周期开销含2^l乘t，初始化还含证明枚举；有效但不可证明或证明过长的程序不在保证内。",
+          "locator": "56–57，Limitations and open questions",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "理论构造不提供现实可用性保证；2005书尚未审读，不借用其结果补齐本稿证明。",
+      "nextQuestion": "在明确资源预算和证明限制下，可计算近似还能保留哪些性质？",
+      "evaluation": {
+        "object": "给定形式环境类中的预期收益",
+        "task": "动作—观察—收益交互",
+        "sample": "形式模型，无实验样本",
+        "metric": "预期收益；近似另用可证明的收益下界",
+        "validity": "参考机、环境类、视野与证明系统均属条件",
+        "resources": "不可计算理想；近似有指数枚举成本",
+        "priors": "以程序长度构造先验",
+        "uncertainty": "保证是有条件的形式结果，不是经验置信区间。"
+      }
+    },
+    {
+      "id": "e-visser-2006",
+      "year": 2006,
+      "dateLabel": "2006",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "visser-2006"
+      ],
+      "branch": "直接检验与操作化争议",
+      "title": "将多元能力的独立性变成测验问题",
+      "status": "claims-reviewed",
+      "question": "候选能力域在具体测验中能否表现为相对独立结构？",
+      "mechanism": "为后期八域各选两项测验，结合外部能力测验检查共同成分与域内残余关系。",
+      "assumptions": "域的理论含义不自动等同于所选两项任务；作者检验的是明确的测验操作化。",
+      "claims": [
+        {
+          "id": "e-visser-2006-c1",
+          "sourceId": "visser-2006",
+          "text": "200名成人样本主要来自大学，作者报告许多认知测验共享一般成分，同时保留部分域内关系。",
+          "locator": "§5.1、§6.3与§7.1，487–502",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-visser-2006-c2",
+          "sourceId": "visser-2006",
+          "text": "作者承认音乐测量信度差，不能据本研究确定音乐能力的位置；受限样本也限制解释。",
+          "locator": "§7.1，499–500",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这不足以宣布全部多元智能理论被证伪；1983初版与这里的后期八域版本不同。",
+      "nextQuestion": "更好的域内测量与独立样本是否改变一般成分及残余结构？",
+      "evaluation": {
+        "object": "多元能力的测验独立性",
+        "task": "八域各两项及外部能力测验",
+        "sample": "200成人，171名本科生，第一／最佳语言为英语",
+        "metric": "相关、一般成分与域内残余",
+        "validity": "音乐信度、两项代表性与大学样本限制",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "音乐测验信度不足；受限样本可能改变相关。",
+        "priors": "语言条件、大学教育与八域操作化限制外推。"
+      }
+    },
+    {
+      "id": "e-legg-hutter-2007",
+      "year": 2007,
+      "dateLabel": "2007",
+      "routeIds": [
+        "rational-resource",
+        "behavioral"
+      ],
+      "sourceIds": [
+        "legg-hutter-2007"
+      ],
+      "branch": "从单项表现到加权环境类",
+      "title": "跨环境的通用智能度量",
+      "status": "claims-reviewed",
+      "question": "怎样将不同环境的目标达成汇总成一个形式指标？",
+      "mechanism": "对可计算、收益总和有界的环境，以2^-K权重累加代理的预期收益。",
+      "assumptions": "环境含目标机制；参考机决定复杂度，时间偏好进入收益设置。",
+      "claims": [
+        {
+          "id": "e-legg-hutter-2007-c1",
+          "sourceId": "legg-hutter-2007",
+          "text": "度量采用收益总和不超过1的环境，并依描述复杂度加权，而非对所有任务均匀平均。",
+          "locator": "§3.2–3.3，19–23",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-legg-hutter-2007-c2",
+          "sourceId": "legg-hutter-2007",
+          "text": "作者明确区分不可计算的定义与有限样本实际测验；参考机改变会影响复杂度常数。",
+          "locator": "23、27–28、39",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-legg-hutter-2007-c3",
+          "sourceId": "legg-hutter-2007",
+          "text": "对查表和中文房间的回应采取功能立场，不以实现效率或不可观测理解单独否定高分。",
+          "locator": "§5.2，42",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "不是现成的通用排行榜；复杂环境不等于困难任务，本文22页明确区分二者。",
+      "nextQuestion": "有限任务抽样、先验和预算怎样改变实际排序？",
+      "evaluation": {
+        "object": "广泛环境中的目标达成",
+        "task": "可计算且收益可求和的交互环境",
+        "sample": "形式环境类；实践抽样待设计",
+        "metric": "加权预期总收益Υ",
+        "validity": "定义与测验分开；不识别内部机制",
+        "resources": "原指标不直接惩罚代理内部计算",
+        "priors": "固定参考机和复杂度权重",
+        "uncertainty": "理想量不可计算；有限环境抽样另有估计误差。"
+      },
+      "baselineEventId": "e-legg-hutter-2007"
+    },
+    {
+      "id": "e-chc-2013",
+      "year": 2013,
+      "dateLabel": "2013（含2005整合脉络）",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "mcgrew-2005",
+        "schneider-mcgrew-2013"
+      ],
+      "branch": "从理论结构到评估语言",
+      "title": "CHC分类与可追踪的定义修订",
+      "status": "claims-reviewed",
+      "question": "多种能力理论如何用于组织测验，修订后怎样保留定义边界？",
+      "mechanism": "整合Gf／Gc与三层结构，给出广窄能力分类；以版本化摘要连接理论与实践。",
+      "assumptions": "分类摘要不等于完整效度论证；旧标签和新封面必须分别记录。",
+      "claims": [
+        {
+          "id": "e-chc-2013-c1",
+          "sourceId": "mcgrew-2005",
+          "text": "McGrew将CHC描述为理论与测验实践的整合，并讨论跨测验组合补足测量范围。",
+          "locator": "印刷页136–137、144–145",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-chc-2013-c2",
+          "sourceId": "schneider-mcgrew-2013",
+          "text": "2013摘要明确要求读者回到完整章节理解争议；其中Gf活动与背景知识共同运作。",
+          "locator": "PDF 4–5",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-chc-2013-c3",
+          "sourceId": "schneider-mcgrew-2013",
+          "text": "速度指标的解释随任务熟练程度而变；能力名称相同也需检查任务要求。",
+          "locator": "PDF 6，General Speed",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "没有核验所有CHC版本或解决关于g的分歧；本条提供可维护的定义入口。",
+      "nextQuestion": "定义更新后哪些旧测验仍覆盖目标能力，哪些需要重新验证？",
+      "evaluation": {
+        "object": "广窄能力与测验覆盖",
+        "task": "CHC分类和作者给出的定义示例",
+        "sample": "整合与定义文本，不是新增实验样本",
+        "metric": "构念覆盖与测验解释",
+        "validity": "不能把分类表当某个具体测验有效的证明",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "分类摘要不提供每个测验的信度或置信区间。",
+        "priors": "Gf与背景知识共同参与；熟练阶段影响速度指标解释。"
+      }
+    },
+    {
+      "id": "e-kovacs-conway-2016",
+      "year": 2016,
+      "dateLabel": "2016",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "kovacs-conway-2016"
+      ],
+      "branch": "统计因子与心理机制",
+      "title": "由重叠过程解释共同结构",
+      "status": "claims-reviewed",
+      "question": "无需一个过程参与所有测验，能否仍产生一般因素？",
+      "mechanism": "提出领域相关过程与执行过程的重叠；以形成性一般因素和反映性特定能力区分统计概括与过程。",
+      "assumptions": "模型与任务内容有关；作者的多维项目模型含域内可补偿、域间非补偿假设。",
+      "claims": [
+        {
+          "id": "e-kovacs-conway-2016-c1",
+          "sourceId": "kovacs-conway-2016",
+          "text": "一般因素可以是多种过程重叠形成的概括，不必被解释为单个共同原因。",
+          "locator": "印刷页162–164，图8",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-kovacs-conway-2016-c2",
+          "sourceId": "kovacs-conway-2016",
+          "text": "模型依赖测验内容和群体特征，并提出可区分的工作记忆及神经预测。",
+          "locator": "印刷页164、171–172",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-kovacs-conway-2016-c3",
+          "sourceId": "kovacs-conway-2016",
+          "text": "作者承认其他发展与学习机制也可能贡献于正相关结构。",
+          "locator": "印刷页171–172，结论",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "此处是理论解释而非已识别的唯一机制；本批合成核验不是该论文模型的复现。",
+      "nextQuestion": "干预某类过程后，哪些跨任务变化能排除竞争机制？",
+      "evaluation": {
+        "object": "共同测验结构的生成解释",
+        "task": "不同过程需求的认知任务",
+        "sample": "理论与既有证据综合",
+        "metric": "相关结构及差异化预测",
+        "validity": "观测拟合需与干预、过程证据结合",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "竞争生成模型可能观测等价；拟合不足以识别过程。",
+        "priors": "任务过程需求、学习与发展机制可能共同影响正相关。"
+      },
+      "baselineEventId": "e-kovacs-conway-2016"
+    },
+    {
+      "id": "e-jak-jorgensen-2017",
+      "year": 2017,
+      "dateLabel": "2017",
+      "routeIds": [
+        "psychometric"
+      ],
+      "sourceIds": [
+        "jak-jorgensen-2017"
+      ],
+      "branch": "不变性与多层解释",
+      "title": "比较均值前先检查测量关系",
+      "status": "claims-reviewed",
+      "question": "跨群体或层级的分数能否解释为同一属性的差异？",
+      "mechanism": "在模型中约束载荷和截距，区分群体、层级与各层信度。",
+      "assumptions": "使用本文连续指标因素模型；跨层不变性不等于跨所有群体不变性。",
+      "claims": [
+        {
+          "id": "e-jak-jorgensen-2017-c1",
+          "sourceId": "jak-jorgensen-2017",
+          "text": "强因素不变性涉及载荷与截距约束；均值比较需要明确量尺和原点。",
+          "locator": "Introduction／Measurement invariance across groups",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-jak-jorgensen-2017-c2",
+          "sourceId": "jak-jorgensen-2017",
+          "text": "跨层载荷相等是跨群体弱不变性的必要非充分条件；较高层间信度不能单独证明构念改变。",
+          "locator": "Discussion",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-jak-jorgensen-2017-c3",
+          "sourceId": "jak-jorgensen-2017",
+          "text": "ESS幸福感示例未获得全面强不变性，展示同样题目不保证同样解释。",
+          "locator": "Example／Multigroup model；Two-level model",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "示例是幸福感而非智力实验；本文引言说学生／学校而Example实际为ESS跨国样本，笔记依方法正文。不能据此推断任何真实人群能力差异。",
+      "nextQuestion": "哪些锚定指标和额外观察能区分截距变化与潜变量均值变化？",
+      "evaluation": {
+        "object": "均值与因素解释的可比性",
+        "task": "ESS六项幸福感问题",
+        "sample": "2012轮54,673名受访者、29国",
+        "metric": "模型约束、拟合及分层信度",
+        "validity": "将四级回应近似为连续变量；原始分析未复现",
+        "resources": "计算与施测成本未在选读范围内统一量化",
+        "uncertainty": "模型拟合与多层信度须分别判断；高信度不保证截距不变。",
+        "priors": "语言、文化与任务经验不是由载荷相等自动排除的原因。"
+      }
+    },
+    {
+      "id": "e-chollet-2019",
+      "year": 2019,
+      "dateLabel": "2019",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "chollet-2019"
+      ],
+      "branch": "泛化、先验与经验",
+      "title": "把技能成绩与技能获取效率分开",
+      "status": "claims-reviewed",
+      "question": "高分来自获取新技能的能力，还是已注入的知识与经验？",
+      "mechanism": "以任务范围、先验、经验和泛化难度刻画技能获取效率；ARC用少量示例规定新任务，并要求生成完整输出。",
+      "assumptions": "固定任务与响应的计算框架；可比较的先验与经验、开发者未知的测试任务是评价前提，而不是分数自动保证的事实。",
+      "claims": [
+        {
+          "id": "e-b-chollet-2019-b-c1",
+          "sourceId": "chollet-2019",
+          "text": "提出智能作为给定范围内相对先验、经验和泛化难度的技能获取效率；明确不把它称为唯一正确的定义。",
+          "locator": "§II.2.1，PDF 27–28",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-b-chollet-2019-b-c2",
+          "sourceId": "chollet-2019",
+          "text": "历史ARC协议要求任务所有测试例输出完全正确，每例允许3次尝试；按成功任务比例计分，依赖开发者未见评价题的条件。",
+          "locator": "§III.1.1，PDF 46–47",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-b-chollet-2019-b-c3",
+          "sourceId": "chollet-2019",
+          "text": "文章明确列出人类式先验，并承认先天先验的精确集合尚不确定；这一设计主张并非已验证的人机公平性。",
+          "locator": "PDF 27；§III.1.2，PDF 47–48",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "ARC是特定范围和先验下的候选测试；高分不能自行证明未利用泄漏、额外经验或隐含工程先验。第二轮记录中的效度问题继续保留。",
+      "nextQuestion": "怎样给训练资料、开发者选择与推理预算记账，并检查新任务上的技能增长？",
+      "evaluation": {
+        "object": "给定任务范围内的技能获取效率",
+        "task": "新颖网格转换任务，少量输入输出示例",
+        "sample": "2019版400训练／400公开评价／200私有评价任务；并非随机世界样本",
+        "metric": "历史协议的任务精确成功率；与理论效率概念分开",
+        "validity": "任务未见、先验可比和构念覆盖仍需论证",
+        "resources": "经验和先验必须计入；当前选读未核验完整复杂度形式化",
+        "uncertainty": "分数受任务抽样和尝试协议影响；本批未运行ARC。",
+        "priors": "核心知识先验、训练经验与技能获取效率分开记录。"
+      },
+      "baselineEventId": "e-chollet-2019",
+      "previousRoundNodeId": "e-chollet-2019"
+    },
+    {
+      "id": "e-lieder-griffiths-2020",
+      "year": 2020,
+      "dateLabel": "2020",
+      "routeIds": [
+        "rational-resource"
+      ],
+      "sourceIds": [
+        "lieder-griffiths-2020"
+      ],
+      "branch": "资源理性的研究方法",
+      "title": "把认知策略的收益与成本共同建模",
+      "status": "claims-reviewed",
+      "question": "怎样由任务功能和认知约束推导可检验的过程模型？",
+      "mechanism": "在可执行策略类中权衡预期结果与计算机会成本，再将预测与经验比较。",
+      "assumptions": "需独立约束能力、代价和环境分布；不假设每次决定都现场解决最优化。",
+      "claims": [
+        {
+          "id": "e-lieder-griffiths-2020-c1",
+          "sourceId": "lieder-griffiths-2020",
+          "text": "作者把优化作用于认知机制；简单规则可通过学习与演化获得，而非每次重新求解。",
+          "locator": "5–6，式2–4与Box 2",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-lieder-griffiths-2020-c2",
+          "sourceId": "lieder-griffiths-2020",
+          "text": "未知环境通过分布进入模型；有限适应意味着人不必完全资源理性。",
+          "locator": "5，式4后",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-lieder-griffiths-2020-c3",
+          "sourceId": "lieder-griffiths-2020",
+          "text": "自由调整限制可能过拟合；作者要求独立容量测量或预测建模时未使用的现象。",
+          "locator": "§6，14–15",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "这是一套生成假说的方法，成功拟合不证明所有人类偏差都最优；真实环境与约束测量仍困难。",
+      "nextQuestion": "在独立测得约束后，模型能否预言新的代价—准确率变化？",
+      "evaluation": {
+        "object": "认知机制如何使用有限资源",
+        "task": "理论与实验范式综合",
+        "sample": "未在本批重建经验样本",
+        "metric": "结果效用减计算机会成本；行为和反应时预测",
+        "validity": "独立约束与样本外预测防止循环解释",
+        "resources": "可用操作、速度、记忆、机会成本",
+        "priors": "经验与演化环境用于适应解释",
+        "uncertainty": "约束和成本测量的不确定性会传递到最优策略预测。"
+      },
+      "baselineEventId": "e-lieder-griffiths-2020"
+    },
+    {
+      "id": "e-resource-debate-2020",
+      "year": 2020,
+      "dateLabel": "2020",
+      "routeIds": [
+        "rational-resource"
+      ],
+      "sourceIds": [
+        "davis-marcus-2020",
+        "dimov-2020",
+        "lieder-griffiths-response-2020"
+      ],
+      "branch": "批评、可识别性与作者回应",
+      "title": "谁来约束资源理性的约束？",
+      "status": "claims-reviewed",
+      "question": "怎样防止事后挑选限制把任意行为都解释为合理？",
+      "mechanism": "把直接批评、约束测量建议与作者的方法论澄清放在同一个证据链中。",
+      "assumptions": "单个失败例子和总体适应标准不同；约束本身仍须可检验。",
+      "claims": [
+        {
+          "id": "e-resource-debate-2020-c1",
+          "sourceId": "davis-marcus-2020",
+          "text": "Davis与Marcus认为仅以计算限制解释认知失败范围不足，过宽约束会使最优主张失去内容。",
+          "locator": "评论e7，PDF 21–22",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-resource-debate-2020-c2",
+          "sourceId": "dimov-2020",
+          "text": "Dimov指出单项行为混合多个过程，建议通过认知架构累积约束。",
+          "locator": "评论e8，PDF 22–23",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-resource-debate-2020-c3",
+          "sourceId": "lieder-griffiths-response-2020",
+          "text": "作者回应把资源理性定位为寻找机制的工具，并承认约束识别及文献选择是需要检查的问题。",
+          "locator": "回应R1、R3，PDF 45–48",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "争论未在本批裁决；评论中的事例不是本站实验，作者回应也不替代独立预测检验。",
+      "nextQuestion": "固定可用操作与成本后，哪些结果会使具体模型被拒绝？",
+      "evaluation": {
+        "object": "资源理性解释的证据责任",
+        "task": "方法论争论与例证",
+        "sample": "无本批新增人类实验",
+        "metric": "预测约束及替代解释",
+        "validity": "区分模型工具有效与普遍最优主张",
+        "resources": "约束需独立测量，不靠结果反推一切",
+        "priors": "适应历史与环境分布须明确",
+        "uncertainty": "方法论争论未给出统一效应量；需独立检验具体预测。"
+      }
+    },
+    {
+      "id": "e-agarwal-2021",
+      "year": 2021,
+      "dateLabel": "2021",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "agarwal-2021"
+      ],
+      "branch": "从点分数到分布和区间",
+      "title": "有限重复次数下的评价不确定性",
+      "status": "claims-reviewed",
+      "question": "少量随机运行得到的领先分数，能否稳定支持算法优劣判断？",
+      "mechanism": "同时报告按任务分层重采样的区间、跨任务与运行的表现分布、稳健聚合；核对训练末端得分与训练期间最大得分等协议差别。",
+      "assumptions": "需声明任务集合、归一化参考、独立运行和统计目标；有限样本bootstrap也可能覆盖不足。",
+      "claims": [
+        {
+          "id": "e-agarwal-2021-c1",
+          "sourceId": "agarwal-2021",
+          "text": "少量运行与随机条件使汇总分数具有统计不确定性；同一随机种子也未必控制GPU等全部非确定性。",
+          "locator": "§1–2，PDF 1–3及脚注3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-agarwal-2021-c2",
+          "sourceId": "agarwal-2021",
+          "text": "按任务分别重采样运行估计聚合统计量的区间；作者在少于足够运行时仍观察到覆盖不足，不能把bootstrap当保证。",
+          "locator": "§4.1和图6说明，PDF 5–6",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-agarwal-2021-c3",
+          "sourceId": "agarwal-2021",
+          "text": "IQM汇总合并运行分数的中间50%；表现分布补充单一指标，并指出取训练中最大成绩与最终成绩会造成协议不可比。",
+          "locator": "PDF 5；§4.2–4.3，PDF 6–7",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "该文解决指定基准与协议中的统计报告问题，不证明任务集合代表通用智能。本站未复现作者对具体算法的排序结论。",
+      "nextQuestion": "任务采样的不确定性、运行的不确定性和构念遗漏，如何分别报告？",
+      "evaluation": {
+        "object": "固定任务集合上算法表现的统计估计",
+        "task": "RL基准；重点讨论Atari 100k",
+        "sample": "每任务有限独立运行；不把随机种子数等同独立性保证",
+        "metric": "归一化分数分布、区间、IQM等；聚合规则须明示",
+        "validity": "可靠估计不等于构念有效；协议差异可改变比较",
+        "resources": "重复训练成本制约可估精度，需公开运行数量",
+        "uncertainty": "少量随机运行的不确定性是核心问题；bootstrap也有小样本覆盖限制。",
+        "priors": "训练协议、任务标准化和挑选最佳运行会改变比较。"
+      }
+    },
+    {
+      "id": "e-helm-2022",
+      "year": 2022,
+      "dateLabel": "2022",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "liang-2022-v1"
+      ],
+      "branch": "覆盖范围与协议可比性",
+      "title": "HELM：场景与多指标共同构成评价",
+      "status": "claims-reviewed",
+      "question": "如何展示不同用途下的表现取舍，并明确没有测到什么？",
+      "mechanism": "先定义场景与指标分类，再选择可执行子集；统一提示等适配条件，用场景×指标矩阵显示表现。",
+      "assumptions": "历史版本聚焦英语；指标是有争议构念的特定操作化；相同评测提示并不意味着训练资源和先前曝光相同。",
+      "claims": [
+        {
+          "id": "e-helm-2022-c1",
+          "sourceId": "liang-2022-v1",
+          "text": "v1实现16个核心场景与7类指标，覆盖112种组合中的98种；同时明确分类空间中尚未覆盖的部分。",
+          "locator": "§1.1，PDF 5–6",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-helm-2022-c2",
+          "sourceId": "liang-2022-v1",
+          "text": "统一评测适配方法有助比较，但不能消除不同训练预算、数据曝光和提示适配性的影响。",
+          "locator": "§1.1 Caveats，PDF 8–9",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-helm-2022-c3",
+          "sourceId": "liang-2022-v1",
+          "text": "作者承认缺少统一效度与信度证据；3个示例选择种子与最多1000个评价实例的设置可能限制比较显著性，矩阵也不能自然给出唯一总排名。",
+          "locator": "§11.1–11.3，PDF 88–89",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ],
+      "limits": "多指标覆盖不是智能的完备定义。本文节点不报告当下模型排名；更换提示、样本、用途权重或训练数据条件都需要重新解释。",
+      "nextQuestion": "用何种用途依据选择场景与指标权重，同时保留未知与不确定性？",
+      "evaluation": {
+        "object": "特定场景中语言模型的多方面表现",
+        "task": "v1核心场景、7类指标；另有定向任务",
+        "sample": "v1 30模型；场景覆盖有明确遗漏",
+        "metric": "场景×指标矩阵，非唯一通用总分",
+        "validity": "作者承认构念、污染、可靠性及外推限制",
+        "resources": "评测资源与训练资源区分；重复与样本量受成本约束",
+        "uncertainty": "原稿以有限实例与随机种子估计表现；覆盖不完整。",
+        "priors": "相同提示协议不等于相同训练数据和预训练预算。"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r-watson-titchener-response",
+      "fromId": "e-watson-1913",
+      "toId": "e-titchener-1914",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "titchener-1914"
+      ],
+      "locator": "印刷2–6页及脚注2；12、15–17页",
+      "explanation": "Titchener直接讨论Watson的行为主义纲领；同时回应另一篇Image and Affection in Behavior，因此节点记录区分两篇的指涉。"
+    },
+    {
+      "id": "r-turing-searle",
+      "fromId": "e-turing-1950",
+      "toId": "e-searle-1980",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "searle-1980"
+      ],
+      "locator": "419、423；明确讨论Turing test",
+      "explanation": "Searle直接质疑测试表现对理解的充分性；不是证明图灵整套研究计划无效。"
+    },
+    {
+      "id": "r-watson-turing-comparison",
+      "fromId": "e-watson-1913",
+      "toId": "e-turing-1950",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "watson-1913",
+        "turing-1950"
+      ],
+      "locator": "Watson开篇与Summary；Turing §1–3",
+      "explanation": "两者都重视公开可观察的表现，但对象、目的和协议不同；此边仅为本站比较，不主张思想继承。"
+    },
+    {
+      "id": "r-spearman-thurstone",
+      "fromId": "e-spearman-1904",
+      "toId": "e-thurstone-1934",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "thurstone-1934"
+      ],
+      "locator": "开篇对Spearman方法、假说与tetrad criterion的区分",
+      "explanation": "直接讨论Spearman研究传统；不是声称1934只针对1904论文逐句回应。"
+    },
+    {
+      "id": "r-thurstone-validity",
+      "fromId": "e-thurstone-1934",
+      "toId": "e-cronbach-meehl-1955",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "thurstone-1934",
+        "cronbach-meehl-1955"
+      ],
+      "locator": "Thurstone坐标与簇解释；Cronbach–Meehl 287–292",
+      "explanation": "结构描述的不唯一性与构念解释的证据责任形成可比较问题；不把1955对Thurstone其他著作的引用误指向1934。"
+    },
+    {
+      "id": "r-turing-chollet-comparison",
+      "fromId": "e-turing-1950",
+      "toId": "e-chollet-2019",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "turing-1950",
+        "chollet-2019"
+      ],
+      "locator": "Turing §7；Chollet §II.2.1",
+      "explanation": "比较教育经历与技能获取问题；此边不主张两种形式化等同或直接继承。"
+    },
+    {
+      "id": "r-validity-helm-comparison",
+      "fromId": "e-cronbach-meehl-1955",
+      "toId": "e-helm-2022",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "cronbach-meehl-1955",
+        "liang-2022-v1"
+      ],
+      "locator": "1955文281–283、290–292；HELM §11.2–11.3",
+      "explanation": "用构念效度问题审查现代评测；不把一般概念联系写成直接引用关系。"
+    },
+    {
+      "id": "r-agarwal-helm-comparison",
+      "fromId": "e-agarwal-2021",
+      "toId": "e-helm-2022",
+      "type": "method-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "agarwal-2021",
+        "liang-2022-v1"
+      ],
+      "locator": "Agarwal §4；HELM §11.2",
+      "explanation": "两者共同提示样本、运行和协议条件；任务与评测对象不同，不直接合并分数。"
+    },
+    {
+      "id": "r-cattell-carroll",
+      "fromId": "e-cattell-1963",
+      "toId": "e-carroll-1993",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "cattell-1963",
+        "carroll-1993"
+      ],
+      "locator": "1963理论段；1993第16章",
+      "explanation": "比较两种结构粒度；不声称1993只继承这一篇1963论文。"
+    },
+    {
+      "id": "r-carroll-chc",
+      "fromId": "e-carroll-1993",
+      "toId": "e-chc-2013",
+      "type": "explicit-adoption",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "carroll-1993",
+        "mcgrew-2005"
+      ],
+      "locator": "第16章；McGrew 136–137",
+      "explanation": "作者明确将Carroll三层结构纳入CHC整合。"
+    },
+    {
+      "id": "r-gardner-visser",
+      "fromId": "e-gardner-1983",
+      "toId": "e-visser-2006",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "visser-2006"
+      ],
+      "locator": "§1、§4、§7.1",
+      "explanation": "直接检验MI的后期八域操作化；不是对1983首版的逐字复现。"
+    },
+    {
+      "id": "r-carroll-pot",
+      "fromId": "e-carroll-1993",
+      "toId": "e-kovacs-conway-2016",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "carroll-1993",
+        "kovacs-conway-2016"
+      ],
+      "locator": "第16章；POT 162–164",
+      "explanation": "结构层级与过程生成提出不同层次的问题；本站比较。"
+    },
+    {
+      "id": "r-validity-invariance",
+      "fromId": "e-cronbach-meehl-1955",
+      "toId": "e-jak-jorgensen-2017",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "cronbach-meehl-1955",
+        "jak-jorgensen-2017"
+      ],
+      "locator": "1955法则网络；2017定义与讨论",
+      "explanation": "从解释证据到跨样本比较条件；不推定直接影响。"
+    },
+    {
+      "id": "r-simon-wang",
+      "fromId": "e-simon-1955",
+      "toId": "e-wang-1995",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "simon-1955",
+        "wang-1995"
+      ],
+      "locator": "Simon 99–107；Wang §2.2",
+      "explanation": "均把主体限制纳入问题；Wang此处引用的是Simon其他年份文本，不误标1955直接继承。"
+    },
+    {
+      "id": "r-simon-heuristics",
+      "fromId": "e-simon-1955",
+      "toId": "e-gigerenzer-goldstein-1996",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "simon-1955",
+        "gigerenzer-goldstein-1996"
+      ],
+      "locator": "Simon 110；Gigerenzer–Goldstein 651、654",
+      "explanation": "比较满意停止原则；1996所引Simon版本主要为1956等，保留精确文献区别。"
+    },
+    {
+      "id": "r-hutter-legg",
+      "fromId": "e-hutter-2000",
+      "toId": "e-legg-hutter-2007",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "hutter-2000",
+        "legg-hutter-2007"
+      ],
+      "locator": "Hutter §4；Legg–Hutter §3",
+      "explanation": "决策构造与评价度量相关；2007直接引用的AIXI证明多为后续版本，不能混同2000稿。"
+    },
+    {
+      "id": "r-simon-rra",
+      "fromId": "e-simon-1955",
+      "toId": "e-lieder-griffiths-2020",
+      "type": "explicit-adoption",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "lieder-griffiths-2020"
+      ],
+      "locator": "6，引用Simon 1955内部环境约束",
+      "explanation": "作者明确引入主体内的资源约束。"
+    },
+    {
+      "id": "r-rra-debate",
+      "fromId": "e-lieder-griffiths-2020",
+      "toId": "e-resource-debate-2020",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "davis-marcus-2020",
+        "dimov-2020",
+        "lieder-griffiths-response-2020"
+      ],
+      "locator": "评论e7、e8；回应R1、R3",
+      "explanation": "同一期目标文章、直接评论与作者回应。"
+    },
+    {
+      "id": "r-searle-legg",
+      "fromId": "e-searle-1980",
+      "toId": "e-legg-hutter-2007",
+      "type": "direct-response",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "legg-hutter-2007"
+      ],
+      "locator": "42，Chinese room回应",
+      "explanation": "明确回应Searle；以功能表现为指标，未据此证明或否定理解。"
+    },
+    {
+      "id": "r-legg-chollet",
+      "fromId": "e-legg-hutter-2007",
+      "toId": "e-chollet-2019",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "legg-hutter-2007",
+        "chollet-2019"
+      ],
+      "locator": "Legg–Hutter §3；Chollet §II.3",
+      "explanation": "对照跨环境成绩与技能获取效率；这是本站问题比较。"
+    }
+  ],
+  "questionCards": [
+    {
+      "id": "q-performance-capability",
+      "title": "表现与能力：高分支持了哪一种解释？",
+      "status": "editorial-comparison",
+      "question": "如何从一次成功走到跨任务的能力判断？",
+      "definitions": [
+        {
+          "label": "操作性表现",
+          "meaning": "在固定角色、任务与协议下观察成功。",
+          "nodeIds": [
+            "e-turing-1950",
+            "e-helm-2022"
+          ]
+        },
+        {
+          "label": "能力解释",
+          "meaning": "为跨观察的性质提出构念，并承担额外验证责任。",
+          "nodeIds": [
+            "e-cronbach-meehl-1955",
+            "e-binet-simon-1905"
+          ]
+        },
+        {
+          "label": "获取与迁移",
+          "meaning": "分开已有技能、先验、经验及获得新技能的效率。",
+          "nodeIds": [
+            "e-chollet-2019"
+          ]
+        }
+      ],
+      "comparison": "分数是起点。至少要说明评价对象、任务分布、经验与资源、统计不确定性，以及想将结论推广到哪里。同样输出可以支持操作性成功，却不足以唯一说明内部过程；统一提示也不能消除训练经历差异。",
+      "evidence": [
+        {
+          "nodeId": "e-turing-1950",
+          "locator": "§1、§7",
+          "comment": "对话判定与教育经历分别讨论"
+        },
+        {
+          "nodeId": "e-cronbach-meehl-1955",
+          "locator": "281–292选读",
+          "comment": "分数解释需要构念网络"
+        },
+        {
+          "nodeId": "e-chollet-2019",
+          "locator": "PDF 27–28、46–48",
+          "comment": "获取效率与固定任务技能有别"
+        },
+        {
+          "nodeId": "e-helm-2022",
+          "locator": "v1 §1–2、§11.3开头",
+          "comment": "相同协议与未知训练暴露共存"
+        }
+      ],
+      "distinguishingTest": {
+        "status": "proposed-not-run",
+        "intervention": "固定任务族，分别操纵预先暴露、训练示例数与新组合难度。",
+        "measure": "学习曲线、未见任务成功率与重复运行区间；保留分任务结果。",
+        "controls": "模型版本、提示、预算、任务生成器、停止规则与泄漏检查预先固定。",
+        "interpretation": "改善只出现于已见题时不足以支持迁移；该设计仍不能证明理解或唯一机制。"
+      },
+      "limits": "这是下一步实验设计，本批未运行；现代模型历史训练不可完全回溯时必须把比较限定在可控制部分。",
+      "nextQuestion": "新增文献是否提供了超出最终分数的过程或迁移证据？"
+    },
+    {
+      "id": "q-factor-mechanism",
+      "title": "共同因素与机制：相关结构能确定什么？",
+      "status": "editorial-comparison",
+      "question": "共同变化是否足以识别一个共同心理原因？",
+      "definitions": [
+        {
+          "label": "统计结构",
+          "meaning": "通过相关、载荷与层级概括测验关系。",
+          "nodeIds": [
+            "e-spearman-1904",
+            "e-thurstone-1934",
+            "e-carroll-1993"
+          ]
+        },
+        {
+          "label": "机制解释",
+          "meaning": "说明哪些过程参与任务以及怎样生成相关。",
+          "nodeIds": [
+            "e-kovacs-conway-2016"
+          ]
+        },
+        {
+          "label": "可比性",
+          "meaning": "不同条件的量尺和原点是否仍可解释为同一属性。",
+          "nodeIds": [
+            "e-jak-jorgensen-2017"
+          ]
+        }
+      ],
+      "comparison": "稳定共同结构不必对应唯一生成机制；反过来，这也不使结构描述失效。Spearman原文已保留“功能或功能群”的措辞。本批精确合成核验给出一个观测等价例子，但没有运行POT或真实人群实验。均值比较还另需载荷、截距等约束。",
+      "evidence": [
+        {
+          "nodeId": "e-spearman-1904",
+          "locator": "273页已查看像素",
+          "comment": "不要把原文缩成单一神经过程定论"
+        },
+        {
+          "nodeId": "e-carroll-1993",
+          "locator": "第16章631–639",
+          "comment": "层级结构不等于机制已识别"
+        },
+        {
+          "nodeId": "e-kovacs-conway-2016",
+          "locator": "162–164",
+          "comment": "过程重叠是竞争生成解释"
+        },
+        {
+          "nodeId": "e-jak-jorgensen-2017",
+          "locator": "定义与Discussion",
+          "comment": "跨群体与跨层不变性不同"
+        }
+      ],
+      "distinguishingTest": {
+        "status": "proposed-not-run",
+        "intervention": "在独立过程指标可测且可操纵的前提下，改变特定任务过程需求。",
+        "measure": "预测的跨任务变化、反应时、错误类型与模型外推。",
+        "controls": "事前固定过程映射，核验测量关系；不能直接把旋转后的因素当可干预实体。",
+        "interpretation": "只有明确结构方程和干预语义，模型差异才给出可检验后果。"
+      },
+      "limits": "合成核验已执行，问题卡中的过程干预未执行；二者状态不能混记。",
+      "nextQuestion": "哪些新增观测或干预能打破当前模型的观察等价？"
+    },
+    {
+      "id": "q-utility-resources",
+      "title": "效用与资源：对谁、在何种环境中合理？",
+      "status": "editorial-comparison",
+      "question": "不同理性路线是否在优化同一个对象？",
+      "definitions": [
+        {
+          "label": "满意选择与适应",
+          "meaning": "关注资源不足时可执行的搜索、响应和修正。",
+          "nodeIds": [
+            "e-simon-1955",
+            "e-wang-1995",
+            "e-gigerenzer-goldstein-1996"
+          ]
+        },
+        {
+          "label": "形式理想",
+          "meaning": "指定环境类、目标与先验后定义收益及策略。",
+          "nodeIds": [
+            "e-hutter-2000",
+            "e-legg-hutter-2007"
+          ]
+        },
+        {
+          "label": "机制成本收益",
+          "meaning": "在有约束的策略类中建模结果价值与计算机会成本。",
+          "nodeIds": [
+            "e-lieder-griffiths-2020",
+            "e-resource-debate-2020"
+          ]
+        }
+      ],
+      "comparison": "需要对齐目标函数、环境分布、先验、时间尺度和可执行操作，才能比较“最优”“满意”和“适应”。快速规则不天然合理，复杂策略也不天然浪费；一个不计内部成本的理想指标不能直接用来裁决资源敏感的过程模型。",
+      "evidence": [
+        {
+          "nodeId": "e-gigerenzer-goldstein-1996",
+          "locator": "658与脚注4",
+          "comment": "比赛协议和目标变量影响排序"
+        },
+        {
+          "nodeId": "e-hutter-2000",
+          "locator": "54–56",
+          "comment": "资源保证受证明类与开销限制"
+        },
+        {
+          "nodeId": "e-legg-hutter-2007",
+          "locator": "19–23、42",
+          "comment": "环境权重和内部效率的取舍"
+        },
+        {
+          "nodeId": "e-lieder-griffiths-2020",
+          "locator": "5、14–15",
+          "comment": "成本与约束需独立证据"
+        },
+        {
+          "nodeId": "e-resource-debate-2020",
+          "locator": "评论e7/e8、回应R1/R3",
+          "comment": "避免把所有行为事后合理化"
+        }
+      ],
+      "distinguishingTest": {
+        "status": "proposed-not-run",
+        "intervention": "固定任务分布与奖励，改变计算预算、信息代价和任务切换频率。",
+        "measure": "效用—延迟曲线、资源使用、停止规则及任务间分配。",
+        "controls": "训练、参数选择和测试信息一致；单列设置／学习／推理成本。",
+        "interpretation": "有界优势只对所测试环境和预算成立；成本拟合不能使用待预测结果。"
+      },
+      "limits": "尚未运行此比较；不将AIXI不可计算理想与现实算法做虚假的同预算赛跑。",
+      "nextQuestion": "能否先独立测量成本，再预测策略何时应发生切换？"
+    }
+  ],
+  "revisits": [
+    {
+      "id": "revisit-a-learning",
+      "questionCardId": "q-learning-generalization",
+      "title": "回访A批：学习与泛化",
+      "original": "A批区分规则、统计学习、技能与跨情境推广。",
+      "addition": "B批补上评价协议：任务分布、先验与经验、重复运行不确定性、资源预算。今后每条泛化主张都要注明推广对象及控制了哪些暴露。",
+      "evidenceNodeIds": [
+        "e-chollet-2019",
+        "e-agarwal-2021",
+        "e-helm-2022"
+      ],
+      "nextStep": "保持A批原卡；在新实验或文献记录中增加八项评价字段。"
+    },
+    {
+      "id": "revisit-a-representation",
+      "questionCardId": "q-model-representation",
+      "title": "回访A批：模型与表征",
+      "original": "A批区分工程模型、心理过程模型和用于解释的表征。",
+      "addition": "B批要求再分开描述结构、生成机制与因果可识别性。相同观察结构可以被不同潜在构造实现；命名因素或拟合表现还不构成过程识别。",
+      "evidenceNodeIds": [
+        "e-thurstone-1934",
+        "e-kovacs-conway-2016",
+        "e-resource-debate-2020"
+      ],
+      "nextStep": "在后续机制比较中事先写下可区分预测和独立约束；本批合成核验只提供边界例证。"
+    }
+  ],
+  "versionComparisons": []
+}

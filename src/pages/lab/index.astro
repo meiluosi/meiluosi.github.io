@@ -5,6 +5,51 @@ import ReactiveProseBlock from "@/components/features/ReactiveProseBlock.svelte"
 import ResearchVisual from "@/components/features/ResearchVisual.astro";
 import ExploreLayout from "@/layouts/ExploreLayout.astro";
 
+const featuredEssays = [
+	{
+		href: "/essays/strandbeest/",
+		code: "ESSAY 01 / MECHANISM & KINEMATICS",
+		title: "把风变成一步：Strandbeest 风吹动力兽连杆机构与运动仿真",
+		titleEn: "Turning Wind into a Step: The Strandbeest Linkage & Kinematics",
+		question:
+			"13 个神圣数字（The Holy Numbers）定义的固定杆长，怎样把圆周风力转化成沙丘上近似平直的被动步态？",
+		questionEn:
+			"How do 13 fixed rod lengths ('The Holy Numbers') convert rotary wind into a flat-bottomed walking stride across sand dunes?",
+		control: "拖动曲柄角或开启风力推进，实时求解平面闭链几何与足端轨迹包络",
+		controlEn:
+			"Drag crank angle or toggle wind propulsion to solve planar closed-loop geometry and foot locus live",
+		tag: "THEO JANSEN / STRANDBEEST / EMBODIED DYNAMICS",
+	},
+	{
+		href: "/essays/transformer-scrollytelling/",
+		code: "ESSAY 02 / SCROLLYTELLING THEATRE",
+		title: "Transformer 计算漫游：五幕交互长卷",
+		titleEn: "Transformer In-Depth: A Five-Act Scrollytelling Theatre",
+		question:
+			"跟随滚轮下潜，如何亲手解剖离散词元、RoPE 星盘、因果自注意力与 SwiGLU 计算舞台？",
+		questionEn:
+			"How can you dissect discrete tokens, RoPE astrolabes, causal attention, and SwiGLU gating in a scroll-driven theatre?",
+		control: "双栏同步滚轮驱动，左侧阅读推导叙事，右侧实时触发矩阵与流形演化",
+		controlEn:
+			"Dual-column scroll-synchronized theatre driving live manifolds and activation heatmaps",
+		tag: "DISTILL EXPLORER / TRANSFORMER / FIVE ACTS",
+	},
+	{
+		href: "/rsi/",
+		code: "ESSAY 03 / RECURSIVE SELF-IMPROVEMENT",
+		title: "递归自我改进（RSI）：机制、分布迁移与评估边界",
+		titleEn: "Recursive Self-Improvement (RSI): Mechanisms, Shift & Evaluation",
+		question:
+			"当系统开始修改自己的代码与改进方法时，什么被保留了下来？谁又来决定什么是“更好”？",
+		questionEn:
+			"When a system modifies its own search, weights, or improvement method, what transfers and who defines 'better'?",
+		control: "三幕可操作手记：位置切换、卡片分布迁移测试与修补台代价权重天平",
+		controlEn:
+			"Three interactive notebooks: change location, distribution-shift cards, and cost-weight judgment desk",
+		tag: "RSI / GÖDEL MACHINE / EVALUATION",
+	},
+];
+
 const experiments = [
 	{
 		href: "/lab/mcts/",
@@ -135,230 +180,328 @@ const experiments = [
 		tag: "MICRO-TRANSFORMER / FORWARD PASS",
 		path: "transformer-forward",
 	},
-	{
-		href: "/essays/transformer-scrollytelling/",
-		code: "08 / SCROLLYTELLING THEATRE",
-		title: "Transformer 计算漫游：五幕交互长卷",
-		titleEn: "Transformer In-Depth: A Five-Act Scrollytelling Theatre",
-		question:
-			"跟随滚轮下潜，如何亲手解剖离散词元、RoPE 星盘、因果自注意力与 SwiGLU 计算舞台？",
-		questionEn:
-			"How can you dissect discrete tokens, RoPE astrolabes, causal attention, and SwiGLU gating in a scroll-driven theatre?",
-		control:
-			"双栏同步滚轮驱动，左侧阅读推导叙事，右侧实时触发三维流形与矩阵热力图演化",
-		controlEn:
-			"Dual-column scroll-synchronized theatre, driving live manifolds and activation heatmaps as you read",
-		outcome:
-			"Distill.pub 风格沉浸式体验，直观感受数学定理与视觉几何在指尖的共振。",
-		outcomeEn:
-			"Distill.pub-style immersive explainer synchronizing mathematical equations with live visual geometry.",
-		tag: "SCROLLYTELLING / DISTILL EXPLORER",
-		path: "transformer-scrollytelling",
-	},
 ];
 ---
 
 <ExploreLayout
-	title="实验室"
-	titleEn="Lab"
-	description="从全链路模型训练、搜索与不完全信息博弈到偏好对齐与旋转位置编码，用互动工作台理解智能系统。"
-	descriptionEn="Interactive workbenches for end-to-end model training, search, imperfect-information games, preference alignment, and rotary position embeddings."
+	title="交互实验室"
+	titleEn="Interactive Lab"
+	description="整合专题交互长卷（Strandbeest 风吹动力兽、Transformer 五幕解剖、RSI 递归自我改进）与 8 大算法机制实验沙盒。"
+	descriptionEn="Unified interactive laboratory combining scrollytelling essays (Strandbeest, Transformer, RSI) and algorithm simulation workbenches."
 >
 	<header class="explore-hero compact-page-heading">
+		<p class="explore-kicker">
+			<Text zh="INTERACTIVE LAB · ESSAYS · SANDBOXES" en="INTERACTIVE LAB · ESSAYS · SANDBOXES" />
+		</p>
 		<Text
 			as="h1"
-			zh="算法与模型交互实验"
-			en="Interactive algorithm and model experiments"
+			zh="交互实验室与专题长卷"
+			en="Interactive Lab & Scrollytelling Essays"
+		/>
+		<Text
+			as="p"
+			class="explore-lead"
+			zh="把抽象的数学公式、连杆几何与模型训练流程拆解成可以亲手拨弄的舞台。这里汇集了三篇沉浸式交互长卷、八座端侧算法实验台，以及三维研究花园。"
+			en="Turn abstract equations, linkage geometry, and model training pipelines into operable stages. Explore three interactive long-scroll essays, eight client-side algorithm workbenches, and the 3D research garden."
 		/>
 	</header>
 
-	<article class="pipeline-feature">
-		<div>
-			<p class="explore-kicker">FEATURED / FROM DATA TO MODEL</p>
-			<Text as="h2" zh="小模型全流程训练与评估" en="Small-model training and evaluation" />
-			<Text
-				as="p"
-				zh="数据、分词、随机初始化预训练、SFT、DPO、评测与部署。选择阶段，检查输入输出，再安排第一次训练的预算。"
-				en="Data, tokenization, pretraining from random weights, SFT, DPO, evaluation, and deployment. Choose a stage, inspect its inputs and outputs, and plan a first training budget."
-			/>
-			<a class="explore-link" href="/lab/model-pipeline/">
-				<Text zh="打开模型工作台" en="Open the model workbench" /> ↗
+	<!-- 第一部分：专题交互长卷 (原 /essays/ 与 /rsi/ 合并区) -->
+	<section class="essays-showcase-section" aria-labelledby="essays-heading">
+		<div class="section-banner-head">
+			<div>
+				<p class="explore-kicker">PART I · INTERACTIVE MONOGRAPH ESSAYS</p>
+				<h2 id="essays-heading">
+					<Text zh="专题交互长卷（可操作长文）" en="Interactive Long-Scroll Essays" />
+				</h2>
+			</div>
+			<a class="explore-link" href="/routes/">
+				<Text zh="查看 20 条智能路线的全部交互透镜" en="View all 20 Route Cognitive Lenses" /> ↗
 			</a>
 		</div>
-		<a
-			class="pipeline-picture"
-			href="/lab/model-pipeline/"
-			aria-label="小模型全链路互动工作台"
-			data-i18n-aria-label-zh="小模型全链路互动工作台"
-			data-i18n-aria-label-en="Small-model pipeline workbench"
-		>
-			<ResearchVisual kind="model" />
-			<span>~30M → ~100M → ?</span>
-		</a>
-	</article>
 
-	<div class="lab-cards">
-		{experiments.map((item) => (
-			<article class="explore-card">
-				<p class="explore-kicker">{item.code}</p>
-				<div class="lab-illustration" aria-hidden="true">
-					{item.path === "search-to-self-play" ? (
-						<svg viewBox="0 0 300 110">
-							<path
-								d="M150 12L60 65M150 12L240 65M60 65L25 98M60 65L95 98M240 65L205 98M240 65L275 98"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.5"
-							/>
-							{[[150, 12], [60, 65], [240, 65], [25, 98], [95, 98], [205, 98], [275, 98]].map(
-								([x, y]) => <circle cx={x} cy={y} r="7" fill="currentColor" />,
-							)}
-						</svg>
-					) : item.path === "evaluating-improvement" ? (
-						<div class="mini-bars">
-							<span><i style="width:80%"></i></span>
-							<span><i style="width:20%"></i></span>
-							<b>Δ ?</b>
-						</div>
-					) : item.path === "cfr-poker" ? (
-						<svg viewBox="0 0 300 110">
-							<rect
-								x="48"
-								y="22"
-								width="40"
-								height="58"
-								rx="6"
-								fill="var(--brand-surface)"
-								stroke="currentColor"
-								stroke-width="1.5"
-								transform="rotate(-8 48 22)"
-							/>
-							<rect
-								x="86"
-								y="20"
-								width="40"
-								height="58"
-								rx="6"
-								fill="var(--brand-peach)"
-								stroke="var(--brand-clay)"
-								stroke-width="1.5"
-								transform="rotate(6 86 20)"
-							/>
-							<line x1="158" y1="36" x2="255" y2="36" stroke="var(--brand-line)" stroke-width="8" stroke-linecap="round" />
-							<line x1="158" y1="36" x2="190" y2="36" stroke="var(--brand-clay)" stroke-width="8" stroke-linecap="round" />
-							<line x1="158" y1="68" x2="255" y2="68" stroke="var(--brand-line)" stroke-width="8" stroke-linecap="round" />
-							<line x1="158" y1="68" x2="254" y2="68" stroke="currentColor" stroke-width="8" stroke-linecap="round" />
-						</svg>
-					) : item.path === "preference-alignment" ? (
-						<svg viewBox="0 0 300 110">
-							<path
-								d="M36 88 Q 140 20 264 24"
-								fill="none"
-								stroke="var(--brand-clay)"
-								stroke-width="2"
-								stroke-dasharray="5 4"
-							/>
-							<path
-								d="M36 88 Q 135 24 264 82"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2.4"
-							/>
-							<circle cx="145" cy="44" r="6" fill="var(--brand-peach)" stroke="var(--brand-clay)" stroke-width="1.5" />
-						</svg>
-					) : item.path === "rope-attention" ? (
-						<svg viewBox="0 0 300 110">
-							{[75, 150, 225].map((cx, idx) => (
-								<>
-									<circle cx={cx} cy="55" r="32" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.55" />
-									<line
-										x1={cx}
-										y1="55"
-										x2={cx + 26 * Math.cos(-0.8 + idx * 0.6)}
-										y2={55 + 26 * Math.sin(-0.8 + idx * 0.6)}
-										stroke="currentColor"
-										stroke-width="2.2"
-									/>
-									<line
-										x1={cx}
-										y1="55"
-										x2={cx + 22 * Math.cos(0.4 + idx * 0.6)}
-										y2={55 + 22 * Math.sin(0.4 + idx * 0.6)}
-										stroke="var(--brand-clay)"
-										stroke-width="1.8"
-										stroke-dasharray="3 2"
-									/>
-								</>
-							))}
-						</svg>
-					) : (
-						<svg viewBox="0 0 300 110">
-							{[0, 1, 2, 3, 4].map((row) =>
-								[0, 1, 2, 3, 4].map((col) => (
-									col <= row ? (
-										<rect
-											x={78 + col * 28}
-											y={14 + row * 18}
-											width="24"
-											height="14"
-											rx="3"
-											fill={col === row - 1 || (row === 4 && col === 1) ? "var(--brand-accent)" : col === 0 ? "var(--brand-clay)" : "var(--brand-surface)"}
-											stroke="var(--brand-line)"
-											stroke-width="1"
+		<div class="essays-trio-grid">
+			{featuredEssays.map((essay) => (
+				<article class="explore-card essay-highlight-card">
+					<p class="explore-kicker">{essay.code}</p>
+					<h3>
+						<a href={essay.href}>
+							<Text zh={essay.title} en={essay.titleEn} />
+						</a>
+					</h3>
+					<Text as="p" zh={essay.question} en={essay.questionEn} />
+					<p class="essay-control-note">
+						<strong><Text zh="交互控制：" en="Control: " /></strong>
+						<Text zh={essay.control} en={essay.controlEn} />
+					</p>
+					<div class="essay-card-foot">
+						<span class="essay-tag-badge">{essay.tag}</span>
+						<a class="explore-link" href={essay.href}>
+							<Text zh="展开长卷" en="Open essay" /> ↗
+						</a>
+					</div>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<!-- 第二部分：核心算法与模型工作台 -->
+	<section class="workbenches-section" aria-labelledby="workbenches-heading">
+		<div class="section-banner-head">
+			<div>
+				<p class="explore-kicker">PART II · ALGORITHM & MODEL WORKBENCHES</p>
+				<h2 id="workbenches-heading">
+					<Text zh="核心算法与模型实验台" en="Algorithm & Model Workbenches" />
+				</h2>
+			</div>
+		</div>
+
+		<article class="pipeline-feature">
+			<div>
+				<p class="explore-kicker">FEATURED WORKBENCH / FROM DATA TO MODEL</p>
+				<Text as="h3" zh="小模型全流程训练与评估工作台" en="Small-model training and evaluation workbench" />
+				<Text
+					as="p"
+					zh="数据、分词、随机初始化预训练、SFT、DPO、评测与部署。选择阶段，检查输入输出，再安排第一次训练的预算。"
+					en="Data, tokenization, pretraining from random weights, SFT, DPO, evaluation, and deployment. Choose a stage, inspect its inputs and outputs, and plan a first training budget."
+				/>
+				<a class="explore-link" href="/lab/model-pipeline/">
+					<Text zh="打开模型工作台" en="Open the model workbench" /> ↗
+				</a>
+			</div>
+			<a
+				class="pipeline-picture"
+				href="/lab/model-pipeline/"
+				aria-label="小模型全链路互动工作台"
+				data-i18n-aria-label-zh="小模型全链路互动工作台"
+				data-i18n-aria-label-en="Small-model pipeline workbench"
+			>
+				<ResearchVisual kind="model" />
+				<span>~30M → ~100M → ?</span>
+			</a>
+		</article>
+
+		<div class="lab-cards">
+			{experiments.map((item) => (
+				<article class="explore-card">
+					<p class="explore-kicker">{item.code}</p>
+					<div class="lab-illustration" aria-hidden="true">
+						{item.path === "search-to-self-play" ? (
+							<svg viewBox="0 0 300 110">
+								<path
+									d="M150 12L60 65M150 12L240 65M60 65L25 98M60 65L95 98M240 65L205 98M240 65L275 98"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.5"
+								/>
+								{[[150, 12], [60, 65], [240, 65], [25, 98], [95, 98], [205, 98], [275, 98]].map(
+									([x, y]) => <circle cx={x} cy={y} r="7" fill="currentColor" />,
+								)}
+							</svg>
+						) : item.path === "evaluating-improvement" ? (
+							<div class="mini-bars">
+								<span><i style="width:80%"></i></span>
+								<span><i style="width:20%"></i></span>
+								<b>Δ ?</b>
+							</div>
+						) : item.path === "cfr-poker" ? (
+							<svg viewBox="0 0 300 110">
+								<rect
+									x="48"
+									y="22"
+									width="40"
+									height="58"
+									rx="6"
+									fill="var(--brand-surface)"
+									stroke="currentColor"
+									stroke-width="1.5"
+									transform="rotate(-8 48 22)"
+								/>
+								<rect
+									x="86"
+									y="20"
+									width="40"
+									height="58"
+									rx="6"
+									fill="var(--brand-peach)"
+									stroke="var(--brand-clay)"
+									stroke-width="1.5"
+									transform="rotate(6 86 20)"
+								/>
+								<line x1="158" y1="36" x2="255" y2="36" stroke="var(--brand-line)" stroke-width="8" stroke-linecap="round" />
+								<line x1="158" y1="36" x2="190" y2="36" stroke="var(--brand-clay)" stroke-width="8" stroke-linecap="round" />
+								<line x1="158" y1="68" x2="255" y2="68" stroke="var(--brand-line)" stroke-width="8" stroke-linecap="round" />
+								<line x1="158" y1="68" x2="254" y2="68" stroke="currentColor" stroke-width="8" stroke-linecap="round" />
+							</svg>
+						) : item.path === "preference-alignment" ? (
+							<svg viewBox="0 0 300 110">
+								<path
+									d="M36 88 Q 140 20 264 24"
+									fill="none"
+									stroke="var(--brand-clay)"
+									stroke-width="2"
+									stroke-dasharray="5 4"
+								/>
+								<path
+									d="M36 88 Q 135 24 264 82"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.4"
+								/>
+								<circle cx="145" cy="44" r="6" fill="var(--brand-peach)" stroke="var(--brand-clay)" stroke-width="1.5" />
+							</svg>
+						) : item.path === "rope-attention" ? (
+							<svg viewBox="0 0 300 110">
+								{[75, 150, 225].map((cx, idx) => (
+									<>
+										<circle cx={cx} cy="55" r="32" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.55" />
+										<line
+											x1={cx}
+											y1="55"
+											x2={cx + 26 * Math.cos(-0.8 + idx * 0.6)}
+											y2={55 + 26 * Math.sin(-0.8 + idx * 0.6)}
+											stroke="currentColor"
+											stroke-width="2.2"
 										/>
-									) : null
-								))
-							)}
-						</svg>
-					)}
-				</div>
-				<Text as="h2" zh={item.title} en={item.titleEn} />
-				<Text as="p" zh={item.question} en={item.questionEn} />
-				<Text as="p" class="lab-control" zh={item.control} en={item.controlEn} />
-				<Text as="p" zh={item.outcome} en={item.outcomeEn} />
-				<div class="lab-links">
-					<a class="explore-link" href={item.href}>
-						<Text zh="开始实验" en="Try the experiment" /> ↗
-					</a>
-				</div>
-			</article>
-		))}
-	</div>
-
-	<section class="reactive-prose-showcase" style="margin-top:32px">
-		<ReactiveProseBlock client:visible />
+										<line
+											x1={cx}
+											y1="55"
+											x2={cx + 22 * Math.cos(0.4 + idx * 0.6)}
+											y2={55 + 22 * Math.sin(0.4 + idx * 0.6)}
+											stroke="var(--brand-clay)"
+											stroke-width="1.8"
+											stroke-dasharray="3 2"
+										/>
+									</>
+								))}
+							</svg>
+						) : (
+							<svg viewBox="0 0 300 110">
+								{[0, 1, 2, 3, 4].map((row) =>
+									[0, 1, 2, 3, 4].map((col) => (
+										col <= row ? (
+											<rect
+												x={78 + col * 28}
+												y={14 + row * 18}
+												width="24"
+												height="14"
+												rx="3"
+												fill={col === row - 1 || (row === 4 && col === 1) ? "var(--brand-accent)" : col === 0 ? "var(--brand-clay)" : "var(--brand-surface)"}
+												stroke="var(--brand-line)"
+												stroke-width="1"
+											/>
+										) : null
+									))
+								)}
+							</svg>
+						)}
+					</div>
+					<Text as="h3" zh={item.title} en={item.titleEn} />
+					<Text as="p" zh={item.question} en={item.questionEn} />
+					<Text as="p" class="lab-control" zh={item.control} en={item.controlEn} />
+					<Text as="p" zh={item.outcome} en={item.outcomeEn} />
+					<div class="lab-links">
+						<a class="explore-link" href={item.href}>
+							<Text zh="开始实验" en="Try the experiment" /> ↗
+						</a>
+					</div>
+				</article>
+			))}
+		</div>
 	</section>
 
-	<section class="gadget-showcase" style="margin-top:34px">
-		<MarginGadget3D client:visible />
-	</section>
-
+	<!-- 第三部分：内嵌响应式证明与三维装置 / 研究岛入口 -->
 	<section class="explore-section" style="margin-top:42px">
-		<Text as="h2" zh="实验方法与研究资料" en="Experimental methods and references" />
-		<Text
-			as="p"
-			class="explore-body"
-			zh="实验使用简化的教学模型，规则写在每个实验的说明里。可以先猜测改变参数会发生什么，再运行观察；把意外的结果记下来，往往就是下一次阅读的起点。"
-			en="These experiments use simplified teaching models, with assumptions explained on each page. Predict what a parameter change will do, then run it. An unexpected result often becomes a useful starting point for further reading."
-		/>
-		<a class="explore-link" href="/rsi/">
-			<Text
-				zh="带着这次观察，翻开智能手记"
-				en="Take this observation to the intelligence notebook"
-			/> ↗
-		</a>
+		<div class="section-banner-head">
+			<div>
+				<p class="explore-kicker">PART III · LIVE PROOFS & 3D INSTALLATIONS</p>
+				<Text as="h2" zh="响应式公式证明与三维机械装置" en="Reactive Proofs & 3D Installations" />
+			</div>
+			<a class="explore-link" href="/world/">
+				<Text zh="进入全屏三维研究岛花园 (/world/)" en="Enter 3D Research Island (/world/)" /> ↗
+			</a>
+		</div>
+
+		<div class="reactive-prose-showcase" style="margin-top:24px">
+			<ReactiveProseBlock client:visible />
+		</div>
+
+		<div class="gadget-showcase" style="margin-top:34px">
+			<MarginGadget3D client:visible />
+		</div>
 	</section>
 </ExploreLayout>
 
 <style>
+	.essays-showcase-section {
+		padding-bottom: 42px;
+		border-bottom: 1px solid var(--brand-line);
+		margin-bottom: 42px;
+	}
+	.section-banner-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-bottom: 24px;
+	}
+	.section-banner-head h2 {
+		margin: 0;
+	}
+	.section-banner-head .explore-kicker {
+		margin-bottom: 6px;
+	}
+	.essays-trio-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 20px;
+	}
+	.essay-highlight-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background: linear-gradient(160deg, var(--brand-surface), var(--brand-paper));
+	}
+	.essay-highlight-card h3 {
+		font: 400 22px/1.45 Georgia, "Songti SC", serif;
+		margin: 8px 0 12px;
+	}
+	.essay-highlight-card h3 a {
+		color: inherit;
+		text-decoration: none;
+	}
+	.essay-highlight-card h3 a:hover {
+		color: var(--brand-accent);
+	}
+	.essay-control-note {
+		font-size: 13.5px !important;
+		line-height: 1.75 !important;
+		padding-top: 12px;
+		border-top: 1px dashed var(--brand-line);
+		color: var(--brand-muted) !important;
+	}
+	.essay-card-foot {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 12px;
+		margin-top: auto;
+		padding-top: 14px;
+	}
+	.essay-tag-badge {
+		font: 10px/1.4 "JetBrains Mono", monospace;
+		letter-spacing: 0.06em;
+		color: var(--brand-clay);
+	}
 	.lab-cards {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 24px;
 	}
-	.lab-cards :global(h2) {
-		font-size: 28px;
-		margin-top: 28px;
+	.lab-cards :global(h3) {
+		font: 400 26px/1.4 Georgia, "Songti SC", serif;
+		margin-top: 20px;
 	}
 	.lab-illustration {
 		height: 150px;
@@ -417,12 +560,12 @@ const experiments = [
 		border-radius: 18px;
 		margin-bottom: 25px;
 	}
-	.pipeline-feature :global(h2) {
-		font: 400 34px/1.4 Georgia, "Songti SC", serif;
+	.pipeline-feature :global(h3) {
+		font: 400 32px/1.4 Georgia, "Songti SC", serif;
 		margin: 15px 0;
 	}
 	.pipeline-feature :global(p:not(.explore-kicker)) {
-		font-size: 13px;
+		font-size: 14px;
 		line-height: 1.95;
 		color: var(--brand-body);
 	}
@@ -444,20 +587,25 @@ const experiments = [
 	.pipeline-picture :global(.research-visual) {
 		background: transparent;
 	}
+	@media (max-width: 960px) {
+		.essays-trio-grid {
+			grid-template-columns: 1fr;
+		}
+	}
 	@media (max-width: 760px) {
 		.lab-cards {
 			grid-template-columns: 1fr;
 		}
-		.lab-cards :global(h2) {
-			font-size: 26px;
+		.lab-cards :global(h3) {
+			font-size: 24px;
 		}
 		.pipeline-feature {
 			grid-template-columns: 1fr;
 			gap: 15px;
 			padding: 25px;
 		}
-		.pipeline-feature :global(h2) {
-			font-size: 29px;
+		.pipeline-feature :global(h3) {
+			font-size: 27px;
 		}
 		.pipeline-picture {
 			max-width: 320px;

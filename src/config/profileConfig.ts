@@ -12,7 +12,7 @@ export const profileConfig: ProfileConfig = {
 	name: "枫语",
 
 	// 个人签名
-	bio: "在学习、造物与写作之间，保持好奇。",
+	bio: "探索「智能是什么」：在具身物理、语言表征、因果模型与递归自我之间。",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons

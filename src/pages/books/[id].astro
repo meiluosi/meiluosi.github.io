@@ -1,0 +1,609 @@
+---
+/**
+ * /books/[id]/ 三栏式在线交互专著阅读器 (Three-Column Tufte & Stripe Press Monograph Reader)
+ * 左栏：固定分卷书目树 + 本地阅读进度勾选
+ * 中栏：专著导言 + 内嵌交互物理/数学透镜 + 分卷章节卡片
+ * 右栏：Edward Tufte 风格平齐学术边注栏 (Margin Sidenotes)
+ */
+import Text from "@/components/common/BilingualText.astro";
+import Lens06Connectionist from "@/components/features/route-lenses/Lens06Connectionist.svelte";
+import Lens10Neuroscience from "@/components/features/route-lenses/Lens10Neuroscience.svelte";
+import Lens12EmbodiedDynamics from "@/components/features/route-lenses/Lens12EmbodiedDynamics.svelte";
+import Navbar from "@/components/layout/Navbar.astro";
+import { LIVING_BOOKS, type LivingBook } from "@/data/livingBooks";
+import Layout from "@/layouts/Layout.astro";
+
+export function getStaticPaths() {
+	return LIVING_BOOKS.map((book) => ({
+		params: { id: book.id },
+		props: { book },
+	}));
+}
+
+interface Props {
+	book: LivingBook;
+}
+
+const { book } = Astro.props;
+const totalChapters = book.volumes.reduce(
+	(acc, v) => acc + v.chapters.length,
+	0,
+);
+---
+
+<Layout
+	title={`${book.titleZh} — 在线交互专著`}
+	titleEn={`${book.titleEn} — Interactive Monograph`}
+	description={book.subtitleZh}
+	descriptionEn={book.subtitleEn}
+>
+	<div
+		class="monograph-reader-page"
+		data-brand-motion
+		data-book-id={book.id}
+		style={`--book-accent: ${book.accentColor}; --book-spine: ${book.spineColor};`}
+	>
+		<Navbar />
+		<main id="swup-container" class="reader-container">
+			<!-- 顶部书目走廊 -->
+			<nav class="reader-topbar" aria-label="书架导航">
+				<a href="/books/" class="back-shelf-link">
+					← <Text zh="返回书稿与专著馆藏 (Living Bookshelf)" en="Back to Living Bookshelf" />
+				</a>
+				<div class="reader-progress-pill">
+					<span id="read-progress-count">0</span> / {totalChapters}
+					<Text zh="章已读 (本地记忆)" en="Chapters Read" />
+				</div>
+			</nav>
+
+			<!-- 专著扉页 Title Page -->
+			<header class="monograph-titlepage">
+				<div class="tp-meta-row">
+					<span class="tp-roman">{book.roman}</span>
+					<span class="tp-edition">
+						<Text zh={book.editionBadgeZh} en={book.editionBadgeEn} />
+					</span>
+				</div>
+				<h1 class="tp-title">
+					<Text zh={book.titleZh} en={book.titleEn} />
+				</h1>
+				<p class="tp-subtitle">
+					<Text zh={book.subtitleZh} en={book.subtitleEn} />
+				</p>
+				<blockquote class="tp-epigraph">
+					<Text zh={book.epigraphZh} en={book.epigraphEn} />
+				</blockquote>
+			</header>
+
+			<!-- 三栏式 Tufte 专著阅读器主体 -->
+			<div class="three-col-grid">
+				<!-- 左栏：Sticky 分卷目录树 -->
+				<aside class="toc-sidebar" aria-label="全书分卷目录">
+					<div class="toc-sticky-box">
+						<div class="toc-head">
+							<strong><Text zh="全书分卷目录" en="Table of Contents" /></strong>
+							<small>{book.volumes.length} Vols · {totalChapters} Ch.</small>
+						</div>
+						<ul class="toc-vol-list">
+							{book.volumes.map((vol, vIdx) => (
+								<li>
+									<a href={`#vol-${vIdx + 1}`} class="toc-vol-link">
+										<span class="v-idx">V{vIdx + 1}</span>
+										<Text zh={vol.titleZh} en={vol.titleEn} />
+									</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				</aside>
+
+				<!-- 中栏：核心书稿正文、内嵌交互沙盒与章节列表 -->
+				<div class="manuscript-center">
+					<section class="prologue-box">
+						<span class="sec-kicker"><Text zh="专著总序 · PROLOGUE & INTERACTIVE SANDBOX" en="PROLOGUE & INTERACTIVE SANDBOX" /></span>
+						<p class="prologue-text">
+							<Text zh={book.abstractZh} en={book.abstractEn} />
+						</p>
+
+						<!-- 按需静态挂载该专著的代表性交互沙盒 -->
+						<div class="embedded-sandbox-wrap">
+							{book.featuredLensId === "embodied" && <Lens12EmbodiedDynamics client:visible />}
+							{book.featuredLensId === "connectionist" && <Lens06Connectionist client:visible />}
+							{book.featuredLensId === "neuroscience" && <Lens10Neuroscience client:visible />}
+						</div>
+					</section>
+
+					<!-- 逐卷展开章节 -->
+					{book.volumes.map((vol, vIdx) => (
+						<section class="volume-section" id={`vol-${vIdx + 1}`}>
+							<div class="volume-banner">
+								<span class="vol-kicker">{vol.volNum}</span>
+								<h2 class="vol-title">
+									<Text zh={vol.titleZh} en={vol.titleEn} />
+								</h2>
+								<p class="vol-epigraph">
+									<Text zh={vol.epigraphZh} en={vol.epigraphEn} />
+								</p>
+							</div>
+
+							<div class="chapters-list">
+								{vol.chapters.map((ch) => (
+									<article class="chapter-card" data-chapter-num={ch.num}>
+										<div class="ch-check-col">
+											<input
+												type="checkbox"
+												class="ch-read-checkbox"
+												data-ch-id={ch.num}
+												aria-label={`标记 ${ch.num} 已读`}
+												title="勾选记录本地阅读进度"
+											/>
+										</div>
+										<div class="ch-body-col">
+											<div class="ch-meta-top">
+												<span class="ch-num">{ch.num}</span>
+												{ch.routeBadge && (
+													<span class="ch-badge route">{ch.routeBadge}</span>
+												)}
+												{ch.hasInteractive && (
+													<span class="ch-badge interactive">
+														⚡ <Text zh="含交互沙盒" en="Interactive Lens" />
+													</span>
+												)}
+											</div>
+											<h3 class="ch-title">
+												<a href={ch.href}>
+													<Text zh={ch.titleZh} en={ch.titleEn} />
+												</a>
+											</h3>
+											<p class="ch-summary">
+												<Text zh={ch.summaryZh} en={ch.summaryEn} />
+											</p>
+											<a href={ch.href} class="ch-read-cta">
+												<Text zh="进入本章正文与推演" en="Read Chapter" /> →
+											</a>
+										</div>
+									</article>
+								))}
+							</div>
+						</section>
+					))}
+				</div>
+
+				<!-- 右栏：Edward Tufte 风格平齐学术边注栏 -->
+				<aside class="tufte-sidenotes-col" aria-label="学术边注与实验入口">
+					<div class="sidenote-sticky-stack">
+						<div class="sidenote-header">
+							<Text zh="TUFTE 学术边注与交互锚点" en="MARGIN SIDENOTES & LABS" />
+						</div>
+						{book.sidenotes.map((sn) => (
+							<div class="sidenote-card">
+								<span class="sn-marker">{sn.marker}</span>
+								<h4 class="sn-title">
+									<Text zh={sn.titleZh} en={sn.titleEn} />
+								</h4>
+								<p class="sn-body">
+									<Text zh={sn.bodyZh} en={sn.bodyEn} />
+								</p>
+								{sn.linkHref && (
+									<a href={sn.linkHref} class="sn-link">
+										<Text zh={sn.linkTextZh ?? "查看详情"} en={sn.linkTextEn ?? "Explore"} />
+									</a>
+								)}
+							</div>
+						))}
+					</div>
+				</aside>
+			</div>
+		</main>
+	</div>
+</Layout>
+
+<script>
+	function initBookReaderProgress() {
+		const page = document.querySelector<HTMLElement>(".monograph-reader-page");
+		if (!page) return;
+		const bookId = page.dataset.bookId ?? "default";
+		const storageKey = `living-book-progress-${bookId}`;
+		const checkboxes = page.querySelectorAll<HTMLInputElement>(".ch-read-checkbox");
+		const countEl = document.getElementById("read-progress-count");
+
+		let saved: string[] = [];
+		try {
+			saved = JSON.parse(localStorage.getItem(storageKey) ?? "[]");
+		} catch {
+			saved = [];
+		}
+
+		const updateUI = () => {
+			if (countEl) countEl.textContent = String(saved.length);
+			checkboxes.forEach((cb) => {
+				const chId = cb.dataset.chId ?? "";
+				cb.checked = saved.includes(chId);
+				cb.closest(".chapter-card")?.classList.toggle("is-read", cb.checked);
+			});
+		};
+
+		checkboxes.forEach((cb) => {
+			cb.addEventListener("change", () => {
+				const chId = cb.dataset.chId ?? "";
+				if (cb.checked && !saved.includes(chId)) {
+					saved.push(chId);
+				} else if (!cb.checked) {
+					saved = saved.filter((id) => id !== chId);
+				}
+				try {
+					localStorage.setItem(storageKey, JSON.stringify(saved));
+				} catch {
+					// Ignore storage restrictions
+				}
+				updateUI();
+			});
+		});
+
+		updateUI();
+	}
+
+	initBookReaderProgress();
+	document.addEventListener("astro:page-load", initBookReaderProgress);
+</script>
+
+<style>
+	.monograph-reader-page {
+		min-height: 100vh;
+		background: var(--brand-paper, #f6f4ee);
+		color: var(--brand-ink, #17211c);
+	}
+
+	.reader-container {
+		max-width: 1320px;
+		margin: 0 auto;
+		padding: 32px 4vw 96px;
+	}
+
+	.reader-topbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 12px;
+		padding-bottom: 20px;
+		margin-bottom: 32px;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+	}
+
+	.back-shelf-link {
+		font-size: 13.5px;
+		font-weight: 600;
+		color: var(--book-accent);
+		text-decoration: none;
+	}
+
+	.reader-progress-pill {
+		font-family: var(--font-mono, monospace);
+		font-size: 12.5px;
+		padding: 5px 12px;
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--book-accent) 12%, transparent);
+		color: var(--book-accent);
+		font-weight: 700;
+	}
+
+	.monograph-titlepage {
+		max-width: 860px;
+		margin-bottom: 48px;
+	}
+
+	.tp-meta-row {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+		margin-bottom: 12px;
+	}
+
+	.tp-roman {
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--book-accent);
+		letter-spacing: 0.14em;
+	}
+
+	.tp-edition {
+		font-size: 12px;
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: rgba(120, 140, 130, 0.12);
+	}
+
+	.tp-title {
+		font-family: var(--font-display, "Newsreader", "Songti SC", serif);
+		font-size: clamp(2rem, 3.8vw, 3rem);
+		margin: 0 0 12px;
+		line-height: 1.18;
+	}
+
+	.tp-subtitle {
+		font-size: 16px;
+		color: var(--brand-muted, #5c6b63);
+		margin: 0 0 20px;
+		line-height: 1.6;
+	}
+
+	.tp-epigraph {
+		margin: 0;
+		padding: 16px 20px;
+		border-left: 4px solid var(--book-accent);
+		background: var(--brand-surface, rgba(255, 255, 255, 0.65));
+		border-radius: 0 10px 10px 0;
+		font-size: 15px;
+		font-style: italic;
+		line-height: 1.7;
+	}
+
+	/* 三栏式 Tufte 阅读器网格 */
+	.three-col-grid {
+		display: grid;
+		grid-template-columns: 230px minmax(0, 1fr) 260px;
+		gap: 32px;
+		align-items: start;
+	}
+
+	@media (max-width: 1120px) {
+		.three-col-grid {
+			grid-template-columns: 210px minmax(0, 1fr);
+		}
+		.tufte-sidenotes-col {
+			grid-column: 1 / -1;
+		}
+	}
+
+	@media (max-width: 780px) {
+		.three-col-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.toc-sticky-box,
+	.sidenote-sticky-stack {
+		position: sticky;
+		top: 28px;
+	}
+
+	.toc-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding-bottom: 10px;
+		margin-bottom: 12px;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+		font-size: 13px;
+	}
+
+	.toc-vol-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.toc-vol-link {
+		display: flex;
+		gap: 8px;
+		padding: 8px 10px;
+		border-radius: 8px;
+		font-size: 13px;
+		line-height: 1.4;
+		text-decoration: none;
+		color: inherit;
+		background: rgba(120, 140, 130, 0.06);
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.toc-vol-link:hover {
+		background: color-mix(in srgb, var(--book-accent) 14%, transparent);
+		color: var(--book-accent);
+	}
+
+	.v-idx {
+		font-family: var(--font-mono, monospace);
+		font-weight: 700;
+		color: var(--book-accent);
+	}
+
+	/* 中栏书稿与章节 */
+	.prologue-box {
+		padding: 24px;
+		border-radius: 16px;
+		background: var(--brand-surface, rgba(255, 255, 255, 0.78));
+		border: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+		margin-bottom: 40px;
+	}
+
+	.sec-kicker {
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		color: var(--book-accent);
+		display: block;
+		margin-bottom: 8px;
+	}
+
+	.prologue-text {
+		font-size: 15px;
+		line-height: 1.75;
+		margin: 0 0 16px;
+	}
+
+	.volume-section {
+		margin-bottom: 48px;
+		scroll-margin-top: 24px;
+	}
+
+	.volume-banner {
+		margin-bottom: 20px;
+		padding-bottom: 14px;
+		border-bottom: 2px solid var(--book-accent);
+	}
+
+	.vol-kicker {
+		font-family: var(--font-mono, monospace);
+		font-size: 11.5px;
+		font-weight: 700;
+		color: var(--book-accent);
+		letter-spacing: 0.1em;
+	}
+
+	.vol-title {
+		font-family: var(--font-display, "Newsreader", "Songti SC", serif);
+		font-size: 1.6rem;
+		margin: 4px 0 8px;
+	}
+
+	.vol-epigraph {
+		font-size: 13.5px;
+		color: var(--brand-muted, #5c6b63);
+		margin: 0;
+	}
+
+	.chapters-list {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.chapter-card {
+		display: grid;
+		grid-template-columns: 28px 1fr;
+		gap: 14px;
+		padding: 18px 20px;
+		border-radius: 12px;
+		background: var(--brand-surface, rgba(255, 255, 255, 0.8));
+		border: 1px solid var(--brand-line, rgba(23, 33, 28, 0.1));
+		transition: border-color 0.2s, transform 0.2s;
+	}
+
+	.chapter-card:hover {
+		border-color: var(--book-accent);
+		transform: translateX(3px);
+	}
+
+	.chapter-card.is-read {
+		opacity: 0.72;
+		background: rgba(16, 185, 129, 0.04);
+	}
+
+	.ch-read-checkbox {
+		width: 17px;
+		height: 17px;
+		margin-top: 3px;
+		accent-color: var(--book-accent);
+		cursor: pointer;
+	}
+
+	.ch-meta-top {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 6px;
+		flex-wrap: wrap;
+	}
+
+	.ch-num {
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--book-accent);
+	}
+
+	.ch-badge {
+		font-size: 11px;
+		padding: 2px 8px;
+		border-radius: 999px;
+		font-weight: 600;
+	}
+
+	.ch-badge.route {
+		background: rgba(120, 140, 130, 0.14);
+	}
+
+	.ch-badge.interactive {
+		background: color-mix(in srgb, var(--book-accent) 14%, transparent);
+		color: var(--book-accent);
+	}
+
+	.ch-title {
+		font-size: 16.5px;
+		margin: 0 0 6px;
+		line-height: 1.4;
+	}
+
+	.ch-title a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.ch-title a:hover {
+		color: var(--book-accent);
+	}
+
+	.ch-summary {
+		font-size: 13.5px;
+		line-height: 1.6;
+		color: var(--brand-body, #334139);
+		margin: 0 0 10px;
+	}
+
+	.ch-read-cta {
+		font-size: 12.5px;
+		font-weight: 700;
+		color: var(--book-accent);
+		text-decoration: none;
+	}
+
+	/* 右栏：Tufte 学术边注栏 */
+	.sidenote-header {
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		color: var(--brand-clay, #8a7356);
+		padding-bottom: 10px;
+		margin-bottom: 14px;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+	}
+
+	.sidenote-card {
+		padding: 16px;
+		border-radius: 12px;
+		background: rgba(138, 115, 86, 0.07);
+		border-left: 3px solid var(--brand-clay, #8a7356);
+		margin-bottom: 16px;
+		font-size: 13px;
+		line-height: 1.6;
+	}
+
+	.sn-marker {
+		font-family: var(--font-mono, monospace);
+		font-size: 11px;
+		font-weight: 700;
+		color: var(--brand-clay, #8a7356);
+	}
+
+	.sn-title {
+		font-size: 14px;
+		margin: 4px 0 6px;
+	}
+
+	.sn-body {
+		margin: 0 0 10px;
+		color: var(--brand-body, #334139);
+	}
+
+	.sn-link {
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--book-accent);
+		text-decoration: none;
+	}
+</style>

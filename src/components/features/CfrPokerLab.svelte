@@ -1,11 +1,11 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { type KuhnCard, runKuhnCfr, terminalUtility } from "@/utils/cfr-poker";
 import {
 	playLatchClick,
 	playMechanicalTick,
 	playSlideTick,
 } from "@/utils/haptics";
-import { type KuhnCard, runKuhnCfr, terminalUtility } from "@/utils/cfr-poker";
 
 let english = $state(false);
 let iterations = $state(250);

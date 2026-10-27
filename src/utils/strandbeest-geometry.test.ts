@@ -2,8 +2,11 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
 	circleIntersection,
-	solveStrandbeest,
+	computeFootVelocity,
+	computeGaitMetrics,
 	STRANDBEEST_LINKS,
+	STRANDBEEST_PRESETS,
+	solveStrandbeest,
 	traceStrandbeest,
 } from "./strandbeest-geometry";
 
@@ -85,4 +88,39 @@ test("changed geometry leaves gaps instead of bridging unreachable phases", () =
 	assert.equal(unreachable.points.F, undefined);
 	assert.notEqual(unreachable.failedJoint, null);
 	assert.throws(() => traceStrandbeest(15, 0), RangeError);
+});
+
+test("gait metrics, velocity vector, mirrored leg, and presets compute accurately", () => {
+	const jansenMetrics = computeGaitMetrics();
+	assert.equal(jansenMetrics.validSamples, 360);
+	assert.ok(jansenMetrics.strideWidth && jansenMetrics.strideWidth > 40);
+	assert.ok(jansenMetrics.liftHeight && jansenMetrics.liftHeight > 15);
+	assert.ok(
+		jansenMetrics.flatnessScore !== null && jansenMetrics.flatnessScore >= 70,
+	);
+	assert.ok(
+		jansenMetrics.dutyFactor !== null &&
+			jansenMetrics.dutyFactor >= 25 &&
+			jansenMetrics.dutyFactor <= 75,
+	);
+
+	const vel = computeFootVelocity(205);
+	assert.ok(vel && vel.speed > 0);
+
+	// Mirrored leg shares the exact same crank pin C(x, y) and mirrors G to x=76
+	const left = solveStrandbeest(205, 15, undefined, false);
+	const right = solveStrandbeest(205, 15, undefined, true);
+	assert.ok(left.valid && right.valid);
+	assert.ok(
+		right.points.G && right.points.O && left.points.C && right.points.C,
+	);
+	close(right.points.G.x, 76);
+	close(right.points.O.x, 38);
+	close(left.points.C.x, right.points.C.x);
+	close(left.points.C.y, right.points.C.y);
+
+	for (const preset of STRANDBEEST_PRESETS) {
+		const m = computeGaitMetrics(preset.crank, preset.lengths);
+		assert.ok(m.validSamples > 0);
+	}
 });

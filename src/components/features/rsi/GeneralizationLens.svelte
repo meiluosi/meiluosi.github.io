@@ -1,30 +1,56 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { selectCards, type SelectionRule, type CardScene } from "@/utils/rsi-experiments";
-	import "./notebook.css";
-	const uid = $props.id();
-	let rule = $state<SelectionRule>("color");
-	let scene = $state<CardScene>("familiar");
-	let english = $state(false);
-	let ready = $state(false);
-	const say = (zh: string, en: string) => english ? en : zh;
-	const cards = $derived(selectCards(rule, scene));
-	const correct = $derived(cards.filter((card) => card.correct).length);
-	const explanation = $derived(scene === "familiar"
-		? say("在这一排卡片里，颜色甲、奇数位置和三角形恰好重合。三种规则都能全对；只看这个结果，还分不出它们依据了什么。", "In this row, color A, odd positions, and triangles coincide. All three rules get everything right. This result alone cannot tell us what each rule relies on.")
+import { onMount } from "svelte";
+import {
+	type CardScene,
+	type SelectionRule,
+	selectCards,
+} from "@/utils/rsi-experiments";
+import "./notebook.css";
+
+const uid = $props.id();
+let rule = $state<SelectionRule>("color");
+let scene = $state<CardScene>("familiar");
+let english = $state(false);
+let ready = $state(false);
+const say = (zh: string, en: string) => (english ? en : zh);
+const cards = $derived(selectCards(rule, scene));
+const correct = $derived(cards.filter((card) => card.correct).length);
+const explanation = $derived(
+	scene === "familiar"
+		? say(
+				"在这一排卡片里，颜色甲、奇数位置和三角形恰好重合。三种规则都能全对；只看这个结果，还分不出它们依据了什么。",
+				"In this row, color A, odd positions, and triangles coincide. All three rules get everything right. This result alone cannot tell us what each rule relies on.",
+			)
 		: scene === "task"
-			? say("题目现在要求圆形，旧规则却没有改变，三种规则都会全错。能抵抗某种外观变化，不等于会理解一个新目标。", "The task now asks for circles, but none of the rules has changed. All three get every decision wrong. Resistance to an appearance change does not imply an ability to understand a new goal.")
+			? say(
+					"题目现在要求圆形，旧规则却没有改变，三种规则都会全错。能抵抗某种外观变化，不等于会理解一个新目标。",
+					"The task now asks for circles, but none of the rules has changed. All three get every decision wrong. Resistance to an appearance change does not imply an ability to understand a new goal.",
+				)
 			: rule === "shape"
-				? say("形状规则在这次变化中仍然有效，因为目标仍是三角形。这个小范围的成功只支持这一项判断，不能据此推断一般智能。", "The shape rule still works because the target is still triangles. This narrow success supports this particular claim; it does not establish general intelligence.")
-				: (scene === "color" && rule === "color") || (scene === "position" && rule === "position")
-					? say("原来好用的线索失效了。目标没变，改变的只是配色或排列。失败让规则依赖的东西显露出来。", "The useful-looking cue has broken. The target is unchanged; only color or order changed. Failure reveals what the rule depends on.")
-					: say("这次变化还没有触及所选规则依赖的线索，所以它仍然全对。试试另一种变化，再判断这个成功有多稳固。", "This change leaves the chosen rule’s cue intact, so it still gets everything right. Try another change before deciding how robust that success is."));
-	onMount(() => {
-		ready = true;
-		const locale = () => { english = document.documentElement.lang.startsWith("en"); };
-		locale(); document.addEventListener("site-locale-change", locale);
-		return () => document.removeEventListener("site-locale-change", locale);
-	});
+				? say(
+						"形状规则在这次变化中仍然有效，因为目标仍是三角形。这个小范围的成功只支持这一项判断，不能据此推断一般智能。",
+						"The shape rule still works because the target is still triangles. This narrow success supports this particular claim; it does not establish general intelligence.",
+					)
+				: (scene === "color" && rule === "color") ||
+						(scene === "position" && rule === "position")
+					? say(
+							"原来好用的线索失效了。目标没变，改变的只是配色或排列。失败让规则依赖的东西显露出来。",
+							"The useful-looking cue has broken. The target is unchanged; only color or order changed. Failure reveals what the rule depends on.",
+						)
+					: say(
+							"这次变化还没有触及所选规则依赖的线索，所以它仍然全对。试试另一种变化，再判断这个成功有多稳固。",
+							"This change leaves the chosen rule’s cue intact, so it still gets everything right. Try another change before deciding how robust that success is.",
+						),
+);
+onMount(() => {
+	ready = true;
+	const locale = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	locale();
+	document.addEventListener("site-locale-change", locale);
+	return () => document.removeEventListener("site-locale-change", locale);
+});
 </script>
 
 <div class="rsi-interactive">

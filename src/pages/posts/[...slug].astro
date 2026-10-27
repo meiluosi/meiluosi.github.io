@@ -25,6 +25,7 @@ import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import RelatedArticles from "@/components/features/RelatedArticles.astro";
+import RouteCoordinateBadge from "@/components/features/RouteCoordinateBadge.astro";
 import SeriesNav from "@/components/features/SeriesNav.astro";
 import PostMetadata from "@/components/layout/PostMeta.astro";
 import { coverImageConfig } from "@/config/coverImageConfig";
@@ -38,6 +39,7 @@ import { findConnectedLabs } from "@/utils/digital-garden";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
 import { buildReadingChain } from "@/utils/reading-chain";
 import { buildRelatedByTags } from "@/utils/related-articles";
+import { resolvePostRoute } from "@/utils/route-matcher";
 import { url } from "@/utils/url-utils";
 
 export async function getStaticPaths() {
@@ -124,6 +126,8 @@ const connectedLabs = findConnectedLabs(
 	entry.data.category ?? "",
 	entry.data.title,
 );
+
+const postRoute = resolvePostRoute(entry.data);
 
 const bannerPostMeta = {
 	title: entry.data.title,
@@ -319,6 +323,9 @@ const jsonLd = {
 
       <!-- 数字花园思想演进成熟度 -->
       <GardenMaturityBadge post={entry} lang="zh" />
+
+      <!-- 智能探索路线坐标 -->
+      {postRoute && <RouteCoordinateBadge route={postRoute} lang="zh" />}
 
       <!-- 系列导航 -->
       {seriesItems.length > 0 && (

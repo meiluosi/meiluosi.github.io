@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-27",
+  "commands": [
+    {
+      "command": "pnpm check",
+      "exitCode": 0,
+      "files": 188,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    {
+      "command": "pnpm type-check",
+      "exitCode": 0
+    },
+    {
+      "command": "AI_SUMMARY_API_KEY= pnpm build",
+      "exitCode": 0,
+      "pages": 243,
+      "initialSandboxFailure": "tsx local IPC listen EPERM; same command passed after local-process permission",
+      "warnings": [
+        "npm unknown project config manage-package-manager-versions",
+        "Vite large chunk advisory",
+        "public/robots.txt takes precedence over src/pages/robots.txt.ts"
+      ]
+    }
+  ],
+  "generatedAssetSHA256": {
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0"
+  },
+  "published": false,
+  "scope": "Checks run against current shared checkout; unrelated existing source edits preserved."
+}

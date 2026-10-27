@@ -1,0 +1,831 @@
+---
+/**
+ * /routes/ 智能路线图谱页面
+ * 呈现关于智能的 20 个解释传统及其核心分歧地图
+ */
+import Text from "@/components/common/BilingualText.astro";
+import ParadigmCompass from "@/components/features/ParadigmCompass.svelte";
+import Navbar from "@/components/layout/Navbar.astro";
+import {
+	DIVERGENCE_AXES,
+	INTELLIGENCE_ROUTES,
+	QUESTION_LEVELS,
+	ROUTE_CLUSTERS,
+} from "@/data/intelligenceRoutes";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+	title="智能的 20 个路线家族与分歧地图 — 枫语"
+	titleEn="An Atlas of Intelligence: 20 Paradigm Families — Feng Yu"
+	description="关于智能是什么的跨学科思想地图：整理行为主义、计算学习、因果模型、具身动力学、自创生、延展心智与心灵哲学等 20 个解释传统与核心分歧。"
+	descriptionEn="A multi-disciplinary map of intelligence paradigms: from behaviorism and causal models to embodied enactivism, extended cognition, and philosophy of mind."
+>
+	<div class="routes-page" data-brand-motion>
+		<Navbar />
+		<main id="swup-container" class="routes-container">
+			<nav class="explore-subnav" aria-label="探索栏目" data-i18n-aria-label-zh="探索栏目" data-i18n-aria-label-en="Explore sections">
+				<a href="/routes/" aria-current="page"><Text zh="智能路线 (20)" en="20 Routes" /></a>
+				<a href="/books/"><Text zh="书稿与专著" en="Living Books" /></a>
+				<a href="/lab/"><Text zh="交互实验室" en="Interactive Lab" /></a>
+				<a href="/graph/"><Text zh="知识星图" en="Knowledge Cosmos" /></a>
+				<a href="/library/"><Text zh="文献架" en="Library" /></a>
+			</nav>
+			<!-- 头部立论宣言 -->
+			<header class="routes-hero">
+				<p class="hero-kicker">
+					<Text zh="思想地图 · 体系勘测" en="CONCEPTUAL ATLAS · 20 PARADIGMS" />
+				</p>
+				<h1 class="hero-title">
+					<Text zh="何谓智能？" en="What is Intelligence?" />
+					<span class="hero-subtitle">
+						<Text zh="关于智能的 20 个路线家族与分歧地图" en="Twenty Paradigm Families & The Divergence Map" />
+					</span>
+				</h1>
+				<div class="hero-epigraph">
+					<Text 
+						as="p" 
+						zh="“学习、世界模型、自主探索、持续发展只是解释智能的一组路线，而不是已被公认的‘真正智能’唯一标准。跨学科看，这个问题远比单纯的技术分类宏大得多。这张地图的目标是呈现主要的解释传统及其关键分歧，看每一种路线究竟解释了哪一部分，又把哪些问题留在了外面。”" 
+						en="“Learning, world models, and autonomous exploration are only one cluster of routes, not the sole universal criteria for true intelligence. This atlas surveys twenty major explanatory traditions and their core disagreements — revealing what each paradigm successfully explains, and what it leaves out.”" 
+					/>
+				</div>
+
+				<!-- 三大研究期待 -->
+				<div class="research-expectations">
+					<div class="exp-card">
+						<span class="exp-num">A</span>
+						<h4><Text zh="统一原理期待" en="Unified Principle" /></h4>
+						<p><Text zh="试图用某种极简原则（如自由能最小化、预测压缩、奖励优化）统一解释看似悬殊的智能现象。" en="Seeking a single invariant (e.g. Free Energy, compression, reward optimization) behind diverse cognitive traits." /></p>
+					</div>
+					<div class="exp-card">
+						<span class="exp-num">B</span>
+						<h4><Text zh="共同组织期待" en="Common Organization" /></h4>
+						<p><Text zh="智能不是单一公式，而是一组异构机制在身体、环境和发展过程中形成的特定系统组织。" en="Intelligence as a coordinated heterogeneous architecture across body, development, and environment." /></p>
+					</div>
+					<div class="exp-card">
+						<span class="exp-num">C</span>
+						<h4><Text zh="机制多样性期待" en="Mechanism Pluralism" /></h4>
+						<p><Text zh="‘智能’概括的是一族具有相似适应功能、但实现机制和演化历史并不相同的异质能力。" en="Intelligence as a pluralistic umbrella over functionally convergent but mechanically distinct capacities." /></p>
+					</div>
+				</div>
+			</header>
+
+			<!-- 6 大问题层次 -->
+			<section class="section-block" aria-labelledby="heading-levels">
+				<div class="block-head">
+					<span class="block-tag">Level 0</span>
+					<h2 id="heading-levels"><Text zh="六类不同的底层追问" en="Six Foundational Question Levels" /></h2>
+					<p class="block-desc"><Text zh="‘智能是什么’不能混为一谈。判定、测量、机制、起源与价值，不能直接互相替代。" en="Criteria, measurement, mechanisms, origins, and philosophical values address distinct layers of inquiry." /></p>
+				</div>
+				<div class="levels-grid">
+					{QUESTION_LEVELS.map((lvl, idx) => (
+						<div class="level-card">
+							<span class="level-index">0{idx + 1}</span>
+							<Text as="h3" zh={lvl.nameZh} en={lvl.nameEn} />
+							<Text as="p" zh={lvl.inquiryZh} en={lvl.inquiryEn} />
+						</div>
+					))}
+				</div>
+			</section>
+
+			<!-- 20 个路线家族主展区 -->
+			<section class="section-block" id="atlas-routes" aria-labelledby="heading-routes">
+				<div class="block-head">
+					<span class="block-tag">Atlas</span>
+					<h2 id="heading-routes"><Text zh="20 个路线家族" en="The Twenty Paradigm Families" /></h2>
+					<p class="block-desc"><Text zh="涵盖心理学、计算机科学、控制论、生物学、神经科学与心灵哲学的解释传统。" en="Spanning computer science, cognitive psychology, cybernetics, biology, neuroscience, and philosophy." /></p>
+				</div>
+
+				<!-- 集群快速过滤导航 -->
+				<div class="cluster-nav" role="tablist">
+					<button type="button" class="cluster-pill is-active" data-cluster-filter="all">
+						<Text zh="全部路线 (20)" en="All Routes (20)" />
+					</button>
+					{ROUTE_CLUSTERS.map((cluster) => (
+						<button type="button" class="cluster-pill" data-cluster-filter={cluster.id}>
+							<Text zh={cluster.nameZh} en={cluster.nameEn} />
+						</button>
+					))}
+				</div>
+
+				<!-- 路线列表卡片 -->
+				<div class="routes-list">
+					{INTELLIGENCE_ROUTES.map((route) => (
+						<article 
+							class="route-card" 
+							id={route.id} 
+							data-cluster={route.cluster}
+						>
+							<div class="route-header">
+								<div class="route-meta">
+									<span class="route-roman">{route.roman}</span>
+									<span class="route-cluster-tag" style={`border-color: ${route.color || 'var(--brand-line)'};`}>
+										<Text zh={route.clusterZh} en={route.clusterEn} />
+									</span>
+									<span class="route-orbit-tag">
+										<Text zh={`母轨道 · ${route.superOrbitZh}`} en={`Super-Orbit: ${route.superOrbit}`} />
+									</span>
+									<span class="route-level-tag">
+										<Text zh={route.questionLevelZh} en={route.questionLevel} />
+									</span>
+								</div>
+								<h3 class="route-title">
+									<a href={`/routes/${route.id}/`} class="route-title-link">
+										<Text zh={route.nameZh} en={route.nameEn} />
+										<span class="enter-arrow" aria-hidden="true">→</span>
+									</a>
+								</h3>
+								<Text as="p" class="route-thesis" zh={route.coreThesisZh} en={route.coreThesisEn} />
+							</div>
+
+							<!-- 关键分支 -->
+							<div class="route-branches">
+								<h4 class="branches-caption"><Text zh="重要分支与代表理论" en="Key Branches & Frameworks" /></h4>
+								<div class="branches-grid">
+									{route.branches.map((b) => (
+										<div class="branch-item">
+											<Text as="strong" zh={b.nameZh} en={b.nameEn} />
+											<Text as="p" zh={b.descZh} en={b.descEn} />
+										</div>
+									))}
+								</div>
+							</div>
+
+							<!-- 价值与局限 -->
+							<div class="route-critique">
+								<div class="critique-col critique-value">
+									<span class="critique-label"><Text zh="✦ 解释价值" en="✦ Explanatory Power" /></span>
+									<Text as="p" zh={route.valueZh} en={route.valueEn} />
+								</div>
+								<div class="critique-col critique-limit">
+									<span class="critique-label"><Text zh="⚠ 关键局限与盲区" en="⚠ Critical Limitations" /></span>
+									<Text as="p" zh={route.limitationsZh} en={route.limitationsEn} />
+								</div>
+							</div>
+
+							<!-- 站内关联实验探针与文章 -->
+							{route.linkedLabs && route.linkedLabs.length > 0 && (
+								<div class="route-links">
+									<span class="link-label"><Text zh="站内实验探针：" en="Interactive Lab Probes:" /></span>
+									{route.linkedLabs.map((lab) => (
+										<a href={lab.href} class="lab-pill">
+											<Text zh={lab.nameZh} en={lab.nameEn} /> ↗
+										</a>
+									))}
+								</div>
+							)}
+						</article>
+					))}
+				</div>
+			</section>
+
+			<!-- 8 大分歧轴对比矩阵与 2D 思想引力象限仪 -->
+			<section class="section-block" aria-labelledby="heading-axes">
+				<div class="block-head">
+					<span class="block-tag">Divergence & Compass</span>
+					<h2 id="heading-axes"><Text zh="路线之间的 8 大主要分歧轴与二维引力象限" en="The Eight Core Divergence Axes & 2D Paradigm Compass" /></h2>
+					<p class="block-desc"><Text zh="不同学派并非非黑即白，很多前沿探索恰好在寻找两极之间的连接。切换下方象限仪的 X/Y 轴，实时观察 20 条路线的思想聚类：" en="Theoretical traditions occupy dynamic tensions along these eight axes. Switch the X/Y axes below to project all 20 routes in 2D space:" /></p>
+				</div>
+
+				<ParadigmCompass client:visible />
+
+				<div class="axes-table-wrap">
+					<table class="axes-table">
+						<thead>
+							<tr>
+								<th><Text zh="分歧轴" en="Divergence Axis" /></th>
+								<th><Text zh="一端" en="Pole A" /></th>
+								<th><Text zh="另一端" en="Pole B" /></th>
+								<th><Text zh="核心争鸣点" en="Critical Tension" /></th>
+							</tr>
+						</thead>
+						<tbody>
+							{DIVERGENCE_AXES.map((axis) => (
+								<tr>
+									<td class="axis-name">
+										<strong><Text zh={axis.nameZh} en={axis.nameEn} /></strong>
+									</td>
+									<td class="axis-pole pole-a">
+										<Text zh={axis.poleAZh} en={axis.poleAEn} />
+									</td>
+									<td class="axis-pole pole-b">
+										<Text zh={axis.poleBZh} en={axis.poleBEn} />
+									</td>
+									<td class="axis-notes">
+										<Text zh={axis.notesZh} en={axis.notesEn} />
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- 探索备忘与底线警惕 -->
+			<section class="section-block cautions-block" aria-labelledby="heading-cautions">
+				<div class="block-head">
+					<span class="block-tag">Caveats</span>
+					<h2 id="heading-cautions"><Text zh="五条不应跨越的推论陷阱" en="Five Inferential Pitfalls to Avoid" /></h2>
+				</div>
+				<div class="cautions-grid">
+					<div class="caution-item">
+						<span class="caution-num">1</span>
+						<p><Text zh="能测量某些智能表现，不等于发现了智能的唯一实体。智力因素或跑分只是观察影子，不可物化为单一引擎。" en="Measuring competence does not equal isolating the singular essence of intelligence." /></p>
+					</div>
+					<div class="caution-item">
+						<span class="caution-num">2</span>
+						<p><Text zh="能人工构造某种行为，不等于自然界只能用这种机制产生该行为。模拟证明‘可以这样’，不证明‘只能这样’。" en="Replicating a behavior in simulation does not prove biological organisms compute it identically." /></p>
+					</div>
+					<div class="caution-item">
+						<span class="caution-num">3</span>
+						<p><Text zh="提出一个统一公式，不等于已经覆盖全部智能现象。自由能、奖励最大化或压缩律，都需要明确适用范围与反例。" en="A universal mathematical objective is not an automatic substitute for explaining all cognitive phenomena." /></p>
+					</div>
+					<div class="caution-item">
+						<span class="caution-num">4</span>
+						<p><Text zh="将研究范围扩展到细胞或群体，不等于可以泛化地说‘万物皆有智’。拓宽对象时，更需要精密界定观察到的适应能力。" en="Extending cognition to cells or tools does not justify pan-cognitive vagueness." /></p>
+					</div>
+					<div class="caution-item">
+						<span class="caution-num">5</span>
+						<p><Text zh="理解、意识、自主性与智慧，不能草率当作智能的同义词。一个理论解释了解题，并不代表它解释了主观体验或价值反思。" en="Understanding, consciousness, agency, and wisdom must not be conflated as interchangeable terms." /></p>
+					</div>
+				</div>
+			</section>
+
+			<!-- 尾部导航回到首页与书稿馆藏 -->
+			<footer class="routes-footer">
+				<a href="/" class="footer-link">← <Text zh="回到首页天体星轨" en="Back to Keplerian Orbit Hero" /></a>
+				<a href="/books/" class="footer-link"><Text zh="前往书稿与专著馆藏" en="Open Living Books & Monographs" /> →</a>
+			</footer>
+		</main>
+	</div>
+</Layout>
+
+<script>
+	function initClusterFilter() {
+		const pills = document.querySelectorAll<HTMLButtonElement>("[data-cluster-filter]");
+		const cards = document.querySelectorAll<HTMLElement>(".route-card");
+
+		pills.forEach((pill) => {
+			pill.addEventListener("click", () => {
+				const cluster = pill.dataset.clusterFilter;
+				pills.forEach((p) => p.classList.toggle("is-active", p === pill));
+
+				cards.forEach((card) => {
+					if (cluster === "all" || card.dataset.cluster === cluster) {
+						card.style.display = "block";
+					} else {
+						card.style.display = "none";
+					}
+				});
+			});
+		});
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initClusterFilter, { once: true });
+	} else {
+		initClusterFilter();
+	}
+	document.addEventListener("swup:contentReplaced", initClusterFilter);
+</script>
+
+<style>
+	.routes-page {
+		background: var(--brand-paper);
+		color: var(--brand-ink);
+		min-height: 100vh;
+	}
+
+	.routes-container {
+		max-width: 1080px;
+		margin-inline: auto;
+		padding-inline: clamp(20px, 5vw, 60px);
+		padding-bottom: 80px;
+	}
+
+	.explore-subnav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+		padding: 22px 0;
+		border-bottom: 1px solid var(--brand-line);
+		font-size: 12px;
+	}
+
+	.explore-subnav a {
+		color: var(--brand-muted);
+		text-decoration: none;
+	}
+
+	.explore-subnav a[aria-current],
+	.explore-subnav a:hover {
+		color: var(--brand-accent);
+		text-decoration: underline;
+		text-underline-offset: 6px;
+	}
+
+	/* Hero 区域 */
+	.routes-hero {
+		padding-top: 50px;
+		padding-bottom: 40px;
+		border-bottom: 1px solid var(--brand-line);
+	}
+
+	.hero-kicker {
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--brand-clay);
+		margin-bottom: 12px;
+	}
+
+	.hero-title {
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(36px, 5vw, 56px);
+		line-height: 1.2;
+		font-weight: 400;
+		margin: 0 0 20px;
+		color: var(--brand-ink);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.hero-subtitle {
+		font-size: clamp(20px, 2.8vw, 28px);
+		color: var(--brand-body);
+		font-family: var(--font-sans, sans-serif);
+		font-weight: 400;
+	}
+
+	.hero-epigraph {
+		max-width: 52em;
+		padding: 20px 24px;
+		background: var(--brand-surface);
+		border-left: 3px solid var(--brand-clay);
+		border-radius: 0 8px 8px 0;
+		margin-block: 24px;
+	}
+
+	.hero-epigraph :global(p) {
+		margin: 0;
+		font-size: 15.5px;
+		line-height: 1.95;
+		color: var(--brand-body);
+		font-style: italic;
+	}
+
+	/* 三大研究期待 */
+	.research-expectations {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+		margin-top: 32px;
+	}
+
+	.exp-card {
+		padding: 18px 20px;
+		border: 1px solid var(--brand-line);
+		border-radius: 8px;
+		background: rgb(250 251 248 / 65%);
+	}
+
+	.exp-num {
+		display: inline-block;
+		font-family: var(--font-serif, serif);
+		font-weight: 600;
+		color: var(--brand-clay);
+		font-size: 14px;
+		margin-bottom: 6px;
+	}
+
+	.exp-card h4 {
+		margin: 0 0 8px;
+		font-size: 16px;
+		font-family: var(--font-serif, serif);
+		color: var(--brand-ink);
+	}
+
+	.exp-card p {
+		margin: 0;
+		font-size: 13.5px;
+		line-height: 1.7;
+		color: var(--brand-body);
+	}
+
+	/* 通用板块结构 */
+	.section-block {
+		padding-block: 54px;
+		border-bottom: 1px solid var(--brand-line);
+	}
+
+	.block-head {
+		margin-bottom: 28px;
+	}
+
+	.block-tag {
+		font-family: var(--font-mono, monospace);
+		font-size: 11px;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--brand-muted);
+	}
+
+	.block-head h2 {
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(24px, 3.2vw, 32px);
+		font-weight: 400;
+		margin: 6px 0 10px;
+		color: var(--brand-ink);
+	}
+
+	.block-desc {
+		margin: 0;
+		font-size: 15px;
+		color: var(--brand-body);
+		line-height: 1.8;
+	}
+
+	/* 6 大问题层次卡片 */
+	.levels-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 18px;
+	}
+
+	.level-card {
+		padding: 18px 20px;
+		border: 1px solid var(--brand-line);
+		border-radius: 8px;
+		background: rgb(243 246 241 / 45%);
+	}
+
+	.level-index {
+		font-family: var(--font-mono, monospace);
+		font-size: 11.5px;
+		color: var(--brand-muted);
+		display: block;
+		margin-bottom: 4px;
+	}
+
+	.level-card :global(h3) {
+		margin: 0 0 8px;
+		font-size: 17px;
+		font-family: var(--font-serif, serif);
+		color: var(--brand-ink);
+	}
+
+	.level-card :global(p) {
+		margin: 0;
+		font-size: 13.5px;
+		line-height: 1.75;
+		color: var(--brand-body);
+	}
+
+	/* 集群过滤 Pills */
+	.cluster-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-bottom: 30px;
+	}
+
+	.cluster-pill {
+		padding: 6px 14px;
+		border-radius: 999px;
+		border: 1px solid var(--brand-line);
+		background: transparent;
+		color: var(--brand-muted);
+		font-size: 13px;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.cluster-pill:hover {
+		border-color: var(--brand-accent);
+		color: var(--brand-ink);
+	}
+
+	.cluster-pill.is-active {
+		background: var(--brand-ink);
+		color: var(--brand-paper);
+		border-color: var(--brand-ink);
+	}
+
+	/* 20 路线卡片 */
+	.routes-list {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+	}
+
+	.route-card {
+		border: 1px solid var(--brand-line);
+		border-radius: 10px;
+		background: rgb(250 251 248 / 85%);
+		padding: 26px 28px;
+		transition: box-shadow 0.2s ease, border-color 0.2s ease;
+	}
+
+	.route-card:hover {
+		border-color: var(--brand-clay);
+		box-shadow: 0 4px 18px rgb(0 0 0 / 4%);
+	}
+
+	.route-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px 12px;
+		margin-bottom: 12px;
+	}
+
+	.route-roman {
+		font-family: var(--font-mono, monospace);
+		font-size: 14px;
+		font-weight: 700;
+		color: var(--brand-clay);
+	}
+
+	.route-cluster-tag,
+	.route-orbit-tag,
+	.route-level-tag {
+		font-size: 11.5px;
+		padding: 2px 8px;
+		border-radius: 4px;
+		border: 1px solid var(--brand-line);
+		color: var(--brand-muted);
+		background: var(--brand-paper);
+	}
+
+	.route-title {
+		margin: 0 0 10px;
+		font-family: var(--font-serif, "Songti SC", Georgia, serif);
+		font-size: clamp(21px, 2.5vw, 25px);
+		line-height: 1.4;
+		color: var(--brand-ink);
+	}
+
+	.route-title-link {
+		color: inherit;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		transition: color 0.18s ease;
+	}
+
+	.route-title-link:hover {
+		color: var(--brand-accent);
+	}
+
+	.enter-arrow {
+		font-size: 18px;
+		color: var(--brand-clay);
+		transition: transform 0.2s ease;
+	}
+
+	.route-title-link:hover .enter-arrow {
+		transform: translateX(4px);
+	}
+
+	.route-thesis {
+		margin: 0 0 20px;
+		font-size: 15px;
+		line-height: 1.85;
+		color: var(--brand-body);
+	}
+
+	/* 分支网格 */
+	.route-branches {
+		border-top: 1px dashed var(--brand-line);
+		padding-top: 16px;
+		margin-bottom: 18px;
+	}
+
+	.branches-caption {
+		font-size: 12.5px;
+		font-family: var(--font-mono, monospace);
+		letter-spacing: 0.05em;
+		color: var(--brand-muted);
+		margin: 0 0 12px;
+		text-transform: uppercase;
+	}
+
+	.branches-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 14px 18px;
+	}
+
+	.branch-item {
+		background: var(--brand-paper);
+		padding: 12px 14px;
+		border-radius: 6px;
+		border: 1px solid rgb(37 60 52 / 8%);
+	}
+
+	.branch-item :global(h5) {
+		margin: 0 0 5px;
+		font-size: 14px;
+		font-family: var(--font-serif, serif);
+		color: var(--brand-ink);
+	}
+
+	.branch-item :global(p) {
+		margin: 0;
+		font-size: 12.5px;
+		line-height: 1.65;
+		color: var(--brand-muted);
+	}
+
+	/* 价值与局限 */
+	.route-critique {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+		padding: 14px 16px;
+		background: var(--brand-surface);
+		border-radius: 6px;
+	}
+
+	.critique-label {
+		display: block;
+		font-size: 12px;
+		font-weight: 600;
+		margin-bottom: 4px;
+		font-family: var(--font-sans, sans-serif);
+	}
+
+	.critique-value .critique-label {
+		color: var(--brand-accent);
+	}
+
+	.critique-limit .critique-label {
+		color: var(--brand-clay);
+	}
+
+	.critique-col :global(p) {
+		margin: 0;
+		font-size: 13px;
+		line-height: 1.7;
+		color: var(--brand-body);
+	}
+
+	/* 关联实验探针 */
+	.route-links {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px 12px;
+		margin-top: 14px;
+		font-size: 13px;
+	}
+
+	.link-label {
+		color: var(--brand-muted);
+		font-size: 12px;
+	}
+
+	.lab-pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: rgb(243 199 172 / 25%);
+		border: 1px solid rgb(145 86 56 / 25%);
+		color: var(--brand-clay);
+		text-decoration: none;
+		font-size: 12px;
+		transition: all 0.2s ease;
+	}
+
+	.lab-pill:hover {
+		background: var(--brand-clay);
+		color: var(--brand-paper);
+	}
+
+	/* 8 大分歧轴表格 */
+	.axes-table-wrap {
+		overflow-x: auto;
+		border: 1px solid var(--brand-line);
+		border-radius: 8px;
+		background: rgb(250 251 248 / 90%);
+	}
+
+	.axes-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 13.5px;
+		line-height: 1.7;
+		text-align: left;
+	}
+
+	.axes-table th,
+	.axes-table td {
+		padding: 14px 18px;
+		border-bottom: 1px solid var(--brand-line);
+		vertical-align: top;
+	}
+
+	.axes-table th {
+		background: var(--brand-surface);
+		color: var(--brand-ink);
+		font-family: var(--font-serif, serif);
+		font-weight: 600;
+	}
+
+	.axes-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.axis-name {
+		white-space: nowrap;
+		color: var(--brand-ink);
+	}
+
+	.axis-pole {
+		width: 28%;
+		color: var(--brand-body);
+	}
+
+	.pole-a {
+		border-right: 1px dashed var(--brand-line);
+	}
+
+	.axis-notes {
+		color: var(--brand-muted);
+		font-size: 12.5px;
+	}
+
+	/* 五条推论陷阱 */
+	.cautions-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 16px;
+	}
+
+	.caution-item {
+		padding: 16px 18px;
+		border: 1px solid rgb(145 86 56 / 20%);
+		border-left: 3px solid var(--brand-clay);
+		border-radius: 0 6px 6px 0;
+		background: rgb(250 251 248 / 70%);
+	}
+
+	.caution-num {
+		font-family: var(--font-mono, monospace);
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--brand-clay);
+		display: block;
+		margin-bottom: 4px;
+	}
+
+	.caution-item :global(p) {
+		margin: 0;
+		font-size: 13.5px;
+		line-height: 1.75;
+		color: var(--brand-body);
+	}
+
+	/* 页脚链接 */
+	.routes-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+		padding-top: 36px;
+		border-top: 1px solid var(--brand-line);
+		font-size: 14px;
+	}
+
+	.footer-link {
+		color: var(--brand-accent);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-color: var(--brand-clay);
+	}
+
+	.footer-link:hover {
+		color: var(--brand-clay);
+	}
+
+	/* 移动端与小屏响应 */
+	@media (max-width: 840px) {
+		.research-expectations,
+		.levels-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.branches-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.route-critique {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

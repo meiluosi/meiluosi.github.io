@@ -1,0 +1,555 @@
+---
+/**
+ * /books/ 在线交互专著与书稿展厅 (Living Bookshelf & Interactive Monographs)
+ * Stripe Press + Distill.pub + Edward Tufte 风格的体系化书稿馆藏页
+ */
+import Text from "@/components/common/BilingualText.astro";
+import Navbar from "@/components/layout/Navbar.astro";
+import { LIVING_BOOKS } from "@/data/livingBooks";
+import Layout from "@/layouts/Layout.astro";
+
+const totalChapters = LIVING_BOOKS.reduce(
+	(acc, book) =>
+		acc + book.volumes.reduce((vAcc, v) => vAcc + v.chapters.length, 0),
+	0,
+);
+---
+
+<Layout
+	title="书稿与交互专著馆藏 (Living Books) — 枫语"
+	titleEn="Living Books & Interactive Monographs — Feng Yu"
+	description="围绕『智能是什么』展开的体系化在线交互专著馆藏：涵盖 20 条智能路线专著、七卷本语言模型全链路锻造手记与果蝇全脑连接组计算神经科学实证。"
+	descriptionEn="Systematic interactive monographs: What Is Intelligence (20 Paradigms), Forging Language Models from Scratch (7 Volumes), and The Drosophila Connectome."
+>
+	<div class="bookshelf-page" data-brand-motion>
+		<Navbar />
+		<main id="swup-container" class="bookshelf-container">
+			<nav class="explore-subnav" aria-label="探索栏目" data-i18n-aria-label-zh="探索栏目" data-i18n-aria-label-en="Explore sections">
+				<a href="/routes/"><Text zh="智能路线 (20)" en="20 Routes" /></a>
+				<a href="/books/" aria-current="page"><Text zh="书稿与专著" en="Living Books" /></a>
+				<a href="/lab/"><Text zh="交互实验室" en="Interactive Lab" /></a>
+				<a href="/graph/"><Text zh="知识星图" en="Knowledge Cosmos" /></a>
+				<a href="/library/"><Text zh="文献架" en="Library" /></a>
+			</nav>
+			<header class="bookshelf-hero">
+				<p class="hero-kicker">
+					<Text zh="在线交互专著 · LIVING MONOGRAPHS & MANUSCRIPTS" en="LIVING MONOGRAPHS & INTERACTIVE BOOKS" />
+				</p>
+				<h1 class="hero-title">
+					<Text zh="书稿与专著馆藏" en="Living Books & Monographs" />
+				</h1>
+				<p class="hero-lead">
+					<Text
+						zh="单篇博客记录灵光一现的切面，而专著负责构建严密的因果体系。这里收录了我围绕「智能是什么」持续撰写的分卷本长篇书稿——融合纸质典籍的阅读秩序、Edward Tufte 的平齐学术边注，以及 Bret Victor 式的可操作数学/物理内嵌沙盒。"
+						en="Individual blog posts capture sparks; monographs build enduring architectures. These multi-volume living books combine classical typographic craft, Edward Tufte's margin sidenotes, and Bret Victor-style interactive physics and math sandboxes."
+					/>
+				</p>
+
+				<div class="shelf-stats-bar">
+					<div class="stat-pill">
+						<strong>{LIVING_BOOKS.length}</strong>
+						<span><Text zh="部专著书稿" en="Monographs" /></span>
+					</div>
+					<div class="stat-pill">
+						<strong>15</strong>
+						<span><Text zh="个主题分卷" en="Volumes" /></span>
+					</div>
+					<div class="stat-pill">
+						<strong>{totalChapters}</strong>
+						<span><Text zh="章系统论述与实验" en="Chapters & Audits" /></span>
+					</div>
+				</div>
+			</header>
+
+			<!-- 立体书架陈列区 -->
+			<section class="books-showcase" aria-label="专著列表">
+				{LIVING_BOOKS.map((book, idx) => {
+					const chapterCount = book.volumes.reduce(
+						(acc, v) => acc + v.chapters.length,
+						0,
+					);
+					return (
+						<article
+							class="monograph-showcase-card"
+							style={`--book-accent: ${book.accentColor}; --book-spine: ${book.spineColor};`}
+						>
+							<!-- 左侧：3D 精装书脊与铜版几何封面 -->
+							<a href={`/books/${book.id}/`} class="book-artifact-link" aria-label={book.titleZh}>
+								<div class="book-3d-wrap">
+									<div class="book-spine-edge">
+										<span class="spine-roman">{book.roman}</span>
+									</div>
+									<div class="book-front-cover">
+										<div class="cover-top-meta">
+											<span>{book.roman}</span>
+											<span>{chapterCount} CH.</span>
+										</div>
+
+										<!-- 专属几何铜版画线稿 SVG -->
+										<div class="cover-engraving" aria-hidden="true">
+											{idx === 0 && (
+												<svg viewBox="0 0 160 160" class="engraving-svg">
+													<circle cx="80" cy="80" r="62" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" />
+													<ellipse cx="80" cy="80" rx="64" ry="26" transform="rotate(-28 80 80)" fill="none" stroke="currentColor" stroke-width="1.4" />
+													<ellipse cx="80" cy="80" rx="64" ry="26" transform="rotate(32 80 80)" fill="none" stroke="currentColor" stroke-width="1.4" />
+													<circle cx="80" cy="80" r="12" fill="currentColor" />
+													<circle cx="32" cy="56" r="5" fill="currentColor" />
+													<circle cx="126" cy="102" r="4.5" fill="currentColor" />
+												</svg>
+											)}
+											{idx === 1 && (
+												<svg viewBox="0 0 160 160" class="engraving-svg">
+													<rect x="26" y="26" width="108" height="108" rx="8" fill="none" stroke="currentColor" stroke-width="1.2" />
+													<line x1="26" y1="62" x2="134" y2="62" stroke="currentColor" stroke-width="1" />
+													<line x1="26" y1="98" x2="134" y2="98" stroke="currentColor" stroke-width="1" />
+													<path d="M 38 122 Q 72 118 88 76 T 124 38" fill="none" stroke="currentColor" stroke-width="2.2" />
+													<circle cx="88" cy="76" r="5" fill="currentColor" />
+												</svg>
+											)}
+											{idx === 2 && (
+												<svg viewBox="0 0 160 160" class="engraving-svg">
+													<circle cx="52" cy="80" r="28" fill="none" stroke="currentColor" stroke-width="1.4" />
+													<circle cx="108" cy="80" r="28" fill="none" stroke="currentColor" stroke-width="1.4" />
+													<line x1="52" y1="52" x2="108" y2="108" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+													<line x1="52" y1="108" x2="108" y2="52" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+													<circle cx="80" cy="80" r="7" fill="currentColor" />
+												</svg>
+											)}
+										</div>
+
+										<div class="cover-bottom-title">
+											<strong>{book.titleZh.split("：")[0]}</strong>
+											<small>{book.titleEn.split(":")[0]}</small>
+										</div>
+									</div>
+								</div>
+							</a>
+
+							<!-- 右侧：书稿详情、卷目结构与进入阅读器 -->
+							<div class="book-details-col">
+								<div class="book-badges-row">
+									<span class="edition-pill">
+										<Text zh={book.editionBadgeZh} en={book.editionBadgeEn} />
+									</span>
+									<span class="volume-count-pill">
+										{book.volumes.length} <Text zh="卷" en="Volumes" /> · {chapterCount} <Text zh="章" en="Chapters" />
+									</span>
+								</div>
+
+								<h2 class="book-main-title">
+									<a href={`/books/${book.id}/`}>
+										<Text zh={book.titleZh} en={book.titleEn} />
+									</a>
+								</h2>
+
+								<p class="book-subtitle">
+									<Text zh={book.subtitleZh} en={book.subtitleEn} />
+								</p>
+
+								<blockquote class="book-epigraph">
+									<Text zh={book.epigraphZh} en={book.epigraphEn} />
+								</blockquote>
+
+								<p class="book-abstract">
+									<Text zh={book.abstractZh} en={book.abstractEn} />
+								</p>
+
+								<!-- 分卷速览网格 -->
+								<div class="volumes-preview-grid">
+									{book.volumes.map((vol) => (
+										<a href={`/books/${book.id}/#${vol.volNum.split(" ")[0]}`} class="vol-chip">
+											<span class="vol-num">{vol.volNum.split(" · ")[0]}</span>
+											<span class="vol-name">
+												<Text zh={vol.titleZh} en={vol.titleEn} />
+											</span>
+											<span class="vol-ch-count">{vol.chapters.length} 章</span>
+										</a>
+									))}
+								</div>
+
+								<div class="book-actions-row">
+									<a href={`/books/${book.id}/`} class="enter-reader-btn">
+										📖 <Text zh="翻阅全书目录与交互阅读器" en="Open Interactive Monograph Reader" /> →
+									</a>
+									<div class="completion-bar-wrap">
+										<span class="comp-lbl">
+											<Text zh={`书稿完成度 ${book.completionPercent}%`} en={`Manuscript ${book.completionPercent}% Complete`} />
+										</span>
+										<div class="comp-track">
+											<div class="comp-fill" style={`width: ${book.completionPercent}%;`}></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					);
+				})}
+			</section>
+		</main>
+	</div>
+</Layout>
+
+<style>
+	.bookshelf-page {
+		min-height: 100vh;
+		background: var(--brand-paper, #f6f4ee);
+		color: var(--brand-ink, #17211c);
+	}
+
+	.bookshelf-container {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 0 5vw 96px;
+	}
+
+	.explore-subnav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+		padding: 22px 0;
+		margin-bottom: 36px;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+		font-size: 12px;
+	}
+
+	.explore-subnav a {
+		color: var(--brand-muted, #5c6b63);
+		text-decoration: none;
+	}
+
+	.explore-subnav a[aria-current],
+	.explore-subnav a:hover {
+		color: var(--brand-accent, #2f6b56);
+		text-decoration: underline;
+		text-underline-offset: 6px;
+	}
+
+	.bookshelf-hero {
+		margin-bottom: 52px;
+		padding-bottom: 36px;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+	}
+
+	.hero-kicker {
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		color: var(--brand-accent, #2f6b56);
+		margin: 0 0 10px;
+	}
+
+	.hero-title {
+		font-family: var(--font-display, "Newsreader", "Songti SC", serif);
+		font-size: clamp(2.2rem, 4vw, 3.2rem);
+		margin: 0 0 16px;
+		line-height: 1.15;
+	}
+
+	.hero-lead {
+		max-width: 780px;
+		font-size: 16px;
+		line-height: 1.75;
+		color: var(--brand-body, #334139);
+		margin: 0 0 24px;
+	}
+
+	.shelf-stats-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	.stat-pill {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 8px;
+		padding: 8px 16px;
+		border-radius: 999px;
+		background: var(--brand-surface, rgba(255, 255, 255, 0.72));
+		border: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+		font-size: 13px;
+	}
+
+	.stat-pill strong {
+		font-family: var(--font-mono, monospace);
+		font-size: 17px;
+		color: var(--brand-accent, #2f6b56);
+	}
+
+	.books-showcase {
+		display: flex;
+		flex-direction: column;
+		gap: 44px;
+	}
+
+	.monograph-showcase-card {
+		display: grid;
+		grid-template-columns: 260px 1fr;
+		gap: 40px;
+		padding: 36px;
+		border-radius: 20px;
+		background: var(--brand-surface, rgba(255, 255, 255, 0.8));
+		border: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+		box-shadow: 0 18px 42px rgba(20, 30, 24, 0.05);
+		align-items: start;
+	}
+
+	@media (max-width: 860px) {
+		.monograph-showcase-card {
+			grid-template-columns: 1fr;
+			padding: 24px;
+		}
+	}
+
+	/* 3D 精装书模组 */
+	.book-artifact-link {
+		text-decoration: none;
+		display: block;
+		perspective: 900px;
+	}
+
+	.book-3d-wrap {
+		display: flex;
+		width: 230px;
+		height: 320px;
+		margin: 0 auto;
+		border-radius: 6px 14px 14px 6px;
+		box-shadow:
+			-8px 12px 28px rgba(0, 0, 0, 0.18),
+			inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+		overflow: hidden;
+	}
+
+	.book-artifact-link:hover .book-3d-wrap {
+		transform: rotateY(-10deg) translateY(-6px);
+		box-shadow: -14px 20px 38px rgba(0, 0, 0, 0.24);
+	}
+
+	.book-spine-edge {
+		width: 26px;
+		background: var(--book-spine, #1d4436);
+		color: rgba(255, 255, 255, 0.78);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-right: 1px solid rgba(255, 255, 255, 0.18);
+	}
+
+	.spine-roman {
+		writing-mode: vertical-rl;
+		font-family: var(--font-mono, monospace);
+		font-size: 10px;
+		letter-spacing: 0.18em;
+	}
+
+	.book-front-cover {
+		flex: 1;
+		background: linear-gradient(155deg, var(--book-accent, #2f6b56), var(--book-spine, #1d4436));
+		color: #f8fafc;
+		padding: 20px 18px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	.cover-top-meta {
+		display: flex;
+		justify-content: space-between;
+		font-family: var(--font-mono, monospace);
+		font-size: 10px;
+		opacity: 0.8;
+		letter-spacing: 0.08em;
+	}
+
+	.cover-engraving {
+		width: 128px;
+		height: 128px;
+		margin: 0 auto;
+		color: rgba(255, 255, 255, 0.88);
+	}
+
+	.engraving-svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.cover-bottom-title {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		border-top: 1px solid rgba(255, 255, 255, 0.22);
+		padding-top: 12px;
+	}
+
+	.cover-bottom-title strong {
+		font-size: 16px;
+		line-height: 1.25;
+	}
+
+	.cover-bottom-title small {
+		font-size: 10.5px;
+		opacity: 0.78;
+		line-height: 1.3;
+	}
+
+	/* 右侧详情 */
+	.book-badges-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-bottom: 12px;
+	}
+
+	.edition-pill {
+		font-size: 11.5px;
+		font-weight: 700;
+		padding: 4px 11px;
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--book-accent) 14%, transparent);
+		color: var(--book-accent);
+	}
+
+	.volume-count-pill {
+		font-size: 11.5px;
+		font-family: var(--font-mono, monospace);
+		padding: 4px 11px;
+		border-radius: 999px;
+		background: rgba(120, 140, 130, 0.12);
+	}
+
+	.book-main-title {
+		font-family: var(--font-display, "Newsreader", "Songti SC", serif);
+		font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+		margin: 0 0 8px;
+		line-height: 1.25;
+	}
+
+	.book-main-title a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.book-main-title a:hover {
+		color: var(--book-accent);
+	}
+
+	.book-subtitle {
+		font-size: 14.5px;
+		color: var(--brand-muted, #5c6b63);
+		margin: 0 0 16px;
+	}
+
+	.book-epigraph {
+		margin: 0 0 16px;
+		padding: 12px 16px;
+		border-left: 3px solid var(--book-accent);
+		background: rgba(120, 140, 130, 0.06);
+		border-radius: 0 8px 8px 0;
+		font-size: 14px;
+		font-style: italic;
+		line-height: 1.65;
+	}
+
+	.book-abstract {
+		font-size: 14.5px;
+		line-height: 1.7;
+		margin: 0 0 20px;
+	}
+
+	.volumes-preview-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 10px;
+		margin-bottom: 24px;
+	}
+
+	.vol-chip {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		padding: 10px 12px;
+		border-radius: 10px;
+		background: rgba(120, 140, 130, 0.06);
+		border: 1px solid rgba(120, 140, 130, 0.14);
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.2s, transform 0.2s;
+	}
+
+	.vol-chip:hover {
+		border-color: var(--book-accent);
+		transform: translateY(-2px);
+	}
+
+	.vol-num {
+		font-size: 10.5px;
+		font-family: var(--font-mono, monospace);
+		color: var(--book-accent);
+		font-weight: 700;
+	}
+
+	.vol-name {
+		font-size: 13px;
+		font-weight: 600;
+	}
+
+	.vol-ch-count {
+		font-size: 11px;
+		color: var(--brand-muted, #64748b);
+	}
+
+	.book-actions-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 16px;
+		padding-top: 16px;
+		border-top: 1px dashed rgba(120, 140, 130, 0.25);
+	}
+
+	.enter-reader-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 11px 20px;
+		border-radius: 10px;
+		background: var(--book-accent);
+		color: #fff;
+		font-size: 14px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	.enter-reader-btn:hover {
+		opacity: 0.92;
+	}
+
+	.completion-bar-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		min-width: 180px;
+	}
+
+	.comp-lbl {
+		font-size: 11.5px;
+		font-family: var(--font-mono, monospace);
+		color: var(--brand-muted, #64748b);
+	}
+
+	.comp-track {
+		height: 6px;
+		border-radius: 99px;
+		background: rgba(120, 140, 130, 0.18);
+		overflow: hidden;
+	}
+
+	.comp-fill {
+		height: 100%;
+		background: var(--book-accent);
+	}
+</style>

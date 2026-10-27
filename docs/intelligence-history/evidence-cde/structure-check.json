@@ -1,0 +1,11 @@
+{
+  "localLinks": 1860,
+  "svgDocuments": 24,
+  "missing": [],
+  "baselineSHA256": "all four snapshots unchanged",
+  "cdeClaims": 129,
+  "cdeRelations": 51,
+  "questionCards": 9,
+  "revisits": 9,
+  "notes": "Local paths and SVG XML checked; external source scopes are documented per source, not inferred from download status."
+}

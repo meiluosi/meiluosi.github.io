@@ -1,72 +1,124 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import type { ConceptGraph } from "@/utils/article-concept-graph";
-	let { graph, english = false }: { graph: ConceptGraph; english?: boolean } = $props();
-	let depth = $state(2);
-	let branch = $state("root");
-	let selected = $state("root");
-	let query = $state("");
-	let zoom = $state(1);
-	let svg: SVGSVGElement;
-	let compact = $state(false);
-	const nodeWidth = $derived(compact ? 196 : 218);
-	onMount(() => {
-		const media = window.matchMedia("(max-width: 640px)");
-		const update = () => { compact = media.matches; };
-		update(); media.addEventListener("change", update);
-		return () => media.removeEventListener("change", update);
-	});
-	const levels = $derived.by(() => {
-		const map = new Map<string, number>([["root", 0]]);
-		for (const node of graph.nodes) map.set(node.id, node.parent ? (map.get(node.parent) ?? 0) + 1 : 0);
-		return map;
-	});
-	const maxDepth = $derived(Math.max(1, ...levels.values()));
-	const layout = $derived.by(() => {
-		const visible = new Set(graph.nodes.filter(n => (levels.get(n.id) ?? 0) <= depth).map(n => n.id));
-		if (branch !== "root") {
-			for (const id of [...visible]) {
-				let current = graph.nodes.find(n => n.id === id);
-				while (current && current.id !== branch && current.parent) current = graph.nodes.find(n => n.id === current?.parent);
-				if (id !== "root" && current?.id !== branch) visible.delete(id);
+import { onMount } from "svelte";
+import type { ConceptGraph } from "@/utils/article-concept-graph";
+
+let { graph, english = false }: { graph: ConceptGraph; english?: boolean } =
+	$props();
+let depth = $state(2);
+let branch = $state("root");
+let selected = $state("root");
+let query = $state("");
+let zoom = $state(1);
+let svg: SVGSVGElement;
+let compact = $state(false);
+const nodeWidth = $derived(compact ? 196 : 218);
+onMount(() => {
+	const media = window.matchMedia("(max-width: 640px)");
+	const update = () => {
+		compact = media.matches;
+	};
+	update();
+	media.addEventListener("change", update);
+	return () => media.removeEventListener("change", update);
+});
+const levels = $derived.by(() => {
+	const map = new Map<string, number>([["root", 0]]);
+	for (const node of graph.nodes)
+		map.set(node.id, node.parent ? (map.get(node.parent) ?? 0) + 1 : 0);
+	return map;
+});
+const maxDepth = $derived(Math.max(1, ...levels.values()));
+const layout = $derived.by(() => {
+	const visible = new Set(
+		graph.nodes
+			.filter((n) => (levels.get(n.id) ?? 0) <= depth)
+			.map((n) => n.id),
+	);
+	if (branch !== "root") {
+		for (const id of [...visible]) {
+			let current = graph.nodes.find((n) => n.id === id);
+			while (current && current.id !== branch && current.parent)
+				current = graph.nodes.find((n) => n.id === current?.parent);
+			if (id !== "root" && current?.id !== branch) visible.delete(id);
+		}
+	}
+	if (query.trim()) {
+		visible.clear();
+		visible.add("root");
+		for (const n of graph.nodes.filter((n) =>
+			n.label.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim()),
+		)) {
+			let current: typeof n | undefined = n;
+			while (current) {
+				visible.add(current.id);
+				current = graph.nodes.find((p) => p.id === current?.parent);
 			}
 		}
-		if (query.trim()) {
-			visible.clear(); visible.add("root");
-			for (const n of graph.nodes.filter(n => n.label.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim()))) {
-				let current: typeof n | undefined = n;
-				while (current) { visible.add(current.id); current = graph.nodes.find(p => p.id === current?.parent); }
-			}
-		}
-		let row = 0;
-		const positions = new Map<string, { x: number; y: number }>();
-		function visit(id: string) {
-			const children = graph.nodes.filter(n => n.parent === id && visible.has(n.id)).sort((a,b) => Number(a.kind === "concept") - Number(b.kind === "concept"));
-			const y = 45 + row++ * 86;
-			positions.set(id, { x: (compact ? 12 : 24) + (levels.get(id) ?? 0) * (compact ? 18 : 270), y });
-			for (const child of children) visit(child.id);
-		}
-		visit("root");
-		return { nodes: graph.nodes.filter(n => visible.has(n.id)).map(n => ({ ...n, ...positions.get(n.id)! })), positions, height: Math.max(160, row * 86 + 30), width: (compact ? 224 : 280) + Math.max(...[...visible].map(id => levels.get(id) ?? 0)) * (compact ? 18 : 270) };
-	});
-	const active = $derived(graph.nodes.find(n => n.id === selected) ?? graph.nodes[0]);
-	function wrap(label: string): string[] {
-		const lines: string[] = []; let line = ""; let width = 0;
-		for (const char of label) {
-			const size = /[^\x00-\x7f]/.test(char) ? 2 : 1;
-			if (width + size > (compact ? 24 : 27)) { lines.push(line); line = ""; width = 0; }
-			line += char; width += size;
-		}
-		if (line) lines.push(line);
-		return [lines[0] || "", (lines[1] || "") + (lines.length > 2 ? "…" : "")];
 	}
-	function download() {
-		const copy = svg.cloneNode(true) as SVGSVGElement;
-		copy.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-		copy.setAttribute("width", String(layout.width)); copy.setAttribute("height", String(layout.height));
-		const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(copy)], { type: "image/svg+xml" }));
-		const a = document.createElement("a"); a.href = url; a.download = "article-concepts.svg"; a.click(); URL.revokeObjectURL(url);
+	let row = 0;
+	const positions = new Map<string, { x: number; y: number }>();
+	function visit(id: string) {
+		const children = graph.nodes
+			.filter((n) => n.parent === id && visible.has(n.id))
+			.sort(
+				(a, b) => Number(a.kind === "concept") - Number(b.kind === "concept"),
+			);
+		const y = 45 + row++ * 86;
+		positions.set(id, {
+			x: (compact ? 12 : 24) + (levels.get(id) ?? 0) * (compact ? 18 : 270),
+			y,
+		});
+		for (const child of children) visit(child.id);
 	}
+	visit("root");
+	return {
+		nodes: graph.nodes
+			.filter((n) => visible.has(n.id))
+			.map((n) => ({ ...n, ...positions.get(n.id)! })),
+		positions,
+		height: Math.max(160, row * 86 + 30),
+		width:
+			(compact ? 224 : 280) +
+			Math.max(...[...visible].map((id) => levels.get(id) ?? 0)) *
+				(compact ? 18 : 270),
+	};
+});
+const active = $derived(
+	graph.nodes.find((n) => n.id === selected) ?? graph.nodes[0],
+);
+function wrap(label: string): string[] {
+	const lines: string[] = [];
+	let line = "";
+	let width = 0;
+	for (const char of label) {
+		const size = /[^\x00-\x7f]/.test(char) ? 2 : 1;
+		if (width + size > (compact ? 24 : 27)) {
+			lines.push(line);
+			line = "";
+			width = 0;
+		}
+		line += char;
+		width += size;
+	}
+	if (line) lines.push(line);
+	return [lines[0] || "", (lines[1] || "") + (lines.length > 2 ? "…" : "")];
+}
+function download() {
+	const copy = svg.cloneNode(true) as SVGSVGElement;
+	copy.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+	copy.setAttribute("width", String(layout.width));
+	copy.setAttribute("height", String(layout.height));
+	const url = URL.createObjectURL(
+		new Blob([new XMLSerializer().serializeToString(copy)], {
+			type: "image/svg+xml",
+		}),
+	);
+	const a = document.createElement("a");
+	a.href = url;
+	a.download = "article-concepts.svg";
+	a.click();
+	URL.revokeObjectURL(url);
+}
 </script>
 
 {#if graph.nodes.length > 1}

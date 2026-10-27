@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-28",
+  "downloads": [
+    {
+      "id": "borsboom",
+      "url": "https://dennyborsboom.com/wp-content/uploads/2017/01/borsboomvalidity2004.pdf",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "pdf",
+      "pages": 11,
+      "sha256": "1b16b15d036d8ec5d6f06dbfd864cc8a2d6bafb65fc1df8f45062a00c478dee8"
+    },
+    {
+      "id": "woolley",
+      "url": "https://www.chabris.com/Woolley2010a.pdf",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "pdf",
+      "pages": 3,
+      "sha256": "0b18e5db558187dd85308766e337def66a2638218affa5d1e0aa9a4dc5070f56"
+    },
+    {
+      "id": "woolley-som",
+      "url": "https://www.chabris.com/Woolley2010b.pdf",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "pdf",
+      "pages": 13,
+      "sha256": "6d896015460ded142fd0174ef9a1a7339a71fb69aa9e7b5ca6630ddaf038ab8a"
+    },
+    {
+      "id": "bates",
+      "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/30119288/BatesGruptaI2016SmartGroupsOfSmartPeople.pdf",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "pdf",
+      "pages": 21,
+      "sha256": "62af65cc7cd59797a3a52da770e3938e7c473c7bc345a2e12dd4f1974d08b7a9"
+    },
+    {
+      "id": "chollet",
+      "url": "https://arxiv.org/pdf/1911.01547v2",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "pdf",
+      "pages": 64,
+      "sha256": "773b9ecec3df33e664ab5a784f9e48818e7fd0d8e211b3243f4f4e0fdecb2fee"
+    },
+    {
+      "id": "jonas",
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005268&type=printable",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "pdf",
+      "pages": 24,
+      "sha256": "9aa4f4db91746959b880843c05b3d3f5a62b75cba5bfc903d6581bb2ae3c81f6"
+    },
+    {
+      "id": "barbey",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326251/",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "html",
+      "sha256": "b5a3bcd0f6ec0a32bd9366a9807cc5fa27d02d7da49ad059d81fc1fd7ebb4df2",
+      "bytes": 263505
+    },
+    {
+      "id": "riedl",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8166150/",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "html",
+      "sha256": "783ff493553ec76bf341b289fe40137f2c4fa794781855ad20a518da88eccbe7",
+      "bytes": 160609
+    },
+    {
+      "id": "correction",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9171794/",
+      "exit": 0,
+      "checkedAt": "2026-10-28",
+      "kind": "html",
+      "sha256": "8692042558c1d91383d3e631e14b4eabbe2cbf9279181a9857857f5d676f3c8a",
+      "bytes": 92961
+    }
+  ],
+  "webOnly": [
+    {
+      "id": "maas-2006",
+      "url": "https://www.researchgate.net/publication/289963376_A_dynamical_model_of_general_intelligence_The_positive_manifold_of_intelligence_by_mutualism",
+      "status": "selected-author-text",
+      "readScope": "正文842–843的psychometric／psychological g区分；844模型引入段；845页脚注7；855–856讨论与批评段。页码来自转录保留的原刊页标。",
+      "download": "web工具点击PDF失败；改读作者公开正文转录。"
+    }
+  ],
+  "failures": [
+    "sandbox curl DNS失败；获准网络后下载公开原文。",
+    "PMC页面部分web请求返回验证页；公开curl入口取得正文后读取，不绕过认证。"
+  ],
+  "note": "文件取得不代表读完。逐篇实际阅读范围以research.json为准；原文全文只留临时目录。"
+}

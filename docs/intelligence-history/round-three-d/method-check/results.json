@@ -1,0 +1,112 @@
+{
+  "batch": "d",
+  "status": "synthetic-verified",
+  "protocolSHA256": "5350c1451baf771669af02d41107a04f4c6d3b6baffca5481875fdcbd138ced7",
+  "implementationSHA256": "9b455fbd8882727fea399e022171f8714c7167b5df39baf1c508f176b01365ff",
+  "result": {
+    "cases": {
+      "independent": {
+        "n": 4,
+        "variance": "1/4",
+        "covariance": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "enumeratedStates": 16
+      },
+      "shared": {
+        "n": 4,
+        "variance": "1",
+        "covariance": [
+          [
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        ],
+        "enumeratedStates": 2
+      },
+      "mixed": {
+        "n": 4,
+        "variance": "5/8",
+        "covariance": [
+          [
+            "1",
+            "1/2",
+            "1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1",
+            "1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2",
+            "1",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2",
+            "1/2",
+            "1"
+          ]
+        ],
+        "enumeratedStates": 32
+      }
+    },
+    "n16IndependentVariance": "1/16",
+    "n16SharedVariance": "1",
+    "n16EnumeratedStates": 65536,
+    "checks": [
+      "四人个体方差均为1",
+      "枚举、协方差求和与解析式相同",
+      "共享误差不随人数下降",
+      "独立误差16人方差为1/16"
+    ]
+  }
+}

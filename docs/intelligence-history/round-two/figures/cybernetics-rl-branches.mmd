@@ -1,0 +1,25 @@
+%% 箭头种类必须保留；无连线不代表无关联。
+flowchart TB
+    subgraph g0["调节边界"]
+        e_ashby_1956["1956 Ashby：调节者需要多少选择？"]
+        e_conant_ashby_1970["1970 好调节器：模型究竟意味着什么？"]
+    end
+    subgraph g1["价值学习"]
+        e_sutton_1988["1988 TD：可以在结局到来之前学习吗？"]
+        e_watkins_dayan_1992["1992 Q-learning：不先建环境模型也能学控制"]
+    end
+    subgraph g2["策略学习"]
+        e_williams_1992["1992 REINFORCE：直接调整动作概率"]
+    end
+    subgraph g3["反例与修正"]
+        e_baird_1995["1995 Baird：共享参数为何能令价值学习发散？"]
+    end
+    subgraph g4["主动推断"]
+        e_friston_2015["2015 主动推断：为什么先去看线索？"]
+    end
+    subgraph g5["模型与规划"]
+        e_schrittwieser_2019["2019 MuZero：只预测规划需要的东西"]
+    end
+    e_sutton_1988 -- 明确的方法联系 --> e_watkins_dayan_1992
+    e_watkins_dayan_1992 -- 回应／批评 --> e_baird_1995
+    e_conant_ashby_1970 -. 本站比较 .-> e_schrittwieser_2019

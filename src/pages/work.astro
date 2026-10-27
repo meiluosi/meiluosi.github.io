@@ -1,23 +1,20 @@
 ---
+import { getCollection } from "astro:content";
 import Text from "@/components/common/BilingualText.astro";
 import ResearchVisual from "@/components/features/ResearchVisual.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import { researchArchive } from "@/data/researchArchive";
-import { researchThreads } from "@/data/researchThreads";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
 import { getSortedPosts } from "@/utils/content-utils";
 
-const posts = (await getSortedPosts()).filter((post) => !post.data.draft && !post.data.password);
+const posts = (await getSortedPosts()).filter(
+	(post) => !post.data.draft && !post.data.password,
+);
 const englishPosts = await getCollection("enPosts");
-const tracks = researchThreads;
 const getPostUrl = (id: string) => `/posts/${id.replace(/\.mdx?$/, "")}/`;
 const normalize = (value: string) =>
 	value.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
-const hasEnglishTranslation = (postId: string) =>
-	englishPosts.some(
-		(entry) => entry.data.sourceId === postId.replace(/\.mdx?$/, ""),
-	);
+
 const archive = researchArchive.flatMap((item) => {
 	const post = posts.find((entry) =>
 		normalize(entry.id).includes(normalize(item.match)),
@@ -40,125 +37,485 @@ const archive = researchArchive.flatMap((item) => {
 });
 ---
 
-<Layout title="作品 — 枫语" titleEn="Work — Feng Yu" description="一些动手做的尝试：能拨弄的几何、模型工作台，以及学习过程中的研究记录。" descriptionEn="Things I’ve tried making: geometry to play with, a model workbench, and research notes along the way.">
+<Layout
+	title="作品 — 枫语"
+	titleEn="Work — Feng Yu"
+	description="工程代表作、算法复现案例与模型工作台实现记录。"
+	descriptionEn="Engineering case studies, algorithm reproductions, and model workbench implementations."
+>
 	<div class="work-page" data-brand-motion>
 		<Navbar />
-		<header class="work-hero compact-page-heading"><h1 data-motion-intro><Text zh="研究项目与工程实践" en="Research and engineering projects" /></h1></header>
+		<header class="work-hero compact-page-heading">
+			<h1 data-motion-intro>
+				<Text zh="工程实践与案例档案" en="Engineering & Case Studies" />
+			</h1>
+			<p class="lead">
+				<Text
+					zh="这里专门收录从零复现的工程代表作与实验案例（每个案例均包含问题定义、关键指标与开源代码实现）。若你想阅读体系化的长篇研究与理论综述，请前往「书稿与专著」或「智能路线」。"
+					en="Focused strictly on hands-on engineering reproductions and empirical case studies. For multi-volume theoretical monographs and the 20 intelligence paradigms, visit Living Books or the Route Atlas."
+				/>
+			</p>
+		</header>
+
 		<main id="swup-container">
-
-
-		<section class="research-archive" id="research-archive"><div class="track-top" data-motion-reveal><span>SELECTED RESEARCH LOGS</span><span>PROJECTS · IMPLEMENTATIONS · SIMULATIONS</span></div><div class="archive-intro" data-motion-reveal><h2 data-i18n="work.archive.heading">研究项目</h2><p data-i18n="work.archive.intro">从本地模型工作流到自我对弈、博弈学习与因果分析。每个案例都从一个具体问题出发，并继续通向下一次实验。</p></div><div class="archive-grid">{archive.map((item) => <article class="archive-card" data-motion-hover data-motion-reveal><div class="archive-visual"><ResearchVisual kind={item.caseSlug === "local-1b-model-workflow" ? "model" : item.caseSlug === "alphazero-gomoku" ? "search" : item.caseSlug === "kuhn-poker-cfr" ? "cfr" : "causal"} /></div><div class="archive-meta"><span class="archive-kind" data-i18n={`archive.${item.match}.kind`} data-i18n-zh={item.kindZh} data-i18n-en={item.kind}>{item.kindZh}</span><span class="archive-thread" data-i18n={`archive.${item.match}.thread`} data-i18n-zh={item.threadZh} data-i18n-en={item.thread}>{item.threadZh}</span><span class="archive-status" data-i18n={`archive.${item.match}.status`} data-i18n-zh={item.statusZh} data-i18n-en={item.status}>{item.statusZh}</span></div><h3 data-i18n={`archive.${item.match}.title`} data-i18n-zh={item.post.data.title} data-i18n-en={item.titleEn}>{item.post.data.title}</h3><p data-i18n={`archive.${item.match}.summary`} data-i18n-zh={item.summary} data-i18n-en={item.summaryEn}>{item.summary}</p><ul class="archive-evidence">{item.evidence.map((fact: string, evidenceIndex: number) => <li data-i18n={`archive.${item.match}.evidence.${evidenceIndex}`} data-i18n-zh={fact} data-i18n-en={item.evidenceEn[evidenceIndex]}>{fact}</li>)}</ul><div class="archive-links"><a class="archive-link case-link" href={item.caseHref} data-i18n-href-zh={item.caseHref} data-i18n-href-en={item.caseHref}><span data-i18n="work.openCase" data-i18n-zh="查看案例" data-i18n-en="OPEN CASE">查看案例</span> <b>↗</b></a><a class="archive-link" href={item.href} data-i18n-href-zh={item.href} data-i18n-href-en={item.hrefEn}><span data-i18n="work.source">查看原文</span> <b>↗</b></a></div></article>)}</div></section>
-			{tracks.map((track) => {
-				const related = posts
-					.filter((post) =>
-						track.searchTerms.some((term: string) =>
-							`${post.data.title} ${post.data.tags.join(" ")}`
-								.toLowerCase()
-								.includes(term.toLowerCase()),
-						),
-					)
-					.sort(
-						(left, right) =>
-							Number(hasEnglishTranslation(right.id)) -
-							Number(hasEnglishTranslation(left.id)),
-					)
-					.slice(0, 3)
-					.map((post) => {
-						const translation = englishPosts.find(
-							(entry) =>
-								entry.data.sourceId === post.id.replace(/\.mdx?$/, ""),
-						);
-						const href = getPostUrl(post.id);
-						return {
-							post,
-							translationAvailable: Boolean(translation),
-							href,
-							title: post.data.title,
-							titleKey: `work.related.${track.i18nKey}`,
-							titleZh: post.data.title,
-							titleEn: translation?.data.title ?? post.data.title,
-							hrefEn: translation
-								? `/en/posts/${translation.data.slug}/`
-								: href,
-						};
-					});
-				return (
-					<section class="track" id={track.id}>
-						<div class="track-top" data-motion-reveal>
-			<span>{track.number} / {track.workName}</span>
-							<span>ONE LONG-TERM QUESTION</span>
-						</div>
-						<div class="track-grid">
-						<h2 data-i18n={`work.track.${track.i18nKey}.title`} data-i18n-zh={track.workTitle} data-i18n-en={track.workTitleEn}>
-							{track.workTitle}
-							</h2>
-							<div class="track-copy">
-								<p data-i18n={`work.track.${track.i18nKey}.text`} data-i18n-zh={track.workText} data-i18n-en={track.workTextEn}>
-									{track.workText}
-								</p>
-								<div class="tags">
-									{track.workTags.map((tag: string) => <span>{tag}</span>)}
-								</div>
+			<section class="research-archive" id="research-archive">
+				<div class="track-top" data-motion-reveal>
+					<span>SELECTED ENGINEERING CASE STUDIES</span>
+					<span>IMPLEMENTATIONS · REPRODUCTIONS · BENCHMARKS</span>
+				</div>
+				<div class="archive-intro" data-motion-reveal>
+					<h2 data-i18n="work.archive.heading">代表性工程案例</h2>
+					<p data-i18n="work.archive.intro">
+						从本地 1B 语言模型全链路训练、AlphaZero 自我对弈五子棋，到不完全信息博弈 CFR 与因果效应推断。每个案例都始于一个可证伪的工程问题。
+					</p>
+				</div>
+				<div class="archive-grid">
+					{archive.map((item) => (
+						<article class="archive-card" data-motion-hover data-motion-reveal>
+							<div class="archive-visual">
+								<ResearchVisual
+									kind={
+										item.caseSlug === "local-1b-model-workflow"
+											? "model"
+											: item.caseSlug === "alphazero-gomoku"
+												? "search"
+												: item.caseSlug === "kuhn-poker-cfr"
+													? "cfr"
+													: "causal"
+									}
+								/>
 							</div>
-						</div>
-						{related.length > 0 && (
-							<div class="related">
-								<span class="related-label">FROM THE NOTEBOOK</span>
-								{track.id === "causal-inference" && <a href="/lab/causal-playground/"><span data-i18n="work.lab" data-i18n-zh="互动实验：因果效应与选择偏差实验" data-i18n-en="Interactive experiment: correlation or causation?">互动实验：因果效应与选择偏差实验</span><span>↗</span></a>}
-								{related.map(
-									({ href, hrefEn, translationAvailable, title, titleKey, titleZh, titleEn }) => (
-									<a
-										href={href}
-										data-i18n-href-zh={href}
-										data-i18n-href-en={hrefEn}
-										data-hide-in-en={!translationAvailable}
+							<div class="archive-meta">
+								<span
+									class="archive-kind"
+									data-i18n={`archive.${item.match}.kind`}
+									data-i18n-zh={item.kindZh}
+									data-i18n-en={item.kind}
+								>
+									{item.kindZh}
+								</span>
+								<span
+									class="archive-thread"
+									data-i18n={`archive.${item.match}.thread`}
+									data-i18n-zh={item.threadZh}
+									data-i18n-en={item.thread}
+								>
+									{item.threadZh}
+								</span>
+								<span
+									class="archive-status"
+									data-i18n={`archive.${item.match}.status`}
+									data-i18n-zh={item.statusZh}
+									data-i18n-en={item.status}
+								>
+									{item.statusZh}
+								</span>
+							</div>
+							<h3
+								data-i18n={`archive.${item.match}.title`}
+								data-i18n-zh={item.post.data.title}
+								data-i18n-en={item.titleEn}
+							>
+								{item.post.data.title}
+							</h3>
+							<p
+								data-i18n={`archive.${item.match}.summary`}
+								data-i18n-zh={item.summary}
+								data-i18n-en={item.summaryEn}
+							>
+								{item.summary}
+							</p>
+							<ul class="archive-evidence">
+								{item.evidence.map((fact: string, evidenceIndex: number) => (
+									<li
+										data-i18n={`archive.${item.match}.evidence.${evidenceIndex}`}
+										data-i18n-zh={fact}
+										data-i18n-en={item.evidenceEn[evidenceIndex]}
 									>
-										<span
-											data-i18n={titleKey}
-											data-i18n-zh={titleZh}
-											data-i18n-en={titleEn}
-										>
-											{title}
-										</span>
-										<span>↗</span>
-									</a>
-									),
-								)}
+										{fact}
+									</li>
+								))}
+							</ul>
+							<div class="archive-links">
+								<a
+									class="archive-link case-link"
+									href={item.caseHref}
+									data-i18n-href-zh={item.caseHref}
+									data-i18n-href-en={item.caseHref}
+								>
+									<span
+										data-i18n="work.openCase"
+										data-i18n-zh="查看案例"
+										data-i18n-en="OPEN CASE"
+									>
+										查看案例
+									</span>{" "}
+									<b>↗</b>
+								</a>
+								<a
+									class="archive-link"
+									href={item.href}
+									data-i18n-href-zh={item.href}
+									data-i18n-href-en={item.hrefEn}
+								>
+									<span data-i18n="work.source">查看原文</span> <b>↗</b>
+								</a>
 							</div>
-						)}
-					</section>
-				);
-			})}
+						</article>
+					))}
+				</div>
+			</section>
+
+			<!-- 体系化专著与交互实验室聚合导览（替代旧版重复的研究线索列表） -->
+			<section class="work-System-bridge">
+				<div class="track-top">
+					<span>SYSTEMATIC MONOGRAPHS & INTERACTIVE LABS</span>
+					<span>WHERE CODE MEETS THEORY</span>
+				</div>
+				<div class="bridge-grid">
+					<a href="/books/" class="bridge-card">
+						<span class="bridge-kicker">LIVING BOOKS · 3 MONOGRAPHS</span>
+						<h3>
+							<Text
+								zh="书稿与交互专著馆藏"
+								en="Living Books & Interactive Monographs"
+							/>
+						</h3>
+						<p>
+							<Text
+								zh="将散落的工程实现整编为三部体系化专著：《何谓智能：20 条路线专著》、《从零锻造语言模型七卷本》与《果蝇全脑连接组计算实证》。"
+								en="Three multi-volume interactive monographs synthesizing theory and code: 20 Intelligence Routes, 7-Volume LLM Engineering, and the Drosophila Connectome."
+							/>
+						</p>
+						<span class="bridge-cta">
+							<Text zh="进入专著书架" en="Open Living Bookshelf" /> ↗
+						</span>
+					</a>
+
+					<a href="/lab/" class="bridge-card">
+						<span class="bridge-kicker">INTERACTIVE LAB · ESSAYS & SANDBOXES</span>
+						<h3>
+							<Text
+								zh="交互实验室与专题长卷"
+								en="Interactive Lab & Scrollytelling Essays"
+							/>
+						</h3>
+						<p>
+							<Text
+								zh="在浏览器本地直接操作 Strandbeest 风吹动力兽连杆、Transformer 五幕前向传播、RoPE 复平面日晷、Kuhn Poker CFR 与 DPO 古德哈特前沿。"
+								en="Operate Strandbeest linkages, 5-act Transformer forward pass, RoPE astrolabes, Kuhn Poker CFR, and DPO Goodhart frontiers directly in your browser."
+							/>
+						</p>
+						<span class="bridge-cta">
+							<Text zh="打开交互实验室" en="Enter Interactive Lab" /> ↗
+						</span>
+					</a>
+
+					<a href="/routes/" class="bridge-card">
+						<span class="bridge-kicker">CONCEPTUAL ATLAS · 20 PARADIGMS</span>
+						<h3>
+							<Text
+								zh="智能的 20 个路线家族与思想罗盘"
+								en="20 Intelligence Paradigms & Quadrant Compass"
+							/>
+						</h3>
+						<p>
+							<Text
+								zh="跨越行为主义、计算学习、自由能原理、具身动力学与自创生的全景思想地图，每条路线均配备专属 60fps 认知透镜。"
+								en="A cross-disciplinary atlas spanning behaviorism, computational learning, free energy, embodied dynamics, and autopoiesis — each with an interactive lens."
+							/>
+						</p>
+						<span class="bridge-cta">
+							<Text zh="探索 20 条智能路线" en="Explore 20 Routes" /> ↗
+						</span>
+					</a>
+				</div>
+			</section>
 		</main>
-		<footer class="work-footer"><Text zh="做一点，想一点，再往前一点。" en="Make a little, think a little, keep going." /><a href="/contact/"><Text zh="有想法，来聊聊" en="Have a thought? Say hello" /> ↗</a></footer>
+
+		<footer class="work-footer">
+			<Text
+				zh="做一点，想一点，再往前一点。"
+				en="Make a little, think a little, keep going."
+			/>
+			<a href="/contact/">
+				<Text zh="有想法，来聊聊" en="Have a thought? Say hello" /> ↗
+			</a>
+		</footer>
 	</div>
 	<style>
-.archive-visual{max-width:280px;width:100%;margin-bottom:22px}
+		.archive-visual {
+			max-width: 280px;
+			width: 100%;
+			margin-bottom: 22px;
+		}
+		:global(html) {
+			background: var(--brand-paper);
+			scroll-behavior: smooth;
+		}
+		:global(body) {
+			margin: 0 !important;
+			background: var(--brand-paper) !important;
+			color: var(--brand-ink) !important;
+			font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+		}
+		.work-page {
+			background: var(--brand-paper);
+			color: var(--brand-ink);
+			min-height: 100vh;
+		}
+		.work-hero {
+			position: relative;
+			padding: 68px 11vw 48px;
+			border-bottom: 1px solid rgba(37, 60, 52, 0.13);
+			background: radial-gradient(
+				ellipse at 82% 53%,
+				rgba(129, 151, 86, 0.12),
+				transparent 38%
+			);
+		}
+		.track-top,
+		.work-footer {
+			font: 13px/1.8 Inter, "PingFang SC", sans-serif;
+			color: var(--brand-muted);
+			display: flex;
+			justify-content: space-between;
+			gap: 16px;
+			flex-wrap: wrap;
+		}
+		.track-top {
+			padding-bottom: 17px;
+			border-bottom: 1px solid rgba(37, 60, 52, 0.13);
+		}
+		.track-top span:first-child {
+			color: var(--brand-accent);
+		}
+		.work-hero h1 {
+			font: 400 clamp(36px, 4.8vw, 64px) / 1.4 "Iowan Old Style", "Songti SC",
+				STSong, Georgia, serif;
+			letter-spacing: -0.025em;
+			margin: 25px 0 18px;
+			max-width: 18em;
+		}
+		.work-hero .lead {
+			max-width: 48em;
+			color: var(--brand-body);
+			font-size: 16px;
+			line-height: 1.95;
+			margin: 0;
+		}
+		.research-archive {
+			padding: 56px 11vw 68px;
+			border-bottom: 1px solid rgba(37, 60, 52, 0.13);
+			background: var(--brand-surface);
+		}
+		.archive-intro {
+			display: grid;
+			grid-template-columns: 1fr 0.8fr;
+			gap: 8vw;
+			padding: 38px 0 26px;
+		}
+		.archive-intro h2,
+		.archive-card h3 {
+			font-family: "Iowan Old Style", "Songti SC", STSong, Georgia, serif;
+			letter-spacing: -0.015em;
+			line-height: 1.5;
+			font-weight: 400;
+			margin: 0;
+		}
+		.archive-intro h2 {
+			font-size: clamp(28px, 3.3vw, 42px);
+		}
+		.archive-intro p {
+			max-width: 460px;
+			color: var(--brand-body);
+			font-size: 16px;
+			line-height: 1.95;
+			margin: 0;
+		}
+		.archive-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 16px;
+		}
+		.archive-card {
+			min-height: 210px;
+			display: flex;
+			flex-direction: column;
+			padding: 24px;
+			border: 1px solid rgba(37, 60, 52, 0.13);
+			border-radius: 12px;
+			background: var(--brand-paper);
+			color: var(--brand-ink);
+			text-decoration: none;
+			transition: border-color 0.2s, transform 0.2s;
+		}
+		.archive-card:hover {
+			border-color: rgba(65, 99, 79, 0.52);
+			transform: translateY(-3px);
+		}
+		.archive-meta {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+		.archive-kind,
+		.archive-thread,
+		.archive-status,
+		.archive-link {
+			font: 13px/1.8 Inter, "PingFang SC", sans-serif;
+		}
+		.archive-kind {
+			color: var(--brand-accent);
+		}
+		.archive-thread {
+			color: var(--brand-muted);
+		}
+		.archive-status {
+			color: var(--brand-body);
+		}
+		.archive-card h3 {
+			font-size: 24px;
+			margin: 16px 0 8px;
+		}
+		.archive-card p {
+			color: var(--brand-body);
+			font-size: 15.5px;
+			line-height: 1.9;
+			margin: 0 0 14px;
+		}
+		.archive-evidence {
+			list-style: none;
+			padding: 0;
+			margin: 0 0 16px;
+			display: grid;
+			gap: 7px;
+		}
+		.archive-evidence li {
+			position: relative;
+			padding-left: 15px;
+			color: var(--brand-body);
+			font-size: 14px;
+			line-height: 1.85;
+		}
+		.archive-evidence li:before {
+			content: "+";
+			position: absolute;
+			left: 0;
+			color: var(--brand-accent);
+			font: 11px "JetBrains Mono", monospace;
+		}
+		.archive-links {
+			display: flex;
+			gap: 18px;
+			margin-top: auto;
+			padding-top: 10px;
+		}
+		.archive-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			color: var(--brand-body);
+			text-decoration: none;
+		}
+		.archive-link.case-link {
+			color: var(--brand-accent);
+		}
+		.archive-link b {
+			color: var(--brand-accent);
+			font-weight: 400;
+		}
 
-		:global(html){background:var(--brand-paper);scroll-behavior:smooth}:global(body){margin:0!important;background:var(--brand-paper)!important;color:var(--brand-ink)!important;font-family:Inter,"Helvetica Neue",Arial,sans-serif}.work-page{background:var(--brand-paper);color:var(--brand-ink);min-height:100vh}.work-hero{position:relative;padding:68px 11vw 48px;border-bottom:1px solid rgba(37,60,52,.13);background:radial-gradient(ellipse at 82% 53%,rgba(129,151,86,.12),transparent 38%)}.eyebrow,.track-top,.related-label,.work-footer{font:9px/1.7 "JetBrains Mono",monospace;letter-spacing:.13em;color:var(--brand-muted)}.work-hero h1{font:400 clamp(36px,4.8vw,64px)/1.4 "Iowan Old Style","Songti SC",STSong,Georgia,serif;letter-spacing:-.025em;margin:25px 0 22px;max-width:18em}.work-hero h1 em{font:inherit;color:var(--brand-accent)}.work-hero :global(.lead){max-width:44em;color:var(--brand-body);font-size:16px;line-height:2}.down{margin-top:40px;font:9px "JetBrains Mono",monospace;letter-spacing:.1em;text-decoration:none;color:var(--brand-accent)}.hero-index{position:absolute;right:11vw;bottom:55px;font:9px/1.8 "JetBrains Mono",monospace;letter-spacing:.12em;text-align:right;color:var(--brand-muted)}.research-archive{padding:56px 11vw 68px;border-bottom:1px solid rgba(37,60,52,.13);background:var(--brand-surface)}.archive-intro{display:grid;grid-template-columns:1fr .8fr;gap:8vw;padding:38px 0 26px}.archive-intro h2{font-size:clamp(33px,4vw,54px);font-weight:450;letter-spacing:-.06em;margin:0}.archive-intro p{max-width:460px;color:var(--brand-body);font-size:12px;line-height:2;margin:0}.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.archive-card{min-height:210px;display:flex;flex-direction:column;padding:22px;border:1px solid rgba(37,60,52,.13);color:var(--brand-ink);text-decoration:none;transition:border-color .2s,transform .2s}.archive-card:hover{border-color:rgba(65,99,79,.52);transform:translateY(-3px)}.archive-meta{display:flex;flex-direction:column;gap:6px}.archive-kind,.archive-thread,.archive-link{font:8px "JetBrains Mono",monospace;letter-spacing:.1em}.archive-kind{color:var(--brand-accent)}.archive-thread{color:var(--brand-muted);margin-top:6px}.archive-card h3{font-size:18px;line-height:1.5;font-weight:450;margin:18px 0 8px}.archive-card p{color:var(--brand-body);font-size:11px;line-height:1.8;margin:0 0 14px}.archive-evidence{list-style:none;padding:0;margin:0 0 15px;display:grid;gap:7px}.archive-evidence li{position:relative;padding-left:13px;color:var(--brand-body);font-size:10px;line-height:1.7}.archive-evidence li:before{content:"+";position:absolute;left:0;color:var(--brand-accent);font:9px "JetBrains Mono",monospace}.archive-link{display:flex;justify-content:space-between;align-items:center;margin-top:auto;color:var(--brand-body)}.archive-link b{color:var(--brand-accent);font-size:13px;font-weight:400}.track{padding:63px 11vw 55px;border-bottom:1px solid rgba(37,60,52,.13);scroll-margin-top:25px}.track-top{display:flex;justify-content:space-between;padding-bottom:17px;border-bottom:1px solid rgba(37,60,52,.13)}.track-top span:first-child{color:var(--brand-accent)}.track-grid{display:grid;grid-template-columns:1fr .8fr;gap:8vw;padding:44px 0}.track h2{font-size:clamp(33px,4vw,55px);letter-spacing:-.06em;line-height:1.2;font-weight:450;margin:0}.track-copy p{color:var(--brand-body);font-size:13px;line-height:2.1;margin:0}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}.tags span{border:1px solid rgba(37,60,52,.17);border-radius:20px;padding:7px 11px;color:var(--brand-body);font:8px "JetBrains Mono",monospace}.related{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:7px}.related-label{font-size:8px}.related a{grid-column:2;display:flex;justify-content:space-between;gap:20px;color:var(--brand-body);text-decoration:none;border-bottom:1px solid rgba(37,60,52,.1);padding:10px 0;font-size:12px}.related a:hover{color:var(--brand-accent)}.related a span{color:var(--brand-accent)}.work-footer{padding:25px 11vw;display:flex;justify-content:space-between}.work-footer a{font:10px Inter,sans-serif;color:var(--brand-accent);text-decoration:none}@media(max-width:700px){.work-hero{padding:42px 8vw 36px}.work-hero h1{font-size:clamp(34px,7vw,48px);margin:22px 0}.work-hero :global(.lead){font-size:16px}.hero-index{right:8vw;bottom:32px;font-size:8px}.research-archive{padding:43px 8vw 48px}.archive-intro{grid-template-columns:1fr;gap:15px;padding:31px 0 21px}.archive-intro h2{font-size:35px}.archive-grid{grid-template-columns:1fr}.archive-card{min-height:190px;padding:18px}.track{padding:44px 8vw}.track-top{font-size:8px}.track-grid{grid-template-columns:1fr;gap:17px;padding:32px 0}.track h2{font-size:36px}.track-copy p{font-size:12px}.related{grid-template-columns:1fr;gap:7px}.related a{grid-column:1}.work-footer{padding:22px 8vw;font-size:8px}.work-footer a{font-size:9px}}
-		.archive-status{display:block;margin-top:2px;color:var(--brand-body);font:7px "JetBrains Mono",monospace;letter-spacing:.1em}
-		.archive-links{display:flex;gap:18px;margin-top:13px}.archive-link{margin-top:0}.archive-link.case-link{color:var(--brand-accent)}
-		.related a[hidden]{display:none}
-		.work-hero :global(.eyebrow){font:13px/1.8 Inter,"PingFang SC",sans-serif;color:var(--brand-muted);letter-spacing:0}
-		.down{display:inline-block;margin-top:22px;font:13px/1.8 Inter,"PingFang SC",sans-serif;letter-spacing:0}
-		.work-pick{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;padding:32px 11vw;border-bottom:1px solid var(--brand-line)}
-		.work-pick :global(.pick-label){font:13px/1.9 Inter,"PingFang SC",sans-serif;color:var(--brand-muted)}
-		.work-pick a{position:relative;padding-right:30px;color:var(--brand-ink);text-decoration:none}
-		.work-pick h2{font:400 27px/1.5 "Iowan Old Style","Songti SC",STSong,Georgia,serif;margin:0 0 10px}
-		.work-pick :global(p){font-size:16px;line-height:1.9;color:var(--brand-body);margin:0}
-		.pick-arrow{position:absolute;top:8px;right:0;color:var(--brand-accent)}
-		.work-pick a:hover h2{text-decoration:underline;text-underline-offset:.2em}
-		.archive-intro h2,.archive-card h3,.track h2{font-family:"Iowan Old Style","Songti SC",STSong,Georgia,serif;letter-spacing:-.015em;line-height:1.5;font-weight:400}
-		.archive-intro h2,.track h2{font-size:clamp(28px,3.3vw,42px)}
-		.archive-card h3{font-size:24px}
-		.archive-intro p,.archive-card p,.track-copy p{font-size:16px;line-height:1.95}
-		.track-top,.related-label,.archive-kind,.archive-thread,.archive-status,.archive-link,.tags span,.work-footer{font:13px/1.8 Inter,"PingFang SC",sans-serif;letter-spacing:0}
-		.archive-evidence li{font-size:14px;line-height:1.9}
-		.related a{font-size:16px;line-height:1.8}
-		.track-top,.work-footer{gap:16px;flex-wrap:wrap}
-		.work-footer a{font-size:13px;line-height:1.8}
-		@media(max-width:700px){.work-pick{grid-template-columns:minmax(0,1fr);gap:10px;padding:26px 8vw}.work-pick h2{font-size:24px}.archive-card h3{font-size:22px}.archive-links{flex-wrap:wrap}}
+		/* 体系桥接区块 */
+		.work-System-bridge {
+			padding: 56px 11vw 68px;
+			border-bottom: 1px solid rgba(37, 60, 52, 0.13);
+		}
+		.bridge-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 18px;
+			margin-top: 32px;
+		}
+		.bridge-card {
+			display: flex;
+			flex-direction: column;
+			padding: 24px;
+			border: 1px solid rgba(37, 60, 52, 0.14);
+			border-radius: 14px;
+			background: var(--brand-surface);
+			color: var(--brand-ink);
+			text-decoration: none;
+			transition: border-color 0.2s, transform 0.2s;
+		}
+		.bridge-card:hover {
+			border-color: var(--brand-accent);
+			transform: translateY(-3px);
+		}
+		.bridge-kicker {
+			font: 10px/1.6 "JetBrains Mono", monospace;
+			letter-spacing: 0.1em;
+			color: var(--brand-clay);
+			margin-bottom: 10px;
+		}
+		.bridge-card h3 {
+			font: 400 22px/1.45 "Iowan Old Style", "Songti SC", Georgia, serif;
+			margin: 0 0 10px;
+		}
+		.bridge-card p {
+			font-size: 14.5px;
+			line-height: 1.85;
+			color: var(--brand-body);
+			margin: 0 0 18px;
+		}
+		.bridge-cta {
+			margin-top: auto;
+			font-size: 13.5px;
+			color: var(--brand-accent);
+		}
+		.work-footer {
+			padding: 25px 11vw;
+		}
+		.work-footer a {
+			font-size: 13px;
+			line-height: 1.8;
+			color: var(--brand-accent);
+			text-decoration: none;
+		}
+		@media (max-width: 920px) {
+			.bridge-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+		@media (max-width: 700px) {
+			.work-hero {
+				padding: 42px 8vw 36px;
+			}
+			.work-hero h1 {
+				font-size: clamp(34px, 7vw, 48px);
+				margin: 22px 0;
+			}
+			.research-archive,
+			.work-System-bridge {
+				padding: 43px 8vw 48px;
+			}
+			.archive-intro {
+				grid-template-columns: 1fr;
+				gap: 15px;
+				padding: 31px 0 21px;
+			}
+			.archive-grid {
+				grid-template-columns: 1fr;
+			}
+			.archive-card h3 {
+				font-size: 22px;
+			}
+			.archive-links {
+				flex-wrap: wrap;
+			}
+			.work-footer {
+				padding: 22px 8vw;
+			}
+		}
 	</style>
 </Layout>
-
-<style>.notebook-invitation{margin:0;padding:26px 11vw;border-bottom:1px solid var(--brand-line);font-size:16px;line-height:1.9;color:var(--brand-body)}.notebook-invitation a{color:var(--brand-accent);text-decoration:underline;text-underline-offset:5px}@media(max-width:700px){.notebook-invitation{padding:23px 7vw}}</style>

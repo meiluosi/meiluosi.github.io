@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-28",
+  "localPathReferences": 857,
+  "explicitAnchors": 141,
+  "legacyFragmentsPathOnly": 198,
+  "svgDocuments": 3,
+  "snapshots": {
+    "baselines.json": 8,
+    "phase-one-baselines.json": 7
+  },
+  "sources": 9,
+  "selectedSections": 9,
+  "sourceClaims": 27,
+  "conclusions": 6,
+  "cases": 5,
+  "relations": 6,
+  "editorialComparisons": 2,
+  "methodChecks": 8,
+  "designsNotExecuted": 3,
+  "historyConditions": 16,
+  "historicalNodeCountsUnchanged": true,
+  "errors": [],
+  "scope": "Phase-two documents, global entries, phase-one navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested."
+}

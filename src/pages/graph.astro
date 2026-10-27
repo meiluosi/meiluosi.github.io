@@ -12,6 +12,7 @@ import {
 	getPostMaturity,
 	LAB_ENTRIES,
 } from "@/utils/digital-garden";
+import { resolvePostRoute } from "@/utils/route-matcher";
 import { getCategoryUrl, removeFileExtension } from "@/utils/url-utils";
 
 const publishedPosts = (await getSortedPosts()).filter(
@@ -93,6 +94,7 @@ for (const post of publishedPosts) {
 	const slug = removeFileExtension(post.id);
 	const translation = englishPosts.find((en) => en.data.sourceId === slug);
 	const maturityMeta = getPostMaturity(post);
+	const postRoute = resolvePostRoute(post.data);
 	const nodeId = `post-${slug}`;
 
 	nodes.push({
@@ -106,6 +108,11 @@ for (const post of publishedPosts) {
 		tags: post.data.tags || [],
 		excerpt: post.data.description || translation?.data.description || "",
 		val: 8,
+		routeId: postRoute?.id,
+		routeName: postRoute?.nameZh,
+		routeNameEn: postRoute?.nameEn,
+		routeRoman: postRoute?.roman,
+		cluster: postRoute?.cluster,
 	});
 
 	// Edge: Post -> Matching Hub
@@ -306,6 +313,11 @@ for (let i = 0; i < publishedPosts.length; i++) {
 			zh="本知识星系融合了 Andy Matuschak 的 Evergreen Notes 理念与 Gwern 的学术拓扑结构：知识不是孤立的一次性发表，而是不断滋养生长的生态。从带有开放问题的‘🌱 萌芽想法’，到具备数学推导的‘🌿 成长演进’，再到经过严格代码与定理闭环的‘🌳 常青基石’，读者可随时追踪每一条技术思考的演进脉络。"
 			en="This knowledge cosmos synthesizes Andy Matuschak's evergreen note philosophy with Gwern's topological citation density. Knowledge is an evolving ecosystem rather than a static feed. From nascent inquiries ('🌱 Seedling') to mathematical structures ('🌿 Budding') and rigorously proven foundations ('🌳 Evergreen'), readers can trace how ideas mature over time."
 		/>
+		<p>
+			<a class="explore-link" href="/library/">
+				<Text zh="前往研究文献与开源资料架 (/library/)" en="Open Annotated Research Library (/library/)" /> ↗
+			</a>
+		</p>
 		<p>
 			<a class="explore-link" href="/notes/">
 				<Text zh="前往全部文章与筛选列表" en="Browse all notes in structured list" /> ↗

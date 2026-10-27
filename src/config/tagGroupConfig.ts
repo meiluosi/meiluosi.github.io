@@ -56,13 +56,7 @@ export const tagGroups: TagGroup[] = [
 	{
 		name: "数据工程",
 		icon: "material-symbols:database",
-		tags: [
-			"数据去重",
-			"SFT数据构造",
-			"数据配比",
-			"预训练数据",
-			"MinHash",
-		],
+		tags: ["数据去重", "SFT数据构造", "数据配比", "预训练数据", "MinHash"],
 	},
 	{
 		name: "模型架构",
@@ -79,32 +73,17 @@ export const tagGroups: TagGroup[] = [
 	{
 		name: "论文解读",
 		icon: "material-symbols:description",
-		tags: [
-			"ICLR",
-			"NeurIPS",
-			"ICML",
-			"论文解读",
-		],
+		tags: ["ICLR", "NeurIPS", "ICML", "论文解读"],
 	},
 	{
 		name: "因果推断",
 		icon: "material-symbols:account-tree",
-		tags: [
-			"因果推断",
-			"DUCG",
-			"概率图模型",
-			"DoWhy",
-		],
+		tags: ["因果推断", "DUCG", "概率图模型", "DoWhy"],
 	},
 	{
 		name: "其他",
 		icon: "material-symbols:more-horiz",
-		tags: [
-			"数据科学",
-			"人工智能",
-			"AlphaZero",
-			"技术博客",
-		],
+		tags: ["数据科学", "人工智能", "AlphaZero", "技术博客"],
 	},
 ];
 

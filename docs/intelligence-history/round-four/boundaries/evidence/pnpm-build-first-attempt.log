@@ -1,0 +1,27 @@
+
+> meiluosi-blog@6.13.5 build /Users/meros/Documents/GitHub/meiluosi.github.io
+> node scripts/generate-icons.js && npx tsx scripts/generate-lqips.ts && npx tsx scripts/generate-summaries.ts && node scripts/validate-frontmatter.js && astro build && npx tsx scripts/subset-fonts.ts
+
+✅ 图标缓存有效，跳过生成。
+npm warn Unknown project config "manage-package-manager-versions". This will stop working in the next major version of npm.
+node:net:1918
+      const error = new UVExceptionWithHostPort(rval, 'listen', address, port);
+                    ^
+
+Error: listen EPERM: operation not permitted /var/folders/yb/hs3lm0mn6zd7wk55nmjbwcl80000gn/T/tsx-501/17263.pipe
+    at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2119:5)
+    at file:///Users/meros/Documents/GitHub/meiluosi.github.io/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/cli.mjs:53:31537
+    at new Promise (<anonymous>)
+    at createIpcServer (file:///Users/meros/Documents/GitHub/meiluosi.github.io/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/cli.mjs:53:31515)
+    at async file:///Users/meros/Documents/GitHub/meiluosi.github.io/node_modules/.pnpm/tsx@4.22.4/node_modules/tsx/dist/cli.mjs:55:459 {
+  code: 'EPERM',
+  errno: -1,
+  syscall: 'listen',
+  address: '/var/folders/yb/hs3lm0mn6zd7wk55nmjbwcl80000gn/T/tsx-501/17263.pipe',
+  port: -1
+}
+
+Node.js v24.7.0
+ ELIFECYCLE  Command failed with exit code 1.

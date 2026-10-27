@@ -6,7 +6,16 @@
 
 ---
 
-## 当前执行方向（2026-10-22）
+## 当前执行方向（2026-10-25）
+
+推进 Phase 29「智能问题演进史」。以现有 20 条智能探索路线为入口，梳理各路线在关键时间点提出的问题、方法、证据、局限和后续分叉。长期方案见 [intelligence-history-plan.md](./intelligence-history-plan.md)，当前成果见 [20路线统一研究入口](./intelligence-history/index.html)，第一轮保留为候选基线。
+
+1. **第一轮候选全景**：20 条路线、106 个独立候选事件和 106 份来源；保留原作/译本/再版日期、阅读状态与资料缺口。
+2. **可维护的图与文献队列**：同一份数据生成 SVG、Mermaid、离线交互图、路线底稿和文献队列；新增来源后可以同步更新。
+3. **第二轮样板审校已完成**：学习效率与泛化9个节点、控制论与强化学习8个、具身与生态8个；每个节点有原文定位、阅读范围、机制和边界，配套25份笔记、16条关系、六张可编辑图和三个教学算例。逐篇状态为指定片段阅读，未计为全文完成或独立复现。
+4. **第三轮A批已验收（2026-10-27）**：补三个样板的指定断层，展开四条路线；交付三张跨路线问题卡、两组版本对照、Baird六状态正式复现及可编辑图。见[A批工作台与验收记录](./intelligence-history/round-three-a/README.md)；B批于2026-10-27完成[指定范围验收](./intelligence-history/round-three-b/validation.md)：三条路线、25节点、三张问题卡、两项A批回访及一项合成方法核验；C—E批亦于2026-10-27完成[联合验收](./intelligence-history/cde-validation.md)：10条路线、66条节点记录、9张问题卡、9项回访和三项合成核验；全局已汇总144个去重节点，阅读与版本缺口另列。第四轮于2026-10-28启动，第一阶段[比较框架与首篇综合样板](./intelligence-history/round-four/index.html)已完成[验收](./intelligence-history/round-four/validation.md)：6条条件性结论、10份来源记录、两组可编辑图及精确方法核验。第二阶段[系统边界与发展](./intelligence-history/round-four/boundaries/index.html)亦已完成[验收](./intelligence-history/round-four/boundaries/validation.md)：9份选读、27条定位主张、6条结论、三组可编辑图、8项精确核验；3项新设计尚未执行。后续意义与意识、正式网站集成见[阶段计划](./intelligence-history/round-four/plan.md)。
+
+## 历史执行方向（2026-10-22）
 
 落地 Phase 28（见 [roadmap.md](./roadmap.md)）：
 1. **学术工效与分发渠道**：编写论文级 `@media print` 样式；新增 `/en/rss.xml` 英文订阅源；修复 `/graph/` 的 Sitemap 排除与知识图谱 Hub 重定向缺陷；清理 3 个零引用废弃样式。

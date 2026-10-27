@@ -26,17 +26,14 @@ export const categoryLabels: Record<string, string> = {
 };
 
 export const categoryLabelsEn: Record<string, string> = {
-	"大模型训练研究笔记": "LLM Training Research",
-	"果蝇连接组研究": "Fly Connectome",
+	大模型训练研究笔记: "LLM Training Research",
+	果蝇连接组研究: "Fly Connectome",
 };
 
 /**
  * 取分类在指定语言下的展示名；没有对应译名时回落到原始值。
  */
-export function getCategoryLabel(
-	category: string,
-	lang: "zh" | "en",
-): string {
+export function getCategoryLabel(category: string, lang: "zh" | "en"): string {
 	if (!category) return category;
 	if (lang === "en") return categoryLabelsEn[category] ?? category;
 	return categoryLabels[category] ?? category;

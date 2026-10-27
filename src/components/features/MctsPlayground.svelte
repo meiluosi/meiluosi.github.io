@@ -1,38 +1,121 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { advanceSearch, createSearch, recommendedAction } from "@/utils/mcts";
-	let english = $state(false);
-	let budget = $state(50);
-	let exploration = $state(1.4);
-	let seed = $state(7);
-	let state = $state(createSearch());
-	let running = $state(false);
-	let reveal = $state(false);
-	let copyStatus = $state<"" | "ok" | "error">("");
-	let timer: ReturnType<typeof setInterval> | undefined;
-	const recommendation = $derived(recommendedAction(state));
-	const actions = $derived(state.nodes[0].children.map((id) => state.nodes[id]));
-	const finished = $derived(state.iterations >= budget);
-	const phases = $derived(english ? ["Ready", "Selection", "Expansion", "Simulation", "Backup"] : ["准备开始", "选择", "扩展", "模拟", "回传"]);
-	const explanation = $derived(state.phase === 0 ? (english ? "Step through one search to see how feedback changes the tree." : "点击下一步，看一次搜索的反馈怎样改变这棵树。") : state.phase === 1 ? (english ? "Follow the highest UCT score until an unexpanded action or terminal state is reached." : "沿 UCT 得分最高的分支前进，遇到尚未扩展的动作或终点时停下。") : state.phase === 2 ? (state.expandedId === null ? (english ? "This is already a terminal state; no new node is needed." : "已到达终点，本轮无需增加新节点。") : (english ? "Add one untried child to the search tree." : "选一个尚未尝试的动作，加入一个新节点。")) : state.phase === 3 ? (english ? "Roll out uniformly at random to a leaf and read its fixed reward." : "从当前节点均匀随机地走到叶子，读取终点的固定奖励。") : (english ? "Add one visit and the reward to each node on the expanded search path. Dashed rollout nodes are not updated." : "搜索路径上的节点各增加一次访问和本轮奖励；虚线模拟经过的未扩展节点不更新。"));
-	function pause() { if (timer) clearInterval(timer); timer = undefined; running = false; }
-	function step() { if (finished) { pause(); return; } state = advanceSearch(state, exploration); if (state.iterations >= budget) pause(); }
-	function play() { if (running) { pause(); return; } running = true; timer = setInterval(step, 420); }
-	function reset() { pause(); state = createSearch(seed); copyStatus = ""; }
-	function finish() { pause(); let next = state; while (next.iterations < budget) next = advanceSearch(next, exploration); state = next; }
-	async function share() { const url = new URL(location.href); url.search = new URLSearchParams({ budget: String(budget), c: String(exploration), seed: String(seed) }).toString(); try { await navigator.clipboard.writeText(url.href); copyStatus = "ok"; } catch { copyStatus = "error"; } history.replaceState({}, "", url); }
-	onMount(() => {
-		const sync = () => { english = document.documentElement.lang.startsWith("en"); };
-		sync(); document.addEventListener("site-locale-change", sync);
-		const params = new URL(location.href).searchParams;
-		const queryBudget = Number(params.get("budget")); const queryC = params.has("c") ? Number(params.get("c")) : 1.4; const querySeed = Number(params.get("seed"));
-		if ([10, 50, 200].includes(queryBudget)) budget = queryBudget;
-		if (Number.isFinite(queryC) && queryC >= 0 && queryC <= 3) exploration = Math.round(queryC * 10) / 10;
-		if ([7, 19, 42].includes(querySeed)) seed = querySeed;
-		reset();
-		const hide = () => { if (document.hidden) pause(); }; document.addEventListener("visibilitychange", hide);
-		return () => { pause(); document.removeEventListener("site-locale-change", sync); document.removeEventListener("visibilitychange", hide); };
-	});
+import { onMount } from "svelte";
+import { advanceSearch, createSearch, recommendedAction } from "@/utils/mcts";
+
+let english = $state(false);
+let budget = $state(50);
+let exploration = $state(1.4);
+let seed = $state(7);
+let state = $state(createSearch());
+let running = $state(false);
+let reveal = $state(false);
+let copyStatus = $state<"" | "ok" | "error">("");
+let timer: ReturnType<typeof setInterval> | undefined;
+const recommendation = $derived(recommendedAction(state));
+const actions = $derived(state.nodes[0].children.map((id) => state.nodes[id]));
+const finished = $derived(state.iterations >= budget);
+const phases = $derived(
+	english
+		? ["Ready", "Selection", "Expansion", "Simulation", "Backup"]
+		: ["准备开始", "选择", "扩展", "模拟", "回传"],
+);
+const explanation = $derived(
+	state.phase === 0
+		? english
+			? "Step through one search to see how feedback changes the tree."
+			: "点击下一步，看一次搜索的反馈怎样改变这棵树。"
+		: state.phase === 1
+			? english
+				? "Follow the highest UCT score until an unexpanded action or terminal state is reached."
+				: "沿 UCT 得分最高的分支前进，遇到尚未扩展的动作或终点时停下。"
+			: state.phase === 2
+				? state.expandedId === null
+					? english
+						? "This is already a terminal state; no new node is needed."
+						: "已到达终点，本轮无需增加新节点。"
+					: english
+						? "Add one untried child to the search tree."
+						: "选一个尚未尝试的动作，加入一个新节点。"
+				: state.phase === 3
+					? english
+						? "Roll out uniformly at random to a leaf and read its fixed reward."
+						: "从当前节点均匀随机地走到叶子，读取终点的固定奖励。"
+					: english
+						? "Add one visit and the reward to each node on the expanded search path. Dashed rollout nodes are not updated."
+						: "搜索路径上的节点各增加一次访问和本轮奖励；虚线模拟经过的未扩展节点不更新。",
+);
+function pause() {
+	if (timer) clearInterval(timer);
+	timer = undefined;
+	running = false;
+}
+function step() {
+	if (finished) {
+		pause();
+		return;
+	}
+	state = advanceSearch(state, exploration);
+	if (state.iterations >= budget) pause();
+}
+function play() {
+	if (running) {
+		pause();
+		return;
+	}
+	running = true;
+	timer = setInterval(step, 420);
+}
+function reset() {
+	pause();
+	state = createSearch(seed);
+	copyStatus = "";
+}
+function finish() {
+	pause();
+	let next = state;
+	while (next.iterations < budget) next = advanceSearch(next, exploration);
+	state = next;
+}
+async function share() {
+	const url = new URL(location.href);
+	url.search = new URLSearchParams({
+		budget: String(budget),
+		c: String(exploration),
+		seed: String(seed),
+	}).toString();
+	try {
+		await navigator.clipboard.writeText(url.href);
+		copyStatus = "ok";
+	} catch {
+		copyStatus = "error";
+	}
+	history.replaceState({}, "", url);
+}
+onMount(() => {
+	const sync = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	sync();
+	document.addEventListener("site-locale-change", sync);
+	const params = new URL(location.href).searchParams;
+	const queryBudget = Number(params.get("budget"));
+	const queryC = params.has("c") ? Number(params.get("c")) : 1.4;
+	const querySeed = Number(params.get("seed"));
+	if ([10, 50, 200].includes(queryBudget)) budget = queryBudget;
+	if (Number.isFinite(queryC) && queryC >= 0 && queryC <= 3)
+		exploration = Math.round(queryC * 10) / 10;
+	if ([7, 19, 42].includes(querySeed)) seed = querySeed;
+	reset();
+	const hide = () => {
+		if (document.hidden) pause();
+	};
+	document.addEventListener("visibilitychange", hide);
+	return () => {
+		pause();
+		document.removeEventListener("site-locale-change", sync);
+		document.removeEventListener("visibilitychange", hide);
+	};
+});
 </script>
 
 <section class="mcts" aria-label={english ? "Interactive Monte Carlo tree search" : "蒙特卡洛树搜索互动实验"}>

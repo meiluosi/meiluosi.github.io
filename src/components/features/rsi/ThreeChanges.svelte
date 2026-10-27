@@ -1,23 +1,74 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import "./notebook.css";
-	let chosen = $state(0);
-	let english = $state(false);
-	let ready = $state(false);
-	const say = (zh: string, en: string) => english ? en : zh;
-	const steps = $derived([
-		{ name: say("多想几步", "Search a little longer"), changed: say("搜索统计", "Search statistics"), description: say("沿着同一套搜索规则再走几步，更新访问次数与回报估计。眼前这道题可能做得更好；这次操作没有修改模型参数，也没有改写搜索算法。", "Run the same search rules for longer, updating visit counts and return estimates. This problem may be solved better; this operation does not change model parameters or rewrite the search algorithm."), question: say("换一道题后，留下的是哪些知识？又有哪些统计需要重新积累？", "On a new problem, what knowledge remains, and which statistics must be gathered again?"), href: "/lab/mcts/", link: say("在搜索树里多走几步", "Take a few more steps through a search tree") },
-		{ name: say("从反馈中学习", "Learn from feedback"), changed: say("模型参数", "Model parameters"), description: say("用数据和反馈更新参数，改变模型之后的预测或决策。它可以从经验中学会一项技能；这里采用的训练规则与评价方式仍由人预先设定。", "Update parameters using data and feedback, changing later predictions or decisions. A model can acquire a skill from experience; the training rule and evaluation procedure here are still specified by people."), question: say("它学到了可迁移的方法，还是数据中恰好好用的线索？", "Has it acquired a transferable method, or a cue that happens to work in the data?"), href: "/lab/model-pipeline/?stage=pretrain", link: say("理解训练目标与参数更新", "Understand training objectives and parameter updates") },
-		{ name: say("改变改进的方法", "Change how improvement works"), changed: say("产生、筛选与采用改进的过程", "How improvements are proposed, tested, and adopted"), description: say("让系统提出并检验对工具、搜索策略或学习流程的修改，改变它下一次尝试改进的方式。要进一步讨论 RSI，还要检验这些修改是否增强后续产生有效改进的能力，而不只看当前任务得分。", "Let a system propose and test changes to its tools, search strategy, or learning process, altering how it next attempts improvement. To investigate RSI, we must also test whether those changes enhance its subsequent ability to produce useful improvements, beyond its score on the current task."), question: say("下一轮是否真的更会改进？比较时，预算、任务与评价标准保持了什么？", "Is the next iteration actually better at improving? What remains comparable in its budget, tasks, and evaluation?"), href: "/work/#causal-inference", link: say("查看因果评估研究", "Causal evaluation research") },
-	]);
-	const current = $derived(steps[chosen]);
-	onMount(() => {
-		ready = true;
-		const locale = () => { english = document.documentElement.lang.startsWith("en"); };
-		locale();
-		document.addEventListener("site-locale-change", locale);
-		return () => document.removeEventListener("site-locale-change", locale);
-	});
+import { onMount } from "svelte";
+import "./notebook.css";
+
+let chosen = $state(0);
+let english = $state(false);
+let ready = $state(false);
+const say = (zh: string, en: string) => (english ? en : zh);
+const steps = $derived([
+	{
+		name: say("多想几步", "Search a little longer"),
+		changed: say("搜索统计", "Search statistics"),
+		description: say(
+			"沿着同一套搜索规则再走几步，更新访问次数与回报估计。眼前这道题可能做得更好；这次操作没有修改模型参数，也没有改写搜索算法。",
+			"Run the same search rules for longer, updating visit counts and return estimates. This problem may be solved better; this operation does not change model parameters or rewrite the search algorithm.",
+		),
+		question: say(
+			"换一道题后，留下的是哪些知识？又有哪些统计需要重新积累？",
+			"On a new problem, what knowledge remains, and which statistics must be gathered again?",
+		),
+		href: "/lab/mcts/",
+		link: say(
+			"在搜索树里多走几步",
+			"Take a few more steps through a search tree",
+		),
+	},
+	{
+		name: say("从反馈中学习", "Learn from feedback"),
+		changed: say("模型参数", "Model parameters"),
+		description: say(
+			"用数据和反馈更新参数，改变模型之后的预测或决策。它可以从经验中学会一项技能；这里采用的训练规则与评价方式仍由人预先设定。",
+			"Update parameters using data and feedback, changing later predictions or decisions. A model can acquire a skill from experience; the training rule and evaluation procedure here are still specified by people.",
+		),
+		question: say(
+			"它学到了可迁移的方法，还是数据中恰好好用的线索？",
+			"Has it acquired a transferable method, or a cue that happens to work in the data?",
+		),
+		href: "/lab/model-pipeline/?stage=pretrain",
+		link: say(
+			"理解训练目标与参数更新",
+			"Understand training objectives and parameter updates",
+		),
+	},
+	{
+		name: say("改变改进的方法", "Change how improvement works"),
+		changed: say(
+			"产生、筛选与采用改进的过程",
+			"How improvements are proposed, tested, and adopted",
+		),
+		description: say(
+			"让系统提出并检验对工具、搜索策略或学习流程的修改，改变它下一次尝试改进的方式。要进一步讨论 RSI，还要检验这些修改是否增强后续产生有效改进的能力，而不只看当前任务得分。",
+			"Let a system propose and test changes to its tools, search strategy, or learning process, altering how it next attempts improvement. To investigate RSI, we must also test whether those changes enhance its subsequent ability to produce useful improvements, beyond its score on the current task.",
+		),
+		question: say(
+			"下一轮是否真的更会改进？比较时，预算、任务与评价标准保持了什么？",
+			"Is the next iteration actually better at improving? What remains comparable in its budget, tasks, and evaluation?",
+		),
+		href: "/work/#causal-inference",
+		link: say("查看因果评估研究", "Causal evaluation research"),
+	},
+]);
+const current = $derived(steps[chosen]);
+onMount(() => {
+	ready = true;
+	const locale = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	locale();
+	document.addEventListener("site-locale-change", locale);
+	return () => document.removeEventListener("site-locale-change", locale);
+});
 </script>
 
 <div class="rsi-interactive">

@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-28",
+  "checks": [
+    {
+      "command": "pnpm check",
+      "exitCode": 0,
+      "result": "188 files; 0 errors, 0 warnings, 0 hints"
+    },
+    {
+      "command": "pnpm type-check",
+      "exitCode": 0
+    },
+    {
+      "command": "AI_SUMMARY_API_KEY= pnpm build",
+      "exitCode": 0,
+      "result": "243 pages built; external AI summary call disabled"
+    }
+  ],
+  "assetSHA256Before": {
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0"
+  },
+  "assetSHA256After": {
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d",
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0"
+  },
+  "historicalGenerators": [
+    {
+      "script": "generate-intelligence-history.mjs",
+      "exitCode": 0,
+      "output": "{\n  \"mode\": \"check\",\n  \"routes\": 20,\n  \"events\": 106,\n  \"sources\": 106,\n  \"relations\": 9,\n  \"reading\": {\n    \"discovery-only\": 89,\n    \"metadata\": 5,\n    \"abstract\": 10,\n    \"selected-sections\": 2,\n    \"full-text\": 0\n  },\n  \"generated\": [\n    \"README.md\",\n    \"round-one.md\",\n    \"reading-queue.md\",\n    \"timeline.svg\",\n    \"timeline.mmd\",\n    \"atlas.html\"\n  ]\n}",
+      "error": ""
+    },
+    {
+      "script": "generate-intelligence-history-round-two.mjs",
+      "exitCode": 0,
+      "output": "检查 46 个文件；25节点，16关系。第一轮基线保持一致。",
+      "error": ""
+    },
+    {
+      "script": "generate-intelligence-history-round-three-a.mjs",
+      "exitCode": 0,
+      "output": "Verified 82 files; 34 nodes, 41 sources. Batch remains completed.",
+      "error": ""
+    },
+    {
+      "script": "generate-intelligence-history-round-three-b.mjs",
+      "exitCode": 0,
+      "output": "Verified 53 files; 25 nodes, 29 sources. Batch remains completed.",
+      "error": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-cde.mjs c --check",
+      "exitCode": 0,
+      "output": "Verified 47 files; 19 nodes, 19 sources. Batch remains completed.",
+      "error": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-cde.mjs d --check",
+      "exitCode": 0,
+      "output": "Verified 50 files; 22 nodes, 23 sources. Batch remains completed.",
+      "error": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-cde.mjs e --check",
+      "exitCode": 0,
+      "output": "Verified 58 files; 25 nodes, 25 sources. Batch remains completed.",
+      "error": ""
+    }
+  ],
+  "warnings": [
+    "npm warn Unknown project config \"manage-package-manager-versions\". This will stop working in the next major version of npm.",
+    "npm warn Unknown project config \"manage-package-manager-versions\". This will stop working in the next major version of npm.",
+    "02:18:19 [WARN] [vite] [plugin builtin:vite-reporter]",
+    "(!) Some chunks are larger than 500 kB after minification. Consider:",
+    "- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.",
+    "02:18:21   ├─ /robots.txt02:18:21 [WARN] [build] Skipping src/pages/robots.txt.ts because a file with the same name exists in the public folder: robots.txt",
+    "npm warn Unknown project config \"manage-package-manager-versions\". This will stop working in the next major version of npm."
+  ],
+  "scope": "Existing working tree build, including pre-existing unrelated site changes. No site source edited for this phase; no publication or deployment."
+}

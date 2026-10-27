@@ -1,0 +1,54 @@
+{
+  "asOf": "2026-10-25",
+  "routes": {
+    "learning-efficiency": 9,
+    "cybernetics-rl": 8,
+    "embodied-dynamical": 8
+  },
+  "nodes": 25,
+  "claims": 25,
+  "relations": {
+    "sourceChecked": 13,
+    "editorial": 3
+  },
+  "reading": {
+    "selectedSections": 25,
+    "fullText": 0,
+    "paperReplications": 0
+  },
+  "generatedFiles": 46,
+  "svgXMLChecked": [
+    "learning-efficiency-timeline.svg",
+    "learning-efficiency-branches.svg",
+    "embodied-dynamical-timeline.svg",
+    "cybernetics-rl-branches.svg",
+    "cybernetics-rl-timeline.svg",
+    "embodied-dynamical-branches.svg"
+  ],
+  "markdownLinksChecked": 302,
+  "pendingValidationDocument": [],
+  "sourceHashesMatchedToReadingFiles": 21,
+  "baselineSHA256": "ea0b8ad24c1ae1bf7432a31afa75d2744d1f107b2c2c191e18a0f4ca714a8776",
+  "projectChecks": {
+    "pnpmCheck": {
+      "exitCode": 0,
+      "files": 188,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "pnpmTypeCheck": {
+      "exitCode": 0
+    },
+    "build": {
+      "command": "AI_SUMMARY_API_KEY= pnpm build",
+      "exitCode": 0,
+      "pages": 243,
+      "warnings": [
+        "部分包大于500kB",
+        "public/robots.txt优先于同名路由",
+        "npm项目配置弃用提示"
+      ]
+    }
+  }
+}

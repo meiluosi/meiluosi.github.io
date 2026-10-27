@@ -1,0 +1,66 @@
+{
+  "batch": "e",
+  "status": "synthetic-verified",
+  "protocolSHA256": "d3a4dd6ae181bf6305218fd66be1f0b4e98f0060d84777cc245d733e92d5f084",
+  "implementationSHA256": "9b455fbd8882727fea399e022171f8714c7167b5df39baf1c508f176b01365ff",
+  "result": {
+    "quantumAB": [
+      [
+        "9/25",
+        "16/25"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "quantumBA": [
+      [
+        "81/625",
+        "144/625"
+      ],
+      [
+        "256/625",
+        "144/625"
+      ]
+    ],
+    "classicalAB": [
+      [
+        "9/25",
+        "16/25"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "classicalBA": [
+      [
+        "81/625",
+        "144/625"
+      ],
+      [
+        "256/625",
+        "144/625"
+      ]
+    ],
+    "AFirstYes": "1",
+    "AAfterBYes": "337/625",
+    "identicalBasisNegativeControl": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "checks": [
+      "两种实现的AB和BA联合分布逐项相等",
+      "两种次序均归一化",
+      "A的顺序效应为1与337/625",
+      "同基负控制无顺序效应"
+    ]
+  }
+}

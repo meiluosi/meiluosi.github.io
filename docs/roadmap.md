@@ -443,6 +443,28 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
   4. 深度嵌入分词手算篇（BPE 三文本频次统计与合并验证）与 DPO 篇（两词表损失与梯度手算验证）。
 - [x] **验收**：`pnpm check`（182 文件，0 error / 0 warning / 0 hint）、`pnpm type-check`、37 项端侧单元测试全通过、完整 `pnpm build`（184 页）通过，4710 个内部链接审计 0 断链。
 
+## Phase 29：智能问题演进史（2026-10-23 启动）
+
+用户确认将研究方案维护到项目文档，第一、二轮已分别验收。执行依据：[研究与维护方案](./intelligence-history-plan.md)；当前成果：[20路线统一入口](./intelligence-history/index.html)及[C—D—E联合验收](./intelligence-history/cde-validation.md)，此前[第二轮样板](./intelligence-history/round-two/README.md)，[第一轮工作台](./intelligence-history/README.md)保留为候选基线。各轮独立验收，不把主张审校记为全文阅读或独立复现。
+
+- [x] **第一轮：候选全景与资料盘点**。覆盖已有 20 条路线，建立 106 个独立候选事件、106 份来源及 9 个编辑性比较问题；逐路线记录核心问题、分支、已有材料、检索词和资料缺口。已打开并核对 17 份来源的书目、摘要或片段，全文深读为 0。
+- [x] **可编辑时间线与文献工作台**。以 `atlas.json` 为统一维护入口，生成 SVG 等比例时间线、Mermaid 顺序图、可筛选的离线交互图、逐路线底稿和阅读队列；古典文本另列，译本年不冒充原作年，时间先后不宣称历史影响。
+- [x] **第二轮：三条样板审校（2026-10-25）**。学习效率与泛化9个节点，控制论、强化学习与主动推断8个，具身、生态与动力系统8个。完成25份指定片段阅读笔记、25条定位主张、16条分类型关系、六张可编辑图和三个可运行教学算例；图、台账与文献夹统一重生成。版本差异、反方材料与历史断层见[审校记录](./intelligence-history/round-two/review.md)。
+- [x] **第三轮：全路线扩展与交叉审校（指定范围已验收，2026-10-27）**。补各分支关键问题、失败与争论；核实继承、反驳、并行和融合关系，形成跨路线比较。
+  - [x] **A批指定范围已验收（2026-10-27）**：34个新增或补读节点、41份来源记录、109条定位主张、33条关系、三张问题卡和两组版本对照；符号9节点、连接主义10节点、概率因果与世界模型10节点、认知架构6节点。完成三个样板的指定补链、Baird六状态独立复现和统一审校；14张路线图、笔记与工作台从数据同步生成。范围、未读部分和证据见[A批计划](./intelligence-history/round-three-a/plan.md)及[验收记录](./intelligence-history/round-three-a/validation.md)。A—E五批均已完成指定范围，原文深度与版本缺口继续保留。
+  - [x] **B批能力与评价已验收（2026-10-27）**：三条路线，25节点、29来源、73定位主张、20关系；6张路线SVG、可编辑Mermaid、三张问题卡、两项A批回访和一项精确合成方法核验。详见[B批计划](./intelligence-history/round-three-b/plan.md)与[验收记录](./intelligence-history/round-three-b/validation.md)。选读、版本缺口与独立验证分别记录。
+  - [x] **C批生物与发展**：三条路线，19节点记录、19来源、40主张、15关系；三张问题卡、三项回访和观察／干预的精确合成核验。见[C批验收](./intelligence-history/round-three-c/validation.md)。
+  - [x] **D批社会与文化**：三条路线，22节点记录、23来源、39主张、16关系；三张问题卡、三项回访和共享误差的精确合成核验。古典文本另列年代与译本。见[D批验收](./intelligence-history/round-three-d/validation.md)。
+  - [x] **E批解释边界**：四条路线，25节点记录、25来源、50主张、20关系；三张问题卡、三项回访和顺序效应的精确合成核验。见[E批验收](./intelligence-history/round-three-e/validation.md)。
+  - [x] **全局覆盖与共同问题索引**：20条路线已有审校序列，第二轮至E批150条节点记录去重为144个节点，15张问题卡、11项回访；25个首轮候选无同ID匹配，第四轮复核后其中1个有章节部分覆盖、24个无对应作品阅读映射，另保留各来源的未读部分。建立[可筛选入口](./intelligence-history/index.html)、[覆盖与缺口表](./intelligence-history/coverage.md)、[问题索引](./intelligence-history/questions-index.md)和可编辑总图。C—E三项方法核验、交互与项目检查均通过。
+- [ ] **第四轮：综合研究与网站联动（2026-10-28启动）**。围绕共同问题形成跨路线综述、开放问题和实验或论证方案；逐阶段推进，见[执行计划](./intelligence-history/round-four/plan.md)。
+  - [x] **阶段1：比较框架与证据审计**。建立八维比较框架；完成《从表现到机制的证据边界》：6条结论、6个案例、10份来源记录、21条定位主张、两组SVG／Mermaid、6项精确检查和3项未执行研究设计。当前索引修订与历史快照分开，桌面／手机交互及工程检查通过。见[工作台](./intelligence-history/round-four/index.html)和[验收](./intelligence-history/round-four/validation.md)。
+  - [x] **阶段2：系统边界与发展**。完成[第二篇综合工作台](./intelligence-history/round-four/boundaries/index.html)：9份原典选读、27条定位主张、6条条件性结论、5个比较案例、3组SVG／Mermaid、8项精确检查和3项未执行研究设计。历史快照保留，当前阅读增量单列；见[验收](./intelligence-history/round-four/boundaries/validation.md)。
+  - [ ] **阶段3：意义与意识解释**。对齐理论版本、证据任务和桥接前提，审校最强异议。
+  - [ ] **阶段4：综合修订与网站联动**。把审校完成的节点、解读与图接入正式路线页、文献架和文章入口，保留来源版本及修改记录。
+
+验证范围与结果见[第一轮验收](./intelligence-history/validation.md)、[第二轮验收](./intelligence-history/round-two/validation.md)、[A批验收](./intelligence-history/round-three-a/validation.md)、[B批验收](./intelligence-history/round-three-b/validation.md)、[CDE联合验收](./intelligence-history/cde-validation.md)、[第四轮第一阶段验收](./intelligence-history/round-four/validation.md)及[第二阶段验收](./intelligence-history/round-four/boundaries/validation.md)。当前交付为研究文档与离线工作台，尚未接入站点的正式文献解读。
+
 ## 版本记录
 
 ### 2026-10-18：侧边栏组件、i18n 死键与依赖下线
@@ -607,3 +629,4 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 - [x] 第七卷第六篇：实验结论管理与教学检查；整卷中英文 24 个阅读状态验收通过。
 - [x] 七卷最终交叉审校与本地统一验收完成：逐篇矩阵齐全，168 个阅读状态与 7577 个文章链接/锚点通过；未提交推送。
+- [x] **3D 数字花园与探索世界 2.0 升级**：融合自然箱庭（梯田草甸/自由跑跳/微风花瓣粒子）、古遗迹机关（悬空浮石踏板联动）与须弥虚空神树（神经脉络/3枚灵感神瞳收集）；复用旧岛台灯/手稿/棋盘/因果拓扑精致道具；双模导航（WASD跑跳 + 957条路线花径自动导引无缝接管）；HUD 集成原神风成就拾取横幅与 `[E]` 交互气泡；清理过渡代码，243页全站构建与测试全部通过。

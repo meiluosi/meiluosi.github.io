@@ -24,8 +24,6 @@ enum I18nKey {
 
 	// Music Widget
 
-
-
 	more = "more",
 	collapse = "collapse",
 	all = "all",

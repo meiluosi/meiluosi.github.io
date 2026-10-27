@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-23",
+  "routes": 20,
+  "events": 106,
+  "sources": 106,
+  "relations": 9,
+  "existingMaterialPaths": 26,
+  "embeddedDataMatches": true,
+  "htmlViews": 21,
+  "htmlScriptParses": true,
+  "htmlExternalScripts": 0,
+  "checkedLocalMarkdownLinks": 274,
+  "checkedEventAndRouteAnchorLinks": 144,
+  "uniqueExplicitAnchors": 126,
+  "modernCirclesIncludingCrossRouteDuplicates": 116,
+  "minimumCircleCenterDistance": 23.259406699225966,
+  "circleDiameter": 20,
+  "svgOverlaps": 0,
+  "generatedSiteAssets": {
+    "src/constants/icons.ts": {
+      "unchanged": true
+    },
+    "src/constants/lqips.json": {
+      "unchanged": true
+    }
+  },
+  "projectChecks": {
+    "astro": {
+      "files": 188,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    "typescript": "passed",
+    "build": {
+      "status": "passed",
+      "pages": 243,
+      "aiSummaryService": "disabled"
+    }
+  },
+  "browserEvidence": "browser-checks.json"
+}

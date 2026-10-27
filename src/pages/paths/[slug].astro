@@ -1,10 +1,19 @@
 ---
 export function getStaticPaths() {
- return [
-  { params: {slug: "models-to-systems"}, props: {destination: "/lab/model-pipeline/"} },
-  { params: {slug: "search-to-self-play"}, props: {destination: "/lab/mcts/"} },
-  { params: {slug: "evaluating-improvement"}, props: {destination: "/lab/causal-playground/"} },
- ];
+	return [
+		{
+			params: { slug: "models-to-systems" },
+			props: { destination: "/lab/model-pipeline/" },
+		},
+		{
+			params: { slug: "search-to-self-play" },
+			props: { destination: "/lab/mcts/" },
+		},
+		{
+			params: { slug: "evaluating-improvement" },
+			props: { destination: "/lab/causal-playground/" },
+		},
+	];
 }
 return Astro.redirect(Astro.props.destination, 301);
 ---

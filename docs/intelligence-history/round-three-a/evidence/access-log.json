@@ -1,0 +1,755 @@
+{
+  "asOf": "2026-10-26",
+  "scope": "访问和下载为事件记录；downloaded时的unread不代表当前状态，实际阅读范围以research.json为准。",
+  "entries": [
+    {
+      "id": "baird-1995",
+      "url": "https://leemon.com/papers/1995b.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://leemon.com/papers/1995b.pdf', '-o', '/private/tmp/intelligence-history-r3a/baird-1995.pdf']' returned non-zero exit status 60.",
+      "details": "curl: (60) SSL: no alternative certificate subject name matches target host name 'leemon.com'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the web page mentioned above.\n",
+      "batch": "batch1.results.json"
+    },
+    {
+      "id": "fodor-pylyshyn-1988",
+      "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 69,
+      "bytes": 13869377,
+      "sha256": "fcee0873886d02d961fa798b418cefcf22498f1d0997f0034b15f2510bd9bdf5",
+      "readingStatus": "unread",
+      "batch": "batch1.results.json"
+    },
+    {
+      "id": "bellman-1952",
+      "url": "https://www.derongliu.org/adp/adp-cdrom/refs/bellman19520716.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://www.derongliu.org/adp/adp-cdrom/refs/bellman19520716.pdf', '-o', '/private/tmp/intelligence-history-r3a/bellman-1952.pdf']' returned non-zero exit status 60.",
+      "details": "curl: (60) SSL certificate problem: self signed certificate\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the web page mentioned above.\n",
+      "batch": "batch1.results.json"
+    },
+    {
+      "id": "baird-1995-citeseer",
+      "url": "https://citeseerx.ist.psu.edu/document?doi=f518bffb712a298bff18248c67f6fc0181018ae6&repid=rep1&type=pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://citeseerx.ist.psu.edu/document?doi=f518bffb712a298bff18248c67f6fc0181018ae6&repid=rep1&type=pdf', '-o', '/private/tmp/intelligence-history-r3a/baird-1995-citeseer.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 48827 milliseconds\n",
+      "batch": "batch2.results.json"
+    },
+    {
+      "id": "baird-1999-thesis",
+      "url": "https://www.ri.cmu.edu/pub_files/pub2/baird_leemon_1999_1/baird_leemon_1999_1.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 78,
+      "bytes": 244101,
+      "sha256": "f9651058cf69b741ecc359298e4cf0e6708cfb8e4d6c733eb804f510e3654536",
+      "readingStatus": "unread",
+      "batch": "batch2.results.json"
+    },
+    {
+      "id": "smolensky-1988-reply",
+      "url": "https://spl.cde.state.co.us/artemis/ucbserials/ucb51110internet/1988/ucb51110394internet.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://spl.cde.state.co.us/artemis/ucbserials/ucb51110internet/1988/ucb51110394internet.pdf', '-o', '/private/tmp/intelligence-history-r3a/smolensky-1988-reply.pdf']' returned non-zero exit status 6.",
+      "details": "curl: (6) Could not resolve host: spl.cde.state.co.us\n",
+      "batch": "batch2.results.json"
+    },
+    {
+      "id": "baird-1995-http",
+      "url": "http://leemon.com/papers/1995b.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 9,
+      "bytes": 255907,
+      "sha256": "a32e916f75e4ca626c470d24fe0a3e587c14bd10edfae686fc9edf7498831979",
+      "readingStatus": "unread",
+      "batch": "batch3.results.json"
+    },
+    {
+      "id": "baird-1995-nov-errata",
+      "url": "https://citeseerx.ist.psu.edu/document?doi=feb9ef0ce8202a1f5a5d36ec3f27b812c0c4a45d&repid=rep1&type=pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://citeseerx.ist.psu.edu/document?doi=feb9ef0ce8202a1f5a5d36ec3f27b812c0c4a45d&repid=rep1&type=pdf', '-o', '/private/tmp/intelligence-history-r3a/baird-1995-nov-errata.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 47427 milliseconds\n",
+      "batch": "batch3.results.json"
+    },
+    {
+      "id": "bellman-1954",
+      "url": "https://www.ams.org/journals/bull/1954-60-06/S0002-9904-1954-09848-8/S0002-9904-1954-09848-8.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://www.ams.org/journals/bull/1954-60-06/S0002-9904-1954-09848-8/S0002-9904-1954-09848-8.pdf', '-o', '/private/tmp/intelligence-history-r3a/bellman-1954.pdf']' returned non-zero exit status 56.",
+      "details": "curl: (56) The requested URL returned error: 403\n",
+      "batch": "batch3.results.json"
+    },
+    {
+      "id": "wiener-cybernetics",
+      "url": "https://www.electronicliteraturereview.org/downloads/PDF/Wiener_1948.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://www.electronicliteraturereview.org/downloads/PDF/Wiener_1948.pdf', '-o', '/private/tmp/intelligence-history-r3a/wiener-cybernetics.pdf']' returned non-zero exit status 6.",
+      "details": "curl: (6) Could not resolve host: www.electronicliteraturereview.org\n",
+      "batch": "batch4.results.json"
+    },
+    {
+      "id": "bellman-1952-http",
+      "url": "http://www.derongliu.org/adp/adp-cdrom/refs/bellman19520716.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 4,
+      "bytes": 338942,
+      "sha256": "58ccf880b967862f7b2c909844b71a0a195cef6306429b637955f67fefc3b204",
+      "readingStatus": "unread",
+      "batch": "batch4.results.json"
+    },
+    {
+      "id": "varela-1991",
+      "url": "https://monoskop.org/images/2/21/Varela_Thompson_Rosch_The_Embodied_Mind_Cognitive_Science_and_Human_Experience_1991.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 309,
+      "bytes": 14587565,
+      "sha256": "6503593c5b43711a81e5e5d28e3f4e18d260e4b0dc7bdf919e79dd50e42bdc6e",
+      "readingStatus": "unread",
+      "batch": "batch4.results.json"
+    },
+    {
+      "id": "beer-1995",
+      "url": "https://core.ac.uk/download/pdf/82396438.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://core.ac.uk/download/pdf/82396438.pdf', '-o', '/private/tmp/intelligence-history-r3a/beer-1995.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 50010 milliseconds\n",
+      "batch": "batch4.results.json"
+    },
+    {
+      "id": "smolensky-1988-bbs",
+      "url": "https://compositionalintelligence.github.io/pdfs/Smolensky_BBS.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 74,
+      "bytes": 20717151,
+      "sha256": "6e812be92c4c1348471b702b5fea235f430adc0e1de011f43f0042d7371cc4b5",
+      "readingStatus": "unread",
+      "batch": "batch4.results.json"
+    },
+    {
+      "id": "wiener-cybernetics-monoskop",
+      "url": "https://monoskop.org/images/0/08/Wiener_Norbert_1948_Cybernetics.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 6,
+      "bytes": 1138092,
+      "sha256": "eef4040f2435ceb0b7983a0e1e08a0fcf20d55cc0d8eba0e7fd6c7755035b08e",
+      "readingStatus": "unread",
+      "batch": "batch5.results.json"
+    },
+    {
+      "id": "wiener-cybernetics-uberty",
+      "url": "https://uberty.org/wp-content/uploads/2015/07/Norbert_Wiener_Cybernetics.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 231,
+      "bytes": 8804356,
+      "sha256": "f733dde90a70fe090b5209ac7ca391e86f3ed4477b0a2ebd7054747d8ed0d857",
+      "readingStatus": "unread",
+      "batch": "batch5.results.json"
+    },
+    {
+      "id": "smolensky-reply-http",
+      "url": "http://spl.cde.state.co.us/artemis/ucbserials/ucb51110internet/1988/ucb51110394internet.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'http://spl.cde.state.co.us/artemis/ucbserials/ucb51110internet/1988/ucb51110394internet.pdf', '-o', '/private/tmp/intelligence-history-r3a/smolensky-reply-http.pdf']' returned non-zero exit status 6.",
+      "details": "curl: (6) Could not resolve host: spl.cde.state.co.us\n",
+      "batch": "batch5.results.json"
+    },
+    {
+      "id": "smolensky-1990",
+      "url": "https://www.lscp.net/persons/dupoux/teaching/AT1_2014/papers/Smolensky_1990_TensorProductVariableBinding.AI.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://www.lscp.net/persons/dupoux/teaching/AT1_2014/papers/Smolensky_1990_TensorProductVariableBinding.AI.pdf', '-o', '/private/tmp/intelligence-history-r3a/smolensky-1990.pdf']' returned non-zero exit status 7.",
+      "details": "curl: (7) Failed to connect to www.lscp.net port 443 after 897 ms: Couldn't connect to server\n",
+      "batch": "batch6.results.json"
+    },
+    {
+      "id": "beer-1995-author",
+      "url": "https://mypage.iu.edu/~rdbeer/Papers/AIJ95.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://mypage.iu.edu/~rdbeer/Papers/AIJ95.pdf', '-o', '/private/tmp/intelligence-history-r3a/beer-1995-author.pdf']' returned non-zero exit status 6.",
+      "details": "curl: (6) Could not resolve host: mypage.iu.edu\n",
+      "batch": "batch6.results.json"
+    },
+    {
+      "id": "gentner-1983",
+      "url": "https://groups.psych.northwestern.edu/gentner/papers/Gentner83.2b.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 9,
+      "bytes": 1408913,
+      "sha256": "3374d309ec8eb96d03dac6ce5801ca4cf7daa9594f07952d04ecf6b04f529969",
+      "readingStatus": "unread",
+      "batch": "batch7.results.json"
+    },
+    {
+      "id": "newell-simon-1976",
+      "url": "https://schiaffonati.faculty.polimi.it/TFI/newell_simon_1976.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 14,
+      "bytes": 2541721,
+      "sha256": "ebfa0d6415f2fe7d019288ec8329a0fe997600bcedab57abf32e60cf169a9316",
+      "readingStatus": "unread",
+      "batch": "batch7.results.json"
+    },
+    {
+      "id": "mccarthy-1959",
+      "url": "https://www-formal.stanford.edu/jmc/mcc59.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://www-formal.stanford.edu/jmc/mcc59.pdf', '-o', '/private/tmp/intelligence-history-r3a/mccarthy-1959.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 50002 milliseconds\n",
+      "batch": "batch8.results.json"
+    },
+    {
+      "id": "strips-1971",
+      "url": "https://ai.stanford.edu/~nilsson/OnlinePubs-Nils/PublishedPapers/strips.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://ai.stanford.edu/~nilsson/OnlinePubs-Nils/PublishedPapers/strips.pdf', '-o', '/private/tmp/intelligence-history-r3a/strips-1971.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 50002 milliseconds\n",
+      "batch": "batch8.results.json"
+    },
+    {
+      "id": "mccarthy-1959-http",
+      "url": "http://www-formal.stanford.edu/jmc/mcc59.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'http://www-formal.stanford.edu/jmc/mcc59.pdf', '-o', '/private/tmp/intelligence-history-r3a/mccarthy-1959-http.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 50005 milliseconds\n",
+      "batch": "batch9.results.json"
+    },
+    {
+      "id": "strips-1971-http",
+      "url": "http://ai.stanford.edu/~nilsson/OnlinePubs-Nils/PublishedPapers/strips.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'http://ai.stanford.edu/~nilsson/OnlinePubs-Nils/PublishedPapers/strips.pdf', '-o', '/private/tmp/intelligence-history-r3a/strips-1971-http.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Connection timed out after 50006 milliseconds\n",
+      "batch": "batch9.results.json"
+    },
+    {
+      "id": "anderson-2004",
+      "url": "https://web.iitd.ac.in/~sumeet/and04.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 25,
+      "bytes": 988639,
+      "sha256": "536f4ca80fe940875954fcbf4a655162723a0faa528726837d906f263addb781",
+      "readingStatus": "unread",
+      "batch": "batch9.results.json"
+    },
+    {
+      "id": "laird-2017",
+      "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/2744/2671",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Cannot read an empty file",
+      "details": "",
+      "batch": "batch9.results.json"
+    },
+    {
+      "id": "mccarthy-1959-rit",
+      "url": "https://www.cs.rit.edu/~rlaz/files/mccarthy1959.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 15,
+      "bytes": 264634,
+      "sha256": "04b439b126f87e51fc4c85b8db114fddeeafc7f4b2234e1b8f3b474d6ea9b79c",
+      "readingStatus": "unread",
+      "batch": "batch10.results.json"
+    },
+    {
+      "id": "strips-1971-ijcai",
+      "url": "https://www.ijcai.org/Proceedings/71/Papers/055.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 13,
+      "bytes": 5452272,
+      "sha256": "293e2f5613b940bfa7f0f053d5669423fe08813cb23e19f1a356a8c47ea1c4bc",
+      "readingStatus": "unread",
+      "batch": "batch10.results.json"
+    },
+    {
+      "id": "hart-nilsson-raphael-1968",
+      "url": "https://www.cs.auckland.ac.nz/courses/compsci709s2c/resources/Mike.d/astarNilsson.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 8,
+      "bytes": 1293802,
+      "sha256": "68905780affa771f22b0b6b83dde669bbce9246a62384d7d77ab9494f046e46e",
+      "readingStatus": "unread",
+      "batch": "batch10.results.json"
+    },
+    {
+      "id": "dreamcoder-2021",
+      "url": "https://people.csail.mit.edu/asolar/papers/EllisWNSMHCST21.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 16,
+      "bytes": 2782158,
+      "sha256": "dc551c57c4d7b46d378f6449209c3a8355507603e47b69003cdfc2f686cafa1f",
+      "readingStatus": "unread",
+      "batch": "batch10.results.json"
+    },
+    {
+      "id": "laird-2017-author",
+      "url": "https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf', '-o', '/private/tmp/intelligence-history-r3a/laird-2017-author.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) Recv failure: Connection reset by peer\n",
+      "batch": "batch11.results.json"
+    },
+    {
+      "id": "chella-frixione-lieto-2017",
+      "url": "https://cdn.aaai.org/ocs/15990/15990-69900-1-PB.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://cdn.aaai.org/ocs/15990/15990-69900-1-PB.pdf', '-o', '/private/tmp/intelligence-history-r3a/chella-frixione-lieto-2017.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) Recv failure: Connection reset by peer\n",
+      "batch": "batch11.results.json"
+    },
+    {
+      "id": "soar-1991",
+      "url": "https://deepblue.lib.umich.edu/bitstream/handle/2027.42/29595/0000684.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://deepblue.lib.umich.edu/bitstream/handle/2027.42/29595/0000684.pdf', '-o', '/private/tmp/intelligence-history-r3a/soar-1991.pdf']' returned non-zero exit status 56.",
+      "details": "curl: (56) The requested URL returned error: 403\n",
+      "batch": "batch11.results.json"
+    },
+    {
+      "id": "laird-2017-author",
+      "url": "https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://raw.githubusercontent.com/SoarGroup/website-downloads/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf', '-o', '/private/tmp/intelligence-history-r3a/laird-2017-author.pdf']' returned non-zero exit status 35.",
+      "details": "curl: (35) Recv failure: Connection reset by peer\n",
+      "batch": "batch12.results.json"
+    },
+    {
+      "id": "chella-frixione-lieto-2017",
+      "url": "https://cdn.aaai.org/ocs/15990/15990-69900-1-PB.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 6,
+      "bytes": 454130,
+      "sha256": "029b821305ba4a35cc82e5cef2c3256a49e052d645f9525598141ff61473c47b",
+      "readingStatus": "unread",
+      "batch": "batch12.results.json"
+    },
+    {
+      "id": "laird-2017-github",
+      "url": "https://github.com/SoarGroup/website-downloads/raw/refs/heads/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://github.com/SoarGroup/website-downloads/raw/refs/heads/main/pubs/Laird_etal_StandardModel_AImag_2018.pdf', '-o', '/private/tmp/intelligence-history-r3a/laird-2017-github.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Operation timed out after 50002 milliseconds with 0 bytes received\n",
+      "batch": "batch13.results.json"
+    },
+    {
+      "id": "soar-papers-index",
+      "url": "https://github.com/SoarGroup/website-downloads/raw/refs/heads/main/pubs/the_soar_papers_vol_1/index.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://github.com/SoarGroup/website-downloads/raw/refs/heads/main/pubs/the_soar_papers_vol_1/index.pdf', '-o', '/private/tmp/intelligence-history-r3a/soar-papers-index.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Operation timed out after 50005 milliseconds with 0 bytes received\n",
+      "batch": "batch13.results.json"
+    },
+    {
+      "id": "laird-2017-umich",
+      "url": "https://visca.engin.umich.edu/wp-content/uploads/sites/27/2021/06/Laird.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://visca.engin.umich.edu/wp-content/uploads/sites/27/2021/06/Laird.pdf', '-o', '/private/tmp/intelligence-history-r3a/laird-2017-umich.pdf']' returned non-zero exit status 56.",
+      "details": "curl: (56) The requested URL returned error: 404\n",
+      "batch": "batch14.results.json"
+    },
+    {
+      "id": "laird-2017",
+      "url": "https://www.researchgate.net/publication/322123676_A_Standard_Model_of_the_Mind_Toward_a_Common_Computational_Framework_across_Artificial_Intelligence_Cognitive_Science_Neuroscience_and_Robotics",
+      "status": "web-full-text-accessed",
+      "accessedAt": "2026-10-25",
+      "readingStatus": "selected-sections",
+      "note": "作者上传原文的网页转录可读；具体范围见research.json，不据此声称整篇读完。"
+    },
+    {
+      "id": "soar-1987",
+      "url": "https://www.researchgate.net/publication/346700056_SOAR_An_architecture_for_general_intelligence",
+      "status": "web-full-text-accessed",
+      "accessedAt": "2026-10-25",
+      "readingStatus": "selected-sections",
+      "note": "作者上传原文的网页转录可读；具体范围见research.json，不据此声称整篇读完。"
+    },
+    {
+      "id": "soar-1987-cmu-metadata",
+      "url": "https://api.figshare.com/v2/articles/6609584",
+      "status": "failed",
+      "accessedAt": "2026-10-25",
+      "details": "HTTP 403，未取得附件入口"
+    },
+    {
+      "id": "mcculloch-pitts-1943",
+      "url": "https://home.csulb.edu/~cwallis/382/readings/482/mccolloch.logical.calculus.ideas.1943.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 19,
+      "bytes": 1032371,
+      "sha256": "f977a9c0278dacf7b45dd144c089eb363a955e905ffef1fdb96ba0622f311151",
+      "readingStatus": "unread",
+      "batch": "batch15.results.json"
+    },
+    {
+      "id": "rosenblatt-1958",
+      "url": "https://web.engr.oregonstate.edu/~huanlian/teaching/ML/2020spring/extra/rosenblatt-1958.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 23,
+      "bytes": 1628647,
+      "sha256": "9c2228eeb866cd8ce4b45ad02ecdac9fcf34f196c12075a2eab0ba82bf995d37",
+      "readingStatus": "unread",
+      "batch": "batch15.results.json"
+    },
+    {
+      "id": "rumelhart-1986",
+      "url": "https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 4,
+      "bytes": 485917,
+      "sha256": "d26997baf588222109d32545604a2a2ed400dc769a21fd49a5acdc4a955396ae",
+      "readingStatus": "unread",
+      "batch": "batch15.results.json"
+    },
+    {
+      "id": "smolensky-1990",
+      "url": "https://www.lscp.net/persons/dupoux/teaching/AT1_2014/papers/Smolensky_1990_TensorProductVariableBinding.AI.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://www.lscp.net/persons/dupoux/teaching/AT1_2014/papers/Smolensky_1990_TensorProductVariableBinding.AI.pdf', '-o', '/private/tmp/intelligence-history-r3a/smolensky-1990.pdf']' returned non-zero exit status 7.",
+      "details": "curl: (7) Failed to connect to www.lscp.net port 443 after 18080 ms: Couldn't connect to server\n",
+      "batch": "batch15.results.json"
+    },
+    {
+      "id": "krizhevsky-2012",
+      "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 9,
+      "bytes": 1418820,
+      "sha256": "90137160c57217953d5f61857e64ca58e85f06e1b13b4f475c918b1b582b9771",
+      "readingStatus": "unread",
+      "batch": "batch15.results.json"
+    },
+    {
+      "id": "smolensky-1990",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2017/02/Smolensky-90-AI-Tensor-Product-Variable-Binding-and-the-Representation-of-Symbolic-Structures-in-Connectionist-Systems.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 58,
+      "bytes": 3040677,
+      "sha256": "e6460dcb065a8d8781a9be6bc66c2b207dc7908881b97dec759b2b68cb6cadcb",
+      "readingStatus": "unread",
+      "batch": "batch16.results.json"
+    },
+    {
+      "id": "geirhos-2020-v5",
+      "url": "https://arxiv.org/pdf/2004.07780v5",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 29,
+      "bytes": 4158487,
+      "sha256": "da93a1633b56f6590836afaf3794c6131d38d53629e2cf9d219deb274d91ec15",
+      "readingStatus": "unread",
+      "batch": "batch17.results.json"
+    },
+    {
+      "id": "smolensky-1990-lscp-web",
+      "url": "https://www.lscp.net/persons/dupoux/teaching/AT1_2014/papers/Smolensky_1990_TensorProductVariableBinding.AI.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "details": "网页读取返回502；后从Microsoft Research作者页面取得原刊PDF"
+    },
+    {
+      "id": "rosenblatt-stanford-web",
+      "url": "https://web.stanford.edu/class/psych209a/ReadingsByDate/01_30/Rosenblatt58Perceptron.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "details": "网页读取超时；后从Oregon State公开原刊镜像取得文件"
+    },
+    {
+      "id": "pearl-1982",
+      "url": "https://cdn.aaai.org/AAAI/1982/AAAI82-032.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 4,
+      "bytes": 568049,
+      "sha256": "8bfd6c94c5263ec0a7a6336c9aa5a6562221e4b7847440a927f7a292ba5bcfe6",
+      "readingStatus": "unread",
+      "batch": "batch18.results.json"
+    },
+    {
+      "id": "pearl-1995-appendix",
+      "url": "https://ftp.cs.ucla.edu/pub/stat_ser/R218-B-L.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 36,
+      "bytes": 313388,
+      "sha256": "6a5800a4dfc5e4a3ce729063ecf7b58ccbe81e4b7d48fed196adc95ac5c3960a",
+      "readingStatus": "unread",
+      "batch": "batch18.results.json"
+    },
+    {
+      "id": "rao-ballard-1999",
+      "url": "https://homes.cs.washington.edu/~rao/Rao-Ballard-NN-1999.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '50', 'https://homes.cs.washington.edu/~rao/Rao-Ballard-NN-1999.pdf', '-o', '/private/tmp/intelligence-history-r3a/rao-ballard-1999.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Operation timed out after 50010 milliseconds with 463844 out of 640508 bytes received\n",
+      "batch": "batch18.results.json"
+    },
+    {
+      "id": "tenenbaum-2011",
+      "url": "https://web.stanford.edu/~ngoodman/papers/tkgg-science11-reprint.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 8,
+      "bytes": 1062304,
+      "sha256": "d42537f90a75727e8e0108ad85dd33f7e50cbb3276cb5feff1f2667b9bda3a70",
+      "readingStatus": "unread",
+      "batch": "batch18.results.json"
+    },
+    {
+      "id": "ha-2018-v1",
+      "url": "https://arxiv.org/pdf/1803.10122v1",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 21,
+      "bytes": 3003486,
+      "sha256": "2d8c288eecc6ecd925f2e9fc181a371d666408a7aba142519f7d4298d368916e",
+      "readingStatus": "unread",
+      "batch": "batch18.results.json"
+    },
+    {
+      "id": "hafner-2019",
+      "url": "https://proceedings.mlr.press/v97/hafner19a/hafner19a.pdf",
+      "accessedAt": "2026-10-25",
+      "status": "downloaded",
+      "pages": 11,
+      "bytes": 834694,
+      "sha256": "1c3aee51ab99649e970815a7f8bccae8c7711addbfc8d50c4853a0d2e742f26a",
+      "readingStatus": "unread",
+      "batch": "batch18.results.json"
+    },
+    {
+      "id": "rao-ballard-1999",
+      "url": "https://homes.cs.washington.edu/~rao/Rao-Ballard-NN-1999.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 9,
+      "bytes": 640508,
+      "sha256": "5805862c6ba254f3e0f86dbab4bb4ba74490a5bcce3fdaccd91396d567c0bed2",
+      "readingStatus": "unread",
+      "batch": "batch19.results.json"
+    },
+    {
+      "id": "pearl-1995-journal",
+      "url": "https://ftp.cs.ucla.edu/pub/stat_ser/R218-B.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 42,
+      "bytes": 3612866,
+      "sha256": "0a9dd3218e541acbf26aeff5865e3c70cb662cd7de50e1234d016f1af5da8927",
+      "readingStatus": "unread",
+      "batch": "batch20.results.json"
+    },
+    {
+      "id": "pearl-1995-journal-sandbox-dns",
+      "url": "https://ftp.cs.ucla.edu/pub/stat_ser/R218-B.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "failed",
+      "details": "首次沙盒下载域名解析失败；随后通过工具网络权限成功，见batch20。"
+    },
+    {
+      "id": "friston-2010",
+      "url": "https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20A%20unified%20brain%20theory.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 12,
+      "bytes": 709242,
+      "sha256": "aeb47a0a36ada532bb5632108b1931c8ae4ab11c4e62b012bf0c3548ffd86e1f",
+      "readingStatus": "unread",
+      "batch": "batch21.results.json"
+    },
+    {
+      "id": "klyubin-2005",
+      "url": "https://uhra.herts.ac.uk/id/eprint/282/1/901241.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 8,
+      "bytes": 1697921,
+      "sha256": "19bd4594ea68f6aafd44ce2c929de315ab78c5b14d82a4c930b3cbe76bc47ba6",
+      "readingStatus": "unread",
+      "batch": "batch21.results.json"
+    },
+    {
+      "id": "beer-1995-core",
+      "url": "https://core.ac.uk/download/pdf/82396438.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://core.ac.uk/download/pdf/82396438.pdf', '-o', '/private/tmp/intelligence-history-r3a/beer-1995-core.pdf']' returned non-zero exit status 56.",
+      "details": "curl: (56) The requested URL returned error: 403\n",
+      "batch": "batch22.results.json"
+    },
+    {
+      "id": "brooks-1986-journal",
+      "url": "https://www.robolabo.etsit.upm.es/asignaturas/irin/papers/Brooks86RobustLayeredControl.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://www.robolabo.etsit.upm.es/asignaturas/irin/papers/Brooks86RobustLayeredControl.pdf', '-o', '/private/tmp/intelligence-history-r3a/brooks-1986-journal.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Failed to connect to www.robolabo.etsit.upm.es port 443 after 80452 ms: Couldn't connect to server\n",
+      "batch": "batch22.results.json"
+    },
+    {
+      "id": "thelen-smith-1994-pbk",
+      "url": "https://www.library.brawnblog.com/DynSys-DevCogAct.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 402,
+      "bytes": 23288799,
+      "sha256": "37b87c83ee1b81a551e33b9b54100f1738cb0322f13374dae187a1d8e8632746",
+      "readingStatus": "unread",
+      "batch": "batch23.results.json"
+    },
+    {
+      "id": "muzero-2020-journal",
+      "url": "https://www.idi.ntnu.no/emner/it3105/materials/rl/muzero-2020.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 21,
+      "bytes": 33651279,
+      "sha256": "1b0f5e6a30d9815fe3ad2e8bcc28ad1c3dada94a67bb28ebfa42a8f1ac9b9c64",
+      "readingStatus": "unread",
+      "batch": "batch24.results.json",
+      "versionCheck": "课程链接和临时文件名标为2020；PDF首页实际为arXiv:1911.08265v1，2019-11-19，不得作为2020期刊版。"
+    },
+    {
+      "id": "beer-1995-author",
+      "url": "https://rdbeer.pages.iu.edu/Papers/Beer1995b.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 43,
+      "bytes": 3710098,
+      "sha256": "4c5e13247371f80fc8889f329c7d5331b58ee6e52e0227e0c9ce4e05bf35ea29",
+      "readingStatus": "unread",
+      "batch": "batch25.results.json"
+    },
+    {
+      "id": "brooks-1986-upm-http",
+      "url": "http://www.robolabo.etsit.upm.es/asignaturas/irin/papers/Brooks86RobustLayeredControl.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'http://www.robolabo.etsit.upm.es/asignaturas/irin/papers/Brooks86RobustLayeredControl.pdf', '-o', '/private/tmp/intelligence-history-r3a/brooks-1986-upm-http.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Failed to connect to www.robolabo.etsit.upm.es port 80 after 75449 ms: Couldn't connect to server\n",
+      "batch": "batch25.results.json"
+    },
+    {
+      "id": "brooks-1986-rice",
+      "url": "https://www.clear.rice.edu/comp551/papers/Brooks-RA86-RobustLayeredControlSystem.pdf",
+      "accessedAt": "2026-10-26",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://www.clear.rice.edu/comp551/papers/Brooks-RA86-RobustLayeredControlSystem.pdf', '-o', '/private/tmp/intelligence-history-r3a/brooks-1986-rice.pdf']' returned non-zero exit status 22.",
+      "details": "curl: (22) The requested URL returned error: 404\n",
+      "batch": "batch26.results.json"
+    },
+    {
+      "id": "muzero-gale-2020",
+      "url": "https://go.gale.com/ps/i.do?asid=1de10613&id=GALE%7CA649646063&it=r&p=HRCA&u=googlescholar&v=2.1",
+      "status": "html-error-page",
+      "details": "",
+      "sha256": "f16bbf418219aa05483b939634f5daf5f325df94c61614bff9bebb4d1bfc8772",
+      "batch": "batch27.results.json",
+      "accessedAt": "2026-10-26",
+      "versionCheck": "返回Invalid parameter data；该HTML指纹不是论文指纹。正文另通过网页工具读取。"
+    },
+    {
+      "id": "brooks-scribd-1986",
+      "url": "https://www.scribd.com/document/544347085/A-Robust-Layered-Control-System-for-a-Mobile-Robot",
+      "status": "failed",
+      "details": "curl: (28) Connection timed out after 45005 milliseconds\n",
+      "sha256": null,
+      "batch": "batch27.results.json",
+      "accessedAt": "2026-10-26"
+    },
+    {
+      "id": "brooks-mit-course",
+      "url": "https://marine-robotics.mit.edu/2.680/pmwiki/pmwiki.php?n=Papers.BehaviorBased",
+      "status": "failed",
+      "details": "curl: (28) Connection timed out after 45005 milliseconds\n",
+      "sha256": null,
+      "batch": "batch27.results.json",
+      "accessedAt": "2026-10-26"
+    },
+    {
+      "id": "muzero-arxiv-v1-verified",
+      "url": "https://arxiv.org/pdf/1911.08265v1",
+      "accessedAt": "2026-10-26",
+      "status": "failed",
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--max-time', '120', 'https://arxiv.org/pdf/1911.08265v1', '-o', '/private/tmp/intelligence-history-r3a/muzero-arxiv-v1-verified.pdf']' returned non-zero exit status 28.",
+      "details": "curl: (28) Operation timed out after 120002 milliseconds with 204609 out of 2701646 bytes received\n",
+      "batch": "batch28.results.json"
+    },
+    {
+      "id": "muzero-arxiv-v2-verified",
+      "url": "https://arxiv.org/pdf/1911.08265v2",
+      "accessedAt": "2026-10-26",
+      "status": "downloaded",
+      "pages": 21,
+      "bytes": 2701361,
+      "sha256": "25588ee1d48690b33359a08a42fadfe86335aefefeee241d465b8bbd5eaa445c",
+      "readingStatus": "unread",
+      "batch": "batch28.results.json"
+    },
+    {
+      "id": "brooks-journal-web",
+      "url": "https://www.scribd.com/document/544347085/A-Robust-Layered-Control-System-for-a-Mobile-Robot",
+      "accessedAt": "2026-10-26",
+      "status": "web-text-read",
+      "readScope": "期刊正文转录的指定段落；排除页面AI摘要与问答。"
+    },
+    {
+      "id": "muzero-journal-web",
+      "url": "https://go.gale.com/ps/i.do?asid=1de10613&id=GALE%7CA649646063&it=r&p=HRCA&u=googlescholar&v=2.1",
+      "accessedAt": "2026-10-26",
+      "status": "web-text-read",
+      "readScope": "Gale期刊正文、Methods及表1；部分公式省略。"
+    },
+    {
+      "id": "muzero-v1-web",
+      "url": "https://arxiv.org/pdf/1911.08265v1",
+      "accessedAt": "2026-10-26",
+      "status": "web-text-read",
+      "readScope": "明确版本首页及正文，核对Reanalyze在v1中已有。"
+    }
+  ]
+}

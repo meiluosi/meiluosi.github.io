@@ -8,8 +8,7 @@ export const sponsorConfig: SponsorConfig = {
 	description: "",
 
 	// 打赏用途说明
-	usage:
-		"如果我的文章对您有所帮助，欢迎打赏支持！",
+	usage: "如果我的文章对您有所帮助，欢迎打赏支持！",
 
 	// 是否显示打赏者列表
 	showSponsorsList: true,

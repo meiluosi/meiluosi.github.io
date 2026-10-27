@@ -1,0 +1,108 @@
+{
+  "kind": "exact-synthetic-counterexample",
+  "date": "2026-10-28",
+  "protocolSHA256": "7368557db48728ce964ccc2c4f2e01192ab60f173c2a479361f7b94a935d5c5c",
+  "scriptSHA256": "7256bfbe4e35cc65f7efde65fe998f32ff1cf67100a1402689e02b7fae916f60",
+  "assumptions": "Independent zero-mean Gaussian disturbances; ideal surgical interventions; fixed equations.",
+  "covarianceF": [
+    [
+      "1",
+      "1/2",
+      "1/2"
+    ],
+    [
+      "1/2",
+      "1",
+      "1/2"
+    ],
+    [
+      "1/2",
+      "1/2",
+      "1"
+    ]
+  ],
+  "covarianceC": [
+    [
+      "1",
+      "1/2",
+      "1/2"
+    ],
+    [
+      "1/2",
+      "1",
+      "1/2"
+    ],
+    [
+      "1/2",
+      "1/2",
+      "1"
+    ]
+  ],
+  "determinant": "1/2",
+  "interventions": [
+    {
+      "target": "do(X1=1)",
+      "F": [
+        "1",
+        "0",
+        "0"
+      ],
+      "C": [
+        "1",
+        "1/2",
+        "1/2"
+      ]
+    },
+    {
+      "target": "do(X2=1)",
+      "F": [
+        "0",
+        "1",
+        "0"
+      ],
+      "C": [
+        "0",
+        "1",
+        "1/3"
+      ]
+    }
+  ],
+  "circuitTruthTable": [
+    {
+      "A": 0,
+      "B": 0,
+      "D1": 0,
+      "D2": 0,
+      "testedPreviously": false
+    },
+    {
+      "A": 0,
+      "B": 1,
+      "D1": 0,
+      "D2": 0,
+      "testedPreviously": true
+    },
+    {
+      "A": 1,
+      "B": 0,
+      "D1": 0,
+      "D2": 1,
+      "testedPreviously": false
+    },
+    {
+      "A": 1,
+      "B": 1,
+      "D1": 1,
+      "D2": 1,
+      "testedPreviously": true
+    }
+  ],
+  "checks": {
+    "exact_covariance": true,
+    "determinants": true,
+    "intervention_x1": true,
+    "intervention_x2": true,
+    "circuit_old_context": true,
+    "circuit_new_context": true
+  }
+}

@@ -1,18 +1,25 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	let { email }: { email: string } = $props();
-	let english = $state(false);
-	let status = $state<"idle" | "copied" | "failed">("idle");
-	onMount(() => {
-		const sync = () => { english = document.documentElement.lang.startsWith("en"); };
-		sync();
-		document.addEventListener("site-locale-change", sync);
-		return () => document.removeEventListener("site-locale-change", sync);
-	});
-	async function copy() {
-		try { await navigator.clipboard.writeText(email); status = "copied"; }
-		catch { status = "failed"; }
+import { onMount } from "svelte";
+
+let { email }: { email: string } = $props();
+let english = $state(false);
+let status = $state<"idle" | "copied" | "failed">("idle");
+onMount(() => {
+	const sync = () => {
+		english = document.documentElement.lang.startsWith("en");
+	};
+	sync();
+	document.addEventListener("site-locale-change", sync);
+	return () => document.removeEventListener("site-locale-change", sync);
+});
+async function copy() {
+	try {
+		await navigator.clipboard.writeText(email);
+		status = "copied";
+	} catch {
+		status = "failed";
 	}
+}
 </script>
 
 <div class="copy-row">

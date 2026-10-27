@@ -25,8 +25,6 @@ export const ru: Translation = {
 	[Key.minuteCount]: "минута",
 	[Key.minutesCount]: "минуты",
 
-
-
 	[Key.more]: "Ещё",
 	[Key.collapse]: "Свернуть",
 

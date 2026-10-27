@@ -1,0 +1,34 @@
+{
+  "asOf": "2026-10-25",
+  "browser": "Playwright + Microsoft Edge headless (temporary isolated profile)",
+  "checks": [
+    "跨路线深链接正确打开指定节点",
+    "learning-efficiency/timeline渲染及节点数正确",
+    {
+      "route": "learning-efficiency",
+      "cardOverflow": []
+    },
+    "learning-efficiency/branches渲染及节点数正确",
+    "cybernetics-rl/timeline渲染及节点数正确",
+    {
+      "route": "cybernetics-rl",
+      "cardOverflow": []
+    },
+    "cybernetics-rl/branches渲染及节点数正确",
+    "embodied-dynamical/timeline渲染及节点数正确",
+    {
+      "route": "embodied-dynamical",
+      "cardOverflow": []
+    },
+    "embodied-dynamical/branches渲染及节点数正确",
+    "全部25个目录节点可打开对应详情；时间线图中节点点击抽查通过",
+    "键盘目录选择可用",
+    "地址锚点变化同步路线与详情",
+    "390px移动视口无页面横向溢出；图内可滚动"
+  ],
+  "consoleErrors": [],
+  "viewportWidths": [
+    1512,
+    390
+  ]
+}

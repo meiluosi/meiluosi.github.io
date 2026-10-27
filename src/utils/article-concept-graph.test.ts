@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { buildConceptGraph } from "./article-concept-graph";
+
 const graph = buildConceptGraph(
 	"测试",
 	"## A\n**采样** 与 `token`。\n### B\n**采样**。\n```md\n## 假标题\n**不可见**\n```\n## C\n正文。",

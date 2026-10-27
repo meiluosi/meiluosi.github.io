@@ -50,26 +50,36 @@ export function mountBrandMotion(restored = false): () => void {
 		}
 		// A deep link or restored reading position must never replay the hero.
 		if (!restored && !location.hash && window.scrollY < 24) {
-			root.querySelectorAll<HTMLElement>("[data-motion-intro]").forEach((element, index) => {
-				if (element.getBoundingClientRect().top < window.innerHeight) {
-					enter(element, Math.min(index, 4) * 50);
-				}
-			});
+			root
+				.querySelectorAll<HTMLElement>("[data-motion-intro]")
+				.forEach((element, index) => {
+					if (element.getBoundingClientRect().top < window.innerHeight) {
+						enter(element, Math.min(index, 4) * 50);
+					}
+				});
 		}
 		if ("IntersectionObserver" in window) {
-			observer = new IntersectionObserver((entries) => {
-				let order = 0;
-				for (const entry of entries) {
-					if (!entry.isIntersecting) continue;
-					const element = entry.target as HTMLElement;
-					if (!pending.has(element)) continue;
-					stop(element);
-					enter(element, Math.min(order++, 3) * 40);
-				}
-			}, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
-			for (const element of root.querySelectorAll<HTMLElement>("[data-motion-reveal]")) {
+			observer = new IntersectionObserver(
+				(entries) => {
+					let order = 0;
+					for (const entry of entries) {
+						if (!entry.isIntersecting) continue;
+						const element = entry.target as HTMLElement;
+						if (!pending.has(element)) continue;
+						stop(element);
+						enter(element, Math.min(order++, 3) * 40);
+					}
+				},
+				{ threshold: 0, rootMargin: "0px 0px -24px 0px" },
+			);
+			for (const element of root.querySelectorAll<HTMLElement>(
+				"[data-motion-reveal]",
+			)) {
 				// Do not move content already visible when the page is mounted.
-				if (element.getBoundingClientRect().top >= window.innerHeight && !element.hidden) {
+				if (
+					element.getBoundingClientRect().top >= window.innerHeight &&
+					!element.hidden
+				) {
 					pending.add(element);
 					observer.observe(element);
 				}
@@ -82,18 +92,34 @@ export function mountBrandMotion(restored = false): () => void {
 			if (element.contains(target) || target.contains(element)) stop(element);
 		}
 	};
-	root.addEventListener("focusin", (event) => {
-		if (event.target instanceof Element) revealTarget(event.target);
-	}, { signal: events.signal });
-	window.addEventListener("hashchange", () => {
-		try {
-			const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-			if (target) revealTarget(target);
-		} catch { /* Malformed external fragments do not affect navigation. */ }
-	}, { signal: events.signal });
-	preference.addEventListener("change", () => {
-		if (preference.matches) stopAll();
-	}, { signal: events.signal });
+	root.addEventListener(
+		"focusin",
+		(event) => {
+			if (event.target instanceof Element) revealTarget(event.target);
+		},
+		{ signal: events.signal },
+	);
+	window.addEventListener(
+		"hashchange",
+		() => {
+			try {
+				const target = document.getElementById(
+					decodeURIComponent(location.hash.slice(1)),
+				);
+				if (target) revealTarget(target);
+			} catch {
+				/* Malformed external fragments do not affect navigation. */
+			}
+		},
+		{ signal: events.signal },
+	);
+	preference.addEventListener(
+		"change",
+		() => {
+			if (preference.matches) stopAll();
+		},
+		{ signal: events.signal },
+	);
 
 	return () => {
 		events.abort();

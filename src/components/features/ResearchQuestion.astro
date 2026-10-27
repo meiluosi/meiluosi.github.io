@@ -1,6 +1,12 @@
 ---
 import Text from "@/components/common/BilingualText.astro";
-interface Props { question: string; questionEn: string; hint: string; hintEn: string; }
+
+interface Props {
+	question: string;
+	questionEn: string;
+	hint: string;
+	hintEn: string;
+}
 const { question, questionEn, hint, hintEn } = Astro.props;
 ---
 <aside class="margin-question">

@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-28",
+  "retrievals": [
+    {
+      "id": "hutchins-cockpit-1995",
+      "url": "https://pages.ucsd.edu/~johnson/COGS102B/Hutchins95.pdf",
+      "exitCode": 0,
+      "bytes": 90862,
+      "sha256": "3220955994babfb1f6a604a82e939edaff94ee307f1e50764d6e5171aaefbacc",
+      "kind": "pdf"
+    },
+    {
+      "id": "clark-chalmers-1998",
+      "url": "https://consc.net/papers/extended.html",
+      "exitCode": 0,
+      "bytes": 42316,
+      "sha256": "376166c0a678916ddce59eed08321c775e268c1fe9fe3a8c16e1bfb66764eb5d",
+      "kind": "html"
+    },
+    {
+      "id": "adams-aizawa-2001",
+      "url": "https://imss-www.upmf-grenoble.fr/prevert/MasterICA/SpecialiteSC/FichiersPDF/articles/Adams_Azaiwa_The_bounds_of_cognition_2001.pdf",
+      "exitCode": 0,
+      "bytes": 237549,
+      "sha256": "e45abe51619329e97a5e7ef7371286cac4781af6b60827d51598b9daf613160b",
+      "kind": "pdf"
+    },
+    {
+      "id": "clark-reply-2010",
+      "url": "https://era.ed.ac.uk/bitstream/1842/1443/1/coupling2.pdf",
+      "exitCode": 0,
+      "bytes": 185576,
+      "sha256": "27ad6fc2efe9775fcf1a17fa449fdb7754f25ac6ce82b6b469e9ab3e1b7b5bd3",
+      "kind": "pdf"
+    },
+    {
+      "id": "varela-1974",
+      "url": "https://users.sussex.ac.uk/~inmanh/adsys10/Readings/Varela_etal_-_1974_-_Autopoiesis_the_organization_of_the_living_characterization_n_model_-_Biosystems.pdf",
+      "exitCode": 28,
+      "error": "    0\r  0     0    0     0    0     0      0      0 --:--:--  0:00:48 --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:--  0:00:49 --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:--  0:00:50 --:--:--     0\ncurl: (28) Connection timed out after 50003 milliseconds\n"
+    },
+    {
+      "id": "dipaolo-2005",
+      "url": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/autopoiesis_teleology_2005.pdf",
+      "exitCode": 0,
+      "bytes": 172265,
+      "sha256": "576e825142860f3b0fe2585cf43fa5baceab593bf78e08cf79d5c69c733a833b",
+      "kind": "pdf"
+    },
+    {
+      "id": "dejaegher-dipaolo-2007",
+      "url": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/dejaegherdipaolo2007participatorysensemaking.pdf",
+      "exitCode": 0,
+      "bytes": 307674,
+      "sha256": "a125b60fc9ee4cffcdd3d56e6a3353f95d9dcd0155eca5d18d840aad84d791ff",
+      "kind": "pdf"
+    },
+    {
+      "id": "varela-1974",
+      "url": "https://monoskop.org/images/d/dd/Varela_Maturana_Uribe_1974_Autopoiesis.pdf",
+      "exitCode": 0,
+      "bytes": 1195955,
+      "sha256": "f5b8ae7ff67dd1cc95672455a86979d5c64e592b12941360d41b145f8946ac27",
+      "kind": "pdf"
+    },
+    {
+      "id": "smith-thelen-1999",
+      "url": "https://web.stanford.edu/class/psych205/papers/SmithThelen1999.pdf",
+      "exitCode": 0,
+      "bytes": 2702941,
+      "sha256": "78e60e8bba0b9ce9e80abcb9fedfb23aae6d31d1b611a6366cd66030a0253297",
+      "kind": "pdf"
+    },
+    {
+      "id": "auvray-2009",
+      "url": "https://cepa.info/fulltexts/478.pdf",
+      "exitCode": 0,
+      "bytes": 479088,
+      "sha256": "510583d2cd95a35affa3b79a979eae87f01fe2cc6f452d2461d894159dfb1f7a",
+      "kind": "pdf"
+    }
+  ],
+  "readingRule": "取得文件不代表全文读完；实际读段见research.json。原件留临时目录，项目保存原创笔记和来源入口。",
+  "additionalAccessFailures": [
+    "Thelen等1984原刊网页403；未据搜索摘要形成该实验的审校结论，改补读Smith等1999的原始实验。"
+  ],
+  "visualChecks": [
+    "Varela1974原刊187–189、192–193页；188页右侧装订处若干行末较淡，不依赖不可辨字符作逐字引述。194–195页附录仅浏览，未审算法。",
+    "Smith等1999印刷254页Figure13；Adams与Aizawa2001印刷56页；Auvray等2009印刷39页。"
+  ]
+}

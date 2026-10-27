@@ -1,0 +1,14 @@
+
+> meiluosi-blog@6.13.5 check /Users/meros/Documents/GitHub/meiluosi.github.io
+> astro check
+
+02:56:53 [vite] Re-optimizing dependencies because vite config has changed
+02:56:53 [content] Syncing content
+02:56:53 [content] Synced content
+02:56:53 [types] Generated 528ms
+02:56:53 [check] Getting diagnostics for Astro files in /Users/meros/Documents/GitHub/meiluosi.github.io...
+Result (192 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+

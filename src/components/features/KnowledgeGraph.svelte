@@ -153,7 +153,9 @@ function buildNodes(): SimNodeExt[] {
 		// Deterministic jitter: the server render and the client hydration must
 		// agree, so nothing here may depend on Math.random().
 		const jitter = (seed: number) =>
-			Math.sin(seed * 12.9898) * 43758.5453 - Math.floor(Math.sin(seed * 12.9898) * 43758.5453) - 0.5;
+			Math.sin(seed * 12.9898) * 43758.5453 -
+			Math.floor(Math.sin(seed * 12.9898) * 43758.5453) -
+			0.5;
 
 		return {
 			...n,
@@ -904,6 +906,19 @@ onMount(() => {
 					<span class="meta-tag">{selectedNode.kind.toUpperCase()}</span>
 				</div>
 
+				{#if selectedNode.routeId}
+					<div class="drawer-route-box">
+						<a href={`/routes/${selectedNode.routeId}/`} class="drawer-route-link">
+							<span class="route-icon">🧭</span>
+							<span class="route-info">
+								<span class="route-sub">{english ? "Inquiry Route" : "智能探索路线"}</span>
+								<strong>{selectedNode.routeRoman} {english && selectedNode.routeNameEn ? selectedNode.routeNameEn : selectedNode.routeName}</strong>
+							</span>
+							<span class="route-arrow">↗</span>
+						</a>
+					</div>
+				{/if}
+
 				{#if selectedNode.excerpt}
 					<p class="drawer-excerpt">{selectedNode.excerpt}</p>
 				{/if}
@@ -1333,6 +1348,66 @@ onMount(() => {
 	.drawer-meta {
 		display: flex;
 		gap: 6px;
+	}
+
+	.drawer-route-box {
+		margin-top: 4px;
+	}
+
+	.drawer-route-link {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 7px 11px;
+		border-radius: 6px;
+		background: rgb(243 199 172 / 18%);
+		border: 1px solid rgb(145 86 56 / 25%);
+		color: var(--brand-ink);
+		text-decoration: none;
+		font-size: 12px;
+		transition: all 0.2s ease;
+	}
+
+	.drawer-route-link:hover {
+		background: rgb(243 199 172 / 32%);
+		border-color: var(--brand-clay);
+	}
+
+	.route-icon {
+		font-size: 14px;
+	}
+
+	.route-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.route-sub {
+		font-size: 10px;
+		color: var(--brand-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.drawer-route-link strong {
+		font-size: 12px;
+		color: var(--brand-clay);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.route-arrow {
+		color: var(--brand-clay);
+		font-size: 12px;
+		transition: transform 0.18s ease;
+	}
+
+	.drawer-route-link:hover .route-arrow {
+		transform: translate(2px, -2px);
 	}
 
 	.meta-tag {
