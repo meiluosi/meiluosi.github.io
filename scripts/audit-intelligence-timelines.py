@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
 import json,hashlib,xml.etree.ElementTree as ET,sys
 root=Path(__file__).resolve().parents[1];history=root/'docs/intelligence-history';dist=root/'dist';read=lambda p:json.loads(p.read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-data=read(root/'src/data/intelligenceTimeline.generated.json');index=read(history/'research-index.json');batches={name:read(history/name/'research.json') for name in ['round-two','round-three-a','round-three-b','round-three-c','round-three-d','round-three-e']};errors=[]
+data=read(root/'src/data/intelligenceTimeline.generated.json');index=read(history/'research-index.json');batches={name:read(history/name/'research.json') for name in ['round-two','round-three-a','round-three-b','round-three-c','round-three-d','round-three-e','round-six']};errors=[]
 for file,expected in data['inputs'].items():
  if sha(history/file)!=expected:errors.append('Changed input: '+file)
 class Parser(HTMLParser):
@@ -24,7 +24,7 @@ def parsed(file):
 assert len(data['routes'])==len(index['routes'])==20
 samples={};claims=0;sources=0;relations=0;links=0;ancient=0
 for route in data['routes']:
- original=next(r for r in index['routes'] if r['id']==route['id']);assert [(n['id'],n['batch']) for n in route['nodes']]==[(n['id'],n['batch']) for n in original['nodes']]
+ original=next(r for r in index['routes'] if r['id']==route['id']);expected=[(n['id'],n['batch']) for n in original['nodes']]+[(n['id'],'round-six') for n in batches['round-six']['nodes'] if route['id'] in n['routeIds']];assert [(n['id'],n['batch']) for n in route['nodes']]==expected
  page=dist/'research/intelligence/timelines'/route['id']/'index.html';doc=parsed(page)
  if len(doc.ids)!=len(set(doc.ids)):errors.append('Duplicate IDs in '+route['id'])
  if set(doc.nodes)!={n['id'] for n in route['nodes']}:errors.append('Node HTML mismatch '+route['id'])

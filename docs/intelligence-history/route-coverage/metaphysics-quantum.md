@@ -21,7 +21,7 @@
 - Hagan按2002发表年锚定，实际阅读2000 v1，未与期刊版逐字校对。
 - 泛心论组合问题的反驳文献与非经典计算其他分支尚未系统纳入。
 
-## 首轮没有同ID后续笔记的候选
+## 第五轮时没有同ID后续笔记的候选（含本轮增补）
 
 - 非算法心智与物理问题（e-penrose-1989）：论证、物理假说与实验事实逐层分开。 当前映射：[e-hameroff-penrose-1996](../round-three-e/notes/e-hameroff-penrose-1996.md)：联合物理假说论文不能替代1989著作。
 - Orch OR 的修订与回应（e-hameroff-penrose-2014）：核对与 1996 版本的变化及反方回应；作者综述不能替代独立验证。 当前映射：[e-hameroff-penrose-1996](../round-three-e/notes/e-hameroff-penrose-1996.md)：1996版本不能替代2014修订和回应。

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-28",
+  "nodes": 6,
+  "sourceClaims": 12,
+  "desktop": "1440×1000",
+  "mobile": [
+    {
+      "url": "/research/intelligence/revisit/",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "url": "/research/intelligence/timelines/connectionist/",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "url": "/research/intelligence/timelines/neuroscience/",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "noJavaScriptReading": true,
+  "priorConclusionLink": true,
+  "scriptErrors": [],
+  "researchSHA256": "219af839e83f4c0e096789ce88daca9d7c2174776e027b177d30134977bab295",
+  "checkerSHA256": "4045369ae7cdec6523a58de2fac7755f453030f70d20138d2af8fa48a362098a"
+}

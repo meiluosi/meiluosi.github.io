@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "nativePages": 38,
+  "sources": 31,
+  "sourceClaims": 88,
+  "reviewedConclusions": 18,
+  "protectedFiles": 93,
+  "svgDocuments": 9,
+  "localReferences": 1367,
+  "localAnchors": 310,
+  "routeEntries": 20,
+  "designsNotExecuted": 9,
+  "errors": [],
+  "reviewSHA256": "e461eafe18c9c62da122c6aa709034584cd0e50dcf34c5b0eecec0381007d2aa",
+  "scope": "Generated native research pages and downloads; all local targets and explicit HTML/SVG fragments checked. Original external sources are not re-downloaded. Historical workbenches are audited separately."
+}

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-28",
+  "baselineUnmapped": 24,
+  "selectedCandidates": 4,
+  "remainingUnmapped": 20,
+  "additionalCounterSources": 2,
+  "sources": 6,
+  "nodes": 6,
+  "claims": 12,
+  "relations": 4,
+  "reviewUpdates": 3,
+  "historicalDistinctNodes": 144,
+  "currentDistinctNodes": 150,
+  "routeNodeOccurrences": 177,
+  "errors": [],
+  "researchSHA256": "219af839e83f4c0e096789ce88daca9d7c2174776e027b177d30134977bab295",
+  "scope": "Checks new reading records against the fifth-round candidate snapshot and generated route data; no full-text, primary experiment, or raw-data replication claimed."
+}

@@ -1,5 +1,5 @@
 {
-  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "scope": "第二轮至第三轮历史索引加第六轮增量；前者使用索引选定的批次，同ID不同批次阅读范围不自动合并。第六轮来源均为指定片段阅读。",
   "route": {
     "id": "connectionist",
     "name": "连接主义、统计学习与表征路线",
@@ -8,7 +8,7 @@
       "十个节点覆盖本批指定转折，不代表完整连接主义史。",
       "C批已选读Hebb的1988重印所列片段；1949原书完整论证与版本校勘、感知机专著及Minsky–Papert 1969仍待补。不能用1958选段替代收敛定理。",
       "张量积表示的网络实现、递归操作及Fodor–McLaughlin 1990后续批评尚未完成原文审校。",
-      "Transformer、规模规律和现代语言模型分支尚未展开；本批现代训练节点覆盖监督视觉及程序归纳，不声称覆盖全部现代模型。"
+      "第六轮选读Transformer、Kaplan与两项规模规律竞争解释；其余现代模型、完整训练代码和较新数据仍未系统审校。"
     ],
     "nodes": [
       {
@@ -756,6 +756,298 @@
           }
         ],
         "priorNote": "round-three-a/notes/e-ellis-2021.md"
+      },
+      {
+        "id": "e-vaswani-2017",
+        "title": "用注意力构造序列变换",
+        "year": 2017,
+        "dateLabel": "2017",
+        "dateBasis": "original-publication",
+        "batch": "round-six",
+        "batchLabel": "第六轮",
+        "branch": "注意力与序列建模",
+        "question": "序列建模如何减少循环造成的训练串行依赖？",
+        "mechanism": "编码器和解码器使用多头注意力、位置逐点前馈、残差和位置表示；解码自注意力使用因果掩码。",
+        "assumptions": "原论文为编码器—解码器翻译模型；训练并行与自回归推理并行是不同问题。",
+        "limits": "原论文指定翻译与句法任务结果不证明当代语言模型一般理解；未独立复现。",
+        "nextQuestion": "模型结构、训练分布、资源预算与泛化如何分别影响结果？",
+        "claims": [
+          {
+            "id": "e-vaswani-2017-r6c1",
+            "text": "模型去掉循环结构；编码器和解码器仍使用前馈层、残差和层归一化。",
+            "locator": "PDF 3，§3.1",
+            "basis": "source-reported",
+            "sourceId": "vaswani-2017-v7",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-vaswani-2017-r6c2",
+            "text": "缩放点积注意力对QKᵀ除以√d_k，经softmax加权V；解码掩码防止访问未来位置。",
+            "locator": "PDF 4–5，§3.2.1、§3.2.3",
+            "basis": "source-reported",
+            "sourceId": "vaswani-2017-v7",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "vaswani-2017-v7",
+            "title": "Attention Is All You Need",
+            "authors": [
+              "Ashish Vaswani",
+              "Noam Shazeer",
+              "Niki Parmar",
+              "Jakob Uszkoreit",
+              "Llion Jones",
+              "Aidan N. Gomez",
+              "Łukasz Kaiser",
+              "Illia Polosukhin"
+            ],
+            "recordedAuthors": [
+              "Ashish Vaswani",
+              "Noam Shazeer",
+              "Niki Parmar",
+              "Jakob Uszkoreit",
+              "Llion Jones",
+              "Aidan N. Gomez",
+              "Łukasz Kaiser",
+              "Illia Polosukhin"
+            ],
+            "corrections": [],
+            "year": 2017,
+            "url": "https://arxiv.org/pdf/1706.03762v7",
+            "version": "2017会议论文；本次实读arXiv v7，2023-08-02，不能把该载体日期当作原始发表年。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–5摘要、§1、§3.1–3.3与式1、多头及掩码描述；结果只按摘要范围记录。",
+            "unreadScope": "未逐项复算表格、训练代码、计算成本与全部版本异文；不把翻译基准直接升级为一般理解。",
+            "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+          }
+        ],
+        "priorNote": "round-six/notes/vaswani-2017-v7.md"
+      },
+      {
+        "id": "e-kaplan-2020",
+        "title": "规模规律预测什么？",
+        "year": 2020,
+        "dateLabel": "2020",
+        "dateBasis": "original-publication",
+        "batch": "round-six",
+        "batchLabel": "第六轮",
+        "branch": "规模、损失与预算",
+        "question": "模型、数据与计算预算如何影响语言模型的交叉熵损失？",
+        "mechanism": "在受测范围拟合模型、数据与计算规模的经验关系，并估计固定计算预算下的配置。",
+        "assumptions": "主要指标是WebText2等分布上的语言模型损失；论文参数N和计算C排除嵌入部分。",
+        "limits": "拟合结果依赖模型族、数据及计算口径，不能直接作为智能、体验或所有任务能力的定律。",
+        "nextQuestion": "同预算下不同参数口径和训练时长会怎样改变最优配置？",
+        "claims": [
+          {
+            "id": "e-kaplan-2020-r6c1",
+            "text": "作者报告损失与模型规模、数据和计算的经验幂律，在其他资源未成为瓶颈的条件下比较。",
+            "locator": "PDF 3，图1与§1.1",
+            "basis": "source-reported",
+            "sourceId": "kaplan-2020",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-kaplan-2020-r6c2",
+            "text": "定义中的N排除嵌入参数；报告的计算最优模型大小指数约0.73，采用相应的非嵌入计算口径。",
+            "locator": "PDF 6 §2.1；PDF 16 §6、式6.1",
+            "basis": "source-reported",
+            "sourceId": "kaplan-2020",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "kaplan-2020",
+            "title": "Scaling Laws for Neural Language Models",
+            "authors": [
+              "Jared Kaplan",
+              "Sam McCandlish",
+              "Tom Henighan",
+              "Tom B. Brown",
+              "Benjamin Chess",
+              "Rewon Child",
+              "Scott Gray",
+              "Alec Radford",
+              "Jeffrey Wu",
+              "Dario Amodei"
+            ],
+            "recordedAuthors": [
+              "Jared Kaplan",
+              "Sam McCandlish",
+              "Tom Henighan",
+              "Tom B. Brown",
+              "Benjamin Chess",
+              "Rewon Child",
+              "Scott Gray",
+              "Alec Radford",
+              "Jeffrey Wu",
+              "Dario Amodei"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://arxiv.org/pdf/2001.08361v1",
+            "version": "arXiv:2001.08361v1，2020-01-23。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–4摘要与§1.1；PDF 6 §2；PDF 16 §6与式6.1；PDF 20表6。",
+            "unreadScope": "未执行训练、重拟合曲线或审读全部附录；非嵌入参数和训练计算口径不可直接等同总参数。",
+            "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+          }
+        ],
+        "priorNote": "round-six/notes/kaplan-2020.md"
+      },
+      {
+        "id": "e-hoffmann-2022",
+        "title": "同一训练预算，模型和数据如何配比？",
+        "year": 2022,
+        "dateLabel": "2022",
+        "dateBasis": "original-publication",
+        "batch": "round-six",
+        "batchLabel": "第六轮",
+        "branch": "资源分配的竞争估计",
+        "question": "对固定训练FLOPs，应怎样配置模型大小和训练token数量？",
+        "mechanism": "用三类拟合与多个训练时长估计最优前沿，并将Chinchilla与Gopher等比较。",
+        "assumptions": "估计目标是给定训练计算下的语言模型损失，依赖数据与训练配置；不等于全生命周期成本最优。",
+        "limits": "三种拟合给出相近但不完全相同的指数；未在本项目重训或重拟合。",
+        "nextQuestion": "不同参数定义、模型规模范围及推理成本会怎样影响结论？",
+        "claims": [
+          {
+            "id": "e-hoffmann-2022-r6c1",
+            "text": "作者训练400余个模型，用三种方法估算计算最优模型与token规模；表2的三个参数指数分别为0.50、0.49、0.46。",
+            "locator": "PDF 2 §1；PDF 8，表2",
+            "basis": "source-reported",
+            "sourceId": "hoffmann-2022",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hoffmann-2022-r6c2",
+            "text": "作者报告Chinchilla采用70B参数与约1.4万亿token，并在所测条件下比较Gopher。",
+            "locator": "PDF 2，引言末段；PDF 27，附录D.3",
+            "basis": "source-reported",
+            "sourceId": "hoffmann-2022",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hoffmann-2022",
+            "title": "Training Compute-Optimal Large Language Models",
+            "authors": [
+              "Jordan Hoffmann",
+              "Sebastian Borgeaud",
+              "Arthur Mensch",
+              "Elena Buchatskaya",
+              "Trevor Cai",
+              "Eliza Rutherford",
+              "Diego de Las Casas",
+              "Lisa Anne Hendricks",
+              "Johannes Welbl",
+              "Aidan Clark",
+              "Tom Hennigan",
+              "Eric Noland",
+              "Katie Millican",
+              "George van den Driessche",
+              "Bogdan Damoc",
+              "Aurelia Guy",
+              "Simon Osindero",
+              "Karen Simonyan",
+              "Erich Elsen",
+              "Jack W. Rae",
+              "Oriol Vinyals",
+              "Laurent Sifre"
+            ],
+            "recordedAuthors": [
+              "Jordan Hoffmann",
+              "Sebastian Borgeaud",
+              "Arthur Mensch",
+              "Elena Buchatskaya",
+              "Trevor Cai",
+              "Eliza Rutherford",
+              "Diego de Las Casas",
+              "Lisa Anne Hendricks",
+              "Johannes Welbl",
+              "Aidan Clark",
+              "Tom Hennigan",
+              "Eric Noland",
+              "Katie Millican",
+              "George van den Driessche",
+              "Bogdan Damoc",
+              "Aurelia Guy",
+              "Simon Osindero",
+              "Karen Simonyan",
+              "Erich Elsen",
+              "Jack W. Rae",
+              "Oriol Vinyals",
+              "Laurent Sifre"
+            ],
+            "corrections": [],
+            "year": 2022,
+            "url": "https://arxiv.org/pdf/2203.15556v1",
+            "version": "arXiv:2203.15556v1，2022-03-29；NeurIPS正式版本书目单独记录。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–2引言及式1；PDF 7–8 §3.4与表2；PDF 27附录D.3对照。",
+            "unreadScope": "未重训模型或复算拟合；训练损失及近无限数据条件不涵盖所有推理成本或数据约束。",
+            "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+          }
+        ],
+        "priorNote": "round-six/notes/hoffmann-2022.md"
+      },
+      {
+        "id": "e-pearce-song-2024",
+        "title": "为什么两条规模规律的指数不同？",
+        "year": 2024,
+        "dateLabel": "2024",
+        "dateBasis": "original-publication",
+        "batch": "round-six",
+        "batchLabel": "第六轮",
+        "branch": "参数口径与拟合尺度",
+        "question": "Kaplan与Chinchilla的最优规模指数分歧可能来自什么？",
+        "mechanism": "从Chinchilla拟合训练曲线出发，模拟较小规模和非嵌入参数口径下的最优前沿。",
+        "assumptions": "模拟基于拟合模型；参数计数与规模范围是作者提出的解释，需与其他可能原因比较。",
+        "limits": "结果不是对全部模型与训练数据的独立复现，也不排除所有优化或数据差异。",
+        "nextQuestion": "用独立训练记录和统一参数／计算口径，能否复核差异归因？",
+        "claims": [
+          {
+            "id": "e-pearce-song-2024-r6c1",
+            "text": "作者指出Kaplan约0.73与Chinchilla约0.50的配置指数不同。",
+            "locator": "PDF 1摘要、图1",
+            "basis": "source-reported",
+            "sourceId": "pearce-song-2024",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearce-song-2024-r6c2",
+            "text": "文章认为非嵌入参数口径与较小研究规模可解释相当部分差异；该判断来自拟合曲线模拟。",
+            "locator": "PDF 1–2摘要、§1；PDF 6 §3",
+            "basis": "source-reported",
+            "sourceId": "pearce-song-2024",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "pearce-song-2024",
+            "title": "Reconciling Kaplan and Chinchilla Scaling Laws",
+            "authors": [
+              "Tim Pearce",
+              "Jinyeop Song"
+            ],
+            "recordedAuthors": [
+              "Tim Pearce",
+              "Jinyeop Song"
+            ],
+            "corrections": [],
+            "year": 2024,
+            "url": "https://arxiv.org/pdf/2406.12907v3",
+            "version": "arXiv:2406.12907v3，2024-11-21；TMLR 2024。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–2摘要、图1与§1；PDF 6 §3参数口径推导入口。",
+            "unreadScope": "未执行作者代码或独立检验全部解释；这是一种基于Chinchilla拟合曲线的比较模型，不是所有差异原因已被排除。",
+            "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+          }
+        ],
+        "priorNote": "round-six/notes/pearce-song-2024.md"
       }
     ],
     "relations": [
@@ -872,6 +1164,48 @@
         "sourceIds": [
           "krizhevsky-2012",
           "geirhos-2020-v5"
+        ]
+      },
+      {
+        "id": "r6-vaswani-kaplan",
+        "batch": "round-six",
+        "fromId": "e-vaswani-2017",
+        "toId": "e-kaplan-2020",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "Kaplan PDF 2 §1",
+        "explanation": "Kaplan明确以Transformer为主要研究架构；模型使用关系不代表从架构直接推导规模规律。",
+        "sourceIds": [
+          "kaplan-2020"
+        ]
+      },
+      {
+        "id": "r6-kaplan-hoffmann",
+        "batch": "round-six",
+        "fromId": "e-kaplan-2020",
+        "toId": "e-hoffmann-2022",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "Hoffmann PDF 1–2，引言",
+        "explanation": "Hoffmann明确比较并修订对计算最优模型大小与token分配的估计；原指标与口径需要分别保留。",
+        "sourceIds": [
+          "hoffmann-2022"
+        ]
+      },
+      {
+        "id": "r6-hoffmann-pearce",
+        "batch": "round-six",
+        "fromId": "e-hoffmann-2022",
+        "toId": "e-pearce-song-2024",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "source-supported",
+        "locator": "Pearce PDF 1–2，摘要和图1",
+        "explanation": "后文基于Chinchilla拟合曲线研究两组估计的口径差异，不是全部原始模型训练的独立复制。",
+        "sourceIds": [
+          "pearce-song-2024"
         ]
       }
     ]

@@ -22,6 +22,6 @@
 - 未读取Block 1981全文及Hernández-Orallo–Dowe 2010交互测验正文；本批跨任务问题由ARC与HELM覆盖。
 - 不追踪2022之后的排行榜与最新协议；HELM只按2022 v1，ARC只按2019 v2记录。
 
-## 首轮没有同ID后续笔记的候选
+## 第五轮时没有同ID后续笔记的候选（含本轮增补）
 
-- 汇集不同智能定义（e-legg-definitions-2007）：回查被收录定义的原始语境，避免把汇编当作统一共识。 当前映射：[e-legg-hutter-2007](../round-three-b/notes/e-legg-hutter-2007.md)：定义汇编与形式化通用智能论文不同。
+- 汇集不同智能定义（e-legg-definitions-2007）：回查被收录定义的原始语境，避免把汇编当作统一共识。 当前映射：[第六轮指定片段](../round-six/notes/legg-definitions-2007.md)：原批次未映射，当前已有选读；未读范围仍保留。

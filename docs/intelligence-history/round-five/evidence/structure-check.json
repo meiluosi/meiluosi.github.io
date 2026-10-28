@@ -1,11 +1,11 @@
 {
   "date": "2026-10-28",
   "routes": 20,
-  "routeNodeOccurrences": 169,
-  "distinctNodes": 144,
-  "sourceReferences": 190,
-  "claimOccurrences": 406,
-  "relationOccurrences": 123,
+  "routeNodeOccurrences": 177,
+  "distinctNodes": 150,
+  "sourceReferences": 198,
+  "claimOccurrences": 422,
+  "relationOccurrences": 128,
   "unknownDateOccurrences": 4,
   "sourceCorrectionsApplied": 1,
   "samples": {
@@ -15,9 +15,9 @@
       "relations": 7
     },
     "learning-efficiency": {
-      "nodes": 18,
-      "claims": 40,
-      "relations": 12
+      "nodes": 20,
+      "claims": 44,
+      "relations": 13
     },
     "philosophy-of-mind": {
       "nodes": 6,
@@ -25,8 +25,8 @@
       "relations": 4
     }
   },
-  "localLinksChecked": 364,
+  "localLinksChecked": 372,
   "errors": [],
-  "timelineDataSHA256": "98c9904e665f72fa2034bcc099dc3a49a2e772d1a3fe1ceec1dcd5238938c8b6",
+  "timelineDataSHA256": "1c1d2a5b81aefb13f8fe416b7c85a4aa25bdf96b06c5b0b61b5d6cf84db4528e",
   "scope": "Compares all site node/source/claim projections with the original selected batch, checks SVG and internal research links. Original source uptime and unread material not independently checked."
 }

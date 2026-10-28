@@ -1,0 +1,19 @@
+---
+import data from "../../../../docs/intelligence-history/round-six/research.json";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import "@/styles/intelligence-research.css";
+---
+<ExploreLayout title="关键缺口与反方补读" titleEn="Research gaps and counterarguments" description="比较智能定义、解释层次与语言模型规模规律的竞争解释。" descriptionEn="Chinese-language research notes on definitions, levels of explanation, and competing scaling-law interpretations.">
+ <article class="research-page" lang="zh-CN" data-pagefind-body>
+  <nav class="research-nav"><a href="/research/intelligence/">← 综合研究</a><a href="/research/intelligence/timelines/">路线演进</a><a href="#sources">来源与原文定位</a></nav>
+  <p class="kicker">RESEARCH REVISIT · ROUND 06</p><h1>让关键缺口<br />接受原文与反方的检验。</h1><p class="lead">定义智能、解释机制以及比较训练资源，都需要先说明研究对象和证据能支持什么。</p>
+  <div class="scope-note">第五轮时有24个首轮候选尚无对应作品的后续阅读映射。本轮为其中4项补充指定片段，另读2项竞争解释；余下20项仍未建立对应作品的阅读映射。选读不等于通读或独立复现。</div>
+  <figure><img src="/research/intelligence/revisit/relations.svg" alt="本轮六个补读节点及各自的问题" /><figcaption>六个补读节点；关系及其依据见下文与各路线时间线。<a href="/research/intelligence/revisit/relations.mmd">下载可编辑关系图源文件</a></figcaption></figure>
+  <details class="source-row"><summary>查看24项候选的优先顺序与阅读状态</summary><p>顺序依据核心问题的相关性、区分争论的价值、跨路线影响和原典可获得性，并非对作品重要性的客观排名。</p><ol>{data.priorities.map(item=><li><strong>{item.title}</strong>：{item.question}；{item.tier}。{item.reason}</li>)}</ol></details>
+  <h2>从原始问题到反方</h2><div class="research-grid">{data.nodes.map(node=><article class="research-card" id={node.id}><span class="kicker">{node.year} · {node.branch}</span><h3>{node.title}</h3><p>{node.question}</p><p>{node.mechanism}</p><p class="quiet">边界：{node.limits}</p><a href={`/research/intelligence/timelines/${node.routeIds[0]}/#${node.id}`}>进入时间线与定位主张 →</a></article>)}</div>
+  <h2>规模规律中的竞争解释</h2><p>Kaplan报告的模型规模指数约为0.73，采用非嵌入参数和对应计算口径。Hoffmann的三种估算分别给出0.50、0.49和0.46；Pearce与Song基于拟合曲线认为，参数口径与较小规模可解释相当部分差异。这些是所读作者的报告与解释，未在本站重训或重拟合，也不是统一智能分数。</p>
+  <h2>对既有结论的补充</h2>{data.revisions.map(item=><section class="conclusion"><span class="tag">{item.id}</span><p>{item.change}</p><a href={`/research/intelligence/evidence/#${item.id}`}>回到原结论与反方 →</a></section>)}
+  <h2 id="sources">本轮来源与实际阅读范围</h2>{data.sources.map(source=><details class="source-row"><summary>{source.year} · {source.title}</summary><p>{source.authors.join(" · ")}</p><p><strong>版本：</strong>{source.version}</p><p><strong>已读：</strong>{source.readScope}</p><p><strong>未读／未复算：</strong>{source.unreadScope}</p><p><a href={source.url} target="_blank" rel="noopener noreferrer">打开原始资料 ↗</a> · <a href={`/research/intelligence/timelines/${data.nodes.find(n=>n.sourceIds.includes(source.id))?.routeIds[0]}/#${data.nodes.find(n=>n.sourceIds.includes(source.id))?.id}`}>查看定位主张 →</a></p></details>)}
+  <h2>尚未解决</h2><p>选读4项不等于4部作品全文完成；Minsky–Papert感知机原书等其余20项仍待原典阅读或映射。书目整理、原文阅读与独立验证保持不同状态。</p>
+ </article>
+</ExploreLayout>

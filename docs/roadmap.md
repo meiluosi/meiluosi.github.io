@@ -465,6 +465,8 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
 
 - [x] **第五轮：路线演进时间线网站化（指定范围完成，2026-10-28）**。以学习效率、心理测量、心灵哲学为样板，将20条路线的169条路线节点展示接入正式网站；同ID去重为144个节点，原批次阅读状态不变。节点展示问题、方法、前提、限制、原文定位和下一问，图中年份不暗示历史影响；图与数据可编辑。见[执行计划](./intelligence-history/round-five/plan.md)与[验收](./intelligence-history/round-five/validation.md)。
 
+- [x] **第六轮：关键缺口与反方补读**。24项第五轮基线候选按核心问题排序；4项候选获得指定片段阅读映射，另选2项竞争解释。新节点、来源、历史关系与第四轮结论增量均分层保存，时间线与文献入口同步。见[第六轮](./intelligence-history/round-six/README.md)及[验收记录](./intelligence-history/round-six/validation.md)。
+
 验证范围与结果见[第一轮验收](./intelligence-history/validation.md)、[第二轮验收](./intelligence-history/round-two/validation.md)、[A批验收](./intelligence-history/round-three-a/validation.md)、[B批验收](./intelligence-history/round-three-b/validation.md)、[CDE联合验收](./intelligence-history/cde-validation.md)、[第四轮第一阶段验收](./intelligence-history/round-four/validation.md)、[第二阶段验收](./intelligence-history/round-four/boundaries/validation.md)及[第三阶段验收](./intelligence-history/round-four/meaning/validation.md)。第四阶段已接入正式网站的本地项目；保留研究文档与离线工作台，未执行公网部署。
 
 ## 版本记录

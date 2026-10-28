@@ -388,6 +388,15 @@
     "round-three-d/research.json": "89aec91c5733b70e935ee94ae7f9d2cc6a2f981fb2725497a0974126b9fd443b",
     "round-three-e/research.json": "c746f4b70036b46789e40cbc12ae728c7ecd34a7b4206cf0e78ac43e1ff0abca"
   },
+  "roundSix": {
+    "url": "round-six/README.md",
+    "status": "reviewed-scope",
+    "nodes": 6,
+    "selectedCandidates": 4,
+    "historicalUnmapped": 24,
+    "remainingUnmapped": 20
+  },
+  "roundSixSHA256": "219af839e83f4c0e096789ce88daca9d7c2174776e027b177d30134977bab295",
   "annotationSHA256": "1e3dde884bfd9019e439971ac7c5ac4145038cd2c92f48c202356705a75042ef",
   "roundFourSHA256": "79d1ed4bc85bea906c3a8c3ecdf27bab52fa190d0b0840e2aceb7075f4af0238",
   "boundariesSHA256": "4b0546b12b002c51f2a4351d43defe9a6a55d49ea2f36d7a433cf61f377b3a50",
@@ -1684,7 +1693,7 @@
         "十个节点覆盖本批指定转折，不代表完整连接主义史。",
         "C批已选读Hebb的1988重印所列片段；1949原书完整论证与版本校勘、感知机专著及Minsky–Papert 1969仍待补。不能用1958选段替代收敛定理。",
         "张量积表示的网络实现、递归操作及Fodor–McLaughlin 1990后续批评尚未完成原文审校。",
-        "Transformer、规模规律和现代语言模型分支尚未展开；本批现代训练节点覆盖监督视觉及程序归纳，不声称覆盖全部现代模型。"
+        "第六轮选读Transformer、Kaplan与两项规模规律竞争解释；其余现代模型、完整训练代码和较新数据仍未系统审校。"
       ]
     },
     {
@@ -2442,7 +2451,7 @@
         }
       ],
       "gaps": [
-        "Marr多层解释虽在早期叙事中提及，尚无Vision原书独立笔记；连接组仅选读Schlegel指定范围，未审查全部FlyWire伴随论文。",
+        "第六轮选读Marr《Vision》原书22–25页；全书其他章节、连接组全部FlyWire伴随论文仍未系统审校。",
         "Hebb仅选集重印；LTP仅摘要与354页讨论图像，原始记录和完整统计未重验；缺长期学习行为与突触干预的联合证据。",
         "2018网络理论为观点文章，2023/2026预测检验留后续；本批不作截至2026年的完整综述。",
         "第四轮补读Barbey的测量与病损方法、Jonas的任务限制；未独立复算影像和处理器代码。Barbey作者名单的当前更正见索引修订记录。"

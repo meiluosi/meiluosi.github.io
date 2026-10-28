@@ -254,3 +254,6 @@
 ### 第五轮：路线演进与来源追溯（2026-10-28）
 
 `/research/intelligence/timelines/` 为20条路线提供年份图、节点问题／方法／限制、主张定位、来源版本与读段、既有关系和缺口。图、Mermaid和路线JSON可下载；原始批次数据和当前索引是维护入口。筛选需要脚本，节点与来源可在无脚本时阅读。见[执行计划](./intelligence-history/round-five/plan.md)。
+
+
+第六轮[关键缺口与反方](./intelligence-history/round-six/README.md)：排序24项历史未映射候选，补读定义汇编、Marr视觉层次、Transformer和规模规律的指定原典片段，并加入Hoffmann与Pearce–Song的竞争解释；相关节点与结论回访进入网站。

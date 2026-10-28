@@ -1,5 +1,5 @@
 {
-  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "scope": "第二轮至第三轮历史索引加第六轮增量；前者使用索引选定的批次，同ID不同批次阅读范围不自动合并。第六轮来源均为指定片段阅读。",
   "route": {
     "id": "behavioral",
     "name": "行为表现与操作性路线",
@@ -546,6 +546,62 @@
           }
         ],
         "priorNote": "round-three-b/notes/e-helm-2022.md"
+      },
+      {
+        "id": "e-legg-definitions-2007",
+        "title": "智能是否只有一种定义？",
+        "year": 2007,
+        "dateLabel": "2007",
+        "dateBasis": "original-publication",
+        "batch": "round-six",
+        "batchLabel": "第六轮",
+        "branch": "智能定义与学科目标",
+        "question": "不同研究者所说的智能究竟包括哪些能力或目标？",
+        "mechanism": "汇集集体、心理学和AI研究者的定义，并讨论能否提取共同特征。",
+        "assumptions": "汇编来源的选取、译述与原定义语境均影响比较；不同词汇未必语义等价。",
+        "limits": "作者倾向统一定义是研究立场，不由定义汇编直接证明；未逐条回读被引原典。",
+        "nextQuestion": "哪些差异来自目标、主体、资源与评价范围？",
+        "claims": [
+          {
+            "id": "e-legg-definitions-2007-r6c1",
+            "text": "作者按集体、心理学和AI研究者分类整理70余条定义，承认列表不可能完整。",
+            "locator": "PDF 1摘要、PDF 2 §1–2",
+            "basis": "source-reported",
+            "sourceId": "legg-definitions-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-legg-definitions-2007-r6c2",
+            "text": "作者认为许多定义共享特征，并提出一般统一定义可能，但也指出难以客观地判定哪一项定义唯一正确。",
+            "locator": "PDF 2 §1；PDF 9 §5",
+            "basis": "source-reported",
+            "sourceId": "legg-definitions-2007",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "legg-definitions-2007",
+            "title": "A Collection of Definitions of Intelligence",
+            "authors": [
+              "Shane Legg",
+              "Marcus Hutter"
+            ],
+            "recordedAuthors": [
+              "Shane Legg",
+              "Marcus Hutter"
+            ],
+            "corrections": [],
+            "year": 2007,
+            "url": "https://arxiv.org/pdf/0706.3639v1",
+            "version": "arXiv:0706.3639v1，2007-06-25。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 2–3 §1–2；PDF 7–9 §4–5；比较集体、心理学与AI定义的组织方式及作者统一定义的立场。",
+            "unreadScope": "未逐一回读70余条定义的原始文献；汇编不等于学科共识。",
+            "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+          }
+        ],
+        "priorNote": "round-six/notes/legg-definitions-2007.md"
       }
     ],
     "relations": [
@@ -649,6 +705,20 @@
         "sourceIds": [
           "legg-hutter-2007",
           "chollet-2019"
+        ]
+      },
+      {
+        "id": "r6-legg-definitions",
+        "batch": "round-six",
+        "fromId": "e-legg-definitions-2007",
+        "toId": "e-legg-hutter-2007",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Legg–Hutter PDF 2 §1，PDF 8 §4",
+        "explanation": "同一作者汇编与形式定义放在一起比较；汇编本身不证明该形式定义唯一或普遍公认。",
+        "sourceIds": [
+          "legg-definitions-2007"
         ]
       }
     ]

@@ -2,24 +2,24 @@
 
 # 全局路线覆盖与缺口
 
-截至2026-10-28，20条路线均有指定范围的审校序列。共150条批次节点记录，按稳定ID去重为144个节点；162条批次来源记录涉及153个来源ID。相同来源的版本／阅读范围继续分别保存，不以去重篇数代表阅读深度。
+截至第五轮基线，20条路线均有指定范围的审校序列。第二轮至第三轮共150条批次节点记录，按稳定ID去重为144个节点；162条批次来源记录涉及153个来源ID。相同来源的版本／阅读范围继续分别保存，不以去重篇数代表阅读深度。
 
 第一轮106个候选中，81个有同ID后续笔记；25个没有同ID匹配，其中1个有同作品章节部分覆盖，24个尚无对应作品的阅读映射。相关但不同的作品不计入原作覆盖。已有笔记也可能仅覆盖摘要或部分章节，不能写成全文完成。候选在某路线上的关联不代表该路线的全部解释已审校。
 
 [统一入口](index.html) · [共同问题索引](questions-index.md) · [可编辑覆盖图](coverage.svg) · [汇总数据](research-index.json)
 
-| 路线 | 最新路线叙事 | 去重关联节点 | 首轮候选同ID笔记／总数 | 当前缺口 |
+| 路线 | 最新路线叙事 | 去重关联节点 | 第五轮候选同ID笔记／总数 | 当前缺口 |
 | --- | --- | ---: | ---: | --- |
 | [行为表现与操作性路线](round-three-b/atlas.html?route=behavioral) | [B批](round-three-b/routes/behavioral.md) | [8](route-coverage/behavioral.md) | 4／5 | 未读取Block 1981全文及Hernández-Orallo–Dowe 2010交互测验正文；本批跨任务问题由ARC与HELM覆盖。；不追踪2022之后的排行榜与最新协议；HELM只按2022 v1，ARC只按2019 v2记录。 |
 | [心理测量与能力结构路线](round-three-b/atlas.html?route=psychometric) | [B批](round-three-b/routes/psychometric.md) | [11](route-coverage/psychometric.md) | 6／7 | Meredith 1993原文正文未取得；不变性的方法证据使用Jak–Jorgensen 2017，不能冒称补齐1993原文。；Thurstone 1938、Horn的关键扩展原作、2012完整CHC书章尚待阅读；1963和1993的公开OCR需用原版扫描复核图表。；Gardner首版与后出版本未校勘，2006回应未读；不根据单一大学样本裁决全部多元智能理论。 |
 | [学习效率与泛化路线](round-three-a/atlas.html?route=learning-efficiency) | [A批](round-three-a/routes/learning-efficiency.md) | [18](route-coverage/learning-efficiency.md) | 5／5 | 本批已将系统性争论、SCAN／MLC、捷径学习及问题卡对应；更广泛的现代泛化机制与评测仍可继续扩展。；Baird复现范围限定为1995六状态预测例，不能替代组合泛化实验或一般强化学习收敛结论。 |
 | [理性、适应与资源约束路线](round-three-b/atlas.html?route=rational-resource) | [B批](round-three-b/routes/rational-resource.md) | [7](route-coverage/rational-resource.md) | 5／6 | 未通读Hutter 2005专著或后续AIXI证明；2000稿的保证只按所读条件表述。；Chater等1997直接批评获取失败；本批启发式边界由1996原文的协议和作者自限支持。；NARS限1995论文中的3.0；资源理性仅覆盖指定目标文章、两篇评论与部分回应，不代表当前全部研究。 |
 | [符号、逻辑、搜索与组合路线](round-three-a/atlas.html?route=symbolic-logic) | [A批](round-three-a/routes/symbolic-logic.md) | [9](route-coverage/symbolic-logic.md) | 6／7 | Logic Theorist、GPS、框架问题的独立原文及其他规划分支仍可继续拓展；本批不声称穷尽。；A*扩展节点最优性及后续更正未复核；STRIPS期刊版尚未与会议版逐项对照。 |
-| [连接主义、统计学习与表征路线](round-three-a/atlas.html?route=connectionist) | [A批](round-three-a/routes/connectionist.md) | [10](route-coverage/connectionist.md) | 6／9 | 十个节点覆盖本批指定转折，不代表完整连接主义史。；C批已选读Hebb的1988重印所列片段；1949原书完整论证与版本校勘、感知机专著及Minsky–Papert 1969仍待补。不能用1958选段替代收敛定理。；张量积表示的网络实现、递归操作及Fodor–McLaughlin 1990后续批评尚未完成原文审校。；Transformer、规模规律和现代语言模型分支尚未展开；本批现代训练节点覆盖监督视觉及程序归纳，不声称覆盖全部现代模型。 |
+| [连接主义、统计学习与表征路线](round-three-a/atlas.html?route=connectionist) | [A批](round-three-a/routes/connectionist.md) | [10](route-coverage/connectionist.md) | 6／9 | 十个节点覆盖本批指定转折，不代表完整连接主义史。；C批已选读Hebb的1988重印所列片段；1949原书完整论证与版本校勘、感知机专著及Minsky–Papert 1969仍待补。不能用1958选段替代收敛定理。；张量积表示的网络实现、递归操作及Fodor–McLaughlin 1990后续批评尚未完成原文审校。；第六轮选读Transformer、Kaplan与两项规模规律竞争解释；其余现代模型、完整训练代码和较新数据仍未系统审校。 |
 | [概率推断、因果模型与世界模型路线](round-three-a/atlas.html?route=causal-world-models) | [A批](round-three-a/routes/causal-world-models.md) | [10](route-coverage/causal-world-models.md) | 6／7 | Pearl 1988专著、因果发现与演算完备性的后续发展尚未独立展开；此处不声称覆盖全部因果史。；PlaNet补充材料与训练代码、World Models后续版本及更广泛世界模型成果留作扩展；本文的作者实验数字均未计作本项目复现。 |
 | [控制论、强化学习与主动推断路线](round-three-a/atlas.html?route=cybernetics-rl) | [A批](round-three-a/routes/cybernetics-rl.md) | [12](route-coverage/cybernetics-rl.md) | 7／8 | Wiener原版与所读再版未逐字对勘，Bellman 1957专著、AlphaZero等仍可后续拓展；现有材料不替代这些版本。；MuZero已核对2019v1和2020期刊正文的所列段落及表1；期刊网页缺失公式、补充材料与全套图形未逐项校勘。 |
 | [认知架构与多机制协作路线](round-three-a/atlas.html?route=cognitive-architectures) | [A批](round-three-a/routes/cognitive-architectures.md) | [6](route-coverage/cognitive-architectures.md) | 2／5 | Newell 1990原书及ACT* 1983尚未建立本批原典笔记；现有节点不替代这些版本。；标准模型的其他直接异议、图2逐格比较与2017年后的修订仍待扩展；本批没有全面重跑认知架构。 |
-| [神经科学路线](round-three-c/atlas.html?route=neuroscience) | [C批](round-three-c/routes/neuroscience.md) | [7](route-coverage/neuroscience.md) | 5／6 | Marr多层解释虽在早期叙事中提及，尚无Vision原书独立笔记；连接组仅选读Schlegel指定范围，未审查全部FlyWire伴随论文。；Hebb仅选集重印；LTP仅摘要与354页讨论图像，原始记录和完整统计未重验；缺长期学习行为与突触干预的联合证据。；2018网络理论为观点文章，2023/2026预测检验留后续；本批不作截至2026年的完整综述。；第四轮补读Barbey的测量与病损方法、Jonas的任务限制；未独立复算影像和处理器代码。Barbey作者名单的当前更正见索引修订记录。 |
+| [神经科学路线](round-three-c/atlas.html?route=neuroscience) | [C批](round-three-c/routes/neuroscience.md) | [7](route-coverage/neuroscience.md) | 5／6 | 第六轮选读Marr《Vision》原书22–25页；全书其他章节、连接组全部FlyWire伴随论文仍未系统审校。；Hebb仅选集重印；LTP仅摘要与354页讨论图像，原始记录和完整统计未重验；缺长期学习行为与突触干预的联合证据。；2018网络理论为观点文章，2023/2026预测检验留后续；本批不作截至2026年的完整综述。；第四轮补读Barbey的测量与病损方法、Jonas的任务限制；未独立复算影像和处理器代码。Barbey作者名单的当前更正见索引修订记录。 |
 | [发展、建构与开放式学习路线](round-three-c/atlas.html?route=developmental-openended) | [C批](round-three-c/routes/developmental-openended.md) | [6](route-coverage/developmental-openended.md) | 6／6 | Piaget1936法文初版受访问验证限制，实际采用1952英译后续印次；未逐条核对婴儿观察记录和法英异文。；核心知识所引每个实验和跨文化证据未单独复核；新颖性、任务生成不等于递归自我改进或无限增长。；长期持续学习、灾难遗忘、开放性度量及POET后续版本仍待补读。；第四轮第二阶段选读Smith等1999实验1与6，明确年龄／等待时长及试次层次；短时效应不作为长期发展已识别的证据。Thelen等1984原刊未取得。 |
 | [具身、生态、生成与动力系统路线](round-three-a/atlas.html?route=embodied-dynamical) | [A批](round-three-a/routes/embodied-dynamical.md) | [12](route-coverage/embodied-dynamical.md) | 6／6 | Brooks已核对实验范围与第二层实现的版本变化；期刊图中全部连线及硬件行为未独立复核。；Thelen与Smith仍限于第1章和第4章指定范围；Beer的全部相图推导和原始模拟未复核。C批已完成生物与发展的指定范围；其余长期学习和发展证据见C批缺口。；第四轮第二阶段新增Smith等1999实验1／6及2007互动理论、2009知觉交互的指定范围选读；原实验数据与长期发展机制尚未独立复核。 |
 | [生命、自维持与演化路线](round-three-c/atlas.html?route=autopoiesis-evolution) | [C批](round-three-c/routes/autopoiesis-evolution.md) | [6](route-coverage/autopoiesis-evolution.md) | 4／5 | 此前C批为重印与转录选读；本轮原刊指定页的补核见下项。其余物种与演化经验材料未由本轮新增。；黏菌只核对指定实验正文；分子机制、跨实验室复现和Levin各项形态干预原始研究未全面审查。；Levin2022 TAME、独立批评和生命定义的其他传统仍为明确后续队列。；第四轮第二阶段取得1974原刊扫描，核对187–189、192–193页及§9成分参与例外；新增2005适应性定义与注8。原模拟、全部算法及生命—智能—体验的桥接仍未验证。 |
@@ -37,7 +37,7 @@
 
 ### 行为表现与操作性路线
 
-- **汇集不同智能定义**（e-legg-definitions-2007）：回查被收录定义的原始语境，避免把汇编当作统一共识。 当前映射：[e-legg-hutter-2007](round-three-b/notes/e-legg-hutter-2007.md)：定义汇编与形式化通用智能论文不同。
+- **汇集不同智能定义**（e-legg-definitions-2007）：回查被收录定义的原始语境，避免把汇编当作统一共识。 当前映射：[第六轮指定片段](round-six/notes/legg-definitions-2007.md)：原批次未映射，当前已有选读；未读范围仍保留。
 
 ### 心理测量与能力结构路线
 
@@ -58,8 +58,8 @@
 ### 连接主义、统计学习与表征路线
 
 - **感知机能力边界**（e-minsky-papert-1969）：限制适用于哪些模型，不能外推为所有神经网络都不可行。 当前映射：尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。
-- **以注意力组织序列建模**（e-vaswani-2017）：原始翻译证据与后来通用模型表现需分别考证。 当前映射：尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。
-- **规模与损失的经验关系**（e-kaplan-2020）：损失规律的区间、数据分布与能力外推边界是什么？ 当前映射：尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。
+- **以注意力组织序列建模**（e-vaswani-2017）：原始翻译证据与后来通用模型表现需分别考证。 当前映射：[第六轮指定片段](round-six/notes/vaswani-2017-v7.md)：原批次未映射，当前已有选读；未读范围仍保留。
+- **规模与损失的经验关系**（e-kaplan-2020）：损失规律的区间、数据分布与能力外推边界是什么？ 当前映射：[第六轮指定片段](round-six/notes/kaplan-2020.md)：原批次未映射，当前已有选读；未读范围仍保留。
 
 ### 概率推断、因果模型与世界模型路线
 
@@ -77,7 +77,7 @@
 
 ### 神经科学路线
 
-- **解释计算的多个层次**（e-marr-1982）：视觉案例如何外推到其他认知功能，层次之间怎样约束？ 当前映射：早期路线提到多层解释，但无Marr原书的独立阅读节点；不由概念提及补写为已读。
+- **解释计算的多个层次**（e-marr-1982）：视觉案例如何外推到其他认知功能，层次之间怎样约束？ 当前映射：[第六轮指定片段](round-six/notes/marr-1982.md)：原批次未映射，当前已有选读；未读范围仍保留。
 
 ### 发展、建构与开放式学习路线
 
@@ -131,4 +131,4 @@
 [覆盖与书目修订记录](round-four/index-audit.md)保留25个候选的逐项映射、过时缺口修订及Barbey 2012作者更正（Chad Forbes）。第二阶段[系统边界与发展](round-four/boundaries/index.html)新增九份选读、27条定位主张、六条结论与8项方法检查；[阅读增量](round-four/boundaries/reading-updates.md)单列。第三阶段[意义与意识解释](round-four/meaning/index.html)形成12份选读记录、40条定位主张、6条结论、6项预测比较及11项精确检查；[阅读增量](round-four/meaning/reading-updates.md)另列。后续按[阶段计划](round-four/plan.md)推进综合修订与网站联动；新经验实验尚未执行。
 
 
-第四阶段已建立[共同复核与网站联动](round-four/integration/README.md)：18条结论、31条来源记录；旧节点数量与阅读范围保留。
+第四阶段已建立[共同复核与网站联动](round-four/integration/README.md)：18条结论、31条来源记录；旧节点数量与阅读范围保留。第五轮的24项未映射候选中，第六轮为4项建立指定片段映射，另有20项未映射；详见[第六轮](round-six/README.md)。

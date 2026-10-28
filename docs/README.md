@@ -18,6 +18,7 @@
 | [intelligence-history/round-three-a/README.md](./intelligence-history/round-three-a/README.md) | 第三轮A批已验收：四条路线、样板补链、问题卡、版本对照及正式复现 |
 | [intelligence-history/round-three-b/README.md](./intelligence-history/round-three-b/README.md) | 第三轮B批已验收：三条能力评价路线、问题卡、A批回访及合成核验 |
 | [intelligence-history/index.html](./intelligence-history/index.html) | 20路线统一研究入口：144个去重节点、15张问题卡、11项回访 |
+| [intelligence-history/round-six/README.md](./intelligence-history/round-six/README.md) | 第六轮：24项缺口排序、4项原典片段补读、2项竞争解释及结论回访 |
 | [intelligence-history/round-five/README.md](./intelligence-history/round-five/README.md) | 第五轮：20条路线的演进时间线、原批次来源追溯和可编辑图 |
 | [intelligence-history/round-four/integration/README.md](./intelligence-history/round-four/integration/README.md) | 第四轮第四阶段：18条结论共同复核、31条来源统一、正式网站原生入口与9项设计排序 |
 | [intelligence-history/round-four/meaning/README.md](./intelligence-history/round-four/meaning/README.md) | 第四轮第三阶段已验收：意义与意识，12份选读、40条主张、6条结论、预测与版本台账、3组可编辑图及11项精确核验 |

@@ -1,0 +1,819 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-28",
+  "status": "reviewed-scope",
+  "title": "关键缺口与反方补充",
+  "scope": "对第五轮时24个首轮候选无作品映射进行优先排序；本轮选读4个原候选与2个竞争／解释来源。全部为所列片段阅读，不等于完整原典或独立复现。",
+  "baseline": {
+    "unmappedCandidateCount": 24,
+    "partialCandidateCount": 1,
+    "historicalDistinctNodes": 144
+  },
+  "priorities": [
+    {
+      "rank": 1,
+      "candidateId": "e-legg-definitions-2007",
+      "title": "汇集不同智能定义",
+      "question": "不同领域对 intelligence 使用了哪些不相同的标准？",
+      "routes": [
+        "behavioral"
+      ],
+      "tier": "本轮选读",
+      "status": "selected-sections",
+      "reason": "直接影响智能定义、解释层次或模型能力与资源边界；可取得并定位原文",
+      "previousMapping": "related-different-work",
+      "previousScope": "定义汇编与形式化通用智能论文不同。"
+    },
+    {
+      "rank": 2,
+      "candidateId": "e-marr-1982",
+      "title": "解释计算的多个层次",
+      "question": "只知道神经实现是否足以理解视觉计算？",
+      "routes": [
+        "neuroscience"
+      ],
+      "tier": "本轮选读",
+      "status": "selected-sections",
+      "reason": "直接影响智能定义、解释层次或模型能力与资源边界；可取得并定位原文",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "早期路线提到多层解释，但无Marr原书的独立阅读节点；不由概念提及补写为已读。"
+    },
+    {
+      "rank": 3,
+      "candidateId": "e-kaplan-2020",
+      "title": "规模与损失的经验关系",
+      "question": "模型、数据和训练计算怎样影响语言建模损失？",
+      "routes": [
+        "connectionist"
+      ],
+      "tier": "本轮选读",
+      "status": "selected-sections",
+      "reason": "直接影响智能定义、解释层次或模型能力与资源边界；可取得并定位原文",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 4,
+      "candidateId": "e-vaswani-2017",
+      "title": "以注意力组织序列建模",
+      "question": "序列建模能否摆脱循环结构的部分限制？",
+      "routes": [
+        "connectionist"
+      ],
+      "tier": "本轮选读",
+      "status": "selected-sections",
+      "reason": "直接影响智能定义、解释层次或模型能力与资源边界；可取得并定位原文",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 5,
+      "candidateId": "e-minsky-papert-1969",
+      "title": "感知机能力边界",
+      "question": "一类感知机的表示能力受哪些结构限制？",
+      "routes": [
+        "connectionist"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 6,
+      "candidateId": "e-thurstone-1938",
+      "title": "多种基本能力",
+      "question": "测验相关必须用一个总因素解释吗？",
+      "routes": [
+        "psychometric"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "related-different-work",
+      "previousScope": "1934论文不能替代1938专著。"
+    },
+    {
+      "rank": 7,
+      "candidateId": "e-hutchins-1995",
+      "title": "把认知分析单位扩展到系统",
+      "question": "导航计算怎样分布在人、工具和操作规程中？",
+      "routes": [
+        "collective-extended"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "related-different-work",
+      "previousScope": "同年驾驶舱论文与Cognition in the Wild专著不同。"
+    },
+    {
+      "rank": 8,
+      "candidateId": "e-baars-1988",
+      "title": "全局工作空间",
+      "question": "局部处理如何成为可被多个系统使用的信息？",
+      "routes": [
+        "consciousness-self"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "related-different-work",
+      "previousScope": "后来的工作空间综述不能替代Baars原书。"
+    },
+    {
+      "rank": 9,
+      "candidateId": "e-boyd-richerson-1985",
+      "title": "文化传递的演化模型",
+      "question": "文化变化如何与遗传和个体学习相互作用？",
+      "routes": [
+        "sociocultural-language"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 10,
+      "candidateId": "e-pearl-1988",
+      "title": "概率图中的不确定性推理",
+      "question": "怎样在不完整证据下组合知识与推断？",
+      "routes": [
+        "causal-world-models"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "related-different-work",
+      "previousScope": "早期贝叶斯网络论文不能替代1988专著。"
+    },
+    {
+      "rank": 11,
+      "candidateId": "e-rissanen-1978",
+      "title": "用描述长度选择模型",
+      "question": "拟合程度与模型复杂度怎样共同权衡？",
+      "routes": [
+        "information-physics"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 12,
+      "candidateId": "e-hutter-2005",
+      "title": "通用序贯决策的形式化",
+      "question": "能否统一未知环境中的预测与行动选择？",
+      "routes": [
+        "rational-resource"
+      ],
+      "tier": "优先回访",
+      "status": "unresolved",
+      "reason": "与核心问题相关；需进一步核对原始版本、反方材料及阅读条件",
+      "previousMapping": "related-different-work",
+      "previousScope": "2000稿不能替代2005专著和后续证明。"
+    },
+    {
+      "rank": 13,
+      "candidateId": "e-tomasello-1999",
+      "title": "文化积累与人类认知",
+      "question": "人类认知的特殊性如何与文化学习联系？",
+      "routes": [
+        "sociocultural-language"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "共享意图论文与文化起源专著是不同作品。"
+    },
+    {
+      "rank": 14,
+      "candidateId": "e-newell-1990",
+      "title": "跨任务的统一认知理论",
+      "question": "分散的局部实验如何约束一个整体理论？",
+      "routes": [
+        "cognitive-architectures"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "Soar论文不等于1990统一认知专著。"
+    },
+    {
+      "rank": 15,
+      "candidateId": "e-minsky-1986",
+      "title": "多机制协作的心智解释",
+      "question": "复杂思考能否由许多简单过程共同产生？",
+      "routes": [
+        "cognitive-architectures"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 16,
+      "candidateId": "e-anderson-1983",
+      "title": "认知架构与知识使用",
+      "question": "记忆、技能获得和执行怎样由一套架构解释？",
+      "routes": [
+        "cognitive-architectures"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "2004架构论文不能替代ACT*原书。"
+    },
+    {
+      "rank": 17,
+      "candidateId": "e-henrich-2015",
+      "title": "累积文化与认知生态",
+      "question": "个体并不理解的知识为何仍能长期积累？",
+      "routes": [
+        "sociocultural-language"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "塔斯马尼亚模型论文与2015专著是不同作品。"
+    },
+    {
+      "rank": 18,
+      "candidateId": "e-silver-2017",
+      "title": "搜索与自我对弈相互改进",
+      "question": "能否用自我对弈数据改进策略与价值估计？",
+      "routes": [
+        "cybernetics-rl",
+        "symbolic-logic"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 19,
+      "candidateId": "e-couzin-2005",
+      "title": "局部信息与群体方向",
+      "question": "少数知情个体怎样影响群体行动？",
+      "routes": [
+        "collective-extended"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "no-mapped-reading",
+      "previousScope": "尚未建立对应作品的后续阅读映射；相关主题出现不计为原作阅读。"
+    },
+    {
+      "rank": 20,
+      "candidateId": "e-damasio-1994",
+      "title": "情感与决策",
+      "question": "理性决策能否脱离身体状态和情感？",
+      "routes": [
+        "consciousness-self"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "1997实验不能替代1994专著论证。"
+    },
+    {
+      "rank": 21,
+      "candidateId": "e-levin-2022",
+      "title": "比较不同基底上的认知",
+      "question": "怎样研究非常规身体与基底的认知能力？",
+      "routes": [
+        "autopoiesis-evolution"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "2019文章不能替代2022 TAME版本。"
+    },
+    {
+      "rank": 22,
+      "candidateId": "e-dennett-1987",
+      "title": "意向立场与预测",
+      "question": "何时把系统解释为有信念和欲望有用？",
+      "routes": [
+        "philosophy-of-mind"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "1981论文为相关入口，未核对其与1987书内章节异文；不替代原书。"
+    },
+    {
+      "rank": 23,
+      "candidateId": "e-hameroff-penrose-2014",
+      "title": "Orch OR 的修订与回应",
+      "question": "原假说面对批评与新证据怎样调整？",
+      "routes": [
+        "metaphysics-quantum"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "1996版本不能替代2014修订和回应。"
+    },
+    {
+      "rank": 24,
+      "candidateId": "e-penrose-1989",
+      "title": "非算法心智与物理问题",
+      "question": "心智是否需要超出常规计算的物理解释？",
+      "routes": [
+        "metaphysics-quantum"
+      ],
+      "tier": "后续专项",
+      "status": "unresolved",
+      "reason": "影响特定分支或版本争论；需与相邻路线及其他待审材料一同排期",
+      "previousMapping": "related-different-work",
+      "previousScope": "联合物理假说论文不能替代1989著作。"
+    }
+  ],
+  "selectedCandidateIds": [
+    "e-legg-definitions-2007",
+    "e-marr-1982",
+    "e-kaplan-2020",
+    "e-vaswani-2017"
+  ],
+  "sources": [
+    {
+      "id": "legg-definitions-2007",
+      "title": "A Collection of Definitions of Intelligence",
+      "authors": [
+        "Shane Legg",
+        "Marcus Hutter"
+      ],
+      "year": 2007,
+      "url": "https://arxiv.org/pdf/0706.3639v1",
+      "version": "arXiv:0706.3639v1，2007-06-25。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 2–3 §1–2；PDF 7–9 §4–5；比较集体、心理学与AI定义的组织方式及作者统一定义的立场。",
+      "unreadScope": "未逐一回读70余条定义的原始文献；汇编不等于学科共识。",
+      "checkedAt": "2026-10-28",
+      "sha256": null,
+      "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+    },
+    {
+      "id": "marr-1982",
+      "title": "Vision: A Computational Investigation into the Human Representation and Processing of Visual Information",
+      "authors": [
+        "David Marr"
+      ],
+      "year": 1982,
+      "url": "https://www.colinphillips.net/wp-content/uploads/2015/09/marr1982_ch1.pdf",
+      "version": "1982原书第一章扫描，19页PDF；每张扫描图包含两页，页眉装订侧部分裁切。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF第11–12页图像，原书22–25页：计算、过程、表示和实现，图1–4及其后关于层次联系的论述。",
+      "unreadScope": "第一章其他页及全书其他章节未系统审读；未将视觉论证自动推广为全部认知机制已验证。",
+      "checkedAt": "2026-10-28",
+      "sha256": "1edda04770de96aff86b205ad9167edcb3e51317443bbe8d863e59ca04ec6794",
+      "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+    },
+    {
+      "id": "vaswani-2017-v7",
+      "title": "Attention Is All You Need",
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar",
+        "Jakob Uszkoreit",
+        "Llion Jones",
+        "Aidan N. Gomez",
+        "Łukasz Kaiser",
+        "Illia Polosukhin"
+      ],
+      "year": 2017,
+      "url": "https://arxiv.org/pdf/1706.03762v7",
+      "version": "2017会议论文；本次实读arXiv v7，2023-08-02，不能把该载体日期当作原始发表年。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–5摘要、§1、§3.1–3.3与式1、多头及掩码描述；结果只按摘要范围记录。",
+      "unreadScope": "未逐项复算表格、训练代码、计算成本与全部版本异文；不把翻译基准直接升级为一般理解。",
+      "checkedAt": "2026-10-28",
+      "sha256": null,
+      "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+    },
+    {
+      "id": "kaplan-2020",
+      "title": "Scaling Laws for Neural Language Models",
+      "authors": [
+        "Jared Kaplan",
+        "Sam McCandlish",
+        "Tom Henighan",
+        "Tom B. Brown",
+        "Benjamin Chess",
+        "Rewon Child",
+        "Scott Gray",
+        "Alec Radford",
+        "Jeffrey Wu",
+        "Dario Amodei"
+      ],
+      "year": 2020,
+      "url": "https://arxiv.org/pdf/2001.08361v1",
+      "version": "arXiv:2001.08361v1，2020-01-23。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–4摘要与§1.1；PDF 6 §2；PDF 16 §6与式6.1；PDF 20表6。",
+      "unreadScope": "未执行训练、重拟合曲线或审读全部附录；非嵌入参数和训练计算口径不可直接等同总参数。",
+      "checkedAt": "2026-10-28",
+      "sha256": null,
+      "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+    },
+    {
+      "id": "hoffmann-2022",
+      "title": "Training Compute-Optimal Large Language Models",
+      "authors": [
+        "Jordan Hoffmann",
+        "Sebastian Borgeaud",
+        "Arthur Mensch",
+        "Elena Buchatskaya",
+        "Trevor Cai",
+        "Eliza Rutherford",
+        "Diego de Las Casas",
+        "Lisa Anne Hendricks",
+        "Johannes Welbl",
+        "Aidan Clark",
+        "Tom Hennigan",
+        "Eric Noland",
+        "Katie Millican",
+        "George van den Driessche",
+        "Bogdan Damoc",
+        "Aurelia Guy",
+        "Simon Osindero",
+        "Karen Simonyan",
+        "Erich Elsen",
+        "Jack W. Rae",
+        "Oriol Vinyals",
+        "Laurent Sifre"
+      ],
+      "year": 2022,
+      "url": "https://arxiv.org/pdf/2203.15556v1",
+      "version": "arXiv:2203.15556v1，2022-03-29；NeurIPS正式版本书目单独记录。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–2引言及式1；PDF 7–8 §3.4与表2；PDF 27附录D.3对照。",
+      "unreadScope": "未重训模型或复算拟合；训练损失及近无限数据条件不涵盖所有推理成本或数据约束。",
+      "checkedAt": "2026-10-28",
+      "sha256": null,
+      "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+    },
+    {
+      "id": "pearce-song-2024",
+      "title": "Reconciling Kaplan and Chinchilla Scaling Laws",
+      "authors": [
+        "Tim Pearce",
+        "Jinyeop Song"
+      ],
+      "year": 2024,
+      "url": "https://arxiv.org/pdf/2406.12907v3",
+      "version": "arXiv:2406.12907v3，2024-11-21；TMLR 2024。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF 1–2摘要、图1与§1；PDF 6 §3参数口径推导入口。",
+      "unreadScope": "未执行作者代码或独立检验全部解释；这是一种基于Chinchilla拟合曲线的比较模型，不是所有差异原因已被排除。",
+      "checkedAt": "2026-10-28",
+      "sha256": null,
+      "verification": "仅据所列原文选段登记作者主张；未独立复现实验、统计拟合或证明。"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "e-legg-definitions-2007",
+      "year": 2007,
+      "dateLabel": "2007",
+      "dateBasis": "original-publication",
+      "routeIds": [
+        "behavioral"
+      ],
+      "sourceIds": [
+        "legg-definitions-2007"
+      ],
+      "branch": "智能定义与学科目标",
+      "title": "智能是否只有一种定义？",
+      "status": "claims-reviewed",
+      "question": "不同研究者所说的智能究竟包括哪些能力或目标？",
+      "mechanism": "汇集集体、心理学和AI研究者的定义，并讨论能否提取共同特征。",
+      "assumptions": "汇编来源的选取、译述与原定义语境均影响比较；不同词汇未必语义等价。",
+      "limits": "作者倾向统一定义是研究立场，不由定义汇编直接证明；未逐条回读被引原典。",
+      "nextQuestion": "哪些差异来自目标、主体、资源与评价范围？",
+      "claims": [
+        {
+          "id": "e-legg-definitions-2007-r6c1",
+          "sourceId": "legg-definitions-2007",
+          "text": "作者按集体、心理学和AI研究者分类整理70余条定义，承认列表不可能完整。",
+          "locator": "PDF 1摘要、PDF 2 §1–2",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-legg-definitions-2007-r6c2",
+          "sourceId": "legg-definitions-2007",
+          "text": "作者认为许多定义共享特征，并提出一般统一定义可能，但也指出难以客观地判定哪一项定义唯一正确。",
+          "locator": "PDF 2 §1；PDF 9 §5",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ]
+    },
+    {
+      "id": "e-marr-1982",
+      "year": 1982,
+      "dateLabel": "1982",
+      "dateBasis": "original-publication",
+      "routeIds": [
+        "neuroscience"
+      ],
+      "sourceIds": [
+        "marr-1982"
+      ],
+      "branch": "计算、算法与实现",
+      "title": "解释计算的三个层次",
+      "status": "claims-reviewed",
+      "question": "只知道物理实现，能否完整理解视觉中的信息处理？",
+      "mechanism": "分别说明计算目标与适当性、表示和算法，以及算法的物理实现。",
+      "assumptions": "原文以视觉与算术为例；层次既有逻辑和因果联系，也只是松耦合。",
+      "limits": "原书选读不能验证某个视觉算法已在脑中实现；不同层次不是可互相替换的测量。",
+      "nextQuestion": "怎样同时以行为、过程与干预约束同一模型？",
+      "claims": [
+        {
+          "id": "e-marr-1982-r6c1",
+          "sourceId": "marr-1982",
+          "text": "原文的图1–4区分计算理论、表示与算法、硬件实现三个问题。",
+          "locator": "扫描PDF 12，原书24–25页，图1–4",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-marr-1982-r6c2",
+          "sourceId": "marr-1982",
+          "text": "作者强调三层既有联系又松耦合；相同算法可以在不同物理技术中实现。",
+          "locator": "扫描PDF 12，原书24–25页",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ]
+    },
+    {
+      "id": "e-vaswani-2017",
+      "year": 2017,
+      "dateLabel": "2017",
+      "dateBasis": "original-publication",
+      "routeIds": [
+        "connectionist"
+      ],
+      "sourceIds": [
+        "vaswani-2017-v7"
+      ],
+      "branch": "注意力与序列建模",
+      "title": "用注意力构造序列变换",
+      "status": "claims-reviewed",
+      "question": "序列建模如何减少循环造成的训练串行依赖？",
+      "mechanism": "编码器和解码器使用多头注意力、位置逐点前馈、残差和位置表示；解码自注意力使用因果掩码。",
+      "assumptions": "原论文为编码器—解码器翻译模型；训练并行与自回归推理并行是不同问题。",
+      "limits": "原论文指定翻译与句法任务结果不证明当代语言模型一般理解；未独立复现。",
+      "nextQuestion": "模型结构、训练分布、资源预算与泛化如何分别影响结果？",
+      "claims": [
+        {
+          "id": "e-vaswani-2017-r6c1",
+          "sourceId": "vaswani-2017-v7",
+          "text": "模型去掉循环结构；编码器和解码器仍使用前馈层、残差和层归一化。",
+          "locator": "PDF 3，§3.1",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-vaswani-2017-r6c2",
+          "sourceId": "vaswani-2017-v7",
+          "text": "缩放点积注意力对QKᵀ除以√d_k，经softmax加权V；解码掩码防止访问未来位置。",
+          "locator": "PDF 4–5，§3.2.1、§3.2.3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ]
+    },
+    {
+      "id": "e-kaplan-2020",
+      "year": 2020,
+      "dateLabel": "2020",
+      "dateBasis": "original-publication",
+      "routeIds": [
+        "connectionist"
+      ],
+      "sourceIds": [
+        "kaplan-2020"
+      ],
+      "branch": "规模、损失与预算",
+      "title": "规模规律预测什么？",
+      "status": "claims-reviewed",
+      "question": "模型、数据与计算预算如何影响语言模型的交叉熵损失？",
+      "mechanism": "在受测范围拟合模型、数据与计算规模的经验关系，并估计固定计算预算下的配置。",
+      "assumptions": "主要指标是WebText2等分布上的语言模型损失；论文参数N和计算C排除嵌入部分。",
+      "limits": "拟合结果依赖模型族、数据及计算口径，不能直接作为智能、体验或所有任务能力的定律。",
+      "nextQuestion": "同预算下不同参数口径和训练时长会怎样改变最优配置？",
+      "claims": [
+        {
+          "id": "e-kaplan-2020-r6c1",
+          "sourceId": "kaplan-2020",
+          "text": "作者报告损失与模型规模、数据和计算的经验幂律，在其他资源未成为瓶颈的条件下比较。",
+          "locator": "PDF 3，图1与§1.1",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-kaplan-2020-r6c2",
+          "sourceId": "kaplan-2020",
+          "text": "定义中的N排除嵌入参数；报告的计算最优模型大小指数约0.73，采用相应的非嵌入计算口径。",
+          "locator": "PDF 6 §2.1；PDF 16 §6、式6.1",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ]
+    },
+    {
+      "id": "e-hoffmann-2022",
+      "year": 2022,
+      "dateLabel": "2022",
+      "dateBasis": "original-publication",
+      "routeIds": [
+        "connectionist",
+        "learning-efficiency"
+      ],
+      "sourceIds": [
+        "hoffmann-2022"
+      ],
+      "branch": "资源分配的竞争估计",
+      "title": "同一训练预算，模型和数据如何配比？",
+      "status": "claims-reviewed",
+      "question": "对固定训练FLOPs，应怎样配置模型大小和训练token数量？",
+      "mechanism": "用三类拟合与多个训练时长估计最优前沿，并将Chinchilla与Gopher等比较。",
+      "assumptions": "估计目标是给定训练计算下的语言模型损失，依赖数据与训练配置；不等于全生命周期成本最优。",
+      "limits": "三种拟合给出相近但不完全相同的指数；未在本项目重训或重拟合。",
+      "nextQuestion": "不同参数定义、模型规模范围及推理成本会怎样影响结论？",
+      "claims": [
+        {
+          "id": "e-hoffmann-2022-r6c1",
+          "sourceId": "hoffmann-2022",
+          "text": "作者训练400余个模型，用三种方法估算计算最优模型与token规模；表2的三个参数指数分别为0.50、0.49、0.46。",
+          "locator": "PDF 2 §1；PDF 8，表2",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-hoffmann-2022-r6c2",
+          "sourceId": "hoffmann-2022",
+          "text": "作者报告Chinchilla采用70B参数与约1.4万亿token，并在所测条件下比较Gopher。",
+          "locator": "PDF 2，引言末段；PDF 27，附录D.3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ]
+    },
+    {
+      "id": "e-pearce-song-2024",
+      "year": 2024,
+      "dateLabel": "2024",
+      "dateBasis": "original-publication",
+      "routeIds": [
+        "connectionist",
+        "learning-efficiency"
+      ],
+      "sourceIds": [
+        "pearce-song-2024"
+      ],
+      "branch": "参数口径与拟合尺度",
+      "title": "为什么两条规模规律的指数不同？",
+      "status": "claims-reviewed",
+      "question": "Kaplan与Chinchilla的最优规模指数分歧可能来自什么？",
+      "mechanism": "从Chinchilla拟合训练曲线出发，模拟较小规模和非嵌入参数口径下的最优前沿。",
+      "assumptions": "模拟基于拟合模型；参数计数与规模范围是作者提出的解释，需与其他可能原因比较。",
+      "limits": "结果不是对全部模型与训练数据的独立复现，也不排除所有优化或数据差异。",
+      "nextQuestion": "用独立训练记录和统一参数／计算口径，能否复核差异归因？",
+      "claims": [
+        {
+          "id": "e-pearce-song-2024-r6c1",
+          "sourceId": "pearce-song-2024",
+          "text": "作者指出Kaplan约0.73与Chinchilla约0.50的配置指数不同。",
+          "locator": "PDF 1摘要、图1",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        },
+        {
+          "id": "e-pearce-song-2024-r6c2",
+          "sourceId": "pearce-song-2024",
+          "text": "文章认为非嵌入参数口径与较小研究规模可解释相当部分差异；该判断来自拟合曲线模拟。",
+          "locator": "PDF 1–2摘要、§1；PDF 6 §3",
+          "basis": "source-reported",
+          "independentlyReplicated": false
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r6-vaswani-kaplan",
+      "fromId": "e-vaswani-2017",
+      "toId": "e-kaplan-2020",
+      "type": "explicit-adoption",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "kaplan-2020"
+      ],
+      "locator": "Kaplan PDF 2 §1",
+      "explanation": "Kaplan明确以Transformer为主要研究架构；模型使用关系不代表从架构直接推导规模规律。"
+    },
+    {
+      "id": "r6-kaplan-hoffmann",
+      "fromId": "e-kaplan-2020",
+      "toId": "e-hoffmann-2022",
+      "type": "direct-critique",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "hoffmann-2022"
+      ],
+      "locator": "Hoffmann PDF 1–2，引言",
+      "explanation": "Hoffmann明确比较并修订对计算最优模型大小与token分配的估计；原指标与口径需要分别保留。"
+    },
+    {
+      "id": "r6-hoffmann-pearce",
+      "fromId": "e-hoffmann-2022",
+      "toId": "e-pearce-song-2024",
+      "type": "method-comparison",
+      "status": "source-supported",
+      "evidenceSourceIds": [
+        "pearce-song-2024"
+      ],
+      "locator": "Pearce PDF 1–2，摘要和图1",
+      "explanation": "后文基于Chinchilla拟合曲线研究两组估计的口径差异，不是全部原始模型训练的独立复制。"
+    },
+    {
+      "id": "r6-legg-definitions",
+      "fromId": "e-legg-definitions-2007",
+      "toId": "e-legg-hutter-2007",
+      "type": "conceptual-comparison",
+      "status": "editorial-inference",
+      "evidenceSourceIds": [
+        "legg-definitions-2007"
+      ],
+      "locator": "Legg–Hutter PDF 2 §1，PDF 8 §4",
+      "explanation": "同一作者汇编与形式定义放在一起比较；汇编本身不证明该形式定义唯一或普遍公认。"
+    }
+  ],
+  "revisions": [
+    {
+      "id": "p1",
+      "change": "资源、训练与评价目标的约束同样适用于规模规律；语言损失不是跨任务智能总分。",
+      "evidence": [
+        "e-kaplan-2020",
+        "e-hoffmann-2022"
+      ],
+      "status": "clarification"
+    },
+    {
+      "id": "p3",
+      "change": "Marr的三层说明计算目标、表示算法与实现各需证据；不能以病损定位直接唯一确定算法。",
+      "evidence": [
+        "e-marr-1982"
+      ],
+      "status": "support-with-scope"
+    },
+    {
+      "id": "p6",
+      "change": "Kaplan、Hoffmann与Pearce比较说明结论与口径、模型类、尺度依赖相连；拟合与独立训练要分开。",
+      "evidence": [
+        "e-kaplan-2020",
+        "e-hoffmann-2022",
+        "e-pearce-song-2024"
+      ],
+      "status": "illustration"
+    }
+  ],
+  "gapOverrides": {
+    "connectionist": [
+      {
+        "old": "Transformer、规模规律和现代语言模型分支尚未展开；本批现代训练节点覆盖监督视觉及程序归纳，不声称覆盖全部现代模型。",
+        "new": "第六轮选读Transformer、Kaplan与两项规模规律竞争解释；其余现代模型、完整训练代码和较新数据仍未系统审校。"
+      }
+    ],
+    "neuroscience": [
+      {
+        "old": "Marr多层解释虽在早期叙事中提及，尚无Vision原书独立笔记；连接组仅选读Schlegel指定范围，未审查全部FlyWire伴随论文。",
+        "new": "第六轮选读Marr《Vision》原书22–25页；全书其他章节、连接组全部FlyWire伴随论文仍未系统审校。"
+      }
+    ]
+  }
+}

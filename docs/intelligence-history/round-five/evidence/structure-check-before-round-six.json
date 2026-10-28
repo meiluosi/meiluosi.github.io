@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-28",
+  "routes": 20,
+  "routeNodeOccurrences": 169,
+  "distinctNodes": 144,
+  "sourceReferences": 190,
+  "claimOccurrences": 406,
+  "relationOccurrences": 123,
+  "unknownDateOccurrences": 4,
+  "sourceCorrectionsApplied": 1,
+  "samples": {
+    "psychometric": {
+      "nodes": 11,
+      "claims": 30,
+      "relations": 7
+    },
+    "learning-efficiency": {
+      "nodes": 18,
+      "claims": 40,
+      "relations": 12
+    },
+    "philosophy-of-mind": {
+      "nodes": 6,
+      "claims": 12,
+      "relations": 4
+    }
+  },
+  "localLinksChecked": 364,
+  "errors": [],
+  "timelineDataSHA256": "98c9904e665f72fa2034bcc099dc3a49a2e772d1a3fe1ceec1dcd5238938c8b6",
+  "scope": "Compares all site node/source/claim projections with the original selected batch, checks SVG and internal research links. Original source uptime and unread material not independently checked."
+}

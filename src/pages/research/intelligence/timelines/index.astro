@@ -1,6 +1,10 @@
 ---
 import ExploreLayout from "@/layouts/ExploreLayout.astro";
-import { timelineRoutes, timelineCounts } from "@/data/intelligenceTimelines";
+import {
+	timelineRoutes,
+	timelineCounts,
+	timelineRoundSix,
+} from "@/data/intelligenceTimelines";
 import "@/styles/intelligence-research.css";
 ---
 <ExploreLayout title="智能探索路线：问题的演进" titleEn="Intelligence research timelines" description="沿二十条路线阅读问题、方法、证据与尚未解决的分歧。" descriptionEn="Twenty Chinese-language timelines showing questions, methods, evidence and open problems.">
@@ -8,7 +12,7 @@ import "@/styles/intelligence-research.css";
   <nav class="research-nav"><a href="/research/intelligence/">← 综合研究</a><a href="/routes/">20条路线地图</a></nav>
   <p class="kicker">RESEARCH TIMELINES · 20 ROUTES</p><h1>沿问题的变化，<br />理解智能的不同路线。</h1>
   <p class="lead">从一个问题如何被提出，到新方法解释了什么、证据在哪里、又产生什么分歧：在时间线中进入每一条路线。</p>
-  <div class="scope-note">第二轮至第三轮共有{timelineCounts.nodeRecords}条批次节点记录，按ID去重为{timelineCounts.distinctNodes}个节点。同一节点可属于多条路线；这里展示各路线在当前索引中选择的阅读记录。已审校指定片段不等于全文读完或独立复现。</div>
+  <div class="scope-note">第二轮至第三轮共有{timelineCounts.nodeRecords}条批次节点记录，按ID去重为{timelineCounts.distinctNodes}个节点。同一节点可属于多条路线；这里在各路线原批次记录上增补第六轮{timelineRoundSix.nodes}个指定片段节点。已审校指定片段不等于全文读完或独立复现。</div>
   <div class="research-grid">{timelineRoutes.map((route,index)=><article class="research-card"><span class="kicker">ROUTE {String(index+1).padStart(2,"0")} · {route.nodes.length} NODES</span><h2><a href={`/research/intelligence/timelines/${route.id}/`}>{route.name}</a></h2><p>{route.question}</p><a href={`/research/intelligence/timelines/${route.id}/`}>查看演进与文献 →</a></article>)}</div>
  </article>
 </ExploreLayout>
