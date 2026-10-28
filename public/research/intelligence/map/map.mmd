@@ -1,0 +1,18 @@
+flowchart TD
+  %% 工作性问题地图：连线表达比较问题，不表示因果证明或必然演进。
+  performance["表现、能力与泛化"]
+  mechanism["相关结构与产生机制"]
+  development["学习、发展与开放环境"]
+  boundary["身体、环境与系统边界"]
+  collective["群体协作与文化"]
+  semantics["表征、指称与意义"]
+  experience["访问、意识与解释"]
+  norms["资源、目标与价值"]
+  physical["形式、实现与物理假设"]
+  performance -->|解释表现| mechanism
+  development -->|形成与适应| performance
+  boundary -->|解释单位| collective
+  semantics -.->|桥接前提| experience
+  performance -.->|目标与代价| norms
+  physical -.->|实现假设| mechanism
+  physical -.->|桥接假说| experience

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-28",
+  "questionDomains": 9,
+  "priorQuestionCards": 15,
+  "reviewedConclusionsReferenced": 18,
+  "comparisons": 6,
+  "svgLinks": 9,
+  "internalLinksChecked": 45,
+  "errors": [],
+  "scope": "Checks structural mapping, link targets and provenance; does not validate theories or imply proposed tests were run."
+}

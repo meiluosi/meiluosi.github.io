@@ -1,0 +1,294 @@
+{
+  "asOf": "2026-10-28",
+  "status": "provisional-editorial-synthesis",
+  "position": "智能可以先作为一组与任务、环境、学习历史和资源有关的能力问题来研究；这一工作性视角不是所有路线共享的定义，也不预设能力、意义、生命、价值或体验相互等同。",
+  "premises": [
+    "可观察表现需要清楚任务、资源、主体和评估条件。",
+    "能力与机制是可受证据约束的推断，单一分数不能自动识别原因。",
+    "对意义、体验和价值的主张需要另外说明各自的判据与桥接前提。"
+  ],
+  "axes": [
+    {
+      "id": "performance",
+      "title": "表现、能力与泛化",
+      "judgment": "表现是特定任务、评分和资源约束下的观测；跨任务能力与学习效率是需要进一步检验的推断。",
+      "objection": "如果不同任务共享评分偏差、训练数据或工具支持，共同高分未必反映可迁移能力。",
+      "test": "预先指定新任务与留出单位；记录训练、推理和工具预算，观察能力排序是否跨条件保持。",
+      "conclusions": [
+        "p1",
+        "p6"
+      ],
+      "questionIds": [
+        "q-performance-capability",
+        "q-learning-generalization"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "定义汇编与规模规律补读",
+          "url": "/research/intelligence/revisit/"
+        },
+        {
+          "label": "路线演进与能力条件",
+          "url": "/research/intelligence/timelines/learning-efficiency/"
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "title": "相关结构与产生机制",
+      "judgment": "因素模型可描述共同变化；因果机制、算法和实现需要不同证据。",
+      "objection": "相同相关结构可能由不同共同原因或测量过程产生，损伤效应也可能反映断连与代偿。",
+      "test": "比较能拟合相同数据的竞争模型，设计能让它们预测不同结果的操纵。",
+      "conclusions": [
+        "p2",
+        "p3",
+        "p6"
+      ],
+      "questionIds": [
+        "q-factor-mechanism",
+        "q-neural-mechanism",
+        "q-model-representation"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "Marr 视觉解释层次补读",
+          "url": "/research/intelligence/revisit/#e-marr-1982"
+        },
+        {
+          "label": "神经科学路线",
+          "url": "/research/intelligence/timelines/neuroscience/"
+        }
+      ]
+    },
+    {
+      "id": "development",
+      "title": "学习、发展与开放环境",
+      "judgment": "适应不能只看既有技能的即时分数，还要比较新经验、交互历史和变化环境下的学习。",
+      "objection": "所谓新能力可能来自预训练、工具或评价泄漏；环境越开放也不意味着一定更智能。",
+      "test": "隔离先验经验、训练预算和评估任务，追踪学习曲线与环境变化后的表现。",
+      "conclusions": [
+        "p1",
+        "b3"
+      ],
+      "questionIds": [
+        "q-development-openended"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "学习与资源路线",
+          "url": "/research/intelligence/timelines/learning-efficiency/"
+        }
+      ]
+    },
+    {
+      "id": "boundary",
+      "title": "身体、环境与系统边界",
+      "judgment": "系统边界应随解释目标确定；有用的功能整体与认知构成或主观主体并非同一个主张。",
+      "objection": "工具或环境可能只是可靠外因；移除后性能下降不自动证明其属于心智。",
+      "test": "分别操纵当下工具、互动反馈和发展历史，检查替代因果结构。",
+      "conclusions": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b6"
+      ],
+      "questionIds": [
+        "q-agent-environment",
+        "q-life-cognition",
+        "q-system-boundary"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "系统边界综述",
+          "url": "/research/intelligence/boundaries/"
+        }
+      ]
+    },
+    {
+      "id": "collective",
+      "title": "群体协作与文化",
+      "judgment": "群体任务的共同变化与协作过程是相关但不同的问题，文化传递还涉及代际组织和历史。",
+      "objection": "共同因素可能受成员能力或任务设计驱动；一次成功协作不证明稳定群体能力或文化累积。",
+      "test": "区分留出任务、群体和研究；操纵成员组合与协作过程，并按版本核对原始模型。",
+      "conclusions": [
+        "p4",
+        "p5",
+        "b5"
+      ],
+      "questionIds": [
+        "q-cultural-cumulation"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "群体研究版本与模型复核",
+          "url": "/research/intelligence/verification/"
+        },
+        {
+          "label": "群体与延展路线",
+          "url": "/research/intelligence/timelines/collective-extended/"
+        }
+      ]
+    },
+    {
+      "id": "semantics",
+      "title": "表征、指称与意义",
+      "judgment": "内部概念角色、外部指称与交际意图是不同目标；外部锚点能增加区分，但不自动解决理解归属。",
+      "objection": "纯内部关系可能欠定指称；反过来，仅有外部正确对应也未必说明系统具有完整语义能力。",
+      "test": "固定意义判据并构造内部角色相同、外部指称不同的对照，再测试在新情境中的使用。",
+      "conclusions": [
+        "m1",
+        "m2"
+      ],
+      "questionIds": [
+        "q-compression-semantics"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "意义与意识综述",
+          "url": "/research/intelligence/meaning/"
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "访问、意识与解释",
+      "judgment": "可报告、可访问与有体验应分别记录；不同意识理论的功能和物理桥接假说不应混成一项。",
+      "objection": "报告和神经相关可能只是任务、注意或测量的替代解释；没有报告也不自动证明没有体验。",
+      "test": "比较理论预注册的相互排斥预测，区分原指标、追加分析和辅助假设。",
+      "conclusions": [
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "questionIds": [
+        "q-consciousness-explanation"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "意识理论的具体检验",
+          "url": "/research/intelligence/meaning/#m5"
+        }
+      ]
+    },
+    {
+      "id": "norms",
+      "title": "资源、目标与价值",
+      "judgment": "效率和合理性依赖目标、资源和环境；价值判断需要公开受益者、损害和规范前提。",
+      "objection": "最优分数可能优化了有缺陷的目标，且不同群体对代价和收益有合理分歧。",
+      "test": "同时报告资源、利益分配和替代目标，比较在目标变化时系统的行为。",
+      "conclusions": [
+        "p1",
+        "p6"
+      ],
+      "questionIds": [
+        "q-utility-resources",
+        "q-wisdom-norms"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "智慧与价值路线",
+          "url": "/research/intelligence/timelines/wisdom-values/"
+        }
+      ]
+    },
+    {
+      "id": "physical",
+      "title": "形式、实现与物理假设",
+      "judgment": "概率形式相似与某种物理实现是不同命题；物理主张应说明能区分其他实现的证据。",
+      "objection": "数学拟合优势未必支持特定物理机制；微观假说也未必对解释能力产生必要增益。",
+      "test": "预先指定经典和量子模型的不同预测、可测物理条件及失败标准。",
+      "conclusions": [
+        "p6",
+        "m4"
+      ],
+      "questionIds": [
+        "q-quantum-implementation"
+      ],
+      "relatedEvidence": [
+        {
+          "label": "物理假说路线",
+          "url": "/research/intelligence/timelines/metaphysics-quantum/"
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "type": "互补",
+      "title": "任务表现与机制分析",
+      "text": "前者约束需要解释的现象，后者提出可检验的产生过程；要明确任务和模型条件。",
+      "axes": [
+        "performance",
+        "mechanism"
+      ]
+    },
+    {
+      "type": "真实争论",
+      "title": "系统外因与认知构成",
+      "text": "即使双方接受工具影响表现，仍可对整合程度是否足以构成认知持不同判据。",
+      "axes": [
+        "boundary",
+        "collective"
+      ]
+    },
+    {
+      "type": "定义差异",
+      "title": "内部概念角色与外部指称",
+      "text": "它们要解释的意义不同；一种证据不能无条件替代另一种。",
+      "axes": [
+        "semantics"
+      ]
+    },
+    {
+      "type": "可检验分歧",
+      "title": "相关共同因素的竞争机制",
+      "text": "不同模型可拟合同一相关矩阵；干预和留出研究可让预测分开。",
+      "axes": [
+        "mechanism",
+        "collective"
+      ]
+    },
+    {
+      "type": "未决桥梁",
+      "title": "功能访问与主观体验",
+      "text": "存在理论分歧；任何从功能或物理观测到体验的推断均须公开桥接假说。",
+      "axes": [
+        "experience"
+      ]
+    },
+    {
+      "type": "互补但不等同",
+      "title": "能力与价值",
+      "text": "能力评估可提供后果证据，却不能单独决定目标是否值得追求。",
+      "axes": [
+        "performance",
+        "norms"
+      ]
+    }
+  ],
+  "questionAssignments": {
+    "q-performance-capability": "performance",
+    "q-learning-generalization": "performance",
+    "q-factor-mechanism": "mechanism",
+    "q-neural-mechanism": "mechanism",
+    "q-model-representation": "mechanism",
+    "q-development-openended": "development",
+    "q-agent-environment": "boundary",
+    "q-life-cognition": "boundary",
+    "q-system-boundary": "boundary",
+    "q-cultural-cumulation": "collective",
+    "q-compression-semantics": "semantics",
+    "q-consciousness-explanation": "experience",
+    "q-utility-resources": "norms",
+    "q-wisdom-norms": "norms",
+    "q-quantum-implementation": "physical"
+  },
+  "limitations": [
+    "本轮是既有阅读与复核的综合，不是一次新实验或所有路线的最终定论。",
+    "首轮仍有20项候选没有对应作品的后续阅读映射；已读作品多为指定片段。",
+    "群体研究三任务模型的载荷平方均值四舍五入后与更正值一致；八任务结果不同且有求逆警告，尚不能声称完整复现。",
+    "文化、价值、物理假说等领域仍需扩充原典与强反方；提出的检验不是已执行结果。"
+  ]
+}

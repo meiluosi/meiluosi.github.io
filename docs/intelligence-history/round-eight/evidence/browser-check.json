@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-28",
+  "desktop": "1440×1000",
+  "mobile": [
+    {
+      "url": "/research/intelligence/map/",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "url": "/research/intelligence/",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "domains": 9,
+  "questionCards": 15,
+  "noJavaScriptReading": true,
+  "routeEntry": true,
+  "scriptErrors": []
+}

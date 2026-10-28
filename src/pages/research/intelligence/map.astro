@@ -1,0 +1,20 @@
+---
+import map from "../../../../docs/intelligence-history/round-eight/research.json";
+import index from "../../../../docs/intelligence-history/research-index.json";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import { researchReview } from "@/data/intelligenceResearch";
+import "@/styles/intelligence-research.css";
+const questionFor = (id: string) => index.questionCards.find(q=>q.id===id)!;
+const conclusionUrl = (id: string) => `/research/intelligence/${researchReview.reviews.find(r=>r.id===id)!.article}/#${id}`;
+---
+<ExploreLayout title="智能问题地图" titleEn="A living map of intelligence questions" description="将不同智能路线的解释目标、争论、前提与下一项检验放在一张持续修订的地图中。" descriptionEn="A provisional Chinese-language map of intelligence research questions and disagreements.">
+<article class="research-page" lang="zh-CN" data-pagefind-body>
+<nav class="research-nav"><a href="/research/intelligence/">← 综合研究</a><a href="#axes">九个问题域</a><a href="#comparisons">互补与分歧</a><a href="#questions">15张问题卡</a></nav>
+<p class="kicker">A LIVING QUESTION MAP · ROUND 08</p><h1>智能是什么：<br />先把问题放对位置。</h1><p class="lead">不同路线有时在回答不同问题，有时在对同一个问题提出相互竞争的解释。地图让这些关系可以被检查和修订。</p>
+<div class="scope-note"><strong>当前工作视角：</strong>{map.position} 这是编辑性综合，不是新实验；九个问题域可以重叠，也不代表已经覆盖全部争论。</div>
+<figure><a href="/research/intelligence/map/map.svg"><img class="research-map" src="/research/intelligence/map/map.svg" alt="九个问题域的概览图" /></a><figcaption>打开大图后，可点击其中的问题域进入相应判断。<a href="/research/intelligence/map/map.svg" download>下载SVG</a> · <a href="/research/intelligence/map/map.mmd" download>下载可编辑关系图</a></figcaption></figure>
+<section id="axes"><h2>九个问题域：判断、反方和下一问</h2><p>“下一项检验”是可执行的研究建议，除非另有注明，并不表示已经实施。</p>{map.axes.map(axis=><section class="conclusion" id={axis.id}><span class="kicker">QUESTION DOMAIN</span><h3>{axis.title}</h3><p><strong>当前判断：</strong>{axis.judgment}</p><p><strong>强反方：</strong>{axis.objection}</p><p><strong>如何区分：</strong>{axis.test}</p><p class="quiet">相关结论：{axis.conclusions.map(id=><a href={conclusionUrl(id)}>{id}　</a>)} · 原问题卡：{axis.questionIds.map(id=><a href={`#${id}`}>{id}　</a>)}</p><nav class="research-nav">{axis.relatedEvidence.map(item=><a href={item.url}>{item.label} →</a>)}</nav></section>)}</section>
+<section id="comparisons"><h2>互补、分歧与桥接</h2><div class="research-grid">{map.comparisons.map(item=><section class="research-card"><span class="tag">{item.type}</span><h3>{item.title}</h3><p>{item.text}</p><p class="quiet">{item.axes.map(id=><a href={`#${id}`}>{map.axes.find(a=>a.id===id)?.title}　</a>)}</p></section>)}</div></section>
+<section id="questions"><h2>与已有15张问题卡对照</h2><p>每张卡分配一个主要导航入口，方便查找；这不表示问题只属于一个领域，也不表示卡中争论已经解决。</p>{Object.entries(map.questionAssignments).map(([id,axisId])=>{const q=questionFor(id);return <details class="source-row" id={id}><summary>{q.title}</summary><p>{q.question}</p><p>既有对照：{q.comparison}</p><p>主要入口：<a href={`#${axisId}`}>{map.axes.find(a=>a.id===axisId)?.title}</a> · 原卡检验状态：{q.proposedTestStatus}</p></details>})}</section>
+<h2>这张地图依赖什么？</h2><ul>{map.premises.map(item=><li>{item}</li>)}</ul><h2>仍需补充</h2><ul>{map.limitations.map(item=><li>{item}</li>)}</ul><p><a href="/research/intelligence/revisit/">回到关键缺口与反方 →</a> · <a href="/research/intelligence/verification/">查看群体研究复核 →</a></p>
+</article></ExploreLayout>

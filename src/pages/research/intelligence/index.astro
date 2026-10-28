@@ -9,7 +9,7 @@ import "@/styles/intelligence-research.css";
 		<p class="kicker">INTELLIGENCE / RESEARCH SYNTHESIS · 2026.10.28</p>
 		<h1>智能是什么：<br />把不同问题放在一起，<br />把推理的边界写清楚。</h1>
 		<p class="lead">成绩怎样支持能力判断？一个工具何时成为认知系统的一部分？功能与物理证据怎样连接意义和体验？三篇综述共同复核18条结论，保留它们的前提、反方与下一项检验。</p>
-		<nav class="research-nav"><a href="/research/intelligence/verification/">第七轮：群体研究复核</a><a href="/research/intelligence/revisit/">第六轮：关键缺口与反方</a><a href="/research/intelligence/timelines/">20条路线演进时间线</a><a href="/research/intelligence/sources/"><Text zh="文献与原文定位 · 31" en="Sources & locations · 31" /></a><a href="/research/intelligence/review/">修订对照 · 18</a><a href="/research/intelligence/next/">后续研究 · 9</a><a href="/routes/">20路线地图</a></nav>
+		<nav class="research-nav"><a href="/research/intelligence/map/">第八轮：智能问题地图</a><a href="/research/intelligence/verification/">第七轮：群体研究复核</a><a href="/research/intelligence/revisit/">第六轮：关键缺口与反方</a><a href="/research/intelligence/timelines/">20条路线演进时间线</a><a href="/research/intelligence/sources/"><Text zh="文献与原文定位 · 31" en="Sources & locations · 31" /></a><a href="/research/intelligence/review/">修订对照 · 18</a><a href="/research/intelligence/next/">后续研究 · 9</a><a href="/routes/">20路线地图</a></nav>
 		<div class="research-grid">{researchArticles.map((article, index) => <article class="research-card"><span class="kicker">ESSAY 0{index+1}</span><h2><a href={`/research/intelligence/${article.id}/`}>{article.title}</a></h2><p>{article.data.synthesis[0].text}</p><span class="quiet">6条条件性结论 · {article.data.sources.length}条来源记录 · {article.graphs.length}组可编辑图</span></article>)}</div>
 		<div class="scope-note">第四轮共同复核收紧13条措辞，保留5条原句。11条属于推理边界、4条依赖争议判据、3条限于指定材料。此后第六轮补充选读文献，第七轮开展群体研究的数据与版本复核；具体范围见各轮记录。</div>
 		<h2>每跨一步，都需要补充什么？</h2>
