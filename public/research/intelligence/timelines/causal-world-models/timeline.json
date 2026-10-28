@@ -1,0 +1,847 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "causal-world-models",
+    "name": "概率推断、因果模型与世界模型路线",
+    "question": "怎样利用概率、因果与可预测动态形成对世界的可用解释？",
+    "gaps": [
+      "Pearl 1988专著、因果发现与演算完备性的后续发展尚未独立展开；此处不声称覆盖全部因果史。",
+      "PlaNet补充材料与训练代码、World Models后续版本及更广泛世界模型成果留作扩展；本文的作者实验数字均未计作本项目复现。"
+    ],
+    "nodes": [
+      {
+        "id": "e-bellman-1952",
+        "title": "如何把行动序列优化变成递推问题？",
+        "year": 1952,
+        "dateLabel": "1952",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "动态规划",
+        "question": "每步操作的结果会影响后续决策，怎样求整个序列的最优收益或代价？",
+        "mechanism": "用当前状态、当前收益与下一状态的续接价值构造取最大或最小的函数方程；引言用搜盒取球和资源分配说明。",
+        "assumptions": "定理1要求状态变换留在定义域，收益有界、续接系数绝对值统一小于1，且原文还列出非负条件；不能删掉条件只剩“最优”。",
+        "limits": "论文主要给出方程与定理陈述，详细证明另行发表；已知算子下求解价值与从未知环境经验学习是不同问题。1957专著仍未读。",
+        "nextQuestion": "哪些环境信息必须由模型提供，哪些可以由样本估计？共享参数后，原方程的性质还剩哪些？",
+        "claims": [
+          {
+            "id": "e-bellman-1952-c1",
+            "text": "引言把许多最优操作序列问题化为选择最优第一步，并给出 f(p)=max/min T_k(f) 的形式。",
+            "locator": "印刷716页，§1式1.1–1.2",
+            "basis": "source-reported",
+            "sourceId": "bellman-1952",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-bellman-1952-c2",
+            "text": "定理1在所列有界性、续接系数和定义域条件下声称有唯一有界解；本文说明证明使用逐次逼近，详细证明另文给出。",
+            "locator": "印刷717页定理1、718页说明、719页末注",
+            "basis": "source-reported",
+            "sourceId": "bellman-1952",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "bellman-1952",
+            "title": "On the Theory of Dynamic Programming",
+            "authors": [
+              "Richard Bellman"
+            ],
+            "recordedAuthors": [
+              "Richard Bellman"
+            ],
+            "corrections": [],
+            "year": 1952,
+            "url": "http://www.derongliu.org/adp/adp-cdrom/refs/bellman19520716.pdf",
+            "version": "PNAS 38(8):716–719；1952-06-05为通讯日期，非发表月日",
+            "readingStatus": "selected-sections",
+            "readScope": "四页文本已读取；视觉核对PDF1–2／印刷716–717页的引言和定理1",
+            "unreadScope": "定理2–7公式未逐项视觉核验；详细证明原文另指后续出版，未复核；1957专著未读",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-bellman-1952.md"
+      },
+      {
+        "id": "e-strips-1971",
+        "title": "如何在世界模型之间搜索行动计划？",
+        "year": 1971,
+        "dateLabel": "1971",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "规划与行动模型",
+        "question": "怎样减少把整个行动序列都交给定理证明器造成的搜索困难？",
+        "mechanism": "把模型内的证明与模型之间的搜索分开；用前提和增删列表描述算子，以未完成证明形成差异，再寻找相关算子及其子目标。",
+        "assumptions": "需给定初始逻辑模型、算子及目标；实际行动程序与模型中的算子应用分开；派生事实还需跟踪其依赖的原始事实。",
+        "limits": "原文世界模型允许一阶公式，不能直接缩写成所有现代教材中的简化STRIPS定义。所得计划不保证最短；能规划爬箱不等于当时机器人能执行。",
+        "nextQuestion": "如何在行动效果不确定、观测不完整或模型错误时修正计划？",
+        "claims": [
+          {
+            "id": "e-strips-1971-c1",
+            "text": "作者明确分离模型内定理证明和模型间搜索，并区分规划算子与实际执行的行动程序。",
+            "locator": "608页引言及脚注",
+            "basis": "source-reported",
+            "sourceId": "strips-1971-ijcai",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-strips-1971-c2",
+            "text": "算子以适用条件和增删列表描述；删除原始事实后，还需检查依赖它的非原始事实是否仍有效。",
+            "locator": "609页§II.A、612–613页§III.B",
+            "basis": "source-reported",
+            "sourceId": "strips-1971-ijcai",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-strips-1971-c3",
+            "text": "615页报告灯开关问题解非最优，并注明当时SRI机器人不能爬箱和开灯。",
+            "locator": "615页§IV及脚注",
+            "basis": "source-reported",
+            "sourceId": "strips-1971-ijcai",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "strips-1971-ijcai",
+            "title": "STRIPS: A New Approach to the Application of Theorem Proving to Problem Solving",
+            "authors": [
+              "Richard E. Fikes",
+              "Nils J. Nilsson"
+            ],
+            "recordedAuthors": [
+              "Richard E. Fikes",
+              "Nils J. Nilsson"
+            ],
+            "corrections": [],
+            "year": 1971,
+            "url": "https://www.ijcai.org/Proceedings/71/Papers/055.pdf",
+            "version": "IJCAI 1971会议录608–620页；不是同年Artificial Intelligence 189–208页期刊版，后者DOI不套用于此文件",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–8／608–615页，含问题空间、搜索、参数、算子、模型存储和三箱例；PDF13参考文献；PDF5的push算子已视觉核对",
+            "unreadScope": "PDF9–12表格、图3和结尾讨论未完整读；期刊版未比对；原代码、机器人执行与性能表未复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-strips-1971.md"
+      },
+      {
+        "id": "e-pearl-1982",
+        "title": "局部消息怎样完成全局信念更新？",
+        "year": 1982,
+        "dateLabel": "1982",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "树上的概率推断",
+        "question": "如何在分层推理系统中传播新证据，同时避免证据被重复计算？",
+        "mechanism": "在给定概率树中分离来自下方的似然支持与上方的先验支持；每条边传递局部消息，向下更新时移除子节点此前贡献。",
+        "assumptions": "每个节点至多一个父节点，离散状态及条件概率已给定；子树在给定父状态时条件独立。",
+        "limits": "单遍传播与有限收敛结论针对本文树结构；没有解决结构学习、任意有环推理或因果识别。",
+        "nextQuestion": "当依赖图包含环或概率未知时，哪些正确性与收敛保证仍成立？",
+        "claims": [
+          {
+            "id": "e-pearl-1982-c1",
+            "text": "本文从单父节点概率树及局部条件独立出发，把每个节点后验分解为上下两部分支持的归一化乘积。",
+            "locator": "133–134页，式1–6",
+            "basis": "source-reported",
+            "sourceId": "pearl-1982",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearl-1982-c2",
+            "text": "父节点向子节点发送信息时，需要除去该子节点上一次已纳入的消息，避免同一证据回流后重复计算。",
+            "locator": "135页，式10及其前文",
+            "basis": "source-reported",
+            "sourceId": "pearl-1982",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearl-1982-c3",
+            "text": "作者用先自下而上、再自上而下的归纳论证树上的平衡值正确，并报告新信息单遍扩散的性质。",
+            "locator": "136页 Characteristics／A Summary of Proofs",
+            "basis": "source-reported",
+            "sourceId": "pearl-1982",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "pearl-1982",
+            "title": "Reverend Bayes on Inference Engines: A Distributed Hierarchical Approach",
+            "authors": [
+              "Judea Pearl"
+            ],
+            "recordedAuthors": [
+              "Judea Pearl"
+            ],
+            "corrections": [],
+            "year": 1982,
+            "url": "https://cdn.aaai.org/AAAI/1982/AAAI82-032.pdf",
+            "version": "AAAI-82，133–136页；4页会议原文",
+            "readingStatus": "full-text",
+            "readScope": "全文133–136页；135页式7–10与消息传递图已视觉核对。",
+            "unreadScope": "未实现异步更新；未将树上的结论扩展到有环网络；未以本篇替代1988年专著的阅读。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-pearl-1982.md"
+      },
+      {
+        "id": "e-pearl-1995",
+        "title": "观察分布何时足以回答干预问题？",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "干预与可识别性",
+        "question": "没有随机实验时，什么额外假设使干预效果能从观察数据唯一确定？",
+        "mechanism": "把因果图解释为自治结构方程；干预替换指定机制并保留其他机制。借助后门、前门条件及干预演算，把符合条件的目标转成观察分布表达式。",
+        "assumptions": "图及其遗漏的边是领域假设；原文可识别性定义要求与图相容的正概率观察分布。前门要求中介截断所有有向路径、X至中介无后门、中介至Y的后门由X阻断。",
+        "limits": "图不是仅凭拟合自动验证的真相。Cox与Wermuth质疑现实中满足条件的把握；Pearl回应要求明确实际操作的副作用。677–678页把演算完备性列为当时开放问题，本记录不外推为今日状态。",
+        "nextQuestion": "哪些实验或背景证据能检验模型中最影响结论的缺失边与机制不变性？",
+        "claims": [
+          {
+            "id": "e-pearl-1995-c1",
+            "text": "结构方程表达自治机制；原子干预通过替换被干预变量的方程，保留其他机制来定义干预分布。",
+            "locator": "§2.2，672–674页，式3–5与定义2",
+            "basis": "source-reported",
+            "sourceId": "pearl-1995-journal",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearl-1995-c2",
+            "text": "后门与前门定理在各自图条件下给出效应识别公式；非识别可由观察分布相同而干预效果不同的两个模型说明。",
+            "locator": "§3，674–676页，定义3–4、定理1–2及式6、9",
+            "basis": "source-reported",
+            "sourceId": "pearl-1995-journal",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearl-1995-c3",
+            "text": "三条演算规则分别允许在相应删边图的分离条件下增删观察、交换观察与行动、增删行动。",
+            "locator": "§4.3–4.4，677–679页，定理3与式10–21",
+            "basis": "source-reported",
+            "sourceId": "pearl-1995-journal",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearl-1995-c4",
+            "text": "Cox与Wermuth肯定计算框架，同时质疑后门／前门假设在实践中如何可靠成立，并要求说明设置变量时其他变量怎样变化。",
+            "locator": "688–689页，完整评论",
+            "basis": "source-reported",
+            "sourceId": "cox-wermuth-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-pearl-1995-c5",
+            "text": "Pearl在回应中区分假想原子干预与实际操作；实际操作若影响其他机制，相关副作用需要明确建模。",
+            "locator": "回应§4，705–706页",
+            "basis": "source-reported",
+            "sourceId": "pearl-1995-journal",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "pearl-1995-journal",
+            "title": "Causal Diagrams for Empirical Research",
+            "authors": [
+              "Judea Pearl"
+            ],
+            "recordedAuthors": [
+              "Judea Pearl"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "https://ftp.cs.ucla.edu/pub/stat_ser/R218-B.pdf",
+            "version": "Biometrika 82(4)，669–710页整组论文、评论及回应扫描；本文669–688页，评论单独署名",
+            "readingStatus": "selected-sections",
+            "readScope": "本文669–679页§1–4，另读680页§5.1；677页图4及式10–12、676页前门条件与式9已视觉核对。回应705–706页§4实际／假想干预及§5开头已读。",
+            "unreadScope": "§5其余部分、§6、附录证明及大部分作者回应未完整读。曾读36页扩展附录稿R218-B-L.pdf的前18页，但本节点定位统一采用期刊版，不混用两版页码。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          },
+          {
+            "id": "cox-wermuth-1995",
+            "title": "Discussion of “Causal Diagrams for Empirical Research” by J. Pearl",
+            "authors": [
+              "D. R. Cox",
+              "Nanny Wermuth"
+            ],
+            "recordedAuthors": [
+              "D. R. Cox",
+              "Nanny Wermuth"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "https://ftp.cs.ucla.edu/pub/stat_ser/R218-B.pdf",
+            "version": "与Pearl论文同一期的独立署名讨论，688–689页；文件指纹与整组期刊扫描相同",
+            "readingStatus": "full-text",
+            "readScope": "完整阅读688页讨论标题起至689页Received May 1995止。",
+            "unreadScope": "未据此声称整组其他评论全部已读；本文引述的流行病学和实验设计文献未独立核查。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-pearl-1995.md"
+      },
+      {
+        "id": "e-rao-ballard-1999",
+        "title": "层间反馈能解释哪些视觉反应？",
+        "year": 1999,
+        "dateLabel": "1999",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "视觉层级中的预测误差",
+        "question": "局部视觉响应为何受更大范围的情境与高层反馈影响？",
+        "mechanism": "高层向低层传递预测，低层向上传递残差；在生成模型、噪声与先验下优化隐状态，并以较慢时间尺度学习连接权重。",
+        "assumptions": "模型拟合静态自然图像；最大后验目标包含方差加权误差及状态／权重先验，不仅是无条件误差最小化。",
+        "limits": "神经对应是机制假说；侧向相互作用是作者承认的替代解释。正文时序扩展未用于所报告模拟，不能把静态重建直接说成未来预测。",
+        "nextQuestion": "操纵高层反馈与局部侧向联系，能否产生可区分的反应预测？",
+        "claims": [
+          {
+            "id": "e-rao-ballard-1999-c1",
+            "text": "模型的前馈信号是预测残差，反馈携带预测；神经活动与突触学习分别由生成模型目标的梯度更新。",
+            "locator": "80页图1；85–86页Methods，式1–7",
+            "basis": "source-reported",
+            "sourceId": "rao-ballard-1999",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-rao-ballard-1999-c2",
+            "text": "图5模拟的32个误差单元中，28个在有反馈时呈现超过50%的端点抑制，取消反馈后剩5个；这些是作者模型结果。",
+            "locator": "83–84页，图5及相邻正文",
+            "basis": "source-reported",
+            "sourceId": "rao-ballard-1999",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-rao-ballard-1999-c3",
+            "text": "作者承认侧向作用也可能解释部分现象，并说明本文结果均来自静态图像，时序预测是后续扩展方向。",
+            "locator": "84页Discussion；86页Methods末",
+            "basis": "source-reported",
+            "sourceId": "rao-ballard-1999",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "rao-ballard-1999",
+            "title": "Predictive Coding in the Visual Cortex: A Functional Interpretation of Some Extra-classical Receptive-field Effects",
+            "authors": [
+              "Rajesh P. N. Rao",
+              "Dana H. Ballard"
+            ],
+            "recordedAuthors": [
+              "Rajesh P. N. Rao",
+              "Dana H. Ballard"
+            ],
+            "corrections": [],
+            "year": 1999,
+            "url": "https://homes.cs.washington.edu/~rao/Rao-Ballard-NN-1999.pdf",
+            "version": "Nature Neuroscience 2:79–87，1999年1月；1998为收稿／接受年",
+            "readingStatus": "full-text",
+            "readScope": "全文79–87页；80页图1、84页图5及86页式3–9已视觉核对。",
+            "unreadScope": "未复现模型，未独立重读所引神经生理实验；模型与神经回路的对应仍按假说记录。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-rao-ballard-1999.md"
+      },
+      {
+        "id": "e-friston-2010",
+        "title": "感知更新与行动能否共享一个优化框架？",
+        "year": 2010,
+        "dateLabel": "2010",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "自由能原则与主动推断",
+        "question": "怎样把感知、学习和行动放进同一生成模型框架，同时说明其生物学解释条件？",
+        "mechanism": "用变分自由能界定模型下感官数据的惊异；感知改变识别分布以逼近后验，行动改变采样数据。特定高斯与层级假设下以精度加权预测误差实现更新。",
+        "assumptions": "需要生成模型、可实现的识别分布及状态／运动先验；把自维持与这种优化联系起来还依赖该文提出的额外理论前提。",
+        "limits": "变分分解本身不证明生物系统必然按该过程运行。运动先验承载目标与探索约束；本文的到达和山地车是指定模拟，不能称无先验发现任务。作者开篇即承认统一能力尚待建立。",
+        "nextQuestion": "在模型、先验和计算预算明确后，哪些干预能区分该解释与其他反馈或信念状态控制模型？",
+        "claims": [
+          {
+            "id": "e-friston-2010-c1",
+            "text": "自由能可分解为模型下数据的负对数证据与识别分布到后验的KL散度；固定数据时，优化识别分布降低后者。",
+            "locator": "AOP2页Box 1、3页Implications；按正文及分解解释，图框方向差异另记",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-friston-2010-c2",
+            "text": "预测编码的具体神经实现采用高斯／Laplace及层级模型假设；由此得到精度加权误差与上下层消息传递。",
+            "locator": "AOP4页及Box 2",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-friston-2010-c3",
+            "text": "山地车例通过对状态运动的先验，使目标外固定点不稳定、目标处稳定；作者也说明仅期待到达某状态并不足以保证绕过障碍或满足动力学约束。",
+            "locator": "AOP8页控制讨论、9页图3",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-friston-2010-c4",
+            "text": "文章将跨理论统一作为研究提案；开篇说明统一能力尚待建立，结论要求进一步说明其在脑中的具体实现。",
+            "locator": "AOP1页引言、9–10页结论",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "friston-2010",
+            "title": "The Free-energy Principle: A Unified Brain Theory?",
+            "authors": [
+              "Karl Friston"
+            ],
+            "recordedAuthors": [
+              "Karl Friston"
+            ],
+            "corrections": [],
+            "year": 2010,
+            "url": "https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20A%20unified%20brain%20theory.pdf",
+            "version": "作者网站12页Advance Online Publication，2010-01-13；定位使用AOP页码，不套用期刊127–138页",
+            "readingStatus": "selected-sections",
+            "readScope": "AOP1–4及7–10页，覆盖原则、Box 1–2、控制与结论；11页参考文献40已核对。Box 1已视觉核对，发现图中文字与正文的优化方向不一致。",
+            "unreadScope": "5–6页未完整读；补充框S1–S5、原始模拟、所引实验及普遍性推导未审查。Box 1下方图框写arg max Divergence，而同页正文与KL分解要求降低该项；本记录按正文与分解解释，未取得作者勘误。参考文献40误列Rao–Ballard为1998，本项目采用原刊1999日期。",
+            "verification": "已核对所列定义、主张与原文图；未独立复现实验或验证生物学普遍性。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-friston-2010.md"
+      },
+      {
+        "id": "e-tenenbaum-2011",
+        "title": "少量经验如何支持丰富的结构推断？",
+        "year": 2011,
+        "dateLabel": "2011",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "结构先验与分层学习",
+        "question": "从稀疏数据作出广泛概括时，所需的先验和假设空间从何而来？",
+        "mechanism": "把树、图、语法等结构放入概率模型；在分层模型中联合学习具体结构及约束它的抽象形式，跨实例汇集证据。",
+        "assumptions": "结构形式、元语法及先验族仍需规定；归纳能力取决于真实规律与假设空间的关系。此文是综述，实例来自其引用研究。",
+        "limits": "分层学习不会消除所有先验；计算成本、初始概念与神经实现仍是原文开放问题。对连接主义的概括属于作者立场，不据此忽略已有分布式结构表示。",
+        "nextQuestion": "在相近经验与计算条件下，结构先验何时帮助迁移，何时造成系统性误判？",
+        "claims": [
+          {
+            "id": "e-tenenbaum-2011-c1",
+            "text": "文章将概率推断与结构化表示结合，图2用上层结构形式约束下层图，并联合推断形式与具体结构。",
+            "locator": "1280–1282页及图2",
+            "basis": "source-reported",
+            "sourceId": "tenenbaum-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tenenbaum-2011-c2",
+            "text": "图3展示分层图模式如何与具体网络从同一数据学习；高层共享约束可汇集低层证据，但模型仍有规定的表示及先验族。",
+            "locator": "1283–1284页，图3及blessing of abstraction段",
+            "basis": "source-reported",
+            "sourceId": "tenenbaum-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tenenbaum-2011-c3",
+            "text": "开放问题包括初始概念、灵活程序表示如何约束学习、近似推断效率及神经实现；计算层解释不等于实现层已解决。",
+            "locator": "1284–1285页Open Questions",
+            "basis": "source-reported",
+            "sourceId": "tenenbaum-2011",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "tenenbaum-2011",
+            "title": "How to Grow a Mind: Statistics, Structure, and Abstraction",
+            "authors": [
+              "Joshua B. Tenenbaum",
+              "Charles Kemp",
+              "Thomas L. Griffiths",
+              "Noah D. Goodman"
+            ],
+            "recordedAuthors": [
+              "Joshua B. Tenenbaum",
+              "Charles Kemp",
+              "Thomas L. Griffiths",
+              "Noah D. Goodman"
+            ],
+            "corrections": [],
+            "year": 2011,
+            "url": "https://web.stanford.edu/~ngoodman/papers/tkgg-science11-reprint.pdf",
+            "version": "Science 331:1279–1285，2011-03-11；8页作者公开重印，PDF首页为下载封面",
+            "readingStatus": "full-text",
+            "readScope": "正文1279–1285页及参考文献；1282–1283页图2–3已视觉核对。",
+            "unreadScope": "综述所引用的各项原始实验、在线补充材料和程序未独立审查；不把综述复述计为原研究独立复现。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-tenenbaum-2011.md"
+      },
+      {
+        "id": "e-ha-2018",
+        "title": "学到的环境模型能把控制学习转移到哪里？",
+        "year": 2018,
+        "dateLabel": "2018",
+        "dateBasis": "preprint-v1",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "潜在动态与控制器学习",
+        "question": "怎样压缩视觉与时间信息以支持控制，模型中的成功能否转移到原环境？",
+        "mechanism": "VAE将图像压缩为z，MDN-RNN建模下一潜在状态分布；小型控制器使用z和循环隐状态，以CMA-ES优化。Doom实验在模型环境中训练控制器后回到原游戏评测。",
+        "assumptions": "两任务都先从实际游戏的随机轨迹学习模型；CarRacing控制器在原游戏训练，Doom控制器在模型环境训练，协议不同。",
+        "limits": "控制器可能利用模型漏洞；低温下虚拟高分不能转移。所谓原环境仍是游戏模拟器。多轮主动探索是提案，论文没有证明开放环境中的通用规划。",
+        "nextQuestion": "改变采集策略和模型不确定性，怎样预测模型内收益能否迁移？",
+        "claims": [
+          {
+            "id": "e-ha-2018-c1",
+            "text": "V、M和C分工建模视觉、时间与控制；C使用当前潜在编码及循环状态，所示架构没有逐步在线搜索候选行动序列。",
+            "locator": "§2.1–2.4，2–4页；Appendix A.1–A.3，14页",
+            "basis": "source-reported",
+            "sourceId": "ha-2018-v1",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ha-2018-c2",
+            "text": "CarRacing与Doom采用不同的控制器训练位置；Doom模型事先使用原游戏随机轨迹，控制器从模型训练后转回原游戏测试。",
+            "locator": "§3–4，4–8页；Appendix A.4–A.5，14–15页",
+            "basis": "source-reported",
+            "sourceId": "ha-2018-v1",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ha-2018-c3",
+            "text": "表2在100次随机轨迹评测中报告：温度0.10时虚拟得分2086±140、原游戏193±58；1.15时分别918±546与1092±556，表明模型分数可能误导。",
+            "locator": "9–10页，Cheating the World Model及表2",
+            "basis": "source-reported",
+            "sourceId": "ha-2018-v1",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "ha-2018-v1",
+            "title": "World Models",
+            "authors": [
+              "David Ha",
+              "Jürgen Schmidhuber"
+            ],
+            "recordedAuthors": [
+              "David Ha",
+              "Jürgen Schmidhuber"
+            ],
+            "corrections": [],
+            "year": 2018,
+            "url": "https://arxiv.org/pdf/1803.10122v1",
+            "version": "arXiv:1803.10122v1，2018-03-27，21页；不与后来的会议论文混用",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–10、13–15及16页已读片段，覆盖V/M/C、CarRacing、Doom、模型漏洞及附录训练设置；3页架构与10页表2已视觉核对。",
+            "unreadScope": "PDF11–12相关工作、16页其余部分及17–21页参考文献未完整读；未运行代码；神经科学类比与多轮探索方案未验证。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-ha-2018.md"
+      },
+      {
+        "id": "e-hafner-2019",
+        "title": "如何从像素学到足以在线规划的动态？",
+        "year": 2019,
+        "dateLabel": "2019",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "潜在空间在线规划",
+        "question": "部分可观测环境中，怎样保持记忆并预测多种未来，用有限经验选择行动？",
+        "mechanism": "RSSM组合确定性记忆与随机状态；学习动态、观察和奖励模型，用交叉熵搜索在潜在空间规划，每次接收新观察后重新规划并继续采集数据。",
+        "assumptions": "连续行动、给定奖励与固定动作重复；六项模拟控制任务使用64×64图像，搜索依赖学到的模型及有限时域。",
+        "limits": "模型准确性和探索仍限制结果；多步预测正则不是最终RSSM的必要组成。数据效率比较采用特定任务与他文基线，不能推出所有任务或计算成本上的通用优势。",
+        "nextQuestion": "奖励、外观或动态变化后，模型的哪些部分可复用，哪些必须重新学习？",
+        "claims": [
+          {
+            "id": "e-hafner-2019-c1",
+            "text": "规划在潜在空间搜索行动序列；观察模型用于训练信号，规划无需解码图像，也没有策略或价值网络。",
+            "locator": "§2，2–3页；§3式4，4页",
+            "basis": "source-reported",
+            "sourceId": "hafner-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hafner-2019-c2",
+            "text": "正文提出latent overshooting以训练多步一致性，但明确最终采用RSSM的智能体不需要它。",
+            "locator": "§4，4–6页，特别是5页开头",
+            "basis": "source-reported",
+            "sourceId": "hafner-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hafner-2019-c3",
+            "text": "六任务结果比较纯确定性、纯随机模型及在线收集／随机收集；图中线为中位数、带为5–95百分位，汇总5个种子与10条轨迹。表1均值与曲线统计口径不同。",
+            "locator": "§5，6页；7–8页图4–5与表1",
+            "basis": "source-reported",
+            "sourceId": "hafner-2019",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hafner-2019",
+            "title": "Learning Latent Dynamics for Planning from Pixels",
+            "authors": [
+              "Danijar Hafner",
+              "Timothy Lillicrap",
+              "Ian Fischer",
+              "Ruben Villegas",
+              "David Ha",
+              "Honglak Lee",
+              "James Davidson"
+            ],
+            "recordedAuthors": [
+              "Danijar Hafner",
+              "Timothy Lillicrap",
+              "Ian Fischer",
+              "Ruben Villegas",
+              "David Ha",
+              "Honglak Lee",
+              "James Davidson"
+            ],
+            "corrections": [],
+            "year": 2019,
+            "url": "https://proceedings.mlr.press/v97/hafner19a/hafner19a.pdf",
+            "version": "ICML 2019，PMLR 97:2555–2565；本文件页码1–11。事件按2019会议版定位，预印本2018另记",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–8全部正文；4页图2与7页图4、表1已视觉核对。",
+            "unreadScope": "9–11页参考文献未逐条阅读；独立补充PDF的附录、实现与训练实验未审查；未复现性能或多步目标证明。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-hafner-2019.md"
+      },
+      {
+        "id": "e-schrittwieser-2019",
+        "title": "MuZero的版本、训练信息与泛化边界",
+        "year": 2019,
+        "dateLabel": "2019 v1／2020期刊",
+        "dateBasis": "preprint-v1-with-journal-comparison",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "任务相关潜在模型与规划",
+        "question": "规划是否必须重建每个像素或真实状态？",
+        "mechanism": "表示、潜在动力学和预测网络联合学习奖励、价值及策略；在潜在状态上树搜索，搜索结果反过来提供训练目标。",
+        "assumptions": "所比较版本的动力学均为确定性；根节点可用动作是环境提供的信息，训练仍依赖交互和搜索。",
+        "limits": "Reanalyze已存在于2019 v1，不能算作期刊新增。期刊更明确地限定逐环境训练；本文实验不能证明跨环境零样本泛化。部分公式和补充材料未完成版本核对。",
+        "nextQuestion": "换奖励或改变环境后，任务相关模型保留的信息是否还足够？",
+        "claims": [
+          {
+            "id": "e-schrittwieser-2019-c2",
+            "text": "2019 v1已经报告Reanalyze及其重搜旧轨迹的目标更新方案。",
+            "locator": "§4，PDF5–6与表1；Appendix H，15页",
+            "basis": "source-reported",
+            "sourceId": "schrittwieser-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-schrittwieser-2019-c3",
+            "text": "期刊明确说明每个环境分别训练，共享模型和新环境零样本测试留待后续。",
+            "locator": "Methods / Training，末段",
+            "basis": "source-reported",
+            "sourceId": "schrittwieser-2020-journal",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-schrittwieser-2019-c4",
+            "text": "期刊保留根节点动作可用性信息，并将其作为随观察提供的标准问题设定。",
+            "locator": "Methods / Comparison to AlphaZero，第(2)项",
+            "basis": "source-reported",
+            "sourceId": "schrittwieser-2020-journal",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "schrittwieser-2019",
+            "title": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model",
+            "authors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "recordedAuthors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "corrections": [],
+            "year": 2019,
+            "url": "https://arxiv.org/pdf/1911.08265v1",
+            "version": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model；Schrittwieser等；2019首版预印本，后有2020期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "第二轮PDF2、4–5；本批核对v1首页及§2–4、表1（PDF2–6）、Appendix A（11页）、G/H/I（15–16页）；14页架构说明亦读。",
+            "unreadScope": "所列范围之外的全部正文、附录图表、代码与实验未逐项核验；版本对照不是全篇复现。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          },
+          {
+            "id": "schrittwieser-2020-journal",
+            "title": "Mastering Atari, Go, chess and shogi by planning with a learned model",
+            "authors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "recordedAuthors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://go.gale.com/ps/i.do?asid=1de10613&id=GALE%7CA649646063&it=r&p=HRCA&u=googlescholar&v=2.1",
+            "version": "Nature 588, 604–609；在线发表2020-12-23，期号日期12-24；实读Gale数据库的期刊正文HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "Introduction至Conclusions；Table 1；Methods各小节，重点Comparison to AlphaZero、Training、MuZero Reanalyze及Evaluation。正文文字和表格可读。",
+            "unreadScope": "HTML以Formula omitted替代部分公式；未逐式对照，未取得期刊PDF；补充图表、原始数据和代码未重新核对。",
+            "verification": "通过网页工具读取Gale的作者正文；本机请求返回Invalid parameter data，下载HTML的指纹不是论文指纹。未复现实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-schrittwieser-2019.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-belief-intervention",
+        "batch": "round-three-a",
+        "fromId": "e-pearl-1982",
+        "toId": "e-pearl-1995",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "1982年133–136页；1995年§2.1–2.2",
+        "explanation": "本站比较给定树上的信念更新与机制干预；不把条件独立语义自动升级为因果语义，也不据年代判定具体影响链。",
+        "sourceIds": [
+          "pearl-1982",
+          "pearl-1995-journal"
+        ]
+      },
+      {
+        "id": "r-causal-structural-priors",
+        "batch": "round-three-a",
+        "fromId": "e-pearl-1995",
+        "toId": "e-tenenbaum-2011",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Pearl 674–676页；Tenenbaum 1283–1284页",
+        "explanation": "比较给定因果假设后的识别问题与学习结构先验的问题；后者的学习结果不免除前者的识别条件。",
+        "sourceIds": [
+          "pearl-1995-journal",
+          "tenenbaum-2011"
+        ]
+      },
+      {
+        "id": "r-predictive-coding-world-models",
+        "batch": "round-three-a",
+        "fromId": "e-rao-ballard-1999",
+        "toId": "e-ha-2018",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Rao 85–86页Methods；Ha §2",
+        "explanation": "本站区分静态视觉层级推断与按时间预测潜在状态的控制模型；没有把共同使用预测一词当作神经机制验证或直接继承证据。",
+        "sourceIds": [
+          "rao-ballard-1999",
+          "ha-2018-v1"
+        ]
+      },
+      {
+        "id": "r-world-models-planet",
+        "batch": "round-three-a",
+        "fromId": "e-ha-2018",
+        "toId": "e-hafner-2019",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Ha §2–4；PlaNet §2、§6（3、7页）",
+        "explanation": "PlaNet在相关工作中列出Ha与Schmidhuber；本图具体比较预训练控制器与在线潜在规划。引用本身不证明RSSM或CEM由前者直接继承。",
+        "sourceIds": [
+          "ha-2018-v1",
+          "hafner-2019"
+        ]
+      },
+      {
+        "id": "r-strips-planet",
+        "batch": "round-three-a",
+        "fromId": "e-strips-1971",
+        "toId": "e-hafner-2019",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "STRIPS 608–613页；PlaNet §2–3",
+        "explanation": "本站比较手工算子与学得动态模型中的行动搜索；状态语义、模型获取与执行反馈各不相同。",
+        "sourceIds": [
+          "strips-1971-ijcai",
+          "hafner-2019"
+        ]
+      },
+      {
+        "id": "r-rao-friston-coding",
+        "batch": "round-three-a",
+        "fromId": "e-rao-ballard-1999",
+        "toId": "e-friston-2010",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "AOP4页预测编码段及11页参考文献40",
+        "explanation": "Friston明确采用预测编码作为特定假设下的消息传递方案，并引用Rao–Ballard；这不证明统一原则已获实验验证，且所读版参考文献误列原文年份。",
+        "sourceIds": [
+          "friston-2010"
+        ]
+      }
+    ]
+  }
+}

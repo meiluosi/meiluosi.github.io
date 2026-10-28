@@ -1,0 +1,489 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "sociocultural-language",
+    "name": "社会文化与语言路线",
+    "question": "语言、社会交往和文化传承怎样改变认知？",
+    "gaps": [
+      "Boyd与Richerson 1985专著、Tomasello 1999及Henrich 2015专著未选读。",
+      "Vygotsky网页混合译本未与俄文校勘；Derex 2013本次仅读摘要，方法依2014争论不得反充原文全文。",
+      "非人类累积文化的原始实验、文化吸引理论与语言多样性仍需补读。"
+    ],
+    "nodes": [
+      {
+        "id": "e-vygotsky-1934",
+        "title": "词义成为发展的分析单位",
+        "year": 1934,
+        "dateLabel": "1934",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "思维与语言",
+        "question": "如何研究思想与言语的内部关系？",
+        "mechanism": "以词义作为兼具言语和思维特征的分析单位，追踪意义的变化。",
+        "assumptions": "部分与整体的划分需保留待解释现象的特征。",
+        "limits": "不是“所有思维都必须有语言”的证明；网页译本及原实验未完整核查。",
+        "nextQuestion": "哪些变化来自个体成熟，哪些来自交往实践？",
+        "claims": [
+          {
+            "id": "e-vygotsky-1934-dc1",
+            "text": "第7章反对把思想和言语当作两个先验独立元素再外在相加，改以词义分析言语思维。",
+            "locator": "第7章§1",
+            "basis": "source-reported",
+            "sourceId": "vygotsky-1934",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-vygotsky-1934-dc2",
+            "text": "词义及思想—词语关系被视为发展中的动态结构。",
+            "locator": "第7章§1末及§2开头",
+            "basis": "source-reported",
+            "sourceId": "vygotsky-1934",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "vygotsky-1934",
+            "title": "Thinking and Speech, Chapter 7: Thought and Word",
+            "authors": [
+              "Lev Vygotsky"
+            ],
+            "recordedAuthors": [
+              "Lev Vygotsky"
+            ],
+            "corrections": [],
+            "year": 1934,
+            "url": "https://www.marxists.org/archive/vygotsky/works/words/ch07.htm",
+            "version": "实际为Marxists Internet Archive混合英译网页：目录注明Hanfmann／Vakar与Norris Minick，非1934俄文原版。",
+            "readingStatus": "selected-sections",
+            "readScope": "第7章§1关于词义作为单位及词义发展；§2开头动态关系。通过网页检索读取，下载未成功。",
+            "unreadScope": "未校勘混合译文；第5、6章实验和第7章其余论证未系统审读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-vygotsky-1934.md"
+      },
+      {
+        "id": "e-henrich-2004",
+        "title": "文化技能的保存需要学习网络",
+        "year": 2004,
+        "dateLabel": "2004",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "选择性模仿与传递损失",
+        "question": "个体善于择优学习，为何群体仍可能丢失复杂技能？",
+        "mechanism": "结合偏向高技能示范者的学习与带噪、平均有损的传递，分析有效学习池。",
+        "assumptions": "简化模型假定可找到最佳示范者并规定误差分布；N与互动机会有关。",
+        "limits": "模型机制不等于特定社会的史实已证实，不据技术类别推断群体内在能力。",
+        "nextQuestion": "网络可达性和传递保真度是否比总人口更直接？",
+        "claims": [
+          {
+            "id": "e-henrich-2004-dc1",
+            "text": "模型把选择高技能示范者和不完美推断分成两种作用。",
+            "locator": "刊p200–201",
+            "basis": "source-reported",
+            "sourceId": "henrich-2004",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-henrich-2004-dc2",
+            "text": "作者承认人口、密度、互动与技术并非独立，相关反馈仍需研究。",
+            "locator": "刊p209结尾",
+            "basis": "source-reported",
+            "sourceId": "henrich-2004",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "henrich-2004",
+            "title": "Demography and Cultural Evolution: How Adaptive Cultural Processes Can Produce Maladaptive Losses—The Tasmanian Case",
+            "authors": [
+              "Joseph Henrich"
+            ],
+            "recordedAuthors": [
+              "Joseph Henrich"
+            ],
+            "corrections": [],
+            "year": 2004,
+            "url": "https://henrich.fas.harvard.edu/sites/g/files/omnuum5811/files/henrich/files/henrich_2004-2.pdf",
+            "version": "American Antiquity 69:197–214；作者仓储原刊PDF经网页工具读取，本地下载403。",
+            "readingStatus": "selected-sections",
+            "readScope": "刊p200–201（PDF5–6）模型设定；刊p209（PDF14）结尾关于人口与互动的限定。",
+            "unreadScope": "未完成塔斯马尼亚史料核查；附录公式虽取得文本但未逐式审计。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-henrich-2004.md"
+      },
+      {
+        "id": "e-senghas-2004",
+        "title": "新生手语的代际结构变化",
+        "year": 2004,
+        "dateLabel": "2004",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "语言的社会传递",
+        "question": "儿童只是复制输入，还是重组表达结构？",
+        "mechanism": "比较三个接触年代队列对运动方式与路径的表达，并与有声语言伴随手势比较。",
+        "assumptions": "接触年龄与历史队列定义明确；队列比较不等于随机实验。",
+        "limits": "不能用小样本队列差异独立裁决全部先天／后天争论。",
+        "nextQuestion": "代际重构如何与学习偏好、互动网络共同产生结构？",
+        "claims": [
+          {
+            "id": "e-senghas-2004-dc1",
+            "text": "研究比较30名6岁前接触NSL的聋人（三队列各10人）与10名听人西班牙语手势。",
+            "locator": "p1780样本段",
+            "basis": "source-reported",
+            "sourceId": "senghas-2004",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-senghas-2004-dc2",
+            "text": "后续队列更偏好把方式、路径分开并顺序组合；论文也讨论层级表达与短期信息损失。",
+            "locator": "p1781开头及A–B–A段",
+            "basis": "source-reported",
+            "sourceId": "senghas-2004",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "senghas-2004",
+            "title": "Children Creating Core Properties of Language: Evidence from an Emerging Sign Language in Nicaragua",
+            "authors": [
+              "Ann Senghas",
+              "Sotaro Kita",
+              "Aslı Özyürek"
+            ],
+            "recordedAuthors": [
+              "Ann Senghas",
+              "Sotaro Kita",
+              "Aslı Özyürek"
+            ],
+            "corrections": [],
+            "year": 2004,
+            "url": "https://semantics.uchicago.edu/kennedy/classes/sum08/myths/senghas_kita_ozyurek.pdf",
+            "version": "Science 305:1779–1782；PDF含邻文，按本文标题和页码识别。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF2（p1780）样本与代际设计；PDF3（p1781）分解、排序及A–B–A结构讨论。",
+            "unreadScope": "未读支持材料和全部统计，未复查视频编码。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-senghas-2004.md"
+      },
+      {
+        "id": "e-tomasello-2005",
+        "title": "共同目标与分享动机",
+        "year": 2005,
+        "dateLabel": "2005",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "共享意向假说",
+        "question": "理解他人目标为何还不够解释人类文化协作？",
+        "mechanism": "把意图理解与分享心理状态的动机结合，提出共同目标和对话式表征。",
+        "assumptions": "需要解释动机与能力如何在发展中相互作用。",
+        "limits": "人类独有是作者当时假说，本批不把它当全部物种比较已定论。",
+        "nextQuestion": "哪些合作行为需要共同承诺，哪些只需并行目标？",
+        "claims": [
+          {
+            "id": "e-tomasello-2005-dc1",
+            "text": "作者提出共享意向需要理解目标之外的分享动机和协作结构。",
+            "locator": "p676",
+            "basis": "source-reported",
+            "sourceId": "tomasello-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tomasello-2005-dc2",
+            "text": "作者承认特定社会经验如何关联个体发展差异的证据很少，对表征的生成机制尚无具体解释。",
+            "locator": "p689",
+            "basis": "source-reported",
+            "sourceId": "tomasello-2005",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "tomasello-2005",
+            "title": "Understanding and Sharing Intentions: The Origins of Cultural Cognition",
+            "authors": [
+              "Michael Tomasello",
+              "Malinda Carpenter",
+              "Josep Call",
+              "Tanya Behne",
+              "Henrike Moll"
+            ],
+            "recordedAuthors": [
+              "Michael Tomasello",
+              "Malinda Carpenter",
+              "Josep Call",
+              "Tanya Behne",
+              "Henrike Moll"
+            ],
+            "corrections": [],
+            "year": 2005,
+            "url": "https://www.eva.mpg.de/documents/Cambridge/Tomasello_Understanding_BehBrainSci_2005_1555292.pdf",
+            "version": "BBS28目标论文675–691；61页PDF还含评论与回复。",
+            "readingStatus": "selected-sections",
+            "readScope": "p676问题及共享意向假说；p688–689发展路径及作者承认的证据缺口。",
+            "unreadScope": "其余经验综述未逐项读，后附评论与回复未读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-tomasello-2005.md"
+      },
+      {
+        "id": "e-derex-2013",
+        "title": "把文化累积转成群体实验",
+        "year": 2013,
+        "dateLabel": "2013",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "规模与文化保存",
+        "question": "群体规模能否影响技能保留与改进？",
+        "mechanism": "摘要报告采用双任务电脑游戏比较不同规模群体的文化表现。",
+        "assumptions": "任务产物可作为特定文化复杂性的操作指标。",
+        "limits": "本批仅核对摘要，不自行补写原文实验细节；后续评论对解释提出异议。",
+        "nextQuestion": "群体保留概率的提升是否要求个体学习率提高？",
+        "claims": [
+          {
+            "id": "e-derex-2013-dc1",
+            "text": "作者摘要报告大群体较能保持复杂性、减少知识衰退并保留多样性。",
+            "locator": "开放摘要",
+            "basis": "source-reported",
+            "sourceId": "derex-2013",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "derex-2013",
+            "title": "Experimental Evidence for the Influence of Group Size on Cultural Complexity",
+            "authors": [
+              "Maxime Derex",
+              "Marie-Pauline Beugin",
+              "Bernard Godelle",
+              "Michel Raymond"
+            ],
+            "recordedAuthors": [
+              "Maxime Derex",
+              "Marie-Pauline Beugin",
+              "Bernard Godelle",
+              "Michel Raymond"
+            ],
+            "corrections": [],
+            "year": 2013,
+            "url": "https://www.nature.com/articles/nature12774",
+            "version": "Nature 503:389–391；本地HTML仅开放摘要和书目信息。",
+            "readingStatus": "abstract-only",
+            "readScope": "原摘要全部。",
+            "unreadScope": "正文、Methods、补充信息未获取或选读；2014评论与回复另列，不能替代原文方法。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-derex-2013.md"
+      },
+      {
+        "id": "e-andersson-read-2014",
+        "title": "同一数据如何支持相反解释",
+        "year": 2014,
+        "dateLabel": "2014",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "零模型与分析层级",
+        "question": "“规模效应”究竟指群体保存，还是个体学习改善？",
+        "mechanism": "评论使用抽样零模型；回复质疑独立性和概率估计，并区分群体与个体层级。",
+        "assumptions": "比较前先固定估计对象；基线概率不能偷换。",
+        "limits": "本批不裁决哪方统计正确；“趋势未显著”不能写成证明无效。",
+        "nextQuestion": "在同一预先协议下，哪些条件能区分规模、依赖与学习变化？",
+        "claims": [
+          {
+            "id": "e-andersson-read-2014-dc1",
+            "text": "Andersson与Read认为群体保留可能只是抽样效应，并据其零模型提出相反解读。",
+            "locator": "E1正文",
+            "basis": "source-reported",
+            "sourceId": "andersson-read-2014",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-andersson-read-2014-dc2",
+            "text": "Derex等回复称抽样效应本可属于群体机制；其图注中个体正向趋势未显著。",
+            "locator": "E2正文与图1注",
+            "basis": "source-reported",
+            "sourceId": "andersson-read-2014",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "andersson-read-2014",
+            "title": "Group Size and Cultural Complexity; Derex et al. Reply",
+            "authors": [
+              "Claes Andersson",
+              "Dwight Read",
+              "Maxime Derex",
+              "Marie-Pauline Beugin",
+              "Bernard Godelle",
+              "Michel Raymond"
+            ],
+            "recordedAuthors": [
+              "Claes Andersson",
+              "Dwight Read",
+              "Maxime Derex",
+              "Marie-Pauline Beugin",
+              "Bernard Godelle",
+              "Michel Raymond"
+            ],
+            "corrections": [],
+            "year": 2014,
+            "url": "https://publications.lib.chalmers.se/records/fulltext/200089/local_200089.pdf",
+            "version": "Nature 511:E1–E2，两篇往来文同一PDF，DOI nature13411／nature13412。",
+            "readingStatus": "selected-sections",
+            "readScope": "两页正文及两幅图注；未审计原始数据和所有公式的排版。",
+            "unreadScope": "未独立重算双方统计，未完整补读被引史料。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-andersson-read-2014.md"
+      },
+      {
+        "id": "e-mesoudi-2018",
+        "title": "为累积文化分解判据",
+        "year": 2018,
+        "dateLabel": "2018",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "核心与扩展标准",
+        "question": "不同研究是否在测量同一种“累积”？",
+        "mechanism": "分开行为变化、社会传递、表现改善及反复累积，并另列更强扩展条件。",
+        "assumptions": "必须明确改善指标；文化适应与遗传适合度不必相同。",
+        "limits": "这是建议性概念框架，不能代替各物种的原始行为证据。",
+        "nextQuestion": "有无跨代依赖和超过单个学习者重建能力，应如何分别测量？",
+        "claims": [
+          {
+            "id": "e-mesoudi-2018-dc1",
+            "text": "核心标准同时要求变化、社会学习、表现改善及其重复累积，单次传播不够。",
+            "locator": "p2§2；p3开头",
+            "basis": "source-reported",
+            "sourceId": "mesoudi-2018",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-mesoudi-2018-dc2",
+            "text": "作者反对把累积文化当作单一的人／非人分界，并区分核心与扩展现象。",
+            "locator": "p2§1末；p3§3",
+            "basis": "source-reported",
+            "sourceId": "mesoudi-2018",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "mesoudi-2018",
+            "title": "What Is Cumulative Cultural Evolution?",
+            "authors": [
+              "Alex Mesoudi",
+              "Alex Thornton"
+            ],
+            "recordedAuthors": [
+              "Alex Mesoudi",
+              "Alex Thornton"
+            ],
+            "corrections": [],
+            "year": 2018,
+            "url": "https://www.alexmesoudi.com/publication/mesoudi-what-2018/Mesoudi_Thornton_ProcB_2018.pdf",
+            "version": "Proc. R. Soc. B285:20180712作者公开原刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "p2–3核心标准及扩展标准开头。",
+            "unreadScope": "后文全部模型、物种实验与补表未系统审读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-mesoudi-2018.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "d-r01",
+        "batch": "round-three-d",
+        "fromId": "e-vygotsky-1934",
+        "toId": "e-tomasello-2005",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "p689",
+        "explanation": "Tomasello明确使用Vygotskian内化解释的措辞，同时承认具体机制未明。",
+        "sourceIds": [
+          "tomasello-2005"
+        ]
+      },
+      {
+        "id": "d-r02",
+        "batch": "round-three-d",
+        "fromId": "e-senghas-2004",
+        "toId": "e-mesoudi-2018",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "p1781；p2–3",
+        "explanation": "本站比较结构重组与累积判据，不宣称后文继承此实验。",
+        "sourceIds": [
+          "senghas-2004",
+          "mesoudi-2018"
+        ]
+      },
+      {
+        "id": "d-r03",
+        "batch": "round-three-d",
+        "fromId": "e-henrich-2004",
+        "toId": "e-andersson-read-2014",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "E1首段；E2回复",
+        "explanation": "往来争论明确追溯人口规模假说，但主要实证靶标是Derex实验。",
+        "sourceIds": [
+          "andersson-read-2014"
+        ]
+      },
+      {
+        "id": "d-r04",
+        "batch": "round-three-d",
+        "fromId": "e-derex-2013",
+        "toId": "e-andersson-read-2014",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "E1–E2",
+        "explanation": "同一节点记录原论文遭批评及作者回复，保留分析单位争议。",
+        "sourceIds": [
+          "andersson-read-2014"
+        ]
+      },
+      {
+        "id": "d-r05",
+        "batch": "round-three-d",
+        "fromId": "e-tomasello-2005",
+        "toId": "e-mesoudi-2018",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "p676；p2–3",
+        "explanation": "共享意向的机制假说不能代替累积文化的结果判据。",
+        "sourceIds": [
+          "tomasello-2005",
+          "mesoudi-2018"
+        ]
+      }
+    ]
+  }
+}

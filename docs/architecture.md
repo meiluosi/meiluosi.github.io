@@ -292,3 +292,8 @@ CSS 自定义属性
 - 原生阅读层：`src/data/intelligenceResearch.ts` 在构建时组合两层，`src/pages/research/intelligence/` 生成38页；公共站点通过路线、文献架和文章入口连接。
 - 维护资源：`scripts/generate-intelligence-integration.mjs` 生成文档与 `public/research/intelligence/` 的SVG、Mermaid、笔记及模型材料；公开文件不含第三方原文PDF。修改数据后先生成再构建，使用 `--check` 检查同步性。
 - 审核：`scripts/audit-intelligence-integration.py` 校验构建产物链接、主张锚点与93份保留材料；`scripts/verify-intelligence-integration.mjs` 检验浏览器、响应式、无脚本阅读及有限模型。方法与部署范围见[验收](./intelligence-history/round-four/integration/validation.md)。
+
+
+### 第五轮路线时间线（2026-10-28）
+
+`generate-intelligence-timelines.mjs` 从第二轮至第三轮原始批次与 `research-index.json` 生成 `src/data/intelligenceTimeline.generated.json` 及20组公开SVG／Mermaid／路线JSON；不改动历史快照。`src/pages/research/intelligence/timelines/` 生成总览及20个路线页面，`TimelineReader.svelte` 提供筛选和节点阅读；未启用脚本时保留服务端渲染内容。来源批次与实际读段绑定，不把不同批次的同ID阅读范围自动合并；显示当前索引的书目更正并保留原始记录。[计划](./intelligence-history/round-five/plan.md)及验收记录说明作用范围。

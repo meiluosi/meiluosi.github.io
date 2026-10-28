@@ -1,0 +1,496 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "cognitive-architectures",
+    "name": "认知架构与多机制协作路线",
+    "question": "多种认知机制怎样在同一系统中协作？",
+    "gaps": [
+      "Newell 1990原书及ACT* 1983尚未建立本批原典笔记；现有节点不替代这些版本。",
+      "标准模型的其他直接异议、图2逐格比较与2017年后的修订仍待扩展；本批没有全面重跑认知架构。"
+    ],
+    "nodes": [
+      {
+        "id": "e-newell-simon-1976",
+        "title": "符号系统如何成为可检验的智能假说？",
+        "year": 1976,
+        "dateLabel": "1976",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "符号系统与启发式搜索",
+        "question": "哪些结构和过程可能支持一般智能行动，又应怎样检验？",
+        "mechanism": "定义符号、表达式、指称和解释过程；提出物理符号系统假说，并用启发式搜索说明有限资源下怎样产生、修改和检验候选解。",
+        "assumptions": "“充分”指足够大的系统可以进一步组织成智能系统；不是任意符号程序都会智能。搜索依赖问题空间中可利用的结构。",
+        "limits": "作者明确视其为经验概括而非定理；所列AI程序和人类行为研究不是对所有可能系统的穷尽证明。",
+        "nextQuestion": "怎样设计任务，区分架构约束的预测与程序员额外写入的知识？",
+        "claims": [
+          {
+            "id": "e-newell-simon-1976-c1",
+            "text": "物理符号系统假说被明确称作可能为假的经验假说；充分性还要求足够规模及进一步组织。",
+            "locator": "印刷116页 Physical Symbol Systems",
+            "basis": "source-reported",
+            "sourceId": "newell-simon-1976",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-newell-simon-1976-c2",
+            "text": "原文将构建智能程序的证据与解释人类认知过程的证据分开，并明确假说不是定理。",
+            "locator": "印刷118页 The Evidence",
+            "basis": "source-reported",
+            "sourceId": "newell-simon-1976",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-newell-simon-1976-c3",
+            "text": "启发式搜索假说要求在有限资源下生成和修改符号结构；利用问题空间中的可检测规律决定下一步搜索。",
+            "locator": "印刷120–121页 Heuristic Search",
+            "basis": "source-reported",
+            "sourceId": "newell-simon-1976",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "newell-simon-1976",
+            "title": "Computer Science as Empirical Inquiry: Symbols and Search",
+            "authors": [
+              "Allen Newell",
+              "Herbert A. Simon"
+            ],
+            "recordedAuthors": [
+              "Allen Newell",
+              "Herbert A. Simon"
+            ],
+            "corrections": [],
+            "year": 1976,
+            "url": "https://schiaffonati.faculty.polimi.it/TFI/newell_simon_1976.pdf",
+            "version": "CACM 19(3):113–126，1976年3月；源自1975年图灵奖演讲",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF4–6／116–118页的定义、历史与证据；PDF8–9／120–121页的启发式搜索假说；PDF7部分；PDF1核对出版与演讲日期",
+            "unreadScope": "未完整阅读引言、PDF7提取截断部分和PDF10–14；具体心理实验、搜索程序与参考文献未复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-newell-simon-1976.md"
+      },
+      {
+        "id": "e-soar-1987",
+        "title": "遇到僵局时如何求解并记住经验？",
+        "year": 1987,
+        "dateLabel": "1987",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "问题求解与经验编译",
+        "question": "如何让决策、子目标和学习在同一架构内持续协作？",
+        "mechanism": "知识产生偏好，决策僵局触发子目标；chunking追踪结果所依赖的条件，生成可复用的产生式。",
+        "assumptions": "原文描述SOAR4：长期知识统一存入产生式；任务表示与初始知识由具体模型提供。",
+        "limits": "作者报告过度泛化可能导致负迁移，并承认外部知识获取等能力仍缺失；有逻辑表达能力也不保证学出足够一般的规则。",
+        "nextQuestion": "保持任务不变，只改变相关属性与无关细节的编码方式，迁移范围怎样改变？",
+        "claims": [
+          {
+            "id": "e-soar-1987-c1",
+            "text": "决策知识不足或冲突产生僵局，架构据此生成子目标；chunking通过依赖分析保存解决子目标所需的条件与结果。",
+            "locator": "§1.4–1.5；§2.5开头；§2.6.1",
+            "basis": "source-reported",
+            "sourceId": "soar-1987",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-soar-1987-c2",
+            "text": "规则泛化依赖变量化、保留相关条件和任务表示的分解方式；逻辑上足够的表示也可能妨碍忽略无关细节。",
+            "locator": "§3.3.3，55–57页",
+            "basis": "source-reported",
+            "sourceId": "soar-1987",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-soar-1987-c3",
+            "text": "本文的统一产生式长期记忆和统一chunking学习是具体架构假说；作者不保证当时架构已完整或稳定。",
+            "locator": "§1.3；§4，58–59页",
+            "basis": "source-reported",
+            "sourceId": "soar-1987",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "soar-1987",
+            "title": "SOAR: An Architecture for General Intelligence",
+            "authors": [
+              "John E. Laird",
+              "Allen Newell",
+              "Paul S. Rosenbloom"
+            ],
+            "recordedAuthors": [
+              "John E. Laird",
+              "Allen Newell",
+              "Paul S. Rosenbloom"
+            ],
+            "corrections": [],
+            "year": 1987,
+            "url": "https://www.researchgate.net/publication/346700056_SOAR_An_architecture_for_general_intelligence",
+            "version": "Artificial Intelligence 33(1):1–64，1987；实读为John E. Laird于2024-10-22上传的期刊扫描件网页转录，正文描述SOAR4",
+            "readingStatus": "selected-sections",
+            "readScope": "引言2–4页、§1.1及§1.3–1.7；§2.5开头29–30页与§2.6–2.6.1的35–39页相关段落；§3.3.2负迁移段、§3.3.3的55–57页表示与泛化论证；§4结论58–59页。经网页正文转录阅读，未逐页视觉核验",
+            "unreadScope": "其余完整算法、示例轨迹、实验表格和图形未逐项核对；没有复现学习收益，不把1987架构当作后来的Soar版本",
+            "verification": "期刊身份由出版方页面核对；所列机制及边界由作者上传正文核对。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-soar-1987.md"
+      },
+      {
+        "id": "e-smolensky-1988-bbs",
+        "title": "分布式状态能否具有组成结构？",
+        "year": 1988,
+        "dateLabel": "1988",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "分布式组成结构",
+        "question": "连接主义是否只能把一个完整思想当成没有结构的原子？",
+        "mechanism": "Smolensky在概念层把活动模式分解成子模式，在次概念层分析单元活动；咖啡例中组成部分随语境变化，符号描述作为近似高层描述。",
+        "assumptions": "这是一种研究纲领及表征分析；不能把作者认为可行的方向当作已经完成的普遍系统性保证。",
+        "limits": "目标文§7.2明说复杂结构仍有难题；作者回应区分共同抽象的不同实现与精确执行符号原语。Fodor与Pylyshyn对语境变化下如何保证推理有效提出直接异议。",
+        "nextQuestion": "能否构造具有明确绑定与解绑定规则的分布式表征，再分开检验结构表达、操作和学习？",
+        "claims": [
+          {
+            "id": "e-smolensky-1988-bbs-c1",
+            "text": "§7.2直接点名Fodor与Pylyshyn1988，并以分布式子模式的组成结构反对把批评推广到所有分布式网络。",
+            "locator": "PDF/印刷16–17页，§7.2",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1988-bbs",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1988-bbs-c2",
+            "text": "作者回应图1区分精确执行符号原语和直接以连接主义形式实现认知抽象；后一方向要求重建架构。",
+            "locator": "PDF/印刷62页，回应§1.1图1",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1988-bbs",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1988-bbs-c3",
+            "text": "Fodor与Pylyshyn明确批评Smolensky的咖啡例与近似语境等价，追问关系相似怎样保证推理有效。",
+            "locator": "印刷45–46页，§3.3",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "smolensky-1988-bbs",
+            "title": "On the proper treatment of connectionism",
+            "authors": [
+              "Paul Smolensky"
+            ],
+            "recordedAuthors": [
+              "Paul Smolensky"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://compositionalintelligence.github.io/pdfs/Smolensky_BBS.pdf",
+            "version": "Behavioral and Brain Sciences 11，目标文1–23页；所读74页文件另含评论与作者回应，DOI对应目标文章",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF/印刷15–17页，重点§7.2；作者回应62、67–70页。68–69页原先被提取截断的正文已补齐阅读。",
+            "unreadScope": "其他正文、评论和回应未完整读；同年另文 The Constituent Structure… 的全文入口失败，不能用此文件冒充该文",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "fodor-pylyshyn-1988",
+            "title": "Connectionism and cognitive architecture: A critical analysis",
+            "authors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "recordedAuthors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+            "version": "Cognition 28(1–2):3–71；扫描期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–49／印刷3–51页：§1、§2、完整§3.1–3.5与§4开头；扫描文字识别辅助阅读，图形及少量识别不清符号不据OCR重建",
+            "unreadScope": "PDF50–69／印刷52–71页尚未完整读；不能称全文完成",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-smolensky-1988-bbs.md"
+      },
+      {
+        "id": "e-anderson-2004",
+        "title": "并行模块如何形成连贯的认知过程？",
+        "year": 2004,
+        "dateLabel": "2004",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "ACT-R模块协作",
+        "question": "视觉、动作、目标和记忆各自工作时，怎样约束它们的相互协调？",
+        "mechanism": "ACT-R 5.0让模块经有限缓冲区与产生式系统交互；模块可异步并行，但单个缓冲区和每周期产生式选择形成串行约束。",
+        "assumptions": "约50毫秒周期及缓冲区容量是模型假设；脑区对应为作者提出的机制解释，不是直接测得的软件式模块边界。",
+        "limits": "作者承认并非所有神经处理都经过基底节，且部分学习相关影像反应尚无完整解释。单一任务拟合不足以验证整套架构。",
+        "nextQuestion": "固定架构和参数后，改变双任务相对时序能否预测干扰变化？",
+        "claims": [
+          {
+            "id": "e-anderson-2004-c1",
+            "text": "本文明确采用ACT-R 5.0；产生式系统只访问模块缓冲区的有限信息，模块内部及模块之间可并行。",
+            "locator": "1036–1038页",
+            "basis": "source-reported",
+            "sourceId": "anderson-2004",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-anderson-2004-c2",
+            "text": "双任务几乎无干扰并不自动排除中央串行瓶颈：该模型用两任务对瓶颈的需求在时间上错开来解释。",
+            "locator": "1039–1041页，图2–3及后续讨论",
+            "basis": "source-reported",
+            "sourceId": "anderson-2004",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-anderson-2004-c3",
+            "text": "总讨论承认全部神经处理都经基底节的解释不成立，并列出未解释的学习相关反应。",
+            "locator": "1057页 General Discussion",
+            "basis": "source-reported",
+            "sourceId": "anderson-2004",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "anderson-2004",
+            "title": "An Integrated Theory of the Mind",
+            "authors": [
+              "John R. Anderson",
+              "Daniel Bothell",
+              "Michael D. Byrne",
+              "Scott Douglass",
+              "Christian Lebiere",
+              "Yulin Qin"
+            ],
+            "recordedAuthors": [
+              "John R. Anderson",
+              "Daniel Bothell",
+              "Michael D. Byrne",
+              "Scott Douglass",
+              "Christian Lebiere",
+              "Yulin Qin"
+            ],
+            "corrections": [],
+            "year": 2004,
+            "url": "https://web.iitd.ac.in/~sumeet/and04.pdf",
+            "version": "Psychological Review 111(4):1036–1060；本文描述ACT-R 5.0，不能当作所有版本的固定结构",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–6／1036–1041页：架构、缓冲区、串并行与双任务例；PDF22／1057页讨论；PDF23结论末段；PDF5／1040页图2时序与图3预测已视觉核对",
+            "unreadScope": "记忆与程序学习详细方程、复杂任务建模及fMRI实验方法未完整读；引用的行为实验和替代模型未复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-anderson-2004.md"
+      },
+      {
+        "id": "e-chella-frixione-lieto-2017",
+        "title": "共同架构怎样协调异质知识？",
+        "year": 2017,
+        "dateLabel": "2017",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "知识类型与机制协调",
+        "question": "增加知识量以后，原型、实例和规则之间的冲突如何处理？",
+        "mechanism": "作者建议以概念空间连接不同表征，并显式设计分类过程之间的协调。",
+        "assumptions": "这是采用异质表征立场的研究建议；架构批评限定于文中讨论的当时方案。",
+        "limits": "扩充知识库不自动解决异质推理；概念空间的规模仍有缺口。文章未证明唯一必要架构，也未否定ACT-R所有任务结果。",
+        "nextQuestion": "保持知识内容不变，改变冲突协调机制，能否预测规则、原型和旧实例相冲突时的选择？",
+        "claims": [
+          {
+            "id": "e-chella-frixione-lieto-2017-c1",
+            "text": "作者区分知识规模不足与知识类型单一，认为扩充大型知识库不足以单独解决后者。",
+            "locator": "302页及306页 Extended Declarative Memories",
+            "basis": "source-reported",
+            "sourceId": "chella-frixione-lieto-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-chella-frixione-lieto-2017-c2",
+            "text": "对ACT-R的批评侧重原型与实例推理的联合协调和自主选择；作者同时承认所需组件可能具备，尚未充分利用。",
+            "locator": "305页 ACT-R，末段保留意见",
+            "basis": "source-reported",
+            "sourceId": "chella-frixione-lieto-2017",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "chella-frixione-lieto-2017",
+            "title": "Representational Issues in the Debate on the Standard Model of the Mind",
+            "authors": [
+              "Antonio Chella",
+              "Marcello Frixione",
+              "Antonio Lieto"
+            ],
+            "recordedAuthors": [
+              "Antonio Chella",
+              "Marcello Frixione",
+              "Antonio Lieto"
+            ],
+            "corrections": [],
+            "year": 2017,
+            "url": "https://cdn.aaai.org/ocs/15990/15990-69900-1-PB.pdf",
+            "version": "AAAI Technical Report FS-17-05，302–307页；2018年的arXiv上传与2020年重印不是原始发表年",
+            "readingStatus": "selected-sections",
+            "readScope": "正文302–306页及307页参考文献；核对脚注1、2、4、5及ACT-R批评中的保留意见",
+            "unreadScope": "所引DUAL PECCS、分类实验与神经研究未逐篇核验；未运行架构或验证作者对当时版本的全部功能判断",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-chella-frixione-lieto-2017.md"
+      },
+      {
+        "id": "e-laird-2017",
+        "title": "不同架构能共享哪些可检验约束？",
+        "year": 2017,
+        "dateLabel": "2017",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "共同架构约束",
+        "question": "怎样从多个认知架构提取共同假设，支持累积研究？",
+        "mechanism": "以ACT-R、Soar与Sigma比较模块、记忆、学习和感知动作；工作记忆连接组件，程序记忆选择行动。",
+        "assumptions": "目标是类人心智；提案基于有限架构的综合，标准模型本身不是已经实现的单一架构。",
+        "limits": "作者列出元认知、情感、心象、跨模块直接通信及学习等缺口；理论一致、实现具备和经验验证需要分别判断。",
+        "nextQuestion": "固定模块通信与时间假设后，哪些跨任务结果会使这些约束失败？",
+        "claims": [
+          {
+            "id": "e-laird-2017-c1",
+            "text": "模型把模块内及模块间并行，与认知周期中的单次有意行动选择结合。",
+            "locator": "作者稿§4.1；§5表1 A",
+            "basis": "source-reported",
+            "sourceId": "laird-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-laird-2017-c2",
+            "text": "长期记忆包含符号结构与量化元数据；程序学习至少区分规则组合和调节选择的强化学习。",
+            "locator": "作者稿§4.2–4.3；表1 B–C",
+            "basis": "source-reported",
+            "sourceId": "laird-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-laird-2017-c3",
+            "text": "作者明确列出元认知、情感、心象和跨模块通信等未解决内容，并计划引入更多架构。",
+            "locator": "作者稿§5，表2说明之后",
+            "basis": "source-reported",
+            "sourceId": "laird-2017",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "laird-2017",
+            "title": "A Standard Model of the Mind: Toward a Common Computational Framework across Artificial Intelligence, Cognitive Science, Neuroscience, and Robotics",
+            "authors": [
+              "John E. Laird",
+              "Christian Lebiere",
+              "Paul S. Rosenbloom"
+            ],
+            "recordedAuthors": [
+              "John E. Laird",
+              "Christian Lebiere",
+              "Paul S. Rosenbloom"
+            ],
+            "corrections": [],
+            "year": 2017,
+            "url": "https://www.researchgate.net/publication/322123676_A_Standard_Model_of_the_Mind_Toward_a_Common_Computational_Framework_across_Artificial_Intelligence_Cognitive_Science_Neuroscience_and_Robotics",
+            "version": "期刊AI Magazine 38(4):13–26，2017-12-28；实读为John E. Laird于2018-02-09上传作者稿的网页全文转录，作者稿页码不同于期刊排版",
+            "readingStatus": "selected-sections",
+            "readScope": "作者稿标题、摘要；§3三种架构、§4.1–4.4、§5 Summary及表1文字；重点核对学习机制、组件通信和未解决问题。原网页全文定位，不是检索摘要",
+            "unreadScope": "§1–2未完整读；图1–4和表2颜色编码未视觉核验，未据其逐格下结论；没有核对作者稿与期刊版逐字差异，也未复现实验",
+            "verification": "来源身份和发表日期由AAAI出版页核对；正文来自作者上传全文的网页转录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-laird-2017.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-anderson-chella-critique",
+        "batch": "round-three-a",
+        "fromId": "e-anderson-2004",
+        "toId": "e-chella-frixione-lieto-2017",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "305页 ACT-R；306页参考文献",
+        "explanation": "后文明确引用Anderson等2004，并讨论ACT-R的异质知识协调限制；不是对2004年双任务拟合结果的直接反驳。",
+        "sourceIds": [
+          "chella-frixione-lieto-2017"
+        ]
+      },
+      {
+        "id": "r-anderson-standard",
+        "batch": "round-three-a",
+        "fromId": "e-anderson-2004",
+        "toId": "e-laird-2017",
+        "type": "architecture-comparison",
+        "typeLabel": "architecture-comparison",
+        "status": "source-supported",
+        "locator": "Anderson等1036–1041页；Laird等作者稿§3–4",
+        "explanation": "共同模型明确将ACT-R纳入比较；后者讨论更晚版本，不能把所有2017年假设倒置成2004年的实现。",
+        "sourceIds": [
+          "anderson-2004",
+          "laird-2017"
+        ]
+      },
+      {
+        "id": "r-standard-chella",
+        "batch": "round-three-a",
+        "fromId": "e-laird-2017",
+        "toId": "e-chella-frixione-lieto-2017",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "302页摘要与引言；305–306页；307页Laird等in press引文",
+        "explanation": "批评明确针对当时待刊的标准模型提案，侧重知识类型及推理协调。两者同年，并非依靠期刊出版日期推断阅读顺序。",
+        "sourceIds": [
+          "chella-frixione-lieto-2017"
+        ]
+      },
+      {
+        "id": "r-soar-standard",
+        "batch": "round-three-a",
+        "fromId": "e-soar-1987",
+        "toId": "e-laird-2017",
+        "type": "architecture-comparison",
+        "typeLabel": "architecture-comparison",
+        "status": "source-supported",
+        "locator": "Soar §1.3、§4；Laird等作者稿§3–4",
+        "explanation": "共同模型纳入后来的Soar，讨论多个记忆与学习机制；本边表示同名架构在比较中的位置，不把2017结构倒置为1987实现。",
+        "sourceIds": [
+          "soar-1987",
+          "laird-2017"
+        ]
+      },
+      {
+        "id": "r-symbol-system-soar",
+        "batch": "round-three-a",
+        "fromId": "e-newell-simon-1976",
+        "toId": "e-soar-1987",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "58页§4第一项假说及63页参考文献52",
+        "explanation": "Soar作者明确把物理符号系统假说列为其架构假说并引用Newell与Simon 1976；这证明采用关系，不证明该假说的必要性已获验证。",
+        "sourceIds": [
+          "soar-1987"
+        ]
+      }
+    ]
+  }
+}

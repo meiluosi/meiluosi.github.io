@@ -1,0 +1,403 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "philosophy-of-mind",
+    "name": "语义、理解与心灵哲学路线",
+    "question": "形式操作、意义与理解之间有什么关系？",
+    "gaps": [
+      "Dennett 1987书未整本读；本批改以已核对的1981论文为时间节点。",
+      "Searle作者答复本轮已补指定段落；Putnam后期功能主义修正、完整评论回应及其他语义理论仍待系统比较。",
+      "现代多模态、行动和社会互动系统须另行实测；这里不裁决任何在用模型是否理解。",
+      "第四轮第三阶段补读Searle回应、Harnad限制、Bender–Koller定义与Piantadosi–Hill反方，新增Block 1995。1997修正版、完整评论与理解归属的经验检验仍待补。"
+    ],
+    "nodes": [
+      {
+        "id": "e-putnam-1967",
+        "title": "功能状态：从材料同一到组织关系",
+        "year": 1967,
+        "dateLabel": "1967",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "功能主义",
+        "question": "疼痛是否必须等同于跨物种相同的物理化学状态？",
+        "mechanism": "以输入、内部状态、输出的概率转移关系描述功能组织。",
+        "assumptions": "这是有待具体化和验证的假说图式；不同描述可适用同一物理系统。",
+        "limits": "原文没有实验验证所有心理状态的多重实现；“功能”不能只用一次行为输出替代。",
+        "nextQuestion": "什么转移、反事实与干预证据足以确定同一种功能组织？",
+        "claims": [
+          {
+            "id": "e-putnam-1967-ec1",
+            "text": "Putnam提出疼痛是整个有机体的功能状态，并用概率自动机说明功能组织的关系定义。",
+            "locator": "PDF 4，印刷54",
+            "basis": "source-reported",
+            "sourceId": "putnam-1967",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-putnam-1967-ec2",
+            "text": "跨物种同一物理状态的要求被视为强且不太可信的假说；相似功能组织不必要求相同物理细节。",
+            "locator": "PDF 6，印刷56",
+            "basis": "source-reported",
+            "sourceId": "putnam-1967",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "putnam-1967",
+            "title": "The Nature of Mental States（原题Psychological Predicates）",
+            "authors": [
+              "Hilary Putnam"
+            ],
+            "recordedAuthors": [
+              "Hilary Putnam"
+            ],
+            "corrections": [],
+            "year": 1967,
+            "url": "https://home.csulb.edu/~cwallis/382/readings/482/putnam.nature.mental.states.pdf",
+            "version": "实读重印本Chapter 10，8页（印刷51–58）；重印年未确证。1967原题由另一本扫描末页的出处说明核对，未逐字对照两版。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 4、6（印刷54、56）：概率自动机、功能状态假说、多重实现论证。",
+            "unreadScope": "原版正文、完整行为主义讨论及后期修正未系统核对。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-putnam-1967.md"
+      },
+      {
+        "id": "e-hofstadter-1980",
+        "title": "当期反驳：层次与复杂度改变直觉",
+        "year": 1980,
+        "dateLabel": "1980",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "语义充分性异议",
+        "question": "低层执行者不理解，能否推出整体不理解？",
+        "mechanism": "质疑中文房间的复杂度跳跃及跨层直觉。",
+        "assumptions": "承认物理过程由规则约束，并把系统级组织作为候选解释。",
+        "limits": "这是反驳论证，不是对某个AI有意识或理解的实证确认。",
+        "nextQuestion": "两方究竟在哪个系统层次与充分条件上分歧？",
+        "claims": [
+          {
+            "id": "e-hofstadter-1980-ec1",
+            "text": "评论指出有限故事问答与完整图灵测试之间的复杂度差别。",
+            "locator": "433，PDF 17，Hofstadter评论部分",
+            "basis": "source-reported",
+            "sourceId": "hofstadter-1980",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hofstadter-1980-ec2",
+            "text": "放慢时间尺度、只观察低层执行者，可能误导对整体系统性质的判断。",
+            "locator": "434，PDF 18，评论前半",
+            "basis": "source-reported",
+            "sourceId": "hofstadter-1980",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hofstadter-1980",
+            "title": "Reductionism and religion（对Searle的评论）",
+            "authors": [
+              "Douglas R. Hofstadter"
+            ],
+            "recordedAuthors": [
+              "Douglas R. Hofstadter"
+            ],
+            "corrections": [],
+            "year": 1980,
+            "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+            "version": "同一期BBS开放评论，印刷433–434；与目标文章共用PDF载体。",
+            "readingStatus": "selected-sections",
+            "readScope": "E批重新选读433–434（PDF 17–18）Hofstadter评论；其前后其他评论不计入该记录。",
+            "unreadScope": "未把评论中的数量级估计当实测运行成本；未审读全部往返答复。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-hofstadter-1980.md"
+      },
+      {
+        "id": "e-searle-1980",
+        "title": "中文房间：程序是否足够产生理解？",
+        "year": 1980,
+        "dateLabel": "1980",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "语义充分性",
+        "question": "合适的形式程序是否本身就足以产生意向性？",
+        "mechanism": "用理想规则执行者区分形式操作与理解，并回应系统和机器人答复。",
+        "assumptions": "理想行为能力是设定；理解归属层次和“足够”条件有争议。",
+        "limits": "思想实验不是机器不可能理解的经验证明；本批没有重读全部作者答复。",
+        "nextQuestion": "整体与执行部件的理解归属应怎样检验？",
+        "claims": [
+          {
+            "id": "e-searle-1980-ec1",
+            "text": "Searle针对强AI的充分性主张，区分作为工具的程序与真正理解。",
+            "locator": "417–418，PDF 1–2；延续B批选读",
+            "basis": "source-reported",
+            "sourceId": "searle-1980",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-searle-1980-ec2",
+            "text": "他并不否认人工机器原则上思考，而是否认形式程序本身已经充分。",
+            "locator": "422–424，PDF 6–8；延续B批选读",
+            "basis": "source-reported",
+            "sourceId": "searle-1980",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "searle-1980",
+            "title": "Minds, brains, and programs",
+            "authors": [
+              "John R. Searle"
+            ],
+            "recordedAuthors": [
+              "John R. Searle"
+            ],
+            "corrections": [],
+            "year": 1980,
+            "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+            "version": "BBS 3:417–457合刊扫描，42页；目标文章417–424，后含评论与答复。",
+            "readingStatus": "selected-sections",
+            "readScope": "目标文章417–424（PDF 1–8），含六类答复、结论和注释。",
+            "unreadScope": "其余评论与作者答复未系统通读；Hofstadter评论另设阅读记录。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-searle-1980.md"
+      },
+      {
+        "id": "e-dennett-1981",
+        "title": "意向立场：从信念归因到预测策略",
+        "year": 1981,
+        "dateLabel": "1981",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "意向解释",
+        "question": "何种情况下把信念和欲望归给一个系统有解释力？",
+        "mechanism": "作为理性行动者预测其行为，并与物理和设计立场比较。",
+        "assumptions": "预测需依赖主体情境和历史；信念论点带有现实主义主张。",
+        "limits": "预测成功尚不自动回答接地或主观体验问题；本批未读其全部防御论证。",
+        "nextQuestion": "不同层次的模型如何在新情境与干预下比较预测力？",
+        "claims": [
+          {
+            "id": "e-dennett-1981-ec1",
+            "text": "Dennett主张信念归因涉及可由特定预测策略识别的模式，而不只是假装相信的便利说法。",
+            "locator": "印刷557，PDF 2",
+            "basis": "source-reported",
+            "sourceId": "dennett-1981",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-dennett-1981-ec2",
+            "text": "意向策略与物理、设计策略区分，利用信念、欲望和理性假设预测行动。",
+            "locator": "印刷558，PDF 3",
+            "basis": "source-reported",
+            "sourceId": "dennett-1981",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "dennett-1981",
+            "title": "True Believers: The Intentional Strategy and Why It Works",
+            "authors": [
+              "Daniel C. Dennett"
+            ],
+            "recordedAuthors": [
+              "Daniel C. Dennett"
+            ],
+            "corrections": [],
+            "year": 1981,
+            "url": "https://web.stanford.edu/~paulsko/papers/DennettTB.pdf",
+            "version": "13页重印扫描；首页脚注标1981 Scientific Explanations原出处。不能以此替代1987全书阅读。",
+            "readingStatus": "selected-sections",
+            "readScope": "目视PDF 1–3（印刷556–558），含立场说明和物理／设计／意向策略。",
+            "unreadScope": "其余正文及1987整书未通读；扫描未以空白OCR当作已读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-dennett-1981.md"
+      },
+      {
+        "id": "e-harnad-1990",
+        "title": "符号接地：名称如何关联非符号能力？",
+        "year": 1990,
+        "dateLabel": "1990",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "接地与组合",
+        "question": "符号意义如何不只依赖解释者头脑中的其他符号？",
+        "mechanism": "以图像、类别表征与感知分类接地基本名称，再建立组合表达。",
+        "assumptions": "需能区分、识别和描述对象；组合性与接地同时要求。",
+        "limits": "方案与检验条件不是已完成的全规模认知系统；行为接地和体验仍有解释距离。",
+        "nextQuestion": "新指称、行动失败与社会纠错能否区分接地和形式匹配？",
+        "claims": [
+          {
+            "id": "e-harnad-1990-ec1",
+            "text": "作者提出结合感知类别与符号组合的混合方案，而非让纯符号层自行获得指称。",
+            "locator": "PDF 7–8，§3.3–4",
+            "basis": "source-reported",
+            "sourceId": "harnad-1990",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-harnad-1990-ec2",
+            "text": "结论提出形式与行为检验，同时明说仍不保证捕捉主观意义。",
+            "locator": "PDF 8，§5结论",
+            "basis": "source-reported",
+            "sourceId": "harnad-1990",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "harnad-1990",
+            "title": "The Symbol Grounding Problem",
+            "authors": [
+              "Stevan Harnad"
+            ],
+            "recordedAuthors": [
+              "Stevan Harnad"
+            ],
+            "corrections": [],
+            "year": 1990,
+            "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/harnad90_sgproblem.pdf",
+            "version": "1990论文作者HTML的2004-04-20打印PDF，15页。",
+            "readingStatus": "selected-sections",
+            "readScope": "摘要；PDF 7–8 §3.3、4与5结论。",
+            "unreadScope": "完整前文、注释和后续版本未系统核对；没有机器人复现。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-harnad-1990.md"
+      },
+      {
+        "id": "e-bender-koller-2020",
+        "title": "形式与意义：训练信号限制能学到的关系",
+        "year": 2020,
+        "dateLabel": "2020",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "语言理解边界",
+        "question": "仅凭语言形式能否学到形式与交际意图的关系？",
+        "mechanism": "用明确定义及章鱼思想实验辨析形式规律与语言外关系。",
+        "assumptions": "论证前提是训练信息只有形式；意义被定义为连接形式与语言外对象或意图。",
+        "limits": "这是带定义与输入条件的论证；不直接裁决之后模型的能力，更不是实验性“不可能定理”。",
+        "nextQuestion": "控制形式训练量后，哪些接地与交互信号改变迁移及纠错能力？",
+        "claims": [
+          {
+            "id": "e-bender-koller-2020-ec1",
+            "text": "§3区分形式、常规意义和交际意图，并据此提出仅形式输入不足以学得所定义的意义关系。",
+            "locator": "PDF 3，5187",
+            "basis": "source-reported",
+            "sourceId": "bender-koller-2020",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-bender-koller-2020-ec2",
+            "text": "§9明确容许加入接地信息后在该信息承载意图的范围内学习意义；不能将结论扩为所有多模态或行动系统不可能理解。",
+            "locator": "PDF 8，5192，But meaning could be learned from…",
+            "basis": "source-reported",
+            "sourceId": "bender-koller-2020",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "bender-koller-2020",
+            "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data",
+            "authors": [
+              "Emily M. Bender",
+              "Alexander Koller"
+            ],
+            "recordedAuthors": [
+              "Emily M. Bender",
+              "Alexander Koller"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://aclanthology.org/2020.acl-main.463.pdf",
+            "version": "ACL 2020:5185–5198，原刊14页PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 2–4 §2–4；6的范围讨论；8 §8.2与§9开头。",
+            "unreadScope": "全部附录与现代模型表现未独立检查；没有开展行为实验。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-bender-koller-2020.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "e-r05",
+        "batch": "round-three-e",
+        "fromId": "e-putnam-1967",
+        "toId": "e-dennett-1981",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Putnam PDF 4、6；Dennett印刷557–558",
+        "explanation": "功能组织说明与意向预测立场的对象不同，不能用术语相近代替思想继承证据。",
+        "sourceIds": [
+          "putnam-1967",
+          "dennett-1981"
+        ]
+      },
+      {
+        "id": "e-r06",
+        "batch": "round-three-e",
+        "fromId": "e-searle-1980",
+        "toId": "e-hofstadter-1980",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "433–434，PDF 17–18",
+        "explanation": "同时期评论直接批评中文房间的尺度、复杂度与系统层次直觉；箭头表示被批评对象到评论。",
+        "sourceIds": [
+          "hofstadter-1980"
+        ]
+      },
+      {
+        "id": "e-r07",
+        "batch": "round-three-e",
+        "fromId": "e-searle-1980",
+        "toId": "e-harnad-1990",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Searle 419、422–424；Harnad §5",
+        "explanation": "接地要求增加行为与世界约束，但Harnad明说仍不保证主观意义；不是宣布中文房间已被解决。",
+        "sourceIds": [
+          "searle-1980",
+          "harnad-1990"
+        ]
+      },
+      {
+        "id": "e-r08",
+        "batch": "round-three-e",
+        "fromId": "e-harnad-1990",
+        "toId": "e-bender-koller-2020",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Harnad §4–5；Bender-Koller §3与§9",
+        "explanation": "比较感知类别接地与交际意图关系；外部关系的含义并不完全相同。",
+        "sourceIds": [
+          "harnad-1990",
+          "bender-koller-2020"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "autopoiesis-evolution",
+    "name": "生命、自维持与演化路线",
+    "question": "生命组织、自维持、适应与智能之间有哪些关系？",
+    "gaps": [
+      "此前C批为重印与转录选读；本轮原刊指定页的补核见下项。其余物种与演化经验材料未由本轮新增。",
+      "黏菌只核对指定实验正文；分子机制、跨实验室复现和Levin各项形态干预原始研究未全面审查。",
+      "Levin2022 TAME、独立批评和生命定义的其他传统仍为明确后续队列。",
+      "第四轮第二阶段取得1974原刊扫描，核对187–189、192–193页及§9成分参与例外；新增2005适应性定义与注8。原模拟、全部算法及生命—智能—体验的桥接仍未验证。"
+    ],
+    "nodes": [
+      {
+        "id": "e-darwin-1859",
+        "title": "适应如何通过世代变化形成？",
+        "year": 1859,
+        "dateLabel": "1859",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "自然选择",
+        "question": "复杂的适应结构一定需要预定目的或设计吗？",
+        "mechanism": "将变异、保存与淘汰放入生存条件和种间关系的历史过程。",
+        "assumptions": "选择作用依赖变异及具体环境；原文的拟人措辞不当作意图机制。",
+        "limits": "演化适应不等于个体学习或智慧，适应性故事也不能替代独立历史证据。",
+        "nextQuestion": "给定环境改变，哪些遗传、发育及学习机制分别解释性状变化？",
+        "claims": [
+          {
+            "id": "e-darwin-1859-cc1",
+            "text": "作者将保存有利变异、排除有害变异称为自然选择，并说明中性变异不会同样受其作用。",
+            "locator": "第IV章自然选择定义段",
+            "basis": "source-reported",
+            "sourceId": "darwin-1859",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-darwin-1859-cc2",
+            "text": "第VI章用飞行／滑翔的结构变化讨论过渡可能性，强调各阶段在其环境中的用途。",
+            "locator": "第VI章181–182页",
+            "basis": "source-reported",
+            "sourceId": "darwin-1859",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "darwin-1859",
+            "title": "On the Origin of Species",
+            "authors": [
+              "Charles Darwin"
+            ],
+            "recordedAuthors": [
+              "Charles Darwin"
+            ],
+            "corrections": [],
+            "year": 1859,
+            "url": "https://darwin-online.org.uk/content/contentblock?basepage=1&itemID=F373&hitpage=1&viewtype=text",
+            "version": "第一版F373，Darwin Online文本转录；不是后续增订版。",
+            "readingStatus": "selected-sections",
+            "readScope": "第IV章自然选择定义段及83–85页选择与环境关系；第VI章181–182页过渡结构举例片段。",
+            "unreadScope": "其余章节和原扫描异文未逐页核对；现代遗传学和适应解释争论未在本节点覆盖。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-darwin-1859.md"
+      },
+      {
+        "id": "e-varela-maturana-uribe-1974",
+        "title": "生命单位怎样持续产生自身？",
+        "year": 1974,
+        "dateLabel": "1974（实读1981再版转录）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "自创生组织",
+        "question": "繁殖是否足以定义一个正在活着的单位？",
+        "mechanism": "将产生组分的网络及其生成边界相互闭合，区分组织关系与具体组分。",
+        "assumptions": "这是生命组织的定义与最小模型提案；须说明物质过程和边界。",
+        "limits": "模拟满足指定组织条件不等于具备认知或生命全部现象；未重跑原附录算法。",
+        "nextQuestion": "持续生产自身是否足以生成对环境好坏的分级判断？",
+        "claims": [
+          {
+            "id": "e-varela-maturana-uribe-1974-cc1",
+            "text": "§1与§5区分构成一个单位和该单位的繁殖／演化；后者预设前者。",
+            "locator": "§1、§5",
+            "basis": "source-reported",
+            "sourceId": "varela-maturana-uribe-1974",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-varela-maturana-uribe-1974-cc2",
+            "text": "§3给出递归生产网络定义；§6用催化、链形成与衰变的二维模型展示边界持续更新。",
+            "locator": "§3、§6",
+            "basis": "source-reported",
+            "sourceId": "varela-maturana-uribe-1974",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "varela-maturana-uribe-1974",
+            "title": "Autopoiesis: The Organization of Living Systems, Its Characterization and a Model",
+            "authors": [
+              "Francisco G. Varela",
+              "Humberto R. Maturana",
+              "Ricardo Uribe"
+            ],
+            "recordedAuthors": [
+              "Francisco G. Varela",
+              "Humberto R. Maturana",
+              "Ricardo Uribe"
+            ],
+            "corrections": [],
+            "year": 1974,
+            "url": "https://bsahely.com/2017/12/27/a-special-issue-devoted-to-autopoiesis/",
+            "version": "1974 BioSystems原作；实读1981 Cybernetics Forum重排文章的2017网页转录，页面含其他作者作品。",
+            "readingStatus": "selected-sections",
+            "readScope": "该文§1–8（Introduction至Summary）；严格只使用该署名文章部分。",
+            "unreadScope": "原刊扫描和1981 PDF未取得；转录§9有可疑缺词，未用作依据；附录算法、图像符号及其他文章未审校。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-varela-maturana-uribe-1974.md"
+      },
+      {
+        "id": "e-weber-varela-2002",
+        "title": "生命的自维持如何带来意义？",
+        "year": 2002,
+        "dateLabel": "2002",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "内在目的与价值",
+        "question": "有机体的目的能否由其自身组织解释？",
+        "mechanism": "把自我生产和脆弱的生命个体性连接到内在目的与环境意义。",
+        "assumptions": "论证依赖现象学与生命组织解释，不是一个可直接测量的统一智能分数。",
+        "limits": "“存活对自身有意义”到“能调节并区分好坏”仍有额外论证负担。",
+        "nextQuestion": "怎样从组织闭合推到有差别的行动，而非仅由观察者归因？",
+        "claims": [
+          {
+            "id": "e-weber-varela-2002-cc1",
+            "text": "作者把有机体与环境的接触解释为对其持续存在具有意义和价值。",
+            "locator": "118页相关段落",
+            "basis": "source-reported",
+            "sourceId": "weber-varela-2002",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-weber-varela-2002-cc2",
+            "text": "§4主张自我生产的个体性与内在目的相互关联。",
+            "locator": "120页§4",
+            "basis": "source-reported",
+            "sourceId": "weber-varela-2002",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "weber-varela-2002",
+            "title": "Life after Kant: Natural Purposes and the Autopoietic Foundations of Biological Individuality",
+            "authors": [
+              "Andreas Weber",
+              "Francisco J. Varela"
+            ],
+            "recordedAuthors": [
+              "Andreas Weber",
+              "Francisco J. Varela"
+            ],
+            "corrections": [],
+            "year": 2002,
+            "url": "https://www.ias-research.net/wp-content/uploads/2018/02/Weber_Varela_Life_after_Kant_2002.pdf",
+            "version": "Phenomenology and the Cognitive Sciences 1:97–125；PDF含前置页。",
+            "readingStatus": "selected-sections",
+            "readScope": "118页有机体与意义片段；120页§4结论。",
+            "unreadScope": "康德、Jonas的原典与全文细部推演未覆盖；不把本文引文计为原典已读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-weber-varela-2002.md"
+      },
+      {
+        "id": "e-dipaolo-2005",
+        "title": "稳健存活与主动适应有何不同？",
+        "year": 2005,
+        "dateLabel": "2005",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "适应性修正",
+        "question": "同样活着的不同状态，系统怎样辨别其趋势？",
+        "mechanism": "在自创生之外引入适应性：监测并调节状态朝向或远离可生存边界的趋势。",
+        "assumptions": "可生存域与调节过程需要独立说明；不是只要持续存在就已满足。",
+        "limits": "可生存域是理论条件；具体生物的边界、感知及调节仍需测量。",
+        "nextQuestion": "如何操纵调节能力而尽量保持自我生产过程？",
+        "claims": [
+          {
+            "id": "e-dipaolo-2005-cc1",
+            "text": "原文区分承受扰动的稳健性与主动监测、补偿的适应性。",
+            "locator": "438页定义段",
+            "basis": "source-reported",
+            "sourceId": "dipaolo-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-dipaolo-2005-cc2",
+            "text": "作者认为意义生成需要自创生和适应性，并指出后者不是自创生定义的直接后果。",
+            "locator": "438–439页",
+            "basis": "source-reported",
+            "sourceId": "dipaolo-2005",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "dipaolo-2005",
+            "title": "Autopoiesis, adaptivity, teleology, agency",
+            "authors": [
+              "Ezequiel A. Di Paolo"
+            ],
+            "recordedAuthors": [
+              "Ezequiel A. Di Paolo"
+            ],
+            "corrections": [],
+            "year": 2005,
+            "url": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/autopoiesis_teleology_2005.pdf",
+            "version": "Phenomenology and the Cognitive Sciences 4:429–452；作者版期刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "429页引言；437–439页适应性、可生存域及对Weber–Varela的修正；440页片段。",
+            "unreadScope": "完整agency／time后续推演和模型证据未覆盖。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-dipaolo-2005.md"
+      },
+      {
+        "id": "e-boisseau-2016",
+        "title": "没有神经元也能出现习惯化吗？",
+        "year": 2016,
+        "dateLabel": "2016",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "非神经学习实验",
+        "question": "反应减弱是学习，还是疲劳／感受适应？",
+        "mechanism": "重复让黏菌跨含奎宁或咖啡因的桥，以换刺激和移除刺激后的恢复作对照。",
+        "assumptions": "所测为Physarum趋化行为；有效样本奎宁140、咖啡因70、对照200。",
+        "limits": "支持特定非联想学习判据，不证明理解、意识或任意认知；作者承认化学感受机制未知。",
+        "nextQuestion": "直接测量并干预感受器状态能否区分候选分子解释？",
+        "claims": [
+          {
+            "id": "e-boisseau-2016-cc1",
+            "text": "连续5天暴露于4mM奎宁或1mM咖啡因，实验另含刺激切换与恢复阶段。",
+            "locator": "第2页§2(b)",
+            "basis": "source-reported",
+            "sourceId": "boisseau-2016",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-boisseau-2016-cc2",
+            "text": "作者报告刺激特异性；两天后奎宁反应恢复，咖啡因在入桥时间上未完全恢复。",
+            "locator": "第5页§3(b)–(d)及Discussion",
+            "basis": "source-reported",
+            "sourceId": "boisseau-2016",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "boisseau-2016",
+            "title": "Habituation in non-neural organisms: evidence from slime moulds",
+            "authors": [
+              "Romain P. Boisseau",
+              "David Vogel",
+              "Audrey Dussutour"
+            ],
+            "recordedAuthors": [
+              "Romain P. Boisseau",
+              "David Vogel",
+              "Audrey Dussutour"
+            ],
+            "corrections": [],
+            "year": 2016,
+            "url": "https://pedagogie.ac-toulouse.fr/svt/sites/default/files/traam_donnees_scientifiques/blob_causse/boisseau_et_al_2016-1.pdf",
+            "version": "Proceedings B 283:20160446；法国教育机构公开保存期刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "第2页物种、习惯化设计与浓度；第5页刺激特异性、恢复及Discussion开篇。",
+            "unreadScope": "完整统计附录、全部测量轨迹及原始数据未复算；第3–4页未逐项读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-boisseau-2016.md"
+      },
+      {
+        "id": "e-levin-2019",
+        "title": "主体能否跨多个生物尺度？",
+        "year": 2019,
+        "dateLabel": "2019",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "尺度与主体边界",
+        "question": "细胞、组织和整体的目标如何形成更大主体？",
+        "mechanism": "以系统可测量、建模和影响的时空范围刻画认知边界，提出由稳态驱动扩展的假说。",
+        "assumptions": "“认知光锥”是功能框架；非物理相对论的直接结论。",
+        "limits": "框架不证明每个尺度均具主观体验；同文中佛教类比不构成跨文化原典证据。",
+        "nextQuestion": "目标范围能否通过干预和泛化预测独立测定？",
+        "claims": [
+          {
+            "id": "e-levin-2019-cc1",
+            "text": "作者以可测量、建模和尝试影响的时空范围定义主体的计算边界。",
+            "locator": "Abstract与cognitive light cone论述",
+            "basis": "source-reported",
+            "sourceId": "levin-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-levin-2019-cc2",
+            "text": "由细胞稳态到更大尺度目标的演化序列被原文明确提出为假说。",
+            "locator": "The Agent’s Evolutionary Back-Story开篇",
+            "basis": "source-reported",
+            "sourceId": "levin-2019",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "levin-2019",
+            "title": "The Computational Boundary of a “Self”: Developmental Bioelectricity Drives Multicellularity and Scale-Free Cognition",
+            "authors": [
+              "Michael Levin"
+            ],
+            "recordedAuthors": [
+              "Michael Levin"
+            ],
+            "corrections": [],
+            "year": 2019,
+            "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02688/full",
+            "version": "Frontiers in Psychology 10:2688；理论与哲学专题正文。",
+            "readingStatus": "selected-sections",
+            "readScope": "Abstract及主体边界框架；cognitive light cone展开段；The Agent’s Evolutionary Back-Story开篇。",
+            "unreadScope": "列举的每项生物电干预、全篇论证与后续2022 TAME未逐一审读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-levin-2019.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "c-r11",
+        "batch": "round-three-c",
+        "fromId": "e-darwin-1859",
+        "toId": "e-varela-maturana-uribe-1974",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Darwin第IV章；自创生§1、§5",
+        "explanation": "跨世代历史解释与当前单位组织不同，不是彼此替代的同一问题。",
+        "sourceIds": [
+          "darwin-1859",
+          "varela-maturana-uribe-1974"
+        ]
+      },
+      {
+        "id": "c-r12",
+        "batch": "round-three-c",
+        "fromId": "e-varela-maturana-uribe-1974",
+        "toId": "e-weber-varela-2002",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "自创生§3；Weber120页",
+        "explanation": "把组织定义与内在目的论证分开核查，不仅凭作者相同画继承线。",
+        "sourceIds": [
+          "varela-maturana-uribe-1974",
+          "weber-varela-2002"
+        ]
+      },
+      {
+        "id": "c-r13",
+        "batch": "round-three-c",
+        "fromId": "e-weber-varela-2002",
+        "toId": "e-dipaolo-2005",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "429页引言；437–439页",
+        "explanation": "Di Paolo直接讨论Weber–Varela并要求补充适应性，指出自创生不足以自行给出分级意义。",
+        "sourceIds": [
+          "dipaolo-2005"
+        ]
+      },
+      {
+        "id": "c-r14",
+        "batch": "round-three-c",
+        "fromId": "e-boisseau-2016",
+        "toId": "e-levin-2019",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "习惯化§2与§3；Levin主体边界段",
+        "explanation": "比较无神经学习的操作证据与多尺度主体框架；实验不自动验证全部理论。",
+        "sourceIds": [
+          "boisseau-2016",
+          "levin-2019"
+        ]
+      },
+      {
+        "id": "c-r15",
+        "batch": "round-three-c",
+        "fromId": "e-dipaolo-2005",
+        "toId": "e-levin-2019",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "438页；Levin evolutionary back-story",
+        "explanation": "比较可生存边界调节与认知边界扩展，不视为同一个已经测量的量。",
+        "sourceIds": [
+          "dipaolo-2005",
+          "levin-2019"
+        ]
+      }
+    ]
+  }
+}

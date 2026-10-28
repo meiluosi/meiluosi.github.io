@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-28",
+  "status": "passed",
+  "commands": [
+    {
+      "command": "node scripts/generate-intelligence-timelines.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":61,\"routes\":20,\"routeNodeOccurrences\":169,\"distinctNodes\":144,\"ancientRouteOccurrences\":4,\"relationOccurrences\":123}",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-index.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":26,\"counts\":{\"routes\":20,\"nodeRecords\":150,\"distinctNodes\":144,\"baselineCandidates\":106,\"baselineCandidatesWithNotes\":81,\"sourceRecords\":162,\"distinctSourceIds\":153,\"questionCards\":15,\"revisits\":11,\"cde\":{\"routes\":10,\"nodeRecords\":66,\"sources\":67,\"claims\":129,\"relations\":51,\"questionCards\":9,\"revisits\":9,\"methodChecks\":3},\"candidatesWithPartialWorkMapping\":1,\"candidatesWithoutWorkMapping\":24}}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/audit-intelligence-timelines.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"routes\": 20,\n  \"routeNodeOccurrences\": 169,\n  \"distinctNodes\": 144,\n  \"sourceReferences\": 190,\n  \"claimOccurrences\": 406,\n  \"relationOccurrences\": 123,\n  \"unknownDateOccurrences\": 4,\n  \"sourceCorrectionsApplied\": 1,\n  \"samples\": {\n    \"psychometric\": {\n      \"nodes\": 11,\n      \"claims\": 30,\n      \"relations\": 7\n    },\n    \"learning-efficiency\": {\n      \"nodes\": 18,\n      \"claims\": 40,\n      \"relations\": 12\n    },\n    \"philosophy-of-mind\": {\n      \"nodes\": 6,\n      \"claims\": 12,\n      \"relations\": 4\n    }\n  },\n  \"localLinksChecked\": 364,\n  \"errors\": [],\n  \"timelineDataSHA256\": \"98c9904e665f72fa2034bcc099dc3a49a2e772d1a3fe1ceec1dcd5238938c8b6\",\n  \"scope\": \"Compares all site node/source/claim projections with the original selected batch, checks SVG and internal research links. Original source uptime and unread material not independently checked.\"\n}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/audit-intelligence-integration.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"nativePages\": 38,\n  \"sources\": 31,\n  \"sourceClaims\": 88,\n  \"reviewedConclusions\": 18,\n  \"protectedFiles\": 93,\n  \"svgDocuments\": 9,\n  \"localReferences\": 1367,\n  \"localAnchors\": 310,\n  \"routeEntries\": 20,\n  \"designsNotExecuted\": 9,\n  \"errors\": [],\n  \"reviewSHA256\": \"e461eafe18c9c62da122c6aa709034584cd0e50dcf34c5b0eecec0381007d2aa\",\n  \"scope\": \"Generated native research pages and downloads; all local targets and explicit HTML/SVG fragments checked. Original external sources are not re-downloaded. Historical workbenches are audited separately.\"\n}",
+      "stderr": ""
+    }
+  ],
+  "browserReportSHA256": "0191c89e2d2040d2f92c341dc017ae3ebf3d5c3dea9d22752f625927f34d6067",
+  "browserSourcesMatchCurrentFiles": true,
+  "engineeringReportSHA256": "0a0e96f939a9cceb71c988eafab7264143f690a3808e74ec5cdc4ec6264dca28",
+  "builtAssetsMatchGenerated": 60,
+  "noNewReadingOrDeployment": true
+}

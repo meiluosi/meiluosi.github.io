@@ -1,0 +1,557 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "collective-extended",
+    "name": "集体、分布式与延展心智路线",
+    "question": "认知的单位能否跨越个体，延展到工具和群体？",
+    "gaps": [
+      "Hayek的机制论证不覆盖制度比较的全部实证；不把价格协调当成市场完美定理。",
+      "Hutchins 1995专著未读；本批新增的是驾驶舱论文作者稿。Clark回复为2006仓储稿，未逐字对照2010书章。",
+      "第四轮已补读Woolley补充材料指定页、Bates方法／局限、Riedl 2021多样本分析和2022更正；未复算数据或完成群体文献系统综述。动物集群与长期组织协作仍待补。",
+      "第四轮第二阶段补读延展认知的支持、反方与回复，核对驾驶舱任务转换和知觉交互的机会校正指标；未裁决统一的认知构成判据。"
+    ],
+    "nodes": [
+      {
+        "id": "e-hayek-1945",
+        "title": "分散知识如何协调",
+        "year": 1945,
+        "dateLabel": "1945",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "知识与价格信号",
+        "question": "没有人掌握全部局部知识，如何协调行动？",
+        "mechanism": "以价格变化压缩稀缺性信息，允许行动者利用各自的时地知识。",
+        "assumptions": "参与者能响应信号；局部信息可通过交易关系传递。",
+        "limits": "机制论证不保证现实价格无噪声、无权力差异或实现共同善。",
+        "nextQuestion": "协调改善由何种反馈与信息结构支持？",
+        "claims": [
+          {
+            "id": "e-hayek-1945-dc1",
+            "text": "作者把经济问题改写为利用分散且不完整的知识，而非单一头脑求解既定数据。",
+            "locator": "§I–III",
+            "basis": "source-reported",
+            "sourceId": "hayek-1945",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hayek-1945-dc2",
+            "text": "锡例说明参与者不必知道原始冲击的全部原因也可能调整用量。",
+            "locator": "§V–VI开头",
+            "basis": "source-reported",
+            "sourceId": "hayek-1945",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hayek-1945",
+            "title": "The Use of Knowledge in Society",
+            "authors": [
+              "F. A. Hayek"
+            ],
+            "recordedAuthors": [
+              "F. A. Hayek"
+            ],
+            "corrections": [],
+            "year": 1945,
+            "url": "https://www.econlib.org/library/Essays/hykKnw.html",
+            "version": "1945论文；Econlib公开转录。",
+            "readingStatus": "selected-sections",
+            "readScope": "§I–III的问题与知识分散段；§V锡例及§VI开头。",
+            "unreadScope": "未逐段审读全文，未重验经济史或制度效果。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-hayek-1945.md"
+      },
+      {
+        "id": "e-hutchins-cockpit-1995",
+        "title": "驾驶舱作为认知分析单位",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "人—工具—程序系统",
+        "question": "进近速度的记忆究竟保存在哪里？",
+        "mechanism": "追踪速度标记、显示器、人员分工之间表征的传播和变换。",
+        "assumptions": "把驾驶舱整体选为分析单位，保持内部／外部相对于该单位定义。",
+        "limits": "系统分析本身不证明工具具有独立心智或意识。",
+        "nextQuestion": "哪些外部媒介属性对系统表现具有可替代或不可替代作用？",
+        "claims": [
+          {
+            "id": "e-hutchins-cockpit-1995-dc1",
+            "text": "作者以驾驶舱而非单个飞行员为单位，考察速度与机翼配置的对应信息。",
+            "locator": "稿p2–3",
+            "basis": "source-reported",
+            "sourceId": "hutchins-cockpit-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hutchins-cockpit-1995-dc2",
+            "text": "论文呈现基于操作手册和观察经验的风格化案例，系统记忆不等于飞行员记忆之和。",
+            "locator": "稿p2、20",
+            "basis": "source-reported",
+            "sourceId": "hutchins-cockpit-1995",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hutchins-cockpit-1995",
+            "title": "How a Cockpit Remembers Its Speeds",
+            "authors": [
+              "Edwin Hutchins"
+            ],
+            "recordedAuthors": [
+              "Edwin Hutchins"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "https://pages.ucsd.edu/~johnson/COGS102B/Hutchins95.pdf",
+            "version": "1995论文作者稿24页，自编页码；非《Cognition in the Wild》全书。",
+            "readingStatus": "selected-sections",
+            "readScope": "稿p2–3分析单位与材料来源；p20–21讨论。",
+            "unreadScope": "未细读p4–19工具操作全过程；未重做民族志观察。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-hutchins-cockpit-1995.md"
+      },
+      {
+        "id": "e-clark-chalmers-1998",
+        "title": "稳定外部资源是否构成认知",
+        "year": 1998,
+        "dateLabel": "1998",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "延展心智论题",
+        "question": "外部存储只是帮助思考，还是属于思考系统？",
+        "mechanism": "按资源在行为控制中的功能角色比较内外记忆，提出主动外在论。",
+        "assumptions": "稳定可及、通常被调用且默认可信等整合条件成立。",
+        "limits": "这是构成论证，不能由任何工具使用或性能提升直接推出。",
+        "nextQuestion": "什么整合条件能区分偶然辅助与系统组成？",
+        "claims": [
+          {
+            "id": "e-clark-chalmers-1998-dc1",
+            "text": "作者提出环境可主动参与认知过程，而非只决定词语的外在指称。",
+            "locator": "§1–2",
+            "basis": "source-reported",
+            "sourceId": "clark-chalmers-1998",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-clark-chalmers-1998-dc2",
+            "text": "Otto案例强调持续使用、容易获取、自动认可；作者对过去认可是否必要保留疑问。",
+            "locator": "Otto条件段：First, the notebook…及脚注",
+            "basis": "source-reported",
+            "sourceId": "clark-chalmers-1998",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "clark-chalmers-1998",
+            "title": "The Extended Mind",
+            "authors": [
+              "Andy Clark",
+              "David J. Chalmers"
+            ],
+            "recordedAuthors": [
+              "Andy Clark",
+              "David J. Chalmers"
+            ],
+            "corrections": [],
+            "year": 1998,
+            "url": "https://consc.net/papers/extended.html",
+            "version": "1998 Analysis论文；Chalmers作者网页。",
+            "readingStatus": "selected-sections",
+            "readScope": "§1–2开头；Otto笔记本的稳定、可及、默认认可条件及随后社会延展段。",
+            "unreadScope": "未逐段检验全部思想实验和脚注。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-clark-chalmers-1998.md"
+      },
+      {
+        "id": "e-adams-aizawa-2001",
+        "title": "扩大分析范围是否足够",
+        "year": 2001,
+        "dateLabel": "2001",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "认知标志的异议",
+        "question": "同一行为结果是否足以证明同一种认知过程？",
+        "mechanism": "要求说明认知过程的特征，区分工具的因果作用与认知归属。",
+        "assumptions": "存在可用于识别认知过程的科学特征，不能只靠外部行为。",
+        "limits": "本文立场是可修正的经验性颅内论；本批未审完全部论证。",
+        "nextQuestion": "可用的认知标志是否预先排除了待检验的系统？",
+        "claims": [
+          {
+            "id": "e-adams-aizawa-2001-dc1",
+            "text": "作者接受跨颅认知在逻辑或自然律上可能，却认为已有案例未证实其现实存在。",
+            "locator": "摘要，刊p43",
+            "basis": "source-reported",
+            "sourceId": "adams-aizawa-2001",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-adams-aizawa-2001-dc2",
+            "text": "作者反对仅凭两套过程产生同一行为就将二者都认作认知。",
+            "locator": "刊p47，PDF6",
+            "basis": "source-reported",
+            "sourceId": "adams-aizawa-2001",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "adams-aizawa-2001",
+            "title": "The Bounds of Cognition",
+            "authors": [
+              "Fred Adams",
+              "Ken Aizawa"
+            ],
+            "recordedAuthors": [
+              "Fred Adams",
+              "Ken Aizawa"
+            ],
+            "corrections": [],
+            "year": 2001,
+            "url": "https://imss-www.upmf-grenoble.fr/prevert/MasterICA/SpecialiteSC/FichiersPDF/articles/Adams_Azaiwa_The_bounds_of_cognition_2001.pdf",
+            "version": "Philosophical Psychology 14(1):43–64；平台2010上线不是原作年。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF2、4、6（刊p43、45、47）；摘要、分析单位讨论及认知标志问题。",
+            "unreadScope": "§2–4详细条件及逐项反驳未通读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-adams-aizawa-2001.md"
+      },
+      {
+        "id": "e-clark-reply-2010",
+        "title": "从工具本身转向整合条件",
+        "year": 2010,
+        "dateLabel": "2010出版／2006稿",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "延展论的回复",
+        "question": "争议是否把“部件自身有认知”误当成论题？",
+        "mechanism": "强调一个资源成为既有主体认知系统的物理组成，不要求资源单独就是认知主体。",
+        "assumptions": "功能组织可跨越生物与非生物材料。",
+        "limits": "本节点2010为出版锚点，所读论证来自2006稿；对话并未终结争论。",
+        "nextQuestion": "整合条件能产生哪些超出方便叙述的可检验预期？",
+        "claims": [
+          {
+            "id": "e-clark-reply-2010-dc1",
+            "text": "Clark区分部件自身是否认知与何种耦合使其纳入认知系统。",
+            "locator": "2006稿p6",
+            "basis": "source-reported",
+            "sourceId": "clark-reply-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-clark-reply-2010-dc2",
+            "text": "其回复依赖易用、可靠、自动部署的特定条件，而非所有因果耦合。",
+            "locator": "2006稿p6–7",
+            "basis": "source-reported",
+            "sourceId": "clark-reply-2010",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "clark-reply-2010",
+            "title": "Coupling, Constitution and the Cognitive Kind: A Reply to Adams and Aizawa",
+            "authors": [
+              "Andy Clark"
+            ],
+            "recordedAuthors": [
+              "Andy Clark"
+            ],
+            "corrections": [],
+            "year": 2010,
+            "url": "https://era.ed.ac.uk/bitstream/1842/1443/1/coupling2.pdf",
+            "version": "实际读取Edinburgh仓储标为2006的coupling2稿；2010《The Extended Mind》书章为时间线出版锚点。",
+            "readingStatus": "selected-sections",
+            "readScope": "稿p6–7关于整合条件与认知部件的回应。",
+            "unreadScope": "未全文审读；未对照2010刊版p81–100，不能宣称文字一致。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-clark-reply-2010.md"
+      },
+      {
+        "id": "e-woolley-2010",
+        "title": "群体表现是否有共同因素",
+        "year": 2010,
+        "dateLabel": "2010",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "集体因素c",
+        "question": "一组人在多种任务上的表现能否由共同维度概括？",
+        "mechanism": "在两项研究中用群体任务协变提取因素并预测新任务。",
+        "assumptions": "任务、电池与群体构成对测量对象具有代表性。",
+        "limits": "相关和中介分析不等于干预因果，不可据此给个体性别或群体本质排序。",
+        "nextQuestion": "控制个体能力与任务抽样后，互动是否仍解释跨任务差异？",
+        "claims": [
+          {
+            "id": "e-woolley-2010-dc1",
+            "text": "两项研究涉及699人、每组2–5人，作者报告群体任务中的共同因素。",
+            "locator": "p686摘要；p687结果",
+            "basis": "source-reported",
+            "sourceId": "woolley-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-woolley-2010-dc2",
+            "text": "社会敏感性、轮流发言和女性比例与c的关联是样本中的统计结果；联合回归仅社会敏感性达到所报显著性。",
+            "locator": "p688相关及回归段",
+            "basis": "source-reported",
+            "sourceId": "woolley-2010",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "woolley-2010",
+            "title": "Evidence for a Collective Intelligence Factor in the Performance of Human Groups",
+            "authors": [
+              "Anita Williams Woolley",
+              "Christopher F. Chabris",
+              "Alex Pentland",
+              "Nada Hashmi",
+              "Thomas W. Malone"
+            ],
+            "recordedAuthors": [
+              "Anita Williams Woolley",
+              "Christopher F. Chabris",
+              "Alex Pentland",
+              "Nada Hashmi",
+              "Thomas W. Malone"
+            ],
+            "corrections": [],
+            "year": 2010,
+            "url": "https://gwern.net/doc/iq/2010-woolley.pdf",
+            "version": "Science 330:686–688原刊PDF；首尾邻接文章不属本文。",
+            "readingStatus": "selected-sections",
+            "readScope": "p686摘要与任务问题；p687因素结果；p688相关、回归与开放问题。",
+            "unreadScope": "未读Supporting Online Material，未重算数据。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-woolley-2010.md"
+      },
+      {
+        "id": "e-lorenz-2011",
+        "title": "意见收敛可能掩盖误差",
+        "year": 2011,
+        "dateLabel": "2011",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "社会影响与估计聚合",
+        "question": "共享他人估计一定让群体更准吗？",
+        "mechanism": "比较无信息、平均信息和完整他人估计条件下的重复估计。",
+        "assumptions": "题目有可核对数值答案；聚合误差不等于价值判断。",
+        "limits": "不能推出一切交流有害；本批合成模型也不是此实验复现。",
+        "nextQuestion": "何种信息共享提高独立证据而不只复制误差？",
+        "claims": [
+          {
+            "id": "e-lorenz-2011-dc1",
+            "text": "144人实验中作者报告他人信息可降低估计多样性，却未带来相应群体误差改善。",
+            "locator": "PDF1摘要；PDF5讨论",
+            "basis": "source-reported",
+            "sourceId": "lorenz-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-lorenz-2011-dc2",
+            "text": "收敛伴随自信增加；作者同时限定效应与题目难度和原先自信有关。",
+            "locator": "PDF5置信效应、讨论末段",
+            "basis": "source-reported",
+            "sourceId": "lorenz-2011",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lorenz-2011",
+            "title": "How Social Influence Can Undermine the Wisdom of Crowd Effect",
+            "authors": [
+              "Jan Lorenz",
+              "Heiko Rauhut",
+              "Frank Schweitzer",
+              "Dirk Helbing"
+            ],
+            "recordedAuthors": [
+              "Jan Lorenz",
+              "Heiko Rauhut",
+              "Frank Schweitzer",
+              "Dirk Helbing"
+            ],
+            "corrections": [],
+            "year": 2011,
+            "url": "https://web2.qatar.cmu.edu/~gdicaro/15382-Spring18/additional/social-influence-on-crowd-wisdom.pdf",
+            "version": "PNAS 108:9020–9025原刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1摘要和估计定义；PDF5置信效应与讨论。",
+            "unreadScope": "未逐表审读及重算，未读SI与后续往来评论。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-lorenz-2011.md"
+      },
+      {
+        "id": "e-bates-gupta-2017",
+        "title": "群体因素与个体能力的重叠",
+        "year": 2017,
+        "dateLabel": "2017出版／2016稿",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "对c来源的复核",
+        "question": "c是否代表独立于成员能力的群体属性？",
+        "mechanism": "以三项研究和联合潜变量模型比较个体能力与互动解释。",
+        "assumptions": "测量模型、任务选择及样本对结论有约束。",
+        "limits": "与Woolley不同样本和建模选择的争论尚不能由本批选读裁决；标题的因果措辞不替代干预。",
+        "nextQuestion": "改变任务互依性和成员组合后，两种模型如何预测？",
+        "claims": [
+          {
+            "id": "e-bates-gupta-2017-dc1",
+            "text": "作者在其联合模型中报告个体能力与群体因素的重叠可设为100%，并未支持主要互动预测。",
+            "locator": "作者稿PDF15总讨论",
+            "basis": "source-reported",
+            "sourceId": "bates-gupta-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-bates-gupta-2017-dc2",
+            "text": "作者专设统计效力与局限讨论，不能把模型结果扩为所有组织的定律。",
+            "locator": "PDF16 Limitations and future directions开头",
+            "basis": "source-reported",
+            "sourceId": "bates-gupta-2017",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "bates-gupta-2017",
+            "title": "Smart Groups of Smart People: Evidence for IQ as the Origin of Collective Intelligence in the Performance of Human Groups",
+            "authors": [
+              "Timothy Bates",
+              "Shivani Gupta"
+            ],
+            "recordedAuthors": [
+              "Timothy Bates",
+              "Shivani Gupta"
+            ],
+            "corrections": [],
+            "year": 2017,
+            "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/30119288/BatesGruptaI2016SmartGroupsOfSmartPeople.pdf",
+            "version": "2016 accepted author manuscript；2017 Intelligence 60:46–56出版。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF2摘要；PDF15总讨论；PDF16局限与统计效力开头。",
+            "unreadScope": "各研究方法及模型未完整审计；未复算原数据。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-bates-gupta-2017.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "d-r06",
+        "batch": "round-three-d",
+        "fromId": "e-hayek-1945",
+        "toId": "e-hutchins-cockpit-1995",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "§I–III；稿p2–3",
+        "explanation": "二者都扩展个体之外的分析，任务与机制不同，未主张思想影响。",
+        "sourceIds": [
+          "hayek-1945",
+          "hutchins-cockpit-1995"
+        ]
+      },
+      {
+        "id": "d-r07",
+        "batch": "round-three-d",
+        "fromId": "e-clark-chalmers-1998",
+        "toId": "e-adams-aizawa-2001",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "刊p43、47",
+        "explanation": "作者明确批评延展心智对工具使用的构成解释。",
+        "sourceIds": [
+          "adams-aizawa-2001"
+        ]
+      },
+      {
+        "id": "d-r08",
+        "batch": "round-three-d",
+        "fromId": "e-adams-aizawa-2001",
+        "toId": "e-clark-reply-2010",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-supported",
+        "locator": "2006稿p6–7及标题",
+        "explanation": "回复针对Adams与Aizawa系列论文；不限定为逐条回应2001版。",
+        "sourceIds": [
+          "clark-reply-2010"
+        ]
+      },
+      {
+        "id": "d-r09",
+        "batch": "round-three-d",
+        "fromId": "e-hutchins-cockpit-1995",
+        "toId": "e-clark-chalmers-1998",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "稿p20；Otto条件段",
+        "explanation": "系统分析单位与心智构成论题分别成立，不能相互替证。",
+        "sourceIds": [
+          "hutchins-cockpit-1995",
+          "clark-chalmers-1998"
+        ]
+      },
+      {
+        "id": "d-r10",
+        "batch": "round-three-d",
+        "fromId": "e-woolley-2010",
+        "toId": "e-bates-gupta-2017",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "稿PDF15–16",
+        "explanation": "复核对群体因素来源提出竞争模型；本批未重算。",
+        "sourceIds": [
+          "bates-gupta-2017"
+        ]
+      },
+      {
+        "id": "d-r11",
+        "batch": "round-three-d",
+        "fromId": "e-woolley-2010",
+        "toId": "e-lorenz-2011",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "p688；PDF1、5",
+        "explanation": "跨任务群体因素与数值估计聚合是不同对象。",
+        "sourceIds": [
+          "woolley-2010",
+          "lorenz-2011"
+        ]
+      }
+    ]
+  }
+}

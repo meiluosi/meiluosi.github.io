@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-28",
+  "browser": "Microsoft Edge via Playwright",
+  "viewports": [
+    {
+      "label": "overview-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "learning-efficiency-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "psychometric-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "philosophy-of-mind-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "learning-efficiency-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "psychometric-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "philosophy-of-mind-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "wisdom-values-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "overview-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "sampleRoutes": [
+    "learning-efficiency",
+    "psychometric",
+    "philosophy-of-mind"
+  ],
+  "diagramLayouts": 20,
+  "keyboardDiagramAndDetails": true,
+  "filtersAndEmptyState": true,
+  "graphSelectionResetsFilters": true,
+  "unknownDateCount": 4,
+  "sourceCorrectionVisible": true,
+  "sourceLinksVisible": true,
+  "lensLanguageSwitch": true,
+  "noJavaScriptReading": true,
+  "nativeNavigation": true,
+  "scriptErrors": [],
+  "sourceSHA256": {
+    "src/data/intelligenceTimeline.generated.json": "98c9904e665f72fa2034bcc099dc3a49a2e772d1a3fe1ceec1dcd5238938c8b6",
+    "src/data/intelligenceTimelines.ts": "a8dcddf2ecbbedb19b6bea9e039369d0c0b9200d7899f66e16230fdaac49aac5",
+    "src/components/research/TimelineReader.svelte": "0f3b6f98a8fcccffce6fde3de7cbd8c04ca1660fb417cfb7a58d26cf883505ac",
+    "src/components/research/ResearchEntry.astro": "4611447f8fd5d9abf984b65ca7366c262c2a7327779502d80bc415e1d15d4a8e",
+    "src/pages/research/intelligence/timelines/[id].astro": "819a41142e5a94e34786ad21d4567d9241f64dab3274318969b3bf926ef261b1",
+    "src/pages/research/intelligence/timelines/index.astro": "3d4b5ed3f079f0aea8894cb96692c8283bd8770abc9b6287c2a108f5718f5908",
+    "src/pages/research/intelligence/index.astro": "a8184ceb9b275ae798cd5ccdb60cd2c11f0786f1db20a0ea14219b9bdfb48170"
+  },
+  "checkerSHA256": "2a626f1765654eff7822375054a2b5f0d94ff8d91ea236952f7d1cd4dd271653"
+}

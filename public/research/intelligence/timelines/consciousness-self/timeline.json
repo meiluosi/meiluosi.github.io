@@ -1,0 +1,499 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "consciousness-self",
+    "name": "意识、情感与自我路线",
+    "question": "智能表现、意识通达、体验、情感与自我怎样区分？",
+    "gaps": [
+      "Baars 1988、Damasio 1994书、情感与自我的其他路线未系统选读。",
+      "IIT 2004与2.0／3.0／4.0版本变迁仍缺逐项对照，不能把2025实验倒算成对2004所有命题的检验。",
+      "COGITATE理论方回应与主要实施偏离本轮已补指定范围；其余补充分析、全部早期注册文件和后续独立研究仍未全面核验。",
+      "第四轮第三阶段补读GNW 2011挑战条件、IIT 4.0选段及COGITATE锁定文件、预测图表、理论回应和实施偏离；未复算Φ或原始数据，其他理论与自我研究并未完成全覆盖。"
+    ],
+    "nodes": [
+      {
+        "id": "e-chalmers-1995",
+        "title": "困难问题：功能解释是否穷尽体验？",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "解释对象",
+        "question": "解释辨别、报告和注意之后，是否已经解释主观体验？",
+        "mechanism": "区分可用功能机制说明的能力与为何伴随体验的问题。",
+        "assumptions": "依赖现象体验的真实性，以及功能解释仍有解释缺口的哲学判断。",
+        "limits": "问题划分与非还原立场本身可争论；不能视为科学已证明意识永不可解释。",
+        "nextQuestion": "不同理论是在解释同一体验现象，还是报告、控制和可访问性？",
+        "claims": [
+          {
+            "id": "e-chalmers-1995-ec1",
+            "text": "“容易”指可用认知／神经机制解释的问题类型，不表示实证研究轻松；主观体验被另列为困难问题。",
+            "locator": "HTML §2",
+            "basis": "source-reported",
+            "sourceId": "chalmers-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-chalmers-1995-ec2",
+            "text": "作者承认理论构建依赖第一人称资料、间接报告与思维实验，并承认客观资料和决定性主体间检验的限制。",
+            "locator": "HTML §7开头",
+            "basis": "source-reported",
+            "sourceId": "chalmers-1995",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "chalmers-1995",
+            "title": "Facing Up to the Problem of Consciousness",
+            "authors": [
+              "David J. Chalmers"
+            ],
+            "recordedAuthors": [
+              "David J. Chalmers"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "https://consc.net/papers/facing.html",
+            "version": "作者站HTML，标原刊Journal of Consciousness Studies 2(3):200–219。",
+            "readingStatus": "selected-sections",
+            "readScope": "§2容易／困难问题；§6末尾自然主义二元论与技术说明；§7开头证据条件。",
+            "unreadScope": "§3–5批评细节、§7完整理论及后续评论／答复未系统通读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-chalmers-1995.md"
+      },
+      {
+        "id": "e-bechara-1997",
+        "title": "身体信号与选择：先做对、后知道？",
+        "year": 1997,
+        "dateLabel": "1997",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "情感与意识测量",
+        "question": "显性知道之前，身体信号是否已引导有利决策？",
+        "mechanism": "在赌博任务中比较选牌、皮肤电与言语知识，加入腹内侧前额叶病损组。",
+        "assumptions": "知识阶段取决于提问和分类标准；皮肤电并不独自确定其因果作用。",
+        "limits": "“未报告”不能自动等于没有可访问知识；身体信号与选择相关不等于单向因果。",
+        "nextQuestion": "提高知识测量敏感度后，意识与行为的先后次序是否改变？",
+        "claims": [
+          {
+            "id": "e-bechara-1997-ec1",
+            "text": "作者报告对照组在其“前预感”阶段已偏向好牌并出现预期皮肤电差异，病损组呈不同模式。",
+            "locator": "PDF 3，1294 Fig.1及说明",
+            "basis": "source-reported",
+            "sourceId": "bechara-1997",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-bechara-1997-ec2",
+            "text": "作者提出身体相关偏置信号与显性推理两条交互过程；将前者对推理的帮助表述为机制解释。",
+            "locator": "PDF 3，1294正文与Fig.2",
+            "basis": "source-reported",
+            "sourceId": "bechara-1997",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "bechara-1997",
+            "title": "Deciding Advantageously Before Knowing the Advantageous Strategy",
+            "authors": [
+              "Antoine Bechara",
+              "Hanna Damasio",
+              "Daniel Tranel",
+              "Antonio R. Damasio"
+            ],
+            "recordedAuthors": [
+              "Antoine Bechara",
+              "Hanna Damasio",
+              "Daniel Tranel",
+              "Antonio R. Damasio"
+            ],
+            "corrections": [],
+            "year": 1997,
+            "url": "https://www.cs.utexas.edu/~dana/Damasio2.pdf",
+            "version": "Science 275:1293–1295，4页下载PDF，首为2008下载封面。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 2（1293）目标文章部分；3（1294）结果解释、Fig.1阶段定义、Fig.2与样本注释。",
+            "unreadScope": "1295统计细节及原始数据未重算；Damasio 1994书未读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-bechara-1997.md"
+      },
+      {
+        "id": "e-maia-mcclelland-2004",
+        "title": "知识问法改变对无意识决策的判断",
+        "year": 2004,
+        "dateLabel": "2004",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "意识测量异议",
+        "question": "较宽泛提问是否低估了参与者知道多少？",
+        "mechanism": "使用更敏感的知识提问，把言语知识与同阶段选择比较。",
+        "assumptions": "量表可能改变提取与行为；本批未重验其全部实验设计。",
+        "limits": "这项质疑针对特定证据链，不证明情感或身体信号在任何决策中都无作用。",
+        "nextQuestion": "怎样同时控制探测敏感度、提问干扰和资源负荷？",
+        "claims": [
+          {
+            "id": "e-maia-mcclelland-2004-ec1",
+            "text": "作者报告，较敏感提问下参与者可说出的有利策略知识至少与有利行为同样早且更可靠。",
+            "locator": "PDF 1摘要／Introduction",
+            "basis": "source-reported",
+            "sourceId": "maia-mcclelland-2004",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-maia-mcclelland-2004-ec2",
+            "text": "作者明确不排除无意识因素，只指出该任务现有行为不必诉诸它们才可解释。",
+            "locator": "PDF 5，16079首段",
+            "basis": "source-reported",
+            "sourceId": "maia-mcclelland-2004",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "maia-mcclelland-2004",
+            "title": "A reexamination of the evidence for the somatic marker hypothesis: What participants really know in the Iowa gambling task",
+            "authors": [
+              "Tiago V. Maia",
+              "James L. McClelland"
+            ],
+            "recordedAuthors": [
+              "Tiago V. Maia",
+              "James L. McClelland"
+            ],
+            "corrections": [],
+            "year": 2004,
+            "url": "https://web.stanford.edu/~jlmcc/papers/MaiaMcC04.pdf",
+            "version": "PNAS 101:16075–16080，原刊6页PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要、知识问法与任务；5（16079）主要结论及边界。",
+            "unreadScope": "完整方法与逐试次数据未重分析；引用的其他实验未视为已读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-maia-mcclelland-2004.md"
+      },
+      {
+        "id": "e-tononi-2004",
+        "title": "整合信息：区分丰富状态与整体因果作用",
+        "year": 2004,
+        "dateLabel": "2004",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "意识理论",
+        "question": "为何大量可区分状态还不足以说明意识？",
+        "mechanism": "用分化与整合两项要求，提出以系统内部因果有效信息刻画意识。",
+        "assumptions": "这是2004理论假说；后续IIT定义有版本变化。",
+        "limits": "本批未独立计算Φ；不能把相关神经指标直接当成体验的无争议读数。",
+        "nextQuestion": "哪些观测是对整合假说独有的，而不是共同的系统复杂性？",
+        "claims": [
+          {
+            "id": "e-tononi-2004-ec1",
+            "text": "作者以照相机／光电二极管的比较说明：状态数很多仍可能是可分解的独立部件，熵本身不度量整合。",
+            "locator": "HTML Information／Integration；Measuring…开头",
+            "basis": "source-reported",
+            "sourceId": "tononi-2004",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tononi-2004-ec2",
+            "text": "摘要提出用一个complex的Φ衡量意识量；这是理论所主张的对应关系。",
+            "locator": "HTML Abstract，Presentation of the hypothesis",
+            "basis": "source-reported",
+            "sourceId": "tononi-2004",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "tononi-2004",
+            "title": "An information integration theory of consciousness",
+            "authors": [
+              "Giulio Tononi"
+            ],
+            "recordedAuthors": [
+              "Giulio Tononi"
+            ],
+            "corrections": [],
+            "year": 2004,
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC543470/",
+            "version": "BMC Neuroscience 5:42，2004-11-02；PMC全文HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "摘要；Presentation of the hypothesis中的Information、Integration和Measuring…开头。",
+            "unreadScope": "Φ完整构造与数值例子、神经证据细节和后续IIT版本未逐项审校。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-tononi-2004.md"
+      },
+      {
+        "id": "e-dehaene-changeux-2011",
+        "title": "全局工作空间：意识可访问性与点燃",
+        "year": 2011,
+        "dateLabel": "2011",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "意识理论",
+        "question": "局部加工如何成为可报告、可灵活利用的信息？",
+        "mechanism": "用大范围递归活动与全局传播描述意识访问的候选机制。",
+        "assumptions": "本综述明确侧重conscious access；不可无说明外推到所有体验问题。",
+        "limits": "综述汇集支持而不是独立完成全部实验；相似信号可能包含报告与任务需求。",
+        "nextQuestion": "控制报告与注意之后，哪些全局传播仍是必要而有因果作用的？",
+        "claims": [
+          {
+            "id": "e-dehaene-changeux-2011-ec1",
+            "text": "作者把可报告经验／意识访问作为主要目标，并区分不同意识含义。",
+            "locator": "PDF 1摘要及Introduction",
+            "basis": "source-reported",
+            "sourceId": "dehaene-changeux-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-dehaene-changeux-2011-ec2",
+            "text": "§IV承认可通过证明点燃不必要、只是伪影或无因果角色来反驳相应模型。",
+            "locator": "PDF 14，§IV首段",
+            "basis": "source-reported",
+            "sourceId": "dehaene-changeux-2011",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "dehaene-changeux-2011",
+            "title": "Experimental and Theoretical Approaches to Conscious Processing",
+            "authors": [
+              "Stanislas Dehaene",
+              "Jean-Pierre Changeux"
+            ],
+            "recordedAuthors": [
+              "Stanislas Dehaene",
+              "Jean-Pierre Changeux"
+            ],
+            "corrections": [],
+            "year": 2011,
+            "url": "https://web.stanford.edu/class/cs379c/resources/inverted/content/Books_and_Journal_Articles_on_Consciousness/Theory_of_Mind_and_Language_Development_Articles/Publications_on_Consciousness_by_Stanislas_Dehaene/DehaeneChangeuxNEURON-11.pdf",
+            "version": "Neuron 70:200–227，28页期刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1定义和摘要；14 §IV开头关于预测、点燃与反驳条件。",
+            "unreadScope": "全篇证据综述、模型细节及引用实验未系统复核。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-dehaene-changeux-2011.md"
+      },
+      {
+        "id": "e-webb-graziano-2015",
+        "title": "注意图式：系统如何表征自己的注意",
+        "year": 2015,
+        "dateLabel": "2015",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "自我模型",
+        "question": "大脑为何报告拥有主观觉知，以及它有什么控制用途？",
+        "mechanism": "假设大脑建立对注意的简化模型，帮助调节注意并支持觉知归因。",
+        "assumptions": "注意本身与注意模型不同；该框架把解释觉知归因置于核心。",
+        "limits": "这是机制假说及预测，不等于已解决所有现象体验争议；本批未重审其引用实验。",
+        "nextQuestion": "损伤注意模型能否在保留基础注意时特异损害控制和自我报告？",
+        "claims": [
+          {
+            "id": "e-webb-graziano-2015-ec1",
+            "text": "注意图式被提出为注意的简化内部模型，与身体图式类比。",
+            "locator": "PDF 1摘要；2 Fig.1",
+            "basis": "source-reported",
+            "sourceId": "webb-graziano-2015",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-webb-graziano-2015-ec2",
+            "text": "模型预期注意与觉知可分离，缺乏觉知时注意仍可能存在但控制受损。",
+            "locator": "PDF 1摘要",
+            "basis": "source-reported",
+            "sourceId": "webb-graziano-2015",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "webb-graziano-2015",
+            "title": "The attention schema theory: a mechanistic account of subjective awareness",
+            "authors": [
+              "Taylor W. Webb",
+              "Michael S. A. Graziano"
+            ],
+            "recordedAuthors": [
+              "Taylor W. Webb",
+              "Michael S. A. Graziano"
+            ],
+            "corrections": [],
+            "year": 2015,
+            "url": "https://grazianolab.princeton.edu/sites/g/files/toruqf3411/files/graziano/files/webb_graziano_2015_reprint.pdf",
+            "version": "Frontiers in Psychology 6:500，2015-04-23原刊11页PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–2摘要、Introduction、Figure 1及注意图式说明。",
+            "unreadScope": "后续实验综述细节与该理论后来修订未系统阅读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-webb-graziano-2015.md"
+      },
+      {
+        "id": "e-cogitate-2025",
+        "title": "对抗协作：用预注册预测同时挑战两种理论",
+        "year": 2025,
+        "dateLabel": "2025",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "理论区分检验",
+        "question": "共同设计的实验能否区分IIT与GNWT的若干关键预测？",
+        "mechanism": "理论提出者参与预注册，256名参与者观看不同持续时间的可见刺激，结合fMRI、MEG、iEEG。",
+        "assumptions": "检验针对约定预测及具体任务；理论版本与辅助假设必须单列。",
+        "limits": "2004 IIT、2011 GNW综述与本次采用版本不可直接等同；本文未系统阅读补充回应和后续工作。",
+        "nextQuestion": "哪些失败来自核心假说，哪些来自实现、测量或辅助假设？",
+        "claims": [
+          {
+            "id": "e-cogitate-2025-ec1",
+            "text": "结果符合双方部分预测，也挑战IIT预期的持续后部同步与GNWT的刺激结束点燃／部分前额叶内容表征预测。",
+            "locator": "Abstract；Discussion开头",
+            "basis": "source-reported",
+            "sourceId": "cogitate-2025",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-cogitate-2025-ec2",
+            "text": "讨论保留双方不同解释和局限；实验不足以宣布某一完整理论胜出或意识问题解决。",
+            "locator": "Discussion关于三类观点、任务需求和限制的段落",
+            "basis": "source-reported",
+            "sourceId": "cogitate-2025",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "cogitate-2025",
+            "title": "Adversarial testing of global neuronal workspace and integrated information theories of consciousness",
+            "authors": [
+              "Cogitate Consortium",
+              "Oscar Ferrante等"
+            ],
+            "recordedAuthors": [
+              "Cogitate Consortium",
+              "Oscar Ferrante等"
+            ],
+            "corrections": [],
+            "year": 2025,
+            "url": "https://www.nature.com/articles/s41586-025-08888-1",
+            "version": "Nature 642:133–142；2025-04-30发表，原刊HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "Abstract；Main起始研究设计与Fig.1说明；Discussion开头至主要挑战、三种立场和实验限制。",
+            "unreadScope": "全部方法／统计代码、Supplementary 12–13理论回应及2025以后争论未系统审校；未独立复现。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-cogitate-2025.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "e-r10",
+        "batch": "round-three-e",
+        "fromId": "e-chalmers-1995",
+        "toId": "e-tononi-2004",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Chalmers §2；Tononi Presentation",
+        "explanation": "体验解释要求与因果整合的理论对应关系需分别论证，不因共同谈意识而同义。",
+        "sourceIds": [
+          "chalmers-1995",
+          "tononi-2004"
+        ]
+      },
+      {
+        "id": "e-r11",
+        "batch": "round-three-e",
+        "fromId": "e-chalmers-1995",
+        "toId": "e-webb-graziano-2015",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Chalmers §2；Webb-Graziano PDF 1–2",
+        "explanation": "比较“为什么有体验”与“系统为什么归因自己有觉知”，保留解释目标的分歧。",
+        "sourceIds": [
+          "chalmers-1995",
+          "webb-graziano-2015"
+        ]
+      },
+      {
+        "id": "e-r12",
+        "batch": "round-three-e",
+        "fromId": "e-bechara-1997",
+        "toId": "e-maia-mcclelland-2004",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "PDF 1、5",
+        "explanation": "后者直接质疑原知识探测方法，并限制其“意识之前”解释；不否认一切无意识或情感影响。",
+        "sourceIds": [
+          "maia-mcclelland-2004"
+        ]
+      },
+      {
+        "id": "e-r13",
+        "batch": "round-three-e",
+        "fromId": "e-dehaene-changeux-2011",
+        "toId": "e-webb-graziano-2015",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "前者PDF 1；后者PDF 1–2",
+        "explanation": "比较全局可用信息与关于注意的内部模型；两者不能仅靠一项报告指标混同。",
+        "sourceIds": [
+          "dehaene-changeux-2011",
+          "webb-graziano-2015"
+        ]
+      },
+      {
+        "id": "e-r14",
+        "batch": "round-three-e",
+        "fromId": "e-tononi-2004",
+        "toId": "e-cogitate-2025",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Tononi Abstract；COGITATE Abstract／Discussion",
+        "explanation": "由早期理论问题导航到后续理论家族检验。未做IIT版本逐项对照，不能视为对2004所有命题的直接检验。",
+        "sourceIds": [
+          "tononi-2004",
+          "cogitate-2025"
+        ]
+      },
+      {
+        "id": "e-r15",
+        "batch": "round-three-e",
+        "fromId": "e-dehaene-changeux-2011",
+        "toId": "e-cogitate-2025",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "前者§IV；后者Abstract／Discussion",
+        "explanation": "对照可反驳机制与预注册分歧预测；具体采用版本及辅助假设需进一步对齐。",
+        "sourceIds": [
+          "dehaene-changeux-2011",
+          "cogitate-2025"
+        ]
+      }
+    ]
+  }
+}

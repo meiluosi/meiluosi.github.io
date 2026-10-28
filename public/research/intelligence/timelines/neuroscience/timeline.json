@@ -1,0 +1,497 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "neuroscience",
+    "name": "神经科学路线",
+    "question": "神经结构、可塑性与网络动态怎样解释认知能力？",
+    "gaps": [
+      "Marr多层解释虽在早期叙事中提及，尚无Vision原书独立笔记；连接组仅选读Schlegel指定范围，未审查全部FlyWire伴随论文。",
+      "Hebb仅选集重印；LTP仅摘要与354页讨论图像，原始记录和完整统计未重验；缺长期学习行为与突触干预的联合证据。",
+      "2018网络理论为观点文章，2023/2026预测检验留后续；本批不作截至2026年的完整综述。",
+      "第四轮补读Barbey的测量与病损方法、Jonas的任务限制；未独立复算影像和处理器代码。Barbey作者名单的当前更正见索引修订记录。"
+    ],
+    "nodes": [
+      {
+        "id": "e-hebb-1949",
+        "title": "持久学习如何留下神经变化？",
+        "year": 1949,
+        "dateLabel": "1949（实读1988选集）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "细胞集群与可塑性",
+        "question": "瞬时神经活动怎样与持久记忆连接？",
+        "mechanism": "把短时回响活动与较慢的突触效率改变相结合，提出可自持一段时间的细胞集群。",
+        "assumptions": "这是神经机制假设；作者明确区分一般效率改变与特定突触生长猜测。",
+        "limits": "不能将1949假设直接写成现代可塑性机制已获完整证明。",
+        "nextQuestion": "哪些可塑性操纵会改变具体学习，而不仅是局部电反应？",
+        "claims": [
+          {
+            "id": "e-hebb-1949-cc1",
+            "text": "反复参与使另一细胞发放的细胞，其作用效率被假设会增强。",
+            "locator": "重印页50，PDF9",
+            "basis": "source-reported",
+            "sourceId": "hebb-1949",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hebb-1949-cc2",
+            "text": "暂时回响与结构改变可以合作；作者承认突触接触生长缺少直接证据。",
+            "locator": "重印页49–50，PDF8–9",
+            "basis": "source-reported",
+            "sourceId": "hebb-1949",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hebb-1949",
+            "title": "The Organization of Behavior（Introduction and Chapter 4选集重印）",
+            "authors": [
+              "Donald O. Hebb"
+            ],
+            "recordedAuthors": [
+              "Donald O. Hebb"
+            ],
+            "corrections": [],
+            "year": 1949,
+            "url": "https://www.dengfanxin.cn/wp-content/uploads/2016/03/1949Hebb.pdf",
+            "version": "Neurocomputing: Foundations of Research（1988）选集扫描；所读重印页49–50，非1949整本。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF8–9页中第4章开篇、细胞集群和突触改变假设；第9页扫描核对。",
+            "unreadScope": "其余章、完整原版及后续神经实验未读／未重验。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-hebb-1949.md"
+      },
+      {
+        "id": "e-bliss-lomo-1973",
+        "title": "重复刺激能否产生持久效应？",
+        "year": 1973,
+        "dateLabel": "1973",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "突触实验",
+        "question": "神经通路的响应可否在刺激结束后持续变化？",
+        "mechanism": "刺激麻醉兔穿通路，记录齿状区群体电位；分别观察突触响应与群体尖峰。",
+        "assumptions": "指定动物、通路及刺激程序；群体记录包含多个生理成分。",
+        "limits": "电生理可塑性不等于已经建立与记忆内容、学习行为或一般智能的因果链。",
+        "nextQuestion": "怎样把突触变化与特定学习的获取、保持及消退联系起来？",
+        "claims": [
+          {
+            "id": "e-bliss-lomo-1973-cc1",
+            "text": "18只兔中15只出现持续30分钟至10小时的响应增强。",
+            "locator": "摘要2",
+            "basis": "source-reported",
+            "sourceId": "bliss-lomo-1973",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-bliss-lomo-1973-cc2",
+            "text": "效应在动物、时间和电极位置间差异明显；频率增强既非长时增强的充分条件，也非必要条件。",
+            "locator": "原刊354页Variability与Frequency potentiation",
+            "basis": "source-reported",
+            "sourceId": "bliss-lomo-1973",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "bliss-lomo-1973",
+            "title": "Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path",
+            "authors": [
+              "T. V. P. Bliss",
+              "T. Lømo"
+            ],
+            "recordedAuthors": [
+              "T. V. P. Bliss",
+              "T. Lømo"
+            ],
+            "corrections": [],
+            "year": 1973,
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1350458/",
+            "version": "J Physiol 232:331–356；PMC摘要与原刊354页扫描。",
+            "readingStatus": "selected-sections",
+            "readScope": "摘要1–6；原刊354页Variability、Frequency potentiation、critical parameters三段。",
+            "unreadScope": "332–353、355–356页未通读；完整PDF下载失败；没有读取原始波形数据或复现实验。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-bliss-lomo-1973.md"
+      },
+      {
+        "id": "e-jung-haier-2007",
+        "title": "智力差异分布在怎样的网络中？",
+        "year": 2007,
+        "dateLabel": "2007",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "P-FIT",
+        "question": "能否把不同成像研究收敛到共同的信息整合框架？",
+        "mechanism": "汇总37项研究，提出额叶、顶叶及相关通路的整合作用。",
+        "assumptions": "任务、测量模态和定位粒度异质；个体差异相关与普遍必要功能不同。",
+        "limits": "综述的收敛不能独自识别计算机制；本批未审查全部纳入研究或评论。",
+        "nextQuestion": "损伤、时间动态和任务操纵是否支持同一网络解释？",
+        "claims": [
+          {
+            "id": "e-jung-haier-2007-cc1",
+            "text": "§6汇总37项成像研究，额顶区域在多种研究中反复出现。",
+            "locator": "§6，PDF15",
+            "basis": "source-reported",
+            "sourceId": "jung-haier-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-jung-haier-2007-cc2",
+            "text": "§7.1明确提出以局灶损伤检验网络模型；并非只凭影像相关结束解释。",
+            "locator": "§7.1，PDF16开篇",
+            "basis": "source-reported",
+            "sourceId": "jung-haier-2007",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "jung-haier-2007",
+            "title": "The Parieto-Frontal Integration Theory (P-FIT) of intelligence",
+            "authors": [
+              "Rex E. Jung",
+              "Richard J. Haier"
+            ],
+            "recordedAuthors": [
+              "Rex E. Jung",
+              "Richard J. Haier"
+            ],
+            "corrections": [],
+            "year": 2007,
+            "url": "https://gwern.net/doc/iq/2007-jung.pdf",
+            "version": "Behavioral and Brain Sciences 30；PDF含目标论文、评论和回应。",
+            "readingStatus": "selected-sections",
+            "readScope": "目标论文§6、§7.1开篇、§7末段；PDF15–16及19页部分。",
+            "unreadScope": "其余成像研究表格、各篇评论和作者回应未逐项读；未重做综述。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-jung-haier-2007.md"
+      },
+      {
+        "id": "e-barbey-2012",
+        "title": "损伤怎样约束智力网络解释？",
+        "year": 2012,
+        "dateLabel": "2012",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "损伤与必要性",
+        "question": "哪些区域受损与一般能力、执行表现下降有关？",
+        "mechanism": "对182名男性越战脑损伤退伍军人做体素损伤—症状定位，关联WAIS与D–KEFS指标。",
+        "assumptions": "自然损伤非随机干预；病灶覆盖、恢复、测验构成限制解释。",
+        "limits": "该样本不代表所有年龄、性别和病因；必要性证据仍不完整指定算法。",
+        "nextQuestion": "与病灶体积匹配的纵向数据能否分离损伤、补偿与网络作用？",
+        "claims": [
+          {
+            "id": "e-barbey-2012-cc1",
+            "text": "分析采用FDR q<.05，仅纳入至少4人有损伤的体素。",
+            "locator": "Materials and methods: Lesion analysis",
+            "basis": "source-reported",
+            "sourceId": "barbey-2012",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-barbey-2012-cc2",
+            "text": "作者报告额顶和白质通路相关损伤，并明确样本不支持对皮层下结构作结论。",
+            "locator": "Discussion前两段",
+            "basis": "source-reported",
+            "sourceId": "barbey-2012",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "barbey-2012",
+            "title": "An integrative architecture for general intelligence and executive function revealed by lesion mapping",
+            "authors": [
+              "Aron K. Barbey",
+              "Roberto Colom",
+              "Jeffrey Solomon",
+              "Frank Krueger",
+              "Chad Forbes",
+              "Jordan Grafman"
+            ],
+            "recordedAuthors": [
+              "Aron K. Barbey",
+              "Roberto Colom",
+              "Jeffrey Solomon",
+              "Frank Krueger",
+              "Chau Trinh",
+              "Jordan Grafman"
+            ],
+            "corrections": [
+              {
+                "batch": "round-three-c",
+                "sourceId": "barbey-2012",
+                "field": "authors",
+                "old": "Chau Trinh",
+                "new": "Chad Forbes",
+                "reason": "原刊署名及作者实验室书目均为Chad Forbes。保留C批快照，在当前来源索引显示更正。",
+                "evidence": "https://www.decisionneurosciencelab.org/publications/",
+                "currentNote": "round-four/notes/barbey-2012.md"
+              }
+            ],
+            "year": 2012,
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326251/",
+            "version": "Brain 135:1154–1164；PMC正文。",
+            "readingStatus": "selected-sections",
+            "readScope": "Introduction中竞争解释；Participant data、Lesion analysis；Discussion前3段。",
+            "unreadScope": "其余因子拟合与分测验结果、补充材料及原始数据未重验。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-barbey-2012.md"
+      },
+      {
+        "id": "e-jonas-kording-2017",
+        "title": "必要部件为何仍不是计算解释？",
+        "year": 2017,
+        "dateLabel": "2017",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "方法反例",
+        "question": "熟悉的神经分析工具能否恢复已知系统的机制？",
+        "mechanism": "把MOS6502视为模型系统，进行单晶体管损伤等分析，比较结果与真实计算结构。",
+        "assumptions": "只能直接检验所选处理器、任务和分析方式；作者承认脑与处理器差异。",
+        "limits": "不能从处理器反例推出所有神经实验无效；也不能忽略已经知道的生物约束。",
+        "nextQuestion": "怎样设计有机制真值、能区分替代算法的分析基准？",
+        "claims": [
+          {
+            "id": "e-jonas-kording-2017-cc1",
+            "text": "只对某一游戏必需的晶体管并非该游戏的专属语义单元；作者用损伤案例说明功能定位的歧义。",
+            "locator": "Lesion a single transistor at a time；Fig.4",
+            "basis": "source-reported",
+            "sourceId": "jonas-kording-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-jonas-kording-2017-cc2",
+            "text": "讨论指出结果针对方法的朴素使用，建议更能隔离单个计算的任务及层级模型。",
+            "locator": "Discussion开篇与结尾",
+            "basis": "source-reported",
+            "sourceId": "jonas-kording-2017",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "jonas-kording-2017",
+            "title": "Could a Neuroscientist Understand a Microprocessor?",
+            "authors": [
+              "Eric Jonas",
+              "Konrad P. Kording"
+            ],
+            "recordedAuthors": [
+              "Eric Jonas",
+              "Konrad P. Kording"
+            ],
+            "corrections": [],
+            "year": 2017,
+            "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1005268",
+            "version": "PLoS Computational Biology 13:e1005268；期刊开放正文。",
+            "readingStatus": "selected-sections",
+            "readScope": "Lesion a single transistor at a time与Fig.4图注；Discussion前三段及结尾方法建议。",
+            "unreadScope": "其他分析的完整方法、数据和代码未执行。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-jonas-kording-2017.md"
+      },
+      {
+        "id": "e-barbey-2018",
+        "title": "网络能否通过重组支持灵活性？",
+        "year": 2018,
+        "dateLabel": "2018（2017在线校样）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "网络动态理论",
+        "question": "静态区域归属是否足以解释能力差异？",
+        "mechanism": "用小世界结构、内在连接网络及其动态重组解释整合与灵活适应。",
+        "assumptions": "观点文章整合既有结果，不是一次独立因果实验。",
+        "limits": "理论解释的广度不能代替跨样本预测、干预与竞争模型比较。",
+        "nextQuestion": "在相同复杂度预算下，动态网络模型是否优于静态网络预测？",
+        "claims": [
+          {
+            "id": "e-barbey-2018-cc1",
+            "text": "作者把一般能力与网络拓扑、共同体结构的动态重组联系起来。",
+            "locator": "Concluding Remarks，PDF11",
+            "basis": "source-reported",
+            "sourceId": "barbey-2018",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-barbey-2018-cc2",
+            "text": "流体能力的年龄和世代差异在文中被解释为网络灵活性差异；这是待进一步检验的理论说明。",
+            "locator": "PDF9开篇",
+            "basis": "source-reported",
+            "sourceId": "barbey-2018",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "barbey-2018",
+            "title": "Network Neuroscience Theory of Human Intelligence",
+            "authors": [
+              "Aron K. Barbey"
+            ],
+            "recordedAuthors": [
+              "Aron K. Barbey"
+            ],
+            "corrections": [],
+            "year": 2018,
+            "url": "https://www.decisionneurosciencelab.org/wp-content/uploads/2013/08/Barbey_20171.pdf",
+            "version": "作者公开TICS校样，页眉TICS1732；2017在线，2018卷22:8–20。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF9页开篇与Box1起段；11页Concluding Remarks。",
+            "unreadScope": "其余综述证据、图中全部连接和最终排版异文未核对。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-barbey-2018.md"
+      },
+      {
+        "id": "e-schlegel-2024",
+        "title": "一个连接组的细胞类型能否跨脑复用？",
+        "year": 2024,
+        "dateLabel": "2024",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "比较连接组",
+        "question": "单个脑中定义的类型是否稳定、可检验？",
+        "mechanism": "联合FlyWire与hemibrain，比较形态及连接，把单脑类型作为可跨脑检验的假说。",
+        "assumptions": "连接组是特定标本与技术流程下的结构资料。",
+        "limits": "类型数量不等于智能程度；结构图并未给出全部动力学、学习规则或计算功能。",
+        "nextQuestion": "结构、活动、发育及干预能否在同一回路对齐？",
+        "claims": [
+          {
+            "id": "e-schlegel-2024-cc1",
+            "text": "论文提出跨脑比较细胞类型，并报告8453个注释类型；它们并非全部已跨脑验证。",
+            "locator": "Abstract；Discussion",
+            "basis": "source-reported",
+            "sourceId": "schlegel-2024",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-schlegel-2024-cc2",
+            "text": "作者强调校准生物和技术变异；模型局限承认线性活动近似与维度最大化目标尚未被生物验证。",
+            "locator": "Discussion结尾；Methods模型局限(3)",
+            "basis": "source-reported",
+            "sourceId": "schlegel-2024",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "schlegel-2024",
+            "title": "Whole-brain annotation and multi-connectome cell typing of Drosophila",
+            "authors": [
+              "Philipp Schlegel et al."
+            ],
+            "recordedAuthors": [
+              "Philipp Schlegel et al."
+            ],
+            "corrections": [],
+            "year": 2024,
+            "url": "https://www.nature.com/articles/s41586-024-07686-5",
+            "version": "Nature，2024-10-02正式文章HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "Main开篇、Discussion与Lessons for cell typing开篇、跨脑比较结论；Methods模型局限4项。",
+            "unreadScope": "全部细胞类型、附录、数据与代码未检查；未复现生理或行为。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-schlegel-2024.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "c-r01",
+        "batch": "round-three-c",
+        "fromId": "e-hebb-1949",
+        "toId": "e-bliss-lomo-1973",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Hebb重印50页；Bliss摘要与354页",
+        "explanation": "本站比较可塑性假设与局部实验，不据此宣称已核实二者历史传承或完整记忆机制。",
+        "sourceIds": [
+          "hebb-1949",
+          "bliss-lomo-1973"
+        ]
+      },
+      {
+        "id": "c-r02",
+        "batch": "round-three-c",
+        "fromId": "e-jung-haier-2007",
+        "toId": "e-barbey-2012",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "Introduction及Discussion对Jung–Haier 2007的讨论",
+        "explanation": "损伤研究明确把P-FIT的分布网络主张列为检验背景。",
+        "sourceIds": [
+          "barbey-2012"
+        ]
+      },
+      {
+        "id": "c-r03",
+        "batch": "round-three-c",
+        "fromId": "e-barbey-2012",
+        "toId": "e-jonas-kording-2017",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Lesion analysis；Lesion a single transistor",
+        "explanation": "比较损伤证据的解释范围；不是Jonas对这篇特定脑损伤论文的直接反驳。",
+        "sourceIds": [
+          "barbey-2012",
+          "jonas-kording-2017"
+        ]
+      },
+      {
+        "id": "c-r04",
+        "batch": "round-three-c",
+        "fromId": "e-jung-haier-2007",
+        "toId": "e-barbey-2018",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "P-FIT§6；Barbey Concluding Remarks",
+        "explanation": "比较局部网络整合与系统动态重组，未将后者写成前者被推翻。",
+        "sourceIds": [
+          "jung-haier-2007",
+          "barbey-2018"
+        ]
+      },
+      {
+        "id": "c-r05",
+        "batch": "round-three-c",
+        "fromId": "e-jonas-kording-2017",
+        "toId": "e-schlegel-2024",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Jonas Discussion；Schlegel Discussion",
+        "explanation": "结构资料、跨脑验证与机制解释承担不同任务。",
+        "sourceIds": [
+          "jonas-kording-2017",
+          "schlegel-2024"
+        ]
+      }
+    ]
+  }
+}

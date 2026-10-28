@@ -1,0 +1,826 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "cybernetics-rl",
+    "name": "控制论、强化学习与主动推断路线",
+    "question": "反馈、奖励、调节与主动推断分别怎样使行动获得方向？",
+    "gaps": [
+      "Wiener原版与所读再版未逐字对勘，Bellman 1957专著、AlphaZero等仍可后续拓展；现有材料不替代这些版本。",
+      "MuZero已核对2019v1和2020期刊正文的所列段落及表1；期刊网页缺失公式、补充材料与全套图形未逐项校勘。"
+    ],
+    "nodes": [
+      {
+        "id": "e-wiener-1948",
+        "title": "反馈为什么既能调节，也会引起振荡？",
+        "year": 1948,
+        "dateLabel": "1948",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "反馈与稳定性",
+        "question": "发出正确指令，是否足以保证执行器达到目标？",
+        "mechanism": "把实际执行结果送回调节环节，与目标及其他感觉信息结合；以铁路信号、恒温器和调速器说明反馈。",
+        "assumptions": "节点按原作1948年定位；实读1961第二版的原版部分。负反馈效果取决于系统设计，后续线性分析有其模型前提。",
+        "limits": "临床类比是原作者陈述，未由本批验证；反馈机制本身不构成通用智能充分条件。",
+        "nextQuestion": "怎样区分反馈结构、反馈增益与时延对稳定性的贡献？",
+        "claims": [
+          {
+            "id": "e-wiener-1948-c1",
+            "text": "铁路信号例要求回传执行器实际状态，不能将命令本身当作已经完成的动作。",
+            "locator": "第IV章，印刷96页",
+            "basis": "source-reported",
+            "sourceId": "wiener-1961-1985",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-wiener-1948-c2",
+            "text": "作者明确指出设计不当的恒温器可能引起剧烈振荡；负反馈不是无条件的稳定保证。",
+            "locator": "第IV章，印刷97–98页",
+            "basis": "source-reported",
+            "sourceId": "wiener-1961-1985",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "wiener-1961-1985",
+            "title": "Cybernetics: Or Control and Communication in the Animal and the Machine",
+            "authors": [
+              "Norbert Wiener"
+            ],
+            "recordedAuthors": [
+              "Norbert Wiener"
+            ],
+            "corrections": [],
+            "year": 1961,
+            "url": "https://uberty.org/wp-content/uploads/2015/07/Norbert_Wiener_Cybernetics.pdf",
+            "version": "1961第二版，1985第四次印刷；Part I标为1948原版部分；不能据此声称逐字核过第一版",
+            "readingStatus": "selected-sections",
+            "readScope": "版权页PDF3、第二版序言PDF4–14；Part I标题PDF17；第IV章PDF114–118／印刷95–99页，95页已视觉核对",
+            "unreadScope": "反馈章后续数学分析未完整读；动物与临床例未回查实验原文；1948第一版未逐字对照",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-wiener-1948.md"
+      },
+      {
+        "id": "e-bellman-1952",
+        "title": "如何把行动序列优化变成递推问题？",
+        "year": 1952,
+        "dateLabel": "1952",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "动态规划",
+        "question": "每步操作的结果会影响后续决策，怎样求整个序列的最优收益或代价？",
+        "mechanism": "用当前状态、当前收益与下一状态的续接价值构造取最大或最小的函数方程；引言用搜盒取球和资源分配说明。",
+        "assumptions": "定理1要求状态变换留在定义域，收益有界、续接系数绝对值统一小于1，且原文还列出非负条件；不能删掉条件只剩“最优”。",
+        "limits": "论文主要给出方程与定理陈述，详细证明另行发表；已知算子下求解价值与从未知环境经验学习是不同问题。1957专著仍未读。",
+        "nextQuestion": "哪些环境信息必须由模型提供，哪些可以由样本估计？共享参数后，原方程的性质还剩哪些？",
+        "claims": [
+          {
+            "id": "e-bellman-1952-c1",
+            "text": "引言把许多最优操作序列问题化为选择最优第一步，并给出 f(p)=max/min T_k(f) 的形式。",
+            "locator": "印刷716页，§1式1.1–1.2",
+            "basis": "source-reported",
+            "sourceId": "bellman-1952",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-bellman-1952-c2",
+            "text": "定理1在所列有界性、续接系数和定义域条件下声称有唯一有界解；本文说明证明使用逐次逼近，详细证明另文给出。",
+            "locator": "印刷717页定理1、718页说明、719页末注",
+            "basis": "source-reported",
+            "sourceId": "bellman-1952",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "bellman-1952",
+            "title": "On the Theory of Dynamic Programming",
+            "authors": [
+              "Richard Bellman"
+            ],
+            "recordedAuthors": [
+              "Richard Bellman"
+            ],
+            "corrections": [],
+            "year": 1952,
+            "url": "http://www.derongliu.org/adp/adp-cdrom/refs/bellman19520716.pdf",
+            "version": "PNAS 38(8):716–719；1952-06-05为通讯日期，非发表月日",
+            "readingStatus": "selected-sections",
+            "readScope": "四页文本已读取；视觉核对PDF1–2／印刷716–717页的引言和定理1",
+            "unreadScope": "定理2–7公式未逐项视觉核验；详细证明原文另指后续出版，未复核；1957专著未读",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-bellman-1952.md"
+      },
+      {
+        "id": "e-ashby-1956",
+        "title": "Ashby：调节者需要多少选择？",
+        "year": 1956,
+        "dateLabel": "1956",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "调节边界",
+        "question": "面对扰动，要把结果限制在可接受范围内，需要怎样的调节能力？",
+        "mechanism": "用扰动—响应—结果表刻画调节；在每列没有重复结果等条件下，响应选择数限制可消除的结果多样性。",
+        "assumptions": "表的约束必须成立；传感、可选响应和目标集合都需明确。",
+        "limits": "必要的选择容量不保证选对，也不是越复杂越智能；本文只审校这一章的特定命题。",
+        "nextQuestion": "调节者怎样获得足够的信息并学会正确映射？",
+        "claims": [
+          {
+            "id": "e-ashby-1956-c1",
+            "text": "§11/5给出的计数下界是结果数至少为扰动数除以响应数；§11/9再讨论条件放宽。",
+            "locator": "§11/5–11/9，印刷页204–208",
+            "basis": "source-reported",
+            "sourceId": "ashby-1956",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "ashby-1956",
+            "title": "An Introduction to Cybernetics；W. Ross Ashby；1956首版，1957第二次印刷，1999电子重排版",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://ashby.info/Ashby-Introduction-to-Cybernetics.pdf",
+            "version": "An Introduction to Cybernetics；W. Ross Ashby；1956首版，1957第二次印刷，1999电子重排版",
+            "readingStatus": "selected-sections",
+            "readScope": "§11/5–11/11，印刷页204–209 / PDF109–111；未通读专著",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-ashby-1956.md"
+      },
+      {
+        "id": "e-conant-ashby-1970",
+        "title": "好调节器：模型究竟意味着什么？",
+        "year": 1970,
+        "dateLabel": "1970",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "调节边界",
+        "question": "最简单的最优调节行为与被调节系统之间有何结构关系？",
+        "mechanism": "固定结果映射与系统分布，以结果熵最小为最优；从最优条件分布中选择确定响应，形成 S 到 R 的映射。",
+        "assumptions": "给定事件集合、结果映射及固定分布；原文简化假设最优分布产生唯一结果分布；“简单”按确定映射理解。",
+        "limits": "不是任意控制任务的通用内部模拟器定理；低结果熵本身也不等于结果符合任意外加价值目标。",
+        "nextQuestion": "任务相关模型需要保留世界的哪些区别？",
+        "claims": [
+          {
+            "id": "e-conant-ashby-1970-c1",
+            "text": "定理中的模型首先是事件间映射；作者明确区分多种同态/同构意义，并允许同样最优但更复杂的调节器。",
+            "locator": "§4，重排本PDF7–9",
+            "basis": "source-reported",
+            "sourceId": "conant-ashby-1970",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "conant-ashby-1970",
+            "title": "Every Good Regulator of a System Must Be a Model of That System；Conant & Ashby；IJSS1(2),89–97；10页重排本",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://governance.foundation/assets/frameworks/other/Conant_Ashby%20Every%20Good%20Regulator%20of%20a%20system%20must%20be%20a%20model%20of%20that%20system.pdf",
+            "version": "Every Good Regulator of a System Must Be a Model of That System；Conant & Ashby；IJSS1(2),89–97；10页重排本",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF2–3、7–9，形式设定、模型定义、定理与证明论证；未核对全部原刊排版",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-conant-ashby-1970.md"
+      },
+      {
+        "id": "e-sutton-1988",
+        "title": "TD：可以在结局到来之前学习吗？",
+        "year": 1988,
+        "dateLabel": "1988",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "价值学习",
+        "question": "序列预测能否用相邻预测变化，逐步分配信用？",
+        "mechanism": "TD使用相邻预测之差；TD(λ)用随时间衰减的资格迹调节过去状态的更新。",
+        "assumptions": "本轮读到的定理2涉及吸收马尔可夫链、线性且独立的观察向量、足够小步长及每序列后更新。",
+        "limits": "预测学习与动作选择不同；本轮教学程序使用现代常见的表格 TD(0)记法，不冒充逐式复刻原文。",
+        "nextQuestion": "预测误差如何成为控制策略的学习信号？",
+        "claims": [
+          {
+            "id": "e-sutton-1988-c1",
+            "text": "定理2是预测在期望中的渐近收敛结果；不是任意非线性函数逼近器的逐样本收敛保证。",
+            "locator": "§2.3，印刷页15；§4定理2，印刷页24–25",
+            "basis": "source-reported",
+            "sourceId": "sutton-1988",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "sutton-1988",
+            "title": "Learning to Predict by the Methods of Temporal Differences；Richard Sutton；Machine Learning3,9–44",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://jmvidal.cse.sc.edu/library/sutton88a.pdf",
+            "version": "Learning to Predict by the Methods of Temporal Differences；Richard Sutton；Machine Learning3,9–44",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF3、6–7、16–17；§2机制与§4定理2；未逐项审证明附录",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-sutton-1988.md"
+      },
+      {
+        "id": "e-watkins-dayan-1992",
+        "title": "Q-learning：不先建环境模型也能学控制",
+        "year": 1992,
+        "dateLabel": "1992",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "价值学习",
+        "question": "未知转移概率和奖励时，怎样估计最优动作价值？",
+        "mechanism": "对访问的状态动作，用即时奖励加下一状态最大 Q 值构造目标，逐步更新表格。",
+        "assumptions": "有限马尔可夫状态动作、奖励有界、折扣小于1、每对状态动作无限采样；其步长和发散而平方和收敛。",
+        "limits": "渐近保证不说明有限数据效率；探索条件也不是算法自动满足的。",
+        "nextQuestion": "共享参数带来的泛化会不会破坏稳定性？",
+        "claims": [
+          {
+            "id": "e-watkins-dayan-1992-c1",
+            "text": "这些条件下表格 Q 值以概率1收敛到最优值；原文明确提醒其他表示可能不收敛。",
+            "locator": "§2定理，印刷页281–282 / PDF3–4",
+            "basis": "source-reported",
+            "sourceId": "watkins-dayan-1992",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "watkins-dayan-1992",
+            "title": "Q-learning；Watkins & Dayan；Machine Learning8,279–292",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://www.gatsby.ucl.ac.uk/~dayan/papers/cjch.pdf",
+            "version": "Q-learning；Watkins & Dayan；Machine Learning8,279–292",
+            "readingStatus": "selected-sections",
+            "readScope": "§1–3，PDF1–4；PDF4定理步长条件已视觉核对；证明附录未完整审读",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-watkins-dayan-1992.md"
+      },
+      {
+        "id": "e-williams-1992",
+        "title": "REINFORCE：直接调整动作概率",
+        "year": 1992,
+        "dateLabel": "1992",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "策略学习",
+        "question": "怎样在没有可微环境模型时沿期望奖励梯度学习？",
+        "mechanism": "使用奖励减基线，乘以动作概率对参数的对数导数，形成随机更新。",
+        "assumptions": "核心定理使用平稳的输入与奖励分布；基线须满足给定参数和输入时与所抽样输出条件独立等条件。",
+        "limits": "不保证每次更新都改善，也不保证非凸目标全局最优；方差与探索仍需处理。",
+        "nextQuestion": "如何在降低估计方差的同时避免引入偏差？",
+        "claims": [
+          {
+            "id": "e-williams-1992-c1",
+            "text": "相同步长时平均更新等于期望奖励梯度乘步长；这是期望方向性质。",
+            "locator": "§3–4，印刷页233–235，定理1",
+            "basis": "source-reported",
+            "sourceId": "williams-1992",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "williams-1992",
+            "title": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning；Ronald J. Williams；Machine Learning8,229–256",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://gwern.net/doc/reinforcement-learning/model-free/1992-williams.pdf",
+            "version": "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning；Ronald J. Williams；Machine Learning8,229–256",
+            "readingStatus": "selected-sections",
+            "readScope": "§3–4，PDF5–7；即时奖励情形；未审读延迟奖励扩展和证明附录",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-williams-1992.md"
+      },
+      {
+        "id": "e-baird-1995",
+        "title": "共享参数怎样破坏表格方法的收敛？",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "函数逼近的稳定性",
+        "question": "值函数能表示正确答案，为什么迭代仍会发散？",
+        "mechanism": "直接法把后继值当作固定目标，残差梯度还对后继值求导；共享权重使更新一个状态同时改变别的状态。",
+        "assumptions": "采用六状态、零奖励、等频更新、原始特征；主实验参数是本次选择，遵循式3和§5正文求和规则，式7存在符号冲突。",
+        "limits": "结果仅覆盖选定线性预测问题；不复现图5完整速度实验，不推广到全部采样、折扣、步长或非线性模型。",
+        "nextQuestion": "怎样把投影、采样分布和目标的变化分别隔离，说明稳定性的来源？",
+        "claims": [
+          {
+            "id": "e-baird-1995-c1",
+            "text": "原图1有六个状态和七个权重；末页勘误说明图中系数2曾漏排。",
+            "locator": "PDF2图1及PDF9勘误",
+            "basis": "source-reported",
+            "sourceId": "baird-1995-july",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-baird-1995-c2",
+            "text": "式3与式7的直接法梯度符号相反；将式7判为疑似排印错误是本次审校判断，未获作者确认。",
+            "locator": "PDF2式3、PDF4式7；replication/protocol.md 修订A",
+            "basis": "derived",
+            "sourceId": "baird-1995-july",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-baird-1995-c3",
+            "text": "独立实现中γ=0.99、α=0.01时直接法振荡发散，残差梯度渐近收敛但很慢；γ=0.9的受检步长下直接法稳定。",
+            "locator": "replication/README.md、results.json、traces.csv",
+            "basis": "derived",
+            "sourceId": "baird-1995-july",
+            "independentlyReplicated": true
+          },
+          {
+            "id": "e-baird-1995-c4",
+            "text": "1999年论文图4.2与4.3分别给出七状态螺旋发散和十一状态单调增长，不能与1995六状态例互换。",
+            "locator": "PDF37–38／印刷35–36页，图4.2、4.3",
+            "basis": "source-reported",
+            "sourceId": "baird-1999-thesis",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "baird-1995-july",
+            "title": "Residual Algorithms: Reinforcement Learning with Function Approximation",
+            "authors": [
+              "Leemon Baird"
+            ],
+            "recordedAuthors": [
+              "Leemon Baird"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "http://leemon.com/papers/1995b.pdf",
+            "version": "9页作者版，1995-07-15勘误；六状态图1",
+            "readingStatus": "selected-sections",
+            "readScope": "正文§2–5和§9、末页勘误；图1、式3/6/7/8与末页图已视觉核对",
+            "unreadScope": "未完整复核一般残差算法的证明、随机转移推导和全部图5实验",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "baird-1999-thesis",
+            "title": "Reinforcement Learning Through Gradient Descent",
+            "authors": [
+              "Leemon Baird"
+            ],
+            "recordedAuthors": [
+              "Leemon Baird"
+            ],
+            "corrections": [],
+            "year": 1999,
+            "url": "https://www.ri.cmu.edu/pub_files/pub2/baird_leemon_1999_1/baird_leemon_1999_1.pdf",
+            "version": "博士论文；所读印刷35–37页",
+            "readingStatus": "selected-sections",
+            "readScope": "§4.2，PDF37–39；图4.2与4.3及图说已视觉核对",
+            "unreadScope": "其余章节未读；七状态及十一状态例未数值复现",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-baird-1995.md"
+      },
+      {
+        "id": "e-klyubin-2005",
+        "title": "行动能带来多少可区分的感知结果？",
+        "year": 2005,
+        "dateLabel": "2005",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "赋能度与感知行动通道",
+        "question": "能否以较通用的内在准则，评价一个主体潜在的可感知控制能力？",
+        "mechanism": "把一段可自主选择的行动作为通道输入、未来感觉作为输出，最大化两者互信息得到通道容量；用它评价可区分的潜在行动效果。",
+        "assumptions": "动作序列可被干预选择；需要行动到感知的通道模型、观察尺度和时间跨度。本文实验还固定起点、形态约束及小的感知／动作数量代价。",
+        "limits": "容量描述潜能，不能用既有策略下互信息直接替代；高赋能不保证任务奖励或生存。作者的黑暗中自产闪光例表明，只要可控且可感知，常识上无用的能力也会被保留。",
+        "nextQuestion": "固定可达状态后，改变传感器、行动代价和时间跨度，赋能偏好会怎样改变？",
+        "claims": [
+          {
+            "id": "e-klyubin-2005-c1",
+            "text": "赋能度定义为行动序列到未来感知通道的容量，即在允许的行动分布上最大化互信息；它评价潜在可控性，而非实际执行频率。",
+            "locator": "§2.1–2.2，129–130页，式1–3；§4，134页",
+            "basis": "source-reported",
+            "sourceId": "klyubin-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-klyubin-2005-c2",
+            "text": "本文两项演化实验分别固定动作集合优化传感器、固定传感器优化动作；以四步赋能并加小的规模惩罚评价形态。",
+            "locator": "§2.3及§3，131–133页；式4",
+            "basis": "source-reported",
+            "sourceId": "klyubin-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-klyubin-2005-c3",
+            "text": "作者明确指出，只要主体能发出并看到闪光，赋能准则会保留相应能力，无论该能力是否在常识意义上有用。",
+            "locator": "§2.3，131页",
+            "basis": "source-reported",
+            "sourceId": "klyubin-2005",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "klyubin-2005",
+            "title": "Empowerment: A Universal Agent-Centric Measure of Control",
+            "authors": [
+              "Alexander S. Klyubin",
+              "Daniel Polani",
+              "Chrystopher L. Nehaniv"
+            ],
+            "recordedAuthors": [
+              "Alexander S. Klyubin",
+              "Daniel Polani",
+              "Chrystopher L. Nehaniv"
+            ],
+            "corrections": [],
+            "year": 2005,
+            "url": "https://uhra.herts.ac.uk/id/eprint/282/1/901241.pdf",
+            "version": "2005 IEEE Congress on Evolutionary Computation，128–135页；作者大学资料库公开原刊扫描",
+            "readingStatus": "full-text",
+            "readScope": "全文128–135页；130页式3及图1–2、132页式4和实验设置已视觉核对。",
+            "unreadScope": "没有重跑演化实验或复核Blahut容量计算；作者对Gibson、Ashby的历史解释不替代这些原作的独立阅读。",
+            "verification": "已核对所列定义、主张与原文图；未独立复现实验或验证生物学普遍性。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-klyubin-2005.md"
+      },
+      {
+        "id": "e-friston-2010",
+        "title": "感知更新与行动能否共享一个优化框架？",
+        "year": 2010,
+        "dateLabel": "2010",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "自由能原则与主动推断",
+        "question": "怎样把感知、学习和行动放进同一生成模型框架，同时说明其生物学解释条件？",
+        "mechanism": "用变分自由能界定模型下感官数据的惊异；感知改变识别分布以逼近后验，行动改变采样数据。特定高斯与层级假设下以精度加权预测误差实现更新。",
+        "assumptions": "需要生成模型、可实现的识别分布及状态／运动先验；把自维持与这种优化联系起来还依赖该文提出的额外理论前提。",
+        "limits": "变分分解本身不证明生物系统必然按该过程运行。运动先验承载目标与探索约束；本文的到达和山地车是指定模拟，不能称无先验发现任务。作者开篇即承认统一能力尚待建立。",
+        "nextQuestion": "在模型、先验和计算预算明确后，哪些干预能区分该解释与其他反馈或信念状态控制模型？",
+        "claims": [
+          {
+            "id": "e-friston-2010-c1",
+            "text": "自由能可分解为模型下数据的负对数证据与识别分布到后验的KL散度；固定数据时，优化识别分布降低后者。",
+            "locator": "AOP2页Box 1、3页Implications；按正文及分解解释，图框方向差异另记",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-friston-2010-c2",
+            "text": "预测编码的具体神经实现采用高斯／Laplace及层级模型假设；由此得到精度加权误差与上下层消息传递。",
+            "locator": "AOP4页及Box 2",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-friston-2010-c3",
+            "text": "山地车例通过对状态运动的先验，使目标外固定点不稳定、目标处稳定；作者也说明仅期待到达某状态并不足以保证绕过障碍或满足动力学约束。",
+            "locator": "AOP8页控制讨论、9页图3",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-friston-2010-c4",
+            "text": "文章将跨理论统一作为研究提案；开篇说明统一能力尚待建立，结论要求进一步说明其在脑中的具体实现。",
+            "locator": "AOP1页引言、9–10页结论",
+            "basis": "source-reported",
+            "sourceId": "friston-2010",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "friston-2010",
+            "title": "The Free-energy Principle: A Unified Brain Theory?",
+            "authors": [
+              "Karl Friston"
+            ],
+            "recordedAuthors": [
+              "Karl Friston"
+            ],
+            "corrections": [],
+            "year": 2010,
+            "url": "https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20A%20unified%20brain%20theory.pdf",
+            "version": "作者网站12页Advance Online Publication，2010-01-13；定位使用AOP页码，不套用期刊127–138页",
+            "readingStatus": "selected-sections",
+            "readScope": "AOP1–4及7–10页，覆盖原则、Box 1–2、控制与结论；11页参考文献40已核对。Box 1已视觉核对，发现图中文字与正文的优化方向不一致。",
+            "unreadScope": "5–6页未完整读；补充框S1–S5、原始模拟、所引实验及普遍性推导未审查。Box 1下方图框写arg max Divergence，而同页正文与KL分解要求降低该项；本记录按正文与分解解释，未取得作者勘误。参考文献40误列Rao–Ballard为1998，本项目采用原刊1999日期。",
+            "verification": "已核对所列定义、主张与原文图；未独立复现实验或验证生物学普遍性。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-friston-2010.md"
+      },
+      {
+        "id": "e-friston-2015",
+        "title": "主动推断：为什么先去看线索？",
+        "year": 2015,
+        "dateLabel": "2015",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "主动推断",
+        "question": "怎样把获取信息与达到偏好结果放进同一决策准则？",
+        "mechanism": "在离散部分可观察模型中对策略推断；负预期自由能分为偏好结果的外在价值和关于隐藏状态的信息增益。",
+        "assumptions": "需要指定生成模型、偏好及近似推断；示例假定模型结构和参数已学得，不能说从零发现环境。",
+        "limits": "模拟神经信号的相似性不是生物机制已验证；本轮未运行SPM原实验。",
+        "nextQuestion": "模型失配、偏好变化及信息成本如何影响行为？",
+        "claims": [
+          {
+            "id": "e-friston-2015-c1",
+            "text": "T迷宫设置有先看线索再去奖励位置的两步行动；论文用模拟比较信息价值项的作用。",
+            "locator": "方程3–6与 Inference and Planning；正文页6–7、11–12",
+            "basis": "source-reported",
+            "sourceId": "friston-2015",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "friston-2015",
+            "title": "Active Inference and Epistemic Value；Friston,Rigoli,Ognibene,Mathys,Fitzgerald,Pezzulo；2015在线版，含前置页",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://theisticscience.com/papers/tree/PredictivePsych/Friston-CogNeuro2015.pdf",
+            "version": "Active Inference and Epistemic Value；Friston,Rigoli,Ognibene,Mathys,Fitzgerald,Pezzulo；2015在线版，含前置页",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF3、6–9、13–14；形式设定、价值分解及T迷宫设置；未完整审读附录",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-friston-2015.md"
+      },
+      {
+        "id": "e-schrittwieser-2019",
+        "title": "MuZero的版本、训练信息与泛化边界",
+        "year": 2019,
+        "dateLabel": "2019 v1／2020期刊",
+        "dateBasis": "preprint-v1-with-journal-comparison",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "任务相关潜在模型与规划",
+        "question": "规划是否必须重建每个像素或真实状态？",
+        "mechanism": "表示、潜在动力学和预测网络联合学习奖励、价值及策略；在潜在状态上树搜索，搜索结果反过来提供训练目标。",
+        "assumptions": "所比较版本的动力学均为确定性；根节点可用动作是环境提供的信息，训练仍依赖交互和搜索。",
+        "limits": "Reanalyze已存在于2019 v1，不能算作期刊新增。期刊更明确地限定逐环境训练；本文实验不能证明跨环境零样本泛化。部分公式和补充材料未完成版本核对。",
+        "nextQuestion": "换奖励或改变环境后，任务相关模型保留的信息是否还足够？",
+        "claims": [
+          {
+            "id": "e-schrittwieser-2019-c2",
+            "text": "2019 v1已经报告Reanalyze及其重搜旧轨迹的目标更新方案。",
+            "locator": "§4，PDF5–6与表1；Appendix H，15页",
+            "basis": "source-reported",
+            "sourceId": "schrittwieser-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-schrittwieser-2019-c3",
+            "text": "期刊明确说明每个环境分别训练，共享模型和新环境零样本测试留待后续。",
+            "locator": "Methods / Training，末段",
+            "basis": "source-reported",
+            "sourceId": "schrittwieser-2020-journal",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-schrittwieser-2019-c4",
+            "text": "期刊保留根节点动作可用性信息，并将其作为随观察提供的标准问题设定。",
+            "locator": "Methods / Comparison to AlphaZero，第(2)项",
+            "basis": "source-reported",
+            "sourceId": "schrittwieser-2020-journal",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "schrittwieser-2019",
+            "title": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model",
+            "authors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "recordedAuthors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "corrections": [],
+            "year": 2019,
+            "url": "https://arxiv.org/pdf/1911.08265v1",
+            "version": "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model；Schrittwieser等；2019首版预印本，后有2020期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "第二轮PDF2、4–5；本批核对v1首页及§2–4、表1（PDF2–6）、Appendix A（11页）、G/H/I（15–16页）；14页架构说明亦读。",
+            "unreadScope": "所列范围之外的全部正文、附录图表、代码与实验未逐项核验；版本对照不是全篇复现。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          },
+          {
+            "id": "schrittwieser-2020-journal",
+            "title": "Mastering Atari, Go, chess and shogi by planning with a learned model",
+            "authors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "recordedAuthors": [
+              "Julian Schrittwieser",
+              "Ioannis Antonoglou",
+              "Thomas Hubert",
+              "Karen Simonyan",
+              "Laurent Sifre",
+              "Simon Schmitt",
+              "Arthur Guez",
+              "Edward Lockhart",
+              "Demis Hassabis",
+              "Thore Graepel",
+              "Timothy Lillicrap",
+              "David Silver"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://go.gale.com/ps/i.do?asid=1de10613&id=GALE%7CA649646063&it=r&p=HRCA&u=googlescholar&v=2.1",
+            "version": "Nature 588, 604–609；在线发表2020-12-23，期号日期12-24；实读Gale数据库的期刊正文HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "Introduction至Conclusions；Table 1；Methods各小节，重点Comparison to AlphaZero、Training、MuZero Reanalyze及Evaluation。正文文字和表格可读。",
+            "unreadScope": "HTML以Formula omitted替代部分公式；未逐式对照，未取得期刊PDF；补充图表、原始数据和代码未重新核对。",
+            "verification": "通过网页工具读取Gale的作者正文；本机请求返回Invalid parameter data，下载HTML的指纹不是论文指纹。未复现实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-schrittwieser-2019.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-sutton-1988-watkins-dayan-1992",
+        "batch": "round-two",
+        "fromId": "e-sutton-1988",
+        "toId": "e-watkins-dayan-1992",
+        "type": "method-relation",
+        "typeLabel": "method-relation",
+        "status": "source-checked",
+        "locator": "Watkins与Dayan1992 §1，PDF1",
+        "explanation": "后文明确说明更新方式与TD相近；不称TD直接推出其收敛证明。",
+        "sourceIds": [
+          "watkins-dayan-1992"
+        ]
+      },
+      {
+        "id": "r-watkins-dayan-1992-baird-1995",
+        "batch": "round-two",
+        "fromId": "e-watkins-dayan-1992",
+        "toId": "e-baird-1995",
+        "type": "critique",
+        "typeLabel": "critique",
+        "status": "source-checked",
+        "locator": "Baird1995 §2–4",
+        "explanation": "明确针对从表格收敛到一般函数逼近的推广提出反例。",
+        "sourceIds": [
+          "baird-1995"
+        ]
+      },
+      {
+        "id": "r-conant-ashby-1970-schrittwieser-2019",
+        "batch": "round-two",
+        "fromId": "e-conant-ashby-1970",
+        "toId": "e-schrittwieser-2019",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "本站比较：Conant1970 §4；MuZero2019 §1–3",
+        "explanation": "两者都可用于提问任务相关信息保留，但模型定义、目标和证明对象不同；未发现直接历史影响证据。",
+        "sourceIds": [
+          "schrittwieser-2019"
+        ]
+      },
+      {
+        "id": "r-bellman-baird-comparison",
+        "batch": "round-three-a",
+        "fromId": "e-bellman-1952",
+        "toId": "e-baird-1995",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Bellman定理1；Baird§3；本批复现",
+        "explanation": "本站比较函数方程的有界解与参数化学习更新的稳定性，不据此宣称直接历史影响。",
+        "sourceIds": [
+          "bellman-1952",
+          "baird-1995-july"
+        ]
+      },
+      {
+        "id": "r-wiener-baird-stability",
+        "batch": "round-three-a",
+        "fromId": "e-wiener-1948",
+        "toId": "e-baird-1995",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Wiener第IV章97–98页；Baird§3及本批复现",
+        "explanation": "比较两种依赖条件的稳定性问题；不将控制回路与值函数迭代视为同一机制或宣称直接历史影响。",
+        "sourceIds": [
+          "wiener-1961-1985",
+          "baird-1995-july"
+        ]
+      },
+      {
+        "id": "r-free-energy-epistemic",
+        "batch": "round-three-a",
+        "fromId": "e-friston-2010",
+        "toId": "e-friston-2015",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "2010 AOP2–4、8–9页；2015方程3–6与Inference and Planning",
+        "explanation": "本站比较运动先验下的行动与离散策略的预期价值分解；2010瞬时自由能与2015策略的预期自由能不写成相同目标式。",
+        "sourceIds": [
+          "friston-2010",
+          "friston-2015"
+        ]
+      },
+      {
+        "id": "r-empowerment-active-inference",
+        "batch": "round-three-a",
+        "fromId": "e-klyubin-2005",
+        "toId": "e-friston-2010",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Klyubin §2.2–2.3；Friston Box 1及AOP8–9页",
+        "explanation": "赋能度评估可选择行动对感知的通道容量；自由能框架要求生成模型和先验。二者可在偏好、传感器与行动代价操纵下比较，不能按信息论用语相似合并。",
+        "sourceIds": [
+          "klyubin-2005",
+          "friston-2010"
+        ]
+      }
+    ]
+  }
+}

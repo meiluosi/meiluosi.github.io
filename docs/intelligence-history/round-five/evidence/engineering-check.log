@@ -1,0 +1,13 @@
+
+> meiluosi-blog@6.13.5 check /Users/meros/Documents/GitHub/meiluosi.github.io
+> astro check
+
+16:21:49 [content] Syncing content
+16:21:50 [content] Synced content
+16:21:50 [types] Generated 2.45s
+16:21:50 [check] Getting diagnostics for Astro files in /Users/meros/Documents/GitHub/meiluosi.github.io...
+Result (203 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+

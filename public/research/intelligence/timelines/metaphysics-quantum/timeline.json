@@ -1,0 +1,411 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "metaphysics-quantum",
+    "name": "形而上学、非经典计算与量子路线",
+    "question": "心智是否需要非经典物理或超出常规计算的解释？",
+    "gaps": [
+      "Penrose 1989著作与2014 Orch OR修订未全文选读；现代微管实验及其独立检验留待补读。",
+      "Hagan按2002发表年锚定，实际阅读2000 v1，未与期刊版逐字校对。",
+      "泛心论组合问题的反驳文献与非经典计算其他分支尚未系统纳入。"
+    ],
+    "nodes": [
+      {
+        "id": "e-lucas-1961",
+        "title": "哥德尔论证：从系统限制到心智超越？",
+        "year": 1961,
+        "dateLabel": "1961",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "计算与逻辑边界",
+        "question": "形式系统的不完备能否推出人类心智不是机器？",
+        "mechanism": "对候选形式系统构造其内部不可证明的哥德尔句，并主张人可在外部识别。",
+        "assumptions": "需要相应形式系统足够表达算术并满足逻辑条件，还需人有理由确认它的一致性；一致性与可靠性不混同。",
+        "limits": "从定理到心智能力还有额外前提；不能把“对每个系统存在句子”直接写成“一个人统一可靠解决全部系统”。",
+        "nextQuestion": "谁知道候选系统一致，依据是什么，是否存在统一可执行的识别程序？",
+        "claims": [
+          {
+            "id": "e-lucas-1961-ec1",
+            "text": "作者以不完备性论证反对机械论，而不只陈述形式系统的内部限制。",
+            "locator": "PDF 2–3，112–113",
+            "basis": "source-reported",
+            "sourceId": "lucas-1961",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-lucas-1961-ec2",
+            "text": "他明确承认：要断言特定哥德尔句真实，需要能够确认目标系统一致；人的可错性与自我一致性因此成为争点。",
+            "locator": "PDF 10–11，120–121",
+            "basis": "source-reported",
+            "sourceId": "lucas-1961",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lucas-1961",
+            "title": "Minds, Machines and Gödel",
+            "authors": [
+              "J. R. Lucas"
+            ],
+            "recordedAuthors": [
+              "J. R. Lucas"
+            ],
+            "corrections": [],
+            "year": 1961,
+            "url": "https://philomatica.org/wp-content/uploads/2021/12/lucas1961.pdf",
+            "version": "Philosophy 36:112–127，JSTOR扫描17页；PDF 1为书目封面，原文脚注说明1959报告。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 2–3开头；7部分反驳；10–11（120–121）一致性与人的可错性。",
+            "unreadScope": "全文所有反驳、后续文献与不完备性定理证明未独立审校。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-lucas-1961.md"
+      },
+      {
+        "id": "e-hameroff-penrose-1996",
+        "title": "Orch OR：微管相干与客观还原假说",
+        "year": 1996,
+        "dateLabel": "1996",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "量子物理机制",
+        "question": "非计算解释和体验是否需要特定量子物理过程？",
+        "mechanism": "将微管蛋白构象的量子相干、组织过程与引力相关客观还原连接。",
+        "assumptions": "微管相干、持续时间、OR物理规律与体验对应都是需独立支持的假设。",
+        "limits": "这是多层假说，不是意识量子起源已证实；量子计算也不能不经论证等同超图灵计算。",
+        "nextQuestion": "在生理条件下，模型要求的自由度、相干时间和因果作用能否被测到？",
+        "claims": [
+          {
+            "id": "e-hameroff-penrose-1996-ec1",
+            "text": "论文提出微管内量子耦合构象的相干叠加，并将客观还原事件与意识连接。",
+            "locator": "PDF 1摘要",
+            "basis": "source-reported",
+            "sourceId": "hameroff-penrose-1996",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hameroff-penrose-1996-ec2",
+            "text": "摘要中的处理时间最长约500 ms是其模型设想的一部分，不是本论文已测得的大脑相干寿命。",
+            "locator": "PDF 1摘要；24结论开头",
+            "basis": "source-reported",
+            "sourceId": "hameroff-penrose-1996",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hameroff-penrose-1996",
+            "title": "Orchestrated reduction of quantum coherence in brain microtubules: A model for consciousness",
+            "authors": [
+              "Stuart Hameroff",
+              "Roger Penrose"
+            ],
+            "recordedAuthors": [
+              "Stuart Hameroff",
+              "Roger Penrose"
+            ],
+            "corrections": [],
+            "year": 1996,
+            "url": "https://www.bibliotecapleyades.net/archivos_pdf2/orchestrated-reduction-quantum-coherence.pdf",
+            "version": "Mathematics and Computers in Simulation 40:453–480，原刊28页PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要；24结论开头的微管叠加、OR与组织机制假设。",
+            "unreadScope": "具体计算、生物学证据及全部预测列表未核验；2014修订未读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-hameroff-penrose-1996.md"
+      },
+      {
+        "id": "e-tegmark-2000",
+        "title": "退相干时间：把物理主张变为数量级约束",
+        "year": 2000,
+        "dateLabel": "2000",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "物理可行性异议",
+        "question": "假定的脑内量子态能否保持足够久以参与认知？",
+        "mechanism": "估算神经放电及微管极化激发的环境退相干时间。",
+        "assumptions": "结果依赖所选自由度、叠加分离与环境耦合模型。",
+        "limits": "不是所有量子生物效应不存在的证明；争论必须检查是否计算了对方实际主张的状态。",
+        "nextQuestion": "改变被建模自由度和环境参数后，数量级结论有多稳健？",
+        "claims": [
+          {
+            "id": "e-tegmark-2000-ec1",
+            "text": "摘要估计约10^-13至10^-20秒的退相干时间，并与约10^-3至10^-1秒动力学尺度比较。",
+            "locator": "PDF 1摘要",
+            "basis": "source-reported",
+            "sourceId": "tegmark-2000",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tegmark-2000-ec2",
+            "text": "研究聚焦模型中相关自由度的相干存续，结论反对其具有认知尺度的相干作用。",
+            "locator": "PDF 1 Introduction；7结果汇总",
+            "basis": "source-reported",
+            "sourceId": "tegmark-2000",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "tegmark-2000",
+            "title": "The Importance of Quantum Decoherence in Brain Processes",
+            "authors": [
+              "Max Tegmark"
+            ],
+            "recordedAuthors": [
+              "Max Tegmark"
+            ],
+            "corrections": [],
+            "year": 2000,
+            "url": "https://arxiv.org/pdf/quant-ph/9907009v2",
+            "version": "期刊锚定Phys Rev E 61:4194–4206（2000）；实读arXiv quant-ph/9907009 v2，1999-11-10，15页。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要／Introduction；7退相干结果汇总段落。",
+            "unreadScope": "完整积分与参数敏感性未重算；未与期刊逐字校对。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-tegmark-2000.md"
+      },
+      {
+        "id": "e-hagan-2002",
+        "title": "回应退相干批评：先对齐模型与参数",
+        "year": 2002,
+        "dateLabel": "2002",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "物理争论回应",
+        "question": "Tegmark估计是否对应Orch OR的实际假设？",
+        "mechanism": "质疑孤子与构象模型错位，并改变分离尺度、电荷／偶极与介电条件。",
+        "assumptions": "更长时间是替代假设下的计算主张；主动维持与屏蔽条件还需实验依据。",
+        "limits": "本批读的是2000预印本；反驳一组参数不自动证明相干存在，更不证明其构成意识。",
+        "nextQuestion": "哪些关键参数已有独立测量，哪些仍是维持模型的假设？",
+        "claims": [
+          {
+            "id": "e-hagan-2002-ec1",
+            "text": "作者认为Tegmark的微管模型与其构象叠加模型不同，并列出参数修订理由。",
+            "locator": "PDF 1摘要，条目1–3",
+            "basis": "source-reported",
+            "sourceId": "hagan-2002",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hagan-2002-ec2",
+            "text": "摘要给出修订后约10^-5至10^-4秒，并在额外环境假设下提出更长时间；这些不是活脑直接测量值。",
+            "locator": "PDF 1摘要，条目3–5",
+            "basis": "source-reported",
+            "sourceId": "hagan-2002",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hagan-2002",
+            "title": "Quantum Computation in Brain Microtubules? Decoherence and Biological Feasibility",
+            "authors": [
+              "Scott Hagan",
+              "Stuart R. Hameroff",
+              "Jack A. Tuszyński"
+            ],
+            "recordedAuthors": [
+              "Scott Hagan",
+              "Stuart R. Hameroff",
+              "Jack A. Tuszyński"
+            ],
+            "corrections": [],
+            "year": 2002,
+            "url": "https://arxiv.org/pdf/quant-ph/0005025",
+            "version": "期刊发表于2002；实读arXiv quant-ph/0005025 v1（2000-05-04），10页，未与期刊版逐字对照。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要及Introduction；7主体／客体模型讨论部分。",
+            "unreadScope": "完整重算与生物机制可行性证据未独立核验；期刊版差异待补。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-hagan-2002.md"
+      },
+      {
+        "id": "e-strawson-2006",
+        "title": "真实物理主义与微观经验前提",
+        "year": 2006,
+        "dateLabel": "2006",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "体验的本体论",
+        "question": "承认体验真实，又拒绝从全无体验到体验的强涌现，会得到什么？",
+        "mechanism": "从体验实在、物理主义和反强涌现前提出发，论证至少部分基本存在有经验面向。",
+        "assumptions": "关键依赖拒绝彻底非经验基础产生经验；并非仅由现有物理定律推出。",
+        "limits": "这是形而上学论证，没有提供微观经验的直接测量；更不推出电子具有人的认知或智慧。",
+        "nextQuestion": "微观经验怎样构成统一主体，是否有可区分的经验后果？",
+        "claims": [
+          {
+            "id": "e-strawson-2006-ec1",
+            "text": "作者将承认经验真实性作为其“真实物理主义”的起点，并区分它与把物理学词汇当全部现实描述的立场。",
+            "locator": "PDF 1，§1",
+            "basis": "source-reported",
+            "sourceId": "strawson-2006",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-strawson-2006-ec2",
+            "text": "§5先推出至少部分基本实体涉及经验的micropsychism，再讨论更广泛的panpsychism。",
+            "locator": "PDF 16，§5",
+            "basis": "source-reported",
+            "sourceId": "strawson-2006",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "strawson-2006",
+            "title": "Realistic monism: why physicalism entails panpsychism",
+            "authors": [
+              "Galen Strawson"
+            ],
+            "recordedAuthors": [
+              "Galen Strawson"
+            ],
+            "corrections": [],
+            "year": 2006,
+            "url": "https://www.newdualism.org/papers/G.Strawson/strawson_on_panpsychism.pdf",
+            "version": "21页作者格式PDF转载，标题与内容为2006论文；当前载体包含后来的书目链接，未与原刊逐字校对。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1 §1；7–8 §3开头；10涌现类比；16 §5 Micropsychism。",
+            "unreadScope": "组合问题的完整论述、评论及其他泛心论方案未系统阅读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-strawson-2006.md"
+      },
+      {
+        "id": "e-wang-quantum-2014",
+        "title": "量子认知：顺序效应的概率结构",
+        "year": 2014,
+        "dateLabel": "2014",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "量子概率模型",
+        "question": "提问顺序如何系统性改变判断分布？",
+        "mechanism": "使用不对易的测量概率结构，提出并检验QQ等式。",
+        "assumptions": "具体预测有适用条件；问法改变认知状态，不必等同固定变量的静态联合分布。",
+        "limits": "行为拟合或顺序效应本身不识别物理实现；本批经典状态机反例只覆盖预定的两次测量例。",
+        "nextQuestion": "与具有状态更新的经典模型相比，何种新预测和模型约束能真正区分方案？",
+        "claims": [
+          {
+            "id": "e-wang-quantum-2014-ec1",
+            "text": "作者报告70组全国调查和2项实验支持预先提出的QQ等式。",
+            "locator": "PDF 1摘要",
+            "basis": "source-reported",
+            "sourceId": "wang-quantum-2014",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-wang-quantum-2014-ec2",
+            "text": "讨论明确允许经典神经过程产生可由量子概率更好描述的行为，未据此断定脑内量子物理机制。",
+            "locator": "PDF 6 Discussion末段",
+            "basis": "source-reported",
+            "sourceId": "wang-quantum-2014",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "wang-quantum-2014",
+            "title": "Context effects produced by question orders reveal quantum nature of human judgments",
+            "authors": [
+              "Zheng Wang",
+              "Tyler Solloway",
+              "Richard M. Shiffrin",
+              "Jerome R. Busemeyer"
+            ],
+            "recordedAuthors": [
+              "Zheng Wang",
+              "Tyler Solloway",
+              "Richard M. Shiffrin",
+              "Jerome R. Busemeyer"
+            ],
+            "corrections": [],
+            "year": 2014,
+            "url": "https://jbusemey.pages.iu.edu/quantum/PNAS2014.pdf",
+            "version": "PNAS 111:9431–9436，作者站PDF15页，前6页为论文、后附补充材料。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要及6 Discussion末段关于经典大脑与量子概率的区别。",
+            "unreadScope": "QQ等式完整证明、70组调查逐项统计与补充实验未复算；本批合成核验不是其复现。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-wang-quantum-2014.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "e-r16",
+        "batch": "round-three-e",
+        "fromId": "e-lucas-1961",
+        "toId": "e-hameroff-penrose-1996",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Lucas 120–121；Hameroff-Penrose摘要",
+        "explanation": "逻辑限制与物理机制是两层论证；前者不能单独推出特定微管机制。",
+        "sourceIds": [
+          "lucas-1961",
+          "hameroff-penrose-1996"
+        ]
+      },
+      {
+        "id": "e-r17",
+        "batch": "round-three-e",
+        "fromId": "e-hameroff-penrose-1996",
+        "toId": "e-tegmark-2000",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "PDF 1 Introduction",
+        "explanation": "退相干计算针对脑内认知尺度相干假说；是否对齐原模型又受到下一节点质疑。",
+        "sourceIds": [
+          "tegmark-2000"
+        ]
+      },
+      {
+        "id": "e-r18",
+        "batch": "round-three-e",
+        "fromId": "e-tegmark-2000",
+        "toId": "e-hagan-2002",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-supported",
+        "locator": "PDF 1摘要条目1–5",
+        "explanation": "回应认为模型自由度与参数需修订，提出更长时间估计；没有完成独立生理验证。",
+        "sourceIds": [
+          "hagan-2002"
+        ]
+      },
+      {
+        "id": "e-r19",
+        "batch": "round-three-e",
+        "fromId": "e-hameroff-penrose-1996",
+        "toId": "e-wang-quantum-2014",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "前者摘要；后者PDF 6 Discussion",
+        "explanation": "具体量子物理机制与量子概率描述分开；后者明说经典脑也可能呈现相关行为结构。",
+        "sourceIds": [
+          "hameroff-penrose-1996",
+          "wang-quantum-2014"
+        ]
+      }
+    ]
+  }
+}

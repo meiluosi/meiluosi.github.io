@@ -1,0 +1,656 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "behavioral",
+    "name": "行为表现与操作性路线",
+    "question": "什么表现可以支持智能判定，操作性检验与解释之间有什么距离？",
+    "gaps": [
+      "未读取Block 1981全文及Hernández-Orallo–Dowe 2010交互测验正文；本批跨任务问题由ARC与HELM覆盖。",
+      "不追踪2022之后的排行榜与最新协议；HELM只按2022 v1，ARC只按2019 v2记录。"
+    ],
+    "nodes": [
+      {
+        "id": "e-watson-1913",
+        "title": "行为资料能否独立成为心理学的研究对象？",
+        "year": 1913,
+        "dateLabel": "1913",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "行为主义纲领",
+        "question": "研究行为的价值是否必须先由意识解释来证明？",
+        "mechanism": "将预测与控制行为设为研究目标，通过可操纵刺激、习惯与反应建立实验问题。",
+        "assumptions": "这是作者提出的研究纲领；对象、方法与成功标准共同改变，并非通用智能测试。",
+        "limits": "统一方法的主张不等于已经证明物种间机制相同，也没有在本文建立智能总分。文中的历史人群称呼不转化为本站分类或能力结论。",
+        "nextQuestion": "什么证据能够区分行为预测成功与对心理过程的充分解释？",
+        "claims": [
+          {
+            "id": "e-watson-1913-c1",
+            "text": "作者把心理学目标放在行为的预测与控制，并认为内省不是必要方法；动物行为资料无须先被翻译为人的意识内容才有研究价值。",
+            "locator": "开篇第1段及行为资料独立价值讨论；Summary 2–3",
+            "basis": "source-reported",
+            "sourceId": "watson-1913",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-watson-1913-c2",
+            "text": "视觉辨别的例子要求区分波长与强度等实际控制变量；记忆例子关注学习速度、错误、曲线与保持。",
+            "locator": "正文vision例子与随后的memory段落",
+            "basis": "source-reported",
+            "sourceId": "watson-1913",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-watson-1913-c3",
+            "text": "作者承认当时的行为方法还不能覆盖想象、判断等所有复杂过程，并承认其纲领仍有弱点。",
+            "locator": "正文复杂行为讨论及结论前两段",
+            "basis": "source-reported",
+            "sourceId": "watson-1913",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "watson-1913",
+            "title": "Psychology as the Behaviorist Views It",
+            "authors": [
+              "John B. Watson"
+            ],
+            "recordedAuthors": [
+              "John B. Watson"
+            ],
+            "corrections": [],
+            "year": 1913,
+            "url": "https://psychclassics.yorku.ca/Watson/views",
+            "version": "Psychological Review 20, 158–177；York University原文转录。",
+            "readingStatus": "selected-sections",
+            "readScope": "网页正文开篇至Summary第5点；脚注1–6及7开头。以段落主题定位，网页未逐段显示原刊页码。",
+            "unreadScope": "脚注7末段及原刊排版未完整核对；提到的动物或人类实验未独立复现。",
+            "verification": "按所列网页原文范围审校；未核对全部原刊扫描图或独立复现其经验例子。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-watson-1913.md"
+      },
+      {
+        "id": "e-titchener-1914",
+        "title": "改变研究立场能否取消原来的心理学问题？",
+        "year": 1914,
+        "dateLabel": "1914",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "行为主义的直接批评",
+        "question": "行为研究完成后，经验与意识问题是否因此被解决？",
+        "mechanism": "区分研究对象的立场、观察资料和理论解释，追问行为资料是研究终点还是其他现象的迹象。",
+        "assumptions": "回应同时针对Watson两篇1913文章；脚注2区分A、B文，不能把所有批评归到一篇。",
+        "limits": "这是方法与逻辑批评，不是内省法优越性的实验验证；研究者关于科学与技术的划分也属于其立场。",
+        "nextQuestion": "若行为被视作能力的证据，能力构念与观察结果之间需要哪些额外论证？",
+        "claims": [
+          {
+            "id": "e-titchener-1914-c1",
+            "text": "Titchener认为改变观察立场产生新的研究方面，并不在逻辑上排除内省心理学的问题。",
+            "locator": "印刷6页",
+            "basis": "source-reported",
+            "sourceId": "titchener-1914",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-titchener-1914-c2",
+            "text": "他区分可观察结果与解释框架，反对用预先假定所必然导出的结果当作该假定的独立证明。",
+            "locator": "印刷12页；脚注26",
+            "basis": "source-reported",
+            "sourceId": "titchener-1914",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-titchener-1914-c3",
+            "text": "末段提出行为研究与心理学可以相互依赖；脚注36同时赞同不能严格给出心理现象的客观判据，不能把此文简化成反对所有行为实验。",
+            "locator": "印刷15–17页及脚注36",
+            "basis": "source-reported",
+            "sourceId": "titchener-1914",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "titchener-1914",
+            "title": "On Psychology as the Behaviorist Views It",
+            "authors": [
+              "Edward Bradford Titchener"
+            ],
+            "recordedAuthors": [
+              "Edward Bradford Titchener"
+            ],
+            "corrections": [],
+            "year": 1914,
+            "url": "https://psychclassics.yorku.ca/Titchener/watson.htm",
+            "version": "Proceedings of the American Philosophical Society 53, 1–17；York University转录保留页码及脚注。",
+            "readingStatus": "selected-sections",
+            "readScope": "印刷1–9、12–17页相关正文；脚注2、26、30–36及所列引用。重点研究对象、假设与证据、行为学与心理学关系。",
+            "unreadScope": "10–11页反驳意象的细节未完整读；Watson第二篇Image and Affection in Behavior未独立阅读全文。",
+            "verification": "按所列网页原文范围审校；未核对全部原刊扫描图或独立复现其经验例子。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-titchener-1914.md"
+      },
+      {
+        "id": "e-turing-1950",
+        "title": "以模仿游戏重述机器思考问题",
+        "year": 1950,
+        "dateLabel": "1950",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "操作化与学习经历",
+        "question": "怎样把“机器能否思考”改写为可讨论、可实施的比较？",
+        "mechanism": "限制交流通道，以问答中的辨认表现重述问题；同时提出比较孩子程序及其教育过程。",
+        "assumptions": "协议限定为文字交流和数字计算机；假定足够存储、速度和适当程序；人的外形与动作能力不在该协议内。",
+        "limits": "该文没有给出已验证的通用能力量尺。行为判别协议、学习机制设想和作者预测承担不同的证据角色；原文关于超感知的历史判断不被本站采用为事实。",
+        "nextQuestion": "怎样区分拟人对话表现、特定任务熟练程度和获得新技能的能力？",
+        "claims": [
+          {
+            "id": "e-turing-1950-c1",
+            "text": "用机器替代模仿游戏中的A来重述原问题；文字通道排除外形和声音，同时承认机器可能以不同于人的方式思考。",
+            "locator": "§1–3，PDF 1–3",
+            "basis": "source-reported",
+            "sourceId": "turing-1950",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-turing-1950-c2",
+            "text": "五分钟询问后平均判断者正确辨认不超过70%的说法是作者面向未来的信念，不是当年测得的通过率。",
+            "locator": "§6开头，PDF 8",
+            "basis": "source-reported",
+            "sourceId": "turing-1950",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-turing-1950-c3",
+            "text": "把初始结构、教育和其他经验区分开来；建议反复比较孩子程序的学习过程，也讨论推理步骤选择与速度。",
+            "locator": "§7，PDF 19–22",
+            "basis": "source-reported",
+            "sourceId": "turing-1950",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "turing-1950",
+            "title": "Computing Machinery and Intelligence",
+            "authors": [
+              "Alan M. Turing"
+            ],
+            "recordedAuthors": [
+              "Alan M. Turing"
+            ],
+            "corrections": [],
+            "year": 1950,
+            "url": "https://www.csee.umbc.edu/courses/471/papers/turing.pdf",
+            "version": "1950年论文的22页教学转录；页首误写Mind 49，正式卷号为59（LIX），433–460。转录§5注明一张表被省略；不用于表格或逐字校勘。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–3、6–8、17–22：§1–3、§5及§6开头、§6(9)与§7。",
+            "unreadScope": "§4及§6多数反对意见未完整审读；未逐字核对期刊扫描；不把未来预测当实验结果。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-turing-1950.md"
+      },
+      {
+        "id": "e-searle-1980",
+        "title": "中文房间：表现足以证明理解吗？",
+        "year": 1980,
+        "dateLabel": "1980",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "评价解释的充分性",
+        "question": "回答与母语者无法区分，是否足以推出系统理解了内容？",
+        "mechanism": "Searle以执行形式规则却不懂中文的思想实验质疑强AI的充分性主张，并讨论系统、机器人等答复；Hofstadter反驳其层次与复杂度直觉。",
+        "assumptions": "思想实验设定了规则程序和理想输入输出能力；系统边界、理解的含义与可实现规模本身属于争议。",
+        "limits": "这是有明确反驳的哲学论证，不是证实机器不可能理解的实验。评论也没有给出经验上已验证的理解测验；不能据此裁定任何现代模型是否有心智。",
+        "nextQuestion": "若行为证据不足以唯一决定解释，还需要哪些机制、干预或跨情境证据？",
+        "claims": [
+          {
+            "id": "e-searle-1980-c1",
+            "text": "Searle区分作为研究工具的弱AI与声称正确程序本身构成心智解释的强AI；论证针对后者。",
+            "locator": "417–418，PDF 1–2",
+            "basis": "source-reported",
+            "sourceId": "searle-1980",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-searle-1980-c2",
+            "text": "系统答复把理解归给人、规则和资料组成的整体；Searle通过内化全部规则的设想回应，并明确质疑图灵测试的充分性。",
+            "locator": "419，PDF 3",
+            "basis": "source-reported",
+            "sourceId": "searle-1980",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-searle-1980-c3",
+            "text": "Searle并不否认人工机器原则上能够思考；他否认仅凭形式程序就充分获得意向性。",
+            "locator": "422–424，PDF 6–8",
+            "basis": "source-reported",
+            "sourceId": "searle-1980",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-searle-1980-c4",
+            "text": "Hofstadter认为从有限故事问答跳到完整图灵测试改变了复杂度，并质疑用低层执行者的直觉否定高层系统性质。",
+            "locator": "433–434，PDF 17–18",
+            "basis": "source-reported",
+            "sourceId": "hofstadter-1980",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "searle-1980",
+            "title": "Minds, brains, and programs",
+            "authors": [
+              "John R. Searle"
+            ],
+            "recordedAuthors": [
+              "John R. Searle"
+            ],
+            "corrections": [],
+            "year": 1980,
+            "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+            "version": "BBS 3:417–457合刊扫描，42页；目标文章417–424，后含评论与答复。",
+            "readingStatus": "selected-sections",
+            "readScope": "目标文章417–424（PDF 1–8），含六类答复、结论和注释。",
+            "unreadScope": "其余评论与作者答复未系统通读；Hofstadter评论另设阅读记录。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          },
+          {
+            "id": "hofstadter-1980",
+            "title": "Reductionism and religion（对Searle的评论）",
+            "authors": [
+              "Douglas R. Hofstadter"
+            ],
+            "recordedAuthors": [
+              "Douglas R. Hofstadter"
+            ],
+            "corrections": [],
+            "year": 1980,
+            "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+            "version": "同一期BBS开放评论，印刷433–434；与目标文章共用PDF载体。",
+            "readingStatus": "selected-sections",
+            "readScope": "433页Hofstadter标题起至434页Libet标题前（PDF 17–18）。",
+            "unreadScope": "未把评论中的数量级估计当实测运行成本；未审读全部往返答复。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-searle-1980.md"
+      },
+      {
+        "id": "e-legg-hutter-2007",
+        "title": "跨环境的通用智能度量",
+        "year": 2007,
+        "dateLabel": "2007",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "从单项表现到加权环境类",
+        "question": "怎样将不同环境的目标达成汇总成一个形式指标？",
+        "mechanism": "对可计算、收益总和有界的环境，以2^-K权重累加代理的预期收益。",
+        "assumptions": "环境含目标机制；参考机决定复杂度，时间偏好进入收益设置。",
+        "limits": "不是现成的通用排行榜；复杂环境不等于困难任务，本文22页明确区分二者。",
+        "nextQuestion": "有限任务抽样、先验和预算怎样改变实际排序？",
+        "claims": [
+          {
+            "id": "e-legg-hutter-2007-c1",
+            "text": "度量采用收益总和不超过1的环境，并依描述复杂度加权，而非对所有任务均匀平均。",
+            "locator": "§3.2–3.3，19–23",
+            "basis": "source-reported",
+            "sourceId": "legg-hutter-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-legg-hutter-2007-c2",
+            "text": "作者明确区分不可计算的定义与有限样本实际测验；参考机改变会影响复杂度常数。",
+            "locator": "23、27–28、39",
+            "basis": "source-reported",
+            "sourceId": "legg-hutter-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-legg-hutter-2007-c3",
+            "text": "对查表和中文房间的回应采取功能立场，不以实现效率或不可观测理解单独否定高分。",
+            "locator": "§5.2，42",
+            "basis": "source-reported",
+            "sourceId": "legg-hutter-2007",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "legg-hutter-2007",
+            "title": "Universal Intelligence: A Definition of Machine Intelligence",
+            "authors": [
+              "Shane Legg",
+              "Marcus Hutter"
+            ],
+            "recordedAuthors": [
+              "Shane Legg",
+              "Marcus Hutter"
+            ],
+            "corrections": [],
+            "year": 2007,
+            "url": "https://www.hutter1.net/ai/iorx.pdf",
+            "version": "作者站49页稿，封面December 2007；本文页码按该PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "17–23、27–28、39–42：交互、收益有界、定义、性质与常见批评；23页公式像素核对。",
+            "unreadScope": "未逐条审读全部历史综述、AIXI最优性证明与批评回应尾部；未实现通用测验。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-legg-hutter-2007.md"
+      },
+      {
+        "id": "e-chollet-2019",
+        "title": "把技能成绩与技能获取效率分开",
+        "year": 2019,
+        "dateLabel": "2019",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "泛化、先验与经验",
+        "question": "高分来自获取新技能的能力，还是已注入的知识与经验？",
+        "mechanism": "以任务范围、先验、经验和泛化难度刻画技能获取效率；ARC用少量示例规定新任务，并要求生成完整输出。",
+        "assumptions": "固定任务与响应的计算框架；可比较的先验与经验、开发者未知的测试任务是评价前提，而不是分数自动保证的事实。",
+        "limits": "ARC是特定范围和先验下的候选测试；高分不能自行证明未利用泄漏、额外经验或隐含工程先验。第二轮记录中的效度问题继续保留。",
+        "nextQuestion": "怎样给训练资料、开发者选择与推理预算记账，并检查新任务上的技能增长？",
+        "claims": [
+          {
+            "id": "e-b-chollet-2019-b-c1",
+            "text": "提出智能作为给定范围内相对先验、经验和泛化难度的技能获取效率；明确不把它称为唯一正确的定义。",
+            "locator": "§II.2.1，PDF 27–28",
+            "basis": "source-reported",
+            "sourceId": "chollet-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-b-chollet-2019-b-c2",
+            "text": "历史ARC协议要求任务所有测试例输出完全正确，每例允许3次尝试；按成功任务比例计分，依赖开发者未见评价题的条件。",
+            "locator": "§III.1.1，PDF 46–47",
+            "basis": "source-reported",
+            "sourceId": "chollet-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-b-chollet-2019-b-c3",
+            "text": "文章明确列出人类式先验，并承认先天先验的精确集合尚不确定；这一设计主张并非已验证的人机公平性。",
+            "locator": "PDF 27；§III.1.2，PDF 47–48",
+            "basis": "source-reported",
+            "sourceId": "chollet-2019",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "chollet-2019",
+            "title": "On the Measure of Intelligence",
+            "authors": [
+              "François Chollet"
+            ],
+            "recordedAuthors": [
+              "François Chollet"
+            ],
+            "corrections": [],
+            "year": 2019,
+            "url": "https://arxiv.org/pdf/1911.01547v2",
+            "version": "arXiv:1911.01547v2，2019-11-25；PDF题页仍标November 5。第二轮PDF指纹延续，历史ARC协议，不代表后续版本。",
+            "readingStatus": "selected-sections",
+            "readScope": "第二轮记录已读导言、27–28、46–47、53–54；本批复核PDF 1、27–28、46–48。",
+            "unreadScope": "形式化定义的完整推导与全部ARC先验未逐项审读；未独立验证人的成绩、先验公平性或开发者未见测试题的条件。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-chollet-2019.md"
+      },
+      {
+        "id": "e-agarwal-2021",
+        "title": "有限重复次数下的评价不确定性",
+        "year": 2021,
+        "dateLabel": "2021",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "从点分数到分布和区间",
+        "question": "少量随机运行得到的领先分数，能否稳定支持算法优劣判断？",
+        "mechanism": "同时报告按任务分层重采样的区间、跨任务与运行的表现分布、稳健聚合；核对训练末端得分与训练期间最大得分等协议差别。",
+        "assumptions": "需声明任务集合、归一化参考、独立运行和统计目标；有限样本bootstrap也可能覆盖不足。",
+        "limits": "该文解决指定基准与协议中的统计报告问题，不证明任务集合代表通用智能。本站未复现作者对具体算法的排序结论。",
+        "nextQuestion": "任务采样的不确定性、运行的不确定性和构念遗漏，如何分别报告？",
+        "claims": [
+          {
+            "id": "e-agarwal-2021-c1",
+            "text": "少量运行与随机条件使汇总分数具有统计不确定性；同一随机种子也未必控制GPU等全部非确定性。",
+            "locator": "§1–2，PDF 1–3及脚注3",
+            "basis": "source-reported",
+            "sourceId": "agarwal-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-agarwal-2021-c2",
+            "text": "按任务分别重采样运行估计聚合统计量的区间；作者在少于足够运行时仍观察到覆盖不足，不能把bootstrap当保证。",
+            "locator": "§4.1和图6说明，PDF 5–6",
+            "basis": "source-reported",
+            "sourceId": "agarwal-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-agarwal-2021-c3",
+            "text": "IQM汇总合并运行分数的中间50%；表现分布补充单一指标，并指出取训练中最大成绩与最终成绩会造成协议不可比。",
+            "locator": "PDF 5；§4.2–4.3，PDF 6–7",
+            "basis": "source-reported",
+            "sourceId": "agarwal-2021",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "agarwal-2021",
+            "title": "Deep Reinforcement Learning at the Edge of the Statistical Precipice",
+            "authors": [
+              "Rishabh Agarwal",
+              "Max Schwarzer",
+              "Pablo Samuel Castro",
+              "Aaron Courville",
+              "Marc G. Bellemare"
+            ],
+            "recordedAuthors": [
+              "Rishabh Agarwal",
+              "Max Schwarzer",
+              "Pablo Samuel Castro",
+              "Aaron Courville",
+              "Marc G. Bellemare"
+            ],
+            "corrections": [],
+            "year": 2021,
+            "url": "https://papers.nips.cc/paper/2021/file/f514cec81cb148559cf475e7426eed5e-Paper.pdf",
+            "version": "NeurIPS 2021主文PDF，17页；不是对rliable当前软件版本的评测。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–3、5–7：问题与形式化、协议变化、§4分层bootstrap、表现分布与IQM定义。",
+            "unreadScope": "PDF 4的完整实验设定、后续跨基准分析与补充材料未完整审读；未重跑作者RL实验或验证覆盖率数值。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-agarwal-2021.md"
+      },
+      {
+        "id": "e-helm-2022",
+        "title": "HELM：场景与多指标共同构成评价",
+        "year": 2022,
+        "dateLabel": "2022",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "覆盖范围与协议可比性",
+        "question": "如何展示不同用途下的表现取舍，并明确没有测到什么？",
+        "mechanism": "先定义场景与指标分类，再选择可执行子集；统一提示等适配条件，用场景×指标矩阵显示表现。",
+        "assumptions": "历史版本聚焦英语；指标是有争议构念的特定操作化；相同评测提示并不意味着训练资源和先前曝光相同。",
+        "limits": "多指标覆盖不是智能的完备定义。本文节点不报告当下模型排名；更换提示、样本、用途权重或训练数据条件都需要重新解释。",
+        "nextQuestion": "用何种用途依据选择场景与指标权重，同时保留未知与不确定性？",
+        "claims": [
+          {
+            "id": "e-helm-2022-c1",
+            "text": "v1实现16个核心场景与7类指标，覆盖112种组合中的98种；同时明确分类空间中尚未覆盖的部分。",
+            "locator": "§1.1，PDF 5–6",
+            "basis": "source-reported",
+            "sourceId": "liang-2022-v1",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-helm-2022-c2",
+            "text": "统一评测适配方法有助比较，但不能消除不同训练预算、数据曝光和提示适配性的影响。",
+            "locator": "§1.1 Caveats，PDF 8–9",
+            "basis": "source-reported",
+            "sourceId": "liang-2022-v1",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-helm-2022-c3",
+            "text": "作者承认缺少统一效度与信度证据；3个示例选择种子与最多1000个评价实例的设置可能限制比较显著性，矩阵也不能自然给出唯一总排名。",
+            "locator": "§11.1–11.3，PDF 88–89",
+            "basis": "source-reported",
+            "sourceId": "liang-2022-v1",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "liang-2022-v1",
+            "title": "Holistic Evaluation of Language Models",
+            "authors": [
+              "Percy Liang",
+              "Rishi Bommasani",
+              "Tony Lee",
+              "及共同作者"
+            ],
+            "recordedAuthors": [
+              "Percy Liang",
+              "Rishi Bommasani",
+              "Tony Lee",
+              "及共同作者"
+            ],
+            "corrections": [],
+            "year": 2022,
+            "url": "https://arxiv.org/pdf/2211.09110v1",
+            "version": "arXiv:2211.09110v1，2022；163页。只描述该历史版本，不使用实时榜单。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 5–9（分类、多指标、标准化及条件）；88–89（§11结果、实现与聚合局限）。",
+            "unreadScope": "完整指标实现、各模型结果、§11.3后续、附录污染证据与统计分析未逐项复核。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-helm-2022.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-watson-titchener-response",
+        "batch": "round-three-b",
+        "fromId": "e-watson-1913",
+        "toId": "e-titchener-1914",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "印刷2–6页及脚注2；12、15–17页",
+        "explanation": "Titchener直接讨论Watson的行为主义纲领；同时回应另一篇Image and Affection in Behavior，因此节点记录区分两篇的指涉。",
+        "sourceIds": [
+          "titchener-1914"
+        ]
+      },
+      {
+        "id": "r-turing-searle",
+        "batch": "round-three-b",
+        "fromId": "e-turing-1950",
+        "toId": "e-searle-1980",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "419、423；明确讨论Turing test",
+        "explanation": "Searle直接质疑测试表现对理解的充分性；不是证明图灵整套研究计划无效。",
+        "sourceIds": [
+          "searle-1980"
+        ]
+      },
+      {
+        "id": "r-watson-turing-comparison",
+        "batch": "round-three-b",
+        "fromId": "e-watson-1913",
+        "toId": "e-turing-1950",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Watson开篇与Summary；Turing §1–3",
+        "explanation": "两者都重视公开可观察的表现，但对象、目的和协议不同；此边仅为本站比较，不主张思想继承。",
+        "sourceIds": [
+          "watson-1913",
+          "turing-1950"
+        ]
+      },
+      {
+        "id": "r-turing-chollet-comparison",
+        "batch": "round-three-b",
+        "fromId": "e-turing-1950",
+        "toId": "e-chollet-2019",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Turing §7；Chollet §II.2.1",
+        "explanation": "比较教育经历与技能获取问题；此边不主张两种形式化等同或直接继承。",
+        "sourceIds": [
+          "turing-1950",
+          "chollet-2019"
+        ]
+      },
+      {
+        "id": "r-agarwal-helm-comparison",
+        "batch": "round-three-b",
+        "fromId": "e-agarwal-2021",
+        "toId": "e-helm-2022",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Agarwal §4；HELM §11.2",
+        "explanation": "两者共同提示样本、运行和协议条件；任务与评测对象不同，不直接合并分数。",
+        "sourceIds": [
+          "agarwal-2021",
+          "liang-2022-v1"
+        ]
+      },
+      {
+        "id": "r-searle-legg",
+        "batch": "round-three-b",
+        "fromId": "e-searle-1980",
+        "toId": "e-legg-hutter-2007",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-supported",
+        "locator": "42，Chinese room回应",
+        "explanation": "明确回应Searle；以功能表现为指标，未据此证明或否定理解。",
+        "sourceIds": [
+          "legg-hutter-2007"
+        ]
+      },
+      {
+        "id": "r-legg-chollet",
+        "batch": "round-three-b",
+        "fromId": "e-legg-hutter-2007",
+        "toId": "e-chollet-2019",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Legg–Hutter §3；Chollet §II.3",
+        "explanation": "对照跨环境成绩与技能获取效率；这是本站问题比较。",
+        "sourceIds": [
+          "legg-hutter-2007",
+          "chollet-2019"
+        ]
+      }
+    ]
+  }
+}

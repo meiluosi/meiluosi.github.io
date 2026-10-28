@@ -1,0 +1,1274 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "learning-efficiency",
+    "name": "学习效率与泛化路线",
+    "question": "获得新技能的效率与泛化怎样区别于已有技能水平？",
+    "gaps": [
+      "本批已将系统性争论、SCAN／MLC、捷径学习及问题卡对应；更广泛的现代泛化机制与评测仍可继续扩展。",
+      "Baird复现范围限定为1995六状态预测例，不能替代组合泛化实验或一般强化学习收敛结论。"
+    ],
+    "nodes": [
+      {
+        "id": "e-rosenblatt-1958",
+        "title": "识别偏向怎样随经验改变？",
+        "year": 1958,
+        "dateLabel": "1958",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "经验改变识别偏向",
+        "question": "在连接结构含随机性的系统中，记忆与泛化能否由物理参数和环境统计关系解释？",
+        "mechanism": "感觉、联想及响应单元组织为网络；活动和强化改变联想单元的输出效力，进而改变响应竞争。",
+        "assumptions": "本文比较多种增益、判别及强化设置；相似性依赖网络组织和刺激环境，不能简化为一个不带条件的现代线性分类器。",
+        "limits": "作者区分多种模型与学习协议，并承认关系抽象困难；本次没有复核完整统计推导或重跑仿真。生物类比仍是模型假设。",
+        "nextQuestion": "固定输入特征与可学习内部特征各自限制了哪些新任务和关系泛化？",
+        "claims": [
+          {
+            "id": "e-rosenblatt-1958-c1",
+            "text": "原文的感知机包含感觉、联想和响应阶段，并讨论不同反馈和增益规则；学习改变的是响应倾向。",
+            "locator": "389–392页，图1、表1",
+            "basis": "source-reported",
+            "sourceId": "rosenblatt-1958",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-rosenblatt-1958-c2",
+            "text": "记忆测试重现训练刺激；泛化测试使用独立位置等变化的新刺激。两两响应偏好概率也不同于在全部响应中正确选择的概率。",
+            "locator": "395–396页",
+            "basis": "source-reported",
+            "sourceId": "rosenblatt-1958",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-rosenblatt-1958-c3",
+            "text": "作者把相对判断与时空关系抽象列为当前感知机的能力边界，而未宣称已解释完整人类学习。",
+            "locator": "404–406页",
+            "basis": "source-reported",
+            "sourceId": "rosenblatt-1958",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "rosenblatt-1958",
+            "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain",
+            "authors": [
+              "Frank Rosenblatt"
+            ],
+            "recordedAuthors": [
+              "Frank Rosenblatt"
+            ],
+            "corrections": [],
+            "year": 1958,
+            "url": "https://web.engr.oregonstate.edu/~huanlian/teaching/ML/2020spring/extra/rosenblatt-1958.pdf",
+            "version": "Psychological Review 65(6):386–408；23页原刊扫描",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–11／386–396页的动机、架构、增益方式及记忆／泛化协议；PDF19–23／404–408页的关系抽象边界、结论和参考文献。图1与表1已视觉核对。",
+            "unreadScope": "397–403页的详细学习曲线、推导及扩展尚未完整读；未复现仿真，也未将后来的感知机收敛定理或教材更新式倒填到本篇。",
+            "verification": "核对所列原文主张、条件与范围；本次未独立重跑其论文实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-rosenblatt-1958.md"
+      },
+      {
+        "id": "e-gentner-1983",
+        "title": "类比为何偏向关系结构而非表面属性？",
+        "year": 1983,
+        "dateLabel": "1983",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "类比与关系结构",
+        "question": "当两个领域的对象不同，哪些知识仍可迁移？",
+        "mechanism": "将源域对象映射到目标域，优先保留关系及被高阶关系联系起来的结构，产生目标域的候选推论。",
+        "assumptions": "依赖给定的心理知识表征；谓词匹配按同一性处理，通常采用一对一对象对应，但原文允许例外。",
+        "limits": "映射产生候选推论，仍需评价可信性；原文的简要行为证据未在本批复验。类比偏好不保证迁移知识为真。",
+        "nextQuestion": "结构相同但结论为假的类比，能否被独立的验证步骤拒绝？",
+        "claims": [
+          {
+            "id": "e-gentner-1983-c1",
+            "text": "映射规则区分对象属性、对象间关系与高阶关系；系统性原则偏好彼此连接的关系系统。",
+            "locator": "印刷158页三条规则、163–165页系统性讨论",
+            "basis": "source-reported",
+            "sourceId": "gentner-1983",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gentner-1983-c2",
+            "text": "候选推论需要后续合理性评价，结构映射并不代替该阶段。",
+            "locator": "印刷165页脚注11",
+            "basis": "source-reported",
+            "sourceId": "gentner-1983",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gentner-1983-c3",
+            "text": "此处系统性指关系结构的连贯性；与Fodor讨论的能力成组出现需分别定义。",
+            "locator": "印刷158及163–165页；与Fodor §3.2的本站比较",
+            "basis": "editorial-inference",
+            "sourceId": "gentner-1983",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "gentner-1983",
+            "title": "Structure-Mapping: A Theoretical Framework for Analogy",
+            "authors": [
+              "Dedre Gentner"
+            ],
+            "recordedAuthors": [
+              "Dedre Gentner"
+            ],
+            "corrections": [],
+            "year": 1983,
+            "url": "https://groups.psych.northwestern.edu/gentner/papers/Gentner83.2b.pdf",
+            "version": "Cognitive Science 7(2):155–170，作者实验室扫描本；大部分PDF页为双页",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–8／正文155–168及参考文献169页；PDF3／158–159页映射规则已视觉核对",
+            "unreadScope": "参考文献末页未读；文中概述的心理实验原始报告、后续SME实现未读或复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-gentner-1983.md"
+      },
+      {
+        "id": "e-valiant-1984",
+        "title": "Valiant：学习需要怎样的协议？",
+        "year": 1984,
+        "dateLabel": "1984",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "形式学习",
+        "question": "什么样的概念能以可控制的样本与计算代价学会？",
+        "mechanism": "把学习环境、表示类、查询能力和成功概率写进协议；EXAMPLES 提供正例，ORACLE 允许成员查询。",
+        "assumptions": "原文的正例分布、单侧错误和查询条件必须逐一保留；不能直接替换为教材常用的双侧错误、有正负标签的 PAC 协议。",
+        "limits": "定义与特定表示类的结果，不能推出所有现实概念可高效学习。",
+        "nextQuestion": "怎样把先验、查询和数据成本放到同一张比较表？",
+        "claims": [
+          {
+            "id": "e-valiant-1984-c1",
+            "text": "原文要求高概率输出无假阳性的假设，并将正例分布上的漏判质量限制在 1/h；运行代价随规模与 h 多项式增长。",
+            "locator": "§2–3，印刷页 1135–1137",
+            "basis": "source-reported",
+            "sourceId": "valiant-1984",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "valiant-1984",
+            "title": "A Theory of the Learnable；CACM 27(11),1134–1142；Leslie Valiant",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://courses.grainger.illinois.edu/ece544na/fa2014/valiant84.pdf",
+            "version": "A Theory of the Learnable；CACM 27(11),1134–1142；Leslie Valiant",
+            "readingStatus": "selected-sections",
+            "readScope": "§1–3，PDF 1–4 / 印刷页 1134–1137；证明部分未逐条复核",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-valiant-1984.md"
+      },
+      {
+        "id": "e-rumelhart-1986",
+        "title": "隐藏单元怎样获得学习信号？",
+        "year": 1986,
+        "dateLabel": "1986",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "隐藏层误差分配",
+        "question": "任务只指定输入和目标输出时，怎样学习未被直接指定的内部表示？",
+        "mechanism": "前向计算活动，反向用链式法则传播误差导数，再以梯度及动量更新连接；内部特征随任务形成。",
+        "assumptions": "本文采用可微单元和给定输入输出样例；训练结果依赖架构、随机初值及优化设置。",
+        "limits": "下降方向不保证全局最优；四个留出家族关系的成功不是任意组合泛化的证明。作者明确否认当时算法已是可信的脑学习模型。",
+        "nextQuestion": "相同优化方法在不同结构先验和训练分布下，会学出什么表示和外推行为？",
+        "claims": [
+          {
+            "id": "e-rumelhart-1986-c1",
+            "text": "误差导数可以逐层反传，使隐藏单元输入连接得到训练信号；正文给出梯度与动量更新。",
+            "locator": "533–535页，式1–9",
+            "basis": "source-reported",
+            "sourceId": "rumelhart-1986",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-rumelhart-1986-c2",
+            "text": "家族关系任务使用两个同构家族树；作者报告训练104个关系三元组中的100个后，对留出的4个正确泛化。",
+            "locator": "534–535页，图2–4及正文",
+            "basis": "source-reported",
+            "sourceId": "rumelhart-1986",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-rumelhart-1986-c3",
+            "text": "原文承认局部极小值与生物可信性限制，并注明Parker与Le Cun独立发现相关变体。",
+            "locator": "535–536页",
+            "basis": "source-reported",
+            "sourceId": "rumelhart-1986",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "rumelhart-1986",
+            "title": "Learning Representations by Back-propagating Errors",
+            "authors": [
+              "David E. Rumelhart",
+              "Geoffrey E. Hinton",
+              "Ronald J. Williams"
+            ],
+            "recordedAuthors": [
+              "David E. Rumelhart",
+              "Geoffrey E. Hinton",
+              "Ronald J. Williams"
+            ],
+            "corrections": [],
+            "year": 1986,
+            "url": "https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf",
+            "version": "Nature 323:533–536，1986-10-09；作者网站提供的4页期刊扫描",
+            "readingStatus": "full-text",
+            "readScope": "533页本文标题起至536页本文参考文献止，全文及式1–9、图1–5已逐页视觉阅读；同页其他文章不属于本文。",
+            "unreadScope": "未重跑对称性与家族关系实验；参考文献中的PDP长章、Le Cun 1985及更早历史原文未读，不据本文宣称反向传播首次发明。",
+            "verification": "核对所列原文主张、条件与范围；本次未独立重跑其论文实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-rumelhart-1986.md"
+      },
+      {
+        "id": "e-fodor-pylyshyn-1988",
+        "title": "相关认知能力为什么成组出现？",
+        "year": 1988,
+        "dateLabel": "1988",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "系统性争论",
+        "question": "理解某种关系为什么通常伴随理解相关的角色交换，而不是互不相关的能力清单？",
+        "mechanism": "从系统性、组合性与推理一致性论证：表征需要组成结构，处理过程需要对该结构敏感；系统性论证不依赖无界生产性的理想化。",
+        "assumptions": "作者把相关能力成组出现视作需要解释的经验前提；从语言到思想还使用表达思想的桥接前提；关于非语言动物的论证包含待经验检验的主张。",
+        "limits": "这不是证明任何神经网络都无法完成组合任务。作者承认网络可以表现系统性，争点是架构如何解释并产生这种规律；人类系统性的范围也需任务与表现约束。",
+        "nextQuestion": "训练诱导的规则能否在新角色、新长度与新分布下持续工作？这些检验分别触及原论证哪一前提？",
+        "claims": [
+          {
+            "id": "e-fodor-pylyshyn-1988-c1",
+            "text": "§3.2将系统性表述为某些理解或表达能力之间的内在联系，并明确它不需要无界能力的理想化。",
+            "locator": "印刷36–40页，§3.2",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-fodor-pylyshyn-1988-c2",
+            "text": "§3.4和§3.5承认可以构造表现系统性的网络；作者要求说明为什么相关能力由机制成组产生，而非仅额外规定其存在。",
+            "locator": "印刷47–50页，尤其50页",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-fodor-pylyshyn-1988-c3",
+            "text": "把SCAN或MLC某一切分得分直接视为整场架构争论的裁决，会跨过能力定义、训练机制及泛化范围的对齐步骤。",
+            "locator": "Fodor与Pylyshyn §3.2–3.5；比较依据另见关联来源SCAN PDF5–6及MLC 119页Discussion；本站分析",
+            "basis": "editorial-inference",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-fodor-pylyshyn-1988-c4",
+            "text": "作者将节点的说法扩展到聚合活动模式，并区分认知架构与神经实现；不能把其论证简单还原为只批评局部单元表征。",
+            "locator": "印刷5页脚注1、10–11页层次区分、15页脚注10",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "fodor-pylyshyn-1988",
+            "title": "Connectionism and cognitive architecture: A critical analysis",
+            "authors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "recordedAuthors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+            "version": "Cognition 28(1–2):3–71；扫描期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–49／印刷3–51页：§1、§2、完整§3.1–3.5与§4开头；扫描文字识别辅助阅读，图形及少量识别不清符号不据OCR重建",
+            "unreadScope": "PDF50–69／印刷52–71页尚未完整读；不能称全文完成",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "lake-baroni-2018",
+            "title": "Generalization without Systematicity: On the Compositional Skills of Sequence-to-Sequence Recurrent Networks",
+            "authors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "recordedAuthors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "corrections": [],
+            "year": 2018,
+            "url": "https://proceedings.mlr.press/v80/lake18a/lake18a.pdf",
+            "version": "Generalization without systematicity；Lake & Baroni；ICML/PMLR80",
+            "readingStatus": "selected-sections",
+            "readScope": "§2及§4实验，PDF2、4–7；未逐页读全部附录；本批复核PDF2、5–6：任务定义、隔离原语实验及与Fodor思想实验的联系",
+            "unreadScope": "第二轮所列未覆盖范围仍保留；本批未补读全部Methods、附录、代码，也未复现实验",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          },
+          {
+            "id": "lake-baroni-2023",
+            "title": "Human-like systematic generalization through a meta-learning neural network",
+            "authors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "recordedAuthors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "corrections": [],
+            "year": 2023,
+            "url": "https://www.nature.com/articles/s41586-023-06668-3.pdf",
+            "version": "Human-like systematic generalization through a meta-learning neural network；Lake & Baroni；Nature623,115–121",
+            "readingStatus": "selected-sections",
+            "readScope": "正文PDF2–6；未全面核对Methods与补充材料；本批复核PDF5／119页表2与Discussion：直接讨论Fodor与Pylyshyn，并保留分布外及新符号限制",
+            "unreadScope": "第二轮所列未覆盖范围仍保留；本批未补读全部Methods、附录、代码，也未复现实验",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-fodor-pylyshyn-1988.md"
+      },
+      {
+        "id": "e-smolensky-1988-bbs",
+        "title": "分布式状态能否具有组成结构？",
+        "year": 1988,
+        "dateLabel": "1988",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "分布式组成结构",
+        "question": "连接主义是否只能把一个完整思想当成没有结构的原子？",
+        "mechanism": "Smolensky在概念层把活动模式分解成子模式，在次概念层分析单元活动；咖啡例中组成部分随语境变化，符号描述作为近似高层描述。",
+        "assumptions": "这是一种研究纲领及表征分析；不能把作者认为可行的方向当作已经完成的普遍系统性保证。",
+        "limits": "目标文§7.2明说复杂结构仍有难题；作者回应区分共同抽象的不同实现与精确执行符号原语。Fodor与Pylyshyn对语境变化下如何保证推理有效提出直接异议。",
+        "nextQuestion": "能否构造具有明确绑定与解绑定规则的分布式表征，再分开检验结构表达、操作和学习？",
+        "claims": [
+          {
+            "id": "e-smolensky-1988-bbs-c1",
+            "text": "§7.2直接点名Fodor与Pylyshyn1988，并以分布式子模式的组成结构反对把批评推广到所有分布式网络。",
+            "locator": "PDF/印刷16–17页，§7.2",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1988-bbs",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1988-bbs-c2",
+            "text": "作者回应图1区分精确执行符号原语和直接以连接主义形式实现认知抽象；后一方向要求重建架构。",
+            "locator": "PDF/印刷62页，回应§1.1图1",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1988-bbs",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1988-bbs-c3",
+            "text": "Fodor与Pylyshyn明确批评Smolensky的咖啡例与近似语境等价，追问关系相似怎样保证推理有效。",
+            "locator": "印刷45–46页，§3.3",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "smolensky-1988-bbs",
+            "title": "On the proper treatment of connectionism",
+            "authors": [
+              "Paul Smolensky"
+            ],
+            "recordedAuthors": [
+              "Paul Smolensky"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://compositionalintelligence.github.io/pdfs/Smolensky_BBS.pdf",
+            "version": "Behavioral and Brain Sciences 11，目标文1–23页；所读74页文件另含评论与作者回应，DOI对应目标文章",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF/印刷15–17页，重点§7.2；作者回应62、67–70页。68–69页原先被提取截断的正文已补齐阅读。",
+            "unreadScope": "其他正文、评论和回应未完整读；同年另文 The Constituent Structure… 的全文入口失败，不能用此文件冒充该文",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "fodor-pylyshyn-1988",
+            "title": "Connectionism and cognitive architecture: A critical analysis",
+            "authors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "recordedAuthors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+            "version": "Cognition 28(1–2):3–71；扫描期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–49／印刷3–51页：§1、§2、完整§3.1–3.5与§4开头；扫描文字识别辅助阅读，图形及少量识别不清符号不据OCR重建",
+            "unreadScope": "PDF50–69／印刷52–71页尚未完整读；不能称全文完成",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-smolensky-1988-bbs.md"
+      },
+      {
+        "id": "e-baird-1995",
+        "title": "共享参数怎样破坏表格方法的收敛？",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "函数逼近的稳定性",
+        "question": "值函数能表示正确答案，为什么迭代仍会发散？",
+        "mechanism": "直接法把后继值当作固定目标，残差梯度还对后继值求导；共享权重使更新一个状态同时改变别的状态。",
+        "assumptions": "采用六状态、零奖励、等频更新、原始特征；主实验参数是本次选择，遵循式3和§5正文求和规则，式7存在符号冲突。",
+        "limits": "结果仅覆盖选定线性预测问题；不复现图5完整速度实验，不推广到全部采样、折扣、步长或非线性模型。",
+        "nextQuestion": "怎样把投影、采样分布和目标的变化分别隔离，说明稳定性的来源？",
+        "claims": [
+          {
+            "id": "e-baird-1995-c1",
+            "text": "原图1有六个状态和七个权重；末页勘误说明图中系数2曾漏排。",
+            "locator": "PDF2图1及PDF9勘误",
+            "basis": "source-reported",
+            "sourceId": "baird-1995-july",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-baird-1995-c2",
+            "text": "式3与式7的直接法梯度符号相反；将式7判为疑似排印错误是本次审校判断，未获作者确认。",
+            "locator": "PDF2式3、PDF4式7；replication/protocol.md 修订A",
+            "basis": "derived",
+            "sourceId": "baird-1995-july",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-baird-1995-c3",
+            "text": "独立实现中γ=0.99、α=0.01时直接法振荡发散，残差梯度渐近收敛但很慢；γ=0.9的受检步长下直接法稳定。",
+            "locator": "replication/README.md、results.json、traces.csv",
+            "basis": "derived",
+            "sourceId": "baird-1995-july",
+            "independentlyReplicated": true
+          },
+          {
+            "id": "e-baird-1995-c4",
+            "text": "1999年论文图4.2与4.3分别给出七状态螺旋发散和十一状态单调增长，不能与1995六状态例互换。",
+            "locator": "PDF37–38／印刷35–36页，图4.2、4.3",
+            "basis": "source-reported",
+            "sourceId": "baird-1999-thesis",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "baird-1995-july",
+            "title": "Residual Algorithms: Reinforcement Learning with Function Approximation",
+            "authors": [
+              "Leemon Baird"
+            ],
+            "recordedAuthors": [
+              "Leemon Baird"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "http://leemon.com/papers/1995b.pdf",
+            "version": "9页作者版，1995-07-15勘误；六状态图1",
+            "readingStatus": "selected-sections",
+            "readScope": "正文§2–5和§9、末页勘误；图1、式3/6/7/8与末页图已视觉核对",
+            "unreadScope": "未完整复核一般残差算法的证明、随机转移推导和全部图5实验",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "baird-1999-thesis",
+            "title": "Reinforcement Learning Through Gradient Descent",
+            "authors": [
+              "Leemon Baird"
+            ],
+            "recordedAuthors": [
+              "Leemon Baird"
+            ],
+            "corrections": [],
+            "year": 1999,
+            "url": "https://www.ri.cmu.edu/pub_files/pub2/baird_leemon_1999_1/baird_leemon_1999_1.pdf",
+            "version": "博士论文；所读印刷35–37页",
+            "readingStatus": "selected-sections",
+            "readScope": "§4.2，PDF37–39；图4.2与4.3及图说已视觉核对",
+            "unreadScope": "其余章节未读；七状态及十一状态例未数值复现",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-baird-1995.md"
+      },
+      {
+        "id": "e-tenenbaum-2011",
+        "title": "少量经验如何支持丰富的结构推断？",
+        "year": 2011,
+        "dateLabel": "2011",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "结构先验与分层学习",
+        "question": "从稀疏数据作出广泛概括时，所需的先验和假设空间从何而来？",
+        "mechanism": "把树、图、语法等结构放入概率模型；在分层模型中联合学习具体结构及约束它的抽象形式，跨实例汇集证据。",
+        "assumptions": "结构形式、元语法及先验族仍需规定；归纳能力取决于真实规律与假设空间的关系。此文是综述，实例来自其引用研究。",
+        "limits": "分层学习不会消除所有先验；计算成本、初始概念与神经实现仍是原文开放问题。对连接主义的概括属于作者立场，不据此忽略已有分布式结构表示。",
+        "nextQuestion": "在相近经验与计算条件下，结构先验何时帮助迁移，何时造成系统性误判？",
+        "claims": [
+          {
+            "id": "e-tenenbaum-2011-c1",
+            "text": "文章将概率推断与结构化表示结合，图2用上层结构形式约束下层图，并联合推断形式与具体结构。",
+            "locator": "1280–1282页及图2",
+            "basis": "source-reported",
+            "sourceId": "tenenbaum-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tenenbaum-2011-c2",
+            "text": "图3展示分层图模式如何与具体网络从同一数据学习；高层共享约束可汇集低层证据，但模型仍有规定的表示及先验族。",
+            "locator": "1283–1284页，图3及blessing of abstraction段",
+            "basis": "source-reported",
+            "sourceId": "tenenbaum-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tenenbaum-2011-c3",
+            "text": "开放问题包括初始概念、灵活程序表示如何约束学习、近似推断效率及神经实现；计算层解释不等于实现层已解决。",
+            "locator": "1284–1285页Open Questions",
+            "basis": "source-reported",
+            "sourceId": "tenenbaum-2011",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "tenenbaum-2011",
+            "title": "How to Grow a Mind: Statistics, Structure, and Abstraction",
+            "authors": [
+              "Joshua B. Tenenbaum",
+              "Charles Kemp",
+              "Thomas L. Griffiths",
+              "Noah D. Goodman"
+            ],
+            "recordedAuthors": [
+              "Joshua B. Tenenbaum",
+              "Charles Kemp",
+              "Thomas L. Griffiths",
+              "Noah D. Goodman"
+            ],
+            "corrections": [],
+            "year": 2011,
+            "url": "https://web.stanford.edu/~ngoodman/papers/tkgg-science11-reprint.pdf",
+            "version": "Science 331:1279–1285，2011-03-11；8页作者公开重印，PDF首页为下载封面",
+            "readingStatus": "full-text",
+            "readScope": "正文1279–1285页及参考文献；1282–1283页图2–3已视觉核对。",
+            "unreadScope": "综述所引用的各项原始实验、在线补充材料和程序未独立审查；不把综述复述计为原研究独立复现。",
+            "verification": "核对所列原文及图表；未独立重跑论文实验或全面复核证明。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-tenenbaum-2011.md"
+      },
+      {
+        "id": "e-lake-2015",
+        "title": "Lake 等：一次观察如何学到生成过程？",
+        "year": 2015,
+        "dateLabel": "2015",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "概念生成",
+        "question": "为何人能从单个字符例子辨认并生成新实例？",
+        "mechanism": "概率程序把字符表示为笔画及其关系；类型程序生成具体书写实例，再生成图像；跨字符学习提供先验。",
+        "assumptions": "有手工建模的绘制原语和背景训练；背景阶段包含笔画生成信息。一次例子指新概念阶段。",
+        "limits": "本轮未复核全部量化结果，不发布人类等效的总括判断；字符成功不能外推任意概念。",
+        "nextQuestion": "生成式先验怎样迁移到没有明确笔画原语的领域？",
+        "claims": [
+          {
+            "id": "e-lake-2015-c1",
+            "text": "模型结合组合性、生成因果过程和学习如何学习；Omniglot 用于字符领域的少样本任务。",
+            "locator": "正文图1–3及印刷页1332–1335",
+            "basis": "source-reported",
+            "sourceId": "lake-2015",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lake-2015",
+            "title": "Human-level concept learning through probabilistic program induction；Science 350,1332–1338；Lake, Salakhutdinov, Tenenbaum",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://www.cs.toronto.edu/~rsalakhu/papers/LakeEtAl2015Science.pdf",
+            "version": "Human-level concept learning through probabilistic program induction；Science 350,1332–1338；Lake, Salakhutdinov, Tenenbaum",
+            "readingStatus": "selected-sections",
+            "readScope": "正文 PDF 1–3及第4页开头；未读补充材料全部实验",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-lake-2015.md"
+      },
+      {
+        "id": "e-lake-baroni-2018",
+        "title": "SCAN：随机切分掩盖了什么？",
+        "year": 2018,
+        "dateLabel": "2018",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "组合泛化",
+        "question": "学会单个动作和组合规则后，能否执行新组合？",
+        "mechanism": "有限语法把指令映射为动作序列；分别用随机、长度和隔离原语切分测试序列模型。",
+        "assumptions": "结果对应2018年的模型、训练和切分；有限人工语法不代表全部自然语言。",
+        "limits": "原论文没有同任务人类对照；失败不是神经网络不可能组合泛化的证明。",
+        "nextQuestion": "怎样控制词汇熟悉度与组合新颖性这两个变量？",
+        "claims": [
+          {
+            "id": "e-lake-baroni-2018-c1",
+            "text": "孤立 jump 的最佳测试表现仅1.2%；turn left 的组合表现较好，与 LTURN 在其他训练组合中已出现有关。",
+            "locator": "§4.3，PDF5–6",
+            "basis": "source-reported",
+            "sourceId": "lake-baroni-2018",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lake-baroni-2018",
+            "title": "Generalization without systematicity；Lake & Baroni；ICML/PMLR80",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://proceedings.mlr.press/v80/lake18a/lake18a.pdf",
+            "version": "Generalization without systematicity；Lake & Baroni；ICML/PMLR80",
+            "readingStatus": "selected-sections",
+            "readScope": "§2及§4实验，PDF2、4–7；未逐页读全部附录",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-lake-baroni-2018.md"
+      },
+      {
+        "id": "e-loula-2018",
+        "title": "Loula 等：熟悉词能否形成新组合？",
+        "year": 2018,
+        "dateLabel": "2018",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "组合泛化",
+        "question": "SCAN失败是否仅因新词的表示没有训练好？",
+        "mechanism": "保留熟悉的词，系统地扣留动作、方向、修饰词组合；再控制填充词和组合示例数量。",
+        "assumptions": "不同初始切分的测试集大小并不一致；不能把整张表当单变量配对实验。",
+        "limits": "均值来自指定网络与5次运行；后续新增示例实验才更接近固定测试集合的比较。",
+        "nextQuestion": "怎样度量训练与测试在组合层面的差异？",
+        "claims": [
+          {
+            "id": "e-loula-2018-c1",
+            "text": "扣留 Primitive around right 的准确率为2.46±2.68%；只扣留 jump around right 为98.43±0.54%，显示训练组合覆盖十分关键。",
+            "locator": "§3，PDF5表2；后续控制见§4–5",
+            "basis": "source-reported",
+            "sourceId": "loula-2018",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "loula-2018",
+            "title": "Rearranging the Familiar；Loula, Baroni, Lake；BlackboxNLP2018",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://aclanthology.org/W18-5413.pdf",
+            "version": "Rearranging the Familiar；Loula, Baroni, Lake；BlackboxNLP2018",
+            "readingStatus": "selected-sections",
+            "readScope": "正文PDF1–6；PDF5表2、3已视觉核对",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-loula-2018.md"
+      },
+      {
+        "id": "e-chollet-2019",
+        "title": "Chollet：从任务得分转向技能习得效率",
+        "year": 2019,
+        "dateLabel": "2019",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "智能测量",
+        "question": "高任务得分能否区分知识积累、先验和适应能力？",
+        "mechanism": "按任务范围、先验、经验及泛化难度考察技能习得效率；ARC用少量网格例子诱发新规则。",
+        "assumptions": "任务范围与允许先验必须明确；所谓核心知识是设计假设。",
+        "limits": "本轮未验证形式测度的可计算性，也未验证 ARC 与独立人类能力测量的相关性。",
+        "nextQuestion": "如何防止测验逐渐成为训练分布的一部分？",
+        "claims": [
+          {
+            "id": "e-chollet-2019-c1",
+            "text": "作者把 ARC 的效度、泛化难度量化及先验设定列为待解决问题，不能把它视为已建立的通用智能标尺。",
+            "locator": "§III.2，PDF53–54；设计见§III.1",
+            "basis": "source-reported",
+            "sourceId": "chollet-2019",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "chollet-2019",
+            "title": "On the Measure of Intelligence；François Chollet；arXiv v2,2019-11-25",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://arxiv.org/pdf/1911.01547v2",
+            "version": "On the Measure of Intelligence；François Chollet；arXiv v2,2019-11-25",
+            "readingStatus": "selected-sections",
+            "readScope": "引言；PDF27–28、46–47、53–54；未逐式复核全部算法信息论定义",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-chollet-2019.md"
+      },
+      {
+        "id": "e-geirhos-2020",
+        "title": "高测试分数究竟来自哪条决策规则？",
+        "year": 2020,
+        "dateLabel": "2020",
+        "dateBasis": "preprint-v1",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "捷径学习与分布外检验",
+        "question": "当多种规则都能拟合训练与同分布测试时，怎样判断学到了预期能力？",
+        "mechanism": "改变候选线索与标签的关系，比较同分布与分布外表现；联合审查架构、数据、损失和优化带来的偏向。",
+        "assumptions": "需要明确目标能力、可解的分布变化及对应对照；本文是观点文章，实例证据与普遍解释应分别判断。",
+        "limits": "玩具任务不能证明卷积网络总能避开捷径；“总选择最容易解”的表述是作者概括，不是本文证明的一般定理。所读为2023年v5，未对照2020各版。",
+        "nextQuestion": "控制预期规则与捷径规则的可用性后，哪些训练条件改变模型依赖的线索？",
+        "claims": [
+          {
+            "id": "e-geirhos-2020-c1",
+            "text": "同分布测试可能无法区分形状、像素数量与位置等候选规则；分布外测试须明确预期解和改变的条件。",
+            "locator": "§3，4–6页；§6.2，12–13页",
+            "basis": "source-reported",
+            "sourceId": "geirhos-2020-v5",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-geirhos-2020-c2",
+            "text": "星月玩具实验中，位置与类别在训练时相关；附录报告位置随机化测试下MLP为51.0%，特定CNN为100%，两者训练准确率均为100%。",
+            "locator": "5页图2；28页Appendix A",
+            "basis": "source-reported",
+            "sourceId": "geirhos-2020-v5",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-geirhos-2020-c3",
+            "text": "作者以架构、训练数据、损失和优化四方面分析学习偏向，并强调大规模数据仍可保留捷径机会。",
+            "locator": "§4.1，7页；Box II及§6.3，15页",
+            "basis": "source-reported",
+            "sourceId": "geirhos-2020-v5",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "geirhos-2020-v5",
+            "title": "Shortcut Learning in Deep Neural Networks",
+            "authors": [
+              "Robert Geirhos",
+              "Jörn-Henrik Jacobsen",
+              "Claudio Michaelis",
+              "Richard Zemel",
+              "Wieland Brendel",
+              "Matthias Bethge",
+              "Felix A. Wichmann"
+            ],
+            "recordedAuthors": [
+              "Robert Geirhos",
+              "Jörn-Henrik Jacobsen",
+              "Claudio Michaelis",
+              "Richard Zemel",
+              "Wieland Brendel",
+              "Matthias Bethge",
+              "Felix A. Wichmann"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://arxiv.org/pdf/2004.07780v5",
+            "version": "2020年首次预印本及期刊文章；实际读取arXiv:2004.07780v5（2023-11-21），29页，页码不采用期刊665–673",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–18，§1–8及Boxes I–II；PDF28 Appendix A玩具实验方法；图2与附录A已视觉核对。固定v5下载指纹与第二轮暂存但未读的文件相同。",
+            "unreadScope": "未逐篇核查其引用的视觉、语言、医疗、教育等研究；未运行作者代码、核对多种子稳定性或比较v1到v5的改动；不能用本次阅读声称2020初稿逐字相同。",
+            "verification": "核对所列原文主张、条件与范围；本次未独立重跑其论文实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-geirhos-2020.md"
+      },
+      {
+        "id": "e-keysers-2020",
+        "title": "CFQ：控制原子分布，改变组合分布",
+        "year": 2020,
+        "dateLabel": "2020",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "组合泛化",
+        "question": "怎样超越直觉切分，量化组合分布偏移？",
+        "mechanism": "DBCA用生成规则作原子、规则应用子图作组合；保持原子分布接近，构造最大组合差异 MCD 切分。",
+        "assumptions": "依赖已知生成规则和子图采样；CFQ是人工生成的问句到查询的任务。",
+        "limits": "相关性不等于唯一因果解释；长度等差异仍可能共同变化。",
+        "nextQuestion": "自然语言没有生成轨迹时，组合差异如何可靠定义？",
+        "claims": [
+          {
+            "id": "e-keysers-2020-c1",
+            "text": "三种基线在 CFQ 随机切分均高于95%，在 MCD 均低于20%；超参数在随机切分调节，报告5次训练结果。",
+            "locator": "§5.1–5.2，PDF7–8，表4",
+            "basis": "source-reported",
+            "sourceId": "keysers-2020",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "keysers-2020",
+            "title": "Measuring Compositional Generalization；Keysers 等；ICLR2020版，首预印本2019",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://arxiv.org/pdf/1912.09713",
+            "version": "Measuring Compositional Generalization；Keysers 等；ICLR2020版，首预印本2019",
+            "readingStatus": "selected-sections",
+            "readScope": "正文PDF1–3、6–8；附录未全面复核",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-keysers-2020.md"
+      },
+      {
+        "id": "e-ellis-2021",
+        "title": "能否同时学习程序库和搜索程序的方法？",
+        "year": 2021,
+        "dateLabel": "2021",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "程序归纳与学习搜索",
+        "question": "预先设计专用语言限制了程序合成，怎样从已解任务中学出可复用抽象？",
+        "mechanism": "清醒阶段搜索程序；抽象阶段重构已找到的程序形成库；梦阶段用已解任务和库中采样程序训练神经搜索策略。",
+        "assumptions": "输入仍需基本语言和具有共享结构、难度递进的任务语料；后验计算使用有限候选束等近似，不是从无先验开始。",
+        "limits": "主消融覆盖六个领域，另有两个特殊实验；递归基础学习实验没有使用识别网络。少量任务例不等于低总训练成本，完整DSL学习仍是开放问题。 图7中的生成文本任务使用每字符预测似然，不能与其他任务的解题率混为同一指标；EC2各领域运行次数也不同。",
+        "nextQuestion": "在新数据类型、不同任务分布和更现实的噪声下，库与搜索策略能否继续迁移？",
+        "claims": [
+          {
+            "id": "e-ellis-2021-c1",
+            "text": "§2明确要求基本语言足以表达任务，并要求容易与困难任务共享可复用抽象。",
+            "locator": "837页§2",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c2",
+            "text": "算法将程序搜索、抽象库学习和识别网络训练分成三阶段，并使用有限候选束近似程序空间的求和。",
+            "locator": "837–839页§2.1–2.4",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c3",
+            "text": "作者报告主评测中两类学习部件均有贡献；列表任务测试集和EC2批处理方式改变，不能直接与旧论文数字比较。",
+            "locator": "843–844页§5",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c4",
+            "text": "特殊递归语言实验禁用识别网络；作者仍将自动学习DSL的数据类型、惯用法和设计模式列为开放问题。",
+            "locator": "847页特殊实验与§6 Outlook",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c5",
+            "text": "图7生成文本面板报告预测似然；误差条为运行间标准差，EC2的运行次数存在领域差异。",
+            "locator": "845页图7及图说",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "dreamcoder-2021",
+            "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+            "authors": [
+              "Kevin Ellis",
+              "Catherine Wong",
+              "Maxwell Nye",
+              "Mathias Sablé-Meyer",
+              "Lucas Morales",
+              "Luke Hewitt",
+              "Luc Cary",
+              "Armando Solar-Lezama",
+              "Joshua B. Tenenbaum"
+            ],
+            "recordedAuthors": [
+              "Kevin Ellis",
+              "Catherine Wong",
+              "Maxwell Nye",
+              "Mathias Sablé-Meyer",
+              "Lucas Morales",
+              "Luke Hewitt",
+              "Luc Cary",
+              "Armando Solar-Lezama",
+              "Joshua B. Tenenbaum"
+            ],
+            "corrections": [],
+            "year": 2021,
+            "url": "https://people.csail.mit.edu/asolar/papers/EllisWNSMHCST21.pdf",
+            "version": "PLDI 2021正式论文，835–850页；2020预印本题名与组织不同，本批不混用",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–5／835–839页的问题、算法及近似目标；PDF9–10／843–844页评测设置与结果；PDF13–14／847–848页特殊实验、讨论和图说；PDF11／845页图7曲线、图例、误差条与图说已视觉核对，并读该页正文",
+            "unreadScope": "PDF6–8重构细节、PDF12特殊实验中段、15–16参考文献未完整读；另册附录和代码未核验，未复现结果",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-ellis-2021.md"
+      },
+      {
+        "id": "e-lake-baroni-2023",
+        "title": "MLC：用任务分布训练组合能力",
+        "year": 2023,
+        "dateLabel": "2023",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "组合泛化",
+        "question": "训练方式能否让标准网络获得更强组合泛化并预测人的偏差？",
+        "mechanism": "Transformer在变化的解释语法任务中训练，把学习例子与查询共同作为输入；新任务中冻结权重。",
+        "assumptions": "训练任务分布、词表及人类偏差建模均提供先验；最佳人类对照运行不能当作所有种子的平均。",
+        "limits": "人类式行为匹配不是机制同一；原文已承认对元训练分布之外任务及自然语言的推广未定。",
+        "nextQuestion": "训练中获得的系统性在多大范围内稳定？",
+        "claims": [
+          {
+            "id": "e-lake-baroni-2023-c1",
+            "text": "指定 SCAN 词汇组合切分显著改善；作者同时报告 SCAN 长度和 COGS 结构切分错误率100%。",
+            "locator": "正文PDF5，表2及Discussion",
+            "basis": "source-reported",
+            "sourceId": "lake-baroni-2023",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lake-baroni-2023",
+            "title": "Human-like systematic generalization through a meta-learning neural network；Lake & Baroni；Nature623,115–121",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://www.nature.com/articles/s41586-023-06668-3.pdf",
+            "version": "Human-like systematic generalization through a meta-learning neural network；Lake & Baroni；Nature623,115–121",
+            "readingStatus": "selected-sections",
+            "readScope": "正文PDF2–6；未全面核对Methods与补充材料",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-lake-baroni-2023.md"
+      },
+      {
+        "id": "e-arc-agi-2-2025",
+        "title": "ARC-AGI-2：把人类校准与任务筛选纳入基准",
+        "year": 2025,
+        "dateLabel": "2025",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "智能测量",
+        "question": "怎样改善难度分布、旧任务泄漏风险和缺少统一人类基线的问题？",
+        "mechanism": "保持网格输入输出形式，超额生成任务，经人类测试、去重和难度校准筛选评测集合。",
+        "assumptions": "被筛选后的可解性与平均个体能力是两种统计量；训练集也不能等同于校准后的评测集。",
+        "limits": "v2修改了部分汇总统计文字；本节点不引用实时榜单，也不把领域差异不显著当作通用智能效度证明。",
+        "nextQuestion": "怎样建立独立于筛选过程的外部效度和长期抗污染检验？",
+        "claims": [
+          {
+            "id": "e-arc-agi-2-2025-c1",
+            "text": "v1描述407名参与者、515次场次；任务筛选先要求至少两人解出子题，再验证评测题；“每题至少两人解出”不是人人得满分。",
+            "locator": "v1 §4–5，PDF5–7",
+            "basis": "source-reported",
+            "sourceId": "arc-agi-2-report-2025",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "arc-agi-2-report-2025",
+            "title": "ARC-AGI-2；Chollet,Knoop,Kamradt,Landers,Pinkard；v1提交2025-05-17，所取PDF封面日期2025-06-12；另对照v2",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://arxiv.org/pdf/2505.11831v1",
+            "version": "ARC-AGI-2；Chollet,Knoop,Kamradt,Landers,Pinkard；v1提交2025-05-17，所取PDF封面日期2025-06-12；另对照v2",
+            "readingStatus": "selected-sections",
+            "readScope": "v1 PDF1、5–7；v2 PDF1–7；版本差异保留，不混用统计口径",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-arc-agi-2-2025.md"
+      },
+      {
+        "id": "e-goodale-mascarenhas-2026",
+        "title": "系统性挑战：扩展测试能否推翻过强解释？",
+        "year": 2026,
+        "dateLabel": "2026",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "回应与批评",
+        "question": "MLC的优秀行为是否足以解释系统性？",
+        "mechanism": "重用原作者最佳代数模型和代码，改变查询、词与颜色映射、规则重复次数，分别检查三层系统性。",
+        "assumptions": "该工作针对具体已训练模型与解释性主张；与MLC原文已承认的分布外限制应共同阅读。",
+        "limits": "本轮未重跑模型；这些反例不能证明所有神经网络在所有训练协议下都不可能系统泛化。",
+        "nextQuestion": "什么行为覆盖和机制证据，才足以支持可迁移的系统性？",
+        "claims": [
+          {
+            "id": "e-goodale-mascarenhas-2026-c1",
+            "text": "对100个查询种子遍历标签—颜色映射，作者报告51个在所有映射上正确，24个部分正确，25个全部错误。",
+            "locator": "§3.1，PDF8；§3.2–3.3，PDF9",
+            "basis": "source-reported",
+            "sourceId": "goodale-mascarenhas-2026",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "goodale-mascarenhas-2026",
+            "title": "Fodor and Pylyshyn’s Systematicity Challenge Still Stands；Goodale & Mascarenhas；TACL14,1619–1632；2026-07",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://aclanthology.org/2026.tacl-1.73.pdf",
+            "version": "Fodor and Pylyshyn’s Systematicity Challenge Still Stands；Goodale & Mascarenhas；TACL14,1619–1632；2026-07",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1、4–10；未复核全部后续训练实验与补充材料",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-goodale-mascarenhas-2026.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-lake-baroni-2018-loula-2018",
+        "batch": "round-two",
+        "fromId": "e-lake-baroni-2018",
+        "toId": "e-loula-2018",
+        "type": "method-extension",
+        "typeLabel": "方法扩展",
+        "status": "source-checked",
+        "locator": "Loula2018 §1，PDF1",
+        "explanation": "后文明确说扩展SCAN框架，控制熟悉词组合；这是方法扩展证据。",
+        "sourceIds": [
+          "loula-2018"
+        ]
+      },
+      {
+        "id": "r-lake-baroni-2018-keysers-2020",
+        "batch": "round-two",
+        "fromId": "e-lake-baroni-2018",
+        "toId": "e-keysers-2020",
+        "type": "benchmark-reuse",
+        "typeLabel": "基准复用",
+        "status": "source-checked",
+        "locator": "Keysers2020 §4–5，PDF6–8",
+        "explanation": "DBCA在SCAN及CFQ上构造和比较切分；不推断全部思想来源。",
+        "sourceIds": [
+          "keysers-2020"
+        ]
+      },
+      {
+        "id": "r-lake-baroni-2018-lake-baroni-2023",
+        "batch": "round-two",
+        "fromId": "e-lake-baroni-2018",
+        "toId": "e-lake-baroni-2023",
+        "type": "benchmark-reuse",
+        "typeLabel": "基准复用",
+        "status": "source-checked",
+        "locator": "Lake与Baroni2023正文PDF4–5",
+        "explanation": "MLC重测SCAN词汇切分，另报告长度失败。",
+        "sourceIds": [
+          "lake-baroni-2023"
+        ]
+      },
+      {
+        "id": "r-loula-2018-lake-baroni-2023",
+        "batch": "round-two",
+        "fromId": "e-loula-2018",
+        "toId": "e-lake-baroni-2023",
+        "type": "benchmark-reuse",
+        "typeLabel": "基准复用",
+        "status": "source-checked",
+        "locator": "Lake与Baroni2023表2，PDF5",
+        "explanation": "重测around right等组合切分；训练协议改变，数字不可当纯架构对照。",
+        "sourceIds": [
+          "lake-baroni-2023"
+        ]
+      },
+      {
+        "id": "r-lake-baroni-2023-goodale-mascarenhas-2026",
+        "batch": "round-two",
+        "fromId": "e-lake-baroni-2023",
+        "toId": "e-goodale-mascarenhas-2026",
+        "type": "critique",
+        "typeLabel": "critique",
+        "status": "source-checked",
+        "locator": "Goodale与Mascarenhas2026 §2–3，PDF4–9",
+        "explanation": "明确重用原作者最佳代数模型，提出行为反例及解释标准批评。",
+        "sourceIds": [
+          "goodale-mascarenhas-2026"
+        ]
+      },
+      {
+        "id": "r-chollet-2019-arc-agi-2-2025",
+        "batch": "round-two",
+        "fromId": "e-chollet-2019",
+        "toId": "e-arc-agi-2-2025",
+        "type": "method-extension",
+        "typeLabel": "方法扩展",
+        "status": "source-checked",
+        "locator": "ARC-AGI-2 v1 §1、§4–5",
+        "explanation": "后文明确沿用原ARC框架并增加人类校准和筛选。",
+        "sourceIds": [
+          "arc-agi-2-report-2025"
+        ]
+      },
+      {
+        "id": "r-smolensky-fodor-response",
+        "batch": "round-three-a",
+        "fromId": "e-fodor-pylyshyn-1988",
+        "toId": "e-smolensky-1988-bbs",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-checked",
+        "locator": "§7.2，印刷16–17页",
+        "explanation": "直接点名并回应；同年往复，不推断明确先后顺序。",
+        "sourceIds": [
+          "smolensky-1988-bbs"
+        ]
+      },
+      {
+        "id": "r-fodor-smolensky-objection",
+        "batch": "round-three-a",
+        "fromId": "e-smolensky-1988-bbs",
+        "toId": "e-fodor-pylyshyn-1988",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-checked",
+        "locator": "§3.3，印刷45–46页",
+        "explanation": "直接批评咖啡例及语境近似；关系图应允许同年双向争论。",
+        "sourceIds": [
+          "fodor-pylyshyn-1988"
+        ]
+      },
+      {
+        "id": "r-gentner-fodor-terminology",
+        "batch": "round-three-a",
+        "fromId": "e-gentner-1983",
+        "toId": "e-fodor-pylyshyn-1988",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Gentner印刷158、163–165页；Fodor §3.2",
+        "explanation": "比较同名术语的不同解释目标，不将词语相同当作思想继承。",
+        "sourceIds": [
+          "gentner-1983",
+          "fodor-pylyshyn-1988"
+        ]
+      },
+      {
+        "id": "r-fodor-scan-evaluation",
+        "batch": "round-three-a",
+        "fromId": "e-fodor-pylyshyn-1988",
+        "toId": "e-lake-baroni-2018",
+        "type": "motivated-evaluation",
+        "typeLabel": "motivated-evaluation",
+        "status": "source-supported",
+        "locator": "Fodor与Pylyshyn §3.2；SCAN PDF5 Experiment 3、PDF6结果",
+        "explanation": "SCAN作者明确把隔离原语实验联系到Fodor等人的思想实验；这是特定模型与训练协议的操作化检验，不等于原架构论证的所有前提。",
+        "sourceIds": [
+          "fodor-pylyshyn-1988",
+          "lake-baroni-2018"
+        ]
+      },
+      {
+        "id": "r-fodor-mlc-response",
+        "batch": "round-three-a",
+        "fromId": "e-fodor-pylyshyn-1988",
+        "toId": "e-lake-baroni-2023",
+        "type": "empirical-response",
+        "typeLabel": "empirical-response",
+        "status": "source-supported",
+        "locator": "Fodor与Pylyshyn §3.2–3.5；MLC 119页Discussion与表2",
+        "explanation": "MLC直接回应系统性争论，提出经元训练获得组合能力的实例；同时明确未解决原论证的所有挑战，分布外结构和新符号仍有限制。",
+        "sourceIds": [
+          "fodor-pylyshyn-1988",
+          "lake-baroni-2023"
+        ]
+      },
+      {
+        "id": "r-rosenblatt-backprop",
+        "batch": "round-three-a",
+        "fromId": "e-rosenblatt-1958",
+        "toId": "e-rumelhart-1986",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Rosenblatt 389–392页；Rumelhart等533–535页",
+        "explanation": "本站比较经验调整响应与学习隐藏表示；1986论文引用的是Rosenblatt专著，不能据此画成对1958论文的直接引用边。",
+        "sourceIds": [
+          "rosenblatt-1958",
+          "rumelhart-1986"
+        ]
+      }
+    ]
+  }
+}

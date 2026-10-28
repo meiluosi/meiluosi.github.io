@@ -250,3 +250,7 @@
 ### 第四轮综合修订与网站联动（2026-10-28）
 
 18条结论已共同复核，原句与修订分层保存；[来源台账](./intelligence-history/round-four/integration/source-registry.md)区分31条记录、29作品和26证据组。正式站点新增 /research/intelligence/ 及三篇综述、31个来源页、修订对照和研究队列，路线页、文献架、文章入口均可进入。图和原文定位支持直接追溯，SVG／Mermaid及研究数据可下载。三处关联认知透镜改用已核验的有限模型，明确不测量体验或判定认知构成。[验收](./intelligence-history/round-four/integration/validation.md)记录集成与部署边界。
+
+### 第五轮：路线演进与来源追溯（2026-10-28）
+
+`/research/intelligence/timelines/` 为20条路线提供年份图、节点问题／方法／限制、主张定位、来源版本与读段、既有关系和缺口。图、Mermaid和路线JSON可下载；原始批次数据和当前索引是维护入口。筛选需要脚本，节点与来源可在无脚本时阅读。见[执行计划](./intelligence-history/round-five/plan.md)。

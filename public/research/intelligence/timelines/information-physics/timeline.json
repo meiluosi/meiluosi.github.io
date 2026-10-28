@@ -1,0 +1,411 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "information-physics",
+    "name": "信息、压缩、复杂系统与物理路线",
+    "question": "信息、压缩与物理原则能解释智能的哪些方面？",
+    "gaps": [
+      "Rissanen 1978最小描述长度、Landauer 1961物理耗散尚未纳入正文选读。",
+      "Solomonoff Part II及后来的收敛定理未读；信息瓶颈的现代深度学习争议不由1999稿代替。",
+      "临界性后续统计与跨尺度干预、因果熵补充材料及独立复现待补。",
+      "第四轮第三阶段补比较形式预测、指称与概念角色；没有将压缩或预测指标升级为完整语义或体验的证据。"
+    ],
+    "nodes": [
+      {
+        "id": "e-shannon-1948",
+        "title": "通信的不确定性：明确排除语义问题",
+        "year": 1948,
+        "dateLabel": "1948",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "通信与压缩",
+        "question": "怎样量化消息选择并设计可靠通信？",
+        "mechanism": "用概率分布、对数单位与熵刻画不确定性。",
+        "assumptions": "给定消息集合和概率；通信工程目标不等于意义或价值。",
+        "limits": "高熵不自动表示理解；论文没有给出通用智能量表。",
+        "nextQuestion": "何种信息对特定任务有用，能否与仅仅不可预测区分？",
+        "claims": [
+          {
+            "id": "e-shannon-1948-ec1",
+            "text": "导论将工程问题限定为在另一点再现所选消息，并将语义层面排除在该问题之外。",
+            "locator": "PDF 1导论",
+            "basis": "source-reported",
+            "sourceId": "shannon-1948",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-shannon-1948-ec2",
+            "text": "§6以连续性、等概率时单调性和选择分解条件引出H=-KΣp log p；作者也说明这套公理化说明不是整套理论的必要前提。",
+            "locator": "PDF 14–15，§6／Theorem 2",
+            "basis": "source-reported",
+            "sourceId": "shannon-1948",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "shannon-1948",
+            "title": "A Mathematical Theory of Communication",
+            "authors": [
+              "Claude E. Shannon"
+            ],
+            "recordedAuthors": [
+              "Claude E. Shannon"
+            ],
+            "corrections": [],
+            "year": 1948,
+            "url": "https://marco-dalai.unibs.it/teach/IT/shannon_1948.pdf",
+            "version": "原作1948；实读79页重印PDF，首页标Reprinted December, 1957。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1导论；14–15（印刷18–19）§6熵定义；10–11语言序列例。",
+            "unreadScope": "编码定理及附录证明未系统审校；不将语义解释视为本论文已解决。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-shannon-1948.md"
+      },
+      {
+        "id": "e-solomonoff-1964",
+        "title": "从短描述到归纳预测先验",
+        "year": 1964,
+        "dateLabel": "1964",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "归纳与压缩",
+        "question": "如何从有限序列为后续事件分配概率？",
+        "mechanism": "用描述或生成序列的程序来组织归纳模型。",
+        "assumptions": "依赖参考机器／描述语言；理想化归纳与有限计算预算分开。",
+        "limits": "本批不把后来严格证明倒填进1964；未提供本站可运行的通用归纳器。",
+        "nextQuestion": "加入时间、样本和模型选择成本后，还保留哪些归纳保证？",
+        "claims": [
+          {
+            "id": "e-solomonoff-1964-ec1",
+            "text": "Part I提出多种模型，以序列描述的长度和数量关联其先验倾向。",
+            "locator": "PDF 1摘要；3–4导论",
+            "basis": "source-reported",
+            "sourceId": "solomonoff-1964",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-solomonoff-1964-ec2",
+            "text": "作者明确提示§3.1–4的若干论证是启发式，尚无正式证明，不保证整个思路正确。",
+            "locator": "PDF 4，关于heuristic reasoning的段落",
+            "basis": "source-reported",
+            "sourceId": "solomonoff-1964",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "solomonoff-1964",
+            "title": "A Formal Theory of Inductive Inference. Part I",
+            "authors": [
+              "Ray J. Solomonoff"
+            ],
+            "recordedAuthors": [
+              "Ray J. Solomonoff"
+            ],
+            "corrections": [],
+            "year": 1964,
+            "url": "https://www.raysolomonoff.com/publications/1964pt1.pdf",
+            "version": "Information and Control 7:1–22，作者站原刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要、3–4导论与启发式说明。",
+            "unreadScope": "Part I其余模型与推导、Part II及后来的收敛结果未系统核验。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-solomonoff-1964.md"
+      },
+      {
+        "id": "e-tishby-1999",
+        "title": "信息瓶颈：先指定相关变量",
+        "year": 1999,
+        "dateLabel": "1999",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "任务相关信息",
+        "question": "压缩时应保留什么，而非把一切信息同等保留？",
+        "mechanism": "压缩X到T，同时保留T关于Y的互信息；目标I(T;X)-βI(T;Y)。",
+        "assumptions": "需给定相关变量Y与联合分布p(x,y)，以及表示集合。",
+        "limits": "这里的“meaningful”指相对Y的相关信息，不直接等于哲学语义或意识。",
+        "nextQuestion": "任务改变或Y不完整时，被压掉的信息是否成为失败原因？",
+        "claims": [
+          {
+            "id": "e-tishby-1999-ec1",
+            "text": "相关性通过另一变量Y定义；估计联合分布所需样本的问题被明确留在论文范围之外。",
+            "locator": "PDF 8，§3及脚注1",
+            "basis": "source-reported",
+            "sourceId": "tishby-1999",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-tishby-1999-ec2",
+            "text": "式15权衡压缩与保留Y信息，没有唯一正确的权衡；后文的收敛说明不保证解唯一。",
+            "locator": "PDF 9，式15；14，§3.3结尾",
+            "basis": "source-reported",
+            "sourceId": "tishby-1999",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "tishby-1999",
+            "title": "The information bottleneck method",
+            "authors": [
+              "Naftali Tishby",
+              "Fernando C. Pereira",
+              "William Bialek"
+            ],
+            "recordedAuthors": [
+              "Naftali Tishby",
+              "Fernando C. Pereira",
+              "William Bialek"
+            ],
+            "corrections": [],
+            "year": 1999,
+            "url": "https://www.princeton.edu/~wbialek/our_papers/tishby%2Bal_99.pdf",
+            "version": "稿内日期1999-09-30；所读arXiv physics/0004057 v1于2000-04-24提交，16页。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1、3–4背景；8–9 §3及式15；14收敛不保证唯一性的段落。",
+            "unreadScope": "全部变分证明、实现和后续神经网络解释未独立复验。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-tishby-1999.md"
+      },
+      {
+        "id": "e-beggs-plenz-2003",
+        "title": "神经雪崩：临界传播的候选证据",
+        "year": 2003,
+        "dateLabel": "2003",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "临界性",
+        "question": "局部神经活动如何兼顾传播与稳定？",
+        "mechanism": "比较皮层局部场电位雪崩大小与临界分枝模型，并用简化网络模拟信息传播。",
+        "assumptions": "大鼠培养／急性皮层切片，60通道；事件阈值、时间箱和采样决定观察。",
+        "limits": "原文实验未独立复现；幂律与临界机制的对应需竞争模型和统计检验。",
+        "nextQuestion": "阈值、采样和非临界随机模型能否产生相似表象？",
+        "claims": [
+          {
+            "id": "e-beggs-plenz-2003-ec1",
+            "text": "作者报告切片雪崩大小近似-3/2幂律、分枝参数近1，解释为临界传播的证据。",
+            "locator": "Abstract；Discussion前3段",
+            "basis": "source-reported",
+            "sourceId": "beggs-plenz-2003",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-beggs-plenz-2003-ec2",
+            "text": "信息传输优势来自配套模型模拟；研究对象并非人类智能任务表现。",
+            "locator": "Introduction末段；Abstract及Discussion",
+            "basis": "source-reported",
+            "sourceId": "beggs-plenz-2003",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "beggs-plenz-2003",
+            "title": "Neuronal Avalanches in Neocortical Circuits",
+            "authors": [
+              "John M. Beggs",
+              "Dietmar Plenz"
+            ],
+            "recordedAuthors": [
+              "John M. Beggs",
+              "Dietmar Plenz"
+            ],
+            "corrections": [],
+            "year": 2003,
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6741045/",
+            "version": "J Neurosci 23:11167–11177，PMC全文HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "Abstract；Materials and Methods的培养与急性切片段落；Discussion前部及临界性小节开头。",
+            "unreadScope": "完整统计重算、网络仿真实现和后续重复研究未做。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-beggs-plenz-2003.md"
+      },
+      {
+        "id": "e-touboul-destexhe-2010",
+        "title": "阈值与随机过程：幂律图形不足以定机制",
+        "year": 2010,
+        "dateLabel": "2010",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "临界性异议",
+        "question": "看似幂律的雪崩分布是否充分证明自组织临界？",
+        "mechanism": "将清醒猫记录、打乱／正峰控制、阈值随机过程和临界网络对照比较。",
+        "assumptions": "检验依赖事件识别、阈值及拟合方法；与2003切片不是同样本直接重复。",
+        "limits": "限制的是一类证据推断；不能用此文一笔否定所有神经临界性研究。",
+        "nextQuestion": "哪些干预响应或尺度关系能排除阈值伪影？",
+        "claims": [
+          {
+            "id": "e-touboul-destexhe-2010-ec1",
+            "text": "作者展示某些阈值随机过程的双对数图也可显出似幂律尾部，严格统计却不支持对应幂律解释。",
+            "locator": "PDF 13，Discussion",
+            "basis": "source-reported",
+            "sourceId": "touboul-destexhe-2010",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-touboul-destexhe-2010-ec2",
+            "text": "其已知临界网络对照能通过相同分析；结论是幂律图形不足，不是所有临界系统都不存在。",
+            "locator": "PDF 13，Fig.10／Table 5及结论",
+            "basis": "source-reported",
+            "sourceId": "touboul-destexhe-2010",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "touboul-destexhe-2010",
+            "title": "Can power-law scaling and neuronal avalanches arise from stochastic dynamics?",
+            "authors": [
+              "Jonathan Touboul",
+              "Alain Destexhe"
+            ],
+            "recordedAuthors": [
+              "Jonathan Touboul",
+              "Alain Destexhe"
+            ],
+            "corrections": [],
+            "year": 2010,
+            "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0008982&type=printable",
+            "version": "PLoS ONE 5:e8982，原刊14页PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1摘要；12讨论开头；13讨论、临界模型对照与Table 5。",
+            "unreadScope": "原始数据及全部拟合未重跑；不评价所有后续临界性证据。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-touboul-destexhe-2010.md"
+      },
+      {
+        "id": "e-wissner-gross-2013",
+        "title": "因果熵力：保留未来可达路径",
+        "year": 2013,
+        "dateLabel": "2013",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-e",
+        "batchLabel": "E批",
+        "branch": "适应行为的物理模型",
+        "question": "一种统一驱动力能否生成若干适应行为？",
+        "mechanism": "在简化机械系统中以未来可达路径多样性驱动运动。",
+        "assumptions": "给定动力学、强度与预见时间窗；合作例子专门设置质量与阻力。",
+        "limits": "简化圆盘完成构造任务不直接等于动物的认知机制；未来路径估计和计算成本仍需计入。",
+        "nextQuestion": "在相同预算、未知动力学和反例任务上，是否仍有解释与预测优势？",
+        "claims": [
+          {
+            "id": "e-wissner-gross-2013-ec1",
+            "text": "接受稿报告粒子、倒立摆、圆盘工具和双体拉绳四类仿真例子。",
+            "locator": "PDF 4–5，Fig.2–4",
+            "basis": "source-reported",
+            "sourceId": "wissner-gross-2013",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-wissner-gross-2013-ec2",
+            "text": "非平凡行为依赖驱动力能量和时间窗超过相应系统尺度；作者将一般适应模型表述为可能推广。",
+            "locator": "PDF 5，结论前条件(i)(ii)与结论",
+            "basis": "source-reported",
+            "sourceId": "wissner-gross-2013",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "wissner-gross-2013",
+            "title": "Causal Entropic Forces",
+            "authors": [
+              "Alexander D. Wissner-Gross",
+              "Cameron E. Freer"
+            ],
+            "recordedAuthors": [
+              "Alexander D. Wissner-Gross",
+              "Cameron E. Freer"
+            ],
+            "corrections": [],
+            "year": 2013,
+            "url": "https://link.aps.org/accepted/10.1103/PhysRevLett.110.168702",
+            "version": "APS CHORUS接受稿6页；封面标正式发表于2013-04-19。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1封面；4–5（稿内3–4）四个机械例子、条件与结论。",
+            "unreadScope": "形式推导未逐式审校；补充材料、视频及模拟未重跑。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-e/notes/e-wissner-gross-2013.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "e-r01",
+        "batch": "round-three-e",
+        "fromId": "e-shannon-1948",
+        "toId": "e-tishby-1999",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Shannon导论／§6；Tishby §3",
+        "explanation": "通信不确定性与相对Y的任务相关性分开；不是同一“信息”定义自然升级。",
+        "sourceIds": [
+          "shannon-1948",
+          "tishby-1999"
+        ]
+      },
+      {
+        "id": "e-r02",
+        "batch": "round-three-e",
+        "fromId": "e-solomonoff-1964",
+        "toId": "e-tishby-1999",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Solomonoff摘要；Tishby式15",
+        "explanation": "比较描述先验与给定Y的压缩目标，不宣称直接继承。",
+        "sourceIds": [
+          "solomonoff-1964",
+          "tishby-1999"
+        ]
+      },
+      {
+        "id": "e-r03",
+        "batch": "round-three-e",
+        "fromId": "e-beggs-plenz-2003",
+        "toId": "e-touboul-destexhe-2010",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "PDF 1、13 Discussion",
+        "explanation": "后者挑战幂律足以支持临界性的推断；其猫记录与前者切片不同，不能称原样重复。",
+        "sourceIds": [
+          "touboul-destexhe-2010"
+        ]
+      },
+      {
+        "id": "e-r04",
+        "batch": "round-three-e",
+        "fromId": "e-beggs-plenz-2003",
+        "toId": "e-wissner-gross-2013",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Beggs Discussion；Wissner接受稿PDF 5",
+        "explanation": "比较统计动力学与适应行为生成；两者都不直接给出通用智能定义。",
+        "sourceIds": [
+          "beggs-plenz-2003",
+          "wissner-gross-2013"
+        ]
+      }
+    ]
+  }
+}

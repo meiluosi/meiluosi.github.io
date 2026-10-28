@@ -1,0 +1,53 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import TimelineReader from "@/components/research/TimelineReader.svelte";
+import {
+	timelineRoutes,
+	timelineScope,
+	type TimelineRoute,
+} from "@/data/intelligenceTimelines";
+import { researchArticles, researchReview } from "@/data/intelligenceResearch";
+import "@/styles/intelligence-research.css";
+export function getStaticPaths() {
+	return timelineRoutes.map((route) => ({
+		params: { id: route.id },
+		props: { route },
+	}));
+}
+interface Props {
+	route: TimelineRoute;
+}
+const { route } = Astro.props;
+const svg = fs.readFileSync(
+	path.join(
+		process.cwd(),
+		"public/research/intelligence/timelines",
+		route.id,
+		"timeline.svg",
+	),
+	"utf8",
+);
+const articles = researchArticles.filter((article) =>
+	researchReview.reviews.some(
+		(review) =>
+			review.article === article.id && review.routes.includes(route.id),
+	),
+);
+const undated = route.nodes.filter((node) => node.year === null);
+---
+<ExploreLayout title={`${route.name}：问题的演进`} titleEn={`Timeline: ${route.name}`} description={route.question} descriptionEn="A Chinese-language research timeline with source locations and reading scope.">
+ <article class="research-page timeline-page" lang="zh-CN" data-pagefind-body>
+  <nav class="research-nav"><a href="/research/intelligence/timelines/">← 全部时间线</a><a href={`/routes/${route.id}/`}>路线介绍</a><a href="#nodes">节点与证据</a><a href="#relations">已登记的关系</a></nav>
+  <header><p class="kicker">ROUTE TIMELINE · {route.nodes.length} NODES</p><h1>{route.name}</h1><p class="lead">{route.question}</p></header>
+  <div class="scope-note">{timelineScope} 年份先后不自动表示思想影响；时间间距以记录年份为准，纵向仅为排版。{undated.length>0&&`另有${undated.length}个年代未定的古典文本，在节点清单中单独列出。`}</div>
+  <figure><h2>问题何时发生转折？</h2><p class="quiet">点按图中的节点，进入问题、方法与原文定位。手机可横向滑动查看大图。</p><div class="diagram" tabindex="0" role="region" aria-label="可横向滑动的路线时间线"><Fragment set:html={svg} /></div><figcaption><a href={`/research/intelligence/timelines/${route.id}/timeline.svg`} download>下载SVG</a> · <a href={`/research/intelligence/timelines/${route.id}/timeline.mmd`} download>编辑Mermaid</a> · <a href={`/research/intelligence/timelines/${route.id}/timeline.json`} download>下载路线数据</a></figcaption></figure>
+  {undated.length>0&&<section class="scope-note"><strong>年代未定的古典文本</strong><p>不把译本出版年当作原作年代：{undated.map(node=><a href={`#${node.id}`}>{node.dateLabel} · {node.title}　</a>)}</p></section>}
+  <h2 id="nodes">沿节点阅读问题、方法与证据</h2><noscript><p>筛选需要启用脚本；所有节点和来源可直接阅读。</p></noscript><TimelineReader route={route} client:visible />
+  <section id="relations"><h2>已登记的关系</h2><p>以下关系来自既有批次，仅列两端都在本路线中的记录。编辑性比较不表示已经证实历史影响。</p>{route.relations.length ? route.relations.map(rel=><details><summary>{rel.typeLabel} · {rel.fromId} → {rel.toId}</summary><p>{rel.explanation}</p><p class="quiet">类型：{rel.type} · 状态：{rel.status} · 定位：{rel.locator} · 来源：{rel.sourceIds.join("、") || "原记录未单列"} · {rel.batch}</p><nav class="research-nav"><a href={`#${rel.fromId}`}>起点</a><a href={`#${rel.toId}`}>终点</a></nav></details>):<p>当前批次没有登记两端都在本路线的关系；这不意味着路线节点之间没有联系。</p>}</section>
+  <section><h2>未覆盖与下一步</h2><ul>{route.gaps.map(gap=><li>{gap}</li>)}</ul><p>第一轮未映射候选与各来源的未读部分仍需继续审校；本页不代表这条路线的全部历史。</p></section>
+  <section><h2>继续比较</h2><nav class="research-nav"><a href="/research/intelligence/">综合研究总览</a>{articles.map(article=><a href={`/research/intelligence/${article.id}/`}>{article.title}</a>)}</nav></section>
+ </article>
+</ExploreLayout>
+<style>.diagram{overflow-x:auto;border:1px solid var(--brand-line);border-radius:14px;background:#f3f6f1}.diagram :global(svg){display:block;width:100%;min-width:1000px;height:auto}.diagram:focus-visible{outline:3px solid var(--brand-accent);outline-offset:4px}.diagram :global(a:focus-visible circle){stroke:#9a5433;stroke-width:5}.timeline-page section[id]{scroll-margin-top:100px}</style>

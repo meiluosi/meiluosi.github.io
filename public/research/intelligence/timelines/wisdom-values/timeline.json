@@ -1,0 +1,475 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "wisdom-values",
+    "name": "智慧、价值与跨文化路线",
+    "question": "聪明、智慧和价值判断在不同传统中怎样被区分？",
+    "gaps": [
+      "古典文本均为选读；未做希腊、梵文及汉籍写本校勘，也不代表传统全貌。",
+      "Sternberg 1998仅摘要已读，正文获取未成功；当前作者网站另列，不能倒填1998版措辞。",
+      "跨文化证据限所读日本与美国样本；儒道佛之外的伊斯兰、非洲及原住民传统待补。"
+    ],
+    "nodes": [
+      {
+        "id": "e-aristotle-ethics",
+        "title": "实践智慧与好的生活",
+        "year": null,
+        "dateLabel": "古希腊／传世英译",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "实践判断",
+        "question": "善于制作或推理，是否就善于决定如何生活？",
+        "mechanism": "区分必然对象的知识、制作的技艺与面向可变行动的实践智慧。",
+        "assumptions": "讨论以人的善及德性框架为前提。",
+        "limits": "现代“智能”不是此处原术语；不能直接还原为效用最大化或IQ。",
+        "nextQuestion": "评价能力时，目标本身是否也需接受审议？",
+        "claims": [
+          {
+            "id": "e-aristotle-ethics-dc1",
+            "text": "卷VI第5节把实践智慧联系到对整体良好生活的审议，区分行动与制作。",
+            "locator": "VI.5（Ross英译）",
+            "basis": "source-reported",
+            "sourceId": "aristotle-ethics",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "aristotle-ethics",
+            "title": "Nicomachean Ethics, Book VI",
+            "authors": [
+              "Aristotle",
+              "W. D. Ross（英译）"
+            ],
+            "recordedAuthors": [
+              "Aristotle",
+              "W. D. Ross（英译）"
+            ],
+            "corrections": [],
+            "year": null,
+            "url": "https://classics.mit.edu/Aristotle/nicomachaen.6.vi.html",
+            "version": "古希腊传世著作；实际读MIT Internet Classics的Ross英译。网页未提供足够底本信息，不设精确成书年。",
+            "readingStatus": "selected-sections",
+            "readScope": "卷VI第3–5节：知识、技艺与实践智慧的区分。",
+            "unreadScope": "希腊文、卷VI其余及全书未系统读或校勘。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-aristotle-ethics.md"
+      },
+      {
+        "id": "e-mengzi-jinxin",
+        "title": "知与仁义、修身的联系",
+        "year": null,
+        "dateLabel": "先秦／传世汉文",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "良知与道德实践",
+        "question": "知道什么与应如何对待人有何关系？",
+        "mechanism": "把知性、修身及亲亲敬长联系，重视所知在行动中的次序。",
+        "assumptions": "论证嵌在孟子仁义与心性的规范框架。",
+        "limits": "良知不等于现代认知分数；文本中的人性论不是现代婴儿实验。",
+        "nextQuestion": "当普遍关怀与关系义务冲突，如何说明判断依据？",
+        "claims": [
+          {
+            "id": "e-mengzi-jinxin-dc1",
+            "text": "第15章以亲亲敬长说明良能良知；第46章强调知者也须知道当务之急。",
+            "locator": "尽心上15、46",
+            "basis": "source-reported",
+            "sourceId": "mengzi-jinxin",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "mengzi-jinxin",
+            "title": "《孟子·尽心上》",
+            "authors": [
+              "孟子及传世编纂者"
+            ],
+            "recordedAuthors": [
+              "孟子及传世编纂者"
+            ],
+            "corrections": [],
+            "year": null,
+            "url": "https://zh.wikisource.org/zh-hant/孟子/盡心上",
+            "version": "维基文库传世汉文，oldid=2637007；不把篇章精确归年。",
+            "readingStatus": "selected-sections",
+            "readScope": "第1、4、15、46章；同页第9章仅作语境参考。",
+            "unreadScope": "未校勘底本，其他篇章及后世良知论未读。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-mengzi-jinxin.md"
+      },
+      {
+        "id": "e-nagarjuna-24",
+        "title": "缘起、二谛与概念执取",
+        "year": null,
+        "dateLabel": "古典／姚秦汉译传本",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "中观的解释条件",
+        "question": "无自性是否会破坏因果与实践？",
+        "mechanism": "区分世俗与第一义，回应空性使一切失效的反对，依条件成立解释现象。",
+        "assumptions": "须区分论颂、青目释与现代转录；论证服务于佛教解脱问题。",
+        "limits": "空性不是物理真空、随机性或量子纠缠；此处不建立科学同一论。",
+        "nextQuestion": "怎样讨论概念与解释条件而不把传统术语直接物理化？",
+        "claims": [
+          {
+            "id": "e-nagarjuna-24-dc1",
+            "text": "所读段落以二谛回应误解，并论证固定自性反而与因缘生灭冲突。",
+            "locator": "观四谛品；PDF82–84",
+            "basis": "source-reported",
+            "sourceId": "nagarjuna-24",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "nagarjuna-24",
+            "title": "《中论·观四谛品第二十四》",
+            "authors": [
+              "龙树（论颂归属）",
+              "青目（释文归属）",
+              "鸠摩罗什（汉译）"
+            ],
+            "recordedAuthors": [
+              "龙树（论颂归属）",
+              "青目（释文归属）",
+              "鸠摩罗什（汉译）"
+            ],
+            "corrections": [],
+            "year": null,
+            "url": "https://buddhism.lib.ntu.edu.tw/FULLTEXT/sutra/chi_pdf/sutra13/T30n1564.pdf",
+            "version": "实际读CBETA 2023.Q4电子佛典PDF（NTU载体），含汉译偈与释文；非梵文校勘本。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF82–84（内页81–83）的二谛、依缘与无自性论证；PDF4编辑说明；PDF83像素已核对。",
+            "unreadScope": "其余品、梵藏文本与大正藏异文校勘未读。颂中“我说即是无”与次页释“即是空”不擅自改字。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-nagarjuna-24.md"
+      },
+      {
+        "id": "e-zhuangzi-yangsheng",
+        "title": "熟练行动仍需戒慎",
+        "year": null,
+        "dateLabel": "先秦传统／传世汉文",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "养生与因势而行",
+        "question": "娴熟行动如何避免强行消耗与僵化规则？",
+        "mechanism": "庖丁寓言以顺应结构、长期熟练及遇难谨慎描绘行动。",
+        "assumptions": "这是养生语境的寓言，不能当训练实验记录。",
+        "limits": "不能只摘取“无需思考”而删去戒慎段，也不直接等同现代具身认知。",
+        "nextQuestion": "熟练表现与反思调整之间的关系应怎样研究？",
+        "claims": [
+          {
+            "id": "e-zhuangzi-yangsheng-dc1",
+            "text": "庖丁段同时写顺势熟练与遇复杂处谨慎放缓，结尾指向养生。",
+            "locator": "养生主：庖丁段",
+            "basis": "source-reported",
+            "sourceId": "zhuangzi-yangsheng",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "zhuangzi-yangsheng",
+            "title": "《庄子·养生主》",
+            "authors": [
+              "庄子及传世编纂者"
+            ],
+            "recordedAuthors": [
+              "庄子及传世编纂者"
+            ],
+            "corrections": [],
+            "year": null,
+            "url": "https://zh.wikisource.org/zh-hant/莊子/養生主",
+            "version": "维基文库传世汉文，oldid=11117686；内篇传统归属不等于精确成书日期。",
+            "readingStatus": "selected-sections",
+            "readScope": "篇首和庖丁段，含遇难处戒慎、动作放缓及文惠君得养生的收束。",
+            "unreadScope": "其余段落与郭象等注疏未研究，未做异文校勘。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-zhuangzi-yangsheng.md"
+      },
+      {
+        "id": "e-sternberg-1998",
+        "title": "智慧把能力指向共同善",
+        "year": 1998,
+        "dateLabel": "1998",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "平衡理论",
+        "question": "追求个人成功的能力如何与智慧区别？",
+        "mechanism": "以价值调节默会知识，在个人、人际、超个人利益及适应、塑造、选择环境间平衡。",
+        "assumptions": "共同善是规范承诺，需说明如何协商与辨认。",
+        "limits": "正文未读；当前作者网站的新表述不能倒记成1998原句。",
+        "nextQuestion": "“共同善”的判断应由哪些受影响者参与？",
+        "claims": [
+          {
+            "id": "e-sternberg-1998-dc1",
+            "text": "1998摘要把智慧定义为价值中介的默会知识应用，目标为共同善并协调多类利益。",
+            "locator": "1998摘要",
+            "basis": "source-reported",
+            "sourceId": "sternberg-1998",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-sternberg-1998-dc2",
+            "text": "作者当前网页说明平衡不等于等权，并承认共同善没有显然且公认的定义。",
+            "locator": "当前作者网页第Third段",
+            "basis": "source-reported",
+            "sourceId": "sternberg-current",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "sternberg-1998",
+            "title": "A Balance Theory of Wisdom",
+            "authors": [
+              "Robert J. Sternberg"
+            ],
+            "recordedAuthors": [
+              "Robert J. Sternberg"
+            ],
+            "corrections": [],
+            "year": 1998,
+            "url": "https://journals.sagepub.com/doi/abs/10.1037/1089-2680.2.4.347",
+            "version": "Review of General Psychology 2:347–365；实际仅读出版商摘要。",
+            "readingStatus": "abstract-only",
+            "readScope": "摘要中共同善、三类利益与三类环境关系的定义。",
+            "unreadScope": "正文、测量讨论未读；PDF下载连接失败。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          },
+          {
+            "id": "sternberg-current",
+            "title": "Wisdom: Balance Theory of Wisdom（作者网站）",
+            "authors": [
+              "Robert J. Sternberg"
+            ],
+            "recordedAuthors": [
+              "Robert J. Sternberg"
+            ],
+            "corrections": [],
+            "year": null,
+            "url": "https://www.robertjsternberg.com/wisdom",
+            "version": "无标注发布年的当前作者网页，访问2026-10-27；不是1998原文的替代本。",
+            "readingStatus": "selected-sections",
+            "readScope": "Balance Theory of Wisdom定义及共同善未有公认定义的段落。",
+            "unreadScope": "未追溯网页历次修订或其他著作。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-sternberg-1998.md"
+      },
+      {
+        "id": "e-baltes-staudinger-2000",
+        "title": "把生活判断转成评分协议",
+        "year": 2000,
+        "dateLabel": "2000",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "柏林智慧范式",
+        "question": "如何观察智慧相关知识而不只依赖声望？",
+        "mechanism": "以生活困境的出声思考记录，按事实知识、程序知识、生命周期情境、价值相对性、不确定性评分。",
+        "assumptions": "训练评分者能可靠应用这些具有理论承诺的标准。",
+        "limits": "评分可靠不自动保证跨文化构念等价或规范正确。",
+        "nextQuestion": "语言表达和评分文化会如何影响智慧表现？",
+        "claims": [
+          {
+            "id": "e-baltes-staudinger-2000-dc1",
+            "text": "范式提出五类标准，并以虚构人物生活难题的出声思考文本评定。",
+            "locator": "p125–126",
+            "basis": "source-reported",
+            "sourceId": "baltes-staudinger-2000",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-baltes-staudinger-2000-dc2",
+            "text": "价值相对性不意味着完全相对主义，作者仍保留德性与共同善的要求。",
+            "locator": "p126开头",
+            "basis": "source-reported",
+            "sourceId": "baltes-staudinger-2000",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "baltes-staudinger-2000",
+            "title": "Wisdom: A Metaheuristic (Pragmatic) to Orchestrate Mind and Virtue Toward Excellence",
+            "authors": [
+              "Paul B. Baltes",
+              "Ursula M. Staudinger"
+            ],
+            "recordedAuthors": [
+              "Paul B. Baltes",
+              "Ursula M. Staudinger"
+            ],
+            "corrections": [],
+            "year": 2000,
+            "url": "https://pure.mpg.de/rest/items/item_2102711_4/component/file_2102710/content",
+            "version": "American Psychologist 55:122–136原刊扫描，MPG仓储内容接口。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF4–5（p125–126）五标准、相对价值的限制及出声思考评分。",
+            "unreadScope": "其他研究结果、附录评分示例未系统选读，未重新评分数据。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-baltes-staudinger-2000.md"
+      },
+      {
+        "id": "e-grossmann-2012",
+        "title": "智慧表现中的年龄与文化",
+        "year": 2012,
+        "dateLabel": "2012",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-d",
+        "batchLabel": "D批",
+        "branch": "跨文化操作化",
+        "question": "智慧是否随年龄按同一路径增长？",
+        "mechanism": "比较东京与美国密歇根样本对人际和群际冲突的推理，进行六维编码。",
+        "assumptions": "样本、翻译、情境及编码规则限定外推。",
+        "limits": "横断面不等于同一个人随年龄变化；不能据样本差异概括所有文化成员。",
+        "nextQuestion": "哪些维度具有跨语境稳定性，哪些依赖价值与任务？",
+        "claims": [
+          {
+            "id": "e-grossmann-2012-dc1",
+            "text": "作者报告年龄与智慧推理的关系在所采美日样本中不同，且随冲突领域变化。",
+            "locator": "稿p2；p11–12",
+            "basis": "source-reported",
+            "sourceId": "grossmann-2012",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-grossmann-2012-dc2",
+            "text": "作者明确要求纵向、更多文化及机制实验，并质疑显性冲突解决是否普适标准。",
+            "locator": "稿p11–13",
+            "basis": "source-reported",
+            "sourceId": "grossmann-2012",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "grossmann-2012",
+            "title": "Aging and Wisdom: Culture Matters",
+            "authors": [
+              "Igor Grossmann",
+              "Mayumi Karasawa",
+              "Satoko Izumi",
+              "Jinkyung Na",
+              "Michael E. W. Varnum",
+              "Shinobu Kitayama",
+              "Richard E. Nisbett"
+            ],
+            "recordedAuthors": [
+              "Igor Grossmann",
+              "Mayumi Karasawa",
+              "Satoko Izumi",
+              "Jinkyung Na",
+              "Michael E. W. Varnum",
+              "Shinobu Kitayama",
+              "Richard E. Nisbett"
+            ],
+            "corrections": [],
+            "year": 2012,
+            "url": "https://uwaterloo.ca/wisdom-and-culture-lab/sites/default/files/uploads/files/Grossmann_culture.wisdom.preprint_0.pdf",
+            "version": "作者网站预刊稿27页，2012 Psychological Science 23:1059–1066。",
+            "readingStatus": "selected-sections",
+            "readScope": "稿p2摘要；p5–7样本、材料和六项编码；p11–13限制。",
+            "unreadScope": "全部结果表与补充材料未审计，未重算。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-d/notes/e-grossmann-2012.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "d-r12",
+        "batch": "round-three-d",
+        "fromId": "e-aristotle-ethics",
+        "toId": "e-sternberg-1998",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "VI.5；摘要",
+        "explanation": "仅比较目的审议与共同善，不推断直接传承。",
+        "sourceIds": [
+          "aristotle-ethics",
+          "sternberg-1998"
+        ]
+      },
+      {
+        "id": "d-r13",
+        "batch": "round-three-d",
+        "fromId": "e-mengzi-jinxin",
+        "toId": "e-zhuangzi-yangsheng",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "15、46章；庖丁段",
+        "explanation": "伦理知与养生寓言保留语境，非同一量表维度。",
+        "sourceIds": [
+          "mengzi-jinxin",
+          "zhuangzi-yangsheng"
+        ]
+      },
+      {
+        "id": "d-r14",
+        "batch": "round-three-d",
+        "fromId": "e-zhuangzi-yangsheng",
+        "toId": "e-nagarjuna-24",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "庖丁段；PDF82–84",
+        "explanation": "本站对照行动与概念执取，不建立历史影响或科学等价。",
+        "sourceIds": [
+          "zhuangzi-yangsheng",
+          "nagarjuna-24"
+        ]
+      },
+      {
+        "id": "d-r15",
+        "batch": "round-three-d",
+        "fromId": "e-sternberg-1998",
+        "toId": "e-baltes-staudinger-2000",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "p126理论比较段",
+        "explanation": "作者明确将Sternberg平衡利益的研究列为相关贡献，同时保留自身框架。",
+        "sourceIds": [
+          "baltes-staudinger-2000"
+        ]
+      },
+      {
+        "id": "d-r16",
+        "batch": "round-three-d",
+        "fromId": "e-baltes-staudinger-2000",
+        "toId": "e-grossmann-2012",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "p125–126；稿p7、11–13",
+        "explanation": "比较两种评分协议和文化边界；不把两套维度当完全相同。",
+        "sourceIds": [
+          "baltes-staudinger-2000",
+          "grossmann-2012"
+        ]
+      }
+    ]
+  }
+}

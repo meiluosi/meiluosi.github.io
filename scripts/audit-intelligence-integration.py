@@ -15,8 +15,8 @@ class Markup(HTMLParser):
    if k=='id' and v:self.ids.append(v)
 def parse(p):
  x=Markup();x.feed(p.read_text());return x
-htmls=list((dist/'research/intelligence').rglob('*.html'));assert len(htmls)==38,len(htmls)
-files=htmls+list((dist/'research/intelligence').rglob('*.svg'))+list((dist/'research/intelligence/downloads').rglob('*.md'))
+htmls=[p for p in (dist/'research/intelligence').rglob('*.html') if 'timelines' not in p.relative_to(dist/'research/intelligence').parts];assert len(htmls)==38,len(htmls)
+files=htmls+[p for p in (dist/'research/intelligence').rglob('*.svg') if 'timelines' not in p.relative_to(dist/'research/intelligence').parts]+list((dist/'research/intelligence/downloads').rglob('*.md'))
 paths=anchors=svg=0
 for f in files:
  m=parse(f)

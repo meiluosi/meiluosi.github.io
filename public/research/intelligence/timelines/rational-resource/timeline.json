@@ -1,0 +1,572 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "rational-resource",
+    "name": "理性、适应与资源约束路线",
+    "question": "知识与资源不足时，怎样定义合理的适应与决策？",
+    "gaps": [
+      "未通读Hutter 2005专著或后续AIXI证明；2000稿的保证只按所读条件表述。",
+      "Chater等1997直接批评获取失败；本批启发式边界由1996原文的协议和作者自限支持。",
+      "NARS限1995论文中的3.0；资源理性仅覆盖指定目标文章、两篇评论与部分回应，不代表当前全部研究。"
+    ],
+    "nodes": [
+      {
+        "id": "e-simon-1955",
+        "title": "把计算与信息限制纳入理性选择",
+        "year": 1955,
+        "dateLabel": "1955",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "有限理性的决策问题",
+        "question": "在无法枚举所有结果时，如何定义可实行的合理选择？",
+        "mechanism": "简化收益表示，以满意阈值组织信息收集与顺序搜索。",
+        "assumptions": "阈值、可考虑选项、信息与环境均须说明；满意方案不保证存在或唯一。",
+        "limits": "这是模型提议，作者承认缺少全面经验知识；并未证明人总按此过程行动。",
+        "nextQuestion": "搜索次序、阈值和时间改变时，选择会怎样变化？",
+        "claims": [
+          {
+            "id": "e-simon-1955-c1",
+            "text": "合理选择的约束包含决策者自身的计算与预测能力。",
+            "locator": "99–103",
+            "basis": "source-reported",
+            "sourceId": "simon-1955",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-simon-1955-c2",
+            "text": "信息收集有成本；简化收益可允许只查找达到满意条件的方案。",
+            "locator": "104–107",
+            "basis": "source-reported",
+            "sourceId": "simon-1955",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-simon-1955-c3",
+            "text": "顺序考察时可以选择先发现的满意方案；因此搜索次序进入行为解释。",
+            "locator": "110，§3.1",
+            "basis": "source-reported",
+            "sourceId": "simon-1955",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "simon-1955",
+            "title": "A Behavioral Model of Rational Choice",
+            "authors": [
+              "Herbert A. Simon"
+            ],
+            "recordedAuthors": [
+              "Herbert A. Simon"
+            ],
+            "corrections": [],
+            "year": 1955,
+            "url": "https://cooperative-individualism.org/simon-herbert_a-behavioral-model-of-rational-choice-1955-feb.pdf",
+            "version": "Quarterly Journal of Economics 69(1):99–118；JSTOR载体首PDF页为封面。",
+            "readingStatus": "selected-sections",
+            "readScope": "印刷页99–107、110、114：模型前提、满意化、信息收集和顺序选择、结论。",
+            "unreadScope": "108–109、111–113动态细节及115–118附录未完整读；未重建国际象棋例证。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-simon-1955.md"
+      },
+      {
+        "id": "e-wang-1995",
+        "title": "把知识与资源不足作为常态",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "适应的工作定义与NARS",
+        "question": "新任务、冲突知识和资源不足持续出现时，系统应如何工作？",
+        "mechanism": "以有限、实时、开放澄清工作定义；通过经验修正与优先级分配组织非公理推理。",
+        "assumptions": "输入仍受接口语言约束；适应假设未来与过去有一定相似性。",
+        "limits": "工作定义、已实现机制与未来扩展分开；开放不等于能处理任意自然语言或已经具备通用智能。",
+        "nextQuestion": "经验顺序、任务竞争与遗忘改变时，适应表现是否仍稳定？",
+        "claims": [
+          {
+            "id": "e-wang-1995-c1",
+            "text": "作者将智能定义为信息处理系统在知识和资源不足时适应环境的能力，并区分有限、实时、开放三条件。",
+            "locator": "§2.2，13–17",
+            "basis": "source-reported",
+            "sourceId": "wang-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-wang-1995-c2",
+            "text": "任务获得相对资源份额；原子步骤与优先级调度支持持续输入。",
+            "locator": "第5章80、89、91–92",
+            "basis": "source-reported",
+            "sourceId": "wang-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-wang-1995-c3",
+            "text": "作者不声称优先级函数最优；NARS 3.0只处理原子项，复合项列为后续工作。",
+            "locator": "92；§8.3，151–153",
+            "basis": "source-reported",
+            "sourceId": "wang-1995",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "wang-1995",
+            "title": "Non-Axiomatic Reasoning System: Exploring the Essence of Intelligence",
+            "authors": [
+              "Pei Wang"
+            ],
+            "recordedAuthors": [
+              "Pei Wang"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "https://cis.temple.edu/~wangp/Publication/thesis.pdf",
+            "version": "Indiana University博士论文，1995年8月；讨论NARS 3.0及未来4，不代表现行系统。PDF文字抽取有字体编码噪声。",
+            "readingStatus": "selected-sections",
+            "readScope": "封面、摘要；印刷页11–17、80、89、91–92、147、149–153；目录。",
+            "unreadScope": "未通读语义、推理规则、全部系统例证及长期限制；未运行NARS。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-wang-1995.md"
+      },
+      {
+        "id": "e-gigerenzer-goldstein-1996",
+        "title": "快速节俭启发式的生态检验",
+        "year": 1996,
+        "dateLabel": "1996",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "搜索、停止与环境结构",
+        "question": "少用信息的决策规则在什么环境下能保持准确？",
+        "mechanism": "Take The Best按线索有效性顺序搜索，遇到首个可区分线索即停止；结合识别规则。",
+        "assumptions": "线索顺序与识别的有效性来自指定环境；不能省略这些知识的来源。",
+        "limits": "查找线索数不是端到端时间；不能将此比赛写成所有任务、所有竞争算法上的优势。",
+        "nextQuestion": "保留相同学习信息并改变线索结构，优势是否保持？",
+        "claims": [
+          {
+            "id": "e-gigerenzer-goldstein-1996-c1",
+            "text": "规则明确区分搜索、停止和选择；不把所有线索加权相加。",
+            "locator": "653–654，算法步骤",
+            "basis": "source-reported",
+            "sourceId": "gigerenzer-goldstein-1996",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gigerenzer-goldstein-1996-c2",
+            "text": "作者在83座德国城市、9个生态线索的模拟中比较准确率与检索量；本研究不新增人的过程验证。",
+            "locator": "654、656–658",
+            "basis": "source-reported",
+            "sourceId": "gigerenzer-goldstein-1996",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gigerenzer-goldstein-1996-c3",
+            "text": "回归权重使用该环境全部目标值，并非通常训练／测试拆分；作者承认以城市排名回归可略优。",
+            "locator": "658及脚注4",
+            "basis": "source-reported",
+            "sourceId": "gigerenzer-goldstein-1996",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "gigerenzer-goldstein-1996",
+            "title": "Reasoning the Fast and Frugal Way: Models of Bounded Rationality",
+            "authors": [
+              "Gerd Gigerenzer",
+              "Daniel G. Goldstein"
+            ],
+            "recordedAuthors": [
+              "Gerd Gigerenzer",
+              "Daniel G. Goldstein"
+            ],
+            "corrections": [],
+            "year": 1996,
+            "url": "https://web.mit.edu/curhan/www/docs/Articles/biases/Gigerenzer_Goldstein_Reasoning%20Fast%20and%20Frugal.pdf",
+            "version": "Psychological Review 103(4):650–669原刊PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "650–654、656–659、665；重点为算法、模拟协议、658脚注4及限制。",
+            "unreadScope": "未复算附录数据或逐图校勘曲线；尚未阅读Chater等1997批评正文。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-gigerenzer-goldstein-1996.md"
+      },
+      {
+        "id": "e-hutter-2000",
+        "title": "AIXI与有条件的资源有界近似",
+        "year": 2000,
+        "dateLabel": "2000",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "形式最优与可计算性",
+        "question": "未知环境中怎样形式化选择，以及能否在有限时间实现？",
+        "mechanism": "把通用程序先验与序贯决策结合；资源有界构造枚举可证明有效的候选程序。",
+        "assumptions": "固定参考机、交互编码和规划视野；有限近似另有程序、时间与证明长度界。",
+        "limits": "理论构造不提供现实可用性保证；2005书尚未审读，不借用其结果补齐本稿证明。",
+        "nextQuestion": "在明确资源预算和证明限制下，可计算近似还能保留哪些性质？",
+        "claims": [
+          {
+            "id": "e-hutter-2000-c1",
+            "text": "AIXI以程序长度加权环境并选择预期收益动作；核心定义不可计算。",
+            "locator": "摘要；§4，19–22",
+            "basis": "source-reported",
+            "sourceId": "hutter-2000",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hutter-2000-c2",
+            "text": "§10比较的是带收益下界证明的候选，其排序涉及可证明的自评收益，不是任意程序的真实表现统治。",
+            "locator": "54–56，式67–68及主定理",
+            "basis": "source-reported",
+            "sourceId": "hutter-2000",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hutter-2000-c3",
+            "text": "每周期开销含2^l乘t，初始化还含证明枚举；有效但不可证明或证明过长的程序不在保证内。",
+            "locator": "56–57，Limitations and open questions",
+            "basis": "source-reported",
+            "sourceId": "hutter-2000",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hutter-2000",
+            "title": "A Theory of Universal Artificial Intelligence based on Algorithmic Complexity",
+            "authors": [
+              "Marcus Hutter"
+            ],
+            "recordedAuthors": [
+              "Marcus Hutter"
+            ],
+            "corrections": [],
+            "year": 2000,
+            "url": "https://www.hutter1.net/ai/pkcunai.pdf",
+            "version": "作者站64页稿，封面Munich 31.03.2000／cs.AI/0004001；不是2005专著。",
+            "readingStatus": "selected-sections",
+            "readScope": "封面目录；§4印刷页19–22；§10的53–57，含算法、主定理与限制；55页像素已核对。",
+            "unreadScope": "未通读所有证明、示例、视野问题及后续版本；未运行AIXI近似。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-hutter-2000.md"
+      },
+      {
+        "id": "e-legg-hutter-2007",
+        "title": "跨环境的通用智能度量",
+        "year": 2007,
+        "dateLabel": "2007",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "从单项表现到加权环境类",
+        "question": "怎样将不同环境的目标达成汇总成一个形式指标？",
+        "mechanism": "对可计算、收益总和有界的环境，以2^-K权重累加代理的预期收益。",
+        "assumptions": "环境含目标机制；参考机决定复杂度，时间偏好进入收益设置。",
+        "limits": "不是现成的通用排行榜；复杂环境不等于困难任务，本文22页明确区分二者。",
+        "nextQuestion": "有限任务抽样、先验和预算怎样改变实际排序？",
+        "claims": [
+          {
+            "id": "e-legg-hutter-2007-c1",
+            "text": "度量采用收益总和不超过1的环境，并依描述复杂度加权，而非对所有任务均匀平均。",
+            "locator": "§3.2–3.3，19–23",
+            "basis": "source-reported",
+            "sourceId": "legg-hutter-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-legg-hutter-2007-c2",
+            "text": "作者明确区分不可计算的定义与有限样本实际测验；参考机改变会影响复杂度常数。",
+            "locator": "23、27–28、39",
+            "basis": "source-reported",
+            "sourceId": "legg-hutter-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-legg-hutter-2007-c3",
+            "text": "对查表和中文房间的回应采取功能立场，不以实现效率或不可观测理解单独否定高分。",
+            "locator": "§5.2，42",
+            "basis": "source-reported",
+            "sourceId": "legg-hutter-2007",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "legg-hutter-2007",
+            "title": "Universal Intelligence: A Definition of Machine Intelligence",
+            "authors": [
+              "Shane Legg",
+              "Marcus Hutter"
+            ],
+            "recordedAuthors": [
+              "Shane Legg",
+              "Marcus Hutter"
+            ],
+            "corrections": [],
+            "year": 2007,
+            "url": "https://www.hutter1.net/ai/iorx.pdf",
+            "version": "作者站49页稿，封面December 2007；本文页码按该PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "17–23、27–28、39–42：交互、收益有界、定义、性质与常见批评；23页公式像素核对。",
+            "unreadScope": "未逐条审读全部历史综述、AIXI最优性证明与批评回应尾部；未实现通用测验。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-legg-hutter-2007.md"
+      },
+      {
+        "id": "e-lieder-griffiths-2020",
+        "title": "把认知策略的收益与成本共同建模",
+        "year": 2020,
+        "dateLabel": "2020",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "资源理性的研究方法",
+        "question": "怎样由任务功能和认知约束推导可检验的过程模型？",
+        "mechanism": "在可执行策略类中权衡预期结果与计算机会成本，再将预测与经验比较。",
+        "assumptions": "需独立约束能力、代价和环境分布；不假设每次决定都现场解决最优化。",
+        "limits": "这是一套生成假说的方法，成功拟合不证明所有人类偏差都最优；真实环境与约束测量仍困难。",
+        "nextQuestion": "在独立测得约束后，模型能否预言新的代价—准确率变化？",
+        "claims": [
+          {
+            "id": "e-lieder-griffiths-2020-c1",
+            "text": "作者把优化作用于认知机制；简单规则可通过学习与演化获得，而非每次重新求解。",
+            "locator": "5–6，式2–4与Box 2",
+            "basis": "source-reported",
+            "sourceId": "lieder-griffiths-2020",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-lieder-griffiths-2020-c2",
+            "text": "未知环境通过分布进入模型；有限适应意味着人不必完全资源理性。",
+            "locator": "5，式4后",
+            "basis": "source-reported",
+            "sourceId": "lieder-griffiths-2020",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-lieder-griffiths-2020-c3",
+            "text": "自由调整限制可能过拟合；作者要求独立容量测量或预测建模时未使用的现象。",
+            "locator": "§6，14–15",
+            "basis": "source-reported",
+            "sourceId": "lieder-griffiths-2020",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lieder-griffiths-2020",
+            "title": "Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources",
+            "authors": [
+              "Falk Lieder",
+              "Thomas L. Griffiths"
+            ],
+            "recordedAuthors": [
+              "Falk Lieder",
+              "Thomas L. Griffiths"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+            "version": "BBS 43 e1；2019在线稿、2020卷年；61页合订PDF含评论与作者回应。",
+            "readingStatus": "selected-sections",
+            "readScope": "目标文章1、4开头至bounded optimality段、5–6、14–15；5页公式2–4像素核对。",
+            "unreadScope": "未逐项读所有案例与实验证据；正文16结尾及全部评论不算已读；未运行作者模型。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-lieder-griffiths-2020.md"
+      },
+      {
+        "id": "e-resource-debate-2020",
+        "title": "谁来约束资源理性的约束？",
+        "year": 2020,
+        "dateLabel": "2020",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "批评、可识别性与作者回应",
+        "question": "怎样防止事后挑选限制把任意行为都解释为合理？",
+        "mechanism": "把直接批评、约束测量建议与作者的方法论澄清放在同一个证据链中。",
+        "assumptions": "单个失败例子和总体适应标准不同；约束本身仍须可检验。",
+        "limits": "争论未在本批裁决；评论中的事例不是本站实验，作者回应也不替代独立预测检验。",
+        "nextQuestion": "固定可用操作与成本后，哪些结果会使具体模型被拒绝？",
+        "claims": [
+          {
+            "id": "e-resource-debate-2020-c1",
+            "text": "Davis与Marcus认为仅以计算限制解释认知失败范围不足，过宽约束会使最优主张失去内容。",
+            "locator": "评论e7，PDF 21–22",
+            "basis": "source-reported",
+            "sourceId": "davis-marcus-2020",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-resource-debate-2020-c2",
+            "text": "Dimov指出单项行为混合多个过程，建议通过认知架构累积约束。",
+            "locator": "评论e8，PDF 22–23",
+            "basis": "source-reported",
+            "sourceId": "dimov-2020",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-resource-debate-2020-c3",
+            "text": "作者回应把资源理性定位为寻找机制的工具，并承认约束识别及文献选择是需要检查的问题。",
+            "locator": "回应R1、R3，PDF 45–48",
+            "basis": "source-reported",
+            "sourceId": "lieder-griffiths-response-2020",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "davis-marcus-2020",
+            "title": "Computational limits don’t fully explain human cognitive limitations",
+            "authors": [
+              "Ernest S. Davis",
+              "Gary F. Marcus"
+            ],
+            "recordedAuthors": [
+              "Ernest S. Davis",
+              "Gary F. Marcus"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+            "version": "BBS 43 e7；同一合订PDF内独立评论。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 21末题名起至22页评论结束，完整评论正文。",
+            "unreadScope": "未独立核验评论引用的实验和事故例证。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          },
+          {
+            "id": "dimov-2020",
+            "title": "Uncovering cognitive constraints is the bottleneck in resource-rational analysis",
+            "authors": [
+              "Cvetomir Dimov"
+            ],
+            "recordedAuthors": [
+              "Cvetomir Dimov"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+            "version": "BBS 43 e8；同一合订PDF内独立评论。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 22末题名起至23页Dingemanse题名前，完整评论正文。",
+            "unreadScope": "未核验其综述的全部认知架构研究。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          },
+          {
+            "id": "lieder-griffiths-response-2020",
+            "title": "Advancing rational analysis to the algorithmic level",
+            "authors": [
+              "Falk Lieder",
+              "Thomas L. Griffiths"
+            ],
+            "recordedAuthors": [
+              "Falk Lieder",
+              "Thomas L. Griffiths"
+            ],
+            "corrections": [],
+            "year": 2020,
+            "url": "https://cocosci.princeton.edu/papers/liederresource.pdf",
+            "version": "BBS 43 e27；同一合订PDF内作者回应，按实际PDF页码45起定位。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 45题名及R1至页末；46–47；48的R3到页末。",
+            "unreadScope": "其余回应和参考文献未完整审读；回应中的新例证未复算。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-resource-debate-2020.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-simon-wang",
+        "batch": "round-three-b",
+        "fromId": "e-simon-1955",
+        "toId": "e-wang-1995",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Simon 99–107；Wang §2.2",
+        "explanation": "均把主体限制纳入问题；Wang此处引用的是Simon其他年份文本，不误标1955直接继承。",
+        "sourceIds": [
+          "simon-1955",
+          "wang-1995"
+        ]
+      },
+      {
+        "id": "r-simon-heuristics",
+        "batch": "round-three-b",
+        "fromId": "e-simon-1955",
+        "toId": "e-gigerenzer-goldstein-1996",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Simon 110；Gigerenzer–Goldstein 651、654",
+        "explanation": "比较满意停止原则；1996所引Simon版本主要为1956等，保留精确文献区别。",
+        "sourceIds": [
+          "simon-1955",
+          "gigerenzer-goldstein-1996"
+        ]
+      },
+      {
+        "id": "r-hutter-legg",
+        "batch": "round-three-b",
+        "fromId": "e-hutter-2000",
+        "toId": "e-legg-hutter-2007",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Hutter §4；Legg–Hutter §3",
+        "explanation": "决策构造与评价度量相关；2007直接引用的AIXI证明多为后续版本，不能混同2000稿。",
+        "sourceIds": [
+          "hutter-2000",
+          "legg-hutter-2007"
+        ]
+      },
+      {
+        "id": "r-simon-rra",
+        "batch": "round-three-b",
+        "fromId": "e-simon-1955",
+        "toId": "e-lieder-griffiths-2020",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "6，引用Simon 1955内部环境约束",
+        "explanation": "作者明确引入主体内的资源约束。",
+        "sourceIds": [
+          "lieder-griffiths-2020"
+        ]
+      },
+      {
+        "id": "r-rra-debate",
+        "batch": "round-three-b",
+        "fromId": "e-lieder-griffiths-2020",
+        "toId": "e-resource-debate-2020",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "评论e7、e8；回应R1、R3",
+        "explanation": "同一期目标文章、直接评论与作者回应。",
+        "sourceIds": [
+          "davis-marcus-2020",
+          "dimov-2020",
+          "lieder-griffiths-response-2020"
+        ]
+      }
+    ]
+  }
+}

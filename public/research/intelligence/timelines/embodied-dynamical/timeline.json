@@ -1,0 +1,815 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "embodied-dynamical",
+    "name": "具身、生态、生成与动力系统路线",
+    "question": "身体、环境与行动耦合怎样参与认知？",
+    "gaps": [
+      "Brooks已核对实验范围与第二层实现的版本变化；期刊图中全部连线及硬件行为未独立复核。",
+      "Thelen与Smith仍限于第1章和第4章指定范围；Beer的全部相图推导和原始模拟未复核。C批已完成生物与发展的指定范围；其余长期学习和发展证据见C批缺口。",
+      "第四轮第二阶段新增Smith等1999实验1／6及2007互动理论、2009知觉交互的指定范围选读；原实验数据与长期发展机制尚未独立复核。"
+    ],
+    "nodes": [
+      {
+        "id": "e-gibson-1979",
+        "title": "Gibson：环境为这个身体提供什么？",
+        "year": 1979,
+        "dateLabel": "1979",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "生态知觉",
+        "question": "知觉是否能直接发现相对于行动者的行动可能性？",
+        "mechanism": "将供给性理解为动物与环境的互补关系；考察可被提取的光学不变量。",
+        "assumptions": "同一表面的支撑、可坐等属性取决于身体尺度与能力；直接知觉的解释需要有足够的可用信息。",
+        "limits": "这一章的理论论证不等于所有供给性可无学习、无推断地读取；未通读全书。",
+        "nextQuestion": "如何测量某个供给性的指定信息及误判条件？",
+        "claims": [
+          {
+            "id": "e-gibson-1979-c1",
+            "text": "原文用儿童和成人的座面高度区分供给性，并讨论透明玻璃导致的误知觉。",
+            "locator": "第8章开头与 Misinformation for Affordances，节选PDF1–2、14",
+            "basis": "source-reported",
+            "sourceId": "gibson-1979",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "gibson-1979",
+            "title": "The Ecological Approach to Visual Perception；James J. Gibson；第8章重排节选，15页；不冒称原书页码",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://web.eecs.umich.edu/~stellayu/teach/2023action/papers/1979gibsonAffordance.pdf",
+            "version": "The Ecological Approach to Visual Perception；James J. Gibson；第8章重排节选，15页；不冒称原书页码",
+            "readingStatus": "selected-sections",
+            "readScope": "节选PDF1–2、12–15；供给性定义、光学信息、误知觉及总结",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-gibson-1979.md"
+      },
+      {
+        "id": "e-brooks-1986",
+        "title": "分层控制从模拟推进到实机",
+        "year": 1985,
+        "dateLabel": "1985备忘录／1986期刊",
+        "dateBasis": "memo-first-with-journal-comparison",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "行为机器人",
+        "question": "怎样增加机器人能力，同时保留已能运行的底层行为？",
+        "mechanism": "按行为能力构建异步模块；高层通过抑制或替换信息流影响低层，低层继续运行。",
+        "assumptions": "依赖预设连接与人工设计模块；新增层需调试真实的交互接口。",
+        "limits": "期刊版实机报告不代表完整视觉探索系统或一般碰撞安全保证；高层视觉模块仍未按计划实现，快速障碍与拥挤环境仍可能失败。",
+        "nextQuestion": "怎样分别测试低层避障、目标趋近及视觉探索，在不同扰动下识别失效边界？",
+        "claims": [
+          {
+            "id": "e-brooks-1986-c2",
+            "text": "1985备忘录结论明确列出尚缺真实机器人演示和完整第二层实现。",
+            "locator": "§7，印刷19–20页／PDF20–21",
+            "basis": "source-reported",
+            "sourceId": "brooks-1986",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-brooks-1986-c3",
+            "text": "1986期刊版增加实验室与机房中的实机报告，并注明视觉模块暂由声呐走廊检测替代。",
+            "locator": "§IV.C，20–21页；§V.B，21–22页",
+            "basis": "source-reported",
+            "sourceId": "brooks-1986-journal",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-brooks-1986-c4",
+            "text": "期刊报告的避障经验带有限定：移动障碍刻意缓慢；快速物体或拥挤环境仍可能造成碰撞。",
+            "locator": "§IV.A，19页",
+            "basis": "source-reported",
+            "sourceId": "brooks-1986-journal",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "brooks-1986",
+            "title": "A Robust Layered Control System for a Mobile Robot",
+            "authors": [
+              "Rodney A. Brooks"
+            ],
+            "recordedAuthors": [
+              "Rodney A. Brooks"
+            ],
+            "corrections": [],
+            "year": 1985,
+            "url": "https://jmvidal.cse.sc.edu/library/brooks86a.pdf",
+            "version": "A Robust Layered Control System for a Mobile Robot；Rodney Brooks；实读MIT AI Memo864,1985-09；对应1986期刊节点，已完成所列章节的1985／1986版本对照，未做全篇逐页校勘",
+            "readingStatus": "selected-sections",
+            "readScope": "第二轮封面、§2.2、图3及§7；本批补读扫描本PDF20–22（印刷19–21页），结论与实现限制，附录仅核对范围。",
+            "unreadScope": "所列范围之外的全部正文、附录图表、代码与实验未逐项核验；版本对照不是全篇复现。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          },
+          {
+            "id": "brooks-1986-journal",
+            "title": "A Robust Layered Control System for a Mobile Robot",
+            "authors": [
+              "Rodney A. Brooks"
+            ],
+            "recordedAuthors": [
+              "Rodney A. Brooks"
+            ],
+            "corrections": [],
+            "year": 1986,
+            "url": "https://www.scribd.com/document/544347085/A-Robust-Layered-Control-System-for-a-Mobile-Robot",
+            "version": "IEEE Journal of Robotics and Automation 2(1), 14–23, March 1986；实读公开页面所载期刊正文转录，非页面AI概述。首页修订日期1986-02-03。",
+            "readingStatus": "selected-sections",
+            "readScope": "期刊14–15页及16页开头正文；19页§IV.A与20–23页§IV.C、§V、§VI。按段落核对模拟、实机、视觉替代与结论。",
+            "unreadScope": "未取得可校验的本地期刊PDF；17–18页未完整阅读；图像、图中连线及OCR破损数字不据此复核；页面AI摘要与问答不作依据。",
+            "verification": "期刊正文网页转录，保留双栏OCR及访问载体限制；未独立复现实机行为。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-brooks-1986.md"
+      },
+      {
+        "id": "e-mcgeer-1990",
+        "title": "McGeer：行走能由身体动力学产生多少？",
+        "year": 1990,
+        "dateLabel": "1990",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "被动动力学",
+        "question": "步态的哪些部分可以交给机械结构与重力？",
+        "mechanism": "在浅斜坡上由重力和惯性维持步态；以一步到下一步的状态映射分析周期及扰动。",
+        "assumptions": "特定结构、地面坡度、接触和摩擦条件；能量来自重力势能变化。",
+        "limits": "没有主动驱动不等于没有能量来源；机械行走不直接证明认知或一般智能。",
+        "nextQuestion": "怎样与少量主动控制结合，并应对平地和扰动？",
+        "claims": [
+          {
+            "id": "e-mcgeer-1990-c1",
+            "text": "图6将实测步周期、步角与模型比较；纳入滚动摩擦才改善一致性。",
+            "locator": "§3、§5及图6，印刷页63、67",
+            "basis": "source-reported",
+            "sourceId": "mcgeer-1990",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "mcgeer-1990",
+            "title": "Passive Dynamic Walking；Tad McGeer；IJRR9(2),62–82",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://courses.ece.ucsb.edu/ECE594/594D_F13Byl/papers/McGeer90.pdf",
+            "version": "Passive Dynamic Walking；Tad McGeer；IJRR9(2),62–82",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF2、6；动机、逐步映射及图6已视觉核对；附录公式仅定位未审校",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-mcgeer-1990.md"
+      },
+      {
+        "id": "e-brooks-1991",
+        "title": "Brooks：没有中央表征能做到哪里？",
+        "year": 1991,
+        "dateLabel": "1991",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "行为机器人",
+        "question": "是否必须先建立统一世界表征，才能产生有效行为？",
+        "mechanism": "完整感知—行动行为层在环境中运行，按固定拓扑互相影响；世界状态可直接触发行动。",
+        "assumptions": "论文针对简单智能和具体机器人；无需中央表征不等于没有内部状态、寄存器或局部表示。",
+        "limits": "通向人类智能的路线是作者研究假设，不能当作已完成结果。",
+        "nextQuestion": "长期规划、反事实与新任务学习怎样融入？",
+        "claims": [
+          {
+            "id": "e-brooks-1991-c1",
+            "text": "§8明确提出层数、行为复杂度和学习的开放问题；报告时实机最多三层，六层为模拟。",
+            "locator": "§6.2、§8.1–8.3，PDF7–8、10–11",
+            "basis": "source-reported",
+            "sourceId": "brooks-1991",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "brooks-1991",
+            "title": "Intelligence without Representation；Rodney Brooks；Artificial Intelligence47,139–159；作者重排PDF12页",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://people.csail.mit.edu/brooks/papers/representation.pdf",
+            "version": "Intelligence without Representation；Rodney Brooks；Artificial Intelligence47,139–159；作者重排PDF12页",
+            "readingStatus": "selected-sections",
+            "readScope": "§6–8，PDF7–8、10–12；摘要、实机与增长限制、参考文献3",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-brooks-1991.md"
+      },
+      {
+        "id": "e-varela-1991",
+        "title": "认知如何通过感知行动形成一个有意义的世界？",
+        "year": 1991,
+        "dateLabel": "1991",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "生成论",
+        "question": "知觉是在恢复预先给定的世界，还是在感知运动耦合中形成可行动的世界？",
+        "mechanism": "以感知引导的行动及重复的感知运动模式为起点；把生物、心理与文化背景纳入身体性，强调耦合历史的可存续性。",
+        "assumptions": "原文是一项概念和研究纲领论证；书中引用的猫实验、感觉替代与神经实验在本批尚未回查，不能视为本批独立实验验证。",
+        "limits": "共同强调主体—环境关系，不意味着生成论与Gibson直接知觉论相同；生存可行性也不等于跨任务智能充分条件。",
+        "nextQuestion": "哪些干预能区分现成环境信息的检测、学习形成的感知运动规律和需要内部结构的任务？",
+        "claims": [
+          {
+            "id": "e-varela-1991-c1",
+            "text": "生成论的初步表述包括感知引导的行动，以及认知结构从重复感知运动模式中产生。",
+            "locator": "印刷172–173页，第8章",
+            "basis": "source-reported",
+            "sourceId": "varela-thompson-rosch-1991",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-varela-1991-c2",
+            "text": "作者赞同Gibson的部分生态立场，但明确不同意把环境不变项的直接检测作为相同研究策略；耦合本身不推出该检测论。",
+            "locator": "印刷203–205页，第9章",
+            "basis": "source-reported",
+            "sourceId": "varela-thompson-rosch-1991",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-varela-1991-c3",
+            "text": "作者以可存续的耦合历史而非最优性描述生成论，并指出具体机制还有待说明。",
+            "locator": "印刷205–207页，第9章",
+            "basis": "source-reported",
+            "sourceId": "varela-thompson-rosch-1991",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "varela-thompson-rosch-1991",
+            "title": "The Embodied Mind: Cognitive Science and Human Experience",
+            "authors": [
+              "Francisco J. Varela",
+              "Evan Thompson",
+              "Eleanor Rosch"
+            ],
+            "recordedAuthors": [
+              "Francisco J. Varela",
+              "Evan Thompson",
+              "Eleanor Rosch"
+            ],
+            "corrections": [],
+            "year": 1991,
+            "url": "https://monoskop.org/images/2/21/Varela_Thompson_Rosch_The_Embodied_Mind_Cognitive_Science_and_Human_Experience_1991.pdf",
+            "version": "版权1991；所读扫描本版权页注明1993首个MIT平装版，具体印次年份未列；不与2016修订版混用",
+            "readingStatus": "selected-sections",
+            "readScope": "第8章“Cognition as Embodied Action”，PDF176–183／印刷172–179页；第9章PDF207–211／印刷203–207页的Gibson比较与生成论定义；版权页PDF2已视觉核对",
+            "unreadScope": "第8章前半色彩论证、自然漂移完整推导、佛学章节及被引用实验原文未读",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-varela-1991.md"
+      },
+      {
+        "id": "e-thelen-smith-1994",
+        "title": "动作模式怎样从身体与情境中形成？",
+        "year": 1994,
+        "dateLabel": "1994（实读1996平装版）",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "发展中的身体、任务与动力学",
+        "question": "为什么婴儿的踏步、踢腿、姿态支持与独立行走会呈现不同的发展轨迹？",
+        "mechanism": "以身体、神经、任务及环境的实时配合解释动作；成分的不同变化速度与行为稳定性的改变共同形成发展转折。",
+        "assumptions": "必须明确所观察行为、身体条件和时间尺度，再用纵向记录与扰动检验具体机制；动力学原则不能独自给出发展日期。",
+        "limits": "本书并不否定自主神经振荡。作者明确说踢腿作为稳定吸引子的解释尚未经严格检验；这里登记的是作者汇总的行为研究及理论解释，未审查全部原始实验。",
+        "nextQuestion": "怎样将身体负荷、姿态支持、任务目标与练习历史分开操纵，区分动作出现及自主运用的条件？",
+        "claims": [
+          {
+            "id": "e-thelen-smith-1994-c1",
+            "text": "第1章区分踏步模式、姿态支持与独立行走，并用负重、水中支持及跑台情境说明动作表现受身体与任务条件影响。",
+            "locator": "第1章11–17页",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thelen-smith-1994-c2",
+            "text": "作者提出行为由多个成分在实时情境中协同形成，发展改变这些成分及其配合；行为变化的时间尺度需要分别说明。",
+            "locator": "第4章73–74、83–88页",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thelen-smith-1994-c3",
+            "text": "作者将变化程度与抗扰动能力作为研究行为稳定性的线索，同时明确承认踢腿的稳定吸引子解释尚未严格检验。",
+            "locator": "第4章81–82页及86–88页；图4.2",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thelen-smith-1994-c4",
+            "text": "本书不否定自主神经振荡，也不认为抽象动力学原则足以直接预测具体发展事件；仍需领域经验研究。",
+            "locator": "第1章20页注1；第4章71–72页",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "thelen-smith-1994",
+            "title": "A Dynamic Systems Approach to the Development of Cognition and Action",
+            "authors": [
+              "Esther Thelen",
+              "Linda B. Smith"
+            ],
+            "recordedAuthors": [
+              "Esther Thelen",
+              "Linda B. Smith"
+            ],
+            "corrections": [],
+            "year": 1994,
+            "url": "https://www.library.brawnblog.com/DynSys-DevCogAct.pdf",
+            "version": "原作1994；实读1996年MIT Press首次平装版。版权页PDF4；印刷页码比PDF页码小26。",
+            "readingStatus": "selected-sections",
+            "readScope": "版权页、目录；第1章3–20页；第4章71–88页；图4.2（82页）另经图像核对。",
+            "unreadScope": "其余章节与第4章89页以后未完成；未逐一追溯本书引用的婴儿实验原始数据。",
+            "verification": "按列明范围核对作者论证与报告；未重跑原始实验，未复核全书／全篇推导。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-thelen-smith-1994.md"
+      },
+      {
+        "id": "e-beer-1995",
+        "title": "相同行为能否来自不同的耦合机制？",
+        "year": 1995,
+        "dateLabel": "1995",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "主体—环境耦合的形式分析",
+        "question": "怎样形式化主体与环境的相互影响，并辨别产生相似行为的不同内部机制？",
+        "mechanism": "将主体和环境写成通过感知与运动映射耦合的动力系统，以联合轨迹是否满足任务约束描述适应；用进化得到的模拟行走控制器演示分析。",
+        "assumptions": "基本分析采用连续时间、确定性和有界／收敛动力学假设；主体、身体模型及任务约束在示例中预先给定。持续相互作用并不要求系统已落入稳定极限集。",
+        "limits": "模拟昆虫的行走不构成生物机制验证或一般认知理论。正常步态相似不能识别内部动力学；感觉丧失后的表现也依赖进化条件。文章保留内部状态与表征的区别，并把语言、抽象推理及复杂系统扩展留作后续问题。",
+        "nextQuestion": "在正常行为相近的控制器之间，哪些感觉或身体扰动能区分其机制，同时排除重新学习的影响？",
+        "claims": [
+          {
+            "id": "e-beer-1995-c1",
+            "text": "主体与环境通过相互作用改变彼此的动力学；划分边界具有观察视角的选择性，但这不等于任一方可任意控制另一方。",
+            "locator": "§3.1，181–183页；式5",
+            "basis": "source-reported",
+            "sourceId": "beer-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-beer-1995-c2",
+            "text": "在给定身体模型与任务目标的模拟中，不同感觉反馈条件产生反射式、节律发生式和混合控制器；正常条件下均能形成行走。",
+            "locator": "§4.1，186–192页",
+            "basis": "source-reported",
+            "sourceId": "beer-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-beer-1995-c3",
+            "text": "对所分析的控制器，正常行走可以相似，传感器移除后的差异却揭示不同机制；混合控制器能够在无权重更新时适应反馈变化。",
+            "locator": "191页图6；§4.2.4，203–204页",
+            "basis": "source-reported",
+            "sourceId": "beer-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-beer-1995-c4",
+            "text": "Beer明确区分内部状态与内部表征，认为是否采用表征解释需要检查具体系统，而非由存在内部状态直接推出。",
+            "locator": "§5.4，210–211页",
+            "basis": "source-reported",
+            "sourceId": "beer-1995",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-beer-1995-c5",
+            "text": "文章自称为待发展的分析框架，承认复杂系统扩展、语言和抽象推理仍待解释；持续耦合也可使系统长期保持暂态。",
+            "locator": "§5.2.3，207页；§5.3，209–210页；§5.5，211–212页",
+            "basis": "source-reported",
+            "sourceId": "beer-1995",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "beer-1995",
+            "title": "A dynamical systems perspective on agent-environment interaction",
+            "authors": [
+              "Randall D. Beer"
+            ],
+            "recordedAuthors": [
+              "Randall D. Beer"
+            ],
+            "corrections": [],
+            "year": 1995,
+            "url": "https://rdbeer.pages.iu.edu/Papers/Beer1995b.pdf",
+            "version": "Artificial Intelligence 72 (1995), 173–215；作者网站期刊排版本43页，印刷页码=PDF页码+172。",
+            "readingStatus": "selected-sections",
+            "readScope": "173–177页引言与形式框架开端；180–192页§3–4.1；203–212页§4.2.4–5.5；213–214页相关参考文献；191页图6另经图像核对。",
+            "unreadScope": "178–179页及193–202页的具体动力学分析尚未逐页复核；215页参考文献未逐条核对；未独立实现进化搜索或相图分析。",
+            "verification": "按列明范围核对作者论证与报告；未重跑原始实验，未复核全书／全篇推导。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-beer-1995.md"
+      },
+      {
+        "id": "e-thelen-2001",
+        "title": "Thelen 等：A-not-B错误是否来自行动历史？",
+        "year": 2001,
+        "dateLabel": "2001",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "发展动力学",
+        "question": "婴儿反复伸向旧位置的错误，怎样随情境与历史变化？",
+        "mechanism": "动态场整合持续任务输入、短暂线索和先前伸手留下的记忆输入。",
+        "assumptions": "模型说明行为动力学；参数与具体神经机制的映射未确证。",
+        "limits": "姿态实验在此为作者对既有研究的论述，本轮未独立审原实验数据。",
+        "nextQuestion": "怎样设计控制，区分运动记忆与注意变化？",
+        "claims": [
+          {
+            "id": "e-thelen-2001-c1",
+            "text": "作者用模型解释延迟、重复与情境效应，并讨论改变姿态后错误减少。",
+            "locator": "§4.2、§6.1及PDF15",
+            "basis": "source-reported",
+            "sourceId": "thelen-2001",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "thelen-2001",
+            "title": "The Dynamics of Embodiment；Thelen,Schöner,Scheier,Smith；BBS24，目标文+评论+回应合刊86页",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://www.cs.utexas.edu/~jsinapov/teaching/cs378/readings/W4/S0140525X01003910a.pdf",
+            "version": "The Dynamics of Embodiment；Thelen,Schöner,Scheier,Smith；BBS24，目标文+评论+回应合刊86页",
+            "readingStatus": "selected-sections",
+            "readScope": "§4.2、§6.1、姿态实验讨论；PDF15、18–20、27–28；Ruffman评论PDF61；非全文完成",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-thelen-2001.md"
+      },
+      {
+        "id": "e-wilson-2002",
+        "title": "Wilson：具身认知包含哪些不同主张？",
+        "year": 2002,
+        "dateLabel": "2002",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "概念审查",
+        "question": "“身体重要”究竟支持哪些具体解释？",
+        "mechanism": "区分情境性、时间压力、外部卸载、环境属于认知系统、行动导向、离线认知以身体为基础六类命题。",
+        "assumptions": "各类命题需要独立论证；具体任务与系统边界影响解释。",
+        "limits": "这是有理由的概念批评，不是实验已否证扩展认知；本轮未逐一追溯所引实验。",
+        "nextQuestion": "什么干预证据能区分外部辅助与认知过程的构成部分？",
+        "claims": [
+          {
+            "id": "e-wilson-2002-c1",
+            "text": "作者主张因果影响分布在环境中，并不足以单独推出必须把环境纳入认知系统。",
+            "locator": "Claim4，印刷页629–630",
+            "basis": "source-reported",
+            "sourceId": "wilson-2002",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "wilson-2002",
+            "title": "Six Views of Embodied Cognition；Margaret Wilson；Psychonomic Bulletin & Review9,625–636",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://worrydream.com/refs/Wilson_M_2002_-_Six_views_of_embodied_cognition.pdf",
+            "version": "Six Views of Embodied Cognition；Margaret Wilson；Psychonomic Bulletin & Review9,625–636",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1、5–6；六类主张及外部卸载/系统边界论证",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-wilson-2002.md"
+      },
+      {
+        "id": "e-klyubin-2005",
+        "title": "行动能带来多少可区分的感知结果？",
+        "year": 2005,
+        "dateLabel": "2005",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "赋能度与感知行动通道",
+        "question": "能否以较通用的内在准则，评价一个主体潜在的可感知控制能力？",
+        "mechanism": "把一段可自主选择的行动作为通道输入、未来感觉作为输出，最大化两者互信息得到通道容量；用它评价可区分的潜在行动效果。",
+        "assumptions": "动作序列可被干预选择；需要行动到感知的通道模型、观察尺度和时间跨度。本文实验还固定起点、形态约束及小的感知／动作数量代价。",
+        "limits": "容量描述潜能，不能用既有策略下互信息直接替代；高赋能不保证任务奖励或生存。作者的黑暗中自产闪光例表明，只要可控且可感知，常识上无用的能力也会被保留。",
+        "nextQuestion": "固定可达状态后，改变传感器、行动代价和时间跨度，赋能偏好会怎样改变？",
+        "claims": [
+          {
+            "id": "e-klyubin-2005-c1",
+            "text": "赋能度定义为行动序列到未来感知通道的容量，即在允许的行动分布上最大化互信息；它评价潜在可控性，而非实际执行频率。",
+            "locator": "§2.1–2.2，129–130页，式1–3；§4，134页",
+            "basis": "source-reported",
+            "sourceId": "klyubin-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-klyubin-2005-c2",
+            "text": "本文两项演化实验分别固定动作集合优化传感器、固定传感器优化动作；以四步赋能并加小的规模惩罚评价形态。",
+            "locator": "§2.3及§3，131–133页；式4",
+            "basis": "source-reported",
+            "sourceId": "klyubin-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-klyubin-2005-c3",
+            "text": "作者明确指出，只要主体能发出并看到闪光，赋能准则会保留相应能力，无论该能力是否在常识意义上有用。",
+            "locator": "§2.3，131页",
+            "basis": "source-reported",
+            "sourceId": "klyubin-2005",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "klyubin-2005",
+            "title": "Empowerment: A Universal Agent-Centric Measure of Control",
+            "authors": [
+              "Alexander S. Klyubin",
+              "Daniel Polani",
+              "Chrystopher L. Nehaniv"
+            ],
+            "recordedAuthors": [
+              "Alexander S. Klyubin",
+              "Daniel Polani",
+              "Chrystopher L. Nehaniv"
+            ],
+            "corrections": [],
+            "year": 2005,
+            "url": "https://uhra.herts.ac.uk/id/eprint/282/1/901241.pdf",
+            "version": "2005 IEEE Congress on Evolutionary Computation，128–135页；作者大学资料库公开原刊扫描",
+            "readingStatus": "full-text",
+            "readScope": "全文128–135页；130页式3及图1–2、132页式4和实验设置已视觉核对。",
+            "unreadScope": "没有重跑演化实验或复核Blahut容量计算；作者对Gibson、Ashby的历史解释不替代这些原作的独立阅读。",
+            "verification": "已核对所列定义、主张与原文图；未独立复现实验或验证生物学普遍性。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-klyubin-2005.md"
+      },
+      {
+        "id": "e-zahedi-ay-2013",
+        "title": "Zahedi与Ay：怎样量化身体的贡献？",
+        "year": 2013,
+        "dateLabel": "2013",
+        "dateBasis": "publication",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "形态计算",
+        "question": "能否区分动作与身体—环境对下一状态的贡献？",
+        "mechanism": "在感觉运动回路中定义世界W（包括身体）、动作A和下一世界W′；比较有无动作条件、有无当前世界条件的预测分布。",
+        "assumptions": "依赖系统边界、变量选取和观测分辨率；外部世界状态通常不能直接取得。",
+        "limits": "量化不直接测行为质量或智能程度；低动作影响也可能只是失去控制。",
+        "nextQuestion": "如何把可观测的统计量与真正因果贡献分开？",
+        "claims": [
+          {
+            "id": "e-zahedi-ay-2013-c1",
+            "text": "两种量化在完全确定的反应式系统中可能给出不同结果；作者承认最终概念选择未解决。",
+            "locator": "§3.2–3.3及§5–6，PDF5、16–17",
+            "basis": "source-reported",
+            "sourceId": "zahedi-ay-2013",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "zahedi-ay-2013",
+            "title": "Quantifying Morphological Computation；Keyan Zahedi & Nihat Ay；2013 v2；Entropy15,1887–1915",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://arxiv.org/pdf/1301.6975v2",
+            "version": "Quantifying Morphological Computation；Keyan Zahedi & Nihat Ay；2013 v2；Entropy15,1887–1915",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF3–6、16–17；因果图、两种定义、讨论与结论；未复核全部实验",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-zahedi-ay-2013.md"
+      },
+      {
+        "id": "e-ghazi-zahedi-rauh-2015",
+        "title": "信息分解：身体独有贡献与协同贡献",
+        "year": 2015,
+        "dateLabel": "2015",
+        "dateBasis": "preprint-v1",
+        "batch": "round-two",
+        "batchLabel": "第二轮",
+        "branch": "形态计算",
+        "question": "先前指标是否把身体贡献与身体—动作协同混在一起？",
+        "mechanism": "将关于W′的联合信息分解为共享、各方独有与协同部分；建议用世界独有信息表征形态贡献。",
+        "assumptions": "依赖所选择的信息分解定义；文中承认没有唯一规范分解。",
+        "limits": "仍需要外部世界变量；讨论明确说明互信息是相关量，因果信息流属于后续研究。",
+        "nextQuestion": "如何在真实机器人与部分观察条件下估计并验证这些量？",
+        "claims": [
+          {
+            "id": "e-ghazi-zahedi-rauh-2015-c1",
+            "text": "条件互信息包含独有信息与协同信息；文章的二元回路模拟将二者分开。",
+            "locator": "§3方程5–7、§5–6，PDF3、6–7",
+            "basis": "source-reported",
+            "sourceId": "ghazi-zahedi-rauh-2015",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "ghazi-zahedi-rauh-2015",
+            "title": "Quantifying Morphological Computation Based on an Information Decomposition of the Sensorimotor Loop；Ghazi-Zahedi & Rauh；arXiv提交2015-03-17；所取PDF封面2018-10-09，记录差异",
+            "authors": [],
+            "recordedAuthors": [],
+            "corrections": [],
+            "year": null,
+            "url": "https://arxiv.org/pdf/1503.05113v1",
+            "version": "Quantifying Morphological Computation Based on an Information Decomposition of the Sensorimotor Loop；Ghazi-Zahedi & Rauh；arXiv提交2015-03-17；所取PDF封面2018-10-09，记录差异",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–3、4部分、6–7；信息分解和讨论；优化计算附录未复核",
+            "unreadScope": "原批次未单列；详见原批次阅读范围与限制。",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-two/notes/e-ghazi-zahedi-rauh-2015.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-brooks-1986-brooks-1991",
+        "batch": "round-two",
+        "fromId": "e-brooks-1986",
+        "toId": "e-brooks-1991",
+        "type": "method-extension",
+        "typeLabel": "方法扩展",
+        "status": "source-checked",
+        "locator": "Brooks1991 §6.2与参考文献3，PDF7、12",
+        "explanation": "后文明确沿用包容架构并指向1986实现；本轮早期节点实读版本为1985备忘录。",
+        "sourceIds": [
+          "brooks-1991"
+        ]
+      },
+      {
+        "id": "r-gibson-1979-wilson-2002",
+        "batch": "round-two",
+        "fromId": "e-gibson-1979",
+        "toId": "e-wilson-2002",
+        "type": "citation",
+        "typeLabel": "citation",
+        "status": "source-checked",
+        "locator": "Wilson2002引言，PDF1",
+        "explanation": "引用Gibson的生态知觉作为思想来源之一；引用不等于验证其全部命题。",
+        "sourceIds": [
+          "wilson-2002"
+        ]
+      },
+      {
+        "id": "r-brooks-1991-wilson-2002",
+        "batch": "round-two",
+        "fromId": "e-brooks-1991",
+        "toId": "e-wilson-2002",
+        "type": "citation",
+        "typeLabel": "citation",
+        "status": "source-checked",
+        "locator": "Wilson2002 Claim3，PDF5",
+        "explanation": "讨论利用世界降低内部存储负担时直接引用Brooks1991。",
+        "sourceIds": [
+          "wilson-2002"
+        ]
+      },
+      {
+        "id": "r-mcgeer-1990-ghazi-zahedi-rauh-2015",
+        "batch": "round-two",
+        "fromId": "e-mcgeer-1990",
+        "toId": "e-ghazi-zahedi-rauh-2015",
+        "type": "citation",
+        "typeLabel": "citation",
+        "status": "source-checked",
+        "locator": "Ghazi-Zahedi与Rauh2015引言，PDF1",
+        "explanation": "明确用被动行走作为形态贡献实例；没有声称论文复现该机器人。",
+        "sourceIds": [
+          "ghazi-zahedi-rauh-2015"
+        ]
+      },
+      {
+        "id": "r-zahedi-ay-2013-ghazi-zahedi-rauh-2015",
+        "batch": "round-two",
+        "fromId": "e-zahedi-ay-2013",
+        "toId": "e-ghazi-zahedi-rauh-2015",
+        "type": "method-extension",
+        "typeLabel": "方法扩展",
+        "status": "source-checked",
+        "locator": "Ghazi-Zahedi与Rauh2015引言及§6，PDF2、7",
+        "explanation": "后文明确以信息分解处理前文两种量化的差异。",
+        "sourceIds": [
+          "ghazi-zahedi-rauh-2015"
+        ]
+      },
+      {
+        "id": "r-thelen-2001-wilson-2002",
+        "batch": "round-two",
+        "fromId": "e-thelen-2001",
+        "toId": "e-wilson-2002",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "本站比较：Thelen2001 §4.2；Wilson2002 Claim4",
+        "explanation": "将动态耦合机制与认知系统边界区分；不声称Wilson在此直接批评2001目标文。",
+        "sourceIds": [
+          "wilson-2002"
+        ]
+      },
+      {
+        "id": "r-gibson-empowerment",
+        "batch": "round-three-a",
+        "fromId": "e-gibson-1979",
+        "toId": "e-klyubin-2005",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "§2，128–129页；§4，134页",
+        "explanation": "作者明确借鉴Gibson的感知行动视角，同时承认他对Shannon式信息度量的反对；这是作者自述的借鉴与改造，不表示Gibson认可这一量化。",
+        "sourceIds": [
+          "klyubin-2005"
+        ]
+      },
+      {
+        "id": "r-enaction-development",
+        "batch": "round-three-a",
+        "fromId": "e-varela-1991",
+        "toId": "e-thelen-smith-1994",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Varela第8章172–173页；Thelen与Smith第4章73–74、83–88页",
+        "explanation": "本站比较感知运动历史与发展中成分协同的不同解释任务；没有据此认定直接继承或二者理论等同。",
+        "sourceIds": [
+          "varela-thompson-rosch-1991",
+          "thelen-smith-1994"
+        ]
+      },
+      {
+        "id": "r-development-coupled-dynamics",
+        "batch": "round-three-a",
+        "fromId": "e-thelen-smith-1994",
+        "toId": "e-beer-1995",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Thelen与Smith第4章71–88页；Beer §3及§4.2.4",
+        "explanation": "发展理论与耦合系统形式分析共享对相互作用的关注；二者采用的对象、证据与发展时间尺度不同。此线为比较，不宣称历史影响。",
+        "sourceIds": [
+          "thelen-smith-1994",
+          "beer-1995"
+        ]
+      },
+      {
+        "id": "r-brooks-beer-state",
+        "batch": "round-three-a",
+        "fromId": "e-brooks-1991",
+        "toId": "e-beer-1995",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-supported",
+        "locator": "§5.4，210–211页及参考文献[20]、[44]",
+        "explanation": "Beer直接回应包含Brooks与Kirsh在内的情境主体争论，将内部状态、纯反应性与表征分开；不把他概括的整个争论归结为Brooks一人的主张。",
+        "sourceIds": [
+          "beer-1995"
+        ]
+      }
+    ]
+  }
+}

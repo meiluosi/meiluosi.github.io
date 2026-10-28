@@ -46,3 +46,8 @@
 本阶段没有新增原典阅读、训练模型或招募实验；群体版本复算、COGITATE原始数据及早期注册、GNW后续版本／IIT逐式对照、量子／泛心论专项、全部15张问题卡综合仍未完成。源码与编辑图可持续追加，后续证据变化需同步修订层、下载资源、构建与验收。
 
 构建时发现现有走兽文章的format字段使用了schema不接受的research，仅改为已有的experiment分类以解除全站阻塞，正文未修改。
+
+
+## 第五轮扩展后的审计范围
+
+第四轮原生综述审计继续核验原38页，单独排除后续新增的时间线页面；第四轮扩展前的结构报告保存在 [structure-check-before-round-five.json](evidence/structure-check-before-round-five.json)。后续时间线的结构与浏览器验证见[第五轮验收](../../round-five/validation.md)。本页原工程及浏览器报告是第四轮执行时快照。

@@ -1,0 +1,785 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "symbolic-logic",
+    "name": "符号、逻辑、搜索与组合路线",
+    "question": "结构、符号和搜索怎样支持推理、组合与类比？",
+    "gaps": [
+      "Logic Theorist、GPS、框架问题的独立原文及其他规划分支仍可继续拓展；本批不声称穷尽。",
+      "A*扩展节点最优性及后续更正未复核；STRIPS期刊版尚未与会议版逐项对照。"
+    ],
+    "nodes": [
+      {
+        "id": "e-mccarthy-1959",
+        "title": "程序怎样通过接受陈述改变自己的行为？",
+        "year": 1959,
+        "dateLabel": "1959",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "常识形式化",
+        "question": "怎样把知识和启发式表达为系统可以推理的对象？",
+        "mechanism": "Advice Taker拟用逻辑陈述表达知识、程序和启发式；选择相关前提后进行即时推导，并执行导出的行动命令。",
+        "assumptions": "这是系统提案，原文尚未完成启发式形式化；逻辑规则可靠不等于知识前提真实。实读后期重排本，回顾脚注与原论证分开。",
+        "limits": "机场例用于说明推理结构，不是现实导航的完整实现；Bar-Hillel直接质疑相关前提选择、时间因素与模型复杂度。",
+        "nextQuestion": "当记忆规模增加或现实条件变化时，如何选择相关事实并修订假设？",
+        "claims": [
+          {
+            "id": "e-mccarthy-1959-c1",
+            "text": "预期优势是通过补充陈述改善行为，且将尽可能多的启发式放入可表述的语言。",
+            "locator": "PDF2、4",
+            "basis": "source-reported",
+            "sourceId": "mccarthy-1959-retrospective",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-mccarthy-1959-c2",
+            "text": "作者将关键智能作用放在选择前提的程序，并明确不能对全部知识同时进行即时推导。",
+            "locator": "PDF5，§2第3点",
+            "basis": "source-reported",
+            "sourceId": "mccarthy-1959-retrospective",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-mccarthy-1959-c3",
+            "text": "随文讨论追问相关性与现实约束；McCarthy回应称例子有意简化，输出是行动命令，不能靠推导直接到达机场。",
+            "locator": "PDF11–12及14–15，Bar-Hillel批评和作者回应",
+            "basis": "source-reported",
+            "sourceId": "mccarthy-1959-retrospective",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "mccarthy-1959-retrospective",
+            "title": "Programs with Common Sense",
+            "authors": [
+              "John McCarthy"
+            ],
+            "recordedAuthors": [
+              "John McCarthy"
+            ],
+            "corrections": [],
+            "year": 1959,
+            "url": "https://www.cs.rit.edu/~rlaz/files/mccarthy1959.pdf",
+            "version": "15页后期重排本；题首页标1959，PDF2含1996回顾脚注，不能当作1959原始版面；1958会议报告另记",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–15正文及随文讨论均已读；PDF8式17和行动推导已视觉核对",
+            "unreadScope": "未与1959会议录扫描本逐字校对；示例全部推导和相关性选择程序未实现或形式验证",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-mccarthy-1959.md"
+      },
+      {
+        "id": "e-hart-nilsson-raphael-1968",
+        "title": "启发式知识怎样帮助搜索而保留最优解？",
+        "year": 1968,
+        "dateLabel": "1968",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "启发式图搜索",
+        "question": "怎样同时利用领域知识并约束搜索结果的路径代价？",
+        "mechanism": "按已发现路径代价与剩余代价估计之和选择开放节点；找到更低代价时允许重开关闭节点。以剩余真实代价的下界约束启发式。",
+        "assumptions": "原文使用边代价有统一正下界的图。本批解释保守限定有限图、可达目标及非负启发式下界；不声称核验原文所有无限图细节。",
+        "limits": "保证路径最优、扩展节点最少、总计算时间最少是不同命题。本批不将原文扩展节点最优性论证视作已复核结论。",
+        "nextQuestion": "启发式的计算开销何时抵消减少搜索节点的收益？",
+        "claims": [
+          {
+            "id": "e-hart-nilsson-raphael-1968-c1",
+            "text": "原算法选择评价值最小的开放节点，并在发现更优路径时重开关闭节点；评价函数相加已知路径成本与剩余成本估计。",
+            "locator": "102页§II.A–C，算法步骤2–4和式2",
+            "basis": "source-reported",
+            "sourceId": "hart-nilsson-raphael-1968",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hart-nilsson-raphael-1968-c2",
+            "text": "定理1将启发式不高估剩余最优代价作为可采纳性的关键条件；该主张仍依赖前文图与算法设置。",
+            "locator": "101页§I.B、103页定理1",
+            "basis": "source-reported",
+            "sourceId": "hart-nilsson-raphael-1968",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-hart-nilsson-raphael-1968-c3",
+            "text": "作者明确指出扩展节点最少不等于总资源消耗最少，启发式本身也有计算成本。",
+            "locator": "107页§IV.B",
+            "basis": "source-reported",
+            "sourceId": "hart-nilsson-raphael-1968",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "hart-nilsson-raphael-1968",
+            "title": "A Formal Basis for the Heuristic Determination of Minimum Cost Paths",
+            "authors": [
+              "Peter E. Hart",
+              "Nils J. Nilsson",
+              "Bertram Raphael"
+            ],
+            "recordedAuthors": [
+              "Peter E. Hart",
+              "Nils J. Nilsson",
+              "Bertram Raphael"
+            ],
+            "corrections": [],
+            "year": 1968,
+            "url": "https://www.cs.auckland.ac.nz/courses/compsci709s2c/resources/Mike.d/astarNilsson.pdf",
+            "version": "IEEE Transactions on Systems Science and Cybernetics SSC-4(2):100–107，1968年7月；1967年11月24日为收稿日",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF2–4／101–103页：图定义、A*步骤、评价函数、引理1和定理1；PDF8／107页计算代价讨论；102–103页已视觉核对",
+            "unreadScope": "原文104–106页扩展节点最优性论证、后续更正与争议未复核；未独立验证无限图终止论证",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-hart-nilsson-raphael-1968.md"
+      },
+      {
+        "id": "e-strips-1971",
+        "title": "如何在世界模型之间搜索行动计划？",
+        "year": 1971,
+        "dateLabel": "1971",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "规划与行动模型",
+        "question": "怎样减少把整个行动序列都交给定理证明器造成的搜索困难？",
+        "mechanism": "把模型内的证明与模型之间的搜索分开；用前提和增删列表描述算子，以未完成证明形成差异，再寻找相关算子及其子目标。",
+        "assumptions": "需给定初始逻辑模型、算子及目标；实际行动程序与模型中的算子应用分开；派生事实还需跟踪其依赖的原始事实。",
+        "limits": "原文世界模型允许一阶公式，不能直接缩写成所有现代教材中的简化STRIPS定义。所得计划不保证最短；能规划爬箱不等于当时机器人能执行。",
+        "nextQuestion": "如何在行动效果不确定、观测不完整或模型错误时修正计划？",
+        "claims": [
+          {
+            "id": "e-strips-1971-c1",
+            "text": "作者明确分离模型内定理证明和模型间搜索，并区分规划算子与实际执行的行动程序。",
+            "locator": "608页引言及脚注",
+            "basis": "source-reported",
+            "sourceId": "strips-1971-ijcai",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-strips-1971-c2",
+            "text": "算子以适用条件和增删列表描述；删除原始事实后，还需检查依赖它的非原始事实是否仍有效。",
+            "locator": "609页§II.A、612–613页§III.B",
+            "basis": "source-reported",
+            "sourceId": "strips-1971-ijcai",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-strips-1971-c3",
+            "text": "615页报告灯开关问题解非最优，并注明当时SRI机器人不能爬箱和开灯。",
+            "locator": "615页§IV及脚注",
+            "basis": "source-reported",
+            "sourceId": "strips-1971-ijcai",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "strips-1971-ijcai",
+            "title": "STRIPS: A New Approach to the Application of Theorem Proving to Problem Solving",
+            "authors": [
+              "Richard E. Fikes",
+              "Nils J. Nilsson"
+            ],
+            "recordedAuthors": [
+              "Richard E. Fikes",
+              "Nils J. Nilsson"
+            ],
+            "corrections": [],
+            "year": 1971,
+            "url": "https://www.ijcai.org/Proceedings/71/Papers/055.pdf",
+            "version": "IJCAI 1971会议录608–620页；不是同年Artificial Intelligence 189–208页期刊版，后者DOI不套用于此文件",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–8／608–615页，含问题空间、搜索、参数、算子、模型存储和三箱例；PDF13参考文献；PDF5的push算子已视觉核对",
+            "unreadScope": "PDF9–12表格、图3和结尾讨论未完整读；期刊版未比对；原代码、机器人执行与性能表未复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-strips-1971.md"
+      },
+      {
+        "id": "e-newell-simon-1976",
+        "title": "符号系统如何成为可检验的智能假说？",
+        "year": 1976,
+        "dateLabel": "1976",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "符号系统与启发式搜索",
+        "question": "哪些结构和过程可能支持一般智能行动，又应怎样检验？",
+        "mechanism": "定义符号、表达式、指称和解释过程；提出物理符号系统假说，并用启发式搜索说明有限资源下怎样产生、修改和检验候选解。",
+        "assumptions": "“充分”指足够大的系统可以进一步组织成智能系统；不是任意符号程序都会智能。搜索依赖问题空间中可利用的结构。",
+        "limits": "作者明确视其为经验概括而非定理；所列AI程序和人类行为研究不是对所有可能系统的穷尽证明。",
+        "nextQuestion": "怎样设计任务，区分架构约束的预测与程序员额外写入的知识？",
+        "claims": [
+          {
+            "id": "e-newell-simon-1976-c1",
+            "text": "物理符号系统假说被明确称作可能为假的经验假说；充分性还要求足够规模及进一步组织。",
+            "locator": "印刷116页 Physical Symbol Systems",
+            "basis": "source-reported",
+            "sourceId": "newell-simon-1976",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-newell-simon-1976-c2",
+            "text": "原文将构建智能程序的证据与解释人类认知过程的证据分开，并明确假说不是定理。",
+            "locator": "印刷118页 The Evidence",
+            "basis": "source-reported",
+            "sourceId": "newell-simon-1976",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-newell-simon-1976-c3",
+            "text": "启发式搜索假说要求在有限资源下生成和修改符号结构；利用问题空间中的可检测规律决定下一步搜索。",
+            "locator": "印刷120–121页 Heuristic Search",
+            "basis": "source-reported",
+            "sourceId": "newell-simon-1976",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "newell-simon-1976",
+            "title": "Computer Science as Empirical Inquiry: Symbols and Search",
+            "authors": [
+              "Allen Newell",
+              "Herbert A. Simon"
+            ],
+            "recordedAuthors": [
+              "Allen Newell",
+              "Herbert A. Simon"
+            ],
+            "corrections": [],
+            "year": 1976,
+            "url": "https://schiaffonati.faculty.polimi.it/TFI/newell_simon_1976.pdf",
+            "version": "CACM 19(3):113–126，1976年3月；源自1975年图灵奖演讲",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF4–6／116–118页的定义、历史与证据；PDF8–9／120–121页的启发式搜索假说；PDF7部分；PDF1核对出版与演讲日期",
+            "unreadScope": "未完整阅读引言、PDF7提取截断部分和PDF10–14；具体心理实验、搜索程序与参考文献未复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-newell-simon-1976.md"
+      },
+      {
+        "id": "e-gentner-1983",
+        "title": "类比为何偏向关系结构而非表面属性？",
+        "year": 1983,
+        "dateLabel": "1983",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "类比与关系结构",
+        "question": "当两个领域的对象不同，哪些知识仍可迁移？",
+        "mechanism": "将源域对象映射到目标域，优先保留关系及被高阶关系联系起来的结构，产生目标域的候选推论。",
+        "assumptions": "依赖给定的心理知识表征；谓词匹配按同一性处理，通常采用一对一对象对应，但原文允许例外。",
+        "limits": "映射产生候选推论，仍需评价可信性；原文的简要行为证据未在本批复验。类比偏好不保证迁移知识为真。",
+        "nextQuestion": "结构相同但结论为假的类比，能否被独立的验证步骤拒绝？",
+        "claims": [
+          {
+            "id": "e-gentner-1983-c1",
+            "text": "映射规则区分对象属性、对象间关系与高阶关系；系统性原则偏好彼此连接的关系系统。",
+            "locator": "印刷158页三条规则、163–165页系统性讨论",
+            "basis": "source-reported",
+            "sourceId": "gentner-1983",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gentner-1983-c2",
+            "text": "候选推论需要后续合理性评价，结构映射并不代替该阶段。",
+            "locator": "印刷165页脚注11",
+            "basis": "source-reported",
+            "sourceId": "gentner-1983",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gentner-1983-c3",
+            "text": "此处系统性指关系结构的连贯性；与Fodor讨论的能力成组出现需分别定义。",
+            "locator": "印刷158及163–165页；与Fodor §3.2的本站比较",
+            "basis": "editorial-inference",
+            "sourceId": "gentner-1983",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "gentner-1983",
+            "title": "Structure-Mapping: A Theoretical Framework for Analogy",
+            "authors": [
+              "Dedre Gentner"
+            ],
+            "recordedAuthors": [
+              "Dedre Gentner"
+            ],
+            "corrections": [],
+            "year": 1983,
+            "url": "https://groups.psych.northwestern.edu/gentner/papers/Gentner83.2b.pdf",
+            "version": "Cognitive Science 7(2):155–170，作者实验室扫描本；大部分PDF页为双页",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–8／正文155–168及参考文献169页；PDF3／158–159页映射规则已视觉核对",
+            "unreadScope": "参考文献末页未读；文中概述的心理实验原始报告、后续SME实现未读或复现",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-gentner-1983.md"
+      },
+      {
+        "id": "e-fodor-pylyshyn-1988",
+        "title": "相关认知能力为什么成组出现？",
+        "year": 1988,
+        "dateLabel": "1988",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "系统性争论",
+        "question": "理解某种关系为什么通常伴随理解相关的角色交换，而不是互不相关的能力清单？",
+        "mechanism": "从系统性、组合性与推理一致性论证：表征需要组成结构，处理过程需要对该结构敏感；系统性论证不依赖无界生产性的理想化。",
+        "assumptions": "作者把相关能力成组出现视作需要解释的经验前提；从语言到思想还使用表达思想的桥接前提；关于非语言动物的论证包含待经验检验的主张。",
+        "limits": "这不是证明任何神经网络都无法完成组合任务。作者承认网络可以表现系统性，争点是架构如何解释并产生这种规律；人类系统性的范围也需任务与表现约束。",
+        "nextQuestion": "训练诱导的规则能否在新角色、新长度与新分布下持续工作？这些检验分别触及原论证哪一前提？",
+        "claims": [
+          {
+            "id": "e-fodor-pylyshyn-1988-c1",
+            "text": "§3.2将系统性表述为某些理解或表达能力之间的内在联系，并明确它不需要无界能力的理想化。",
+            "locator": "印刷36–40页，§3.2",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-fodor-pylyshyn-1988-c2",
+            "text": "§3.4和§3.5承认可以构造表现系统性的网络；作者要求说明为什么相关能力由机制成组产生，而非仅额外规定其存在。",
+            "locator": "印刷47–50页，尤其50页",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-fodor-pylyshyn-1988-c3",
+            "text": "把SCAN或MLC某一切分得分直接视为整场架构争论的裁决，会跨过能力定义、训练机制及泛化范围的对齐步骤。",
+            "locator": "Fodor与Pylyshyn §3.2–3.5；比较依据另见关联来源SCAN PDF5–6及MLC 119页Discussion；本站分析",
+            "basis": "editorial-inference",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-fodor-pylyshyn-1988-c4",
+            "text": "作者将节点的说法扩展到聚合活动模式，并区分认知架构与神经实现；不能把其论证简单还原为只批评局部单元表征。",
+            "locator": "印刷5页脚注1、10–11页层次区分、15页脚注10",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "fodor-pylyshyn-1988",
+            "title": "Connectionism and cognitive architecture: A critical analysis",
+            "authors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "recordedAuthors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+            "version": "Cognition 28(1–2):3–71；扫描期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–49／印刷3–51页：§1、§2、完整§3.1–3.5与§4开头；扫描文字识别辅助阅读，图形及少量识别不清符号不据OCR重建",
+            "unreadScope": "PDF50–69／印刷52–71页尚未完整读；不能称全文完成",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "lake-baroni-2018",
+            "title": "Generalization without Systematicity: On the Compositional Skills of Sequence-to-Sequence Recurrent Networks",
+            "authors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "recordedAuthors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "corrections": [],
+            "year": 2018,
+            "url": "https://proceedings.mlr.press/v80/lake18a/lake18a.pdf",
+            "version": "Generalization without systematicity；Lake & Baroni；ICML/PMLR80",
+            "readingStatus": "selected-sections",
+            "readScope": "§2及§4实验，PDF2、4–7；未逐页读全部附录；本批复核PDF2、5–6：任务定义、隔离原语实验及与Fodor思想实验的联系",
+            "unreadScope": "第二轮所列未覆盖范围仍保留；本批未补读全部Methods、附录、代码，也未复现实验",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          },
+          {
+            "id": "lake-baroni-2023",
+            "title": "Human-like systematic generalization through a meta-learning neural network",
+            "authors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "recordedAuthors": [
+              "Brenden M. Lake",
+              "Marco Baroni"
+            ],
+            "corrections": [],
+            "year": 2023,
+            "url": "https://www.nature.com/articles/s41586-023-06668-3.pdf",
+            "version": "Human-like systematic generalization through a meta-learning neural network；Lake & Baroni；Nature623,115–121",
+            "readingStatus": "selected-sections",
+            "readScope": "正文PDF2–6；未全面核对Methods与补充材料；本批复核PDF5／119页表2与Discussion：直接讨论Fodor与Pylyshyn，并保留分布外及新符号限制",
+            "unreadScope": "第二轮所列未覆盖范围仍保留；本批未补读全部Methods、附录、代码，也未复现实验",
+            "verification": "仅核对所列原文主张；未独立复现论文结果。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-fodor-pylyshyn-1988.md"
+      },
+      {
+        "id": "e-smolensky-1988-bbs",
+        "title": "分布式状态能否具有组成结构？",
+        "year": 1988,
+        "dateLabel": "1988",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "分布式组成结构",
+        "question": "连接主义是否只能把一个完整思想当成没有结构的原子？",
+        "mechanism": "Smolensky在概念层把活动模式分解成子模式，在次概念层分析单元活动；咖啡例中组成部分随语境变化，符号描述作为近似高层描述。",
+        "assumptions": "这是一种研究纲领及表征分析；不能把作者认为可行的方向当作已经完成的普遍系统性保证。",
+        "limits": "目标文§7.2明说复杂结构仍有难题；作者回应区分共同抽象的不同实现与精确执行符号原语。Fodor与Pylyshyn对语境变化下如何保证推理有效提出直接异议。",
+        "nextQuestion": "能否构造具有明确绑定与解绑定规则的分布式表征，再分开检验结构表达、操作和学习？",
+        "claims": [
+          {
+            "id": "e-smolensky-1988-bbs-c1",
+            "text": "§7.2直接点名Fodor与Pylyshyn1988，并以分布式子模式的组成结构反对把批评推广到所有分布式网络。",
+            "locator": "PDF/印刷16–17页，§7.2",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1988-bbs",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1988-bbs-c2",
+            "text": "作者回应图1区分精确执行符号原语和直接以连接主义形式实现认知抽象；后一方向要求重建架构。",
+            "locator": "PDF/印刷62页，回应§1.1图1",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1988-bbs",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1988-bbs-c3",
+            "text": "Fodor与Pylyshyn明确批评Smolensky的咖啡例与近似语境等价，追问关系相似怎样保证推理有效。",
+            "locator": "印刷45–46页，§3.3",
+            "basis": "source-reported",
+            "sourceId": "fodor-pylyshyn-1988",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "smolensky-1988-bbs",
+            "title": "On the proper treatment of connectionism",
+            "authors": [
+              "Paul Smolensky"
+            ],
+            "recordedAuthors": [
+              "Paul Smolensky"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://compositionalintelligence.github.io/pdfs/Smolensky_BBS.pdf",
+            "version": "Behavioral and Brain Sciences 11，目标文1–23页；所读74页文件另含评论与作者回应，DOI对应目标文章",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF/印刷15–17页，重点§7.2；作者回应62、67–70页。68–69页原先被提取截断的正文已补齐阅读。",
+            "unreadScope": "其他正文、评论和回应未完整读；同年另文 The Constituent Structure… 的全文入口失败，不能用此文件冒充该文",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          },
+          {
+            "id": "fodor-pylyshyn-1988",
+            "title": "Connectionism and cognitive architecture: A critical analysis",
+            "authors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "recordedAuthors": [
+              "Jerry A. Fodor",
+              "Zenon W. Pylyshyn"
+            ],
+            "corrections": [],
+            "year": 1988,
+            "url": "https://neural-mechanics.baulab.info/papers/fodor-1988-connectionism-critique.pdf",
+            "version": "Cognition 28(1–2):3–71；扫描期刊版",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–49／印刷3–51页：§1、§2、完整§3.1–3.5与§4开头；扫描文字识别辅助阅读，图形及少量识别不清符号不据OCR重建",
+            "unreadScope": "PDF50–69／印刷52–71页尚未完整读；不能称全文完成",
+            "verification": "只核对所列原文主张；独立验证另见节点记录。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-smolensky-1988-bbs.md"
+      },
+      {
+        "id": "e-smolensky-1990",
+        "title": "分布式向量怎样保存谁处于哪个角色？",
+        "year": 1990,
+        "dateLabel": "1990",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "角色绑定与结构表示",
+        "question": "把多个对象的特征叠加以后，怎样保留对象与角色的绑定并取回它们？",
+        "mechanism": "先把结构分解为填充值与角色，以外积表示每个绑定，再求和；通过作用于角色侧的向量取回填充值。",
+        "assumptions": "精确解绑定理要求单值角色及当前绑定角色向量线性独立；直接用角色向量查询与对偶向量查询的条件不同。",
+        "limits": "该表示不能独自保证学习成功或一般系统性；作者保留维度增长、递归处理与记忆存储限制。数学存在的操作不等于网络已经学会执行。",
+        "nextQuestion": "怎样控制角色编码、容量和训练经验，区分精确结构操作与近似串扰？",
+        "claims": [
+          {
+            "id": "e-smolensky-1990-c1",
+            "text": "结构可表示为填充值向量与角色向量外积之和；角色和填充值均可采用分布式表示。",
+            "locator": "§2.2.3–2.2.4，173–176页",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1990",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1990-c2",
+            "text": "单值角色的向量线性独立时，对偶向量支持精确解绑；自寻址查询对非正交角色一般会混入其他填充值。",
+            "locator": "§3.1，186–187页，定理3.1与3.3",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1990",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-smolensky-1990-c3",
+            "text": "作者明确说本研究始于对Fodor与Pylyshyn的回应，同时在结论中承认绑定单元增长和结构处理仍有困难。",
+            "locator": "§1.2，165页；§4，212–213页",
+            "basis": "source-reported",
+            "sourceId": "smolensky-1990",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "smolensky-1990",
+            "title": "Tensor Product Variable Binding and the Representation of Symbolic Structures in Connectionist Systems",
+            "authors": [
+              "Paul Smolensky"
+            ],
+            "recordedAuthors": [
+              "Paul Smolensky"
+            ],
+            "corrections": [],
+            "year": 1990,
+            "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2017/02/Smolensky-90-AI-Tensor-Product-Variable-Binding-and-the-Representation-of-Symbolic-Structures-in-Connectionist-Systems.pdf",
+            "version": "Artificial Intelligence 46(1–2):159–216；58页期刊版，作者任职机构公开文件",
+            "readingStatus": "selected-sections",
+            "readScope": "159–176页§1、§2.1–2.2；185–190页§2.4、§3.1–3.2；211页末§3.9引入至213页结论；214–216页参考文献。186–187页精确／自寻址解绑定理及证明已视觉核对。",
+            "unreadScope": "177–184页特殊表示、191–211页大部分实现／递归操作／记忆推导尚未完整读；未实现TPPS或验证学习结果。读取211页结尾不等于审查此前存储定理证明。",
+            "verification": "核对所列原文主张、条件与范围；本次未独立重跑其论文实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-smolensky-1990.md"
+      },
+      {
+        "id": "e-ellis-2021",
+        "title": "能否同时学习程序库和搜索程序的方法？",
+        "year": 2021,
+        "dateLabel": "2021",
+        "dateBasis": "publication",
+        "batch": "round-three-a",
+        "batchLabel": "A批",
+        "branch": "程序归纳与学习搜索",
+        "question": "预先设计专用语言限制了程序合成，怎样从已解任务中学出可复用抽象？",
+        "mechanism": "清醒阶段搜索程序；抽象阶段重构已找到的程序形成库；梦阶段用已解任务和库中采样程序训练神经搜索策略。",
+        "assumptions": "输入仍需基本语言和具有共享结构、难度递进的任务语料；后验计算使用有限候选束等近似，不是从无先验开始。",
+        "limits": "主消融覆盖六个领域，另有两个特殊实验；递归基础学习实验没有使用识别网络。少量任务例不等于低总训练成本，完整DSL学习仍是开放问题。 图7中的生成文本任务使用每字符预测似然，不能与其他任务的解题率混为同一指标；EC2各领域运行次数也不同。",
+        "nextQuestion": "在新数据类型、不同任务分布和更现实的噪声下，库与搜索策略能否继续迁移？",
+        "claims": [
+          {
+            "id": "e-ellis-2021-c1",
+            "text": "§2明确要求基本语言足以表达任务，并要求容易与困难任务共享可复用抽象。",
+            "locator": "837页§2",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c2",
+            "text": "算法将程序搜索、抽象库学习和识别网络训练分成三阶段，并使用有限候选束近似程序空间的求和。",
+            "locator": "837–839页§2.1–2.4",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c3",
+            "text": "作者报告主评测中两类学习部件均有贡献；列表任务测试集和EC2批处理方式改变，不能直接与旧论文数字比较。",
+            "locator": "843–844页§5",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c4",
+            "text": "特殊递归语言实验禁用识别网络；作者仍将自动学习DSL的数据类型、惯用法和设计模式列为开放问题。",
+            "locator": "847页特殊实验与§6 Outlook",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-ellis-2021-c5",
+            "text": "图7生成文本面板报告预测似然；误差条为运行间标准差，EC2的运行次数存在领域差异。",
+            "locator": "845页图7及图说",
+            "basis": "source-reported",
+            "sourceId": "dreamcoder-2021",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "dreamcoder-2021",
+            "title": "DreamCoder: Bootstrapping Inductive Program Synthesis with Wake-Sleep Library Learning",
+            "authors": [
+              "Kevin Ellis",
+              "Catherine Wong",
+              "Maxwell Nye",
+              "Mathias Sablé-Meyer",
+              "Lucas Morales",
+              "Luke Hewitt",
+              "Luc Cary",
+              "Armando Solar-Lezama",
+              "Joshua B. Tenenbaum"
+            ],
+            "recordedAuthors": [
+              "Kevin Ellis",
+              "Catherine Wong",
+              "Maxwell Nye",
+              "Mathias Sablé-Meyer",
+              "Lucas Morales",
+              "Luke Hewitt",
+              "Luc Cary",
+              "Armando Solar-Lezama",
+              "Joshua B. Tenenbaum"
+            ],
+            "corrections": [],
+            "year": 2021,
+            "url": "https://people.csail.mit.edu/asolar/papers/EllisWNSMHCST21.pdf",
+            "version": "PLDI 2021正式论文，835–850页；2020预印本题名与组织不同，本批不混用",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF1–5／835–839页的问题、算法及近似目标；PDF9–10／843–844页评测设置与结果；PDF13–14／847–848页特殊实验、讨论和图说；PDF11／845页图7曲线、图例、误差条与图说已视觉核对，并读该页正文",
+            "unreadScope": "PDF6–8重构细节、PDF12特殊实验中段、15–16参考文献未完整读；另册附录和代码未核验，未复现结果",
+            "verification": "核对指定原文主张，未独立重复所引用实验。"
+          }
+        ],
+        "priorNote": "round-three-a/notes/e-ellis-2021.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-smolensky-fodor-response",
+        "batch": "round-three-a",
+        "fromId": "e-fodor-pylyshyn-1988",
+        "toId": "e-smolensky-1988-bbs",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-checked",
+        "locator": "§7.2，印刷16–17页",
+        "explanation": "直接点名并回应；同年往复，不推断明确先后顺序。",
+        "sourceIds": [
+          "smolensky-1988-bbs"
+        ]
+      },
+      {
+        "id": "r-fodor-smolensky-objection",
+        "batch": "round-three-a",
+        "fromId": "e-smolensky-1988-bbs",
+        "toId": "e-fodor-pylyshyn-1988",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-checked",
+        "locator": "§3.3，印刷45–46页",
+        "explanation": "直接批评咖啡例及语境近似；关系图应允许同年双向争论。",
+        "sourceIds": [
+          "fodor-pylyshyn-1988"
+        ]
+      },
+      {
+        "id": "r-gentner-fodor-terminology",
+        "batch": "round-three-a",
+        "fromId": "e-gentner-1983",
+        "toId": "e-fodor-pylyshyn-1988",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "Gentner印刷158、163–165页；Fodor §3.2",
+        "explanation": "比较同名术语的不同解释目标，不将词语相同当作思想继承。",
+        "sourceIds": [
+          "gentner-1983",
+          "fodor-pylyshyn-1988"
+        ]
+      },
+      {
+        "id": "r-mccarthy-strips-planning",
+        "batch": "round-three-a",
+        "fromId": "e-mccarthy-1959",
+        "toId": "e-strips-1971",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "McCarthy PDF5–10；STRIPS 608–613页",
+        "explanation": "比较相关前提选择与模型间搜索的不同处理；本条不宣称直接历史继承。",
+        "sourceIds": [
+          "mccarthy-1959-retrospective",
+          "strips-1971-ijcai"
+        ]
+      },
+      {
+        "id": "r-astar-dreamcoder-search",
+        "batch": "round-three-a",
+        "fromId": "e-hart-nilsson-raphael-1968",
+        "toId": "e-ellis-2021",
+        "type": "editorial-comparison",
+        "typeLabel": "editorial-comparison",
+        "status": "editorial",
+        "locator": "A* 102–103、107页；DreamCoder 837–839页",
+        "explanation": "比较手工启发式下界与学习得到的搜索分布；DreamCoder结果不能继承A*的路径最优性保证。",
+        "sourceIds": [
+          "hart-nilsson-raphael-1968",
+          "dreamcoder-2021"
+        ]
+      },
+      {
+        "id": "r-fodor-tpr",
+        "batch": "round-three-a",
+        "fromId": "e-fodor-pylyshyn-1988",
+        "toId": "e-smolensky-1990",
+        "type": "direct-response",
+        "typeLabel": "直接回应",
+        "status": "source-supported",
+        "locator": "165页§1.2及214页参考文献11",
+        "explanation": "作者明确说明这项工作始于回应Fodor与Pylyshyn的表征挑战；1990是期刊节点，不表示研究直到该年才开始。",
+        "sourceIds": [
+          "smolensky-1990"
+        ]
+      },
+      {
+        "id": "r-smolensky-bbs-tpr",
+        "batch": "round-three-a",
+        "fromId": "e-smolensky-1988-bbs",
+        "toId": "e-smolensky-1990",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "159页引文41；165–167页；216页参考文献41",
+        "explanation": "1990文章明确沿用BBS论文的理论立场并形式化结构表示问题；本边不宣称BBS是张量积方法的首次提出。",
+        "sourceIds": [
+          "smolensky-1990"
+        ]
+      }
+    ]
+  }
+}

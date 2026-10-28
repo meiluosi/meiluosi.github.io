@@ -1,0 +1,810 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "psychometric",
+    "name": "心理测量与能力结构路线",
+    "question": "测验相关意味着一个总能力、多个能力还是过程重叠？",
+    "gaps": [
+      "Meredith 1993原文正文未取得；不变性的方法证据使用Jak–Jorgensen 2017，不能冒称补齐1993原文。",
+      "Thurstone 1938、Horn的关键扩展原作、2012完整CHC书章尚待阅读；1963和1993的公开OCR需用原版扫描复核图表。",
+      "Gardner首版与后出版本未校勘，2006回应未读；不根据单一大学样本裁决全部多元智能理论。"
+    ],
+    "nodes": [
+      {
+        "id": "e-spearman-1904",
+        "title": "测验相关怎样被解释为共同功能？",
+        "year": 1904,
+        "dateLabel": "1904",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "共同因素与测量误差",
+        "question": "不同感官、学校任务和生活判断的表现是否共享某种成分？",
+        "mechanism": "将感官辨别与学校或熟人排名关联，并尝试校正测量误差、年龄及其他因素。",
+        "assumptions": "相关修正依赖重复测量可比等假设；学校成绩和年龄修正成绩承担的含义由作者解释。",
+        "limits": "样本和操作程序不支持直接外推到任意人群或机器。原文关于感官判别近完全对应及年龄稳定性的强推断未在本项目重验；统计结构不能被本站升级为已识别的单一心理原因。",
+        "nextQuestion": "什么操纵或额外数据能区分共同原因与多过程重叠解释？",
+        "claims": [
+          {
+            "id": "e-spearman-1904-c1",
+            "text": "所用能力指标包括考试排名、按年龄调整的排名、教师判断及熟人对常识的排序；它们并非同一个直接观测量。",
+            "locator": "印刷249–251页",
+            "basis": "source-reported",
+            "sourceId": "spearman-1904",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-spearman-1904-c2",
+            "text": "作者尝试校正观察误差，也指出把不同功能误当同一对象的重复测量会扭曲修正，甚至得到超过1的相关。",
+            "locator": "印刷253–255页",
+            "basis": "source-reported",
+            "sourceId": "spearman-1904",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-spearman-1904-c3",
+            "text": "共同成分在原文表述为基本功能或功能群；作者要求更广泛佐证，并把其心理性质的讨论排除在本研究范围之外。",
+            "locator": "印刷272–273页；284页结论IV与VI",
+            "basis": "source-reported",
+            "sourceId": "spearman-1904",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "spearman-1904",
+            "title": "General Intelligence, Objectively Determined and Measured",
+            "authors": [
+              "Charles Spearman"
+            ],
+            "recordedAuthors": [
+              "Charles Spearman"
+            ],
+            "corrections": [],
+            "year": 1904,
+            "url": "https://gwern.net/docs/iq/1904-spearman.pdf",
+            "version": "American Journal of Psychology 15(2), 201–292；92页JSTOR扫描副本，印刷页=PDF页+200。",
+            "readingStatus": "selected-sections",
+            "readScope": "目录；印刷246–251、253–255、272–274、283–285页。实验安排、能力估计、测量误差修正、共同功能与结论。",
+            "unreadScope": "其余论证与附录数据未逐项读验；没有重算原始相关表或复现实验。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-spearman-1904.md"
+      },
+      {
+        "id": "e-binet-simon-1905",
+        "title": "把儿童的当前表现放进分级量表",
+        "year": 1905,
+        "dateLabel": "1905（原刊卷年1904）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "用途、施测与语言条件",
+        "question": "怎样对儿童当前的智力表现作有依据的分级判断？",
+        "mechanism": "用难度渐增且异质的短任务比较水平，结合医疗、教学及直接心理观察；规定施测环境和避免暗示的要求。",
+        "assumptions": "限定当下状态，不推定病因或未来；作者希望尽量排除学校知识，但这一愿望本身不是测量不受教育和文化影响的证明。",
+        "limits": "历史术语仅保留在文献题名，正文采用现代中性措辞。该阅读范围不足以评价诊断准确率；不把1905量表等同于后来的IQ或1908年龄量表。",
+        "nextQuestion": "语言替换、教育经历与施测提示怎样改变分数的可比性？",
+        "claims": [
+          {
+            "id": "e-binet-simon-1905-c1",
+            "text": "作者限定研究为当前状态，不据此判断先天／后天病因或预后；量表被说明为实践上的等级分类，并非像长度一样可叠加的度量。",
+            "locator": "开篇；I. The Psychological Method中“scale properly speaking”段",
+            "basis": "source-reported",
+            "sourceId": "binet-1905-kite",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-binet-simon-1905-c2",
+            "text": "短时、异质、面向判断的项目与施测者观察共同组成方法；总则明确警告只记粗分及无意提示答案两种错误。",
+            "locator": "I. The Psychological Method；Measuring Scale of Intelligence／General recommendations",
+            "basis": "source-reported",
+            "sourceId": "binet-1905-kite",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-binet-simon-1905-c3",
+            "text": "译者说明法文押韵项目不能机械照搬为英文，必须换成合适的英语词；同一表面任务在不同语言中的难度不可直接视为相同。",
+            "locator": "译者注12–13，末尾注释",
+            "basis": "source-reported",
+            "sourceId": "binet-1905-kite",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "binet-1905-kite",
+            "title": "New Methods for the Diagnosis of the Intellectual Level of Subnormals",
+            "authors": [
+              "Alfred Binet",
+              "Théodore Simon"
+            ],
+            "recordedAuthors": [
+              "Alfred Binet",
+              "Théodore Simon"
+            ],
+            "corrections": [],
+            "year": 1905,
+            "url": "https://psychclassics.yorku.ca/Binet/binet1.htm",
+            "version": "1916年Elizabeth S. Kite英译的网页转录。页首只列Binet且误列卷12；Persée原法文书目列Binet、Simon，1904卷11:191–244。节点保留惯用1905时间，卷年与译年分别记录。",
+            "readingStatus": "selected-sections",
+            "readScope": "开头至量表总则、测验1开头；译者注12–13（押韵项目的语言替换）。",
+            "unreadScope": "未逐项审读全部30项；未核对完整法文与译文；未复核常模及诊断表现。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-binet-simon-1905.md"
+      },
+      {
+        "id": "e-thurstone-1934",
+        "title": "多因子描述与坐标选择",
+        "year": 1934,
+        "dateLabel": "1934",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "从单一共同因子到多维结构",
+        "question": "一个共同因子不够拟合时，应否据此否定一般能力？",
+        "mechanism": "把单共同因子方法作为多因子分析的特殊情况，区分测试特定方差、共同方差与误差；用测验簇及其关系寻找解释。",
+        "assumptions": "采用因素贡献可加的模型；相关与旋转确定的是描述约束，解释还需要心理学理由。",
+        "limits": "本条只覆盖1934文本，不把1938“基本心理能力”的具体名单前移，也不把因素数当已识别的神经机制数。原表与几何图尚未复算。",
+        "nextQuestion": "怎样在描述维度之后提出可以独立检验的能力过程模型？",
+        "claims": [
+          {
+            "id": "e-thurstone-1934-c1",
+            "text": "明确区分Spearman的分析方法与一般智力假说：单因子判据失败表示需要更多共同因子，并不单独证明不存在一般能力。",
+            "locator": "开篇，从“We must distinguish”至“There is only one limited problem”",
+            "basis": "source-reported",
+            "sourceId": "thurstone-1934",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thurstone-1934-c2",
+            "text": "同一相关结构可以有不止一种因素表示；坐标的选择不能只凭统计就赋予唯一心理意义。",
+            "locator": "单因子表示的向量比喻；几何不确定性；Alexander九项测验解释",
+            "basis": "source-reported",
+            "sourceId": "thurstone-1934",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thurstone-1934-c3",
+            "text": "Alexander测验示例中，语言与操作两簇仍相关；作者因此提出以斜交坐标描述，未把多个能力简单等同于彼此独立。",
+            "locator": "Alexander九项测验解释中“In Alexander’s data”段",
+            "basis": "source-reported",
+            "sourceId": "thurstone-1934",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "thurstone-1934",
+            "title": "The Vectors of Mind",
+            "authors": [
+              "Louis L. Thurstone"
+            ],
+            "recordedAuthors": [
+              "Louis L. Thurstone"
+            ],
+            "corrections": [],
+            "year": 1934,
+            "url": "https://psychclassics.yorku.ca/Thurstone/",
+            "version": "Psychological Review 41:1–32网页转录；1933年9月APA会长演讲。此条不是1938年Primary Mental Abilities专著。",
+            "readingStatus": "selected-sections",
+            "readScope": "开篇单因子方法与一般因子理论的区分；多因子矩阵、共同度与旋转问题；Alexander九项测验和Brown二十项测验的文字解释。",
+            "unreadScope": "未逐表复算相关矩阵、载荷和残差；图像与所有人格／态度例证未完整核验；1931论文与1938书另列缺口。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-thurstone-1934.md"
+      },
+      {
+        "id": "e-cronbach-meehl-1955",
+        "title": "构念效度：分数支持什么解释？",
+        "year": 1955,
+        "dateLabel": "1955",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "由操作与相关走向可检验解释",
+        "question": "当没有一个公认的最终标准时，如何验证分数代表的能力？",
+        "mechanism": "把构念放入联系观察、任务与理论的法则网络；由解释生成可否证预测，用相关、干预和过程证据共同审查。",
+        "assumptions": "须说明用途、理论和样本条件；可观察后果必须公开，不能用循环解释消化反复的反证。",
+        "limits": "这是一套验证逻辑，不是所有用途共用的效度系数，也不能仅凭“显著相关”宣告量表已经有效。",
+        "nextQuestion": "能否用事先提出的干预与跨任务预测，区分真正能力改善和测验适应？",
+        "claims": [
+          {
+            "id": "e-cronbach-meehl-1955-c1",
+            "text": "预测效度、内容效度与构念效度承担不同问题；分数与一个标准相关，并未自动说明产生相关的属性是什么。",
+            "locator": "Four Types of Validation，281–283",
+            "basis": "source-reported",
+            "sourceId": "cronbach-meehl-1955",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-cronbach-meehl-1955-c2",
+            "text": "高内部一致性是否支持效度取决于构念理论；训练只提高测验技巧而不改善目标表现，与真正改善目标能力有不同解释。",
+            "locator": "Validation Procedures，287–289",
+            "basis": "source-reported",
+            "sourceId": "cronbach-meehl-1955",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-cronbach-meehl-1955-c3",
+            "text": "构念网络必须接触观察并给出明确推理步骤；纯粹合理化与不可检验的附加解释不算构念验证。",
+            "locator": "The Logic of Construct Validation／The Nomological Net，290–292",
+            "basis": "source-reported",
+            "sourceId": "cronbach-meehl-1955",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "cronbach-meehl-1955",
+            "title": "Construct Validity in Psychological Tests",
+            "authors": [
+              "Lee J. Cronbach",
+              "Paul E. Meehl"
+            ],
+            "recordedAuthors": [
+              "Lee J. Cronbach",
+              "Paul E. Meehl"
+            ],
+            "corrections": [],
+            "year": 1955,
+            "url": "https://psychclassics.yorku.ca/Cronbach/construct.htm",
+            "version": "Psychological Bulletin 52:281–302网页转录，保留印刷页标。",
+            "readingStatus": "selected-sections",
+            "readScope": "281–284的效度区分；287–290的验证程序、干预与过程观察；290–292的法则网络及可观察约束。",
+            "unreadScope": "其余关于网络、解释失败和报告建议未完整审读；示例中的相关数值并非本站复现结果。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-cronbach-meehl-1955.md"
+      },
+      {
+        "id": "e-cattell-1963",
+        "title": "流体与晶体能力的关键检验",
+        "year": 1963,
+        "dateLabel": "1963",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "能力、学习与经验",
+        "question": "不同测验中的共同变化是否需要区分新问题处理与已有学习成果？",
+        "mechanism": "区分Gf与Gc，并设计测验组合检验因素结构。",
+        "assumptions": "能力解释依赖任务、发展与学习经历；1963是检验论文，不能作为Gf／Gc概念首次出现年份。",
+        "limits": "不采纳文中的生物或遗传推测为已证实机制；OCR不能替代原表核验。",
+        "nextQuestion": "控制学习经历之后，哪些迁移或发展预测能区分Gf与Gc？",
+        "claims": [
+          {
+            "id": "e-cattell-1963-c1",
+            "text": "Gf与Gc分别强调适应新问题与已获得的判断技能；二者的学习关系并非“纯天赋对纯知识”的简单分割。",
+            "locator": "理论段，印刷页2–6",
+            "basis": "source-reported",
+            "sourceId": "cattell-1963",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-cattell-1963-c2",
+            "text": "作者在摘要总结277名七、八年级学生的44变量分析支持两个一般能力因素；这是作者报告，本站未重算载荷。",
+            "locator": "Summary，19–20",
+            "basis": "source-reported",
+            "sourceId": "cattell-1963",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-cattell-1963-c3",
+            "text": "作者要求在年龄、文化、时限及测验组合上进一步检验；该样本不能给出跨所有情境的定论。",
+            "locator": "Needed Research，19–20",
+            "basis": "source-reported",
+            "sourceId": "cattell-1963",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "cattell-1963",
+            "title": "Theory of fluid and crystallized intelligence: A critical experiment",
+            "authors": [
+              "Raymond B. Cattell"
+            ],
+            "recordedAuthors": [
+              "Raymond B. Cattell"
+            ],
+            "corrections": [],
+            "year": 1963,
+            "url": "https://www.scribd.com/document/588358878/h-0046743",
+            "version": "Journal of Educational Psychology 54(1):1–22；公开原刊OCR转录，双栏有交错；不采纳平台AI摘要。",
+            "readingStatus": "selected-sections",
+            "readScope": "题名与摘要；印刷页2–6理论段；19–20的Needed Research与Summary。",
+            "unreadScope": "方法与载荷表未完整核验；公式和双栏歧义处不作定量依据；1941／1943原作未读。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-cattell-1963.md"
+      },
+      {
+        "id": "e-gardner-1983",
+        "title": "扩大能力候选与证据类型",
+        "year": 1983,
+        "dateLabel": "1983（据后出版本选读）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "多元能力的界定标准",
+        "question": "学校测验之外哪些活动也应进入智能解释？",
+        "mechanism": "从文化中有价值的问题解决与产品出发，以脑损伤、特殊发展、核心操作等多类线索判断候选能力。",
+        "assumptions": "选择标准含质性判断；文化价值与任务操作化必须明确。",
+        "limits": "阅读的是后出版本中的理论章；尚不能据此判定每个能力域的独立性。",
+        "nextQuestion": "怎样把能力域转为可比较的任务，并预先规定什么结果算反证？",
+        "claims": [
+          {
+            "id": "e-gardner-1983-c1",
+            "text": "候选能力的判断结合多类证据，作者明确承认这不是一个机械决定的算法。",
+            "locator": "第4章Signs of an Intelligence，PDF 116–122",
+            "basis": "source-reported",
+            "sourceId": "gardner-1983-reprint",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-gardner-1983-c2",
+            "text": "心理测量证据是标准之一；域内较强关系可支持候选划分，反面结果也需解释任务与策略混合。",
+            "locator": "第4章Support from Psychometric Findings，PDF 121",
+            "basis": "source-reported",
+            "sourceId": "gardner-1983-reprint",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "gardner-1983-reprint",
+            "title": "Frames of Mind: The Theory of Multiple Intelligences",
+            "authors": [
+              "Howard Gardner"
+            ],
+            "recordedAuthors": [
+              "Howard Gardner"
+            ],
+            "corrections": [],
+            "year": 1983,
+            "url": "https://www.crisrieder.org/thejourney/storage/2025/04/Howard-Gardner.-Frames-of-Mind-2.pdf",
+            "version": "首版1983；实际阅读后出电子重排版，含The First Thirty Years前言，eISBN 978-0-465-02434-6。未与首版逐字校勘。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 11前言开头；114–122第4章定义、前提及八类候选标准。",
+            "unreadScope": "未通读全书与各能力专章；不能把后出的措辞无条件当1983逐字原文；首版对校待补。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-gardner-1983.md"
+      },
+      {
+        "id": "e-carroll-1993",
+        "title": "将广窄能力放入三层结构",
+        "year": 1993,
+        "dateLabel": "1993",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "因素结构的层级整合",
+        "question": "不同粒度的能力因素怎样共同描述测验相关？",
+        "mechanism": "以狭窄、宽广、一般三个层级组织能力，并通过测验载荷与跨研究预测解释因素。",
+        "assumptions": "基础模型偏向线性、可补偿贡献；因素解释需结合测验内容。",
+        "limits": "此处是理论综合章节选读；不能把全书全部数据当作本批复核结果。",
+        "nextQuestion": "同一层级结构可以由哪些不同过程产生？",
+        "claims": [
+          {
+            "id": "e-carroll-1993-c1",
+            "text": "三个层级描述概括程度，但不是每个因素只能归属一个父节点的严格树。",
+            "locator": "第16章631–639，层级资格条件与比较",
+            "basis": "source-reported",
+            "sourceId": "carroll-1993",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-carroll-1993-c2",
+            "text": "因素解释有待预测与验证；层级结构本身没有确定一般能力的心理或神经实现。",
+            "locator": "第16章631–639，基本假设与Spearman／Cattell比较",
+            "basis": "source-reported",
+            "sourceId": "carroll-1993",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "carroll-1993",
+            "title": "Human Cognitive Abilities: A Survey of Factor-Analytic Studies",
+            "authors": [
+              "John B. Carroll"
+            ],
+            "recordedAuthors": [
+              "John B. Carroll"
+            ],
+            "corrections": [],
+            "year": 1993,
+            "url": "https://pdfcoffee.com/john-b-carroll-human-cognitive-abilities-a-survey-of-factor-analytic-studies-1993-pdf-pdf-free.html",
+            "version": "Cambridge University Press 1993书的公开OCR转录；使用原书印刷页标，未下载完整扫描校勘。",
+            "readingStatus": "selected-sections",
+            "readScope": "第16章631–639：基本假设、三层结构、非严格树状关系及与Gf／Gc的比较。",
+            "unreadScope": "未重分析书中数据；图、原矩阵与全书其余章节未审读。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-carroll-1993.md"
+      },
+      {
+        "id": "e-visser-2006",
+        "title": "将多元能力的独立性变成测验问题",
+        "year": 2006,
+        "dateLabel": "2006",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "直接检验与操作化争议",
+        "question": "候选能力域在具体测验中能否表现为相对独立结构？",
+        "mechanism": "为后期八域各选两项测验，结合外部能力测验检查共同成分与域内残余关系。",
+        "assumptions": "域的理论含义不自动等同于所选两项任务；作者检验的是明确的测验操作化。",
+        "limits": "这不足以宣布全部多元智能理论被证伪；1983初版与这里的后期八域版本不同。",
+        "nextQuestion": "更好的域内测量与独立样本是否改变一般成分及残余结构？",
+        "claims": [
+          {
+            "id": "e-visser-2006-c1",
+            "text": "200名成人样本主要来自大学，作者报告许多认知测验共享一般成分，同时保留部分域内关系。",
+            "locator": "§5.1、§6.3与§7.1，487–502",
+            "basis": "source-reported",
+            "sourceId": "visser-2006",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-visser-2006-c2",
+            "text": "作者承认音乐测量信度差，不能据本研究确定音乐能力的位置；受限样本也限制解释。",
+            "locator": "§7.1，499–500",
+            "basis": "source-reported",
+            "sourceId": "visser-2006",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "visser-2006",
+            "title": "Beyond g: Putting multiple intelligences theory to the test",
+            "authors": [
+              "Beth A. Visser",
+              "Michael C. Ashton",
+              "Philip A. Vernon"
+            ],
+            "recordedAuthors": [
+              "Beth A. Visser",
+              "Michael C. Ashton",
+              "Philip A. Vernon"
+            ],
+            "corrections": [],
+            "year": 2006,
+            "url": "https://www.researchgate.net/publication/222649028_Beyond_g_Putting_multiple_intelligences_theory_to_the_test",
+            "version": "Intelligence 34(5):487–502；作者于2018上传的原刊全文转录，非2018新研究。",
+            "readingStatus": "selected-sections",
+            "readScope": "487–488导论；§4假设；§5.1及§5.2.1–6；§6.3文字结论；§7.1（499–500）。",
+            "unreadScope": "未核验所有测验信度表与原始数据；§5.2.7后部分未完整读；Gardner后续回应未取得正文。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-visser-2006.md"
+      },
+      {
+        "id": "e-chc-2013",
+        "title": "CHC分类与可追踪的定义修订",
+        "year": 2013,
+        "dateLabel": "2013（含2005整合脉络）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "从理论结构到评估语言",
+        "question": "多种能力理论如何用于组织测验，修订后怎样保留定义边界？",
+        "mechanism": "整合Gf／Gc与三层结构，给出广窄能力分类；以版本化摘要连接理论与实践。",
+        "assumptions": "分类摘要不等于完整效度论证；旧标签和新封面必须分别记录。",
+        "limits": "没有核验所有CHC版本或解决关于g的分歧；本条提供可维护的定义入口。",
+        "nextQuestion": "定义更新后哪些旧测验仍覆盖目标能力，哪些需要重新验证？",
+        "claims": [
+          {
+            "id": "e-chc-2013-c1",
+            "text": "McGrew将CHC描述为理论与测验实践的整合，并讨论跨测验组合补足测量范围。",
+            "locator": "印刷页136–137、144–145",
+            "basis": "source-reported",
+            "sourceId": "mcgrew-2005",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-chc-2013-c2",
+            "text": "2013摘要明确要求读者回到完整章节理解争议；其中Gf活动与背景知识共同运作。",
+            "locator": "PDF 4–5",
+            "basis": "source-reported",
+            "sourceId": "schneider-mcgrew-2013",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-chc-2013-c3",
+            "text": "速度指标的解释随任务熟练程度而变；能力名称相同也需检查任务要求。",
+            "locator": "PDF 6，General Speed",
+            "basis": "source-reported",
+            "sourceId": "schneider-mcgrew-2013",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "mcgrew-2005",
+            "title": "The Cattell–Horn–Carroll Theory of Cognitive Abilities: Past, Present, and Future",
+            "authors": [
+              "Kevin S. McGrew"
+            ],
+            "recordedAuthors": [
+              "Kevin S. McGrew"
+            ],
+            "corrections": [],
+            "year": 2005,
+            "url": "http://www.iapsych.com/articles/mcgrew2005.pdf",
+            "version": "Contemporary Intellectual Assessment第二版第8章；作者网站扫描，每PDF页含两书页。",
+            "readingStatus": "selected-sections",
+            "readScope": "印刷页136–137、144–145的章节范围、理论与测验实践整合。",
+            "unreadScope": "其余章节、图表及g分歧未完整审读；不将回忆性叙事当同时期记录。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          },
+          {
+            "id": "schneider-mcgrew-2013",
+            "title": "The Cattell–Horn–Carroll Model of Intelligence v2.2: A visual tour and summary",
+            "authors": [
+              "W. Joel Schneider",
+              "Kevin S. McGrew"
+            ],
+            "recordedAuthors": [
+              "W. Joel Schneider",
+              "Kevin S. McGrew"
+            ],
+            "corrections": [],
+            "year": 2013,
+            "url": "http://www.iapsych.com/chcv2.pdf",
+            "version": "封面v2.2／01-03-13；图内仍标v2.1（2012），定义页同时保留v2.0和旧页脚。实际载体是2013摘要，不是2012完整书章。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1–2、4–6：版本标签、摘要边界、Gf／记忆／流畅性与速度定义。",
+            "unreadScope": "未通读2012书章；摘要图尚未逐项复核；其余能力定义未完整审读。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-chc-2013.md"
+      },
+      {
+        "id": "e-kovacs-conway-2016",
+        "title": "由重叠过程解释共同结构",
+        "year": 2016,
+        "dateLabel": "2016",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "统计因子与心理机制",
+        "question": "无需一个过程参与所有测验，能否仍产生一般因素？",
+        "mechanism": "提出领域相关过程与执行过程的重叠；以形成性一般因素和反映性特定能力区分统计概括与过程。",
+        "assumptions": "模型与任务内容有关；作者的多维项目模型含域内可补偿、域间非补偿假设。",
+        "limits": "此处是理论解释而非已识别的唯一机制；本批合成核验不是该论文模型的复现。",
+        "nextQuestion": "干预某类过程后，哪些跨任务变化能排除竞争机制？",
+        "claims": [
+          {
+            "id": "e-kovacs-conway-2016-c1",
+            "text": "一般因素可以是多种过程重叠形成的概括，不必被解释为单个共同原因。",
+            "locator": "印刷页162–164，图8",
+            "basis": "source-reported",
+            "sourceId": "kovacs-conway-2016",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-kovacs-conway-2016-c2",
+            "text": "模型依赖测验内容和群体特征，并提出可区分的工作记忆及神经预测。",
+            "locator": "印刷页164、171–172",
+            "basis": "source-reported",
+            "sourceId": "kovacs-conway-2016",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-kovacs-conway-2016-c3",
+            "text": "作者承认其他发展与学习机制也可能贡献于正相关结构。",
+            "locator": "印刷页171–172，结论",
+            "basis": "source-reported",
+            "sourceId": "kovacs-conway-2016",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "kovacs-conway-2016",
+            "title": "Process Overlap Theory: A Unified Account of the General Factor of Intelligence",
+            "authors": [
+              "Kristof Kovacs",
+              "Andrew R. A. Conway"
+            ],
+            "recordedAuthors": [
+              "Kristof Kovacs",
+              "Andrew R. A. Conway"
+            ],
+            "corrections": [],
+            "year": 2016,
+            "url": "https://coglab.eu/wp-content/uploads/2023/07/kovacs-conway-process-overlap-theory.pdf",
+            "version": "Psychological Inquiry 27(3):151–177，作者实验室PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "PDF 1、3–4、12–14、21–22；印刷页163图8与公式已查看像素。",
+            "unreadScope": "未通读全部综述、评论与回应；未复现论文模型或经验数据。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-kovacs-conway-2016.md"
+      },
+      {
+        "id": "e-jak-jorgensen-2017",
+        "title": "比较均值前先检查测量关系",
+        "year": 2017,
+        "dateLabel": "2017",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-b",
+        "batchLabel": "B批",
+        "branch": "不变性与多层解释",
+        "question": "跨群体或层级的分数能否解释为同一属性的差异？",
+        "mechanism": "在模型中约束载荷和截距，区分群体、层级与各层信度。",
+        "assumptions": "使用本文连续指标因素模型；跨层不变性不等于跨所有群体不变性。",
+        "limits": "示例是幸福感而非智力实验；本文引言说学生／学校而Example实际为ESS跨国样本，笔记依方法正文。不能据此推断任何真实人群能力差异。",
+        "nextQuestion": "哪些锚定指标和额外观察能区分截距变化与潜变量均值变化？",
+        "claims": [
+          {
+            "id": "e-jak-jorgensen-2017-c1",
+            "text": "强因素不变性涉及载荷与截距约束；均值比较需要明确量尺和原点。",
+            "locator": "Introduction／Measurement invariance across groups",
+            "basis": "source-reported",
+            "sourceId": "jak-jorgensen-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-jak-jorgensen-2017-c2",
+            "text": "跨层载荷相等是跨群体弱不变性的必要非充分条件；较高层间信度不能单独证明构念改变。",
+            "locator": "Discussion",
+            "basis": "source-reported",
+            "sourceId": "jak-jorgensen-2017",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-jak-jorgensen-2017-c3",
+            "text": "ESS幸福感示例未获得全面强不变性，展示同样题目不保证同样解释。",
+            "locator": "Example／Multigroup model；Two-level model",
+            "basis": "source-reported",
+            "sourceId": "jak-jorgensen-2017",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "jak-jorgensen-2017",
+            "title": "Relating Measurement Invariance, Cross-Level Invariance, and Multilevel Reliability",
+            "authors": [
+              "Suzanne Jak",
+              "Terrence D. Jorgensen"
+            ],
+            "recordedAuthors": [
+              "Suzanne Jak",
+              "Terrence D. Jorgensen"
+            ],
+            "corrections": [],
+            "year": 2017,
+            "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.01640/full",
+            "version": "Frontiers in Psychology 8:1640原刊HTML，2017-10-10。",
+            "readingStatus": "selected-sections",
+            "readScope": "Introduction中的定义；Relations between the three concepts；Example与Discussion，含表1–5的网页文本。",
+            "unreadScope": "补充材料推导未读；公式图片未逐一校勘；未重跑Mplus或原始ESS数据。",
+            "verification": "只核对所列原文范围；作者实验未计为本站复现。"
+          }
+        ],
+        "priorNote": "round-three-b/notes/e-jak-jorgensen-2017.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "r-spearman-thurstone",
+        "batch": "round-three-b",
+        "fromId": "e-spearman-1904",
+        "toId": "e-thurstone-1934",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "开篇对Spearman方法、假说与tetrad criterion的区分",
+        "explanation": "直接讨论Spearman研究传统；不是声称1934只针对1904论文逐句回应。",
+        "sourceIds": [
+          "thurstone-1934"
+        ]
+      },
+      {
+        "id": "r-thurstone-validity",
+        "batch": "round-three-b",
+        "fromId": "e-thurstone-1934",
+        "toId": "e-cronbach-meehl-1955",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Thurstone坐标与簇解释；Cronbach–Meehl 287–292",
+        "explanation": "结构描述的不唯一性与构念解释的证据责任形成可比较问题；不把1955对Thurstone其他著作的引用误指向1934。",
+        "sourceIds": [
+          "thurstone-1934",
+          "cronbach-meehl-1955"
+        ]
+      },
+      {
+        "id": "r-cattell-carroll",
+        "batch": "round-three-b",
+        "fromId": "e-cattell-1963",
+        "toId": "e-carroll-1993",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "1963理论段；1993第16章",
+        "explanation": "比较两种结构粒度；不声称1993只继承这一篇1963论文。",
+        "sourceIds": [
+          "cattell-1963",
+          "carroll-1993"
+        ]
+      },
+      {
+        "id": "r-carroll-chc",
+        "batch": "round-three-b",
+        "fromId": "e-carroll-1993",
+        "toId": "e-chc-2013",
+        "type": "explicit-adoption",
+        "typeLabel": "明确采用",
+        "status": "source-supported",
+        "locator": "第16章；McGrew 136–137",
+        "explanation": "作者明确将Carroll三层结构纳入CHC整合。",
+        "sourceIds": [
+          "carroll-1993",
+          "mcgrew-2005"
+        ]
+      },
+      {
+        "id": "r-gardner-visser",
+        "batch": "round-three-b",
+        "fromId": "e-gardner-1983",
+        "toId": "e-visser-2006",
+        "type": "direct-critique",
+        "typeLabel": "直接批评",
+        "status": "source-supported",
+        "locator": "§1、§4、§7.1",
+        "explanation": "直接检验MI的后期八域操作化；不是对1983首版的逐字复现。",
+        "sourceIds": [
+          "visser-2006"
+        ]
+      },
+      {
+        "id": "r-carroll-pot",
+        "batch": "round-three-b",
+        "fromId": "e-carroll-1993",
+        "toId": "e-kovacs-conway-2016",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "第16章；POT 162–164",
+        "explanation": "结构层级与过程生成提出不同层次的问题；本站比较。",
+        "sourceIds": [
+          "carroll-1993",
+          "kovacs-conway-2016"
+        ]
+      },
+      {
+        "id": "r-validity-invariance",
+        "batch": "round-three-b",
+        "fromId": "e-cronbach-meehl-1955",
+        "toId": "e-jak-jorgensen-2017",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "1955法则网络；2017定义与讨论",
+        "explanation": "从解释证据到跨样本比较条件；不推定直接影响。",
+        "sourceIds": [
+          "cronbach-meehl-1955",
+          "jak-jorgensen-2017"
+        ]
+      }
+    ]
+  }
+}

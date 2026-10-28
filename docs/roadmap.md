@@ -463,6 +463,8 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
   - [x] **阶段3：意义与意识解释**。完成[第三篇综合工作台](./intelligence-history/round-four/meaning/index.html)：12份选读、40条定位主张、6条条件性结论、5类案例、6项预测比较、3组SVG／Mermaid与11项精确检查；3项设计未执行。版本、原分析／探索分析和理论方回应分别记录；见[验收](./intelligence-history/round-four/meaning/validation.md)。
   - [x] **阶段4：综合修订与网站联动（指定范围完成）**。完成[18条结论共同复核](./intelligence-history/round-four/integration/review.md)，13条收紧措辞、5条保留；31条来源版本与范围统一，9项设计排序。正式网站原生研究入口、三篇综述、31个来源页与可编辑图已接入路线、文献架及文章入口；三处关联演示已纠偏。见[验收](./intelligence-history/round-four/integration/validation.md)。
 
+- [x] **第五轮：路线演进时间线网站化（指定范围完成，2026-10-28）**。以学习效率、心理测量、心灵哲学为样板，将20条路线的169条路线节点展示接入正式网站；同ID去重为144个节点，原批次阅读状态不变。节点展示问题、方法、前提、限制、原文定位和下一问，图中年份不暗示历史影响；图与数据可编辑。见[执行计划](./intelligence-history/round-five/plan.md)与[验收](./intelligence-history/round-five/validation.md)。
+
 验证范围与结果见[第一轮验收](./intelligence-history/validation.md)、[第二轮验收](./intelligence-history/round-two/validation.md)、[A批验收](./intelligence-history/round-three-a/validation.md)、[B批验收](./intelligence-history/round-three-b/validation.md)、[CDE联合验收](./intelligence-history/cde-validation.md)、[第四轮第一阶段验收](./intelligence-history/round-four/validation.md)、[第二阶段验收](./intelligence-history/round-four/boundaries/validation.md)及[第三阶段验收](./intelligence-history/round-four/meaning/validation.md)。第四阶段已接入正式网站的本地项目；保留研究文档与离线工作台，未执行公网部署。
 
 ## 版本记录

@@ -1,0 +1,451 @@
+{
+  "scope": "由第二轮至第三轮原始数据及当前索引生成；未新增原典阅读。每路线使用索引选定的批次，同ID不同批次阅读范围不自动合并。",
+  "route": {
+    "id": "developmental-openended",
+    "name": "发展、建构与开放式学习路线",
+    "question": "智能如何在发展和自发探索中形成新的能力？",
+    "gaps": [
+      "Piaget1936法文初版受访问验证限制，实际采用1952英译后续印次；未逐条核对婴儿观察记录和法英异文。",
+      "核心知识所引每个实验和跨文化证据未单独复核；新颖性、任务生成不等于递归自我改进或无限增长。",
+      "长期持续学习、灾难遗忘、开放性度量及POET后续版本仍待补读。",
+      "第四轮第二阶段选读Smith等1999实验1与6，明确年龄／等待时长及试次层次；短时效应不作为长期发展已识别的证据。Thelen等1984原刊未取得。"
+    ],
+    "nodes": [
+      {
+        "id": "e-piaget-1936",
+        "title": "适应为何需要同化与顺应？",
+        "year": 1936,
+        "dateLabel": "1936（实读1952英译后印）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "建构与发生",
+        "question": "先有经验还是先有组织，怎样避免二选一？",
+        "mechanism": "用同化组织新经验，用顺应改变既有图式；将适应视为二者的平衡过程。",
+        "assumptions": "原文以生物—感觉运动连续性为出发假设；一般功能与具体结构不能混为一谈。",
+        "limits": "这是导言中的理论框架；本批没有凭此宣布阶段顺序或普遍发展年龄已被验证。",
+        "nextQuestion": "何种纵向观察和扰动能区分图式重组与任务表现变化？",
+        "claims": [
+          {
+            "id": "e-piaget-1936-cc1",
+            "text": "作者区分适应状态与适应过程，认为仅以存活定义适应会失去解释力。",
+            "locator": "Introduction原书5页",
+            "basis": "source-reported",
+            "sourceId": "piaget-1936",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-piaget-1936-cc2",
+            "text": "同化与顺应相互依存，新的经验被组织，同时图式也被改变。",
+            "locator": "Introduction原书6–7页",
+            "basis": "source-reported",
+            "sourceId": "piaget-1936",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "piaget-1936",
+            "title": "The Origins of Intelligence in Children",
+            "authors": [
+              "Jean Piaget",
+              "Margaret Cook（译）"
+            ],
+            "recordedAuthors": [
+              "Jean Piaget",
+              "Margaret Cook（译）"
+            ],
+            "corrections": [],
+            "year": 1936,
+            "url": "https://sites.pitt.edu/~strauss/origins_r.pdf",
+            "version": "1936法文原作；实际为1952英译、版权页列1965第三印；PDF442页。",
+            "readingStatus": "selected-sections",
+            "readScope": "版权页PDF8；Introduction原书1、5–7页（PDF17、21–23）。",
+            "unreadScope": "法文原版、英译异文、各阶段全部观察和结论未完整读；不以导言替代全书。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-piaget-1936.md"
+      },
+      {
+        "id": "e-thelen-smith-1994",
+        "title": "动作模式怎样从身体与情境中形成？",
+        "year": 1994,
+        "dateLabel": "1994（实读1996平装版）",
+        "dateBasis": "publication",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "发展中的身体、任务与动力学",
+        "question": "为什么婴儿的踏步、踢腿、姿态支持与独立行走会呈现不同的发展轨迹？",
+        "mechanism": "以身体、神经、任务及环境的实时配合解释动作；成分的不同变化速度与行为稳定性的改变共同形成发展转折。",
+        "assumptions": "必须明确所观察行为、身体条件和时间尺度，再用纵向记录与扰动检验具体机制；动力学原则不能独自给出发展日期。",
+        "limits": "本书并不否定自主神经振荡。作者明确说踢腿作为稳定吸引子的解释尚未经严格检验；这里登记的是作者汇总的行为研究及理论解释，未审查全部原始实验。",
+        "nextQuestion": "怎样将身体负荷、姿态支持、任务目标与练习历史分开操纵，区分动作出现及自主运用的条件？",
+        "claims": [
+          {
+            "id": "e-thelen-smith-1994-cc1",
+            "text": "第1章区分踏步模式、姿态支持与独立行走，并用负重、水中支持及跑台情境说明动作表现受身体与任务条件影响。",
+            "locator": "第1章11–17页",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thelen-smith-1994-cc2",
+            "text": "作者提出行为由多个成分在实时情境中协同形成，发展改变这些成分及其配合；行为变化的时间尺度需要分别说明。",
+            "locator": "第4章73–74、83–88页",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thelen-smith-1994-cc3",
+            "text": "作者将变化程度与抗扰动能力作为研究行为稳定性的线索，同时明确承认踢腿的稳定吸引子解释尚未严格检验。",
+            "locator": "第4章81–82页及86–88页；图4.2",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-thelen-smith-1994-cc4",
+            "text": "本书不否定自主神经振荡，也不认为抽象动力学原则足以直接预测具体发展事件；仍需领域经验研究。",
+            "locator": "第1章20页注1；第4章71–72页",
+            "basis": "source-reported",
+            "sourceId": "thelen-smith-1994",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "thelen-smith-1994",
+            "title": "A Dynamic Systems Approach to the Development of Cognition and Action",
+            "authors": [
+              "Esther Thelen",
+              "Linda B. Smith"
+            ],
+            "recordedAuthors": [
+              "Esther Thelen",
+              "Linda B. Smith"
+            ],
+            "corrections": [],
+            "year": 1994,
+            "url": "https://www.library.brawnblog.com/DynSys-DevCogAct.pdf",
+            "version": "原作1994；实读1996年MIT Press首次平装版。版权页PDF4；印刷页码比PDF页码小26。",
+            "readingStatus": "selected-sections",
+            "readScope": "延续A批实际阅读：版权页、目录；第1章3–20页；第4章71–88页；图4.2（82页）另经图像核对。；C批仅复核已有笔记，未新增原典页。",
+            "unreadScope": "其余章节与第4章89页以后未完成；未逐一追溯本书引用的婴儿实验原始数据。",
+            "verification": "按列明范围核对作者论证与报告；未重跑原始实验，未复核全书／全篇推导。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-thelen-smith-1994.md"
+      },
+      {
+        "id": "e-oudeyer-2007",
+        "title": "学习者怎样挑选值得探索的经验？",
+        "year": 2007,
+        "dateLabel": "2007",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "内在动机",
+        "question": "持续误差大的经验是否总值得探索？",
+        "mechanism": "按感觉运动区域追踪预测误差下降，把学习进展作为内部奖励。",
+        "assumptions": "依赖区域划分、平滑窗口、预测器与可行动空间。",
+        "limits": "学习进展指标仍是设计者设定；高噪声、表示失配与长期价值不能由局部下降自动解决。",
+        "nextQuestion": "在相同预算下，学习进展比误差、新颖性或外部奖励带来何种迁移？",
+        "claims": [
+          {
+            "id": "e-oudeyer-2007-cc1",
+            "text": "学习进展由平滑误差变化计算；区域在划分时继承误差历史。",
+            "locator": "270–271页§III.E，公式1–2",
+            "basis": "source-reported",
+            "sourceId": "oudeyer-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-oudeyer-2007-cc2",
+            "text": "内部奖励接入行动选择；原文将其表述为可用强化学习处理的目标。",
+            "locator": "271页§III.F",
+            "basis": "source-reported",
+            "sourceId": "oudeyer-2007",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "oudeyer-2007",
+            "title": "Intrinsic Motivation Systems for Autonomous Mental Development",
+            "authors": [
+              "Pierre-Yves Oudeyer",
+              "Frédéric Kaplan",
+              "Verena V. Hafner"
+            ],
+            "recordedAuthors": [
+              "Pierre-Yves Oudeyer",
+              "Frédéric Kaplan",
+              "Verena V. Hafner"
+            ],
+            "corrections": [],
+            "year": 2007,
+            "url": "https://www.pyoudeyer.com/ims.pdf",
+            "version": "IEEE TEC 11(2):265–286；作者公开论文PDF。",
+            "readingStatus": "selected-sections",
+            "readScope": "267页相关工作限制；270–271页区域专家与学习进展，公式1–2和图2扫描；281页图式讨论。",
+            "unreadScope": "完整机器人结果、超参数敏感性及代码未重跑。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-oudeyer-2007.md"
+      },
+      {
+        "id": "e-spelke-2007",
+        "title": "早期能力是否具有特定结构？",
+        "year": 2007,
+        "dateLabel": "2007",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "核心知识",
+        "question": "早期学习依赖单一通用机制还是多个受限系统？",
+        "mechanism": "以对象、行动、数与空间系统及其特征性限制组织发展证据。",
+        "assumptions": "综述中的系统推断来自任务表现；早期出现不自动证明不受经验影响。",
+        "limits": "本批只审校框架及选例；没有验证所有核心系统的先天性、普遍性或模块边界。",
+        "nextQuestion": "保持经验和任务要求相当时，限制是否稳定迁移？",
+        "claims": [
+          {
+            "id": "e-spelke-2007-cc1",
+            "text": "作者提出四类核心系统，并把跨任务、年龄和物种的特征性限制作为识别线索。",
+            "locator": "89页Introduction",
+            "basis": "source-reported",
+            "sourceId": "spelke-2007",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-spelke-2007-cc2",
+            "text": "作者也主张核心概念能够被克服和改变，列出科学与儿童发展的概念变化例子。",
+            "locator": "93页讨论",
+            "basis": "source-reported",
+            "sourceId": "spelke-2007",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "spelke-2007",
+            "title": "Core knowledge",
+            "authors": [
+              "Elizabeth S. Spelke",
+              "Katherine D. Kinzler"
+            ],
+            "recordedAuthors": [
+              "Elizabeth S. Spelke",
+              "Katherine D. Kinzler"
+            ],
+            "corrections": [],
+            "year": 2007,
+            "url": "https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/f/2214/files/2020/01/Core-Knowledge.pdf",
+            "version": "Developmental Science 10:89–96；作者机构PDF含额外末页。",
+            "readingStatus": "selected-sections",
+            "readScope": "原刊89–90页的核心系统和对象限制；93页概念修正讨论。",
+            "unreadScope": "91–92及原研究逐项方法未读；引用的跨物种／跨文化结果未独立验证。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-spelke-2007.md"
+      },
+      {
+        "id": "e-lehman-stanley-2011",
+        "title": "目标分数会不会遮住有用路径？",
+        "year": 2011,
+        "dateLabel": "2011（方法始于2008）",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "新颖性搜索",
+        "question": "优化眼前目标时为何会错过必要的中间行为？",
+        "mechanism": "按行为差异奖励新颖性，保存探索出的行为作为进一步搜索的起点。",
+        "assumptions": "行为描述和距离仍由设计者选定；搜索时间尺度属于演化算法。",
+        "limits": "未证明所有目标都妨碍进步，也未证明无限复杂性增长；本批未复现实验。",
+        "nextQuestion": "改变行为描述与预算之后优势是否仍存在？",
+        "claims": [
+          {
+            "id": "e-lehman-stanley-2011-cc1",
+            "text": "§3将新颖行为当作中间踏脚石，并区别于单一目标适应度。",
+            "locator": "§3开篇，198页／PDF10",
+            "basis": "source-reported",
+            "sourceId": "lehman-stanley-2011",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-lehman-stanley-2011-cc2",
+            "text": "作者明确反对把结果解读为新颖性总比目标搜索更好，并将失败条件列为后续问题。",
+            "locator": "§9.1后段，214页／PDF26",
+            "basis": "source-reported",
+            "sourceId": "lehman-stanley-2011",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "lehman-stanley-2011",
+            "title": "Abandoning Objectives: Evolution Through the Search for Novelty Alone",
+            "authors": [
+              "Joel Lehman",
+              "Kenneth O. Stanley"
+            ],
+            "recordedAuthors": [
+              "Joel Lehman",
+              "Kenneth O. Stanley"
+            ],
+            "corrections": [],
+            "year": 2011,
+            "url": "https://gwern.net/doc/reinforcement-learning/exploration/2011-lehman.pdf",
+            "version": "Evolutionary Computation 19(2):189–223；2011综合论文，最初方法2008提出。",
+            "readingStatus": "selected-sections",
+            "readScope": "§1片段、§2.1、§2.3开篇、§3开篇（198页）、§9.1后段（214页）与§9.3–9.4片段。",
+            "unreadScope": "新颖性距离公式细节、全部迷宫／双足实验和统计未复算。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-lehman-stanley-2011.md"
+      },
+      {
+        "id": "e-wang-poet-2019",
+        "title": "环境和解法能否共同扩展？",
+        "year": 2019,
+        "dateLabel": "2019",
+        "dateBasis": "原批次未单列",
+        "batch": "round-three-c",
+        "batchLabel": "C批",
+        "branch": "开放式共同生成",
+        "question": "研究者是否必须事先给定全部任务序列？",
+        "mechanism": "维护环境—代理对，生成新环境、优化各自解法，并进行跨环境迁移。",
+        "assumptions": "本版采用二维步行、受限环境参数和固定身体；任务生成器仍有人工先验。",
+        "limits": "“开放式”在此是研究方向与有限域演示，不能作为已实现无界RSI的证明。",
+        "nextQuestion": "扩展编码后，能力增长如何与任务漂移、难度度量和资源增加区分？",
+        "claims": [
+          {
+            "id": "e-wang-poet-2019-cc1",
+            "text": "POET并行维护环境和代理，并用跨任务迁移连接不同的探索路径。",
+            "locator": "§3开篇及§4.3迁移讨论",
+            "basis": "source-reported",
+            "sourceId": "wang-poet-2019",
+            "independentlyReplicated": false
+          },
+          {
+            "id": "e-wang-poet-2019-cc2",
+            "text": "§5承认障碍参数有最大范围、身体固定；更无界的编码属于后续工作。",
+            "locator": "§5第4–5段",
+            "basis": "source-reported",
+            "sourceId": "wang-poet-2019",
+            "independentlyReplicated": false
+          }
+        ],
+        "sources": [
+          {
+            "id": "wang-poet-2019",
+            "title": "Paired Open-Ended Trailblazer (POET)",
+            "authors": [
+              "Rui Wang",
+              "Joel Lehman",
+              "Jeff Clune",
+              "Kenneth O. Stanley"
+            ],
+            "recordedAuthors": [
+              "Rui Wang",
+              "Joel Lehman",
+              "Jeff Clune",
+              "Kenneth O. Stanley"
+            ],
+            "corrections": [],
+            "year": 2019,
+            "url": "https://arxiv.org/html/1901.01753v2",
+            "version": "arXiv:1901.01753v2，2019-01-09；官方HTML。",
+            "readingStatus": "selected-sections",
+            "readScope": "§3开篇及优化／迁移框架；§4.3单路径课程比较片段；§5环境范围和固定身体限制。",
+            "unreadScope": "附录算法细节、全部结果和代码未运行；后续POET版本未覆盖。",
+            "verification": "仅按所列实际阅读片段审校主张；未独立重验原文实验、全部证明或版本异文。"
+          }
+        ],
+        "priorNote": "round-three-c/notes/e-wang-poet-2019.md"
+      }
+    ],
+    "relations": [
+      {
+        "id": "c-r06",
+        "batch": "round-three-c",
+        "fromId": "e-piaget-1936",
+        "toId": "e-spelke-2007",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Piaget Introduction5–7页；Spelke89–90页",
+        "explanation": "比较图式建构与特征性限制；不虚构两篇文本的直接交锋。",
+        "sourceIds": [
+          "piaget-1936",
+          "spelke-2007"
+        ]
+      },
+      {
+        "id": "c-r07",
+        "batch": "round-three-c",
+        "fromId": "e-thelen-smith-1994",
+        "toId": "e-spelke-2007",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Thelen第1、4章选读；Spelke89–90页",
+        "explanation": "发展表现的身体任务条件与核心能力推断需要兼容的操作检验。",
+        "sourceIds": [
+          "thelen-smith-1994",
+          "spelke-2007"
+        ]
+      },
+      {
+        "id": "c-r08",
+        "batch": "round-three-c",
+        "fromId": "e-piaget-1936",
+        "toId": "e-oudeyer-2007",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Piaget6–7页；Oudeyer281页",
+        "explanation": "Oudeyer讨论Piaget图式，但本边仅比较所读文本，不把其引用自动当作采用1936原版。",
+        "sourceIds": [
+          "piaget-1936",
+          "oudeyer-2007"
+        ]
+      },
+      {
+        "id": "c-r09",
+        "batch": "round-three-c",
+        "fromId": "e-oudeyer-2007",
+        "toId": "e-lehman-stanley-2011",
+        "type": "conceptual-comparison",
+        "typeLabel": "概念比较",
+        "status": "editorial-inference",
+        "locator": "Oudeyer271页；Lehman§3开篇",
+        "explanation": "学习进展与行为新颖性是不同探索信号；Lehman明确讨论关联，但时间尺度不同。",
+        "sourceIds": [
+          "oudeyer-2007",
+          "lehman-stanley-2011"
+        ]
+      },
+      {
+        "id": "c-r10",
+        "batch": "round-three-c",
+        "fromId": "e-lehman-stanley-2011",
+        "toId": "e-wang-poet-2019",
+        "type": "method-comparison",
+        "typeLabel": "方法比较",
+        "status": "editorial-inference",
+        "locator": "Lehman§3；POET§3、§5",
+        "explanation": "比较行为搜索与环境—解法共同生成，各自保留编码先验。",
+        "sourceIds": [
+          "lehman-stanley-2011",
+          "wang-poet-2019"
+        ]
+      }
+    ]
+  }
+}
