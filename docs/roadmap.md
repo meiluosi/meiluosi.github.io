@@ -457,13 +457,13 @@ Phase 16 留下的三个口子：英文概念图层薄、跨分类没有入口�
   - [x] **D批社会与文化**：三条路线，22节点记录、23来源、39主张、16关系；三张问题卡、三项回访和共享误差的精确合成核验。古典文本另列年代与译本。见[D批验收](./intelligence-history/round-three-d/validation.md)。
   - [x] **E批解释边界**：四条路线，25节点记录、25来源、50主张、20关系；三张问题卡、三项回访和顺序效应的精确合成核验。见[E批验收](./intelligence-history/round-three-e/validation.md)。
   - [x] **全局覆盖与共同问题索引**：20条路线已有审校序列，第二轮至E批150条节点记录去重为144个节点，15张问题卡、11项回访；25个首轮候选无同ID匹配，第四轮复核后其中1个有章节部分覆盖、24个无对应作品阅读映射，另保留各来源的未读部分。建立[可筛选入口](./intelligence-history/index.html)、[覆盖与缺口表](./intelligence-history/coverage.md)、[问题索引](./intelligence-history/questions-index.md)和可编辑总图。C—E三项方法核验、交互与项目检查均通过。
-- [ ] **第四轮：综合研究与网站联动（2026-10-28启动）**。围绕共同问题形成跨路线综述、开放问题和实验或论证方案；逐阶段推进，见[执行计划](./intelligence-history/round-four/plan.md)。
+- [x] **第四轮：综合研究与网站联动（2026-10-28指定范围完成）**。围绕共同问题形成跨路线综述、开放问题和实验或论证方案；逐阶段推进，见[执行计划](./intelligence-history/round-four/plan.md)。
   - [x] **阶段1：比较框架与证据审计**。建立八维比较框架；完成《从表现到机制的证据边界》：6条结论、6个案例、10份来源记录、21条定位主张、两组SVG／Mermaid、6项精确检查和3项未执行研究设计。当前索引修订与历史快照分开，桌面／手机交互及工程检查通过。见[工作台](./intelligence-history/round-four/index.html)和[验收](./intelligence-history/round-four/validation.md)。
   - [x] **阶段2：系统边界与发展**。完成[第二篇综合工作台](./intelligence-history/round-four/boundaries/index.html)：9份原典选读、27条定位主张、6条条件性结论、5个比较案例、3组SVG／Mermaid、8项精确检查和3项未执行研究设计。历史快照保留，当前阅读增量单列；见[验收](./intelligence-history/round-four/boundaries/validation.md)。
-  - [ ] **阶段3：意义与意识解释**。对齐理论版本、证据任务和桥接前提，审校最强异议。
-  - [ ] **阶段4：综合修订与网站联动**。把审校完成的节点、解读与图接入正式路线页、文献架和文章入口，保留来源版本及修改记录。
+  - [x] **阶段3：意义与意识解释**。完成[第三篇综合工作台](./intelligence-history/round-four/meaning/index.html)：12份选读、40条定位主张、6条条件性结论、5类案例、6项预测比较、3组SVG／Mermaid与11项精确检查；3项设计未执行。版本、原分析／探索分析和理论方回应分别记录；见[验收](./intelligence-history/round-four/meaning/validation.md)。
+  - [x] **阶段4：综合修订与网站联动（指定范围完成）**。完成[18条结论共同复核](./intelligence-history/round-four/integration/review.md)，13条收紧措辞、5条保留；31条来源版本与范围统一，9项设计排序。正式网站原生研究入口、三篇综述、31个来源页与可编辑图已接入路线、文献架及文章入口；三处关联演示已纠偏。见[验收](./intelligence-history/round-four/integration/validation.md)。
 
-验证范围与结果见[第一轮验收](./intelligence-history/validation.md)、[第二轮验收](./intelligence-history/round-two/validation.md)、[A批验收](./intelligence-history/round-three-a/validation.md)、[B批验收](./intelligence-history/round-three-b/validation.md)、[CDE联合验收](./intelligence-history/cde-validation.md)、[第四轮第一阶段验收](./intelligence-history/round-four/validation.md)及[第二阶段验收](./intelligence-history/round-four/boundaries/validation.md)。当前交付为研究文档与离线工作台，尚未接入站点的正式文献解读。
+验证范围与结果见[第一轮验收](./intelligence-history/validation.md)、[第二轮验收](./intelligence-history/round-two/validation.md)、[A批验收](./intelligence-history/round-three-a/validation.md)、[B批验收](./intelligence-history/round-three-b/validation.md)、[CDE联合验收](./intelligence-history/cde-validation.md)、[第四轮第一阶段验收](./intelligence-history/round-four/validation.md)、[第二阶段验收](./intelligence-history/round-four/boundaries/validation.md)及[第三阶段验收](./intelligence-history/round-four/meaning/validation.md)。第四阶段已接入正式网站的本地项目；保留研究文档与离线工作台，未执行公网部署。
 
 ## 版本记录
 

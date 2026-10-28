@@ -18,6 +18,8 @@
 | [intelligence-history/round-three-a/README.md](./intelligence-history/round-three-a/README.md) | 第三轮A批已验收：四条路线、样板补链、问题卡、版本对照及正式复现 |
 | [intelligence-history/round-three-b/README.md](./intelligence-history/round-three-b/README.md) | 第三轮B批已验收：三条能力评价路线、问题卡、A批回访及合成核验 |
 | [intelligence-history/index.html](./intelligence-history/index.html) | 20路线统一研究入口：144个去重节点、15张问题卡、11项回访 |
+| [intelligence-history/round-four/integration/README.md](./intelligence-history/round-four/integration/README.md) | 第四轮第四阶段：18条结论共同复核、31条来源统一、正式网站原生入口与9项设计排序 |
+| [intelligence-history/round-four/meaning/README.md](./intelligence-history/round-four/meaning/README.md) | 第四轮第三阶段已验收：意义与意识，12份选读、40条主张、6条结论、预测与版本台账、3组可编辑图及11项精确核验 |
 | [intelligence-history/round-four/boundaries/README.md](./intelligence-history/round-four/boundaries/README.md) | 第四轮第二阶段已验收：系统边界与发展，9份选读、6条结论、三组可编辑图和8项精确核验 |
 | [intelligence-history/round-four/README.md](./intelligence-history/round-four/README.md) | 第四轮第一阶段已验收：比较框架、6条条件性结论、10份来源记录、两组可编辑图及方法核验 |
 | [intelligence-history/cde-validation.md](./intelligence-history/cde-validation.md) | C—D—E已验收：10条路线、66条节点记录、三项合成核验 |
@@ -50,6 +52,10 @@
 | `scripts/generate-intelligence-history-round-three-cde.mjs` | 同步生成C／D／E批路线、证据、图与文献夹 | 参数`c`、`d`或`e`；加`--check`验证生成一致性 |
 | `scripts/generate-intelligence-boundaries.mjs` | 生成系统边界综述、文献、三组图与交互工作台 | 修改boundaries/research.json后运行；`--check`核验基线与生成一致性 |
 | `scripts/check-intelligence-boundaries.py` | 精确核验历史／支持、状态重置与反馈对照 | `--check`复核先存协议、16种条件及8项断言 |
+| `scripts/generate-intelligence-meaning.mjs` | 生成意义与意识的综述、文献、预测／版本台账、图和工作台 | `--check`核对源数据、历史基线和37个生成文件 |
+| `scripts/check-intelligence-meaning.py` | 11项预先协议下的有限模型精确检查 | `--check`核对保存结果，不检测真实意识 |
+| `scripts/audit-intelligence-meaning.py` | 审计来源、结论、预测、链接、锚点和历史快照 | `--check`核对报告；需Python XML模块 |
+| `scripts/verify-intelligence-meaning.mjs` | 浏览器核验图、精确交互、桌面／手机和导航 | 可配置Playwright、浏览器及本地预览地址 |
 | `scripts/audit-intelligence-boundaries.py` | 审计第二阶段证据结构、路径、锚点与旧快照 | `--check`核对保存报告；需Python XML模块 |
 | `scripts/verify-intelligence-boundaries.mjs` | 浏览器交互、精确显示、桌面／手机布局与截图核验 | 对本地预览运行；Playwright与浏览器位置可通过环境变量指定 |
 | `scripts/generate-intelligence-history-round-four.mjs` | 同步生成第四轮综述、文献、结论审计、SVG／Mermaid和交互页 | 修改第四轮research.json后运行；`--check`核对历史基线、引用与生成一致性 |
@@ -104,3 +110,5 @@
 - [第二卷审校记录](./pretraining-foundations-research.md)：一手来源、实现边界、教学算例与整卷页面验收。
 
 - [第三卷 SFT 审校记录](./sft-research.md)：任务示范、模板与监督范围的来源、算例和验收。
+
+综合研究维护：`node scripts/generate-intelligence-integration.mjs` 生成修订文档及网站下载资源；`--check` 验证93份保留材料与68份生成结果。网站入口由 `src/pages/research/intelligence/` 读取研究数据与修订层。

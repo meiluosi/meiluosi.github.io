@@ -1,0 +1,39 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import {
+	researchArticles,
+	researchSources,
+	researchReview,
+} from "@/data/intelligenceResearch";
+import "@/styles/intelligence-research.css";
+---
+<ExploreLayout title="综合研究文献索引" titleEn="Synthesis source index" description="31条来源记录的版本、关系、实际读段与未核验范围。" descriptionEn="31 source records with version relationships and exact reading scopes. Chinese-language notes.">
+	<article class="research-page" lang="zh-CN"><nav class="research-nav"><a href="/research/intelligence/">← 综合研究</a><a href="/library/">文献架</a></nav><h1>文献与原文定位</h1><p class="lead">从结论回到来源，再从来源进入具体读段。这里收录三篇综述使用的31条阅读记录。</p><div class="scope-note">31条记录对应29个书目作品单元、26个证据组。补充材料归入主文；更正文书保留独立作品身份；COGITATE的协议、注册、结果与补充材料属于同一项目。证据组数不代表独立实验数量，也不与历史144节点相加。</div>
+		<synthesis-library><div class="filters"><label>按综述筛选<select name="article"><option value="">全部三篇</option>{researchArticles.map(article => <option value={article.id}>{article.title}</option>)}</select></label><label>搜索作者、问题、版本或未读范围<input type="search" name="q" maxlength="200" /></label><output aria-live="polite">31 / 31</output></div><p data-empty hidden>没有匹配的记录，请调整关键词或综述范围。</p>
+		{researchSources.map(source => { const registry=researchReview.sources.find(item=>item.id===source.id)!; return <section class="source-row" id={source.id} data-article={source.article} data-search={`${source.title} ${source.authors.join(" ")} ${source.problem} ${source.solution} ${source.version} ${source.readScope} ${source.unreadScope} ${registry.evidenceFamily}`.toLowerCase()}><span class="tag">{source.year}</span><span class="quiet">{registry.relation}</span><h2><a href={`/research/intelligence/sources/${source.id}/`}>{source.title}</a></h2><p class="quiet">{source.authors.join(" · ")}</p><p>{source.problem}</p><details><summary>版本与阅读范围</summary><p>{source.version}</p><p>已读：{source.readScope}</p><p>未读／未核验：{source.unreadScope}</p><p class="quiet">作品：{registry.workId} · 证据组：{registry.evidenceFamily}</p></details><a href={`/research/intelligence/sources/${source.id}/`}>原文定位与相关结论 →</a></section>; })}</synthesis-library>
+	</article>
+</ExploreLayout>
+<script>
+	class SynthesisLibrary extends HTMLElement {
+		private cleanup?: () => void;
+		connectedCallback() {
+			this.cleanup?.();
+			const select = this.querySelector<HTMLSelectElement>("select")!;
+			const input = this.querySelector<HTMLInputElement>("input")!;
+			const output = this.querySelector("output")!;
+			const empty = this.querySelector<HTMLElement>("[data-empty]")!;
+			const rows = [...this.querySelectorAll<HTMLElement>(".source-row")];
+			const apply = (write = true) => {
+				let count = 0;
+				for (const row of rows) { row.hidden = Boolean((select.value && select.value !== row.dataset.article) || !row.dataset.search?.includes(input.value.trim().toLowerCase())); if (!row.hidden) count++; }
+				output.textContent = `${count} / ${rows.length}`; empty.hidden = count > 0;
+				if (write) { const url = new URL(location.href); for (const [key, value] of [["article", select.value], ["q", input.value.trim()]]) { if (value) url.searchParams.set(key, value); else url.searchParams.delete(key); } history.replaceState(history.state, "", url); }
+			};
+			const restore = () => { const url = new URL(location.href); const value = url.searchParams.get("article") ?? ""; select.value = [...select.options].some(option => option.value === value) ? value : ""; input.value = (url.searchParams.get("q") ?? "").slice(0, 200); apply(false); };
+			const update = () => apply(); select.addEventListener("change", update); input.addEventListener("input", update); window.addEventListener("popstate", restore); restore();
+			this.cleanup = () => { select.removeEventListener("change", update); input.removeEventListener("input", update); window.removeEventListener("popstate", restore); };
+		}
+		disconnectedCallback() { this.cleanup?.(); }
+	}
+	if (!customElements.get("synthesis-library")) customElements.define("synthesis-library", SynthesisLibrary);
+</script>

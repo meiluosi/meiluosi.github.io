@@ -3,6 +3,7 @@
  * /routes/ 智能路线图谱页面
  * 呈现关于智能的 20 个解释传统及其核心分歧地图
  */
+import ResearchEntry from "@/components/research/ResearchEntry.astro";
 import Text from "@/components/common/BilingualText.astro";
 import ParadigmCompass from "@/components/features/ParadigmCompass.svelte";
 import Navbar from "@/components/layout/Navbar.astro";
@@ -26,6 +27,7 @@ import Layout from "@/layouts/Layout.astro";
 		<main id="swup-container" class="routes-container">
 			<nav class="explore-subnav" aria-label="探索栏目" data-i18n-aria-label-zh="探索栏目" data-i18n-aria-label-en="Explore sections">
 				<a href="/routes/" aria-current="page"><Text zh="智能路线 (20)" en="20 Routes" /></a>
+				<a href="/research/intelligence/"><Text zh="综合研究" en="Research" /></a>
 				<a href="/books/"><Text zh="书稿与专著" en="Living Books" /></a>
 				<a href="/lab/"><Text zh="交互实验室" en="Interactive Lab" /></a>
 				<a href="/graph/"><Text zh="知识星图" en="Knowledge Cosmos" /></a>
@@ -69,6 +71,7 @@ import Layout from "@/layouts/Layout.astro";
 					</div>
 				</div>
 			</header>
+<ResearchEntry />
 
 			<!-- 6 大问题层次 -->
 			<section class="section-block" aria-labelledby="heading-levels">

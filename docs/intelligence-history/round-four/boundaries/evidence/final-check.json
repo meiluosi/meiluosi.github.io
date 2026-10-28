@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-28",
+  "checks": [
+    {
+      "command": "node scripts/generate-intelligence-boundaries.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":32,\"sources\":9,\"claims\":27,\"conclusions\":6,\"cases\":5,\"graphs\":3,\"checks\":8}\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-four.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":30,\"sources\":10,\"claims\":21,\"conclusions\":6,\"cases\":6}\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-index.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":26,\"counts\":{\"routes\":20,\"nodeRecords\":150,\"distinctNodes\":144,\"baselineCandidates\":106,\"baselineCandidatesWithNotes\":81,\"sourceRecords\":162,\"distinctSourceIds\":153,\"questionCards\":15,\"revisits\":11,\"cde\":{\"routes\":10,\"nodeRecords\":66,\"sources\":67,\"claims\":129,\"relations\":51,\"questionCards\":9,\"revisits\":9,\"methodChecks\":3},\"candidatesWithPartialWorkMapping\":1,\"candidatesWithoutWorkMapping\":24}}\n"
+    },
+    {
+      "command": "/Users/meros/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/audit-intelligence-boundaries.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"localPathReferences\": 895,\n  \"explicitAnchors\": 141,\n  \"legacyFragmentsPathOnly\": 199,\n  \"svgDocuments\": 3,\n  \"snapshots\": {\n    \"baselines.json\": 8,\n    \"phase-one-baselines.json\": 7\n  },\n  \"sources\": 9,\n  \"selectedSections\": 9,\n  \"sourceClaims\": 27,\n  \"conclusions\": 6,\n  \"cases\": 5,\n  \"relations\": 6,\n  \"editorialComparisons\": 2,\n  \"methodChecks\": 8,\n  \"designsNotExecuted\": 3,\n  \"historyConditions\": 16,\n  \"historicalNodeCountsUnchanged\": true,\n  \"browserEvidenceMatchesCurrentFiles\": true,\n  \"errors\": [],\n  \"scope\": \"Phase-two documents, global entries, phase-one navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested.\"\n}\n\n"
+    },
+    {
+      "command": "/Users/meros/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/audit-intelligence-history-round-four.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"localPathReferences\": 1463,\n  \"explicitRoundFourAnchorsChecked\": 201,\n  \"legacyFragmentsPathOnly\": 338,\n  \"svgXMLDocuments\": 6,\n  \"historicalSnapshotsUnchanged\": 7,\n  \"sources\": 10,\n  \"sourceClaims\": 21,\n  \"conclusions\": 6,\n  \"evidenceAuditItems\": 6,\n  \"designsNotExecuted\": 3,\n  \"candidateAnnotations\": 25,\n  \"errors\": [],\n  \"scope\": \"Round-four documents and current global coverage/index. Historical target paths checked; historical dynamic anchors and external URLs are outside this structural audit.\"\n}\n\n"
+    }
+  ]
+}

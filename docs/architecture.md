@@ -283,3 +283,12 @@ CSS 自定义属性
 全链路工作台 `/lab/model-pipeline/` 使用独立 `ModelPipeline.svelte` 和可测试的 `utils/model-pipeline.ts`。浏览器只进行教学计算；真实 PyTorch 训练在可迁移的 `projects/small-model-lab/`。它具有自己的依赖、数据工具、配置、训练与推理CLI、CI和运行报告，不进入 Astro 客户端依赖图。模型检查点和数据缓存通过项目 `.gitignore` 排除；代码目录整体复制即可形成独立仓库。
 
 项目示意图由 `ResearchVisual.astro` 共用；三个静态分享封面通过 `scripts/generate-research-covers.mjs` 离线生成，案例页使用 `Layout.astro` 的 `shareImage`。包体和浏览器验证范围见 [studio-validation.md](./studio-validation.md)，训练真实产物和边界见 [small-model-training-validation.md](./small-model-training-validation.md)。
+
+
+### 智能综合研究的证据与网站分层（2026-10-28）
+
+- 证据层：`docs/intelligence-history/round-four/` 三份研究数据保留原主张、定位、反方与读段；旧快照不被当前解读覆盖。
+- 修订层：`round-four/integration/research.json` 保存18条复核、来源关系、读者导读、共同术语和9项设计排序。
+- 原生阅读层：`src/data/intelligenceResearch.ts` 在构建时组合两层，`src/pages/research/intelligence/` 生成38页；公共站点通过路线、文献架和文章入口连接。
+- 维护资源：`scripts/generate-intelligence-integration.mjs` 生成文档与 `public/research/intelligence/` 的SVG、Mermaid、笔记及模型材料；公开文件不含第三方原文PDF。修改数据后先生成再构建，使用 `--check` 检查同步性。
+- 审核：`scripts/audit-intelligence-integration.py` 校验构建产物链接、主张锚点与93份保留材料；`scripts/verify-intelligence-integration.mjs` 检验浏览器、响应式、无脚本阅读及有限模型。方法与部署范围见[验收](./intelligence-history/round-four/integration/validation.md)。

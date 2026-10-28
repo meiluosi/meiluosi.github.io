@@ -1,0 +1,34 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import {
+	researchSources,
+	researchReview,
+	researchArticleForConclusion,
+	type ResearchSource,
+} from "@/data/intelligenceResearch";
+import "@/styles/intelligence-research.css";
+export function getStaticPaths() {
+	return researchSources.map((source) => ({
+		params: { id: source.id },
+		props: { source },
+	}));
+}
+interface Props {
+	source: ResearchSource & { article: string };
+}
+const { source } = Astro.props;
+const registry = researchReview.sources.find((item) => item.id === source.id)!;
+const related = researchReview.reviews.filter((review) =>
+	review.evidence.some((id) => source.claims.some((claim) => claim.id === id)),
+);
+---
+<ExploreLayout title={source.title} titleEn={source.title} description={source.problem} descriptionEn="Source record with exact reading scope, version and claim locations. Chinese-language notes.">
+	<article class="research-page" lang="zh-CN" data-pagefind-body><div class="text-column">
+		<nav class="research-nav"><a href="/research/intelligence/sources/">← 文献索引</a><a href={`/research/intelligence/${source.article}/`}>相关综述</a></nav><p class="kicker">SOURCE RECORD · {source.year}</p><h1>{source.title}</h1><p>{source.authors.join(" · ")}</p><nav class="research-nav"><a href={source.url} target="_blank" rel="noopener noreferrer">打开原始资料 ↗</a><a href={`/research/intelligence/downloads/sources/${source.id}.md`} download>下载阅读笔记</a></nav>
+		<div class="scope-note"><strong>版本与实际阅读范围</strong><p>{source.version}</p><p><strong>已读：</strong>{source.readScope}</p><p><strong>未读／未核验：</strong>{source.unreadScope}</p><p class="quiet">{registry.relation}。作品：{registry.workId}；证据组：{registry.evidenceFamily}。本站转述指定原文，未将其自动升级为独立复现。</p></div>
+		<h2>问题—方案—未决</h2><dl><dt>探究的问题</dt><dd>{source.problem}</dd><dt>提出的方案</dt><dd>{source.solution}</dd><dt>仍待回答</dt><dd>{source.remaining}</dd></dl>
+		<h2>原文定位</h2>{source.claims.map(claim => <section class="claim" id={claim.id}><span class="kicker">{claim.id}</span><p>{claim.text}</p><p class="quiet">定位：{claim.locator}</p>{claim.editorialCaution && <p class="scope-note">编辑提示：{claim.editorialCaution}</p>}</section>)}
+		<h2>进入哪些综合结论？</h2><nav class="research-nav">{related.map(review => <a href={`/research/intelligence/${researchArticleForConclusion(review.id).id}/#${review.id}`}>{review.id} · {review.title}</a>)}</nav>
+		<details><summary>版本识别信息</summary><p>阅读文件的SHA256：{source.sha256 ?? "原记录未登记"}。这是已读文件的识别信息，外部链接今后可能更新。</p><p>本记录沿用前三阶段实际阅读范围；综合修订没有追加阅读或更换载体。</p></details>
+	</div></article>
+</ExploreLayout>

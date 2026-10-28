@@ -1,0 +1,1195 @@
+{
+  "title": "从有用的表现，到有意义与有体验",
+  "date": "2026-10-28",
+  "phase": 3,
+  "question": "当系统能说、能推理、能行动，或者显示特定脑信号时，还需要哪些前提，才能谈理解与体验？",
+  "scope": "比较形式与语义、访问与体验、理论与测量之间的桥接条件。纳入原典、明确反方、预注册检验与理论方回应；不裁定当代某个模型是否有意识，也不把所有意识理论或非经典物理解释计为已覆盖。",
+  "sources": [
+    {
+      "id": "searle-1980",
+      "year": 1980,
+      "title": "Minds, Brains, and Programs",
+      "authors": [
+        "John R. Searle"
+      ],
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "version": "BBS 3原刊，PDF含评论与作者回应；目标文与评论作者不可混为一人。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 3–6（刊页419–422）：系统、机器人、脑模拟和组合回应；PDF 34下部–35（450–451）：作者回应开头、直觉与内在意向性。",
+      "unreadScope": "未通读全部评论和作者回应；34页上部另属评论，不登记为Searle主张。",
+      "problem": "执行规则而产生正确回答，是否足以构成理解？",
+      "solution": "以中文房间及其变体挑战程序形式本身的充分性，强调能产生意向性的因果能力。",
+      "remaining": "系统层次能否拥有操作者不具备的理解，以及何种因果能力才相关，仍存在争论。",
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731",
+      "claims": [
+        {
+          "id": "searle-1980-c1",
+          "text": "系统回应把理解归于整体；Searle用内化规则的变体反对它。该争论涉及理解归属的层级，不能只比较回答是否正确。",
+          "locator": "PDF 3，刊页419，I. The systems reply",
+          "kind": "source-reported"
+        },
+        {
+          "id": "searle-1980-c2",
+          "text": "Searle认为机器人和脑模拟的形式组织仍不足；在组合回应中，他承认仅凭外观行为可合理暂作意向性归因，但区分这种归因与构成条件。",
+          "locator": "PDF 4–5，刊页420–421，II–IV",
+          "kind": "source-reported"
+        },
+        {
+          "id": "searle-1980-c3",
+          "text": "他明确允许人工机器乃至别种物质实现思维；所否定的是仅凭正确程序便充分。他还区分内在意向性与观察者的意向性赋予。",
+          "locator": "PDF 6，刊页422结论问答；PDF 35，刊页451回应末段",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-e/notes/e-searle-1980.md",
+      "timelineTitle": "规则是否足以理解",
+      "timelineAdvance": "把形式程序与理解的构成条件分开"
+    },
+    {
+      "id": "harnad-1990",
+      "year": 1990,
+      "title": "The Symbol Grounding Problem",
+      "authors": [
+        "Stevan Harnad"
+      ],
+      "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/harnad90_sgproblem.pdf",
+      "version": "1990论文的作者网页打印载体，15页，页脚2004-04-20；以下PDF页数不是原刊页码。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 6–8，§3.2图像／范畴表征、§3.3符号表征、§4混合机制及§5结论。",
+      "unreadScope": "未在本轮重读§1–3.1和全部脚注，也未复现分类学习机制。",
+      "problem": "符号的解释如何不完全依赖外部解释者？",
+      "solution": "用感知辨别和范畴识别支撑基本名称，再通过组合使复合描述继承落地。",
+      "remaining": "哪些概念可由此形成、如何学习不变特征，以及行为成功是否具有主观意义，仍需区分。",
+      "sha256": "d092fc373c7b231b57bb9304eeea35ea8164acd1c3d7a5a68bd17e4a8aa3d023",
+      "claims": [
+        {
+          "id": "harnad-1990-c1",
+          "text": "图像表征保留感官投影，范畴表征选择可区分成员的特征；作者不把图像或单纯命名本身视为完整语义。",
+          "locator": "PDF 6–7，§3.2–3.3",
+          "kind": "source-reported"
+        },
+        {
+          "id": "harnad-1990-c2",
+          "text": "基本名称落地后，组合描述可继承这种联系；联结网络是学习范畴不变特征的一种候选机制。",
+          "locator": "PDF 7，§3.3–4",
+          "kind": "source-reported"
+        },
+        {
+          "id": "harnad-1990-c3",
+          "text": "其检验包括符号系统的形式条件与辨别、识别、描述能力；结论明确说这些仍不保证捕获主观意义。",
+          "locator": "PDF 8，§5末段",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-e/notes/e-harnad-1990.md",
+      "timelineTitle": "符号怎样落地",
+      "timelineAdvance": "从辨别、范畴到可组合的名称"
+    },
+    {
+      "id": "block-1995",
+      "year": 1995,
+      "title": "On a Confusion about a Function of Consciousness",
+      "authors": [
+        "Ned Block"
+      ],
+      "url": "https://divinecuration.github.io/assets/pdf/block-confusion.pdf",
+      "version": "1995 BBS 18原刊扫描镜像，目标文227–247，整份含评论回应至287；作者书目另列1997修正版，本轮不混用。镜像含既有高亮。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 1摘要；PDF 4–6（刊页230–232），§3现象意识、§4访问意识及两者区别。",
+      "unreadScope": "未读完其余目标文、评论与回应；未逐例核验盲视研究，也未读1997修正版。",
+      "problem": "从信息使用障碍推出体验的功能，是否混淆了不同解释对象？",
+      "solution": "区分经验的现象性质与信息可用于推理及理性行动的访问性质。",
+      "remaining": "概念区分是否对应经验上的可分离性，以及功能主义能否解释体验，不能靠命名解决。",
+      "sha256": "6d2813e281b208a2acf0c15adf9c26f14ba264d60125c250cb31be82e1d2b692",
+      "claims": [
+        {
+          "id": "block-1995-c1",
+          "text": "现象意识指体验性质；Block承认无法给出非循环还原定义，也明确其反功能主义立场具有争议。",
+          "locator": "PDF 4，刊页230，§3",
+          "kind": "source-reported"
+        },
+        {
+          "id": "block-1995-c2",
+          "text": "访问意识强调内容可用于推理、理性行动和言语；言语报告不是必要条件，非语言动物未被定义排除。",
+          "locator": "PDF 5，刊页231，§4首段",
+          "kind": "source-reported"
+        },
+        {
+          "id": "block-1995-c3",
+          "text": "两者可互动；他质疑从访问的功能直接滑向现象意识的功能，同时承认二者可能有因果依赖。",
+          "locator": "PDF 5–6，刊页231–232，§4",
+          "kind": "source-reported"
+        }
+      ],
+      "timelineTitle": "访问是否等于体验",
+      "timelineAdvance": "区分信息可用与现象性质"
+    },
+    {
+      "id": "chalmers-1995",
+      "year": 1995,
+      "title": "Facing Up to the Problem of Consciousness",
+      "authors": [
+        "David J. Chalmers"
+      ],
+      "url": "https://consc.net/papers/facing.html",
+      "version": "作者HTML版本，对应JCS 2(3), 200–219；以节名定位，不臆造HTML页码。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "§2末尾、§3功能说明与困难问题；§4开头案例；§5后半（非算法、动力学、物理说明的论证）；§6开头至自然主义二元论说明。",
+      "unreadScope": "未完整审读§4、§5前部、§6末尾与§7全部原则；其他作品仅被原文引用，没有据此计为已读。",
+      "problem": "为什么执行认知功能会伴随体验，而非只有功能？",
+      "solution": "提出困难问题，并以体验为基本性质、心理物理桥接原则为非还原理论方向。",
+      "remaining": "解释鸿沟是否意味着还原不可能、桥接原则能否形成可区分预测，仍是哲学与科学争议。",
+      "sha256": "94004ba86288eaf43991d532d876b830acf2b3bde2a1baf4ddd4b87581536804",
+      "claims": [
+        {
+          "id": "chalmers-1995-c1",
+          "text": "他区分功能的机制说明与为何伴随体验的提问；“容易”是相对意义，并非声称相关实验问题已经解决。",
+          "locator": "HTML §2末尾与§3 Functional explanation",
+          "kind": "source-reported"
+        },
+        {
+          "id": "chalmers-1995-c2",
+          "text": "其论证认为增加动力学、非算法或物理机制本身仍需回答经验为何存在；这是作者的概念论证，不是各机制已被实验逐一排除。",
+          "locator": "HTML §5后半 The extra ingredient",
+          "kind": "source-reported"
+        },
+        {
+          "id": "chalmers-1995-c3",
+          "text": "非还原方案将体验及心理物理原则加入基本解释结构；作者也承认这不解释体验最初为何存在。",
+          "locator": "HTML §6 Nonreductive explanation，开头至naturalistic dualism",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-e/notes/e-chalmers-1995.md",
+      "timelineTitle": "机制之后还有什么",
+      "timelineAdvance": "明确困难问题与桥接原则"
+    },
+    {
+      "id": "dehaene-changeux-2011",
+      "year": 2011,
+      "title": "Experimental and Theoretical Approaches to Conscious Processing",
+      "authors": [
+        "Stanislas Dehaene",
+        "Jean-Pierre Changeux"
+      ],
+      "url": "https://web.stanford.edu/class/cs379c/resources/inverted/content/Books_and_Journal_Articles_on_Consciousness/Theory_of_Mind_and_Language_Development_Articles/Publications_on_Consciousness_by_Stanislas_Dehaene/DehaeneChangeuxNEURON-11.pdf",
+      "version": "Neuron 70, 200–227的2011综述；不是2020 GNWT综述或2025检验的同一版本。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 1（200）定义；PDF 13–14（212–213）点燃模拟、汇总与挑战；PDF 19–20（218–219）结论及展望。",
+      "unreadScope": "未完整审读全部实验和模型；文中临床与动物引用未独立核验，不作医疗判断。",
+      "problem": "信息如何从非意识加工进入可报告的意识访问？",
+      "solution": "以长程网络的信息全局可用和非线性点燃建立机制模型，并提出神经检验。",
+      "remaining": "信号是否编码内容、是否只是任务后果、是否具必要因果作用，以及如何延伸到更广体验。",
+      "sha256": "01c6bab0ed80c9ff41d9f4d058d88533d549963930d9e886556e10cb8e73aa7b",
+      "claims": [
+        {
+          "id": "dehaene-changeux-2011-c1",
+          "text": "综述主动限定于意识访问，以可报告的主观经验标识目标，区别于清醒状态等其他用法。",
+          "locator": "PDF 1，刊页200，摘要与Introduction",
+          "kind": "source-reported"
+        },
+        {
+          "id": "dehaene-changeux-2011-c2",
+          "text": "GNW把全局可用、复返稳定及串行处理连接到神经组织；作者明确允许因关键结构不存在或点燃不必要、无编码／因果作用而受反驳。",
+          "locator": "PDF 13–14，刊页212–213，III末与IV首段",
+          "kind": "source-reported"
+        },
+        {
+          "id": "dehaene-changeux-2011-c3",
+          "text": "神经对应还须编码经验细节、稳定性及错觉；元认知、自我表征等需另行研究，不能由本综述直接视为已解释。",
+          "locator": "PDF 19–20，刊页218–219，V",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-e/notes/e-dehaene-changeux-2011.md",
+      "timelineTitle": "怎样解释意识访问",
+      "timelineAdvance": "全局可用、点燃与神经可检验承诺"
+    },
+    {
+      "id": "bender-koller-2020",
+      "year": 2020,
+      "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data",
+      "authors": [
+        "Emily M. Bender",
+        "Alexander Koller"
+      ],
+      "url": "https://aclanthology.org/2020.acl-main.463.pdf",
+      "version": "ACL 2020正式论文，PDF 14页；论证针对其意义定义与仅形式训练条件，不是对2026模型的测评。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 3–4（5187–5188）§3定义及§4章鱼思想实验开头；PDF 8–9（5192–5193）§8.2–10。",
+      "unreadScope": "未完整阅读全部案例、附录和所引实验；不把思想实验当作现代语言模型的实际失败记录。",
+      "problem": "仅观察语言形式能否学到与交际意图和外部内容的关系？",
+      "solution": "明确表达式、交际意图及常规意义的联系，区分形式学习和意义学习。",
+      "remaining": "文本包含何种间接结构、任务标签何时超出形式，以及定义是否覆盖概念角色意义，需另作比较。",
+      "sha256": "48823a487ee233ff567aa3fdd3c3f20f8425f0182b6f213c4c7f1e929d2bff77",
+      "claims": [
+        {
+          "id": "bender-koller-2020-c1",
+          "text": "文中用表达式与交际意图之间的关系刻画意义，并另区分常规意义；外部内容不限于物理对象。 §3.2援引Searle与Harnad的论证。",
+          "locator": "PDF 3，§3.1–3.2，M⊆E×I与C⊆E×S及相关工作",
+          "kind": "source-reported"
+        },
+        {
+          "id": "bender-koller-2020-c2",
+          "text": "章鱼思想实验允许形式学习者成功应对部分交流，却用缺少外部联系说明其他情境可能失败。",
+          "locator": "PDF 4，§4；这是思想实验",
+          "kind": "source-reported"
+        },
+        {
+          "id": "bender-koller-2020-c3",
+          "text": "作者承认形式结构可反映意义、提供有用但不完整的信息；解释标签、单元测试或其他落地可能超出纯形式设定。",
+          "locator": "PDF 8–9，§8.2–10",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-e/notes/e-bender-koller-2020.md",
+      "timelineTitle": "只有形式能学到什么",
+      "timelineAdvance": "区分形式与交际意义的学习条件"
+    },
+    {
+      "id": "piantadosi-hill-2022",
+      "year": 2022,
+      "title": "Meaning without Reference in Large Language Models",
+      "authors": [
+        "Steven T. Piantadosi",
+        "Felix Hill"
+      ],
+      "url": "https://arxiv.org/pdf/2208.02957v2",
+      "version": "arXiv:2208.02957 v2，2022-08-12；8页概念论证，不能按新实验论文统计。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 1–5正文：概念角色、指称、文本结构和交际意图。",
+      "unreadScope": "未核验参考文献6–8及其所引神经与模型研究；嵌入定理类比不等于实证证明。",
+      "problem": "把缺少外部指称直接等同于毫无意义，是否忽略概念之间的作用关系？",
+      "solution": "以概念角色语义学反对只由训练目标或指称缺失否定意义，强调内部表征与推理关系。",
+      "remaining": "真实模型是否具有稳定的因果概念角色，以及交际意图和感知行动增加什么，仍需实验。",
+      "sha256": "98f9832b36835695c9b7cba6384601548cbf03676f5bd801572187cc7a669cfe",
+      "claims": [
+        {
+          "id": "piantadosi-hill-2022-c1",
+          "text": "作者以概念角色语义为前提，认为概念之间的关系可构成意义，不能单凭预测训练目标判定内部表示没有意义。",
+          "locator": "PDF 1–3，概念角色论证",
+          "kind": "source-reported"
+        },
+        {
+          "id": "piantadosi-hill-2022-c2",
+          "text": "他们不否认指称的价值，也允许更丰富的感知行动经验扩展概念；反对把指称作为所有概念意义的唯一条件。",
+          "locator": "PDF 2–4，reference与conceptual role讨论",
+          "kind": "source-reported"
+        },
+        {
+          "id": "piantadosi-hill-2022-c3",
+          "text": "讨论区分语义意图与语用目的，提出语言训练可能反映概念结构；这是一组理论解释及预测，不是已完成的交际意图检验。",
+          "locator": "PDF 4–5，Communicative intent及结论",
+          "kind": "source-reported"
+        }
+      ],
+      "timelineTitle": "意义是否必需指称",
+      "timelineAdvance": "以概念角色提出明确反方"
+    },
+    {
+      "id": "prereg-v4-2022",
+      "year": 2022,
+      "title": "COGITATE最终分析预注册：存储名v4，正文Version 4.5",
+      "authors": [
+        "COGITATE项目团队；中心负责人Lucia Melloni、Liad Mudrik、Michael Pitts"
+      ],
+      "url": "https://osf.io/download/gm3vd/",
+      "version": "OSF节点92tbg，文件Preregistration_ver4.0-FINAL.pdf；页眉Version 4.5，2022-12-22；API上传日期2022-12-23，SHA与API一致。此命名差异原样保留。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 1版本页；10–12阶段、拆分与脚注；15–16质量控制和Division of data to phases。",
+      "unreadScope": "未通读83页、全部预测表和分析代码；未逐一审计v1–v3原件。16页fMRI预定子集数与同页总数存在不一致，未自行修正。",
+      "problem": "分析优化之后，怎样约束对剩余数据的检验？",
+      "solution": "在优化后锁定分析与预测解释；分清独立保留数据与颅内记录的特殊策略。",
+      "remaining": "落实到最终发表版本有哪些偏离，哪些影响理论判定，须与补充材料逐项对照。",
+      "sha256": "2c0bae3586394ddb3375c333020d309b91099f0ccba39c503c95cad2c8a98a99",
+      "claims": [
+        {
+          "id": "prereg-v4-2022-c1",
+          "text": "该版本明确在实验1约首1/3数据优化后修订，称剩余2/3尚锁定未分析；此说法是文件中的记录，本轮没有独立审计访问权限历史。",
+          "locator": "PDF 1、10–12",
+          "kind": "source-reported"
+        },
+        {
+          "id": "prereg-v4-2022-c2",
+          "text": "1/3–2/3独立拆分适用于MEG和fMRI；iEEG不做相同独立样本复制，另为部分分析计划通道子采样。",
+          "locator": "PDF 10注4；12注5；16 Division of data to phases",
+          "kind": "source-reported"
+        },
+        {
+          "id": "prereg-v4-2022-c3",
+          "text": "协议规定iEEG行为排除阈值并记录数据质控；其16页预定fMRI子集数不可直接用作2025最终样本数。",
+          "locator": "PDF 15–16，Exclusion criteria与Division of data to phases",
+          "kind": "source-reported"
+        }
+      ],
+      "timelineTitle": "分析优化后如何锁定",
+      "timelineAdvance": "记录数据拆分、版本与模态例外"
+    },
+    {
+      "id": "melloni-2023",
+      "year": 2023,
+      "title": "An Adversarial Collaboration Protocol for Testing Contrasting Predictions of GNW and IIT",
+      "authors": [
+        "Lucia Melloni等"
+      ],
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0268577&type=printable",
+      "version": "PLOS ONE 18(2), e0268577，2023-02-10发表的研究协议；发表日期不是首次预注册日期，其设计文本与2022最终分析文件须分开。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 7–8，图1图注、阶段与时间线；10–12，实验1设计、排除规则、三类预测及计划分析。",
+      "unreadScope": "实验2及其最终结果不在本轮审读完成范围；完整方法和既往预注册文件仍未全部审计。",
+      "problem": "相互竞争的意识解释，怎样在同一个实验中承担不同的预测风险？",
+      "solution": "共同约定内容位置、持续方式和区域联系的预测，操纵任务相关性与刺激持续时长。",
+      "remaining": "判定权重、测量灵敏度和可见刺激是否持续被体验，是协议走向解释时的重要条件。",
+      "sha256": "2152d15a55f0286c9e626d8ce0c70bf7fa2c82263fca8281c8d8d80b992750b4",
+      "claims": [
+        {
+          "id": "melloni-2023-c1",
+          "text": "实验1比较任务相关与不相关条件，刺激清晰可见；三组预测分别涉及内容解码、持续时间与跨区联系。",
+          "locator": "PDF 10–12，Fig.2与Overview of operational hypotheses",
+          "kind": "source-reported"
+        },
+        {
+          "id": "melloni-2023-c2",
+          "text": "协议承认不同可能结果的结论力度不同；2023文本写先后两半优化与复核，不应覆盖掉最终文件中的1/3–2/3和iEEG例外。",
+          "locator": "PDF 7 Fig.1图注、8 Status and timeline；对照本阶段prereg记录",
+          "kind": "source-reported"
+        },
+        {
+          "id": "melloni-2023-c3",
+          "text": "将刺激呈现全程对应到持续体验是一项明说的假定；点燃时窗、解码方式与持续信号须按版本检查。",
+          "locator": "PDF 12，Activation patterns across stimulus durations",
+          "kind": "source-reported"
+        }
+      ],
+      "timelineTitle": "如何让理论共同受检验",
+      "timelineAdvance": "共同约定内容、持续与联系预测"
+    },
+    {
+      "id": "iit4-2023",
+      "year": 2023,
+      "title": "Integrated Information Theory (IIT) 4.0",
+      "authors": [
+        "Larissa Albantakis等"
+      ],
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1011465&type=printable",
+      "version": "PLOS Computational Biology 19(10), e1011465，2023-10-17；IIT 4.0正式表述，不与2004或3.0的量直接互换。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 3–6公理、公设及解释性同一；37–39功能等价、结论与计算限制；目视5页定义。",
+      "unreadScope": "未逐式验证7–36页推导、补充证明或运行PyPhi；未计算真实脑网络的Φ。",
+      "problem": "如何将体验的性质与物理系统的内在因果结构对应？",
+      "solution": "从现象公理提出物理公设，以复合体的Φ结构及其区别、关系表达体验。",
+      "remaining": "桥接主张的正当性、可计算性、近似量的效度及其神经实现仍需分别检验。",
+      "sha256": "96129cb9589703e30663969cb0f0f329f706778b88b6b5f4b967a19f994783db",
+      "claims": [
+        {
+          "id": "iit4-2023-c1",
+          "text": "4.0明确区分现象公理和物理公设，再提出体验与Φ结构的解释性同一；必要充分性是理论主张。",
+          "locator": "PDF 3–6，From phenomenal axioms to physical postulates",
+          "kind": "source-reported"
+        },
+        {
+          "id": "iit4-2023-c2",
+          "text": "系统不可约性用于挑选复合体，结构Φ汇总区别与关系；功能等价的系统在本理论中不必具有同样体验。",
+          "locator": "PDF 5、37 Fig.8与38–39结论",
+          "kind": "source-reported"
+        },
+        {
+          "id": "iit4-2023-c3",
+          "text": "现实系统的完整因果结构展开有多重组合爆炸，精确演算限于小型理想系统；复杂度近似指标不等于已经计算了完整Φ。",
+          "locator": "PDF 39，计算可行性及近似讨论",
+          "kind": "source-reported"
+        }
+      ],
+      "timelineTitle": "体验怎样对应因果结构",
+      "timelineAdvance": "4.0公理、公设与解释性同一"
+    },
+    {
+      "id": "cogitate-2025",
+      "year": 2025,
+      "title": "Adversarial Testing of Global Neuronal Workspace and Integrated Information Theories of Consciousness",
+      "authors": [
+        "Cogitate Consortium等"
+      ],
+      "url": "https://www.nature.com/articles/s41586-025-08888-1.pdf",
+      "version": "Nature 642, 133–142；在线2025-04-30、期次2025-06-05。主文、Methods、扩展图表在同一40页PDF；不是独立重复实验。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 1–3、6–11；13页Analysis strategy；29–30扩展图7和表1（含图像目视）。",
+      "unreadScope": "未完整审计PDF 4–5全部细节、其余方法、全部扩展数据或原始数据；按协议的实验2未计完成。",
+      "problem": "两理论共同认可的神经预测，哪些得到支持、受挑战或仍不确定？",
+      "solution": "清晰视觉刺激、任务相关性控制与三种记录方式，按约定预测进行检验并公开不同解释。",
+      "remaining": "从统计结果到理论修订须追踪核心程度、探索性分析、覆盖局限与体验测量假定。",
+      "sha256": "0a6cf543d35766ee234dda82f8c1abc223b4d9183a8dc663af7e2e27eb661ed6",
+      "claims": [
+        {
+          "id": "cogitate-2025-c1",
+          "text": "研究主要检验竞争的生物实现，难以直接检验完整数学／计算核心；阳性信号不直接确证某套意识本体论。",
+          "locator": "PDF 2，刊页134，IIT and GNWT说明；PDF 9–10参考文献4、8",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-2025-c2",
+          "text": "总招募256人不等于每项分析分母；MEG97人纳入、32优化65检验，fMRI108人纳入、35优化73检验；iEEG34招募且没有相同独立拆分。",
+          "locator": "PDF 3，刊页135；PDF 11 Participants；13 Analysis strategy",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-2025-c3",
+          "text": "后部内容解码符合IIT非关键预测；持续表征达到其约定判据，但方向信息不持续。PFC类别解码存在，方向结果跨方式不一致，图7记为不确定。",
+          "locator": "PDF 3、7、9；PDF 29–30扩展图7及表1",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-2025-c4",
+          "text": "未发现预期PFC刺激消失后的点燃，挑战GNWT的该项预测；预注册PPC同步分析未支持两方，探索性幅度DFC较符合GNWT，须保留分析身份。",
+          "locator": "PDF 7，刊页139；9，刊页141；29扩展图7",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-2025-c5",
+          "text": "持续后部同步缺失构成IIT重要挑战；团队同时报告稀疏覆盖、残余任务影响等限制，采用三方讨论而未给出单一赢家。",
+          "locator": "PDF 8–9，刊页140–141 Discussion",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-e/notes/e-cogitate-2025.md",
+      "timelineTitle": "哪些预测承担了失败",
+      "timelineAdvance": "逐项保留通过、挑战与不确定"
+    },
+    {
+      "id": "cogitate-supp-2025",
+      "year": 2025,
+      "title": "COGITATE Supplementary Information：理论回应与偏离记录",
+      "authors": [
+        "COGITATE团队",
+        "§12 Melanie Boly、Christof Koch、Giulio Tononi",
+        "§13 Stanislas Dehaene"
+      ],
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-025-08888-1/MediaObjects/41586_2025_8888_MOESM1_ESM.pdf",
+      "version": "同篇Nature论文的135页补充文件；PDF含封面，正文页码比PDF页码小1。分节观点分别归属，不算额外独立实验。",
+      "readingStatus": "selected-sections",
+      "checkedAt": "2026-10-28",
+      "readScope": "PDF 2–4目录；120–126（正文119–125），§12、12.1、§13完整及§14主要偏离1–8；§14后续小项只读开头。",
+      "unreadScope": "未通读前部实验分析、全部偏离小项或原始数据；理论方的替代解释未被本轮独立验证。",
+      "problem": "同一组结果为何仍产生不同理论评价，后续应怎样区分？",
+      "solution": "分别保存理论方回应、测量反驳和实施偏离，而非把论文摘要当作完整裁决。",
+      "remaining": "更密覆盖、持续体验和因果必要性的检验，应预先锁定新预测与失败条件。",
+      "sha256": "30d9b09341642e25e182e0b5fcc77bb3b690c39d4532b9c3bb69e999189eeccd",
+      "claims": [
+        {
+          "id": "cogitate-supp-2025-c1",
+          "text": "IIT方承认持续同步未获支持，提出频段、V1/V2覆盖及电极筛选问题；这些是待检验的替代解释。",
+          "locator": "§12–12.1，正文119–122，PDF 120–123",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-supp-2025-c2",
+          "text": "GNWT方强调任务无关PFC瞬时点燃和跨区联系，同时质疑体验是否持续、方向是否被意识到及宏观记录的分辨率。",
+          "locator": "§13，正文122–124，PDF 123–125",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-supp-2025-c3",
+          "text": "GNWT方指出现有方法主要是相关测量；其关于刺激消失和注意的解释需要新实验，而非自动消除原约定预测的失败。",
+          "locator": "§13，正文123–124，PDF 124–125",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-supp-2025-c4",
+          "text": "§14列出行为排除阈值放宽、RSA计算更改、fMRI条件合并与多重比较方式改变等实施偏离；预注册身份不代表实施完全一致。",
+          "locator": "§14主要项目1–6，正文124–125，PDF 125–126",
+          "kind": "source-reported"
+        },
+        {
+          "id": "cogitate-supp-2025-c5",
+          "text": "DFC是在未发现预注册相位同步后新增；持续激活电极的纳入条件也因稀疏覆盖放宽。应区分原分析、探索性证据及其解释。",
+          "locator": "§14主要项目7–8，正文125，PDF 126",
+          "kind": "source-reported"
+        }
+      ],
+      "timelineTitle": "分歧如何推动下一步",
+      "timelineAdvance": "并列理论回应与实施偏离"
+    }
+  ],
+  "conclusions": [
+    {
+      "id": "m1",
+      "title": "先说清所要解释的“意义”",
+      "kind": "conditional-synthesis",
+      "statement": "外部指称、交际意图和内部概念角色是不同的解释目标。评价理解时，必须先固定目标，再判断证据；某项缺失不能不加条件地推出所有意义均为零。",
+      "assumptions": "区分词语指向什么、说话者想做什么、概念怎样参与推理。比较时保持同一任务、训练信息与测试条件。",
+      "objection": "Bender与Koller认为只见形式缺少意义关系的学习信号；Piantadosi与Hill则认为语言可保留概念角色结构，并非语义真空。",
+      "response": "两方部分分歧来自语义理论。内部关系有组织不自动满足外部指称判据；反之，未唯一确定外部标签也不抹除内部关系。双方仍可在角色稳定性、因果作用和新情境迁移上承担经验风险。",
+      "discriminator": "保持文本分布相同，置换对象映射；另测概念角色干预和真实指称任务。预先分别规定通过标准，避免用一个总分代替。",
+      "scope": "没有测试任何当代语言模型；不把2020思想实验或2022概念论证当作2026能力报告。",
+      "evidence": [
+        "bender-koller-2020-c1",
+        "bender-koller-2020-c2",
+        "bender-koller-2020-c3",
+        "piantadosi-hill-2022-c1",
+        "piantadosi-hill-2022-c2",
+        "piantadosi-hill-2022-c3"
+      ],
+      "check": "A"
+    },
+    {
+      "id": "m2",
+      "title": "落地增加约束，不能跳过主体与系统层级",
+      "kind": "conditional-synthesis",
+      "statement": "在明确的指称识别任务中，外部锚点能够排除歧义；但这种识别成果与系统拥有何种理解、是否具有主观意义，仍是不同的主张。",
+      "assumptions": "锚点必须有效、一致并与测试目标相关；理解的归属单位须在操作者、子系统和整体之间明确。",
+      "objection": "系统回应质疑由操作者不理解推出整体不理解；概念角色观点还指出抽象概念不必每个都直接指向外物。",
+      "response": "保留这些反方：不能把中文房间作为已完成的反AI实验。Harnad自身区分命名、组合与主观意义；本阶段只对有限映射模型给出可检验的识别结果。",
+      "discriminator": "逐一加入可靠锚点，并加入矛盾锚点作控制；在实际系统中比较能否纠错、组合与跨情境使用，而非只确认一次匹配。",
+      "scope": "6→2→1或0仅是三符号双射模型的候选数；不是理解或意识的分数。",
+      "evidence": [
+        "searle-1980-c1",
+        "searle-1980-c2",
+        "searle-1980-c3",
+        "harnad-1990-c1",
+        "harnad-1990-c2",
+        "harnad-1990-c3",
+        "piantadosi-hill-2022-c2"
+      ],
+      "check": "A"
+    },
+    {
+      "id": "m3",
+      "title": "访问、实际报告与体验分别登记",
+      "kind": "conditional-synthesis",
+      "statement": "报告任务可以为意识访问提供证据，但实际说出、可用于推理、以及具有体验不能在研究中无条件互换。无报告条件也需要有效性论证。",
+      "assumptions": "访问可以是使用能力而非当下言语输出；报告要求会改变任务、注意和记忆。应写明由观测到目标的测量假设。",
+      "objection": "如果所有经验判断最终都借助行为或神经测量，区分体验与访问会不会制造无法检验的额外实体？",
+      "response": "概念区分既不证明二者独立，也不否认经验研究；它迫使研究者说明哪个假设正在接受检验。GNW的有限目标有明确科学价值，Block的区分则提醒不能偷偷更换解释对象。",
+      "discriminator": "交叉操纵刺激与报告要求，并独立校验注意和体验持续性；比较候选信号是否随任务变化。",
+      "scope": "模型B的S是刺激条件，N是候选信号，均不是体验真值；信号差异只能识别已设定的依赖关系。",
+      "evidence": [
+        "block-1995-c1",
+        "block-1995-c2",
+        "block-1995-c3",
+        "dehaene-changeux-2011-c1",
+        "dehaene-changeux-2011-c3",
+        "cogitate-supp-2025-c2"
+      ],
+      "check": "B"
+    },
+    {
+      "id": "m4",
+      "title": "把解释桥梁写出来，才有可比较的理论",
+      "kind": "conditional-synthesis",
+      "statement": "计算功能、物理因果结构与体验之间的连接，可能是定义、经验假说或解释性同一主张。它们需要不同的论证，不能全部当作一条脑相关结果。",
+      "assumptions": "分别登记解释对象、理论核心、神经实现与测量规则。IIT 4.0的系统不可约量、结构Φ及复杂度近似量不得混称。",
+      "objection": "强反方一边认为充分的功能与机制说明已经解决问题，另一边认为无论机制多完备仍有解释鸿沟。IIT则直接提出因果结构与体验的同一。",
+      "response": "本阶段不以其中一方定义判另一方输。Chalmers的还原不可能论是有争议的概念论证；IIT同一主张也不是已被测量证明的事实。要求各自标明可检验承诺与剩余哲学承诺。",
+      "discriminator": "针对同一体验内容与时间条件推导不同的机制预测，并检查是否依赖未经验证的测量代理；改变理论版本时重做推导。",
+      "scope": "未执行IIT公式复算，也未把GNW访问解释自动等同于所有主体性或自我解释；量子与泛心论仍留待专项回访。",
+      "evidence": [
+        "chalmers-1995-c1",
+        "chalmers-1995-c2",
+        "chalmers-1995-c3",
+        "iit4-2023-c1",
+        "iit4-2023-c2",
+        "iit4-2023-c3",
+        "dehaene-changeux-2011-c2",
+        "cogitate-2025-c1"
+      ],
+      "check": null
+    },
+    {
+      "id": "m5",
+      "title": "意识理论检验要逐项判读，不能按摘要选赢家",
+      "kind": "conditional-synthesis",
+      "statement": "COGITATE对双方共同约定的神经预测形成实质约束，但结果包含通过、受挑战和不确定，也包含探索性补充；不能合成一次对整套理论的二元裁决。",
+      "assumptions": "保留三类预测、关键性、信号方式与分析版本；区分初始协议、优化后锁定、正式结果与新增分析。样本分母按模态和分析记录。",
+      "objection": "IIT方指出稀疏覆盖、频段与ROI筛选；GNWT方质疑持续体验、方向意识及混合神经代码的可解码性。",
+      "response": "这些是有内容的替代解释，但不能事后抹掉预先承担的风险。预注册PPC未支持两方，新增DFC对GNWT较有利；两种证据应同时呈现。负结果力度与测量敏感性要逐项讨论。",
+      "discriminator": "在事先约定的同一预测下提高覆盖、保持原筛选并增加敏感性控制；以独立数据比较原指标和新增指标。",
+      "scope": "未复算原始数据；2025结果针对本实验条件与相关生物实现。本文不宣称全部GNW、IIT版本或其他意识理论已被排除。",
+      "evidence": [
+        "melloni-2023-c1",
+        "melloni-2023-c2",
+        "melloni-2023-c3",
+        "prereg-v4-2022-c1",
+        "prereg-v4-2022-c2",
+        "prereg-v4-2022-c3",
+        "cogitate-2025-c1",
+        "cogitate-2025-c2",
+        "cogitate-2025-c3",
+        "cogitate-2025-c4",
+        "cogitate-2025-c5",
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c3",
+        "cogitate-supp-2025-c4",
+        "cogitate-supp-2025-c5"
+      ],
+      "check": "C"
+    },
+    {
+      "id": "m6",
+      "title": "辅助前提要可失败，修订才产生进展",
+      "kind": "conditional-synthesis",
+      "statement": "失败预测约束的是理论、辅助机制和测量条件的组合；有价值的修订应说明改了哪一层，并在新证据上承担可失败的承诺。",
+      "assumptions": "理论和辅助前提须尽量在结果前写清，独立校验可提高负结果的定位能力。真实统计研究还需噪声、功效和多重比较处理。",
+      "objection": "如果每次失败都归因于测量或注意，理论是否永远不会输？反过来，把任一零结果当作整套理论为假是否也过强？",
+      "response": "为修订设置成本：保留旧预测失败记录，预先限定替代解释和新失败条件，要求独立数据。有限模型说明逻辑歧义，不是替任何理论免于反驳。",
+      "discriminator": "先列T、A、M怎样各自受检验，再执行固定判定规则。若独立证据支持辅助条件，理论必须承担剩余失败，不继续无限新增豁免。",
+      "scope": "8行真值表只演示确定合取模型；它不提供真实理论的概率、后验可信度或意识检测结果。",
+      "evidence": [
+        "dehaene-changeux-2011-c2",
+        "cogitate-2025-c1",
+        "cogitate-2025-c4",
+        "cogitate-2025-c5",
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c3",
+        "cogitate-supp-2025-c4",
+        "cogitate-supp-2025-c5"
+      ],
+      "check": "C"
+    }
+  ],
+  "cases": [
+    {
+      "id": "reference",
+      "name": "指称与交际意图",
+      "unit": "符号—世界—交互者",
+      "target": "表达式关联对象和意图",
+      "evidence": "概念分析、思想实验；本站有限映射枚举",
+      "bridge": "外部映射得到什么独立约束",
+      "controls": "相同形式分布、有效及矛盾锚点、未见情境",
+      "supports": "可检查特定指称是否被识别",
+      "unresolved": "主体性和主观意义并未随映射唯一化而得到证明",
+      "sources": [
+        "harnad-1990",
+        "bender-koller-2020"
+      ],
+      "propositions": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "concept-role",
+      "name": "概念角色与系统理解",
+      "unit": "内部表征及整体组织",
+      "target": "概念怎样参与推理和行动",
+      "evidence": "理论论证；所引模型实验未在本阶段复算",
+      "bridge": "从内部关系到意义的语义理论",
+      "controls": "干预而非只读探针、整体与部分分开、迁移",
+      "supports": "提出语言内部意义的强反方与可检验方向",
+      "unresolved": "内部关系是否承担足够的因果和实践作用",
+      "sources": [
+        "searle-1980",
+        "piantadosi-hill-2022"
+      ],
+      "propositions": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "access",
+      "name": "访问、报告与体验",
+      "unit": "任务中的个体及候选神经信号",
+      "target": "信息可用、实际输出及经验性质",
+      "evidence": "概念区分、神经综述；本站二元信号模型",
+      "bridge": "由观测信号识别目标的测量假说",
+      "controls": "刺激、报告要求、注意、负荷、记忆",
+      "supports": "揭示报告任务造成的不可区分性",
+      "unresolved": "无报告时体验是否持续，需要独立校验",
+      "sources": [
+        "block-1995",
+        "dehaene-changeux-2011"
+      ],
+      "propositions": [
+        "m3",
+        "m4"
+      ]
+    },
+    {
+      "id": "identity",
+      "name": "机制与解释性同一",
+      "unit": "物理实现及因果结构",
+      "target": "为何或如何具有特定体验",
+      "evidence": "哲学论证、IIT 4.0定义与理想系统例子",
+      "bridge": "体验—结构的同一或其他桥接原则",
+      "controls": "版本、系统边界、时空粒度、量与代理",
+      "supports": "明确理论各自承诺解释什么",
+      "unresolved": "本阶段未证明同一，也未计算Φ",
+      "sources": [
+        "chalmers-1995",
+        "iit4-2023"
+      ],
+      "propositions": [
+        "m4",
+        "m6"
+      ]
+    },
+    {
+      "id": "adversarial",
+      "name": "共同预测与对抗检验",
+      "unit": "人类视觉实验及各模态分析",
+      "target": "内容位置、持续、跨区联系",
+      "evidence": "2022锁定文件、2023协议、2025主文及补充回应",
+      "bridge": "生物实现与测量充分性",
+      "controls": "原预测、分析偏离、样本分母、信号灵敏度",
+      "supports": "使双方若干神经预测承担明确挑战",
+      "unresolved": "因果必要性与替代解释还需新实验",
+      "sources": [
+        "prereg-v4-2022",
+        "melloni-2023",
+        "cogitate-2025",
+        "cogitate-supp-2025"
+      ],
+      "propositions": [
+        "m5",
+        "m6"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "fromId": "searle-1980",
+      "toId": "harnad-1990",
+      "label": "同一符号问题的不同充分性要求",
+      "kind": "editorial-comparison",
+      "evidence": [
+        "searle-1980-c3",
+        "harnad-1990-c3"
+      ]
+    },
+    {
+      "id": "r2",
+      "fromId": "harnad-1990",
+      "toId": "bender-koller-2020",
+      "label": "落地问题进入形式／意义讨论",
+      "kind": "documented-reference",
+      "evidence": [
+        "bender-koller-2020-c1",
+        "bender-koller-2020-c2"
+      ]
+    },
+    {
+      "id": "r3",
+      "fromId": "bender-koller-2020",
+      "toId": "piantadosi-hill-2022",
+      "label": "概念角色路线质疑指称中心判据",
+      "kind": "documented-debate",
+      "evidence": [
+        "piantadosi-hill-2022-c1",
+        "piantadosi-hill-2022-c2"
+      ]
+    },
+    {
+      "id": "r4",
+      "fromId": "block-1995",
+      "toId": "dehaene-changeux-2011",
+      "label": "对齐访问概念与综述的实验目标",
+      "kind": "editorial-comparison",
+      "evidence": [
+        "block-1995-c2",
+        "dehaene-changeux-2011-c1"
+      ]
+    },
+    {
+      "id": "r5",
+      "fromId": "chalmers-1995",
+      "toId": "iit4-2023",
+      "label": "比较桥接原则与解释性同一",
+      "kind": "editorial-comparison",
+      "evidence": [
+        "chalmers-1995-c3",
+        "iit4-2023-c1"
+      ]
+    },
+    {
+      "id": "r6",
+      "fromId": "dehaene-changeux-2011",
+      "toId": "cogitate-2025",
+      "label": "主文引为GNWT背景之一，非同一版本",
+      "kind": "documented-reference",
+      "evidence": [
+        "cogitate-2025-c1"
+      ]
+    },
+    {
+      "id": "r7",
+      "fromId": "iit4-2023",
+      "toId": "cogitate-2025",
+      "label": "主文引用4.0；测试的是约定生物预测",
+      "kind": "documented-reference",
+      "evidence": [
+        "cogitate-2025-c1"
+      ]
+    },
+    {
+      "id": "r8",
+      "fromId": "prereg-v4-2022",
+      "toId": "cogitate-2025",
+      "label": "最终分析文件与发表结果对照",
+      "kind": "documented-reference",
+      "evidence": [
+        "cogitate-2025-c2",
+        "cogitate-2025-c4"
+      ]
+    },
+    {
+      "id": "r9",
+      "fromId": "melloni-2023",
+      "toId": "cogitate-2025",
+      "label": "协议中的实验1预测进入检验",
+      "kind": "documented-reference",
+      "evidence": [
+        "cogitate-2025-c1",
+        "cogitate-2025-c3",
+        "cogitate-2025-c4"
+      ]
+    },
+    {
+      "id": "r10",
+      "fromId": "cogitate-2025",
+      "toId": "cogitate-supp-2025",
+      "label": "同一研究内三方解释及偏离记录",
+      "kind": "documented-debate",
+      "evidence": [
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c4",
+        "cogitate-supp-2025-c5"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "design-semantics",
+      "title": "形式、角色与锚点的分离检验",
+      "question": "相同语言分布下，锚点和内部概念角色分别增加什么能力？",
+      "models": "指称约束解释；概念角色解释；训练泄漏或记忆解释。",
+      "design": "构造可控微型世界，保持文本边际分布；随机分配指称映射，比较无锚点、可靠锚点和矛盾锚点；对内部关系作干预，并用未见组合检验。",
+      "outcome": "映射识别、推理一致性、干预特异性与迁移分别报告；独立训练实例为主要单位。",
+      "checks": "检验泄漏、训练预算、锚点可见性及干预是否改变目标角色。",
+      "falsification": "若文本分布或额外信息未匹配，不把差异归因于落地；不把指称成绩称作意识。",
+      "beforeRun": "确定模型、样本量、重复次数、效应与排除规则；目前没有训练和数据。",
+      "links": [
+        "m1",
+        "m2"
+      ],
+      "status": "design-only"
+    },
+    {
+      "id": "design-report",
+      "title": "持续体验与报告条件的分离检验",
+      "question": "刺激持续和体验持续何时分离，候选信号又跟随什么？",
+      "models": "刺激编码；访问／任务；持续体验的候选机制。",
+      "design": "参考共同视觉范式，交叉操纵时长、报告需求与消失显著性；用独立控制块和稀疏体验探测校验，并记录注意、眼动和记忆。",
+      "outcome": "以参与者为推断单位，预先限定内容维度、时间窗及信号；把体验推断误差显式建模。",
+      "checks": "校验探测本身是否改变任务、无报告是否改变注意、各维度解码灵敏度是否足够。",
+      "falsification": "操纵不能分开注意和报告时停止体验特异性解释；阳性相关也不称为必要因果机制。",
+      "beforeRun": "需要研究伦理、设备、功效和预注册；本轮没有招募、采样或实验。",
+      "links": [
+        "m3",
+        "m5"
+      ],
+      "status": "design-only"
+    },
+    {
+      "id": "design-analysis",
+      "title": "原指标与新增指标的独立复核",
+      "question": "PPC、DFC、ROI筛选与样本例外怎样影响具体预测判定？",
+      "models": "同一理论预测在有效测量下稳健；结果由分析或覆盖条件改变。",
+      "design": "先将已读协议和偏离转成分析决策表；再核对公开数据许可与版本，复算原指标和新增指标；最终用独立数据检验预先锁定的差异。",
+      "outcome": "逐预测、逐模态报告估计与不确定性；分开原始复算、敏感性分析和真正的新样本复制。",
+      "checks": "逐项核对纳入规则、ROI、频段、样本流转及注册时间；保留全部失败与未识别项。",
+      "falsification": "若无法复原协议或数据缺失，明确标为不可复算；不得用重新挑选时窗把零结果改写为预注册支持。",
+      "beforeRun": "原始数据与全部代码尚未取得和执行；需先解决2022文件样本数歧义。",
+      "links": [
+        "m5",
+        "m6"
+      ],
+      "status": "design-only"
+    }
+  ],
+  "framework": [
+    {
+      "name": "解释对象",
+      "question": "表现、指称、交际意图、概念角色、访问还是体验？",
+      "boundary": "先对齐问题；不以同一词汇假定同一构念。"
+    },
+    {
+      "name": "归属单位",
+      "question": "操作者、子系统、整体还是物理实现？",
+      "boundary": "部分的性质不直接传递给整体，反向也不自动成立。"
+    },
+    {
+      "name": "桥接性质",
+      "question": "定义、理论公设、经验假说还是测量规则？",
+      "boundary": "记录推理类型；相关不等于构成或必要性。"
+    },
+    {
+      "name": "版本与预测",
+      "question": "哪个版本、何时锁定、何种分析、何种失败条件？",
+      "boundary": "新版本不回写旧承诺，探索结果不追认成原预测。"
+    },
+    {
+      "name": "观测与干预",
+      "question": "改变的是体验、注意、任务、报告还是记录灵敏度？",
+      "boundary": "无报告或可解码都不是无需论证的体验真值。"
+    },
+    {
+      "name": "修订与风险",
+      "question": "哪项新证据会迫使放弃当前解释？",
+      "boundary": "辅助前提须独立校验，不能无限添加事后豁免。"
+    }
+  ],
+  "bridges": [
+    {
+      "id": "bridge-form",
+      "fromLabel": "可用的语言表现",
+      "toLabel": "指称／交际意义",
+      "type": "经验识别条件",
+      "premise": "训练与交互是否约束对象和意图？",
+      "risk": "形式分布相同可对应不同映射",
+      "links": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "bridge-role",
+      "fromLabel": "内部表征与推理",
+      "toLabel": "概念角色意义",
+      "type": "语义理论＋经验检验",
+      "premise": "角色论是否适用，关系是否有稳定因果作用？",
+      "risk": "探针相关或流畅回答不足以证成角色",
+      "links": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "id": "bridge-access",
+      "fromLabel": "可用信息与实际报告",
+      "toLabel": "意识访问",
+      "type": "操作定义＋测量假说",
+      "premise": "报告要求、注意和记忆怎样影响指标？",
+      "risk": "可报告不等于每次实际报告",
+      "links": [
+        "m3"
+      ]
+    },
+    {
+      "id": "bridge-experience",
+      "fromLabel": "神经机制与因果结构",
+      "toLabel": "现象体验",
+      "type": "解释主张＋生物实现假说",
+      "premise": "全局可用、同一主张或心理物理原则？",
+      "risk": "数学量、代理信号和体验不能互换",
+      "links": [
+        "m4"
+      ]
+    },
+    {
+      "id": "bridge-test",
+      "fromLabel": "预先约定的神经预测",
+      "toLabel": "理论的支持或挑战",
+      "type": "经验推断",
+      "premise": "版本、辅助条件、有效测量和分析身份？",
+      "risk": "失败预测不等于全部理论的总裁决",
+      "links": [
+        "m5",
+        "m6"
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "id": "iit-content",
+      "theory": "IIT",
+      "name": "内容位置",
+      "critical": "非关键",
+      "prediction": "后部类别与方向解码较强；加入PFC不改善。",
+      "result": "总体符合此项；原文将外部解码列为非核心指标。",
+      "status": "aligned",
+      "analysis": "预注册解码",
+      "response": "IIT方视为支持后部复合体；GNWT方提醒后部刺激编码也可能是非意识加工。",
+      "next": "增加匹配的有／无体验条件和机制干预。",
+      "evidence": [
+        "cogitate-2025-c3",
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c2"
+      ]
+    },
+    {
+      "id": "iit-duration",
+      "theory": "IIT",
+      "name": "内容持续",
+      "critical": "关键：激活＋RSA",
+      "prediction": "后部有跨时段持续的内容相关激活和表征。",
+      "result": "达到事先汇总判据；方向表征未持续，不能写成所有内容均得到支持。",
+      "status": "qualified",
+      "analysis": "预注册激活与RSA",
+      "response": "理论方提出眼动、视网膜位置和稀疏低级视区取样可能影响内容持续。",
+      "next": "同时校验持续体验、眼动与各内容维度。",
+      "evidence": [
+        "cogitate-2025-c3",
+        "cogitate-supp-2025-c1"
+      ]
+    },
+    {
+      "id": "iit-sync",
+      "theory": "IIT",
+      "name": "持续后部同步",
+      "critical": "关键",
+      "prediction": "类别选择区与V1/V2有持续、内容相关的联系。",
+      "result": "预注册PPC及新增DFC均未给出要求的持续模式。",
+      "status": "challenged",
+      "analysis": "PPC原分析；DFC探索分析分列",
+      "response": "IIT方提出频段、稀疏覆盖及ROI筛选放宽；联盟仍认为这是主要挑战。",
+      "next": "预先固定频段及筛选，以更密覆盖和敏感性控制复核。",
+      "evidence": [
+        "cogitate-2025-c4",
+        "cogitate-2025-c5",
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c5"
+      ]
+    },
+    {
+      "id": "gnwt-content",
+      "theory": "GNWT",
+      "name": "PFC内容解码",
+      "critical": "关键",
+      "prediction": "PFC可解码类别与方向，并跨任务泛化。",
+      "result": "类别可解码；方向跨方式不一致，扩展图7判为不确定。",
+      "status": "inconclusive",
+      "analysis": "预注册解码",
+      "response": "GNWT方提出混合细胞代码及宏观测量分辨率问题；联盟要求解释内容维度的不完整。",
+      "next": "先证实测量可检测相关维度，再比较两种理论预测。",
+      "evidence": [
+        "cogitate-2025-c3",
+        "cogitate-supp-2025-c2"
+      ]
+    },
+    {
+      "id": "gnwt-offset",
+      "theory": "GNWT",
+      "name": "开始与消失时点燃",
+      "critical": "激活关键；RSA非关键",
+      "prediction": "PFC在刺激出现和消失后都有内容相关瞬时点燃。",
+      "result": "出现时有信号，消失后通常没有；此预测受挑战。",
+      "status": "challenged",
+      "analysis": "原激活判据；探索控制另列",
+      "response": "GNWT方认为体验可能提前转移、消失未被注意；这需要新的独立检验。",
+      "next": "预先校验持续体验，交叉操纵消失显著性与任务。",
+      "evidence": [
+        "cogitate-2025-c4",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c3"
+      ]
+    },
+    {
+      "id": "gnwt-sync",
+      "theory": "GNWT",
+      "name": "PFC长程联系",
+      "critical": "关键",
+      "prediction": "类别选择区与PFC有约0.3–0.5秒的内容相关联系。",
+      "result": "预注册相位PPC未支持；新增幅度DFC较符合预测。",
+      "status": "exploratory",
+      "analysis": "严格保留PPC／DFC的身份差异",
+      "response": "GNWT方强调跨区联系；联盟同时保留原分析的负结果。",
+      "next": "在新数据上预先锁定两指标及失败解释。",
+      "evidence": [
+        "cogitate-2025-c4",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c5"
+      ]
+    }
+  ],
+  "versions": [
+    {
+      "name": "Block：1995／1997",
+      "read": "本轮1995原刊指定段落；作者书目核对",
+      "difference": "1997另有修正版；不把1995定义表述冒称修订后最终版本。",
+      "gap": "修订版及评论回应待补读。"
+    },
+    {
+      "name": "GNW：2011／后续神经检验",
+      "read": "2011访问综述；2025共同约定预测",
+      "difference": "综述目标、点燃时窗与2025具体判据不是一个永不变的命题。",
+      "gap": "2020综述及完整历次演进待专项补读，不计本轮审读。"
+    },
+    {
+      "name": "IIT：2004／3.0／4.0",
+      "read": "此前E批2004选读；本轮4.0概念与限制选读",
+      "difference": "4.0区别系统不可约性与结构Φ；复杂度代理、完整因果结构和旧版量不能混用。",
+      "gap": "3.0完整公式与版本逐式对照尚未做；不声称计算过Φ。"
+    },
+    {
+      "name": "COGITATE：协议与锁定文件",
+      "read": "2023协议；2022-12最终文件（名4.0／页眉4.5）",
+      "difference": "2023协议叙述两半拆分；锁定文件记录1/3优化、2/3检验，且iEEG明确例外。发表时间不等于首次注册时间。",
+      "gap": "未审计v1–v3原件、锁定权限历史及每次修订原因。"
+    },
+    {
+      "name": "COGITATE：结果与补充",
+      "read": "2025主文、扩展图表、两方回应与主要偏离",
+      "difference": "MEG65／fMRI73是最终保留样本；不同iEEG分析分母不同。PPC与新增DFC不可并作预注册成功。",
+      "gap": "2022文件16页fMRI预定子集数与总数不一致；以2025 Methods报告最终样本，本轮未重建中间流转。"
+    }
+  ],
+  "priorQuestionLinks": [
+    {
+      "batch": "round-three-e",
+      "id": "q-compression-semantics",
+      "addition": "把压缩／预测表现与外部指称、交际意图、概念角色分别登记；新增明确反方和映射核验。"
+    },
+    {
+      "batch": "round-three-e",
+      "id": "q-consciousness-explanation",
+      "addition": "补访问／报告区分、IIT 4.0及COGITATE版本—预测—结果—回应链。"
+    },
+    {
+      "batch": "round-three-e",
+      "id": "q-quantum-implementation",
+      "addition": "只补“物理实现到体验仍需桥接”的问题接口；量子机制、泛心论与组合问题没有在本阶段完成新一轮证据审读。"
+    }
+  ],
+  "synthesis": [
+    {
+      "title": "意义争论先从同名异问中拆开",
+      "text": "一个系统可以在形式预测、外部指称、内部概念推理和交际合作上有不同表现。把它们合成一个“是否理解”的开关，会丢掉争论真正依赖的条件。原典的价值在于提出不同充分性要求；新增反方提醒我们，语言内部关系不能被未加论证地抹成零。",
+      "links": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "title": "访问的机制说明可以前进，体验问题仍须标明立场",
+      "text": "Block的区分不是经验分离的证明，Chalmers的鸿沟不是实验已排除所有机制。GNW把访问变成可检验目标，IIT以结构同一连接体验与因果系统。比较这些路线，要先说明对方正在解释什么，并把定义、经验预测与解释性同一逐层展开。",
+      "links": [
+        "m3",
+        "m4"
+      ]
+    },
+    {
+      "title": "最有价值的结果，是被迫说清下一次怎样会输",
+      "text": "COGITATE将理论竞争变成共同承诺，但原分析、新增分析和实施偏离必须一起读。两方回应提供了具体改进方向，也增加了需要独立检查的辅助条件。科学进展应保留已受挑战的预测，并让修订在新证据前承担风险。",
+      "links": [
+        "m5",
+        "m6"
+      ]
+    }
+  ],
+  "status": "reviewed-scope"
+}

@@ -65,3 +65,11 @@ python3 scripts/audit-intelligence-history-round-four.py --check
 ```sh
 /Users/meros/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/audit-intelligence-history-round-four.py --check
 ```
+
+
+第三阶段联动补记：导航已增加[意义与意识工作台](meaning/index.html)。上文“下一阶段”保留首阶段完成时的研究安排；当前进度以[阶段计划](plan.md)为准。前三阶段联动检查见[第三阶段验收](meaning/validation.md)，核心研究内容保持快照。
+
+
+## 第四阶段联动后的当前检查（2026-10-28）
+
+当前导航已指向[综合修订与网站联动验收](integration/validation.md)。原阶段的实质研究和精确结果保持快照；当前链接、浏览器与结构报告已刷新，旧阶段报告以phase后缀归档。原工程与生成记录仅证明其执行时版本；第四阶段整站工程检查由新验收统一记录。

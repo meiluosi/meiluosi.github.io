@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-28",
+  "scope": "Shared working tree; this phase changes research documents and generators, not site src.",
+  "checks": [
+    {
+      "command": "pnpm check",
+      "exitCode": 0,
+      "files": 192,
+      "errors": 0,
+      "warnings": 0,
+      "hints": 0
+    },
+    {
+      "command": "pnpm type-check",
+      "exitCode": 0
+    },
+    {
+      "command": "AI_SUMMARY_API_KEY= pnpm build",
+      "exitCode": 0,
+      "pages": 247
+    }
+  ],
+  "buildWarnings": [
+    "Vite chunk larger than 500 kB",
+    "npm unknown project config manage-package-manager-versions"
+  ],
+  "externalAISummaryDisabled": true,
+  "generatedAssetHashesBefore": {
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0",
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d"
+  },
+  "generatedAssetHashesAfter": {
+    "src/constants/lqips.json": "e622a42c139f19bddaaeb4e6338e79258bd2abb9f769f26baebe9f72122d58d0",
+    "src/constants/icons.ts": "7104b3cc41ddb261ef9174bdb2db03e5450025a59145c31dd6cff61806fe438d"
+  },
+  "generatedAssetsUnchanged": true,
+  "buildLog": "engineering-build.log"
+}

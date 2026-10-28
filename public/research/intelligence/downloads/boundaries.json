@@ -1,0 +1,825 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "phase": "第四轮第二阶段",
+  "status": "phase-two-complete",
+  "title": "系统边界与发展：什么进入解释单位？",
+  "question": "工具、互动伙伴与生命过程在什么条件下进入解释单位？当下贡献、发展依赖与认知构成如何区分？",
+  "scope": "对齐五类案例，补读九份原始来源的指定片段，保留支持、反对与回应；精确核验限于自建模型。尚未开展人类实验、原始数据复算或生命模拟。",
+  "sources": [
+    {
+      "id": "varela-1974",
+      "title": "Autopoiesis: The Organization of Living Systems, Its Characterization and a Model",
+      "authors": [
+        "Francisco J. Varela",
+        "Humberto R. Maturana",
+        "Ricardo Uribe"
+      ],
+      "year": 1974,
+      "url": "https://monoskop.org/images/d/dd/Varela_Maturana_Uribe_1974_Autopoiesis.pdf",
+      "sha256": "f5b8ae7ff67dd1cc95672455a86979d5c64e592b12941360d41b145f8946ac27",
+      "version": "BioSystems 5, 187–196原刊扫描，Monoskop镜像；书目与PubMed核对。188、192页装订侧有浅淡字，不作不可辨字符的逐字引述。",
+      "readingStatus": "selected-sections",
+      "readScope": "目视原刊187–189、192–193页（PDF1–3、6–7）：组织定义、再生产的地位、§8结尾与§9判定步骤。",
+      "unreadScope": "模拟细节及附录算法未完整审查或执行；194–195页仅浏览，不计入算法审读。与1981重印、2017网页转录未逐字校勘。",
+      "checkedAt": "2026-10-28",
+      "problem": "怎样在不以繁殖史定义个体的情况下，描述一个活系统的组织？",
+      "solution": "以成分生产网络及其生成的统一体界定自创生，附最小模型与六步判定。",
+      "remaining": "判据不等于智能或体验指标；形式模型与具体生物实现之间仍需论证。",
+      "claims": [
+        {
+          "id": "varela-1974-1",
+          "text": "论文把自创生组织描述为生产成分的过程网络：成分递归参与实现该网络，并在空间中构成统一体。当前组织与繁殖、演化史分开讨论；繁殖不是确定个体统一性的必要判据。",
+          "locator": "原刊187–189页；§3、§5",
+          "kind": "source-reported"
+        },
+        {
+          "id": "varela-1974-2",
+          "text": "判定步骤不仅要求可辨边界，还问边界是否来自成分的相邻关系，以及边界成分是否由网络中的相互作用产生。",
+          "locator": "§9，第1–5步，原刊192–193页",
+          "kind": "source-reported",
+          "editorialCaution": "仅画一个外框没有检查这些组织条件。"
+        },
+        {
+          "id": "varela-1974-3",
+          "text": "第6步允许未由网络生产的成分，只要它们作为必要、永久的构成成分参与其他成分的生产。",
+          "locator": "§9，第6步，原刊193页",
+          "kind": "source-reported",
+          "editorialCaution": "不能把原判据改写成“所有成分都必须由内部生产”。"
+        }
+      ],
+      "prior": "round-three-c/notes/e-varela-maturana-uribe-1974.md",
+      "timelineTitle": "生产组织如何形成统一体？",
+      "timelineAdvance": "生产网络与六步判定；保留成分参与例外"
+    },
+    {
+      "id": "hutchins-cockpit-1995",
+      "title": "How a Cockpit Remembers Its Speeds",
+      "authors": [
+        "Edwin Hutchins"
+      ],
+      "year": 1995,
+      "url": "https://pages.ucsd.edu/~johnson/COGS102B/Hutchins95.pdf",
+      "sha256": "3220955994babfb1f6a604a82e939edaff94ee307f1e50764d6e5171aaefbacc",
+      "version": "24页作者稿，自身页码1–24；不是同年专著Cognition in the Wild。",
+      "readingStatus": "selected-sections",
+      "readScope": "作者稿2–3、11–13、17–20页：材料来源、速度卡／速度标记、个体任务变化与功能系统。",
+      "unreadScope": "其余操作细节、完整个体分析及全部参考文献未逐项审查；没有航班原始记录或独立实验复算。",
+      "checkedAt": "2026-10-28",
+      "problem": "驾驶舱如何在任务展开过程中保存并使用着陆速度？",
+      "solution": "追踪数值、语音、刻度和速度标记在人、物和时间之间的转换。",
+      "remaining": "功能单位的有效分析，不直接裁决心灵本体边界或个体记忆容量。",
+      "claims": [
+        {
+          "id": "hutchins-cockpit-1995-1",
+          "text": "文中描述由MD-80操作手册及研究者六年中超过100次航班的经验组织而成；作者将其表述为风格化任务说明。",
+          "locator": "作者稿2–3页",
+          "kind": "source-reported",
+          "editorialCaution": "不把它标为随机实验或原始观察逐字记录。"
+        },
+        {
+          "id": "hutchins-cockpit-1995-2",
+          "text": "速度卡、口头复核和速度标记使信息跨人员与时间保存；数字记忆和比较的一部分被转换为空间位置关系的判断，改变了个体需要完成的任务。",
+          "locator": "作者稿11–13、17页",
+          "kind": "source-reported"
+        },
+        {
+          "id": "hutchins-cockpit-1995-3",
+          "text": "作者把驾驶舱整体作为信息加工功能单位，并区分个人所做工作与系统完成的任务。",
+          "locator": "作者稿19–20页",
+          "kind": "source-reported",
+          "editorialCaution": "这是分布式认知的解释提案，不能直接当成个人记忆容量增长的测量。"
+        }
+      ],
+      "prior": "round-three-d/notes/e-hutchins-cockpit-1995.md",
+      "timelineTitle": "驾驶舱如何记住速度？",
+      "timelineAdvance": "跨人员、物与时间追踪表征转换"
+    },
+    {
+      "id": "clark-chalmers-1998",
+      "title": "The Extended Mind",
+      "authors": [
+        "Andy Clark",
+        "David J. Chalmers"
+      ],
+      "year": 1998,
+      "url": "https://consc.net/papers/extended.html",
+      "sha256": "376166c0a678916ddce59eed08321c775e268c1fe9fe3a8c16e1bfb66764eb5d",
+      "version": "作者网站HTML版本；按节与示例定位，未与期刊排版逐字比对。",
+      "readingStatus": "selected-sections",
+      "readScope": "§2–5：等价原则、主动外在主义、发展史讨论、Otto与Inga及稳定性条件。",
+      "unreadScope": "结尾自我讨论与引文未完整审查；不是Otto个案的临床实验报告。",
+      "checkedAt": "2026-10-28",
+      "problem": "某项功能若移入头脑就算认知，为何放在可靠外部工具上便被排除？",
+      "solution": "提出角色等价、主动耦合与外部信念的论证，讨论稳定可用等条件。",
+      "remaining": "条件是否足以界定认知，以及什么粒度的功能角色可比较，仍有争论。",
+      "claims": [
+        {
+          "id": "clark-chalmers-1998-1",
+          "text": "等价原则比较过程发挥的角色；主动外在主义强调当下双向耦合及移除后表现变化。作者据此论证相应过程可进入认知系统。",
+          "locator": "§2；§3开头至移除论证",
+          "kind": "source-reported",
+          "editorialCaution": "这是哲学论证，不记为已由实验确证的通用边界定理。"
+        },
+        {
+          "id": "clark-chalmers-1998-2",
+          "text": "作者区分当下主动耦合与远端历史外在主义，同时讨论可靠环境结构如何塑造发展中的脑。",
+          "locator": "§3，active externalism与发展／语言段落",
+          "kind": "source-reported",
+          "editorialCaution": "两种时间尺度都进入论证，但一次工具移除不能独自推定全部发展历史。"
+        },
+        {
+          "id": "clark-chalmers-1998-3",
+          "text": "Otto论证提出稳定可用、易于访问、自动认可等特征；过去有意识认可这一项被明确称为可争议。该讨论针对外部信念，作者并未主张意识体验也随之延伸。",
+          "locator": "§5四项特征；§3认知与意识区分",
+          "kind": "source-reported"
+        }
+      ],
+      "prior": "round-three-d/notes/e-clark-chalmers-1998.md",
+      "timelineTitle": "认知过程能否延伸到外部？",
+      "timelineAdvance": "角色等价与稳定整合的边界提案"
+    },
+    {
+      "id": "smith-thelen-1999",
+      "title": "Knowing in the Context of Acting: The Task Dynamics of the A-not-B Error",
+      "authors": [
+        "Linda B. Smith",
+        "Esther Thelen",
+        "Robert Titzer",
+        "Dewey McLin"
+      ],
+      "year": 1999,
+      "url": "https://web.stanford.edu/class/psych205/papers/SmithThelen1999.pdf",
+      "sha256": "78e60e8bba0b9ce9e80abcb9fedfb23aae6d31d1b611a6366cd66030a0253297",
+      "version": "Psychological Review 106(2), 235–260期刊PDF，Stanford课程镜像；DOI 10.1037/0033-295X.106.2.235与PubMed书目核对。",
+      "readingStatus": "selected-sections",
+      "readScope": "原刊242–244页实验1；253–255页实验6、图13及发展讨论；258页总结。",
+      "unreadScope": "实验2–5、完整模型推导及后续重复研究未审读；发展解释没有在本轮作为纵向实验证实。",
+      "checkedAt": "2026-10-28",
+      "problem": "A-not-B错误是否只反映稳定的物体知识，还是受到此前动作和当下状态影响？",
+      "solution": "操纵伸手经历与任务条件，比较错误随局部历史和姿势改变的情况。",
+      "remaining": "短时任务变化不唯一定位记忆实现，也不能独自排除所有表征解释。",
+      "claims": [
+        {
+          "id": "smith-thelen-1999-1",
+          "text": "实验1的57名婴儿（约8月龄30名、约10月龄27名）接受三种预训练之一，先前伸手经历影响后续作答。两年龄组等待时长分别为3秒、5秒。",
+          "locator": "原刊242–244页，Experiment 1方法与结果",
+          "kind": "source-reported",
+          "editorialCaution": "年龄与等待时长同时变化，组间差异不宜视为纯年龄效应。"
+        },
+        {
+          "id": "smith-thelen-1999-2",
+          "text": "实验6有20名约10月龄婴儿，姿势转换与视觉干扰条件各10名；站立条件的20次B试次仅3次伸向A。作者保留姿势特异记忆与前庭／本体感觉变化等解释。",
+          "locator": "原刊253–254页，Experiment 6；Figure 13及其讨论",
+          "kind": "source-reported",
+          "editorialCaution": "20次伸手不是20名独立婴儿；改变姿势的效果没有唯一识别记忆机制。"
+        },
+        {
+          "id": "smith-thelen-1999-3",
+          "text": "作者用多时间尺度任务动力学解释变化，并在总结中将其与静态物体概念解释相对照，提出较强的概念立场。",
+          "locator": "原刊254–255页General Discussion；258页Knowing in the Context of Acting",
+          "kind": "source-reported",
+          "editorialCaution": "局部实验、长期发展假说和“物体概念”层面的理论解释分开，不一起记为纵向实验证实或对全部表征理论的否证。"
+        }
+      ],
+      "timelineTitle": "动作历史怎样改变作答？",
+      "timelineAdvance": "预训练与姿势实验；长期解释仍待检验"
+    },
+    {
+      "id": "adams-aizawa-2001",
+      "title": "The Bounds of Cognition",
+      "authors": [
+        "Fred Adams",
+        "Ken Aizawa"
+      ],
+      "year": 2001,
+      "url": "https://imss-www.upmf-grenoble.fr/prevert/MasterICA/SpecialiteSC/FichiersPDF/articles/Adams_Azaiwa_The_bounds_of_cognition_2001.pdf",
+      "sha256": "e45abe51619329e97a5e7ef7371286cac4781af6b60827d51598b9daf613160b",
+      "version": "Philosophical Psychology 14(1), 43–64；23页PDF含出版封面。PDF7对应原刊48页，PDF15对应56页。",
+      "readingStatus": "selected-sections",
+      "readScope": "原刊48–53页§2.1–2.3、56–57页§3.2（PDF7–12、15–16）。56页另作目视核对。",
+      "unreadScope": "后段全部自然种类讨论及后来版本未完整审查；本文理论判据不是已获共识的定义。",
+      "checkedAt": "2026-10-28",
+      "problem": "功能耦合何以足以把外部物品判为认知过程的一部分？",
+      "solution": "提出非派生内容与因果过程种类的边界要求，质疑从耦合跳到构成。",
+      "remaining": "作者允许颅外认知在原则上可能；争点是判据及其应用，不能化为头骨定义。",
+      "claims": [
+        {
+          "id": "adams-aizawa-2001-1",
+          "text": "作者用非派生内容及相应因果过程来刻画认知，并主张一种偶然的颅内主义；他们允许颅外认知在原则上可能，不把头骨当成逻辑必要边界。",
+          "locator": "原刊48–53页，§2.1–2.3",
+          "kind": "source-reported"
+        },
+        {
+          "id": "adams-aizawa-2001-2",
+          "text": "因果连接本身不足以证明构成关系；温控过程与双金属片、肾脏过滤等例子用于说明参加因果系统不等于参与系统中的每一种特定过程。",
+          "locator": "原刊56–57页，§3.2",
+          "kind": "source-reported"
+        },
+        {
+          "id": "adams-aizawa-2001-3",
+          "text": "批评同时承认Clark与Chalmers并非只依靠“有连接”这一简单想法，而是进一步主张内外过程存在相关相似性；作者质疑这种相似性是否足够。",
+          "locator": "原刊56页，§3.2后半",
+          "kind": "source-reported",
+          "editorialCaution": "不能把争论一方简化成“万物耦合即认知”。"
+        }
+      ],
+      "prior": "round-three-d/notes/e-adams-aizawa-2001.md",
+      "timelineTitle": "耦合是否足以支持构成？",
+      "timelineAdvance": "非派生内容与过程种类的反方要求"
+    },
+    {
+      "id": "dipaolo-2005",
+      "title": "Autopoiesis, Adaptivity, Teleology, Agency",
+      "authors": [
+        "Ezequiel A. Di Paolo"
+      ],
+      "year": 2005,
+      "url": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/autopoiesis_teleology_2005.pdf",
+      "sha256": "576e825142860f3b0fe2585cf43fa5baceab593bf78e08cf79d5c69c733a833b",
+      "version": "Phenomenology and the Cognitive Sciences 4, 429–452作者网站PDF，24页。",
+      "readingStatus": "selected-sections",
+      "readScope": "原刊429–430、436–438、448–450页；尤其结尾注1、3、5、6、8。",
+      "unreadScope": "439–447页全部论证未审读；没有复现最小自创生模型或测量真实生物的适应性。",
+      "checkedAt": "2026-10-28",
+      "problem": "持续自我生产是否已足以说明规范、适应性和行动主体？",
+      "solution": "补充对接近存活边界的趋势进行监测与补偿的适应性概念。",
+      "remaining": "稳健存续、适应性与主体性仍需分别判定。",
+      "claims": [
+        {
+          "id": "dipaolo-2005-1",
+          "text": "作者区分自创生存续的全有或全无判定与面对存活边界的渐进变化；适应性要求系统能调节接近边界的趋势，持续存在本身不足以证明这种能力。",
+          "locator": "原刊429–430、436–438页；438页适应性定义",
+          "kind": "source-reported"
+        },
+        {
+          "id": "dipaolo-2005-2",
+          "text": "注6以包括Varela等1974在内的最小模型说明：不改变功能的修补可能只是稳健性，并未体现对趋势的监测和补偿。文章针对原定义的不足，不否认后来理论可能已经作出扩展。",
+          "locator": "原刊448–450页，注1、6",
+          "kind": "source-reported"
+        },
+        {
+          "id": "dipaolo-2005-3",
+          "text": "注8明确说明自创生加适应性仍不蕴含主体性：系统可以在内部调节，而未主动调节与环境相遇的条件。",
+          "locator": "原刊450页，注8",
+          "kind": "source-reported",
+          "editorialCaution": "不能把自创生、适应性与主体性连成自动成立的推论链。"
+        }
+      ],
+      "prior": "round-three-c/notes/e-dipaolo-2005.md",
+      "timelineTitle": "存续与适应性怎样区分？",
+      "timelineAdvance": "补入趋势调节；不自动推出主体性"
+    },
+    {
+      "id": "dejaegher-dipaolo-2007",
+      "title": "Participatory Sense-Making: An Enactive Approach to Social Cognition",
+      "authors": [
+        "Hanne De Jaegher",
+        "Ezequiel Di Paolo"
+      ],
+      "year": 2007,
+      "url": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/dejaegherdipaolo2007participatorysensemaking.pdf",
+      "sha256": "a125b60fc9ee4cffcdd3d56e6a3353f95d9dcd0155eca5d18d840aad84d791ff",
+      "version": "Phenomenology and the Cognitive Sciences 6, 485–507作者网站PDF，23页。",
+      "readingStatus": "selected-sections",
+      "readScope": "原刊485–488、492–495、497页及505页结论开头：自主性、互动定义、例子与参与式意义生成。",
+      "unreadScope": "全部应用与讨论未审读；所引经验研究未全部核验。走廊避让是概念例子，不是本文招募实验。",
+      "checkedAt": "2026-10-28",
+      "problem": "互动本身能否产生相对自主的组织，而又保留参与者各自的自主性？",
+      "solution": "以互动过程的维持及参与者自主性的同时保留刻画社会互动，提出参与式意义生成。",
+      "remaining": "不能由协调成功直接推出共同体验或独立群体心灵。",
+      "claims": [
+        {
+          "id": "dejaegher-dipaolo-2007-1",
+          "text": "文章主要处理微观双人互动；自主性通过相互依赖的过程组织来说明，仍可依赖外部条件，不是物质上封闭。",
+          "locator": "原刊486–488页",
+          "kind": "source-reported"
+        },
+        {
+          "id": "dejaegher-dipaolo-2007-2",
+          "text": "社会互动的定义同时要求关系动力学的自主维持与参与者自主性的保留。走廊中反复相互阻挡说明互动可在参与者并不希望它继续时持续；不是任务最优化的定义。",
+          "locator": "原刊492–494页；495页注1补充身份层次",
+          "kind": "source-reported"
+        },
+        {
+          "id": "dejaegher-dipaolo-2007-3",
+          "text": "参与式意义生成覆盖互动对个人意义活动的调节及共同生成等不同程度；结论将本文视为仍需发展的初步分析。",
+          "locator": "原刊497页；505页结论开头",
+          "kind": "source-reported",
+          "editorialCaution": "出现互动统计规律本身，不能证明该理论的全部经验主张。"
+        }
+      ],
+      "timelineTitle": "互动如何保持相对自主？",
+      "timelineAdvance": "关系组织与参与者自主性同时保留"
+    },
+    {
+      "id": "auvray-2009",
+      "title": "Perceptual Interactions in a Minimalist Virtual Environment",
+      "authors": [
+        "Malika Auvray",
+        "Charles Lenay",
+        "John Stewart"
+      ],
+      "year": 2009,
+      "url": "https://cepa.info/fulltexts/478.pdf",
+      "sha256": "510583d2cd95a35affa3b79a979eae87f01fe2cc6f452d2461d894159dfb1f7a",
+      "version": "New Ideas in Psychology 27(1), 32–47期刊PDF，在线日期2008-03-03；2009是卷期年份。CEPA镜像；期刊页码与出版方入口核对。",
+      "readingStatus": "selected-sections",
+      "readScope": "原刊35–39页方法、点击结果；42、44–45页动力学解释与后续方向。39页图文另作目视核对。",
+      "unreadScope": "所有轨迹分析细节及原始数据／代码未复算；后续二维、三维与算法伙伴研究未在此文执行。",
+      "checkedAt": "2026-10-28",
+      "problem": "极简接触信息下，真实互动伙伴如何比其他接触源更容易被选中？",
+      "solution": "比较真实伙伴、固定物与同步移动诱饵，分别考察接触机会和点击分布。",
+      "remaining": "总体选中更多与接触之后能辨认对象是不同结论。",
+      "claims": [
+        {
+          "id": "auvray-2009-1",
+          "text": "20名成年人组成10对，通过600像素循环的一维空间和触觉反馈互动。移动诱饵随伙伴头像运动，但接触诱饵不向伙伴反馈。",
+          "locator": "原刊35–38页，方法与实验设置",
+          "kind": "source-reported",
+          "editorialCaution": "这是在线偏移目标，不是预录轨迹回放；与本站反馈模型的对照条件分开。"
+        },
+        {
+          "id": "auvray-2009-2",
+          "text": "真实伙伴获得65.9%的点击，移动诱饵23%，固定物11%；接触机会分布不同。作者以点击份额除以刺激份额得到相对点击指标（1.26、1.51、0.33）；真实伙伴与诱饵在该指标上无显著差异。",
+          "locator": "原刊38–39页，Results 3.1及Figure 3",
+          "kind": "source-reported",
+          "editorialCaution": "这个比值不是取值0–1的条件概率；非显著差异也不等于已经证明统计等效。"
+        },
+        {
+          "id": "auvray-2009-3",
+          "text": "作者用相互接触更容易维持的动力学解释总体成功，并指出更复杂空间及人工伙伴可进一步检验。",
+          "locator": "原刊42、44–45页，讨论与展望",
+          "kind": "source-reported",
+          "editorialCaution": "不据总体成功直接推断个人能稳定识别真实社会对象；所列后续方向不计为本文已执行。"
+        }
+      ],
+      "timelineTitle": "成功机会与个体辨认是否相同？",
+      "timelineAdvance": "点击份额与接触机会分开分析"
+    },
+    {
+      "id": "clark-reply-2010",
+      "title": "Coupling, Constitution and the Cognitive Kind: A Reply to Adams and Aizawa",
+      "authors": [
+        "Andy Clark"
+      ],
+      "year": 2010,
+      "url": "https://era.ed.ac.uk/bitstream/1842/1443/1/coupling2.pdf",
+      "sha256": "27ad6fc2efe9775fcf1a17fa449fdb7754f25ac6ce82b6b469e9ab3e1b7b5bd3",
+      "version": "实际阅读爱丁堡仓储2006年稿coupling2.pdf（36页），正式书章发表于2010年；未与2010出版文本逐字校勘。时间线保留2010书目信息并显式注明2006稿。",
+      "readingStatus": "selected-sections",
+      "readScope": "稿件1–2、5–7、15–16、21–22、27–28、30–31页：系统与部分、内容、功能粒度和整合。",
+      "unreadScope": "其余论证和正式2010版本未完整核对；回复针对包括2001论文在内的一系列批评，不是只回复那一篇。",
+      "checkedAt": "2026-10-28",
+      "problem": "外部部件是否必须单独具有完整认知特征，才可能成为认知系统的部分？",
+      "solution": "区分整体与部分的属性，并提出互补功能、合适粒度及与主体的整合。",
+      "remaining": "仍须说明什么构成统一主体，以及哪些整合方式足以支持认知归属。",
+      "claims": [
+        {
+          "id": "clark-reply-2010-1",
+          "text": "某部分参与认知过程，不要求该部分单独完成整个过程；回复区分认知系统的属性与其每个部件的属性，同时承认仅仅组成系统还不够。",
+          "locator": "2006稿1–2、5–7、15–16页",
+          "kind": "source-reported"
+        },
+        {
+          "id": "clark-reply-2010-2",
+          "text": "作者在过粗行为功能与过细物理同一之间寻求合适粒度，允许内外部分互补，而非要求内部和外部实现处处相同；是否与主体适当整合是关键。",
+          "locator": "2006稿21–22页",
+          "kind": "source-reported"
+        },
+        {
+          "id": "clark-reply-2010-3",
+          "text": "回复不抹去生物核心的特殊作用，仍保留统一主体判据的问题。",
+          "locator": "2006稿27–28、30–31页",
+          "kind": "source-reported",
+          "editorialCaution": "这比“所有连接都延伸心灵”更受约束，但没有消除边界判据的说明责任。"
+        }
+      ],
+      "prior": "round-three-d/notes/e-clark-reply-2010.md",
+      "timelineTitle": "整体与部分应如何比较？",
+      "timelineAdvance": "互补、功能粒度与主体整合；读2006稿"
+    }
+  ],
+  "frameworkAdditions": [
+    {
+      "name": "边界判据",
+      "question": "分析方便、因果必要、功能整合，还是生产组织／认知构成？",
+      "boundary": "不同判据给出不同问题；要明说采用哪一个。"
+    },
+    {
+      "name": "时间尺度",
+      "question": "瞬时支持、试次历史、学习发展还是跨代演化？",
+      "boundary": "测试时移除不独自识别训练中的贡献。"
+    },
+    {
+      "name": "介入位置",
+      "question": "改变信息、时延、反馈、身体状态还是组织再生产？",
+      "boundary": "多条路径同时变化时不能指定唯一机制。"
+    },
+    {
+      "name": "状态与历史",
+      "question": "当前状态是否匹配；历史的顺序和次数是否分别控制？",
+      "boundary": "相同暴露次数不必产生相同状态；不假设过去脱离现在起作用。"
+    }
+  ],
+  "conclusions": [
+    {
+      "id": "b1",
+      "title": "先确定解释对象，再划分系统",
+      "statement": "解释驾驶舱如何保存速度时，人—物—程序可以组成有用的功能单位；这不自动变成个人记忆容量或心灵本体边界的结论。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "hutchins-cockpit-1995-1",
+        "hutchins-cockpit-1995-2",
+        "hutchins-cockpit-1995-3",
+        "clark-chalmers-1998-3"
+      ],
+      "assumptions": "分别给出系统任务、个体子任务、读出指标和时间窗口。速度标记把数字比较改为空间判断，任务本身已经变化。",
+      "objection": "内在论者可以完整承认环境帮助和系统分析，却仍把认知过程定位在个体内；因此系统任务的成功未必支持延展认知。",
+      "response": "保留这个异议：本结论首先支持解释层级与任务分工的区分，认知归属需另加b2中的判据。",
+      "discriminator": "同时测量团队的速度误差、个人无标记时的记忆与信息传递过程；改变标记持久性或复核通道时记录任务是否被改写。",
+      "scope": "所读驾驶舱材料为作者组织的任务分析；未开展新飞行实验，也未宣称个人能力被永久提高。",
+      "check": false
+    },
+    {
+      "id": "b2",
+      "title": "因果贡献与认知构成之间，还隔着判据",
+      "statement": "移除后下降、稳定可用或双向反馈可以支持依赖关系；是否构成认知，还取决于功能整合、内容及过程种类等存在争议的判据。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "clark-chalmers-1998-1",
+        "clark-chalmers-1998-3",
+        "adams-aizawa-2001-1",
+        "adams-aizawa-2001-2",
+        "adams-aizawa-2001-3",
+        "clark-reply-2010-1",
+        "clark-reply-2010-2",
+        "clark-reply-2010-3"
+      ],
+      "assumptions": "这里把“有影响”“在受检条件中必要”“是过程的组成部分”作为不同主张；不预设支持者或反对者的认知定义已获公认。",
+      "objection": "延展论者会指出，一旦外部过程以合适粒度充分整合，再额外要求每个部件都具备完整内在内容，会不当地把系统属性强加给部分。",
+      "response": "这一回应反对过强的逐部件要求，却不消除整合判据的说明责任。反方也不只是用头骨排除颅外认知，争议双方的较强版本均保留。",
+      "discriminator": "比较可靠性、延迟、互补分工与内容来源相异的工具，预先写明各理论在何种粒度下判为“系统部分”；若只有归属词变化而无不同预测，应标为概念分歧。",
+      "scope": "方法核验可区分回路，不能裁决哪一种回路才算认知；Clark回复只核对2006稿。",
+      "check": true
+    },
+    {
+      "id": "b3",
+      "title": "当下移除与发展经历需要分开操纵",
+      "statement": "动作历史、测试时身体状态和当前工具支持可以分别影响表现；一次移除效应不足以倒推出长期发展作用，也不能唯一识别其实现机制。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "smith-thelen-1999-1",
+        "smith-thelen-1999-2",
+        "smith-thelen-1999-3",
+        "clark-chalmers-1998-2"
+      ],
+      "assumptions": "同样的移除损失可以来自不同历史；本文有限模型的历史效应完全由当前状态中介。真实学习中还须考虑代偿、策略和测量窗口。",
+      "objection": "表征理论也能容纳姿势与检索线索效应；若当前所有相关状态都相同，过去不应再被当作独立神秘原因。",
+      "response": "接受这两点。因此结论只排除把表现当成脱离经历与情境的固定读数，不把动作实验当成对全部表征理论的否证。",
+      "discriminator": "交叉操纵训练经历与测试支持，匹配暴露次数并比较顺序；测延迟保持、迁移及过程状态。婴儿研究须把试次嵌套在个体内，避免20次动作被当成20个个体。",
+      "scope": "1999论文选读的是短时任务实验和发展讨论，未据此声称长期发展机制已经被纵向识别。",
+      "check": true
+    },
+    {
+      "id": "b4",
+      "title": "生命边界、适应性与主体性不是同一条件",
+      "statement": "自创生强调生产组织如何生成统一体；稳健存续与对存活趋势的调节不同，即使具有自创生和适应性，也不能直接推出主体性、智能或意识。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "varela-1974-1",
+        "varela-1974-2",
+        "varela-1974-3",
+        "dipaolo-2005-1",
+        "dipaolo-2005-2",
+        "dipaolo-2005-3"
+      ],
+      "assumptions": "按原版本分别检查边界形成、成分参与、存活边界和主动调节；尊重1974第6步对未生产但必要参与成分的允许。",
+      "objection": "生命—心智连续性的支持者可能认为适当扩展后的自主性已包含规范与意义；把这些完全割裂会错过理论目标。",
+      "response": "不否认连续性研究方向，但扩展概念要明确多加了哪项组织要求。Di Paolo本人区分存续、适应性和主体性，不能用连续性口号代替逐层论证。",
+      "discriminator": "在同样持续存续的模型中比较被动修补、趋势感知调节和改变相遇条件三类组织；分别切断监测与调节路径，记录存活轨迹和行为代价。",
+      "scope": "只完成原典选读与概念审计，未运行生命模型或开展生物干预；没有从反馈数学模型推断它是生命。",
+      "check": false
+    },
+    {
+      "id": "b5",
+      "title": "互动提高成功机会，不等于个人识别能力提高",
+      "statement": "在所读极简知觉实验中，真实伙伴更常被点击；原文把总体优势解释为相互接触更常维持。按接触机会校正后，原文未发现真实伙伴与诱饵的显著识别差异。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "auvray-2009-1",
+        "auvray-2009-2",
+        "auvray-2009-3",
+        "dejaegher-dipaolo-2007-1",
+        "dejaegher-dipaolo-2007-2",
+        "dejaegher-dipaolo-2007-3"
+      ],
+      "assumptions": "区分点击份额、接触机会、校正后的相对点击指标和独立识别任务；互动与个人的分析单位同时保留。",
+      "objection": "互动论者未必要求个人脱离互动就能识别对象；因此没有独立识别优势并不反驳互动组织本身具有解释价值。",
+      "response": "接受这个限定：结果约束的是能力归属，仍支持研究互动动力学。原文非显著差异也不等于统计等效；不能由此断言个人绝无识别能力。",
+      "discriminator": "以双人为分组单位分析接触持续时间与点击；预先区分总体成功与机会校正指标，增加匹配接触机会、时延与运动统计的对照及等效性检验方案。",
+      "scope": "原实验诱饵为在线偏移目标；本站回放模型并非该实验的复现。这里将实验与2007理论作编辑性比较，没有声称两文存在已核实的直接影响关系。",
+      "check": false
+    },
+    {
+      "id": "b6",
+      "title": "相同轨迹可能掩盖不同的反馈结构",
+      "statement": "在已保存协议的有限模型中，闭环与回放可以产生完全相同的基线轨迹；改变系统状态后才出现不同响应。轨迹一致不能独自识别相互依赖结构。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "clark-chalmers-1998-1",
+        "adams-aizawa-2001-2",
+        "auvray-2009-1"
+      ],
+      "assumptions": "结论的直接证明来自本站精确模型；文献仅说明为何关心耦合。同步更新、扰动时点与回放来源事先固定。",
+      "objection": "现实干预可能同时改动信息量、运动机会和时延；一个人工反例不能告诉我们哪条真实人—环境路径实际存在。",
+      "response": "所以只证明该逻辑推论不成立，不把人工模型当现实机制证据。现实识别需操纵检验、过程读数及竞争模型。",
+      "discriminator": "在基线匹配后改变反馈的方向或延迟，检查扰动如何传播；同时设置无扰动负控制，记录用于匹配的全部统计量。",
+      "scope": "8项精确检查通过不等于8项经验研究。反馈结构被识别以后，认知构成仍需b2的判据。",
+      "check": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "cockpit",
+      "name": "驾驶舱记忆",
+      "sources": [
+        "hutchins-cockpit-1995"
+      ],
+      "propositions": [
+        "b1",
+        "b2"
+      ],
+      "unit": "人—仪表—操作程序",
+      "target": "保存并使用着陆速度",
+      "timescale": "动作序列与跨时保存",
+      "boundary": "信息加工功能单位",
+      "intervention": "本轮未干预；可操纵标记持久性／复核通道",
+      "evidence": "操作手册与长期观察经验组织的任务分析",
+      "supports": "系统任务可通过表征转换与分工解释",
+      "unresolved": "个人记忆能力是否改变；认知本体边界",
+      "controls": "分别记录系统误差、个人子任务和操作条件"
+    },
+    {
+      "id": "notebook",
+      "name": "笔记本与延展心灵争论",
+      "sources": [
+        "clark-chalmers-1998",
+        "adams-aizawa-2001",
+        "clark-reply-2010"
+      ],
+      "propositions": [
+        "b2",
+        "b6"
+      ],
+      "unit": "主体与可访问的外部记忆",
+      "target": "哪些过程属于认知／信念",
+      "timescale": "当下访问与长期可靠关系",
+      "boundary": "角色与整合 vs 内容与过程种类",
+      "intervention": "思想实验；经验上可改变可靠性、时延和互补性",
+      "evidence": "概念论证、反例和回应",
+      "supports": "把归属判据与因果依赖问题分开",
+      "unresolved": "何种整合及功能粒度足够；统一主体判据",
+      "controls": "相同内容、任务与访问成本；明确理论差异"
+    },
+    {
+      "id": "development",
+      "name": "A-not-B任务中的发展与动作",
+      "sources": [
+        "smith-thelen-1999"
+      ],
+      "propositions": [
+        "b3"
+      ],
+      "unit": "具有经历和当前身体状态的婴儿",
+      "target": "局部历史与姿势如何改变作答",
+      "timescale": "预训练／试次／年龄，需分别处理",
+      "boundary": "解释动作时纳入状态和任务历史",
+      "intervention": "伸手预训练；测试前姿势转换与视觉干扰对照",
+      "evidence": "原论文实验1、6结果选读，未独立复算",
+      "supports": "错误对经历与情境敏感",
+      "unresolved": "姿势记忆或感官变化；长期发展机制",
+      "controls": "年龄与等待时长；试次嵌套；保持和迁移"
+    },
+    {
+      "id": "autonomy",
+      "name": "自创生、适应性与主体性",
+      "sources": [
+        "varela-1974",
+        "dipaolo-2005"
+      ],
+      "propositions": [
+        "b4"
+      ],
+      "unit": "生产组织及其生成的统一体",
+      "target": "边界、存续、调节与主体性如何关联",
+      "timescale": "持续生产与偏离存活边界的趋势",
+      "boundary": "组织判据，不只是画出的空间边界",
+      "intervention": "理论与模型论证；本轮未做生命模拟",
+      "evidence": "1974原刊判定步骤与2005定义／注释",
+      "supports": "逐层检查不同组织要求",
+      "unresolved": "可操作指标与物理实现；到智能／体验的桥接",
+      "controls": "开放物质交换与组织闭合分开；区分稳健性与适应性"
+    },
+    {
+      "id": "interaction",
+      "name": "参与式意义与知觉交互",
+      "sources": [
+        "dejaegher-dipaolo-2007",
+        "auvray-2009"
+      ],
+      "propositions": [
+        "b5",
+        "b6"
+      ],
+      "unit": "双人互动过程及各自参与者",
+      "target": "互动维持、总体成功与个体识别",
+      "timescale": "实时接触与一段互动历程",
+      "boundary": "关系组织与个体自主性同时保留",
+      "intervention": "原实验真实伙伴／固定物／在线移动诱饵",
+      "evidence": "理论与极简实验分别登记，未复算",
+      "supports": "互动动力学和个人识别需用不同指标",
+      "unresolved": "一般社会理解、共同体验或群体心灵",
+      "controls": "接触机会、时延、运动统计；以双人组处理依赖"
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "fromId": "clark-chalmers-1998",
+      "toId": "adams-aizawa-2001",
+      "kind": "documented-debate",
+      "label": "明确批评边界论证",
+      "evidence": [
+        "adams-aizawa-2001-2",
+        "adams-aizawa-2001-3"
+      ]
+    },
+    {
+      "id": "r2",
+      "fromId": "adams-aizawa-2001",
+      "toId": "clark-reply-2010",
+      "kind": "documented-debate",
+      "label": "回应系列批评，含2001论文；实际读2006稿",
+      "evidence": [
+        "clark-reply-2010-1",
+        "clark-reply-2010-2"
+      ]
+    },
+    {
+      "id": "r3",
+      "fromId": "varela-1974",
+      "toId": "dipaolo-2005",
+      "kind": "documented-debate",
+      "label": "明确引用并补充适应性条件",
+      "evidence": [
+        "dipaolo-2005-2"
+      ]
+    },
+    {
+      "id": "r4",
+      "fromId": "dipaolo-2005",
+      "toId": "dejaegher-dipaolo-2007",
+      "kind": "documented-reference",
+      "label": "在自主性讨论中引用；扩展到互动",
+      "evidence": [
+        "dejaegher-dipaolo-2007-1"
+      ]
+    },
+    {
+      "id": "r5",
+      "fromId": "dejaegher-dipaolo-2007",
+      "toId": "auvray-2009",
+      "kind": "editorial-comparison",
+      "label": "本站比较互动组织与实验指标；未核实直接影响",
+      "evidence": [
+        "dejaegher-dipaolo-2007-2",
+        "auvray-2009-2"
+      ]
+    },
+    {
+      "id": "r6",
+      "fromId": "hutchins-cockpit-1995",
+      "toId": "clark-chalmers-1998",
+      "kind": "editorial-comparison",
+      "label": "本站比较功能单位与构成；不把同年专著引用冒充本文影响",
+      "evidence": [
+        "hutchins-cockpit-1995-3",
+        "clark-chalmers-1998-1"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "design-history",
+      "title": "训练经历 × 测试支持：分开两种贡献",
+      "question": "工具训练是否改变保留的技能，还是只在当下提供帮助？",
+      "models": "保留学习效应、即时支架效应、策略重组；允许三者同时存在。",
+      "design": "对适合重复学习的成人任务随机安排训练支持；匹配内容、练习量与顺序。测试时交叉安排支持有无，平衡顺序并记录撤除代价；另测延迟保持和新任务迁移。",
+      "outcome": "预先选定任务误差与时间，记录过程策略；以参与者为独立单位，用重复测量模型估计训练与测试条件及交互。",
+      "checks": "核对实际使用工具、内容等量和延迟；无工具条件不能额外减少题目信息；记录退出、缺失和顺序。",
+      "falsification": "若信息量或任务变更未匹配，停止把差异解释成纯工具效应；若没有可检测的保持／迁移证据，不宣称长期发展改变。",
+      "beforeRun": "需锁定任务、最小有意义效应、功效／样本方案、延迟窗口、招募与同意流程，保存分析协议。未指定任意样本数，未开始招募。",
+      "links": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "status": "design-only"
+    },
+    {
+      "id": "design-interaction",
+      "title": "总体成功与个体识别：匹配接触机会",
+      "question": "实时互惠带来的优势来自机会结构还是对象辨认？",
+      "models": "接触自维持、运动线索识别、通用自适应反馈；不预设人类伙伴有独有优势。",
+      "design": "比较实时伙伴、在线移动诱饵、匹配轨迹回放及适应性程序伙伴；预先匹配信息量、延迟与运动统计，另设计接触机会受控的辨别试次。",
+      "outcome": "分别报告总点击分布、接触份额、每次接触后的反应及持续时间；机会校正比率单独命名。以双人组／参与者层次建模，不将多次接触当独立个体。",
+      "checks": "验证回放不读取当前动作，验证诱饵与程序各自反馈规则；预先固定指标分母及零接触处理。",
+      "falsification": "匹配失败只支持机会结构差异；非显著不记为等效。等效性需预设界值与足够精度，未达到则保留未决。",
+      "beforeRun": "界面可用性、匹配误差容限、随机化、功效、停止与缺失规则、招募同意均需预注册；尚未实施。",
+      "links": [
+        "b5",
+        "b6"
+      ],
+      "status": "design-only"
+    },
+    {
+      "id": "design-autonomy",
+      "title": "稳健修补、适应性与相遇调节",
+      "question": "同样存续的组织，是否以不同机制维持自身？",
+      "models": "固定修补规则；监测存活趋势并补偿；主动调节与环境相遇条件。",
+      "design": "先构造满足明确成分生产判据的模型，再比较三类调节组织。施加相同资源扰动，分别切断监测、补偿、相遇调节通道，设无扰动控制。",
+      "outcome": "报告成分与生产网络、边界维持、存活区间、趋势估计误差、补偿动作与代价；不把这些合成为智能分数。",
+      "checks": "逐条核查1974§9，包括未生产成分的参与条件；明确物质输入、能量或资源约束、模型时间步和可达状态。",
+      "falsification": "模型未满足宣称的生产组织就停止使用自创生标签；只观察存续则只能报告稳健性，不推导主体性或意识。",
+      "beforeRun": "模型形式、存活域、测量时间尺度、扰动集和分析协议待锁定。当前精确反馈模型不满足本方案，也不算本方案已执行。",
+      "links": [
+        "b4",
+        "b6"
+      ],
+      "status": "design-only"
+    }
+  ],
+  "priorQuestionLinks": [
+    {
+      "batch": "round-three-a",
+      "id": "q-agent-environment",
+      "addition": "把历史塑形、实时反馈与构成归属拆开，添加基线相同而扰动不同的模型。"
+    },
+    {
+      "batch": "round-three-c",
+      "id": "q-development-openended",
+      "addition": "新增Smith等1999实验1、6选读；短时状态与长期发展分别登记。"
+    },
+    {
+      "batch": "round-three-c",
+      "id": "q-life-cognition",
+      "addition": "取得1974原刊§9扫描，补入未生产成分的参与例外；2005注8明确主体性不自动成立。"
+    },
+    {
+      "batch": "round-three-d",
+      "id": "q-system-boundary",
+      "addition": "加强反方和回应，区分系统分析、因果依赖及认知构成；加入知觉交互的指标分母审计。"
+    }
+  ],
+  "synthesis": [
+    {
+      "title": "把“进入系统”拆成可回答的问题",
+      "text": "驾驶舱的速度标记承担了保存和转换信息的工作。把它纳入任务解释很有用，但个人到底学会了什么、某过程是否属于认知，是另外两项研究。先写目标、单位与指标，才知道扩大边界会增加什么解释。",
+      "links": [
+        "b1",
+        "b2"
+      ]
+    },
+    {
+      "title": "争议不靠“内”与“外”两个字解决",
+      "text": "延展论的较强主张涉及角色、互补和与主体的整合；批评者的较强主张涉及内容及因果过程的种类，亦允许颅外认知的原则可能。移除工具后变差只是共同认可的起点，尚不足以让一方的构成判据胜出。",
+      "links": [
+        "b2"
+      ]
+    },
+    {
+      "title": "过去通过现在留下痕迹",
+      "text": "发展不是给一个固定系统增加外部输入的同义词。局部经历可能改变策略与当前状态，测试支持又在其上改变读数。A-not-B选读和有限模型都提醒我们对齐时间尺度；它们没有共同证明一种唯一的发展机制。",
+      "links": [
+        "b3",
+        "b6"
+      ]
+    },
+    {
+      "title": "从存续到能动性，每一步都要加条件",
+      "text": "1974的组织判据关注生产网络如何实现统一体，2005的补充区分稳健性、适应性与主动调节相遇。这个演进提出了新的机制要求；没有把生命、智能和体验变成可以相互替换的名称。",
+      "links": [
+        "b4"
+      ]
+    },
+    {
+      "title": "互动的组织与个人的能力同时保留",
+      "text": "参与式意义生成试图给互动本身以解释地位。极简知觉交互实验又提示：总体成功可以由接触机会结构提高。分别考察关系过程和个人辨认，才能避免把一项群体层面的规律搬到每个参与者身上。",
+      "links": [
+        "b5",
+        "b6"
+      ]
+    }
+  ]
+}

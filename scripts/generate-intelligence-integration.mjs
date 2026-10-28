@@ -1,0 +1,49 @@
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import assert from "node:assert/strict";
+const root=path.resolve(import.meta.dirname,".."),base=path.join(root,"docs/intelligence-history/round-four"),dir=path.join(base,"integration");
+const read=p=>JSON.parse(fs.readFileSync(p,"utf8"));
+const data=read(path.join(dir,"research.json"));
+const sha=p=>crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex");
+for(const [p,h] of Object.entries(read(path.join(dir,"baselines.json"))))assert.equal(sha(path.join(root,p)),h,`Preserved evidence changed: ${p}`);
+const articles=data.articles.map(a=>({...a,data:read(path.join(base,a.folder,"research.json"))}));
+const sources=articles.flatMap(a=>a.data.sources.map(s=>({...s,article:a.id})));
+const claims=sources.flatMap(s=>s.claims);
+assert.equal(data.reviews.length,18);assert.equal(new Set(data.reviews.map(r=>r.id)).size,18);
+for(const r of data.reviews){const a=articles.find(a=>a.id===r.article),c=a.data.conclusions.find(c=>c.id===r.id);assert.equal(r.original,c.statement);assert.deepEqual(r.evidence,c.evidence);assert(r.evidence.every(id=>claims.some(c=>c.id===id)));assert(r.related.every(id=>data.reviews.some(c=>c.id===id)));}
+assert.equal(sources.length,31);assert.equal(claims.length,88);assert.equal(data.sources.length,31);assert.equal(new Set(data.sources.map(s=>s.id)).size,31);
+for(const s of sources){const reg=data.sources.find(r=>r.id===s.id);assert(reg&&reg.version===s.version&&reg.carrier===s.url);}
+assert.equal(data.queue.length,9);for(const q of data.queue)assert.equal(q.status,"design-only");
+const files=new Map(),put=(p,t)=>files.set(p,t.endsWith("\n")?t:t+"\n"),doc=(p,t)=>put(path.join(dir,p),t),asset=(p,t)=>put(path.join(root,"public/research/intelligence",p),t);
+const json=v=>JSON.stringify(v,null,2)+"\n",e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const labels={stable:"稳定的推理边界",contested:"依赖争议判据",bounded:"指定材料内的判断"};
+const counts={conclusions:18,clarified:data.reviews.filter(r=>r.decision==="clarify").length,retained:data.reviews.filter(r=>r.decision==="retain").length,sourceRecords:sources.length,sourceClaims:claims.length,bibliographicWorks:new Set(data.sources.map(s=>s.workId)).size,evidenceFamilies:new Set(data.sources.map(s=>s.evidenceFamily)).size,designsNotExecuted:9};
+doc("counts.json",json(counts));
+doc("README.md",`# 综合修订与网站联动\n\n${data.date} · ${data.status}\n\n${data.reviewScope}\n\n18条结论全部保留：${counts.clarified}条收紧措辞，${counts.retained}条维持原句。11条归为稳定推理边界、4条依赖争议判据、3条限于指定材料；分类是编辑用途，不是可信度分数。\n\n- [逐条复核与修订对照](review.md)\n- [跨篇分歧与术语](cross-review.md)\n- [来源、作品与证据组](source-registry.md)\n- [9项后续设计排序](research-queue.md)\n- [本阶段工作台](index.html)\n- [验收](validation.md)\n\n正式网站入口路径为 /research/intelligence/，含3篇综述、31个来源页、统一文献索引与研究队列。研究原始层保留于前三阶段；网站读取该层与本阶段修订层。维护：修改research.json → 运行scripts/generate-intelligence-integration.mjs → 运行项目构建和浏览器验收。\n\n31条来源记录对应29个书目作品单元（两份补充材料归入主文），26个证据组（进一步合并更正和COGITATE同项目文件）。证据组不是独立实验数；更正文书保留独立作品身份。历史144节点不与这些数字相加。\n`);
+doc("review.md",`# 18条结论共同复核\n\n${data.reviewScope}\n\n${data.reviews.map(r=>{const a=articles.find(a=>a.id===r.article),c=a.data.conclusions.find(c=>c.id===r.id);return `<a id="${r.id}"></a>\n\n## ${r.id} · ${r.title}\n\n${labels[r.classification]} · ${r.decision==="retain"?"保留原句":"收紧措辞"}\n\n原句：${r.original}\n\n修订：${r.revised}\n\n复核理由：${r.reason}\n\n前提：${c.assumptions}\n\n强反方：${c.objection}\n\n回应：${c.response}\n\n未决／下一检验：${c.discriminator}\n\n范围：${c.scope}\n\n[原始结论](../${a.folder?a.folder+'/':''}conclusions/${r.id}.md)；相关：${r.related.map(id=>`[${id}](#${id})`).join('、')}。\n\n定位证据：${r.evidence.map(id=>{const s=a.data.sources.find(s=>s.claims.some(c=>c.id===id));return `[${id}](../${a.folder?a.folder+'/':''}notes/${s.id}.md#${id})`;}).join('、')}`;}).join('\n\n')}`);
+doc("cross-review.md",`# 跨篇一致性、重复与术语\n\n没有发现必须撤回的直接逻辑冲突；这一结论只针对18条条件性结论，不表示争议已消失或所有网站旧内容已审校。\n\n${data.crossReview.map(c=>`## ${c.title}\n\n${c.resolution}\n\n${c.conclusions.map(id=>`[${id}](review.md#${id})`).join(' · ')}`).join('\n\n')}\n\n## 统一术语\n\n${data.terms.map(t=>`- **${t.term}**：${t.definition}`).join('\n')}\n\n## 网站纠偏\n\n替换延展心智、心灵哲学与意识三处演示。移除无经验依据的准确率／时延、把符号接地定作理解唯一标准的断言、把全局广播与人为Φ数值合并的展示。改用既有协议验证过的历史／支持、候选映射和报告依赖三个有限模型；每个模型明确假设和不能推出的结论。其他路线演示未在本次全面审校。`);
+doc("source-registry.md",`# 来源、作品、版本与证据组\n\n31条记录，29个书目作品单元，26个证据组；不是31项或26项独立实验。实际读段与未读段保持前三篇记录；本阶段没有升级阅读状态。\n\n${data.sources.map(r=>{const s=sources.find(s=>s.id===r.id);return `## ${r.id}\n\n${s.title}\n\n作品：${r.workId}；证据组：${r.evidenceFamily}；关系：${r.relation}\n\n版本：${s.version}\n\n[实际载体](${s.url})\n\n已读：${s.readScope}\n\n未读／未核验：${s.unreadScope}`;}).join('\n\n')}`);
+doc("research-queue.md",`# 下一轮研究队列\n\n以下排序是本项目根据区分价值、资料可得性与实施前提作的编辑判断，不是学科重要性排名。9项全部仍为design-only；既有有限模型检查不等于这些设计已经执行。\n\n${data.queue.map(q=>`## ${q.rank}. ${q.title}\n\n理由：${q.reason}\n\n启动条件：${q.start}\n\n交付：${q.deliverable}\n\n状态：尚未执行。`).join('\n\n')}\n\n## 优先任务的执行边界\n\n先做群体研究版本审计：记录仓库提交、许可、文件哈希、正文／README／SI团队数与排除规则、代码环境。先复算原AVE和原表，结果有差异先报告，不悄悄改分析；无法取得合法可用材料则停止数值复算并交付缺失清单。按群体／研究留出是扩展分析，不能冒充原文复现。\n\n## 持续缺口\n\n${data.unresolved.map(s=>`- ${s}`).join('\n')}`);
+const diagram=`flowchart TD\n A[表现与能力 p1 p4] -->|任务与单位| B[机制识别 p2 p3 p6]\n B -->|整合与构成判据| C[系统边界 b1 b2 b6]\n C -->|历史与组织要求| D[发展与自主性 b3 b4 b5]\n C -->|目标及主体归属| E[意义 m1 m2]\n E -->|访问与体验的桥梁| F[意识 m3 m4]\n G[版本及失败审计 p5 m5 m6] -.-> B\n G -.-> F\n %% 箭头表示额外问题与前提，不表示已证明的递进或历史影响。\n`;
+doc("review-map.mmd",diagram);asset("downloads/review-map.mmd",diagram);asset("downloads/review.json",json(data));
+const boxes=[['表现与能力','p1 · p4',40,65],['机制识别','p2 · p3 · p6',360,65],['系统边界','b1 · b2 · b6',680,65],['发展与组织','b3 · b4 · b5',40,250],['意义与归属','m1 · m2',360,250],['访问与体验','m3 · m4',680,250]];
+const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 490" role="img" aria-labelledby="title desc"><title id="title">跨篇复核地图</title><desc id="desc">六组问题及其新增前提，底部为跨篇版本与失败审计；连线不表示已证明的递进。</desc><rect width="1000" height="490" fill="#f6f5ed"/><g font-family="sans-serif" fill="#253f38"><text x="40" y="35" font-size="20">每跨一步，都要补充前提</text>${boxes.map(([t,ids,x,y])=>`<rect x="${x}" y="${y}" width="280" height="115" rx="14" fill="#e3e9df" stroke="#778b7b"/><text x="${x+22}" y="${y+44}" font-size="23">${t}</text><text x="${x+22}" y="${y+80}" font-size="17">${ids}</text>`).join('')}<path d="M320 120H360 M640 120H680 M820 180V215H180V250 M820 215H500V250 M820 215V250" fill="none" stroke="#8e745b" stroke-width="2"/><text x="40" y="220" font-size="15">任务与单位 → 干预与过程 → 构成、组织及桥接判据</text><rect x="40" y="397" width="920" height="53" rx="12" fill="#e8dfd1"/><text x="62" y="430" font-size="19">共同审计：p5 · m5 · m6 — 来源版本、测量条件、旧失败与新预测</text><text x="40" y="477" font-size="14">连线表示需要追问的关系，不表示已证明的理论阶梯或历史影响。</text></g></svg>`;
+doc("review-map.svg",svg);asset("review-map.svg",svg);
+for(const a of articles){
+ const native=`/research/intelligence/${a.id}/`;
+ asset(`downloads/${a.id}.json`,json(a.data));
+ for(const file of ['protocol.md','results.json']){
+  const p=path.join(base,a.folder,'method-check',file);if(fs.existsSync(p))asset(`downloads/${a.id}-${file}`,fs.readFileSync(p,'utf8'));
+ }
+ for(const g of a.graphs)for(const ext of ['svg','mmd']){
+  let content=fs.readFileSync(path.join(base,a.folder,`${g}.${ext}`),'utf8');
+  content=content.replace(/(?:\.\/)?conclusions\/([\w-]+)\.md/g,(_,id)=>native+'#'+id).replace(/(?:\.\/)?notes\/([\w-]+)\.md/g,(_,id)=>`/research/intelligence/sources/${id}/`);
+  asset(`${a.id}/${g}.${ext}`,content);
+ }
+ for(const original of a.data.sources){const s={...original,...data.sources.find(r=>r.id===original.id).readerGuide};asset(`downloads/sources/${s.id}.md`,`# ${s.title}\n\n${s.authors.join('、')} · ${s.year}\n\n[原文](${s.url})\n\n版本：${s.version}\n\n已读：${s.readScope}\n\n未读／未核验：${s.unreadScope}\n\n问题：${s.problem}\n\n方案：${s.solution}\n\n未决：${s.remaining}\n\n${s.claims.map(c=>`## ${c.id}\n\n${c.text}\n\n原文定位：${c.locator}${c.editorialCaution?'\n\n编辑提示：'+c.editorialCaution:''}`).join('\n\n')}\n\n[网站阅读页](/research/intelligence/sources/${s.id}/)\n\n文件指纹：${s.sha256??'未登记'}\n`);}
+}
+doc("index.html",`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>综合修订与网站联动</title><style>body{max-width:1000px;margin:auto;padding:28px;font:16px/1.85 system-ui;background:#f6f5ed;color:#253f38}a{color:#355e4c}img{width:100%}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px}article{padding:20px;border:1px solid #b7c3b4;border-radius:12px}h1{font-size:32px}small{color:#52665c}</style><nav><a href="../../index.html">20路线研究入口</a> · <a href="../index.html">首篇</a> · <a href="../boundaries/index.html">系统边界</a> · <a href="../meaning/index.html">意义与意识</a></nav><h1>综合修订与网站联动</h1><p>${e(data.reviewScope)}</p><p>18条结论 · 13条收紧措辞 · 5条维持原句 · 31条来源记录 · 9项设计仍未执行</p><p><a href="http://127.0.0.1:4327/research/intelligence/">打开正式网站的本地预览</a> · <a href="validation.md">验收范围与结果</a> · <a href="research-queue.md">后续研究排序</a></p><img src="review-map.svg" alt="跨篇问题与新增前提地图"><p><a href="review-map.mmd">编辑关系图</a> · <a href="cross-review.md">术语、重复与冲突复核</a> · <a href="source-registry.md">来源版本与阅读范围</a></p><div class="grid">${data.reviews.map(r=>`<article><small>${e(r.id+' · '+labels[r.classification])}</small><h2>${e(r.title)}</h2><p>${e(r.revised)}</p><a href="review.md#${r.id}">原句、反方与修订依据</a></article>`).join('')}</div><footer>本地集成不代表已经部署；三篇的原始研究数据、文献与方法记录保持快照。<a href="README.md">维护说明</a></footer></html>`);
+const check=process.argv.includes('--check');
+for(const [p,t] of files){if(check)assert.equal(fs.readFileSync(p,'utf8'),t,`Stale ${path.relative(root,p)}`);else{fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(p,t);}}
+console.log(JSON.stringify({mode:check?'verified':'generated',files:files.size,counts,protectedFiles:Object.keys(read(path.join(dir,'baselines.json'))).length}));

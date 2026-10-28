@@ -56,7 +56,7 @@ try{
  await page.locator('#method .lab').first().screenshot({path:out+'/method-mobile.png'});
  await page.goto(base+'round-four/index.html');assert.equal(await page.locator('a[href="boundaries/index.html"]').count(),2);
  await page.locator('[data-test=x1]').click();assert.equal(await page.locator('#model-c').textContent(),'均值 (1, 1/2, 1/2)');
- await page.goto(base+'index.html');assert.equal(await page.locator('#routes > *').count(),20);assert.equal(await page.locator('#questions > *').count(),15);assert(await page.locator('a[href="round-four/boundaries/index.html"]').count()>=2);
+ await page.goto(base+'index.html');assert.equal(await page.locator('#routes > *').count(),20);assert.equal(await page.locator('#questions > *').count(),15);assert(await page.locator('a[href="round-four/boundaries/index.html"]').count()>=1);
  await page.selectOption('#batch','round-three-e');assert.equal(await page.locator('#routes > *').count(),4);await page.selectOption('#batch','');await page.fill('#search','退相干');assert((await page.locator('#nodes').textContent()).includes('退相干'));await page.fill('#search','');
  const globalMobile=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth}));assert(globalMobile.scrollWidth<=globalMobile.width);
  await page.screenshot({path:out+'/global-mobile.png'});

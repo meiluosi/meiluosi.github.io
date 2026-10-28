@@ -1,0 +1,229 @@
+{
+  "date": "2026-10-28",
+  "kind": "exact-synthetic-method-check",
+  "protocolSHA256": "270577210c594346cb707f55078aba5f209162a7f243979e1606432967c3e600",
+  "scriptSHA256": "378e5dbb2bea6bff1bd85a133e5ad614fdee08d3845089a0ff7f462f3e4569ae",
+  "mappings": [
+    {
+      "a": "圆",
+      "b": "方",
+      "c": "三角"
+    },
+    {
+      "a": "圆",
+      "b": "三角",
+      "c": "方"
+    },
+    {
+      "a": "方",
+      "b": "圆",
+      "c": "三角"
+    },
+    {
+      "a": "方",
+      "b": "三角",
+      "c": "圆"
+    },
+    {
+      "a": "三角",
+      "b": "圆",
+      "c": "方"
+    },
+    {
+      "a": "三角",
+      "b": "方",
+      "c": "圆"
+    }
+  ],
+  "likelihoods": [
+    "1/81",
+    "1/81",
+    "1/81",
+    "1/81",
+    "1/81",
+    "1/81"
+  ],
+  "semantic": {
+    "none": {
+      "anchors": [],
+      "candidates": [
+        {
+          "a": "圆",
+          "b": "方",
+          "c": "三角"
+        },
+        {
+          "a": "圆",
+          "b": "三角",
+          "c": "方"
+        },
+        {
+          "a": "方",
+          "b": "圆",
+          "c": "三角"
+        },
+        {
+          "a": "方",
+          "b": "三角",
+          "c": "圆"
+        },
+        {
+          "a": "三角",
+          "b": "圆",
+          "c": "方"
+        },
+        {
+          "a": "三角",
+          "b": "方",
+          "c": "圆"
+        }
+      ]
+    },
+    "one": {
+      "anchors": [
+        [
+          "a",
+          "圆"
+        ]
+      ],
+      "candidates": [
+        {
+          "a": "圆",
+          "b": "方",
+          "c": "三角"
+        },
+        {
+          "a": "圆",
+          "b": "三角",
+          "c": "方"
+        }
+      ]
+    },
+    "two": {
+      "anchors": [
+        [
+          "a",
+          "圆"
+        ],
+        [
+          "b",
+          "方"
+        ]
+      ],
+      "candidates": [
+        {
+          "a": "圆",
+          "b": "方",
+          "c": "三角"
+        }
+      ]
+    },
+    "conflict": {
+      "anchors": [
+        [
+          "a",
+          "圆"
+        ],
+        [
+          "a",
+          "方"
+        ]
+      ],
+      "candidates": []
+    }
+  },
+  "signals": [
+    {
+      "S": 0,
+      "Q": 0,
+      "R": 0,
+      "A": 0,
+      "B": 0
+    },
+    {
+      "S": 0,
+      "Q": 1,
+      "R": 0,
+      "A": 0,
+      "B": 0
+    },
+    {
+      "S": 1,
+      "Q": 0,
+      "R": 0,
+      "A": 1,
+      "B": 0
+    },
+    {
+      "S": 1,
+      "Q": 1,
+      "R": 1,
+      "A": 1,
+      "B": 1
+    }
+  ],
+  "premises": [
+    {
+      "T": 0,
+      "A": 0,
+      "M": 0,
+      "O": 0
+    },
+    {
+      "T": 0,
+      "A": 0,
+      "M": 1,
+      "O": 0
+    },
+    {
+      "T": 0,
+      "A": 1,
+      "M": 0,
+      "O": 0
+    },
+    {
+      "T": 0,
+      "A": 1,
+      "M": 1,
+      "O": 0
+    },
+    {
+      "T": 1,
+      "A": 0,
+      "M": 0,
+      "O": 0
+    },
+    {
+      "T": 1,
+      "A": 0,
+      "M": 1,
+      "O": 0
+    },
+    {
+      "T": 1,
+      "A": 1,
+      "M": 0,
+      "O": 0
+    },
+    {
+      "T": 1,
+      "A": 1,
+      "M": 1,
+      "O": 1
+    }
+  ],
+  "checks": {
+    "six_bijections": true,
+    "equal_form_likelihood": true,
+    "one_anchor_two_candidates": true,
+    "two_anchors_one_candidate": true,
+    "conflicting_anchors_none": true,
+    "report_required_equivalent": true,
+    "no_report_distinguishes_dependency": true,
+    "signal_negative_control": true,
+    "negative_result_seven_assignments": true,
+    "theory_can_survive_negative": true,
+    "independent_premises_isolate_theory": true
+  },
+  "limits": "Finite constructed inference checks; not an LLM experiment, consciousness measure, Phi computation or COGITATE replication."
+}

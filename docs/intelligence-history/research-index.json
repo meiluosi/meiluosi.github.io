@@ -58,6 +58,33 @@
           "第四轮第二阶段取得1974原刊扫描，核对187–189、192–193页及§9成分参与例外；新增2005适应性定义与注8。原模拟、全部算法及生命—智能—体验的桥接仍未验证。"
         ],
         "reason": "登记第四轮第二阶段增量；旧路线文档保持历史快照"
+      },
+      "philosophy-of-mind": {
+        "gaps": [
+          "Dennett 1987书未整本读；本批改以已核对的1981论文为时间节点。",
+          "Searle作者答复本轮已补指定段落；Putnam后期功能主义修正、完整评论回应及其他语义理论仍待系统比较。",
+          "现代多模态、行动和社会互动系统须另行实测；这里不裁决任何在用模型是否理解。",
+          "第四轮第三阶段补读Searle回应、Harnad限制、Bender–Koller定义与Piantadosi–Hill反方，新增Block 1995。1997修正版、完整评论与理解归属的经验检验仍待补。"
+        ],
+        "reason": "登记第四轮第三阶段指定阅读增量；历史路线保留快照"
+      },
+      "consciousness-self": {
+        "gaps": [
+          "Baars 1988、Damasio 1994书、情感与自我的其他路线未系统选读。",
+          "IIT 2004与2.0／3.0／4.0版本变迁仍缺逐项对照，不能把2025实验倒算成对2004所有命题的检验。",
+          "COGITATE理论方回应与主要实施偏离本轮已补指定范围；其余补充分析、全部早期注册文件和后续独立研究仍未全面核验。",
+          "第四轮第三阶段补读GNW 2011挑战条件、IIT 4.0选段及COGITATE锁定文件、预测图表、理论回应和实施偏离；未复算Φ或原始数据，其他理论与自我研究并未完成全覆盖。"
+        ],
+        "reason": "登记第四轮第三阶段指定阅读增量；历史路线保留快照"
+      },
+      "information-physics": {
+        "gaps": [
+          "Rissanen 1978最小描述长度、Landauer 1961物理耗散尚未纳入正文选读。",
+          "Solomonoff Part II及后来的收敛定理未读；信息瓶颈的现代深度学习争议不由1999稿代替。",
+          "临界性后续统计与跨尺度干预、因果熵补充材料及独立复现待补。",
+          "第四轮第三阶段补比较形式预测、指称与概念角色；没有将压缩或预测指标升级为完整语义或体验的证据。"
+        ],
+        "reason": "登记第四轮第三阶段指定阅读增量；历史路线保留快照"
       }
     },
     "candidateMappings": [
@@ -280,12 +307,20 @@
       "sourceRecords": 9,
       "allSelectedSections": true,
       "changesHistoricalNodeCounts": false
+    },
+    "phaseThreeReadingUpdates": {
+      "url": "round-four/meaning/reading-updates.md",
+      "sources": 12,
+      "sourceClaims": 40,
+      "conclusions": 6,
+      "scope": "全部指定范围选读；同项目文件不计独立研究。量子与泛心论专项未新增审读。"
     }
   },
   "roundFour": {
-    "url": "round-four/boundaries/index.html",
-    "status": "in-progress",
-    "currentPhase": 2,
+    "url": "round-four/integration/index.html",
+    "siteUrl": "/research/intelligence/",
+    "status": "reviewed-scope",
+    "currentPhase": 4,
     "phases": [
       {
         "phase": 1,
@@ -302,9 +337,24 @@
         "title": "系统边界与发展：什么进入解释单位？",
         "sources": 9,
         "conclusions": 6
+      },
+      {
+        "phase": 3,
+        "url": "round-four/meaning/index.html",
+        "status": "reviewed-scope",
+        "title": "从有用的表现，到有意义与有体验",
+        "sources": 12,
+        "conclusions": 6
+      },
+      {
+        "phase": 4,
+        "url": "round-four/integration/index.html",
+        "status": "reviewed-scope",
+        "title": "综合修订与网站联动",
+        "conclusions": 18
       }
     ],
-    "nextPhase": 3
+    "nextPhase": null
   },
   "scope": "第二轮至第三轮E批的指定范围汇总；不把第一轮候选计为已读，不把选读计为全文阅读。",
   "counts": {
@@ -338,9 +388,11 @@
     "round-three-d/research.json": "89aec91c5733b70e935ee94ae7f9d2cc6a2f981fb2725497a0974126b9fd443b",
     "round-three-e/research.json": "c746f4b70036b46789e40cbc12ae728c7ecd34a7b4206cf0e78ac43e1ff0abca"
   },
-  "annotationSHA256": "d8937b32b419756d01ae9392f839a07680da127cd0a648c90da232478ef23dc7",
+  "annotationSHA256": "1e3dde884bfd9019e439971ac7c5ac4145038cd2c92f48c202356705a75042ef",
   "roundFourSHA256": "79d1ed4bc85bea906c3a8c3ecdf27bab52fa190d0b0840e2aceb7075f4af0238",
-  "boundariesSHA256": "a535a2b4a82995c88dbd55fd263aa83029f3fc805f878339235d4ca031844c77",
+  "boundariesSHA256": "4b0546b12b002c51f2a4351d43defe9a6a55d49ea2f36d7a433cf61f377b3a50",
+  "meaningSHA256": "f3faaa6258c1130ea072c7cfe695bf31e67aa1eac36be8a2c45e095162b0bd16",
+  "integrationSHA256": "e461eafe18c9c62da122c6aa709034584cd0e50dcf34c5b0eecec0381007d2aa",
   "routes": [
     {
       "id": "behavioral",
@@ -3365,7 +3417,8 @@
       "gaps": [
         "Rissanen 1978最小描述长度、Landauer 1961物理耗散尚未纳入正文选读。",
         "Solomonoff Part II及后来的收敛定理未读；信息瓶颈的现代深度学习争议不由1999稿代替。",
-        "临界性后续统计与跨尺度干预、因果熵补充材料及独立复现待补。"
+        "临界性后续统计与跨尺度干预、因果熵补充材料及独立复现待补。",
+        "第四轮第三阶段补比较形式预测、指称与概念角色；没有将压缩或预测指标升级为完整语义或体验的证据。"
       ]
     },
     {
@@ -3499,8 +3552,9 @@
       ],
       "gaps": [
         "Dennett 1987书未整本读；本批改以已核对的1981论文为时间节点。",
-        "Putnam后期功能主义修正、Searle作者答复以及其他语义理论待系统比较。",
-        "现代多模态、行动和社会互动系统须另行实测；这里不裁决任何在用模型是否理解。"
+        "Searle作者答复本轮已补指定段落；Putnam后期功能主义修正、完整评论回应及其他语义理论仍待系统比较。",
+        "现代多模态、行动和社会互动系统须另行实测；这里不裁决任何在用模型是否理解。",
+        "第四轮第三阶段补读Searle回应、Harnad限制、Bender–Koller定义与Piantadosi–Hill反方，新增Block 1995。1997修正版、完整评论与理解归属的经验检验仍待补。"
       ]
     },
     {
@@ -3667,7 +3721,8 @@
       "gaps": [
         "Baars 1988、Damasio 1994书、情感与自我的其他路线未系统选读。",
         "IIT 2004与2.0／3.0／4.0版本变迁仍缺逐项对照，不能把2025实验倒算成对2004所有命题的检验。",
-        "COGITATE补充材料、理论提出者的完整回应、后续独立研究未纳入本批。"
+        "COGITATE理论方回应与主要实施偏离本轮已补指定范围；其余补充分析、全部早期注册文件和后续独立研究仍未全面核验。",
+        "第四轮第三阶段补读GNW 2011挑战条件、IIT 4.0选段及COGITATE锁定文件、预测图表、理论回应和实施偏离；未复算Φ或原始数据，其他理论与自我研究并未完成全覆盖。"
       ]
     },
     {

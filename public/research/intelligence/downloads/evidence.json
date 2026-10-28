@@ -1,0 +1,835 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "phase": "第四轮第一阶段",
+  "status": "phase-one-complete",
+  "title": "从表现到机制的证据边界",
+  "question": "从表现、相关结构和干预结果，我们分别能推出哪些关于能力与机制的结论？",
+  "scope": "比较框架、关键原文补读与首个综合样板；第四轮其他主题和正式站点发布待后续阶段。",
+  "framework": [
+    {
+      "name": "研究单位",
+      "question": "个体、群体、神经系统、算法或形式模型；边界是否含工具和外部记忆？",
+      "boundary": "单位不同，不能把g、c、网络节点或模型参数直接当成同一变量。"
+    },
+    {
+      "name": "目标主张",
+      "question": "要描述成绩、预测新任务、解释作答过程，还是识别物理实现／讨论体验？",
+      "boundary": "先写要回答的问题，不能让取得的指标替换解释目标。"
+    },
+    {
+      "name": "任务与评分",
+      "question": "任务集合、评分函数、时间、测试顺序、题目暴露和评分可靠性。",
+      "boundary": "不同任务或评分变化可能改变相关结构。"
+    },
+    {
+      "name": "资源与经历",
+      "question": "训练数据、先验、时间／算力、人数、沟通界面、发展史。",
+      "boundary": "同等成绩不表示同等学习效率；资源相同也未必先验相同。"
+    },
+    {
+      "name": "观察与测量",
+      "question": "样本与抽样、信度、缺失、指标／潜变量关系、群体内和群体间层级。",
+      "boundary": "群体间相关不直接给出个体内变化规律。"
+    },
+    {
+      "name": "识别与竞争解释",
+      "question": "拟合了哪些模型？有哪些模型可生成相同证据？是否存在饱和或欠识别？",
+      "boundary": "单模型拟合优良不等于排除了其他生成机制。"
+    },
+    {
+      "name": "干预与机制",
+      "question": "实际改了什么？是否同时影响其他环节？哪些过程预测可被反驳？",
+      "boundary": "自然损伤、理想do操作、随机训练干预必须分开。"
+    },
+    {
+      "name": "迁移与版本",
+      "question": "预测留出任务还是留出人群／环境？读取哪个版本及更正？",
+      "boundary": "结论范围由实际检验边界决定，不能随标题或时间更新而扩大。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "chollet-2019",
+      "title": "On the Measure of Intelligence",
+      "authors": [
+        "François Chollet"
+      ],
+      "year": 2019,
+      "url": "https://arxiv.org/pdf/1911.01547v2",
+      "version": "arXiv:1911.01547v2，2019-11-25；题页日期为November 5。",
+      "readingStatus": "selected-sections",
+      "readScope": "本轮补读PDF26–28：先验约束、II.2.1定义、形式化问题入口。",
+      "unreadScope": "其余推导、ARC具体实施和后续ARC版本未在本轮审计。",
+      "checkedAt": "2026-10-28",
+      "sha256": "773b9ecec3df33e664ab5a784f9e48818e7fd0d8e211b3243f4f4e0fdecb2fee",
+      "carrier": "pdf",
+      "prior": "../round-three-b/notes/e-chollet-2019.md",
+      "claims": [
+        {
+          "id": "chollet-2019-1",
+          "text": "作者把智能操作化为在给定任务范围、先验、经验与泛化难度下的技能获取效率；不是唯一获公认的定义。",
+          "locator": "PDF27，II.2.1；PDF28开篇",
+          "kind": "source-reported"
+        },
+        {
+          "id": "chollet-2019-2",
+          "text": "公平比较所假设的先验需要明示；作者同时承认人类先天先验的确切集合仍不确定。",
+          "locator": "PDF26开篇；PDF27首段",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "borsboom-2004",
+      "title": "The Concept of Validity",
+      "authors": [
+        "Denny Borsboom",
+        "Gideon J. Mellenbergh",
+        "Jaap van Heerden"
+      ],
+      "year": 2004,
+      "url": "https://dennyborsboom.com/wp-content/uploads/2017/01/borsboomvalidity2004.pdf",
+      "version": "Psychological Review 111(4):1061–1071；作者站原刊PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF1、4–7（印刷1061、1064–1067），重点Causality Versus Correlation与Where to Look for Validity。",
+      "unreadScope": "未系统重审文中对全部效度理论的历史解释；其他效度观的原典另列后续，不据此宣布学界共识。",
+      "checkedAt": "2026-10-28",
+      "sha256": "1b16b15d036d8ec5d6f06dbfd864cc8a2d6bafb65fc1df8f45062a00c478dee8",
+      "carrier": "pdf",
+      "prior": null,
+      "claims": [
+        {
+          "id": "borsboom-2004-1",
+          "text": "本文提出因果测量观：目标属性存在，并且其变化导致测量结果变化，是作者所要求的效度条件。",
+          "locator": "PDF1，1061页末段",
+          "kind": "source-reported"
+        },
+        {
+          "id": "borsboom-2004-2",
+          "text": "作者区分预测用途与测量目标属性；建议解释从属性到作答的过程。",
+          "locator": "PDF6–7，1066–1067；Where to Look for Validity",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "maas-2006",
+      "title": "A Dynamical Model of General Intelligence: The Positive Manifold of Intelligence by Mutualism",
+      "authors": [
+        "Han L. J. van der Maas",
+        "Conor V. Dolan",
+        "Raoul P. P. P. Grasman",
+        "Jelte M. Wicherts",
+        "Hilde M. Huizenga",
+        "Maartje E. J. Raijmakers"
+      ],
+      "year": 2006,
+      "url": "https://www.researchgate.net/publication/289963376_A_dynamical_model_of_general_intelligence_The_positive_manifold_of_intelligence_by_mutualism",
+      "version": "Psychological Review 113(4):842–861；作者上传正文的网页转录，书目由UvA-DARE核对。",
+      "readingStatus": "selected-sections",
+      "readScope": "正文842–843的psychometric／psychological g区分；844模型引入段；845页脚注7；855–856讨论与批评段。页码来自转录保留的原刊页标。",
+      "unreadScope": "式3、图3–9、附录稳定性证明和全部模拟未完整复算；未下载成功PDF，不给出文件指纹。",
+      "checkedAt": "2026-10-28",
+      "sha256": null,
+      "carrier": "web-author-text",
+      "prior": null,
+      "claims": [
+        {
+          "id": "maas-2006-1",
+          "text": "作者构造发展过程中认知过程互相促进的模型，作为正相关结构的另一种生成解释；统计g仍可作为摘要指标。",
+          "locator": "842–844页；855–856页讨论",
+          "kind": "source-reported"
+        },
+        {
+          "id": "maas-2006-2",
+          "text": "作者承认模型识别需约束、解释可能混合，并区分发展依赖与当下功能依赖。",
+          "locator": "845页脚注7；856页讨论，发展／功能依赖与混合解释段。",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "woolley-2010",
+      "title": "Evidence for a Collective Intelligence Factor in the Performance of Human Groups",
+      "authors": [
+        "Anita Williams Woolley",
+        "Christopher F. Chabris",
+        "Alex Pentland",
+        "Nada Hashmi",
+        "Thomas W. Malone"
+      ],
+      "year": 2010,
+      "url": "https://www.chabris.com/Woolley2010a.pdf",
+      "version": "Science 330:686–688；作者站3页原刊PDF，首面上半为邻接论文。",
+      "readingStatus": "selected-sections",
+      "readScope": "重读686页本文标题以下、687–688页本文正文及图1、图2文字；邻接文章排除。",
+      "unreadScope": "未重算原始数据；主文与补充材料各自登记；不把因素分析与相关关系写成随机操纵效应。",
+      "checkedAt": "2026-10-28",
+      "sha256": "0b18e5db558187dd85308766e337def66a2638218affa5d1e0aa9a4dc5070f56",
+      "carrier": "pdf",
+      "prior": "../round-three-d/notes/e-woolley-2010.md",
+      "claims": [
+        {
+          "id": "woolley-2010-1",
+          "text": "两项研究报告群体任务的共同因素，并以另设任务检验预测；总计699人，40与152个群体。",
+          "locator": "687页Study 1／Study 2；686页摘要",
+          "kind": "source-reported"
+        },
+        {
+          "id": "woolley-2010-2",
+          "text": "三个社会变量在完整回归中并非都显著；本文把提高群体能力的干预留作后续问题。",
+          "locator": "688页回归段与末尾问题",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "woolley-2010-som",
+      "title": "Supporting Online Material for Woolley et al. 2010",
+      "authors": [
+        "Anita Williams Woolley",
+        "Christopher F. Chabris",
+        "Alex Pentland",
+        "Nada Hashmi",
+        "Thomas W. Malone"
+      ],
+      "year": 2010,
+      "url": "https://www.chabris.com/Woolley2010b.pdf",
+      "version": "作者站13页补充PDF；PDF页=内页+1。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF2–5方法；PDF9–12表S2、S3a、S3b、S4；S4另经页面图像核对。",
+      "unreadScope": "PDF6–8的后续任务细节与S1未逐项审读；相关表未重算。",
+      "checkedAt": "2026-10-28",
+      "sha256": "6d896015460ded142fd0174ef9a1a7339a71fb69aa9e7b5ca6630ddaf038ab8a",
+      "carrier": "pdf",
+      "prior": null,
+      "claims": [
+        {
+          "id": "woolley-2010-som-1",
+          "text": "研究1采用Raven个体测验；研究2采用Wonderlic，任务和评分也须与复制研究逐项对齐。",
+          "locator": "PDF2–4，内页1–3",
+          "kind": "source-reported"
+        },
+        {
+          "id": "woolley-2010-som-2",
+          "text": "发言轮次资料仅有46组；完整回归S4中社会敏感性系数0.33带显著标记，轮次方差−0.27不带标记。",
+          "locator": "PDF10–12，S3a脚注a、S3b脚注a、S4；内页9–11",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "bates-gupta-2017",
+      "title": "Smart Groups of Smart People: Evidence for IQ as the Origin of Collective Intelligence in the Performance of Human Groups",
+      "authors": [
+        "Timothy C. Bates",
+        "Shivani Gupta"
+      ],
+      "year": 2017,
+      "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/30119288/BatesGruptaI2016SmartGroupsOfSmartPeople.pdf",
+      "version": "大学库2016 accepted manuscript；正式发表Intelligence 60:46–56（2017）；封面使PDF页=内页+1。本轮下载指纹与旧记录不同，未据此推定正文异文。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF4–7研究1及研究2方法；9–11研究2讨论与研究3部分方法；15–18总讨论、局限、复制争议与结论。",
+      "unreadScope": "未逐项审计全部SEM拟合、图表及原始数据；不采用提取文本中疑似排版异常的χ²自由度。",
+      "checkedAt": "2026-10-28",
+      "sha256": "62af65cc7cd59797a3a52da770e3938e7c473c7bc345a2e12dd4f1974d08b7a9",
+      "carrier": "pdf",
+      "prior": "../round-three-d/notes/e-bates-gupta-2017.md",
+      "claims": [
+        {
+          "id": "bates-gupta-2017-1",
+          "text": "三项研究支持群体任务共同因素，但作者偏好的模型强调平均个体能力；研究2中社会敏感性有任务相关效应，不能简化成所有社会指标均无作用。",
+          "locator": "PDF15–16，General Discussion及Comparing results",
+          "kind": "source-reported"
+        },
+        {
+          "id": "bates-gupta-2017-2",
+          "text": "原研究与本研究任务选择、计分和轮次记录方式存在差别；作者承认时间、群体规模和组织情境范围有限。",
+          "locator": "PDF4–7任务方法；PDF17–18复制争议与更广泛讨论",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "riedl-2021",
+      "title": "Quantifying collective intelligence in human groups",
+      "authors": [
+        "Christoph Riedl",
+        "Young Ji Kim",
+        "Pranav Gupta",
+        "Thomas W. Malone",
+        "Anita Williams Woolley"
+      ],
+      "year": 2021,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8166150/",
+      "version": "PNAS 118:e2005737118；PMC正文，2026-10-28取得；正文仍有44%旧值，须并读2022更正。",
+      "readingStatus": "selected-sections",
+      "readScope": "Abstract；Results之前样本、POGS和任务段；Results全文与Fig.2、Fig.3图注；Discussion从开头至任务选择解释。",
+      "unreadScope": "SI完整模型表、过程变量公式、原始数据与代码未重算。未做独立外部群体留出验证。",
+      "checkedAt": "2026-10-28",
+      "sha256": "783ff493553ec76bf341b289fe40137f2c4fa794781855ad20a518da88eccbe7",
+      "carrier": "html",
+      "prior": "../round-three-d/questions/q-system-boundary.md",
+      "claims": [
+        {
+          "id": "riedl-2021-1",
+          "text": "本文整合22个研究样本，5279人、1356组；三类任务每项研究均有，但八类任务不是每项研究都齐全。",
+          "locator": "Abstract；Results之前数据描述与Fig.1",
+          "kind": "source-reported"
+        },
+        {
+          "id": "riedl-2021-2",
+          "text": "作者每次留出一种任务、用其余七种重新进行两阶段分析并预测被留出任务；平均相关报告为0.40。",
+          "locator": "Results，Fig.2C与leave-one-out段",
+          "kind": "source-reported"
+        },
+        {
+          "id": "riedl-2021-3",
+          "text": "成员技能和协作过程对各任务的相对预测贡献有差异；作者提出任务与界面差异可能解释研究分歧。",
+          "locator": "Results末段、Fig.3；Discussion任务选择段",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "riedl-correction-2022",
+      "title": "Correction for Riedl et al., Quantifying collective intelligence in human groups",
+      "authors": [
+        "PNAS correction notice; authors’ correction"
+      ],
+      "year": 2022,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9171794/",
+      "version": "PNAS 119:e2204380119，2022-05-03在线；PMC更正通知。",
+      "readingStatus": "full-text",
+      "readScope": "更正通知全文（正文全部更正段及结尾作者声明）。",
+      "unreadScope": "更正后的完整SI和分析脚本仍未逐项复算；通知全文不等于原研究全文或独立验证。",
+      "checkedAt": "2026-10-28",
+      "sha256": "8692042558c1d91383d3e631e14b4eabbe2cbf9279181a9857857f5d676f3c8a",
+      "carrier": "html",
+      "prior": null,
+      "claims": [
+        {
+          "id": "riedl-correction-2022-1",
+          "text": "通知将正文及SI所报平均提取方差AVE由44%更正为19.6%。",
+          "locator": "更正通知第二段",
+          "kind": "source-reported"
+        },
+        {
+          "id": "riedl-correction-2022-2",
+          "text": "三指标单因子模型为零自由度饱和模型，拟合统计不能用于评判其拟合优劣；作者称更正不改变主要结论。",
+          "locator": "替换SI段Model 1；通知最后一段",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "barbey-2012",
+      "title": "An integrative architecture for general intelligence and executive function revealed by lesion mapping",
+      "authors": [
+        "Aron K. Barbey",
+        "Roberto Colom",
+        "Jeffrey Solomon",
+        "Frank Krueger",
+        "Chad Forbes",
+        "Jordan Grafman"
+      ],
+      "year": 2012,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326251/",
+      "version": "Brain 135:1154–1164；PMC正文。作者名单以本文署名和作者实验室书目复核；旧C批误列Chau Trinh，当前注释更正为Chad Forbes。",
+      "readingStatus": "selected-sections",
+      "readScope": "Participant data、Lesion analysis、Neuropsychological tests；Voxel-based lesion-symptom mapping；Factor analysis起段；Discussion前四段及Fig.5后的理论解释段。",
+      "unreadScope": "全部SEM、补充图表及原始病损影像未重验；自然发生损伤未随机分配。",
+      "checkedAt": "2026-10-28",
+      "sha256": "b5a3bcd0f6ec0a32bd9366a9807cc5fa27d02d7da49ad059d81fc1fd7ebb4df2",
+      "carrier": "html",
+      "prior": "../round-three-c/notes/e-barbey-2012.md",
+      "claims": [
+        {
+          "id": "barbey-2012-1",
+          "text": "样本为182名越战穿透性头伤男性老兵；体素比较限于至少4人损伤的部位，未覆盖皮层下结构。",
+          "locator": "Participant data；Lesion analysis；Discussion首段",
+          "kind": "source-reported"
+        },
+        {
+          "id": "barbey-2012-2",
+          "text": "病损和g／执行功能受损的定位支持额顶网络的作用；作者提出整合与控制框架，过程解释仍须与定位结果区分。",
+          "locator": "Voxel-based lesion-symptom mapping；Discussion第二段及Fig.5后理论段",
+          "kind": "source-reported"
+        }
+      ]
+    },
+    {
+      "id": "jonas-kording-2017",
+      "title": "Could a Neuroscientist Understand a Microprocessor?",
+      "authors": [
+        "Eric Jonas",
+        "Konrad Paul Kording"
+      ],
+      "year": 2017,
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005268&type=printable",
+      "version": "PLoS Computational Biology 13:e1005268；期刊24页PDF。",
+      "readingStatus": "selected-sections",
+      "readScope": "PDF7–8单晶体管损伤与Fig.4；PDF14–16 Discussion。",
+      "unreadScope": "其他分析及Methods完整实现、全部代码未运行；不以微处理器失败推定所有神经方法失败。",
+      "checkedAt": "2026-10-28",
+      "sha256": "9aa4f4db91746959b880843c05b3d3f5a62b75cba5bfc903d6581bb2ae3c81f6",
+      "carrier": "pdf",
+      "prior": "../round-three-c/notes/e-jonas-kording-2017.md",
+      "claims": [
+        {
+          "id": "jonas-kording-2017-1",
+          "text": "在模拟处理器中，破坏部分晶体管可选择性阻止特定游戏启动；这并未识别晶体管实际承担的计算。",
+          "locator": "PDF7–8，Fig.4及其后解释",
+          "kind": "source-reported"
+        },
+        {
+          "id": "jonas-kording-2017-2",
+          "text": "作者明确说明脑与处理器不同，研究行为输入也受限，并建议使用已知机制系统检验分析方法。",
+          "locator": "PDF14首段之后；PDF16行为限制与方法建议",
+          "kind": "source-reported"
+        }
+      ]
+    }
+  ],
+  "conclusions": [
+    {
+      "id": "p1",
+      "title": "成绩支持能力判断，需要任务与资源条件",
+      "statement": "一次成绩首先是特定系统在特定任务、评分和资源下的结果。跨任务能力与技能获取效率需要额外设计；二者不是同一个测量目标。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "chollet-2019-1",
+        "chollet-2019-2",
+        "woolley-2010-1"
+      ],
+      "assumptions": "固定评分口径，登记训练／先验与测试信息；区分任务留出、对象留出和环境留出。",
+      "objection": "能力构念并不要求穷举所有任务，也不必等待完整机制理论才能有预测用途。",
+      "response": "可以使用有预测效度的能力指标，但要将适用域与未测试的迁移分开。",
+      "discriminator": "使用相同评分与预算，分别留出任务家族和系统／群体，报告学习曲线与不确定性。",
+      "scope": "本篇只确定推理条件，不给人类、机器或群体排统一智能名次。",
+      "routes": [
+        "behavioral",
+        "psychometric",
+        "rational-resource"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "共同变化约束解释，却不唯一识别共同原因",
+      "statement": "共同因素可压缩相关结构并服务预测；把它解释为单一共同心理原因，需要排除能生成同样观察的替代机制。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "borsboom-2004-1",
+        "borsboom-2004-2",
+        "maas-2006-1",
+        "maas-2006-2"
+      ],
+      "assumptions": "区分统计因子、因果变量与具体过程；比较者必须对同一数据口径提出预测。",
+      "objection": "互惠模型也有未识别参数；给出另一个模型不证明它就是真实机制。",
+      "response": "因此保留两类解释：反例推翻的是“相关结构唯一决定机制”的推论，没有判定真实g的起源。",
+      "discriminator": "固定竞争模型与测量模型，用纵向／可解释的干预数据检验它们对变化与迁移的不同预测。",
+      "scope": "本轮高斯反例是不同于互惠发展模型的独立数学例；不宣称复现van der Maas。",
+      "routes": [
+        "psychometric",
+        "developmental-openended",
+        "causal-world-models"
+      ],
+      "check": "method-check/results.json"
+    },
+    {
+      "id": "p3",
+      "title": "损伤效应可以约束因果角色，计算解释仍需过程证据",
+      "statement": "可靠的损伤结果可以约束某结构在所测条件中的因果作用；仅凭性能下降与位置映射，仍不能唯一推出该结构执行的算法。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "barbey-2012-1",
+        "barbey-2012-2",
+        "jonas-kording-2017-1",
+        "jonas-kording-2017-2"
+      ],
+      "assumptions": "区分自然病损和理想干预；考虑断连、测量覆盖、代偿与任务复合需求。",
+      "objection": "定位与病损研究可提供机制研究的重要入口，处理器的失败不否定神经学证据。",
+      "response": "保留定位结果的价值，把“支持必要作用”与“识别运算及组织”写成不同结论。",
+      "discriminator": "在可控系统中结合局部扰动、过程读数、恢复操作与新任务预测；检验一个解释是否同时预测多类结果。",
+      "scope": "病损样本不能支持未覆盖皮层下区域的阴性结论，也不是随机临床干预。",
+      "routes": [
+        "neuroscience",
+        "cognitive-architectures"
+      ],
+      "check": "method-check/results.json"
+    },
+    {
+      "id": "p4",
+      "title": "群体共同因素与协作机制，需要分别审计",
+      "statement": "所读群体研究支持若干任务中的共同变化，但成员能力和协作过程的预测贡献存在分歧。任务、计分、样本与沟通记录不对齐时，不能把分歧压成“只有成员”或“只有协作”。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "woolley-2010-1",
+        "woolley-2010-2",
+        "woolley-2010-som-1",
+        "woolley-2010-som-2",
+        "bates-gupta-2017-1",
+        "bates-gupta-2017-2",
+        "riedl-2021-1",
+        "riedl-2021-3"
+      ],
+      "assumptions": "同一分析单位；群体层有效样本量；相同任务与指标范围；有信度的个体能力测量。",
+      "objection": "Bates–Gupta的模型接近成员能力解释；Riedl的过程变量预测仍不是协作的干预效应。",
+      "response": "两者都构成约束，尚不能据本轮阅读裁决一般群体能力的全部起源。",
+      "discriminator": "按成员能力分层随机化沟通条件，固定任务、计分与总时间，预先比较能力模型、过程模型及混合模型。",
+      "scope": "22样本来自POGS任务体系，不是对所有群体文献的系统元分析；人类群体不能直接外推到多Agent。",
+      "routes": [
+        "collective-extended",
+        "psychometric",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": "预测验证与报告指标必须保留各自口径",
+      "statement": "留出任务的预测、留出群体的预测、因子提取的方差和平均提取方差回答不同问题；相似百分比不能直接拼成同一证据。",
+      "kind": "conditional-synthesis",
+      "evidence": [
+        "woolley-2010-1",
+        "riedl-2021-2",
+        "riedl-correction-2022-1",
+        "riedl-correction-2022-2"
+      ],
+      "assumptions": "明确分母、提取方法、拟合自由度与被留出的单位；更正优先于未更新正文。",
+      "objection": "一个数值更正并不会自动推翻论文所有结论。",
+      "response": "本篇采用19.6%更正值，保留作者主要结论未变的声明；另将无自由度模型与未执行的数据复算列为边界。",
+      "discriminator": "复核版本锁定的原数据及脚本，分别重算AVE、拟合统计和按任务／按群体的预测结果。",
+      "scope": "尚未完成Riedl数据复算，不把报告值称为本项目验证结果。",
+      "routes": [
+        "collective-extended",
+        "psychometric"
+      ]
+    },
+    {
+      "id": "p6",
+      "title": "有限证据下，机制结论应写成受检模型集合",
+      "statement": "每次观察或干预可排除部分竞争模型，但模型在已测条件中等价，并不保证在新情境中等价。综合结论应保留仍未区分的模型与下一项检验。",
+      "kind": "derived-and-editorial",
+      "evidence": [
+        "maas-2006-2",
+        "jonas-kording-2017-2"
+      ],
+      "assumptions": "明确候选模型类、观测变量、干预集和环境范围。",
+      "objection": "要求排除所有可能模型既不现实，也不是科学解释必须满足的标准。",
+      "response": "这里要求排除与当前主张相关的具体竞争解释；保留边界不等于否认渐进解释。",
+      "discriminator": "挑选候选模型预测最分歧且可实施的新情境；若无法区分，缩小结论或承认当前不可识别。",
+      "scope": "不从行为或损伤结果直接裁决意义、体验或物理本体；那些问题另需明确桥接前提。",
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "causal-world-models"
+      ],
+      "check": "method-check/results.json"
+    }
+  ],
+  "cases": [
+    {
+      "id": "skill",
+      "name": "技能与获取效率",
+      "unit": "系统 × 任务 × 经历",
+      "target": "跨任务能力／学习效率",
+      "design": "操作性定义与任务协议",
+      "observed": "表现和先验／经验约束",
+      "supports": "为公平比较规定需控制和披露的条件",
+      "doesNotIdentify": "唯一智能定义、内在算法",
+      "controls": "训练暴露、先验、计算与测试预算",
+      "sources": [
+        "chollet-2019"
+      ],
+      "propositions": [
+        "p1"
+      ],
+      "type": "definition"
+    },
+    {
+      "id": "factor",
+      "name": "统计因子与生成解释",
+      "unit": "个体 × 多项测验",
+      "target": "共同变化从何而来",
+      "design": "概念论证与生成模型",
+      "observed": "正相关与共同因素结构",
+      "supports": "共同原因与发展互惠是不同解释候选",
+      "doesNotIdentify": "现实中的唯一共同原因",
+      "controls": "信度、不变性、模型限制、发展时间尺度",
+      "sources": [
+        "borsboom-2004",
+        "maas-2006"
+      ],
+      "propositions": [
+        "p2",
+        "p6"
+      ],
+      "type": "model"
+    },
+    {
+      "id": "lesion",
+      "name": "人类病损映射",
+      "unit": "182名男性头伤老兵",
+      "target": "g与执行功能的神经依赖",
+      "design": "自然病损与体素间组别比较",
+      "observed": "损伤分布与测验得分",
+      "supports": "所覆盖脑区／连接与受损表现的关系及因果角色约束",
+      "doesNotIdentify": "完整算法、未覆盖结构的作用",
+      "controls": "病损共现、断连、代偿、样本覆盖",
+      "sources": [
+        "barbey-2012"
+      ],
+      "propositions": [
+        "p3"
+      ],
+      "type": "lesion"
+    },
+    {
+      "id": "processor",
+      "name": "已知机制处理器",
+      "unit": "MOS6502模拟与游戏启动",
+      "target": "分析方法能否恢复计算组织",
+      "design": "可控单元损伤与已知机制对照",
+      "observed": "游戏能否启动、晶体管活动",
+      "supports": "特定分析结果可能不足以解释计算",
+      "doesNotIdentify": "脑与处理器同构、所有神经方法无效",
+      "controls": "任务输入受限、层级与计算基准",
+      "sources": [
+        "jonas-kording-2017"
+      ],
+      "propositions": [
+        "p3",
+        "p6"
+      ],
+      "type": "intervention"
+    },
+    {
+      "id": "groups",
+      "name": "群体c的争论链",
+      "unit": "人类小组；不是个人样本数",
+      "target": "共同表现与来源",
+      "design": "2010报告→2017批评→2021综合→2022更正",
+      "observed": "任务相关、预测、过程指标",
+      "supports": "有范围的共同表现与竞争解释",
+      "doesNotIdentify": "普适协作原因、长期组织智慧",
+      "controls": "任务、计分、人数、时间、个体能力、沟通界面",
+      "sources": [
+        "woolley-2010",
+        "woolley-2010-som",
+        "bates-gupta-2017",
+        "riedl-2021",
+        "riedl-correction-2022"
+      ],
+      "propositions": [
+        "p4",
+        "p5"
+      ],
+      "type": "observational"
+    },
+    {
+      "id": "counterexample",
+      "name": "精确等价模型",
+      "unit": "三个高斯变量／二元电路",
+      "target": "推理规则是否成立",
+      "design": "有理数推导与穷举",
+      "observed": "协方差、干预均值、真值表",
+      "supports": "“同观察→同机制”和“有限干预等价→普遍等价”均不成立",
+      "doesNotIdentify": "真实g、群体c或脑的实际机制",
+      "controls": "预先协议中的方程、噪声与干预定义",
+      "sources": [],
+      "propositions": [
+        "p2",
+        "p3",
+        "p6"
+      ],
+      "type": "synthetic"
+    }
+  ],
+  "evidenceAudit": [
+    {
+      "conclusion": "p1",
+      "evidence": "操作性提案＋有限域预测",
+      "supports": "需要显式记录比较条件；预测可支持限定域能力指标",
+      "unresolved": "不存在本篇已验证的跨所有任务定义",
+      "verification": "原文所列范围审校；未执行人机公平比较",
+      "verdict": "作为本研究比较规范采用；不宣布唯一智能定义"
+    },
+    {
+      "conclusion": "p2",
+      "evidence": "概念分析＋生成模型＋精确反例",
+      "supports": "观察结构不足以唯一识别因果机制",
+      "unresolved": "真实个体能力由何机制产生",
+      "verification": "反例有理数核验通过；互惠模型未复现",
+      "verdict": "逻辑反例成立；经验机制仍未裁决"
+    },
+    {
+      "conclusion": "p3",
+      "evidence": "自然病损＋已知机制模拟中的扰动",
+      "supports": "定位／必要作用约束与算法解释可分离",
+      "unresolved": "自然病损混杂、断连、可塑性；具体算法",
+      "verification": "论文选读；无原始影像或MOS6502独立复现",
+      "verdict": "支持限定的推理边界；不否定病损研究价值"
+    },
+    {
+      "conclusion": "p4",
+      "evidence": "原始群体研究、批评与后续多样本分析",
+      "supports": "共同变化与预测贡献的任务依赖",
+      "unresolved": "构念、计分及样本差异；未随机化的过程变量",
+      "verification": "正文／补充片段／更正审校；未复算经验数据",
+      "verdict": "争论未决；不做普适的成员／协作二选一"
+    },
+    {
+      "conclusion": "p5",
+      "evidence": "原始协议与正式更正",
+      "supports": "指标、样本和验证单位必须区分",
+      "unresolved": "更正后完整SI和脚本的独立结果",
+      "verification": "19.6%来自正式更正；不是本项目估计",
+      "verdict": "版本与统计口径可确认；研究整体结论未独立裁决"
+    },
+    {
+      "conclusion": "p6",
+      "evidence": "预先协议下的精确模型反例",
+      "supports": "有限干预等价不推出全情境机制等价",
+      "unresolved": "现实研究应保留的最小竞争模型集合",
+      "verification": "三变量模型与二元真值表已核验",
+      "verdict": "形式范围内成立；语义／体验等桥接前提另议"
+    }
+  ],
+  "synthesis": [
+    {
+      "title": "同一个“更聪明”，可能是四种不同判断",
+      "text": "一个系统答对更多题，可能因为相关经验更多、时间更多、评分偏好某种策略，也可能因为更容易学会新技能。评价首先要说明要预测的是新题成绩、学习速度、跨环境适应，还是要解释实现过程。Chollet给出技能获取效率的一种操作化提案；群体测量研究则把多任务表现压缩为预测指标。它们都可以有研究用途，比较前却必须说明目标是否相同。",
+      "conclusions": [
+        "p1"
+      ]
+    },
+    {
+      "title": "统计压缩不会自行变成机制",
+      "text": "因子模型给出紧凑的共同变化结构，解释模型则要说明这种结构为什么形成。Borsboom等提出因果测量观，van der Maas等展示发展互动的竞争解释。本篇不以某一种效度观统摄所有研究，而用一个更窄的要求审计推理：如果两种模型能生成同样观察，当前观察就不足以把其中一种宣布为唯一机制。数学反例使这一点不依赖任何心理学立场。",
+      "conclusions": [
+        "p2"
+      ]
+    },
+    {
+      "title": "干预改变了什么，仍要继续追问",
+      "text": "病损提供了比无干预共变更直接的因果约束，但自然损伤不是可随意设置的单一开关。Barbey的样本覆盖、伤后变化和任务构成都影响解释边界。Jonas与Kording的已知处理器案例进一步提醒：知道损坏哪个元件会让游戏启动失败，与解释该元件承担何种运算，仍有距离。真正推动解释的下一步，是对局部运算、时间过程和新条件给出能失败的预测。",
+      "conclusions": [
+        "p3"
+      ]
+    },
+    {
+      "title": "群体争论的共同部分与分歧部分",
+      "text": "Woolley、Bates–Gupta和Riedl所研究的群体任务都涉及共同表现结构；争论的重要部分是它与成员能力、社会敏感性及协作过程的关系。任务选择与计分并不完全一致，测量方式和模型也改变了。Riedl的分析增加了多个样本与过程记录，但预测变量的重要性仍不等于操纵该变量的因果效应。因此本篇保留共同因素的限定用途，也保留对其生成机制的争论。",
+      "conclusions": [
+        "p4"
+      ]
+    },
+    {
+      "title": "一条更正记录为何改变综合方式",
+      "text": "2010论文中的第一因素方差比例和2021论文的平均提取方差不是同一个统计量。2022正式更正把后者的44%改为19.6%，并说明三指标模型零自由度，拟合统计没有检验意义。更正没有自动否定所有预测结果，也没有自动解决机制争议。它要求我们把“报告了什么”“用何统计口径”和“是否独立重算”分别保存。",
+      "conclusions": [
+        "p5"
+      ]
+    },
+    {
+      "title": "综合研究交付的是有边界的解释",
+      "text": "本篇的推进结果不是为智能建立一个从成绩直通本质的总分，而是把六条结论的条件、反对意见和下一项区分实验列清楚。系统边界、意义与体验属于后续阶段：若要从功能结果推进到这些主张，必须把桥接前提写出来，不能仅靠新增节点或更大的数据集替代论证。",
+      "conclusions": [
+        "p6"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "design-causal",
+      "title": "先在已知模型中检验识别能力",
+      "status": "design-only",
+      "question": "给定同样观察表现，分析流程能否从干预预测区分共同原因与定向依赖？",
+      "models": "共同原因、顺序依赖及预先指定的混合模型；不得看结果后任意增加自由度。",
+      "design": "先公布模型类和训练观察，锁定参数拟合；把do(X1)、do(X2)以及噪声／测量偏差作为不同验证条件。当前完成的只是无噪声估计误差下的精确基线。",
+      "outcome": "主要结果为留出干预均值预测误差和可排除模型集合；同时报告观察拟合。",
+      "falsification": "观察拟合相当但干预预测失败，否定相应候选；若所有候选在所测条件都等价，报告不可识别而非选最顺眼的解释。",
+      "beforeRun": "经验噪声规模、样本数、估计器、容忍误差和参数先验须在扩展实验前锁定；本轮不虚构统计功效。",
+      "links": [
+        "p2",
+        "p6"
+      ]
+    },
+    {
+      "id": "design-group",
+      "title": "对齐任务后检验协作机制",
+      "status": "design-only",
+      "question": "成员能力相近时，改变可用的协作方式是否改变新任务表现？",
+      "models": "成员能力模型；协作过程模型；二者交互的混合模型。",
+      "design": "在人类研究中以群体为随机化单位，按独立测量的成员能力分层，固定人数、时间、奖励、任务和计分；比较共享工作区与受限沟通条件，先记录操纵是否真的改变协作。另留出任务家族和新群体，避免只做同一批人的题目留出。",
+      "outcome": "预先指定新任务家族的标准化成绩为主要结局；过程日志、任务特定效应和个体测量信度为辅助结果。",
+      "falsification": "若操纵成功但泛化效果低于预定最小效应，限制“协作提高通用能力”的结论；若只改善某类任务，结论限于该类。失败的操纵不能反证协作不重要。",
+      "beforeRun": "锁定任务许可、招募与伦理流程、最小有意义效应、群体层功效、退出与缺失规则及分析脚本。当前没有招募、数据或效果量结果。",
+      "links": [
+        "p1",
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "id": "design-version",
+      "title": "复核群体研究的更正与预测口径",
+      "status": "design-only",
+      "question": "锁定更正后的材料，能否分别复算因子结构和不同验证单位的预测？",
+      "models": "按原文重现；按明确的替代评分和验证单位作敏感性分析，二者分开报告。",
+      "design": "获取并锁定Riedl作者仓库提交、数据与更正后SI；核对README团队数与正文团队数的排除口径，再重现AVE、拟合统计、留出任务结果；预先定义留出研究／群体的外部验证扩展。",
+      "outcome": "逐表一致性与差异清单；每一种验证单位的误差及不确定性。",
+      "falsification": "不能重现时先记录版本／排除／软件原因；不得以任意新分析替代原报告，也不把数值一致自动等同于因果解释成立。",
+      "beforeRun": "作者仓库 https://github.com/riedlc/QuantifyingCI 已定位但代码与数据未下载或执行；下一阶段锁定提交后运行。",
+      "links": [
+        "p4",
+        "p5"
+      ]
+    }
+  ],
+  "priorQuestionLinks": [
+    {
+      "batch": "round-three-b",
+      "id": "q-performance-capability",
+      "addition": "将一次成绩、跨任务预测、技能获取效率拆开；增加留出单位字段。",
+      "conclusions": [
+        "p1",
+        "p5"
+      ]
+    },
+    {
+      "batch": "round-three-b",
+      "id": "q-factor-mechanism",
+      "addition": "加入因果效度观与互惠模型，并用完全相同高斯分布的不同机制核验推论。",
+      "conclusions": [
+        "p2"
+      ]
+    },
+    {
+      "batch": "round-three-c",
+      "id": "q-neural-mechanism",
+      "addition": "把自然病损、理想do与算法解释拆开；补读处理器任务输入限制。",
+      "conclusions": [
+        "p3"
+      ]
+    },
+    {
+      "batch": "round-three-d",
+      "id": "q-system-boundary",
+      "addition": "加入群体能力任务／样本／计分差异与2022更正；仍不把性能贡献当作认知构成证明。",
+      "conclusions": [
+        "p4",
+        "p5"
+      ]
+    },
+    {
+      "batch": "round-three-e",
+      "id": "q-consciousness-explanation",
+      "addition": "作为后续问题接口：功能或因果结果到体验主张所需桥接前提未在本篇裁决。",
+      "conclusions": [
+        "p6"
+      ]
+    }
+  ]
+}

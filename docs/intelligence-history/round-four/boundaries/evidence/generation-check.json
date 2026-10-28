@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-28",
+  "checks": [
+    {
+      "command": "node scripts/generate-intelligence-history.mjs --check",
+      "exitCode": 0,
+      "output": "{\n  \"mode\": \"check\",\n  \"routes\": 20,\n  \"events\": 106,\n  \"sources\": 106,\n  \"relations\": 9,\n  \"reading\": {\n    \"discovery-only\": 89,\n    \"metadata\": 5,\n    \"abstract\": 10,\n    \"selected-sections\": 2,\n    \"full-text\": 0\n  },\n  \"generated\": [\n    \"README.md\",\n    \"round-one.md\",\n    \"reading-queue.md\",\n    \"timeline.svg\",\n    \"timeline.mmd\",\n    \"atlas.html\"\n  ]\n}\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-two.mjs --check",
+      "exitCode": 0,
+      "output": "检查 46 个文件；25节点，16关系。第一轮基线保持一致。\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-a.mjs --check",
+      "exitCode": 0,
+      "output": "Verified 82 files; 34 nodes, 41 sources. Batch remains completed.\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-b.mjs --check",
+      "exitCode": 0,
+      "output": "Verified 53 files; 25 nodes, 29 sources. Batch remains completed.\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-cde.mjs c --check",
+      "exitCode": 0,
+      "output": "Verified 47 files; 19 nodes, 19 sources. Batch remains completed.\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-cde.mjs d --check",
+      "exitCode": 0,
+      "output": "Verified 50 files; 22 nodes, 23 sources. Batch remains completed.\n"
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-three-cde.mjs e --check",
+      "exitCode": 0,
+      "output": "Verified 58 files; 25 nodes, 25 sources. Batch remains completed.\n"
+    },
+    {
+      "command": "python3 scripts/check-intelligence-round-four.py --check",
+      "exitCode": 0,
+      "output": "{\"checks\": {\"exact_covariance\": true, \"determinants\": true, \"intervention_x1\": true, \"intervention_x2\": true, \"circuit_old_context\": true, \"circuit_new_context\": true}, \"mode\": \"checked\"}\n"
+    },
+    {
+      "command": "python3 scripts/check-intelligence-boundaries.py --check",
+      "exitCode": 0,
+      "output": "{\"mode\": \"checked\", \"checks\": {\"terminal_states\": true, \"same_removal_loss\": true, \"history_at_fixed_support\": true, \"order_not_exposure_count\": true, \"state_reset_mediates_history\": true, \"baseline_trajectory_equivalence\": true, \"feedback_intervention\": true, \"synchronous_negative_control\": true}}\n"
+    }
+  ]
+}

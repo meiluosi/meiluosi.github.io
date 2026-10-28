@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-28",
+  "retrievals": [
+    {
+      "id": "searle-1980",
+      "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 5896034,
+      "sha256": "183849485f0da12e798f8d96b5316ce6e2df69f1f96c5ebbc9d1f5a1b4d13731",
+      "status": "retrieved"
+    },
+    {
+      "id": "harnad-1990",
+      "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/harnad90_sgproblem.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 120597,
+      "sha256": "d092fc373c7b231b57bb9304eeea35ea8164acd1c3d7a5a68bd17e4a8aa3d023",
+      "status": "retrieved"
+    },
+    {
+      "id": "bender-koller-2020",
+      "url": "https://aclanthology.org/2020.acl-main.463.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 483567,
+      "sha256": "48823a487ee233ff567aa3fdd3c3f20f8425f0182b6f213c4c7f1e929d2bff77",
+      "status": "retrieved"
+    },
+    {
+      "id": "piantadosi-hill-2022",
+      "url": "https://arxiv.org/pdf/2208.02957v2",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 197158,
+      "sha256": "98f9832b36835695c9b7cba6384601548cbf03676f5bd801572187cc7a669cfe",
+      "status": "retrieved"
+    },
+    {
+      "id": "block-1995",
+      "url": "https://www.nedblock.us/papers/1995_Function.pdf",
+      "exitCode": 56,
+      "kind": "pdf",
+      "error": "curl: (56) The requested URL returned error: 404\n",
+      "status": "failed"
+    },
+    {
+      "id": "chalmers-1995",
+      "url": "https://consc.net/papers/facing.html",
+      "exitCode": 0,
+      "kind": "html",
+      "bytes": 81067,
+      "sha256": "94004ba86288eaf43991d532d876b830acf2b3bde2a1baf4ddd4b87581536804",
+      "status": "retrieved"
+    },
+    {
+      "id": "dehaene-changeux-2011",
+      "url": "https://web.stanford.edu/class/cs379c/resources/inverted/content/Books_and_Journal_Articles_on_Consciousness/Theory_of_Mind_and_Language_Development_Articles/Publications_on_Consciousness_by_Stanislas_Dehaene/DehaeneChangeuxNEURON-11.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 3252647,
+      "sha256": "01c6bab0ed80c9ff41d9f4d058d88533d549963930d9e886556e10cb8e73aa7b",
+      "status": "retrieved"
+    },
+    {
+      "id": "iit4-2023",
+      "url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1011465&type=printable",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 3574048,
+      "sha256": "96129cb9589703e30663969cb0f0f329f706778b88b6b5f4b967a19f994783db",
+      "status": "retrieved"
+    },
+    {
+      "id": "melloni-2023",
+      "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0268577&type=printable",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 2090344,
+      "sha256": "2152d15a55f0286c9e626d8ce0c70bf7fa2c82263fca8281c8d8d80b992750b4",
+      "status": "retrieved"
+    },
+    {
+      "id": "cogitate-2025",
+      "url": "https://www.nature.com/articles/s41586-025-08888-1.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 34863010,
+      "sha256": "0a6cf543d35766ee234dda82f8c1abc223b4d9183a8dc663af7e2e27eb661ed6",
+      "status": "retrieved"
+    },
+    {
+      "id": "cogitate-html",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12137136/",
+      "exitCode": 0,
+      "kind": "html",
+      "bytes": 424746,
+      "sha256": "c161229f63c0681e61fa730d2762f2ff809adea283b0ac958ba67f07f07632ab",
+      "status": "retrieved"
+    },
+    {
+      "id": "block-1995",
+      "url": "https://divinecuration.github.io/assets/pdf/block-confusion.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 7055157,
+      "sha256": "6d2813e281b208a2acf0c15adf9c26f14ba264d60125c250cb31be82e1d2b692",
+      "status": "retrieved"
+    },
+    {
+      "id": "cogitate-supp-2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/12137136/bin/41586_2025_8888_MOESM1_ESM.pdf",
+      "exitCode": 0,
+      "kind": "pdf",
+      "bytes": 1817,
+      "sha256": "beac24c865942967319926089a85e51fec8cef588ccfa75c0e67618f31cea3c7",
+      "status": "invalid-payload",
+      "note": "HTTP成功但返回HTML，未计为PDF取得或阅读。"
+    },
+    {
+      "id": "cogitate-supp-2025",
+      "url": "https://static-content.springer-cdn.com/esm/art%3A10.1038%2Fs41586-025-08888-1/MediaObjects/41586_2025_8888_MOESM1_ESM.pdf",
+      "exitCode": 6,
+      "kind": "pdf",
+      "error": "curl: (6) Could not resolve host: static-content.springer-cdn.com\n",
+      "status": "failed"
+    },
+    {
+      "id": "cogitate-supp-2025",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-025-08888-1/MediaObjects/41586_2025_8888_MOESM1_ESM.pdf",
+      "status": "retrieved",
+      "bytes": 14481165,
+      "sha256": "30d9b09341642e25e182e0b5fcc77bb3b690c39d4532b9c3bb69e999189eeccd",
+      "magicVerified": true
+    },
+    {
+      "id": "prereg-v4-2022",
+      "url": "https://osf.io/download/gm3vd/",
+      "status": "retrieved",
+      "bytes": 1994760,
+      "sha256": "2c0bae3586394ddb3375c333020d309b91099f0ccba39c503c95cad2c8a98a99",
+      "magicVerified": true
+    },
+    {
+      "id": "osf-web",
+      "url": "https://osf.io/92tbg/",
+      "status": "failed",
+      "note": "网页入口403；改用公开API文件目录及其下载链接。"
+    },
+    {
+      "id": "osf-api",
+      "url": "https://api.osf.io/v2/nodes/92tbg/files/osfstorage/",
+      "status": "retrieved",
+      "sha256": "357bd192845bfa7a899f6155a8b47afb6e92ad771c822dadfb50261d3f4ec525",
+      "note": "目录列明上传日期2022-12-23、文件名4.0及SHA；内容页眉4.5。"
+    }
+  ],
+  "visualChecks": [
+    {
+      "source": "block-1995",
+      "pdfPages": [
+        5
+      ],
+      "note": "目视刊页231，报告不是必要条件；镜像自带高亮不作额外证据。"
+    },
+    {
+      "source": "iit4-2023",
+      "pdfPages": [
+        5
+      ],
+      "note": "目视公设与量的区分，避免把Φ与系统不可约量混写。"
+    },
+    {
+      "source": "prereg-v4-2022",
+      "pdfPages": [
+        11
+      ],
+      "note": "目视Version 4.5与日期、拆分文字。"
+    },
+    {
+      "source": "cogitate-2025",
+      "pdfPages": [
+        29,
+        30
+      ],
+      "note": "目视扩展图7和表1，核对关键／非关键、方向不确定、PPC／DFC分析身份；未把图色合成总分。"
+    }
+  ],
+  "readingScopes": [
+    {
+      "id": "searle-1980",
+      "read": "PDF 3–6（刊页419–422）：系统、机器人、脑模拟和组合回应；PDF 34下部–35（450–451）：作者回应开头、直觉与内在意向性。",
+      "unread": "未通读全部评论和作者回应；34页上部另属评论，不登记为Searle主张。"
+    },
+    {
+      "id": "harnad-1990",
+      "read": "PDF 6–8，§3.2图像／范畴表征、§3.3符号表征、§4混合机制及§5结论。",
+      "unread": "未在本轮重读§1–3.1和全部脚注，也未复现分类学习机制。"
+    },
+    {
+      "id": "block-1995",
+      "read": "PDF 1摘要；PDF 4–6（刊页230–232），§3现象意识、§4访问意识及两者区别。",
+      "unread": "未读完其余目标文、评论与回应；未逐例核验盲视研究，也未读1997修正版。"
+    },
+    {
+      "id": "chalmers-1995",
+      "read": "§2末尾、§3功能说明与困难问题；§4开头案例；§5后半（非算法、动力学、物理说明的论证）；§6开头至自然主义二元论说明。",
+      "unread": "未完整审读§4、§5前部、§6末尾与§7全部原则；其他作品仅被原文引用，没有据此计为已读。"
+    },
+    {
+      "id": "dehaene-changeux-2011",
+      "read": "PDF 1（200）定义；PDF 13–14（212–213）点燃模拟、汇总与挑战；PDF 19–20（218–219）结论及展望。",
+      "unread": "未完整审读全部实验和模型；文中临床与动物引用未独立核验，不作医疗判断。"
+    },
+    {
+      "id": "bender-koller-2020",
+      "read": "PDF 3–4（5187–5188）§3定义及§4章鱼思想实验开头；PDF 8–9（5192–5193）§8.2–10。",
+      "unread": "未完整阅读全部案例、附录和所引实验；不把思想实验当作现代语言模型的实际失败记录。"
+    },
+    {
+      "id": "piantadosi-hill-2022",
+      "read": "PDF 1–5正文：概念角色、指称、文本结构和交际意图。",
+      "unread": "未核验参考文献6–8及其所引神经与模型研究；嵌入定理类比不等于实证证明。"
+    },
+    {
+      "id": "prereg-v4-2022",
+      "read": "PDF 1版本页；10–12阶段、拆分与脚注；15–16质量控制和Division of data to phases。",
+      "unread": "未通读83页、全部预测表和分析代码；未逐一审计v1–v3原件。16页fMRI预定子集数与同页总数存在不一致，未自行修正。"
+    },
+    {
+      "id": "melloni-2023",
+      "read": "PDF 7–8，图1图注、阶段与时间线；10–12，实验1设计、排除规则、三类预测及计划分析。",
+      "unread": "实验2及其最终结果不在本轮审读完成范围；完整方法和既往预注册文件仍未全部审计。"
+    },
+    {
+      "id": "iit4-2023",
+      "read": "PDF 3–6公理、公设及解释性同一；37–39功能等价、结论与计算限制；目视5页定义。",
+      "unread": "未逐式验证7–36页推导、补充证明或运行PyPhi；未计算真实脑网络的Φ。"
+    },
+    {
+      "id": "cogitate-2025",
+      "read": "PDF 1–3、6–11；13页Analysis strategy；29–30扩展图7和表1（含图像目视）。",
+      "unread": "未完整审计PDF 4–5全部细节、其余方法、全部扩展数据或原始数据；按协议的实验2未计完成。"
+    },
+    {
+      "id": "cogitate-supp-2025",
+      "read": "PDF 2–4目录；120–126（正文119–125），§12、12.1、§13完整及§14主要偏离1–8；§14后续小项只读开头。",
+      "unread": "未通读前部实验分析、全部偏离小项或原始数据；理论方的替代解释未被本轮独立验证。"
+    }
+  ],
+  "limits": "仅保存原创研究笔记和版本指纹；临时原件不纳入仓库。文件取得不代表全文审读。公开API快照只支持所见元数据，不证明全过程锁定。"
+}

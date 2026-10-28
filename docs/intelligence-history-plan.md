@@ -1,6 +1,6 @@
 # 智能问题演进史：研究与维护方案
 
-2026-10-23，作者确认将已有智能探索路线整理为长期维护的研究工程，并启动第一轮。研究不设成本或 token 上限；按可审阅的阶段交付推进。2026-10-25完成[第二轮三个样板](./intelligence-history/round-two/README.md)：25个指定主张审校节点，附原文定位、文献笔记及可编辑图。第一轮保留为[候选基线](./intelligence-history/README.md)。[第三轮A批](./intelligence-history/round-three-a/README.md)于2026-10-27完成[指定范围验收](./intelligence-history/round-three-a/validation.md)：34节点、41份来源阅读记录、109条定位主张、33条关系、三张问题卡、两组版本对照及Baird六状态复现。[第三轮B批](./intelligence-history/round-three-b/README.md)于2026-10-27完成指定范围验收（25节点、29来源、73主张、20关系、三张问题卡、两项A批回访和一项合成方法核验）；C—E批于2026-10-27完成[联合验收](./intelligence-history/cde-validation.md)：10条路线、66条节点记录、67条来源、129条主张、51条关系、9张问题卡、9项回访和三项合成核验。现已建立[20路线统一入口](./intelligence-history/index.html)、[覆盖与缺口表](./intelligence-history/coverage.md)及[共同问题索引](./intelligence-history/questions-index.md)；第四轮于2026-10-28启动，第一阶段「比较框架与证据审计」已完成[指定范围验收](./intelligence-history/round-four/validation.md)，形成[首篇综合工作台](./intelligence-history/round-four/index.html)。第二阶段[系统边界与发展](./intelligence-history/round-four/boundaries/index.html)已完成指定范围验收；意义与意识、综合修订与网站联动按[阶段计划](./intelligence-history/round-four/plan.md)继续推进。
+2026-10-23，作者确认将已有智能探索路线整理为长期维护的研究工程，并启动第一轮。研究不设成本或 token 上限；按可审阅的阶段交付推进。2026-10-25完成[第二轮三个样板](./intelligence-history/round-two/README.md)：25个指定主张审校节点，附原文定位、文献笔记及可编辑图。第一轮保留为[候选基线](./intelligence-history/README.md)。[第三轮A批](./intelligence-history/round-three-a/README.md)于2026-10-27完成[指定范围验收](./intelligence-history/round-three-a/validation.md)：34节点、41份来源阅读记录、109条定位主张、33条关系、三张问题卡、两组版本对照及Baird六状态复现。[第三轮B批](./intelligence-history/round-three-b/README.md)于2026-10-27完成指定范围验收（25节点、29来源、73主张、20关系、三张问题卡、两项A批回访和一项合成方法核验）；C—E批于2026-10-27完成[联合验收](./intelligence-history/cde-validation.md)：10条路线、66条节点记录、67条来源、129条主张、51条关系、9张问题卡、9项回访和三项合成核验。现已建立[20路线统一入口](./intelligence-history/index.html)、[覆盖与缺口表](./intelligence-history/coverage.md)及[共同问题索引](./intelligence-history/questions-index.md)；第四轮于2026-10-28启动，第一阶段「比较框架与证据审计」已完成[指定范围验收](./intelligence-history/round-four/validation.md)，形成[首篇综合工作台](./intelligence-history/round-four/index.html)。第二阶段[系统边界与发展](./intelligence-history/round-four/boundaries/index.html)已完成指定范围验收；第三阶段[意义与意识解释](./intelligence-history/round-four/meaning/index.html)亦已完成指定范围验收；综合修订与网站本地集成已完成[指定范围验收](./intelligence-history/round-four/integration/validation.md)。
 
 ## 研究目标
 
@@ -73,7 +73,7 @@ C—E交付见[联合验收](./intelligence-history/cde-validation.md)。全局�
 
 第二阶段于2026-10-28完成[系统边界与发展](./intelligence-history/round-four/boundaries/index.html)：9份选读、27条定位主张、6条条件性结论、5个案例、3组可编辑图、16种历史条件与8项精确检查。补齐边界判据、时间尺度、介入位置和状态历史字段，回访A、C、D批4张问题卡；[完整验收](./intelligence-history/round-four/boundaries/validation.md)列明版本与独立验证边界。
 
-接下来依次推进意义与意识解释、综合修订与网站联动。两个阶段各有3项后续研究方案，均仍为未执行设计；完成的独立验证是预先协议下的数学反例。更新通过[当前索引注释层](./intelligence-history/index-annotations.json)生效，旧批次数据与笔记保留历史快照。
+第三阶段于2026-10-28完成[意义与意识解释](./intelligence-history/round-four/meaning/index.html)：12份选读、40条主张、6条结论、6项预测比较、3组可编辑图和11项精确检查；版本与实施差异单列，详见[验收](./intelligence-history/round-four/meaning/validation.md)。随后第四阶段完成共同复核与网站本地集成。前三阶段各有3项后续研究方案，共9项均仍为未执行设计；完成的独立验证是预先协议下的数学反例。更新通过[当前索引注释层](./intelligence-history/index-annotations.json)生效，旧批次数据与笔记保留历史快照。
 
 ## 图的三层组织
 
@@ -142,3 +142,6 @@ flowchart LR
 3. Binet–Simon 等早期来源存在卷年与实际出版年差异；信息瓶颈、MuZero 等存在会议、预印本和期刊日期差异。
 4. 跨文化路线不能只由几部现代英译代表全部传统；意识与非经典路线不能把争议性主张写成既定发现。
 5. 现有文档中尚未识别的 dot 批次继续保留独立状态；本轮新检索集合不冒充那一批原始文献。
+
+
+第四阶段于2026-10-28完成[共同复核与网站本地集成](./intelligence-history/round-four/integration/README.md)：18条结论、31条来源、三篇原生综述、9项未执行设计排序。历史144节点与原有读段状态保持不变；下一步优先锁定群体研究版本再复算原报告。公网部署未执行，后续数据复算和专项阅读不计为本轮已完成。

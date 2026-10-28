@@ -4,6 +4,7 @@
  * 每个路线独立展示其底层问题、分支体系、批判反思、关联文章与交互实验
  */
 import { getCollection } from "astro:content";
+import ResearchEntry from "@/components/research/ResearchEntry.astro";
 import Text from "@/components/common/BilingualText.astro";
 import Lens01Behavioral from "@/components/features/route-lenses/Lens01Behavioral.svelte";
 import Lens02Psychometric from "@/components/features/route-lenses/Lens02Psychometric.svelte";
@@ -138,13 +139,14 @@ const dateLabel = (date: Date) => {
 					<Text as="p" class="thesis-text" zh={route.coreThesisZh} en={route.coreThesisEn} />
 				</div>
 			</header>
+			<ResearchEntry routeId={route.id} />
 
 			<!-- 专属交互认知透镜：构建期按需分包挂载单路线沙盒（消除 95% 跨页冗余 JS/CSS） -->
 			<section class="content-block lens-block" aria-labelledby="lens-heading">
 				<div class="block-header">
 					<span class="block-num">00</span>
 					<h2 id="lens-heading">
-						<Text zh="交互认知透镜：一眼看懂本路线核心机制" en="Interactive Cognitive Lens: Paradigm Mechanism Sandbox" />
+						<Text zh={["collective-extended", "philosophy-of-mind", "consciousness-self"].includes(route.id) ? "研究透镜：检验推理的边界" : "交互认知透镜：一眼看懂本路线核心机制"} en={["collective-extended", "philosophy-of-mind", "consciousness-self"].includes(route.id) ? "Research lens: testing inference boundaries" : "Interactive Cognitive Lens: Paradigm Mechanism Sandbox"} />
 					</h2>
 				</div>
 				{route.id === "behavioral" && <Lens01Behavioral client:visible />}

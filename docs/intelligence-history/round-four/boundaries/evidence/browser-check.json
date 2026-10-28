@@ -5,9 +5,9 @@
     "1440×1000",
     "390×844"
   ],
-  "researchSHA256": "424a04d89a50657122b5cbd2cb39650ec34d497a816d8411561f38bb7de33361",
-  "htmlSHA256": "8a6a56083e6f6d0660af3bee756a6622f530534baaccb0d39cc49b3fc8e5eb02",
-  "checkerSHA256": "2e56acba3ad32ed14b4e311ef91835070805d635ed1bc507e79e62e3f8138fff",
+  "researchSHA256": "4b0546b12b002c51f2a4351d43defe9a6a55d49ea2f36d7a433cf61f377b3a50",
+  "htmlSHA256": "4dfd88c27c38ff5a3943c297d9cea01a42a5beed20bb23a5c18b654f8ee46aac",
+  "checkerSHA256": "c6ba6898ffb2e497e8d6d9238690260c4e37425b429c503375c11d815e84b6e9",
   "graphsKeyboardToggle": 3,
   "svgTextBounds": [
     {
@@ -34,7 +34,7 @@
   "sourceSearch": "matching, no results and reset",
   "deepLink": "b5 opened",
   "duplicateIDs": [],
-  "directHrefCount": 75,
+  "directHrefCount": 77,
   "brokenLocalLinks": [],
   "mobile": {
     "width": 390,

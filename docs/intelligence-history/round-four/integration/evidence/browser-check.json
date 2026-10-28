@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-28",
+  "base": "http://127.0.0.1:4327",
+  "browser": "Microsoft Edge via Playwright",
+  "reviewSHA256": "e461eafe18c9c62da122c6aa709034584cd0e50dcf34c5b0eecec0381007d2aa",
+  "checkerSHA256": "18fd9cb829ed453ffceac8a9f1333c20da3fa386d5187a638b4c3643725d6861",
+  "sourceSHA256": {
+    "src/pages/routes/[id].astro": "3f763ccb900bba711728e93e594b6ae08472570a447521b78bc6fc01b1eabc98",
+    "src/pages/routes.astro": "28ae65e32b097638dd9026db700e73f2816e9ceb8d7ce4b4e854a794776f4ff6",
+    "src/pages/library.astro": "506d1b0b81fd44568ab2cb4c39ad41d36111c539818ba8ad553b51c4a7cbc1f8",
+    "src/pages/notes.astro": "e7d3d62ed618b2abd46b3c7477f2acb1c9fd6a05bdcf027ee2d39be5c1803bc6",
+    "src/layouts/ExploreLayout.astro": "77e1545a383b39fbf9e9a4172d19bc9c160b440d0cdc6495622dbaeadd2d0215",
+    "src/components/research/ResearchEntry.astro": "0781eaf5829dcb0445ea7a25fb21c1af3e2ca7ba3e3647262421c32fa3550f9b",
+    "src/components/features/route-lenses/Lens15ExtendedMind.svelte": "daf8f063392f9f8b20c7da567d12894a74320a4cc529e0b2dcfff7abc10b649f",
+    "src/components/features/route-lenses/Lens17PhilosophyOfMind.svelte": "ea0621fa10f10cd389e3f66af5a9eb9b57bc0f9852ebfa2e89c7410b0bdb9025",
+    "src/components/features/route-lenses/Lens18Consciousness.svelte": "d30321065d35fd16fe57fc9b8cfcd8d7650b0feafaae5eda05c0a866110cdf95",
+    "src/data/intelligenceResearch.ts": "ac8f95e2084355ca7f77908952a58db57970a1ada19cd2f393973efc003f7acd",
+    "src/components/research/ReviewedInferenceLens.svelte": "2f59dfcd88bac1d4a5fbc998e67f9dc219964bc2d463c53d11e79df4b0c62c68",
+    "src/styles/intelligence-research.css": "5394525ad3febbafc80e4ccd2f4ca37fcd03f5ab270f240d643e3028b2f78ff2",
+    "src/pages/research/intelligence/[id].astro": "91d43fe5379102c57a9da1b63796476e068178e5c531573973c91325903b1b48",
+    "src/pages/research/intelligence/index.astro": "59e40c219912670adc942b0cf45dc96f0f1fcfa748a08808feaa304d8a97dcd1",
+    "src/pages/research/intelligence/next.astro": "7acdc970e67dd0d222c643906d61a07c6a438350f33f8be17ce8492d8978c675",
+    "src/pages/research/intelligence/review.astro": "f582c990324b26452d14970a5bd0c0b0f94223b2654fb413c6361eedf3b11cac",
+    "src/pages/research/intelligence/sources/[id].astro": "e2c8ed5d0af0797b9ff6d1f1e0714c608fb6b0ffda1fce13a5dfbb9603ec9810",
+    "src/pages/research/intelligence/sources/index.astro": "e5e178ef20fe3badd70fb6d38d3599d7f9c8fdda8469d49d5055b6638c41de87"
+  },
+  "conclusionsKeyboard": 18,
+  "sourceFilters": [
+    31,
+    10,
+    9,
+    12
+  ],
+  "searchEmptyAndReset": true,
+  "queryReload": true,
+  "navigationReconnect": true,
+  "sourceDeepLink": true,
+  "historyConditions": 16,
+  "semanticConditions": 4,
+  "reportConditions": 4,
+  "lensLanguageSwitch": true,
+  "noJavaScriptReading": true,
+  "themeMode": "existing sage/light palette; dark mode not tested",
+  "viewports": [
+    {
+      "label": "overview-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "evidence-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "boundaries-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "meaning-desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "label": "overview-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "meaning-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "source-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "sources-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "review-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "queue-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "history-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "semantics-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "label": "report-mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "scriptErrors": []
+}

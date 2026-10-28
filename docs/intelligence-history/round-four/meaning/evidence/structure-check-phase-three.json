@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-28",
+  "localPathReferences": 1139,
+  "explicitAnchors": 266,
+  "legacyFragmentsPathOnly": 231,
+  "svgDocuments": 3,
+  "snapshots": {
+    "baselines.json": 9,
+    "previous-content-baselines.json": 12
+  },
+  "sources": 12,
+  "selectedSections": 12,
+  "sourceClaims": 40,
+  "conclusions": 6,
+  "cases": 5,
+  "relations": 10,
+  "editorialComparisons": 3,
+  "methodChecks": 11,
+  "designsNotExecuted": 3,
+  "predictionComparisons": 6,
+  "semanticConditions": 4,
+  "signalConditions": 4,
+  "premiseRows": 8,
+  "historicalNodeCountsUnchanged": true,
+  "browserEvidenceMatchesCurrentFiles": true,
+  "errors": [],
+  "scope": "Phase-three documents, global entries, prior-phase navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested."
+}

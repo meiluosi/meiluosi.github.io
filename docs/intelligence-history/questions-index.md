@@ -54,4 +54,7 @@ B—E是限定条件下的合成方法核验，不是所引用人类、动物或
 
 [从表现到机制的证据边界](round-four/index.html)回访B批表现／构念、C批神经机制、D批系统边界和E批意识解释问题；旧卡保持快照，新增条件见[综合综述](round-four/synthesis.md)。
 
-第二阶段[系统边界与发展](round-four/boundaries/index.html)进一步回访A批主体—环境、C批发展与生命、D批系统边界；[综述](round-four/boundaries/synthesis.md)保留增量和定位，四项回访不改变旧批次11项回访的统计口径。
+第二阶段[系统边界与发展](round-four/boundaries/index.html)进一步回访A批主体—环境、C批发展与生命、D批系统边界；[综述](round-four/boundaries/synthesis.md)保留增量和定位，四项回访不改变旧批次11项回访的统计口径。第三阶段[意义与意识解释](round-four/meaning/index.html)回访语义与意识两张E批问题卡，并为量子实现问题保留桥接接口；其专项证据未新增审读。见[综述](round-four/meaning/synthesis.md)及[预测台账](round-four/meaning/predictions.md)。
+
+
+第四阶段已建立[共同复核与网站联动](round-four/integration/README.md)：18条结论、31条来源记录；旧节点数量与阅读范围保留。

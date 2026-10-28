@@ -44,6 +44,9 @@
 - **collective-extended**：登记第四轮两个阶段的群体证据与系统边界审计。
 - **developmental-openended**：登记第四轮第二阶段增量；旧路线文档保持历史快照。
 - **autopoiesis-evolution**：登记第四轮第二阶段增量；旧路线文档保持历史快照。
+- **philosophy-of-mind**：登记第四轮第三阶段指定阅读增量；历史路线保留快照。
+- **consciousness-self**：登记第四轮第三阶段指定阅读增量；历史路线保留快照。
+- **information-physics**：登记第四轮第三阶段指定阅读增量；历史路线保留快照。
 
 ## 书目更正
 

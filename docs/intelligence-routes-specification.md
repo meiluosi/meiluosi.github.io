@@ -61,14 +61,14 @@
 | 序号 | 路线 ID (`route.id`) | 路线名称 | 专属交互透镜组件 | 核心可交互原理 |
 | :--- | :--- | :--- | :--- | :--- |
 | **XIV** | `sociocultural-language` | 社会文化、语言、心智理论与教育 | `Lens14Sociocultural.svelte` | **托马塞洛文化棘轮效应模拟器**：调节代际符号传授保真度与社群连接规模，观察跨代知识如何突破「文化滑脱阈值」实现指数累积。 |
-| **XV** | `collective-extended` | 群体智能、延展心智与人机共生 | `Lens15ExtendedMind.svelte` | **克拉克延展心智与奥托笔记本回路**：对比多位数推演下「裸脑工作记忆溢出」与「挂载外部符号脚手架」的认知延迟、准确率与系统边界判定。 |
+| **XV** | `collective-extended` | 群体智能、延展心智与人机共生 | `Lens15ExtendedMind.svelte` | **历史与当前支持的有限模型**：交叉改变四步输入、当前支持和状态重置；检验同样移除效应与不同历史。读数不表示人类准确率、延迟或认知构成。 |
 | **XVI** | `information-physics` | 信息论、压缩、热力学与物理限制 | `Lens16InformationPhysics.svelte` | **蒂什比信息瓶颈与兰道尔能耗边界**：拖动拉格朗日乘子 $\beta$，在信息平面上权衡输入压缩代价 $I(X;T)$、预测有效互信息 $I(T;Y)$ 与热力学擦除耗散。 |
 
 ### 聚落 V：心灵、意识与价值智慧 (`mind`)
 | 序号 | 路线 ID (`route.id`) | 路线名称 | 专属交互透镜组件 | 核心可交互原理 |
 | :--- | :--- | :--- | :--- | :--- |
-| **XVII** | `philosophy-of-mind` | 心灵哲学：功能主义、意向性与接地 | `Lens17PhilosophyOfMind.svelte` | **塞尔中文房间与符号接地沙盒**：切换「房间外部功能主义视角」与「掀开屋顶意向性视角」，直观暴露纯语法字形查表与具身语义接地之间的鸿沟。 |
-| **XVIII** | `consciousness-self` | 意识、主观体验、自我模型与反身性 | `Lens18Consciousness.svelte` | **全局神经工作空间非线性点火剧场**：调节刺激显著度跨越 65% 点火阈值，观察局部阈下模块激活如何突变为全脑同步广播并涌现整合信息 $\Phi$。 |
+| **XVII** | `philosophy-of-mind` | 心灵哲学：功能主义、意向性与接地 | `Lens17PhilosophyOfMind.svelte` | **指称映射与锚点**：枚举三符号双射，在无锚点、一个、两个及矛盾约束下保留6／2／1／0个候选；不把映射识别当作理解或意识指标。 |
+| **XVIII** | `consciousness-self` | 意识、主观体验、自我模型与反身性 | `Lens18Consciousness.svelte` | **报告与候选信号依赖**：交叉刺激S和报告要求Q，比较N_A=S、N_B=R=S∧Q；均不是体验真值。GNW与IIT分开，不使用人为Φ或普适点火阈值。 |
 | **XIX** | `wisdom-values` | 智慧、价值理性与跨文明心性传统 | `Lens19WisdomValues.svelte` | **斯腾伯格智慧平衡 vs 回形针最大化器**：独立调节「工具理性算力」与「跨主体长远价值反思」，揭示高智商低智慧引发的古德哈特目标异化风险。 |
 | **XX** | `metaphysics-quantum` | 量子认知、微管量子假说与形而上学 | `Lens20QuantumCognition.svelte` | **量子认知非对易投影次序效应**：在希尔伯特子空间中切换提问测量算符顺序 $P_B P_A |\psi\rangle$ 与 $P_A P_B |\psi\rangle$，演示语境叠加态坍缩与方法论边界。 |
 
@@ -93,3 +93,7 @@ pnpm check        # Astro & Svelte 组件诊断
 pnpm type-check   # TypeScript --isolatedDeclarations 严格类型检查
 pnpm build        # 全量静态预渲染构建（验证 20 个 /routes/[id]/ 专题页及 Pagefind 索引生成）
 ```
+
+### 第四轮审校与原生研究入口（2026-10-28）
+
+XV、XVII、XVIII三项现由 `ReviewedInferenceLens.svelte` 复用先前核验的有限模型，入口在构建期仍按路线选择独立组件。`/research/intelligence/` 提供三篇综述、18条修订对照、31个来源页与后续队列；其他认知透镜仍保留原状态，本次没有为它们追加证据认证。详情见[综合修订验收](./intelligence-history/round-four/integration/validation.md)。

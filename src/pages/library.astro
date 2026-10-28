@@ -1,4 +1,5 @@
 ---
+import ResearchEntry from "@/components/research/ResearchEntry.astro";
 import Text from "@/components/common/BilingualText.astro";
 import { library } from "@/data/library";
 import ExploreLayout from "@/layouts/ExploreLayout.astro";
@@ -41,6 +42,7 @@ const shortTitles: Record<string, string> = {
 ---
 <ExploreLayout title="文献架" titleEn="Research library" description="模型训练、强化学习与因果推断的论文、教材及开源项目。" descriptionEn="Papers, textbooks, and open-source projects on model training, reinforcement learning, and causal inference.">
  <header class="explore-hero compact-page-heading"><Text as="h1" zh="研究文献与开源资料" en="Research literature and open-source resources" /></header>
+<ResearchEntry />
  <reference-library>
   <div class="library-controls">
    <label><Text zh="研究主题" en="Research topic" /><select data-topic><option value="" data-i18n="library.all" data-i18n-zh="全部主题" data-i18n-en="All topics">全部主题</option>{topics.map(topic=><option value={topic.id} data-i18n="library.topic" data-i18n-zh={topic.zh} data-i18n-en={topic.en}>{topic.zh}</option>)}</select></label>

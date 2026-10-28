@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-28",
+  "check": {
+    "command": "pnpm check",
+    "files": 200,
+    "errors": 0,
+    "warnings": 0,
+    "hints": 0
+  },
+  "types": {
+    "command": "pnpm type-check",
+    "passed": true
+  },
+  "build": {
+    "command": "AI_SUMMARY_API_KEY= pnpm build",
+    "pages": 287,
+    "passed": true,
+    "externalAISummaries": false,
+    "warnings": [
+      "Existing Vite chunk over 500 kB",
+      "npm manage-package-manager-versions configuration"
+    ]
+  },
+  "scope": "Local production build, no commit/push/deployment",
+  "logsSHA256": {
+    "check": "f217b628f5d9bd8fb74f89623b17218a78b52351ed010475cf738d4c1b742ded",
+    "types": "0458b7b260f2fab6895b13a01cf8124febb6899cd177e661b5cd8db1cd31e2fb",
+    "build": "41fbbaee29460747ca802359cad26e5b7ca98b565c033008b6fbbaeeb68242c7"
+  }
+}

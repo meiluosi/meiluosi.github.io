@@ -1,0 +1,15 @@
+---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import {
+	researchReview,
+	researchArticleForConclusion,
+	classificationLabels,
+} from "@/data/intelligenceResearch";
+import "@/styles/intelligence-research.css";
+---
+<ExploreLayout title="18条结论的共同复核" titleEn="Review of 18 conclusions" description="原句、修订句、修改理由与跨篇分歧对照。" descriptionEn="Original and revised claims, editorial reasons and cross-essay comparisons. Chinese-language research.">
+	<article class="research-page" lang="zh-CN"><nav class="research-nav"><a href="/research/intelligence/">← 综合研究</a><a href="/research/intelligence/downloads/review.json" download>下载修订记录</a></nav><h1>18条结论的共同复核</h1><p class="lead">13条收紧措辞，5条保留原句。没有发现必须撤回的直接逻辑冲突；这不表示理论争议已被解决。</p><div class="scope-note">{researchReview.reviewScope}</div>
+		<h2>跨篇比较得到什么？</h2><div class="glossary">{researchReview.crossReview.map(item => <section class="research-card"><h3>{item.title}</h3><p>{item.resolution}</p><nav class="citations">{item.conclusions.map(id => <a href={`#${id}`}>{id}</a>)}</nav></section>)}</div>
+		<h2>逐条修订</h2>{researchReview.reviews.map(review => <section class="conclusion" id={review.id}><span class="tag">{review.id}</span><span class="tag">{classificationLabels[review.classification]}</span><span class="tag">{review.decision === "retain" ? "保留原句" : "收紧措辞"}</span><h3>{review.title}</h3><p>{review.revised}</p><details><summary>原句与修订理由</summary><p class="review-old">原句：{review.original}</p><p>理由：{review.reason}</p></details><a href={`/research/intelligence/${researchArticleForConclusion(review.id).id}/#${review.id}`}>前提、反方、范围与定位证据 →</a></section>)}
+	</article>
+</ExploreLayout>

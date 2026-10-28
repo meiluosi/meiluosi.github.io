@@ -1,0 +1,1246 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "title": "综合修订与网站联动",
+  "status": "reviewed-scope",
+  "reviewScope": "对前三篇18条结论、已有定位主张、反方与阅读范围作编辑性共同复核；本阶段未新增原典阅读或原始数据复算，非独立同行评审。",
+  "articles": [
+    {
+      "id": "evidence",
+      "folder": "",
+      "title": "表现、能力与机制",
+      "titleEn": "Performance, capacity and mechanism",
+      "routes": [
+        "behavioral",
+        "psychometric",
+        "learning-efficiency",
+        "rational-resource",
+        "causal-world-models",
+        "neuroscience",
+        "cognitive-architectures",
+        "collective-extended"
+      ],
+      "graphs": [
+        "inference-map",
+        "collective-debate"
+      ],
+      "conclusions": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ]
+    },
+    {
+      "id": "boundaries",
+      "folder": "boundaries",
+      "title": "系统边界与发展",
+      "titleEn": "System boundaries and development",
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ],
+      "graphs": [
+        "boundary-map",
+        "timeline",
+        "timescales"
+      ],
+      "conclusions": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    },
+    {
+      "id": "meaning",
+      "folder": "meaning",
+      "title": "意义与意识解释",
+      "titleEn": "Meaning and consciousness",
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ],
+      "graphs": [
+        "bridge-map",
+        "timeline",
+        "prediction-map"
+      ],
+      "conclusions": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "p1",
+      "article": "evidence",
+      "title": "成绩支持能力判断，需要任务与资源条件",
+      "classification": "stable",
+      "decision": "clarify",
+      "original": "一次成绩首先是特定系统在特定任务、评分和资源下的结果。跨任务能力与技能获取效率需要额外设计；二者不是同一个测量目标。",
+      "revised": "一次成绩是特定系统在特定任务、评分和资源条件下的表现。要推断跨任务能力或技能获取效率，须分别提供适用域、留出单位和学习过程证据。",
+      "reason": "统一“表现／能力／效率”；不把任何指标排成更高一级的智能。",
+      "related": [
+        "b1",
+        "m1"
+      ],
+      "evidence": [
+        "chollet-2019-1",
+        "chollet-2019-2",
+        "woolley-2010-1"
+      ],
+      "routes": [
+        "behavioral",
+        "psychometric",
+        "rational-resource"
+      ]
+    },
+    {
+      "id": "p2",
+      "article": "evidence",
+      "title": "共同变化约束解释，却不唯一识别共同原因",
+      "classification": "stable",
+      "decision": "retain",
+      "original": "共同因素可压缩相关结构并服务预测；把它解释为单一共同心理原因，需要排除能生成同样观察的替代机制。",
+      "revised": "共同因素可压缩相关结构并服务预测；把它解释为单一共同心理原因，需要排除能生成同样观察的替代机制。",
+      "reason": "保留统计压缩与因果识别的区分；数学反例并未决定真实 g 的起源。",
+      "related": [
+        "b6",
+        "m6"
+      ],
+      "evidence": [
+        "borsboom-2004-1",
+        "borsboom-2004-2",
+        "maas-2006-1",
+        "maas-2006-2"
+      ],
+      "routes": [
+        "psychometric",
+        "developmental-openended",
+        "causal-world-models"
+      ]
+    },
+    {
+      "id": "p3",
+      "article": "evidence",
+      "title": "损伤效应可以约束因果角色，计算解释仍需过程证据",
+      "classification": "stable",
+      "decision": "clarify",
+      "original": "可靠的损伤结果可以约束某结构在所测条件中的因果作用；仅凭性能下降与位置映射，仍不能唯一推出该结构执行的算法。",
+      "revised": "可靠的损伤结果可约束某结构在所测条件中的因果角色；考虑断连、覆盖和代偿后，仍不能仅凭性能下降与位置映射唯一确定其算法或组织。",
+      "reason": "将原先条件中的覆盖与代偿提前；必要作用、算法和认知构成分别陈述。",
+      "related": [
+        "b2",
+        "m4"
+      ],
+      "evidence": [
+        "barbey-2012-1",
+        "barbey-2012-2",
+        "jonas-kording-2017-1",
+        "jonas-kording-2017-2"
+      ],
+      "routes": [
+        "neuroscience",
+        "cognitive-architectures"
+      ]
+    },
+    {
+      "id": "p4",
+      "article": "evidence",
+      "title": "群体共同因素与协作机制，需要分别审计",
+      "classification": "bounded",
+      "decision": "clarify",
+      "original": "所读群体研究支持若干任务中的共同变化，但成员能力和协作过程的预测贡献存在分歧。任务、计分、样本与沟通记录不对齐时，不能把分歧压成“只有成员”或“只有协作”。",
+      "revised": "所读群体研究报告多任务表现的共同变化，但成员能力与协作过程的预测贡献仍有分歧；任务、计分和分析单位未对齐，或缺少有效操纵时，不能把预测贡献当作协作的因果效应。",
+      "reason": "把“所读”与预测／因果限定放入主句；并不否认群体层面的规律。",
+      "related": [
+        "b1",
+        "b5",
+        "p5"
+      ],
+      "evidence": [
+        "woolley-2010-1",
+        "woolley-2010-2",
+        "woolley-2010-som-1",
+        "woolley-2010-som-2",
+        "bates-gupta-2017-1",
+        "bates-gupta-2017-2",
+        "riedl-2021-1",
+        "riedl-2021-3"
+      ],
+      "routes": [
+        "collective-extended",
+        "psychometric",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "p5",
+      "article": "evidence",
+      "title": "预测验证与报告指标必须保留各自口径",
+      "classification": "stable",
+      "decision": "clarify",
+      "original": "留出任务的预测、留出群体的预测、因子提取的方差和平均提取方差回答不同问题；相似百分比不能直接拼成同一证据。",
+      "revised": "留出任务、留出群体、第一因素方差和平均提取方差分别回答不同问题。当前采用 Riedl 正式更正的 AVE 19.6%，但未独立复算；相似百分比与不同版本不能直接合并。",
+      "reason": "将19.6%的报告状态写入主句，防止网站摘录变成项目复算结果。",
+      "related": [
+        "p4",
+        "m5"
+      ],
+      "evidence": [
+        "woolley-2010-1",
+        "riedl-2021-2",
+        "riedl-correction-2022-1",
+        "riedl-correction-2022-2"
+      ],
+      "routes": [
+        "collective-extended",
+        "psychometric"
+      ]
+    },
+    {
+      "id": "p6",
+      "article": "evidence",
+      "title": "有限证据下，机制结论应写成受检模型集合",
+      "classification": "stable",
+      "decision": "retain",
+      "original": "每次观察或干预可排除部分竞争模型，但模型在已测条件中等价，并不保证在新情境中等价。综合结论应保留仍未区分的模型与下一项检验。",
+      "revised": "每次观察或干预可排除部分竞争模型，但模型在已测条件中等价，并不保证在新情境中等价。综合结论应保留仍未区分的模型与下一项检验。",
+      "reason": "作为跨篇总原则保留；b6是结构识别实例，m6补充失败归属，三者不合并成一项发现。",
+      "related": [
+        "b6",
+        "m6"
+      ],
+      "evidence": [
+        "maas-2006-2",
+        "jonas-kording-2017-2"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "causal-world-models"
+      ]
+    },
+    {
+      "id": "b1",
+      "article": "boundaries",
+      "title": "先确定解释对象，再划分系统",
+      "classification": "stable",
+      "decision": "clarify",
+      "original": "解释驾驶舱如何保存速度时，人—物—程序可以组成有用的功能单位；这不自动变成个人记忆容量或心灵本体边界的结论。",
+      "revised": "在驾驶舱保存速度的任务分析中，人、物与程序可构成有用的功能解释单位；系统完成任务并不自动证明个人记忆容量提高，也未确定心灵的本体边界。",
+      "reason": "区分解释单位、能力归属和本体边界；“系统”不再默认为认知主体。",
+      "related": [
+        "p1",
+        "p4",
+        "m2"
+      ],
+      "evidence": [
+        "hutchins-cockpit-1995-1",
+        "hutchins-cockpit-1995-2",
+        "hutchins-cockpit-1995-3",
+        "clark-chalmers-1998-3"
+      ],
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "b2",
+      "article": "boundaries",
+      "title": "因果贡献与认知构成之间，还隔着判据",
+      "classification": "contested",
+      "decision": "clarify",
+      "original": "移除后下降、稳定可用或双向反馈可以支持依赖关系；是否构成认知，还取决于功能整合、内容及过程种类等存在争议的判据。",
+      "revised": "移除效应、可靠可用或双向反馈，在有效操纵与测量前提下可支持某种依赖；要进一步称为认知的组成部分，还须说明功能整合、内容和过程种类的判据。双方对这些判据仍有实质争论。",
+      "reason": "避免把所有移除效应都当有效因果识别；不以任何一方定义预先裁决。",
+      "related": [
+        "p3",
+        "b6",
+        "m2"
+      ],
+      "evidence": [
+        "clark-chalmers-1998-1",
+        "clark-chalmers-1998-3",
+        "adams-aizawa-2001-1",
+        "adams-aizawa-2001-2",
+        "adams-aizawa-2001-3",
+        "clark-reply-2010-1",
+        "clark-reply-2010-2",
+        "clark-reply-2010-3"
+      ],
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "b3",
+      "article": "boundaries",
+      "title": "当下移除与发展经历需要分开操纵",
+      "classification": "stable",
+      "decision": "retain",
+      "original": "动作历史、测试时身体状态和当前工具支持可以分别影响表现；一次移除效应不足以倒推出长期发展作用，也不能唯一识别其实现机制。",
+      "revised": "动作历史、测试时身体状态和当前工具支持可以分别影响表现；一次移除效应不足以倒推出长期发展作用，也不能唯一识别其实现机制。",
+      "reason": "已有措辞区分历史、当前状态和测试支持，并保留表征理论的竞争解释。",
+      "related": [
+        "p1",
+        "b1"
+      ],
+      "evidence": [
+        "smith-thelen-1999-1",
+        "smith-thelen-1999-2",
+        "smith-thelen-1999-3",
+        "clark-chalmers-1998-2"
+      ],
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "b4",
+      "article": "boundaries",
+      "title": "生命边界、适应性与主体性不是同一条件",
+      "classification": "contested",
+      "decision": "clarify",
+      "original": "自创生强调生产组织如何生成统一体；稳健存续与对存活趋势的调节不同，即使具有自创生和适应性，也不能直接推出主体性、智能或意识。",
+      "revised": "按本篇所读版本，自创生的生产组织、稳健存续、适应性调节和主体性承担不同解释任务。由前一项推进到后一项，或进一步推到智能与体验，均须明写新增组织要求与桥接前提。",
+      "reason": "避免把“不能直接推出”误读为已经否定生命—心智连续性。",
+      "related": [
+        "b2",
+        "m1",
+        "m4"
+      ],
+      "evidence": [
+        "varela-1974-1",
+        "varela-1974-2",
+        "varela-1974-3",
+        "dipaolo-2005-1",
+        "dipaolo-2005-2",
+        "dipaolo-2005-3"
+      ],
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "b5",
+      "article": "boundaries",
+      "title": "互动提高成功机会，不等于个人识别能力提高",
+      "classification": "bounded",
+      "decision": "clarify",
+      "original": "在所读极简知觉实验中，真实伙伴更常被点击；原文把总体优势解释为相互接触更常维持。按接触机会校正后，原文未发现真实伙伴与诱饵的显著识别差异。",
+      "revised": "在所读极简知觉交互实验中，真实伙伴的总点击优势与更常维持接触有关；按接触机会校正后，原文未发现伙伴与诱饵的显著识别差异。这既不证明统计等效，也不证明个人没有识别能力。",
+      "reason": "将非显著不等于等效移入正文；与p4共同保留群体及个体两种单位。",
+      "related": [
+        "p4",
+        "b6"
+      ],
+      "evidence": [
+        "auvray-2009-1",
+        "auvray-2009-2",
+        "auvray-2009-3",
+        "dejaegher-dipaolo-2007-1",
+        "dejaegher-dipaolo-2007-2",
+        "dejaegher-dipaolo-2007-3"
+      ],
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "b6",
+      "article": "boundaries",
+      "title": "相同轨迹可能掩盖不同的反馈结构",
+      "classification": "stable",
+      "decision": "retain",
+      "original": "在已保存协议的有限模型中，闭环与回放可以产生完全相同的基线轨迹；改变系统状态后才出现不同响应。轨迹一致不能独自识别相互依赖结构。",
+      "revised": "在已保存协议的有限模型中，闭环与回放可以产生完全相同的基线轨迹；改变系统状态后才出现不同响应。轨迹一致不能独自识别相互依赖结构。",
+      "reason": "保留精确反例的适用域；轨迹结构、认知归属和真实交互机制仍是三项主张。",
+      "related": [
+        "p6",
+        "b2",
+        "m6"
+      ],
+      "evidence": [
+        "clark-chalmers-1998-1",
+        "adams-aizawa-2001-2",
+        "auvray-2009-1"
+      ],
+      "routes": [
+        "embodied-dynamical",
+        "developmental-openended",
+        "autopoiesis-evolution",
+        "collective-extended",
+        "sociocultural-language"
+      ]
+    },
+    {
+      "id": "m1",
+      "article": "meaning",
+      "title": "先说清所要解释的“意义”",
+      "classification": "stable",
+      "decision": "clarify",
+      "original": "外部指称、交际意图和内部概念角色是不同的解释目标。评价理解时，必须先固定目标，再判断证据；某项缺失不能不加条件地推出所有意义均为零。",
+      "revised": "外部指称、交际意图和内部概念角色是不同解释目标。评价“理解”必须先固定目标与证据标准；一项不满足，不能无条件推出所有意义都不存在，任一项满足也不自动涵盖其余各项。",
+      "reason": "补齐正反两个方向，防止概念角色成绩被升级为全部意义。",
+      "related": [
+        "p1",
+        "b4",
+        "m2"
+      ],
+      "evidence": [
+        "bender-koller-2020-c1",
+        "bender-koller-2020-c2",
+        "bender-koller-2020-c3",
+        "piantadosi-hill-2022-c1",
+        "piantadosi-hill-2022-c2",
+        "piantadosi-hill-2022-c3"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ]
+    },
+    {
+      "id": "m2",
+      "article": "meaning",
+      "title": "落地增加约束，不能跳过主体与系统层级",
+      "classification": "contested",
+      "decision": "clarify",
+      "original": "在明确的指称识别任务中，外部锚点能够排除歧义；但这种识别成果与系统拥有何种理解、是否具有主观意义，仍是不同的主张。",
+      "revised": "在指定的指称识别任务中，有效且一致的外部锚点可以排除候选映射；这种识别结果尚不能独自裁定操作者或整体是否理解，更不能直接给出主观意义的归属。",
+      "reason": "将模型的可识别性与争议中的理解标准分开；保留系统回应。",
+      "related": [
+        "b1",
+        "b2",
+        "m1"
+      ],
+      "evidence": [
+        "searle-1980-c1",
+        "searle-1980-c2",
+        "searle-1980-c3",
+        "harnad-1990-c1",
+        "harnad-1990-c2",
+        "harnad-1990-c3",
+        "piantadosi-hill-2022-c2"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ]
+    },
+    {
+      "id": "m3",
+      "article": "meaning",
+      "title": "访问、实际报告与体验分别登记",
+      "classification": "stable",
+      "decision": "clarify",
+      "original": "报告任务可以为意识访问提供证据，但实际说出、可用于推理、以及具有体验不能在研究中无条件互换。无报告条件也需要有效性论证。",
+      "revised": "实际报告、可供推理使用的访问能力与具有体验须分别登记。报告可以提供访问的证据，无报告条件也需测量有效性论证；这种概念区分本身并未证明三者经验上独立。",
+      "reason": "把“区分不等于分离证据”提前；修正正式站点把广播直接称作体验的演示。",
+      "related": [
+        "p1",
+        "m4",
+        "m5"
+      ],
+      "evidence": [
+        "block-1995-c1",
+        "block-1995-c2",
+        "block-1995-c3",
+        "dehaene-changeux-2011-c1",
+        "dehaene-changeux-2011-c3",
+        "cogitate-supp-2025-c2"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ]
+    },
+    {
+      "id": "m4",
+      "article": "meaning",
+      "title": "把解释桥梁写出来，才有可比较的理论",
+      "classification": "contested",
+      "decision": "clarify",
+      "original": "计算功能、物理因果结构与体验之间的连接，可能是定义、经验假说或解释性同一主张。它们需要不同的论证，不能全部当作一条脑相关结果。",
+      "revised": "计算功能、物理因果结构与体验之间的桥梁可能是定义、经验假说或解释性同一主张。比较理论须保留这些区别、理论版本及测量规则；相关结果或人为演示数值都不能自行证明同一主张。",
+      "reason": "明示网站模拟数值的地位；GNW广播与IIT的Φ不得互换。",
+      "related": [
+        "p3",
+        "b4",
+        "m3"
+      ],
+      "evidence": [
+        "chalmers-1995-c1",
+        "chalmers-1995-c2",
+        "chalmers-1995-c3",
+        "iit4-2023-c1",
+        "iit4-2023-c2",
+        "iit4-2023-c3",
+        "dehaene-changeux-2011-c2",
+        "cogitate-2025-c1"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ]
+    },
+    {
+      "id": "m5",
+      "article": "meaning",
+      "title": "意识理论检验要逐项判读，不能按摘要选赢家",
+      "classification": "bounded",
+      "decision": "clarify",
+      "original": "COGITATE对双方共同约定的神经预测形成实质约束，但结果包含通过、受挑战和不确定，也包含探索性补充；不能合成一次对整套理论的二元裁决。",
+      "revised": "COGITATE约束的是约定条件下的具体神经预测：结果含支持、受挑战和不确定。预注册PPC未支持两方，新增DFC较有利于GNWT；新增分析不改写原预测结果，也不能合成整套理论的赢家判定。",
+      "reason": "将最易被省略的原／新增分析差异放入主句；四份项目文件不是四次独立验证。",
+      "related": [
+        "p5",
+        "m3",
+        "m6"
+      ],
+      "evidence": [
+        "melloni-2023-c1",
+        "melloni-2023-c2",
+        "melloni-2023-c3",
+        "prereg-v4-2022-c1",
+        "prereg-v4-2022-c2",
+        "prereg-v4-2022-c3",
+        "cogitate-2025-c1",
+        "cogitate-2025-c2",
+        "cogitate-2025-c3",
+        "cogitate-2025-c4",
+        "cogitate-2025-c5",
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c3",
+        "cogitate-supp-2025-c4",
+        "cogitate-supp-2025-c5"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ]
+    },
+    {
+      "id": "m6",
+      "article": "meaning",
+      "title": "辅助前提要可失败，修订才产生进展",
+      "classification": "stable",
+      "decision": "retain",
+      "original": "失败预测约束的是理论、辅助机制和测量条件的组合；有价值的修订应说明改了哪一层，并在新证据上承担可失败的承诺。",
+      "revised": "失败预测约束的是理论、辅助机制和测量条件的组合；有价值的修订应说明改了哪一层，并在新证据上承担可失败的承诺。",
+      "reason": "保留失败定位与可失败修订原则；真值表是确定合取模型，不是理论可信度。",
+      "related": [
+        "p6",
+        "b6",
+        "m5"
+      ],
+      "evidence": [
+        "dehaene-changeux-2011-c2",
+        "cogitate-2025-c1",
+        "cogitate-2025-c4",
+        "cogitate-2025-c5",
+        "cogitate-supp-2025-c1",
+        "cogitate-supp-2025-c2",
+        "cogitate-supp-2025-c3",
+        "cogitate-supp-2025-c4",
+        "cogitate-supp-2025-c5"
+      ],
+      "routes": [
+        "philosophy-of-mind",
+        "consciousness-self",
+        "information-physics"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "chollet-2019",
+      "article": "evidence",
+      "workId": "chollet-2019",
+      "evidenceFamily": "chollet-2019",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://arxiv.org/pdf/1911.01547v2",
+      "version": "arXiv:1911.01547v2，2019-11-25；题页日期为November 5。",
+      "readerGuide": {
+        "problem": "怎样区分已获得的技能与获取新技能的效率？",
+        "solution": "作者把智能操作化为在给定任务范围、先验、经验与泛化难度下的技能获取效率；不是唯一获公认的定义。",
+        "remaining": "其余推导、ARC具体实施和后续ARC版本未在本轮审计。"
+      }
+    },
+    {
+      "id": "borsboom-2004",
+      "article": "evidence",
+      "workId": "borsboom-2004",
+      "evidenceFamily": "borsboom-2004",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://dennyborsboom.com/wp-content/uploads/2017/01/borsboomvalidity2004.pdf",
+      "version": "Psychological Review 111(4):1061–1071；作者站原刊PDF。",
+      "readerGuide": {
+        "problem": "一个有预测用途的测验，何时是在测量目标属性？",
+        "solution": "本文提出因果测量观：目标属性存在，并且其变化导致测量结果变化，是作者所要求的效度条件。",
+        "remaining": "未系统重审文中对全部效度理论的历史解释；其他效度观的原典另列后续，不据此宣布学界共识。"
+      }
+    },
+    {
+      "id": "maas-2006",
+      "article": "evidence",
+      "workId": "maas-2006",
+      "evidenceFamily": "maas-2006",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://www.researchgate.net/publication/289963376_A_dynamical_model_of_general_intelligence_The_positive_manifold_of_intelligence_by_mutualism",
+      "version": "Psychological Review 113(4):842–861；作者上传正文的网页转录，书目由UvA-DARE核对。",
+      "readerGuide": {
+        "problem": "正相关结构是否必须由单一共同原因生成？",
+        "solution": "作者构造发展过程中认知过程互相促进的模型，作为正相关结构的另一种生成解释；统计g仍可作为摘要指标。",
+        "remaining": "式3、图3–9、附录稳定性证明和全部模拟未完整复算；未下载成功PDF，不给出文件指纹。"
+      }
+    },
+    {
+      "id": "woolley-2010",
+      "article": "evidence",
+      "workId": "woolley-2010",
+      "evidenceFamily": "woolley-2010",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://www.chabris.com/Woolley2010a.pdf",
+      "version": "Science 330:686–688；作者站3页原刊PDF，首面上半为邻接论文。",
+      "readerGuide": {
+        "problem": "不同群体任务是否共同变化，并预测另设任务？",
+        "solution": "两项研究报告群体任务的共同因素，并以另设任务检验预测；总计699人，40与152个群体。",
+        "remaining": "未重算原始数据；主文与补充材料各自登记；不把因素分析与相关关系写成随机操纵效应。"
+      }
+    },
+    {
+      "id": "woolley-2010-som",
+      "article": "evidence",
+      "workId": "woolley-2010",
+      "evidenceFamily": "woolley-2010",
+      "relation": "同一论文的补充材料",
+      "carrier": "https://www.chabris.com/Woolley2010b.pdf",
+      "version": "作者站13页补充PDF；PDF页=内页+1。",
+      "readerGuide": {
+        "problem": "主文结论使用了哪些测验、评分与子样本？",
+        "solution": "研究1采用Raven个体测验；研究2采用Wonderlic，任务和评分也须与复制研究逐项对齐。",
+        "remaining": "PDF6–8的后续任务细节与S1未逐项审读；相关表未重算。"
+      }
+    },
+    {
+      "id": "bates-gupta-2017",
+      "article": "evidence",
+      "workId": "bates-gupta-2017",
+      "evidenceFamily": "bates-gupta-2017",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/30119288/BatesGruptaI2016SmartGroupsOfSmartPeople.pdf",
+      "version": "大学库2016 accepted manuscript；正式发表Intelligence 60:46–56（2017）；封面使PDF页=内页+1。本轮下载指纹与旧记录不同，未据此推定正文异文。",
+      "readerGuide": {
+        "problem": "群体共同因素与平均个体能力的关系怎样解释？",
+        "solution": "三项研究支持群体任务共同因素，但作者偏好的模型强调平均个体能力；研究2中社会敏感性有任务相关效应，不能简化成所有社会指标均无作用。",
+        "remaining": "未逐项审计全部SEM拟合、图表及原始数据；不采用提取文本中疑似排版异常的χ²自由度。"
+      }
+    },
+    {
+      "id": "riedl-2021",
+      "article": "evidence",
+      "workId": "riedl-2021",
+      "evidenceFamily": "riedl-2021",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8166150/",
+      "version": "PNAS 118:e2005737118；PMC正文，2026-10-28取得；正文仍有44%旧值，须并读2022更正。",
+      "readerGuide": {
+        "problem": "跨研究样本中，成员技能和协作过程怎样预测群体任务？",
+        "solution": "本文整合22个研究样本，5279人、1356组；三类任务每项研究均有，但八类任务不是每项研究都齐全。",
+        "remaining": "SI完整模型表、过程变量公式、原始数据与代码未重算。未做独立外部群体留出验证。"
+      }
+    },
+    {
+      "id": "riedl-correction-2022",
+      "article": "evidence",
+      "workId": "riedl-correction-2022",
+      "evidenceFamily": "riedl-2021",
+      "relation": "独立更正文书，修正riedl-2021",
+      "carrier": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9171794/",
+      "version": "PNAS 119:e2204380119，2022-05-03在线；PMC更正通知。",
+      "readerGuide": {
+        "problem": "原报告的方差与模型拟合解释需要怎样更正？",
+        "solution": "通知将正文及SI所报平均提取方差AVE由44%更正为19.6%。",
+        "remaining": "更正后的完整SI和分析脚本仍未逐项复算；通知全文不等于原研究全文或独立验证。"
+      }
+    },
+    {
+      "id": "barbey-2012",
+      "article": "evidence",
+      "workId": "barbey-2012",
+      "evidenceFamily": "barbey-2012",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326251/",
+      "version": "Brain 135:1154–1164；PMC正文。作者名单以本文署名和作者实验室书目复核；旧C批误列Chau Trinh，当前注释更正为Chad Forbes。",
+      "readerGuide": {
+        "problem": "病损定位怎样约束一般智能与执行功能的神经解释？",
+        "solution": "样本为182名越战穿透性头伤男性老兵；体素比较限于至少4人损伤的部位，未覆盖皮层下结构。",
+        "remaining": "全部SEM、补充图表及原始病损影像未重验；自然发生损伤未随机分配。"
+      }
+    },
+    {
+      "id": "jonas-kording-2017",
+      "article": "evidence",
+      "workId": "jonas-kording-2017",
+      "evidenceFamily": "jonas-kording-2017",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005268&type=printable",
+      "version": "PLoS Computational Biology 13:e1005268；期刊24页PDF。",
+      "readerGuide": {
+        "problem": "在已知计算机制中，常用分析能识别实际运算吗？",
+        "solution": "在模拟处理器中，破坏部分晶体管可选择性阻止特定游戏启动；这并未识别晶体管实际承担的计算。",
+        "remaining": "其他分析及Methods完整实现、全部代码未运行；不以微处理器失败推定所有神经方法失败。"
+      }
+    },
+    {
+      "id": "varela-1974",
+      "article": "boundaries",
+      "workId": "varela-1974",
+      "evidenceFamily": "varela-1974",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://monoskop.org/images/d/dd/Varela_Maturana_Uribe_1974_Autopoiesis.pdf",
+      "version": "BioSystems 5, 187–196原刊扫描，Monoskop镜像；书目与PubMed核对。188、192页装订侧有浅淡字，不作不可辨字符的逐字引述。",
+      "readerGuide": {
+        "problem": "怎样在不以繁殖史定义个体的情况下，描述一个活系统的组织？",
+        "solution": "以成分生产网络及其生成的统一体界定自创生，附最小模型与六步判定。",
+        "remaining": "判据不等于智能或体验指标；形式模型与具体生物实现之间仍需论证。"
+      }
+    },
+    {
+      "id": "hutchins-cockpit-1995",
+      "article": "boundaries",
+      "workId": "hutchins-cockpit-1995",
+      "evidenceFamily": "hutchins-cockpit-1995",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://pages.ucsd.edu/~johnson/COGS102B/Hutchins95.pdf",
+      "version": "24页作者稿，自身页码1–24；不是同年专著Cognition in the Wild。",
+      "readerGuide": {
+        "problem": "驾驶舱如何在任务展开过程中保存并使用着陆速度？",
+        "solution": "追踪数值、语音、刻度和速度标记在人、物和时间之间的转换。",
+        "remaining": "功能单位的有效分析，不直接裁决心灵本体边界或个体记忆容量。"
+      }
+    },
+    {
+      "id": "clark-chalmers-1998",
+      "article": "boundaries",
+      "workId": "clark-chalmers-1998",
+      "evidenceFamily": "clark-chalmers-1998",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://consc.net/papers/extended.html",
+      "version": "作者网站HTML版本；按节与示例定位，未与期刊排版逐字比对。",
+      "readerGuide": {
+        "problem": "某项功能若移入头脑就算认知，为何放在可靠外部工具上便被排除？",
+        "solution": "提出角色等价、主动耦合与外部信念的论证，讨论稳定可用等条件。",
+        "remaining": "条件是否足以界定认知，以及什么粒度的功能角色可比较，仍有争论。"
+      }
+    },
+    {
+      "id": "smith-thelen-1999",
+      "article": "boundaries",
+      "workId": "smith-thelen-1999",
+      "evidenceFamily": "smith-thelen-1999",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://web.stanford.edu/class/psych205/papers/SmithThelen1999.pdf",
+      "version": "Psychological Review 106(2), 235–260期刊PDF，Stanford课程镜像；DOI 10.1037/0033-295X.106.2.235与PubMed书目核对。",
+      "readerGuide": {
+        "problem": "A-not-B错误是否只反映稳定的物体知识，还是受到此前动作和当下状态影响？",
+        "solution": "操纵伸手经历与任务条件，比较错误随局部历史和姿势改变的情况。",
+        "remaining": "短时任务变化不唯一定位记忆实现，也不能独自排除所有表征解释。"
+      }
+    },
+    {
+      "id": "adams-aizawa-2001",
+      "article": "boundaries",
+      "workId": "adams-aizawa-2001",
+      "evidenceFamily": "adams-aizawa-2001",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://imss-www.upmf-grenoble.fr/prevert/MasterICA/SpecialiteSC/FichiersPDF/articles/Adams_Azaiwa_The_bounds_of_cognition_2001.pdf",
+      "version": "Philosophical Psychology 14(1), 43–64；23页PDF含出版封面。PDF7对应原刊48页，PDF15对应56页。",
+      "readerGuide": {
+        "problem": "功能耦合何以足以把外部物品判为认知过程的一部分？",
+        "solution": "提出非派生内容与因果过程种类的边界要求，质疑从耦合跳到构成。",
+        "remaining": "作者允许颅外认知在原则上可能；争点是判据及其应用，不能化为头骨定义。"
+      }
+    },
+    {
+      "id": "dipaolo-2005",
+      "article": "boundaries",
+      "workId": "dipaolo-2005",
+      "evidenceFamily": "dipaolo-2005",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/autopoiesis_teleology_2005.pdf",
+      "version": "Phenomenology and the Cognitive Sciences 4, 429–452作者网站PDF，24页。",
+      "readerGuide": {
+        "problem": "持续自我生产是否已足以说明规范、适应性和行动主体？",
+        "solution": "补充对接近存活边界的趋势进行监测与补偿的适应性概念。",
+        "remaining": "稳健存续、适应性与主体性仍需分别判定。"
+      }
+    },
+    {
+      "id": "dejaegher-dipaolo-2007",
+      "article": "boundaries",
+      "workId": "dejaegher-dipaolo-2007",
+      "evidenceFamily": "dejaegher-dipaolo-2007",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://ezequieldipaolo.net/wp-content/uploads/2011/10/dejaegherdipaolo2007participatorysensemaking.pdf",
+      "version": "Phenomenology and the Cognitive Sciences 6, 485–507作者网站PDF，23页。",
+      "readerGuide": {
+        "problem": "互动本身能否产生相对自主的组织，而又保留参与者各自的自主性？",
+        "solution": "以互动过程的维持及参与者自主性的同时保留刻画社会互动，提出参与式意义生成。",
+        "remaining": "不能由协调成功直接推出共同体验或独立群体心灵。"
+      }
+    },
+    {
+      "id": "auvray-2009",
+      "article": "boundaries",
+      "workId": "auvray-2009",
+      "evidenceFamily": "auvray-2009",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://cepa.info/fulltexts/478.pdf",
+      "version": "New Ideas in Psychology 27(1), 32–47期刊PDF，在线日期2008-03-03；2009是卷期年份。CEPA镜像；期刊页码与出版方入口核对。",
+      "readerGuide": {
+        "problem": "极简接触信息下，真实互动伙伴如何比其他接触源更容易被选中？",
+        "solution": "比较真实伙伴、固定物与同步移动诱饵，分别考察接触机会和点击分布。",
+        "remaining": "总体选中更多与接触之后能辨认对象是不同结论。"
+      }
+    },
+    {
+      "id": "clark-reply-2010",
+      "article": "boundaries",
+      "workId": "clark-reply-2010",
+      "evidenceFamily": "clark-reply-2010",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://era.ed.ac.uk/bitstream/1842/1443/1/coupling2.pdf",
+      "version": "实际阅读爱丁堡仓储2006年稿coupling2.pdf（36页），正式书章发表于2010年；未与2010出版文本逐字校勘。时间线保留2010书目信息并显式注明2006稿。",
+      "readerGuide": {
+        "problem": "外部部件是否必须单独具有完整认知特征，才可能成为认知系统的部分？",
+        "solution": "区分整体与部分的属性，并提出互补功能、合适粒度及与主体的整合。",
+        "remaining": "仍须说明什么构成统一主体，以及哪些整合方式足以支持认知归属。"
+      }
+    },
+    {
+      "id": "searle-1980",
+      "article": "meaning",
+      "workId": "searle-1980",
+      "evidenceFamily": "searle-1980",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+      "version": "BBS 3原刊，PDF含评论与作者回应；目标文与评论作者不可混为一人。",
+      "readerGuide": {
+        "problem": "执行规则而产生正确回答，是否足以构成理解？",
+        "solution": "以中文房间及其变体挑战程序形式本身的充分性，强调能产生意向性的因果能力。",
+        "remaining": "系统层次能否拥有操作者不具备的理解，以及何种因果能力才相关，仍存在争论。"
+      }
+    },
+    {
+      "id": "harnad-1990",
+      "article": "meaning",
+      "workId": "harnad-1990",
+      "evidenceFamily": "harnad-1990",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/harnad90_sgproblem.pdf",
+      "version": "1990论文的作者网页打印载体，15页，页脚2004-04-20；以下PDF页数不是原刊页码。",
+      "readerGuide": {
+        "problem": "符号的解释如何不完全依赖外部解释者？",
+        "solution": "用感知辨别和范畴识别支撑基本名称，再通过组合使复合描述继承落地。",
+        "remaining": "哪些概念可由此形成、如何学习不变特征，以及行为成功是否具有主观意义，仍需区分。"
+      }
+    },
+    {
+      "id": "block-1995",
+      "article": "meaning",
+      "workId": "block-1995",
+      "evidenceFamily": "block-1995",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://divinecuration.github.io/assets/pdf/block-confusion.pdf",
+      "version": "1995 BBS 18原刊扫描镜像，目标文227–247，整份含评论回应至287；作者书目另列1997修正版，本轮不混用。镜像含既有高亮。",
+      "readerGuide": {
+        "problem": "从信息使用障碍推出体验的功能，是否混淆了不同解释对象？",
+        "solution": "区分经验的现象性质与信息可用于推理及理性行动的访问性质。",
+        "remaining": "概念区分是否对应经验上的可分离性，以及功能主义能否解释体验，不能靠命名解决。"
+      }
+    },
+    {
+      "id": "chalmers-1995",
+      "article": "meaning",
+      "workId": "chalmers-1995",
+      "evidenceFamily": "chalmers-1995",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://consc.net/papers/facing.html",
+      "version": "作者HTML版本，对应JCS 2(3), 200–219；以节名定位，不臆造HTML页码。",
+      "readerGuide": {
+        "problem": "为什么执行认知功能会伴随体验，而非只有功能？",
+        "solution": "提出困难问题，并以体验为基本性质、心理物理桥接原则为非还原理论方向。",
+        "remaining": "解释鸿沟是否意味着还原不可能、桥接原则能否形成可区分预测，仍是哲学与科学争议。"
+      }
+    },
+    {
+      "id": "dehaene-changeux-2011",
+      "article": "meaning",
+      "workId": "dehaene-changeux-2011",
+      "evidenceFamily": "dehaene-changeux-2011",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://web.stanford.edu/class/cs379c/resources/inverted/content/Books_and_Journal_Articles_on_Consciousness/Theory_of_Mind_and_Language_Development_Articles/Publications_on_Consciousness_by_Stanislas_Dehaene/DehaeneChangeuxNEURON-11.pdf",
+      "version": "Neuron 70, 200–227的2011综述；不是2020 GNWT综述或2025检验的同一版本。",
+      "readerGuide": {
+        "problem": "信息如何从非意识加工进入可报告的意识访问？",
+        "solution": "以长程网络的信息全局可用和非线性点燃建立机制模型，并提出神经检验。",
+        "remaining": "信号是否编码内容、是否只是任务后果、是否具必要因果作用，以及如何延伸到更广体验。"
+      }
+    },
+    {
+      "id": "bender-koller-2020",
+      "article": "meaning",
+      "workId": "bender-koller-2020",
+      "evidenceFamily": "bender-koller-2020",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://aclanthology.org/2020.acl-main.463.pdf",
+      "version": "ACL 2020正式论文，PDF 14页；论证针对其意义定义与仅形式训练条件，不是对2026模型的测评。",
+      "readerGuide": {
+        "problem": "仅观察语言形式能否学到与交际意图和外部内容的关系？",
+        "solution": "明确表达式、交际意图及常规意义的联系，区分形式学习和意义学习。",
+        "remaining": "文本包含何种间接结构、任务标签何时超出形式，以及定义是否覆盖概念角色意义，需另作比较。"
+      }
+    },
+    {
+      "id": "piantadosi-hill-2022",
+      "article": "meaning",
+      "workId": "piantadosi-hill-2022",
+      "evidenceFamily": "piantadosi-hill-2022",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://arxiv.org/pdf/2208.02957v2",
+      "version": "arXiv:2208.02957 v2，2022-08-12；8页概念论证，不能按新实验论文统计。",
+      "readerGuide": {
+        "problem": "把缺少外部指称直接等同于毫无意义，是否忽略概念之间的作用关系？",
+        "solution": "以概念角色语义学反对只由训练目标或指称缺失否定意义，强调内部表征与推理关系。",
+        "remaining": "真实模型是否具有稳定的因果概念角色，以及交际意图和感知行动增加什么，仍需实验。"
+      }
+    },
+    {
+      "id": "prereg-v4-2022",
+      "article": "meaning",
+      "workId": "prereg-v4-2022",
+      "evidenceFamily": "cogitate-project",
+      "relation": "同一项目的预注册文件；文件名与正文版本不同",
+      "carrier": "https://osf.io/download/gm3vd/",
+      "version": "OSF节点92tbg，文件Preregistration_ver4.0-FINAL.pdf；页眉Version 4.5，2022-12-22；API上传日期2022-12-23，SHA与API一致。此命名差异原样保留。",
+      "readerGuide": {
+        "problem": "分析优化之后，怎样约束对剩余数据的检验？",
+        "solution": "在优化后锁定分析与预测解释；分清独立保留数据与颅内记录的特殊策略。",
+        "remaining": "落实到最终发表版本有哪些偏离，哪些影响理论判定，须与补充材料逐项对照。"
+      }
+    },
+    {
+      "id": "melloni-2023",
+      "article": "meaning",
+      "workId": "melloni-2023",
+      "evidenceFamily": "cogitate-project",
+      "relation": "同一项目的协议论文；不是结果论文",
+      "carrier": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0268577&type=printable",
+      "version": "PLOS ONE 18(2), e0268577，2023-02-10发表的研究协议；发表日期不是首次预注册日期，其设计文本与2022最终分析文件须分开。",
+      "readerGuide": {
+        "problem": "相互竞争的意识解释，怎样在同一个实验中承担不同的预测风险？",
+        "solution": "共同约定内容位置、持续方式和区域联系的预测，操纵任务相关性与刺激持续时长。",
+        "remaining": "判定权重、测量灵敏度和可见刺激是否持续被体验，是协议走向解释时的重要条件。"
+      }
+    },
+    {
+      "id": "iit4-2023",
+      "article": "meaning",
+      "workId": "iit4-2023",
+      "evidenceFamily": "iit4-2023",
+      "relation": "独立书目记录；不据此认定独立实验",
+      "carrier": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1011465&type=printable",
+      "version": "PLOS Computational Biology 19(10), e1011465，2023-10-17；IIT 4.0正式表述，不与2004或3.0的量直接互换。",
+      "readerGuide": {
+        "problem": "如何将体验的性质与物理系统的内在因果结构对应？",
+        "solution": "从现象公理提出物理公设，以复合体的Φ结构及其区别、关系表达体验。",
+        "remaining": "桥接主张的正当性、可计算性、近似量的效度及其神经实现仍需分别检验。"
+      }
+    },
+    {
+      "id": "cogitate-2025",
+      "article": "meaning",
+      "workId": "cogitate-2025",
+      "evidenceFamily": "cogitate-project",
+      "relation": "同一项目的结果论文",
+      "carrier": "https://www.nature.com/articles/s41586-025-08888-1.pdf",
+      "version": "Nature 642, 133–142；在线2025-04-30、期次2025-06-05。主文、Methods、扩展图表在同一40页PDF；不是独立重复实验。",
+      "readerGuide": {
+        "problem": "两理论共同认可的神经预测，哪些得到支持、受挑战或仍不确定？",
+        "solution": "清晰视觉刺激、任务相关性控制与三种记录方式，按约定预测进行检验并公开不同解释。",
+        "remaining": "从统计结果到理论修订须追踪核心程度、探索性分析、覆盖局限与体验测量假定。"
+      }
+    },
+    {
+      "id": "cogitate-supp-2025",
+      "article": "meaning",
+      "workId": "cogitate-2025",
+      "evidenceFamily": "cogitate-project",
+      "relation": "同一论文的补充材料",
+      "carrier": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-025-08888-1/MediaObjects/41586_2025_8888_MOESM1_ESM.pdf",
+      "version": "同篇Nature论文的135页补充文件；PDF含封面，正文页码比PDF页码小1。分节观点分别归属，不算额外独立实验。",
+      "readerGuide": {
+        "problem": "同一组结果为何仍产生不同理论评价，后续应怎样区分？",
+        "solution": "分别保存理论方回应、测量反驳和实施偏离，而非把论文摘要当作完整裁决。",
+        "remaining": "更密覆盖、持续体验和因果必要性的检验，应预先锁定新预测与失败条件。"
+      }
+    }
+  ],
+  "terms": [
+    {
+      "term": "表现",
+      "definition": "某系统在给定任务、评分与资源下的结果；不是跨情境能力的同义词。",
+      "conclusions": [
+        "p1",
+        "b1",
+        "m1"
+      ]
+    },
+    {
+      "term": "解释单位",
+      "definition": "个人、群体、工具回路或生命组织；研究的单位不自动成为体验主体。",
+      "conclusions": [
+        "p4",
+        "b1",
+        "m2"
+      ]
+    },
+    {
+      "term": "因果与构成",
+      "definition": "依赖、必要作用、过程机制与认知组成分别登记；任何一步均不能省略判据。",
+      "conclusions": [
+        "p3",
+        "b2",
+        "m4"
+      ]
+    },
+    {
+      "term": "历史与当下",
+      "definition": "历史经当前状态影响读数；即时移除效应不等于长期发展作用。",
+      "conclusions": [
+        "b3",
+        "p1"
+      ]
+    },
+    {
+      "term": "意义与体验",
+      "definition": "指称、角色、交际、访问、报告、体验各有目标；同名概念先对齐再比较。",
+      "conclusions": [
+        "m1",
+        "m2",
+        "m3",
+        "b4"
+      ]
+    },
+    {
+      "term": "验证与修订",
+      "definition": "原文报告、本站精确反例、原始数据复算、新数据复制分开；旧失败不可由新增指标覆盖。",
+      "conclusions": [
+        "p5",
+        "p6",
+        "m5",
+        "m6"
+      ]
+    }
+  ],
+  "crossReview": [
+    {
+      "id": "unit",
+      "title": "系统成功与个体能力",
+      "conclusions": [
+        "p1",
+        "p4",
+        "b1",
+        "b5",
+        "m2"
+      ],
+      "resolution": "相容但不可替代：系统或互动的成功可以成立，个人能力或理解归属仍需另一组证据。"
+    },
+    {
+      "id": "mechanism",
+      "title": "识别回路与认知构成",
+      "conclusions": [
+        "p2",
+        "p3",
+        "b2",
+        "b6",
+        "m4"
+      ],
+      "resolution": "无直接矛盾：机制识别回答怎样起作用，构成与同一另需判据。b2和m4保留争议。"
+    },
+    {
+      "id": "meaning",
+      "title": "生命规范、符号意义与体验",
+      "conclusions": [
+        "b4",
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "resolution": "同名异问：适应性调节、指称和体验不合并；连续性论证可继续，但须明写桥梁。"
+    },
+    {
+      "id": "revision",
+      "title": "模型集合、轨迹反例与失败归属",
+      "conclusions": [
+        "p6",
+        "b6",
+        "m6"
+      ],
+      "resolution": "有意保留的层次复用：p6给原则，b6给动力学实例，m6给辅助前提审计，不计为三份独立实验证据。"
+    },
+    {
+      "id": "version",
+      "title": "更正、预注册与新增分析",
+      "conclusions": [
+        "p5",
+        "m5",
+        "m6"
+      ],
+      "resolution": "共同版本规则：使用更正而保留旧版本，承认探索性发现而不倒写预注册成功。"
+    }
+  ],
+  "queue": [
+    {
+      "id": "design-version",
+      "article": "evidence",
+      "title": "复核群体研究的更正与预测口径",
+      "rank": 1,
+      "reason": "直接处理p4/p5的数值及验证单位缺口，资料入口已定位；成本与依赖比新招募低。",
+      "start": "仓库提交、原数据许可、修正版SI、团队排除规则、运行环境均锁定后，先只复算AVE和原表，不先扩展因果解释。",
+      "deliverable": "先提交版本清单与排除流转表；随后提交原表逐项差异、失败日志和敏感性分析分册。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-analysis",
+      "article": "meaning",
+      "title": "原指标与新增指标的独立复核",
+      "rank": 2,
+      "reason": "m5涉及最高风险的“赢家”误读；可先做分析决策表，但数据与代码完整性尚未核对。",
+      "start": "先澄清2022样本数歧义，取得可访问且许可允许的数据代码，再限定一个模态与一项指标。",
+      "deliverable": "原PPC与新增DFC的决策表，区分复算、敏感性和独立复制。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-causal",
+      "article": "evidence",
+      "title": "先在已知模型中检验识别能力",
+      "rank": 3,
+      "reason": "已有精确反例，可扩展含噪估计；只能校验方法的识别能力，不补人类机制证据。",
+      "start": "固定模型类、估计器、样本量、噪声、误差容限与随机种子策略。",
+      "deliverable": "留出干预预测误差及仍不可区分的模型。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-semantics",
+      "article": "meaning",
+      "title": "形式、角色与锚点的分离检验",
+      "rank": 4,
+      "reason": "可在受控微型世界区分指称约束与角色稳定性；训练预算与泄漏控制尚待设计。",
+      "start": "锁定模型、实例数、映射分配、预算及新组合测试，先验证分布匹配。",
+      "deliverable": "四个独立结果：映射、推理、干预特异性、迁移。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-history",
+      "article": "boundaries",
+      "title": "训练经历 × 测试支持：分开两种贡献",
+      "rank": 5,
+      "reason": "能直接区分即时支架与保留学习；需要任务验证和人类研究准备。",
+      "start": "任务等量、延迟窗口、效应与功效、随机化和同意流程完成。",
+      "deliverable": "训练×测试支持结果，延迟保持与迁移另报。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-interaction",
+      "article": "boundaries",
+      "title": "总体成功与个体识别：匹配接触机会",
+      "rank": 6,
+      "reason": "可检验机会结构解释，但匹配反馈、延迟与接触机会的难度较高。",
+      "start": "先验证界面及回放独立性，锁定匹配容限、等效界值和参与者层分析。",
+      "deliverable": "机会匹配是否成功、总成功与个人辨认分开。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-group",
+      "article": "evidence",
+      "title": "对齐任务后检验协作机制",
+      "rank": 7,
+      "reason": "能约束协作因果主张；群体随机化与任务家族留出需要较大样本与可靠个体测量。",
+      "start": "先完成版本复算和任务许可，再确定群体层功效、随机化及招募流程。",
+      "deliverable": "操纵检验、任务留出与新群体留出分别报告。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-autonomy",
+      "article": "boundaries",
+      "title": "稳健修补、适应性与相遇调节",
+      "rank": 8,
+      "reason": "组织判据本身尚需可执行化，直接开模拟易把普通反馈误标为生命。",
+      "start": "完成1974§9逐条模型映射，定义生产网络、存活域和资源约束。",
+      "deliverable": "先交模型是否满足判据的论证，再比较调节机制。",
+      "status": "design-only"
+    },
+    {
+      "id": "design-report",
+      "article": "meaning",
+      "title": "持续体验与报告条件的分离检验",
+      "rank": 9,
+      "reason": "区分体验与任务的价值高，但设备、测量有效性和招募条件目前均未具备。",
+      "start": "完成注意／报告分离预试、设备、伦理、功效与预注册。",
+      "deliverable": "测量操纵有效性优先于任何体验特异性结论。",
+      "status": "design-only"
+    }
+  ],
+  "unresolved": [
+    "GNW后续版本与IIT 3.0逐式对照未完成",
+    "COGITATE早期注册、样本数歧义和原始数据复算未完成",
+    "群体研究的版本锁定与数据复算未完成",
+    "量子／泛心论专项、全部15张问题卡的综合尚未完成",
+    "未审校的其他路线演示和书稿不因本次网站联动获得验证"
+  ]
+}

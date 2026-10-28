@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-28",
+  "browser": "Microsoft Edge via Playwright, headless",
+  "viewports": [
+    "1440×1000",
+    "390×844"
+  ],
+  "researchSHA256": "f3faaa6258c1130ea072c7cfe695bf31e67aa1eac36be8a2c45e095162b0bd16",
+  "htmlSHA256": "a36de2b95ce113eedbc539b0618d0f2f9b724549e340355817a1800dc0a9369d",
+  "checkerSHA256": "1ea56e2c3087ca28ccaffc42f925df2f14cd7a6e814ee5e717bd0bc8f56d67fa",
+  "graphsKeyboardToggle": 3,
+  "svgTextBounds": [
+    {
+      "key": "bridge",
+      "textCount": 22,
+      "outside": []
+    },
+    {
+      "key": "timeline",
+      "textCount": 50,
+      "outside": []
+    },
+    {
+      "key": "prediction",
+      "textCount": 32,
+      "outside": []
+    }
+  ],
+  "conclusionsKeyboardToggle": 6,
+  "caseFilters": 5,
+  "theoryFilters": 3,
+  "semanticConditions": 4,
+  "signalConditions": 4,
+  "premiseConditions": 12,
+  "sourceSearch": "matching, empty and reset",
+  "deepLink": "m5 opened",
+  "duplicateIDs": [],
+  "directHrefCount": 95,
+  "brokenLocalLinks": [],
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "globalMobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "priorPhaseNavigationAndSmoke": true,
+  "globalRoutes": 20,
+  "globalQuestions": 15,
+  "globalSearchAndFilter": true,
+  "scriptErrors": []
+}

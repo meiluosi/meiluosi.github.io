@@ -50,7 +50,7 @@ claims={};source_ids={s['id'] for s in d['sources']};conclusion_ids={c['id'] for
 access=read(phase/'evidence/access-log.json')
 for s in d['sources']:
  assert s['readingStatus']=='selected-sections'
- assert all(s[k] for k in ['version','readScope','unreadScope','problem','solution','remaining'])
+ assert all(s[k] for k in ['version','readScope','unreadScope','problem','solution','remaining','timelineTitle','timelineAdvance'])
  assert any(a.get('sha256')==s['sha256'] and a['url']==s['url'] for a in access['retrievals'])
  if s.get('prior'):assert (history/s['prior']).is_file()
  for c in s['claims']:
@@ -67,9 +67,14 @@ assert r['scriptSHA256']==sha(root/'scripts/check-intelligence-boundaries.py')
 index=read(history/'research-index.json');n=index['counts']
 assert n['distinctNodes']==144 and n['nodeRecords']==150 and n['baselineCandidatesWithNotes']==81
 assert n['candidatesWithPartialWorkMapping']==1 and n['candidatesWithoutWorkMapping']==24
-assert index['roundFour']['currentPhase']==2 and index['roundFour']['nextPhase']==3
+assert index['roundFour']['currentPhase']>=2 and any(p['phase']==2 for p in index['roundFour']['phases'])
 assert index['boundariesSHA256']==sha(phase/'research.json')
-report=dict(date='2026-10-28',localPathReferences=paths,explicitAnchors=anchors,legacyFragmentsPathOnly=legacy,svgDocuments=svg,snapshots=snapshots,sources=len(d['sources']),selectedSections=len(d['sources']),sourceClaims=len(claims),conclusions=len(conclusion_ids),cases=len(d['cases']),relations=len(d['relations']),editorialComparisons=sum(e['kind']=='editorial-comparison' for e in d['relations']),methodChecks=len(r['checks']),designsNotExecuted=len(d['proposals']),historyConditions=len(r['conditions']),historicalNodeCountsUnchanged=True,errors=errors,scope='Phase-two documents, global entries, phase-one navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested.')
+browser=read(phase/'evidence/browser-check.json')
+assert browser['researchSHA256']==sha(phase/'research.json')
+assert browser['htmlSHA256']==sha(phase/'index.html')
+assert browser['checkerSHA256']==sha(root/'scripts/verify-intelligence-boundaries.mjs')
+assert not browser['scriptErrors'] and not browser['brokenLocalLinks']
+report=dict(date='2026-10-28',localPathReferences=paths,explicitAnchors=anchors,legacyFragmentsPathOnly=legacy,svgDocuments=svg,snapshots=snapshots,sources=len(d['sources']),selectedSections=len(d['sources']),sourceClaims=len(claims),conclusions=len(conclusion_ids),cases=len(d['cases']),relations=len(d['relations']),editorialComparisons=sum(e['kind']=='editorial-comparison' for e in d['relations']),methodChecks=len(r['checks']),designsNotExecuted=len(d['proposals']),historyConditions=len(r['conditions']),historicalNodeCountsUnchanged=True,browserEvidenceMatchesCurrentFiles=True,errors=errors,scope='Phase-two documents, global entries, phase-one navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested.')
 serialized=json.dumps(report,ensure_ascii=False,indent=2)+'\n';dest=phase/'evidence/structure-check.json'
 if '--check' in sys.argv:assert dest.read_text()==serialized,'Saved report stale; review and regenerate.'
 else:dest.write_text(serialized)

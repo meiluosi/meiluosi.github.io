@@ -13,7 +13,7 @@
 1. **第一轮候选全景**：20 条路线、106 个独立候选事件和 106 份来源；保留原作/译本/再版日期、阅读状态与资料缺口。
 2. **可维护的图与文献队列**：同一份数据生成 SVG、Mermaid、离线交互图、路线底稿和文献队列；新增来源后可以同步更新。
 3. **第二轮样板审校已完成**：学习效率与泛化9个节点、控制论与强化学习8个、具身与生态8个；每个节点有原文定位、阅读范围、机制和边界，配套25份笔记、16条关系、六张可编辑图和三个教学算例。逐篇状态为指定片段阅读，未计为全文完成或独立复现。
-4. **第三轮A批已验收（2026-10-27）**：补三个样板的指定断层，展开四条路线；交付三张跨路线问题卡、两组版本对照、Baird六状态正式复现及可编辑图。见[A批工作台与验收记录](./intelligence-history/round-three-a/README.md)；B批于2026-10-27完成[指定范围验收](./intelligence-history/round-three-b/validation.md)：三条路线、25节点、三张问题卡、两项A批回访及一项合成方法核验；C—E批亦于2026-10-27完成[联合验收](./intelligence-history/cde-validation.md)：10条路线、66条节点记录、9张问题卡、9项回访和三项合成核验；全局已汇总144个去重节点，阅读与版本缺口另列。第四轮于2026-10-28启动，第一阶段[比较框架与首篇综合样板](./intelligence-history/round-four/index.html)已完成[验收](./intelligence-history/round-four/validation.md)：6条条件性结论、10份来源记录、两组可编辑图及精确方法核验。第二阶段[系统边界与发展](./intelligence-history/round-four/boundaries/index.html)亦已完成[验收](./intelligence-history/round-four/boundaries/validation.md)：9份选读、27条定位主张、6条结论、三组可编辑图、8项精确核验；3项新设计尚未执行。后续意义与意识、正式网站集成见[阶段计划](./intelligence-history/round-four/plan.md)。
+4. **第三轮A批已验收（2026-10-27）**：补三个样板的指定断层，展开四条路线；交付三张跨路线问题卡、两组版本对照、Baird六状态正式复现及可编辑图。见[A批工作台与验收记录](./intelligence-history/round-three-a/README.md)；B批于2026-10-27完成[指定范围验收](./intelligence-history/round-three-b/validation.md)：三条路线、25节点、三张问题卡、两项A批回访及一项合成方法核验；C—E批亦于2026-10-27完成[联合验收](./intelligence-history/cde-validation.md)：10条路线、66条节点记录、9张问题卡、9项回访和三项合成核验；全局已汇总144个去重节点，阅读与版本缺口另列。第四轮于2026-10-28启动，第一阶段[比较框架与首篇综合样板](./intelligence-history/round-four/index.html)已完成[验收](./intelligence-history/round-four/validation.md)：6条条件性结论、10份来源记录、两组可编辑图及精确方法核验。第二阶段[系统边界与发展](./intelligence-history/round-four/boundaries/index.html)亦已完成[验收](./intelligence-history/round-four/boundaries/validation.md)：9份选读、27条定位主张、6条结论、三组可编辑图、8项精确核验；3项新设计尚未执行。第三阶段[意义与意识解释](./intelligence-history/round-four/meaning/index.html)已完成[指定范围验收](./intelligence-history/round-four/meaning/validation.md)：12份选读、40条主张、6条结论、6项预测比较、3组可编辑图与11项精确检查；3项设计未执行。下一步综合修订与正式网站集成见[阶段计划](./intelligence-history/round-four/plan.md)。
 
 ## 历史执行方向（2026-10-22）
 
@@ -246,3 +246,7 @@
 | Anime 追番页面 | 未使用，内容与博客定位不符 |
 | ACG 本地音乐 | 版权风险，已改用 Meting API |
 | Twikoo 评论 | 已改用 Giscus |
+
+### 第四轮综合修订与网站联动（2026-10-28）
+
+18条结论已共同复核，原句与修订分层保存；[来源台账](./intelligence-history/round-four/integration/source-registry.md)区分31条记录、29作品和26证据组。正式站点新增 /research/intelligence/ 及三篇综述、31个来源页、修订对照和研究队列，路线页、文献架、文章入口均可进入。图和原文定位支持直接追溯，SVG／Mermaid及研究数据可下载。三处关联认知透镜改用已核验的有限模型，明确不测量体验或判定认知构成。[验收](./intelligence-history/round-four/integration/validation.md)记录集成与部署边界。

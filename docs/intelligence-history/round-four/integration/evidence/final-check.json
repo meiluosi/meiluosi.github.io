@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-28",
+  "status": "passed",
+  "commands": [
+    {
+      "command": "node scripts/generate-intelligence-integration.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":68,\"counts\":{\"conclusions\":18,\"clarified\":13,\"retained\":5,\"sourceRecords\":31,\"sourceClaims\":88,\"bibliographicWorks\":29,\"evidenceFamilies\":26,\"designsNotExecuted\":9},\"protectedFiles\":93}",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-index.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":26,\"counts\":{\"routes\":20,\"nodeRecords\":150,\"distinctNodes\":144,\"baselineCandidates\":106,\"baselineCandidatesWithNotes\":81,\"sourceRecords\":162,\"distinctSourceIds\":153,\"questionCards\":15,\"revisits\":11,\"cde\":{\"routes\":10,\"nodeRecords\":66,\"sources\":67,\"claims\":129,\"relations\":51,\"questionCards\":9,\"revisits\":9,\"methodChecks\":3},\"candidatesWithPartialWorkMapping\":1,\"candidatesWithoutWorkMapping\":24}}",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-history-round-four.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":30,\"sources\":10,\"claims\":21,\"conclusions\":6,\"cases\":6}",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-boundaries.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"verified\",\"files\":32,\"sources\":9,\"claims\":27,\"conclusions\":6,\"cases\":5,\"graphs\":3,\"checks\":8}",
+      "stderr": ""
+    },
+    {
+      "command": "node scripts/generate-intelligence-meaning.mjs --check",
+      "exitCode": 0,
+      "output": "{\"mode\":\"checked\",\"files\":37,\"sources\":12,\"claims\":40,\"conclusions\":6,\"predictions\":6,\"methodChecks\":11}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/check-intelligence-round-four.py --check",
+      "exitCode": 0,
+      "output": "{\"checks\": {\"exact_covariance\": true, \"determinants\": true, \"intervention_x1\": true, \"intervention_x2\": true, \"circuit_old_context\": true, \"circuit_new_context\": true}, \"mode\": \"checked\"}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/check-intelligence-boundaries.py --check",
+      "exitCode": 0,
+      "output": "{\"mode\": \"checked\", \"checks\": {\"terminal_states\": true, \"same_removal_loss\": true, \"history_at_fixed_support\": true, \"order_not_exposure_count\": true, \"state_reset_mediates_history\": true, \"baseline_trajectory_equivalence\": true, \"feedback_intervention\": true, \"synchronous_negative_control\": true}}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/check-intelligence-meaning.py --check",
+      "exitCode": 0,
+      "output": "{\"mode\": \"checked\", \"checks\": {\"six_bijections\": true, \"equal_form_likelihood\": true, \"one_anchor_two_candidates\": true, \"two_anchors_one_candidate\": true, \"conflicting_anchors_none\": true, \"report_required_equivalent\": true, \"no_report_distinguishes_dependency\": true, \"signal_negative_control\": true, \"negative_result_seven_assignments\": true, \"theory_can_survive_negative\": true, \"independent_premises_isolate_theory\": true}}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/audit-intelligence-history-round-four.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"localPathReferences\": 2221,\n  \"explicitRoundFourAnchorsChecked\": 628,\n  \"legacyFragmentsPathOnly\": 338,\n  \"svgXMLDocuments\": 10,\n  \"historicalSnapshotsUnchanged\": 7,\n  \"sources\": 10,\n  \"sourceClaims\": 21,\n  \"conclusions\": 6,\n  \"evidenceAuditItems\": 6,\n  \"designsNotExecuted\": 3,\n  \"candidateAnnotations\": 25,\n  \"errors\": [],\n  \"scope\": \"Round-four documents and current global coverage/index. Historical target paths checked; historical dynamic anchors and external URLs are outside this structural audit.\"\n}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/audit-intelligence-boundaries.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"localPathReferences\": 937,\n  \"explicitAnchors\": 141,\n  \"legacyFragmentsPathOnly\": 199,\n  \"svgDocuments\": 3,\n  \"snapshots\": {\n    \"baselines.json\": 8,\n    \"phase-one-baselines.json\": 7\n  },\n  \"sources\": 9,\n  \"selectedSections\": 9,\n  \"sourceClaims\": 27,\n  \"conclusions\": 6,\n  \"cases\": 5,\n  \"relations\": 6,\n  \"editorialComparisons\": 2,\n  \"methodChecks\": 8,\n  \"designsNotExecuted\": 3,\n  \"historyConditions\": 16,\n  \"historicalNodeCountsUnchanged\": true,\n  \"browserEvidenceMatchesCurrentFiles\": true,\n  \"errors\": [],\n  \"scope\": \"Phase-two documents, global entries, phase-one navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested.\"\n}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/audit-intelligence-meaning.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"localPathReferences\": 1156,\n  \"explicitAnchors\": 266,\n  \"legacyFragmentsPathOnly\": 231,\n  \"svgDocuments\": 3,\n  \"snapshots\": {\n    \"baselines.json\": 9,\n    \"previous-content-baselines.json\": 12\n  },\n  \"sources\": 12,\n  \"selectedSections\": 12,\n  \"sourceClaims\": 40,\n  \"conclusions\": 6,\n  \"cases\": 5,\n  \"relations\": 10,\n  \"editorialComparisons\": 3,\n  \"methodChecks\": 11,\n  \"designsNotExecuted\": 3,\n  \"predictionComparisons\": 6,\n  \"semanticConditions\": 4,\n  \"signalConditions\": 4,\n  \"premiseRows\": 8,\n  \"historicalNodeCountsUnchanged\": true,\n  \"browserEvidenceMatchesCurrentFiles\": true,\n  \"errors\": [],\n  \"scope\": \"Phase-three documents, global entries, prior-phase navigation and research links from project docs. External URL uptime and historical dynamic fragments are not tested.\"\n}",
+      "stderr": ""
+    },
+    {
+      "command": "python3 (bundled runtime) scripts/audit-intelligence-integration.py --check",
+      "exitCode": 0,
+      "output": "{\n  \"date\": \"2026-10-28\",\n  \"nativePages\": 38,\n  \"sources\": 31,\n  \"sourceClaims\": 88,\n  \"reviewedConclusions\": 18,\n  \"protectedFiles\": 93,\n  \"svgDocuments\": 9,\n  \"localReferences\": 1366,\n  \"localAnchors\": 310,\n  \"routeEntries\": 20,\n  \"designsNotExecuted\": 9,\n  \"errors\": [],\n  \"reviewSHA256\": \"e461eafe18c9c62da122c6aa709034584cd0e50dcf34c5b0eecec0381007d2aa\",\n  \"scope\": \"Generated native research pages and downloads; all local targets and explicit HTML/SVG fragments checked. Original external sources are not re-downloaded. Historical workbenches are audited separately.\"\n}",
+      "stderr": ""
+    }
+  ],
+  "browserReportSHA256": "dee46f0e4e365a7c9f70370d50bd230a70dba535bf9a90e83b124d78dce79491",
+  "browserSourcesMatchCurrentFiles": true,
+  "engineeringReportSHA256": "1712b2076dfaa25a8a72bedf3fd8af3ecb38fe0dc05fd0f73eccc9fd0cc8747e",
+  "builtReviewMatchesSourceExport": true,
+  "noDeployment": true
+}

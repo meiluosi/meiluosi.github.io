@@ -23,4 +23,4 @@ node scripts/generate-intelligence-history-index.mjs
 python3 scripts/audit-intelligence-boundaries.py
 ```
 
-[历史基线](baselines.json)和[第一阶段内容基线](phase-one-baselines.json)用于防止改写旧研究结论。第四轮整体仍有[阶段3与4](../plan.md)待推进。
+[历史基线](baselines.json)和[第一阶段内容基线](phase-one-baselines.json)用于防止改写旧研究结论。第三阶段成果见[意义与意识工作台](../meaning/index.html)，第四轮当前进度见[阶段计划](../plan.md)。
