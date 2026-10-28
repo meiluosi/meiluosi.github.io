@@ -1,0 +1,19 @@
+---
+import descriptive from "../../../../docs/intelligence-history/round-seven/evidence/descriptive-results.json";
+import models from "../../../../docs/intelligence-history/round-seven/evidence/model-results.json";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import "@/styles/intelligence-research.css";
+const labels: Record<string,string> = {UnscrambleWords1:"词语重组", BrainstormObject1:"物体用途发散", TypingText1:"文本输入"};
+---
+<ExploreLayout title="群体研究复核" titleEn="Collective intelligence: verification" description="锁定群体研究的代码、数据和更正，区分描述性复算与原模型复现。" descriptionEn="A version and data audit of a collective intelligence study, in Chinese.">
+<article class="research-page" lang="zh-CN" data-pagefind-body>
+<nav class="research-nav"><a href="/research/intelligence/">← 综合研究</a><a href="/research/intelligence/next/#design-version">研究队列</a><a href="/research/intelligence/evidence/#p4">相关结论</a></nav>
+<p class="kicker">VERIFICATION · ROUND 07</p><h1>一条证据链，<br />先把版本对齐。</h1><p class="lead">复核群体智能的测量需要同时看论文、更正、数据、代码以及它们各自的时间。</p>
+<div class="scope-note">已锁定作者2021年代码快照，核对公开数据并运行三任务与八任务模型。三任务载荷平方均值四舍五入后与更正值一致；八任务不同且有求逆警告，尚不能称为完整复现。</div>
+<figure><a href="/research/intelligence/verification/versions.svg"><img class="research-map" src="/research/intelligence/verification/versions.svg" alt="作者仓库、公开数据、论文和更正的版本关系" /></a><figcaption>打开大图查看材料之间的关系；虚线表示仍待进一步核验。<a href="/research/intelligence/verification/versions.mmd" download>下载可编辑图</a></figcaption></figure>
+<h2>能对上的与尚未解释的</h2><div class="research-grid"><section class="research-card"><h3>公开数据的样本</h3><p>{descriptive.studyCount}项研究，{descriptive.teamRows.toLocaleString()}个团队，团队人数合计{descriptive.sumGroupSize.toLocaleString()}。与论文正文的对应数字一致。</p></section><section class="research-card"><h3>说明文件的差异</h3><p>作者仓库说明写1,357个团队，而锁定的CSV有1,356行和1,356个不同团队编号；目前没有证据解释差一的原因。</p></section><section class="research-card"><h3>先看正式更正</h3><p>作者2022年将论文报告的平均方差提取量从44%更正为19.6%。早于更正的代码不能自动视为修正版。</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9171794/">阅读正式更正 ↗</a></section></div>
+<h2>三个共同任务：描述性对照</h2><p>下表比较将所有团队直接合并的相关，与按研究分别计算、再按团队数简单加权的平均相关。两者回答的统计问题不同；差异不能独自归因为某一种机制，更不能替代原论文的随机效应元分析。</p><div class="research-grid">{descriptive.correlations.map(row=><section class="research-card"><h3>{row.tasks.map(t=>labels[t]).join(" × ")}</h3><p>合并相关：<strong>{row.pooledCorrelation.toFixed(3)}</strong></p><p>研究内相关的简单加权平均：<strong>{row.simplePairNWeightedMeanWithinStudyCorrelation.toFixed(3)}</strong></p><p class="quiet">{row.studiesWithCorrelation}项研究，{row.pooledPairN}个团队。</p></section>)}</div>
+<h2>两阶段模型：哪些数字对上了？</h2><div class="research-grid"><section class="research-card"><h3>三个任务</h3><p>两阶段均返回状态0；载荷平方均值为 <strong>{(models.models.three.meanSquaredLoadings*100).toFixed(4)}%</strong>，四舍五入后与更正中的19.6%一致。</p><p>目标模型自由度为0，不能将其拟合指数当作独立的拟合优度检验。</p></section><section class="research-card"><h3>八个任务</h3><p>载荷平方均值为 <strong>{(models.models.eight.meanSquaredLoadings*100).toFixed(4)}%</strong>；目标模型 χ² 为 {models.models.eight.fit["Chi-square of target model"].toFixed(3)}，更正报告为93.284。</p><p>两阶段状态均为0，但第一阶段出现 Hessian 求逆警告。软件版本、优化和修正版材料等仍需核对，差异原因尚不能确定。</p></section></div>
+<h2>为什么仍需继续核对？</h2><p>作者的模型先汇总各研究的相关矩阵，再拟合单因素结构。本轮使用的统计包版本不同于尚未锁定的原环境，修正版补充表和团队排除流程也尚待核对；简单相关比较不能替代模型复算，三任务的数值一致也不等于全部结果均已复现。</p>
+<p><a href="https://github.com/riedlc/QuantifyingCI/tree/e565b5b17aff883141100364cd6481ea4375bc00">查看锁定的作者仓库 ↗</a> · <a href="https://doi.org/10.7910/DVN/RAKAOG">论文指向的数据存档 ↗</a> · <a href="/research/intelligence/verification/versions.mmd" download>下载可编辑版本关系图</a></p>
+</article></ExploreLayout>

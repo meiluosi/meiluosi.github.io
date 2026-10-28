@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+<title id="title">群体研究：版本与核验路线</title><desc id="desc">作者代码指向公开数据与说明文件；论文、正式更正和本轮数据核对各有不同版本及范围。</desc>
+<rect width="900" height="560" fill="#f3f6f1"/><g font-family="system-ui,sans-serif" fill="#264539">
+<text x="30" y="42" font-size="25">群体研究：版本与核验路线</text>
+<g fill="#fff" stroke="#a9bcb0" stroke-width="2"><rect x="35" y="80" width="240" height="100" rx="12"/><rect x="330" y="80" width="240" height="100" rx="12"/><rect x="625" y="80" width="240" height="100" rx="12"/><rect x="35" y="270" width="240" height="100" rx="12"/><rect x="330" y="270" width="240" height="100" rx="12"/><rect x="625" y="270" width="240" height="100" rx="12"/></g>
+<g font-size="18"><text x="55" y="120">2021 作者仓库快照</text><text x="55" y="150">代码早于更正</text><text x="350" y="120">公开 CSV</text><text x="350" y="150">1,356 团队</text><text x="645" y="120">仓库说明</text><text x="645" y="150">1,357 团队：原因待查</text><text x="55" y="310">2021 论文</text><text x="55" y="340">1,356 团队 · 5,279 人</text><text x="350" y="310">2022 正式更正</text><text x="350" y="340">AVE 44% → 19.6%</text><text x="645" y="310">本轮模型与数据核对</text><text x="645" y="340">三任务一致 · 八任务待查</text></g>
+<g stroke="#416c56" stroke-width="3" fill="none"><path d="M275 130 H320"/><path d="M570 130 H615"/><path d="M450 180 V235 H155 V260"/><path d="M275 320 H320"/><path d="M570 320 H615" stroke-dasharray="7 6"/></g>
+<text x="35" y="440" font-size="17">实线表示材料引用或版本先后；虚线提醒后续核验，非独立复现。</text>
+<text x="35" y="475" font-size="17">描述性分析不同于作者的两阶段模型；八任务差异仍待查明。</text>
+</g></svg>

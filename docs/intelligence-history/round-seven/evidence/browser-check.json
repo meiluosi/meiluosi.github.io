@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-28",
+  "desktop": "1440×1000",
+  "mobile": [
+    {
+      "url": "/research/intelligence/verification/",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "url": "/research/intelligence/next/",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "noJavaScriptReading": true,
+  "queueAndConclusionLinks": true,
+  "scriptErrors": []
+}

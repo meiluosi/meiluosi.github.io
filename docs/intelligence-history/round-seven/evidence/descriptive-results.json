@@ -1,0 +1,72 @@
+{
+  "inputSHA256": "7c5fe80ac43c13949bce47d221f0538f89992611c31baa2862258b039657ab34",
+  "teamRows": 1356,
+  "uniqueTeamIds": 1356,
+  "studyCount": 22,
+  "sumGroupSize": 5279,
+  "studyTeamCounts": {
+    "Bots": 37,
+    "CMUGenderStatusStudy": 50,
+    "FortSill": 38,
+    "German": 114,
+    "Hopkins2015": 21,
+    "Hopkins2016": 17,
+    "Kiwon": 60,
+    "MBA2012": 71,
+    "MBA2014": 40,
+    "MBA2015": 43,
+    "RiotStudy": 254,
+    "Synchrony": 147,
+    "T1T2CMUSO2013": 34,
+    "T1T2CMUSO2015": 32,
+    "T1T2CrowdflowerJoint": 63,
+    "T1T2CrowdflowerRound1": 23,
+    "Technion2015": 48,
+    "Technion2016": 78,
+    "Technion2017": 45,
+    "TilburgStudy": 30,
+    "USC": 43,
+    "XvalStudy": 68
+  },
+  "commonTaskObserved": {
+    "UnscrambleWords1": 1356,
+    "BrainstormObject1": 1356,
+    "TypingText1": 1356
+  },
+  "correlations": [
+    {
+      "tasks": [
+        "UnscrambleWords1",
+        "BrainstormObject1"
+      ],
+      "pooledPairN": 1356,
+      "pooledCorrelation": 0.269153,
+      "studiesWithCorrelation": 22,
+      "simplePairNWeightedMeanWithinStudyCorrelation": 0.175828,
+      "withinStudyPairNTotal": 1356
+    },
+    {
+      "tasks": [
+        "UnscrambleWords1",
+        "TypingText1"
+      ],
+      "pooledPairN": 1356,
+      "pooledCorrelation": 0.284569,
+      "studiesWithCorrelation": 22,
+      "simplePairNWeightedMeanWithinStudyCorrelation": 0.160015,
+      "withinStudyPairNTotal": 1356
+    },
+    {
+      "tasks": [
+        "BrainstormObject1",
+        "TypingText1"
+      ],
+      "pooledPairN": 1356,
+      "pooledCorrelation": 0.372036,
+      "studiesWithCorrelation": 22,
+      "simplePairNWeightedMeanWithinStudyCorrelation": 0.232863,
+      "withinStudyPairNTotal": 1356
+    }
+  ],
+  "scope": "Descriptive checks only; weighted mean is not the authors random-effects TSSEM, AVE, or a causal estimate."
+}

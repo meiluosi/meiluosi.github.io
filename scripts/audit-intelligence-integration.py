@@ -51,7 +51,7 @@ for name in ['routes','library','notes']:
  assert '/research/intelligence/' in (dist/name/'index.html').read_text()
 assert all(q['status']=='design-only' for q in d['queue'])
 index=read(root/'docs/intelligence-history/research-index.json');assert index['roundFour']['currentPhase']==4 and index['counts']['distinctNodes']==144
-report=dict(date='2026-10-28',nativePages=len(htmls),sources=31,sourceClaims=88,reviewedConclusions=18,protectedFiles=len(read(phase/'baselines.json')),svgDocuments=svg,localReferences=paths,localAnchors=anchors,routeEntries=20,designsNotExecuted=9,errors=errors,reviewSHA256=sha(phase/'research.json'),scope='Generated native research pages and downloads; all local targets and explicit HTML/SVG fragments checked. Original external sources are not re-downloaded. Historical workbenches are audited separately.')
+report=dict(date='2026-10-28',nativePages=len(htmls),sources=31,sourceClaims=88,reviewedConclusions=18,protectedFiles=len(read(phase/'baselines.json')),svgDocuments=svg,localReferences=paths,localAnchors=anchors,routeEntries=20,historicalDesignsNotExecuted=9,errors=errors,reviewSHA256=sha(phase/'research.json'),scope='Generated native research pages and downloads; all local targets and explicit HTML/SVG fragments checked. Fourth-round design statuses are a historical snapshot; later progress is tracked separately. Original external sources are not re-downloaded. Historical workbenches are audited separately.')
 text=json.dumps(report,ensure_ascii=False,indent=2)+'\n';dest=phase/'evidence/structure-check.json'
 if '--check' in sys.argv:assert dest.read_text()==text,'Saved integration audit stale'
 else:dest.write_text(text)

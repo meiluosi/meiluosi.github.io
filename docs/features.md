@@ -257,3 +257,5 @@
 
 
 第六轮[关键缺口与反方](./intelligence-history/round-six/README.md)：排序24项历史未映射候选，补读定义汇编、Marr视觉层次、Transformer和规模规律的指定原典片段，并加入Hoffmann与Pearce–Song的竞争解释；相关节点与结论回访进入网站。
+
+第七轮[群体研究复核](./intelligence-history/round-seven/README.md)将作者论文、代码快照、数据与更正并列，记录样本核对、描述性相关比较和原模型复现状态。

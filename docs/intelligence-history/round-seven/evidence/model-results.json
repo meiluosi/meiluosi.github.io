@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-28",
+  "sourceCommit": "e565b5b17aff883141100364cd6481ea4375bc00",
+  "csvSHA256": "7c5fe80ac43c13949bce47d221f0538f89992611c31baa2862258b039657ab34",
+  "environment": {
+    "R": "4.5.3",
+    "OpenMx": "2.22.11",
+    "metaSEM": "1.5.0",
+    "platform": "aarch64 macOS",
+    "optimizer": "SLSQP",
+    "runRerun": false
+  },
+  "models": {
+    "three": {
+      "loadings": {
+        "Alpha_BrainstormObject1": 0.504919020626817,
+        "Alpha_TypingText1": 0.459309532168883,
+        "Alpha_UnscrambleWords1": 0.348380991451749
+      },
+      "meanSquaredLoadings": 0.19575925964561527,
+      "legacyMeanLoadings": 0.4375365147491497,
+      "fit": {
+        "Sample size": 1356.0,
+        "Chi-square of target model": 1.40588609459217e-25,
+        "DF of target model": 0.0,
+        "Chi-square of independence model": 93.4893372733114,
+        "DF of independence model": 3.0,
+        "RMSEA": 0.0,
+        "CFI": 1.0
+      },
+      "stageOneStatus": 0,
+      "stageTwoStatus": 0,
+      "warning": null
+    },
+    "eight": {
+      "loadings": {
+        "Alpha_BrainstormObject1": 0.425151147107654,
+        "Alpha_BrainstormWords1": 0.444030445734072,
+        "Alpha_MatrixSolving1": 0.458239834527948,
+        "Alpha_MemoryPicture1": 0.241011150376132,
+        "Alpha_Sudoku1": 0.47498406591178,
+        "Alpha_TypingNumbers1": 0.599171560644416,
+        "Alpha_TypingText1": 0.457804675099476,
+        "Alpha_UnscrambleWords1": 0.493496797606119
+      },
+      "meanSquaredLoadings": 0.2104659108656454,
+      "legacyMeanLoadings": 0.4492362096259496,
+      "fit": {
+        "Sample size": 1356.0,
+        "Chi-square of target model": 101.558513148507,
+        "DF of target model": 20.0,
+        "Chi-square of independence model": 449.114872762072,
+        "DF of independence model": 28.0,
+        "RMSEA": 0.0548592674994134,
+        "CFI": 0.806327160535632
+      },
+      "stageOneStatus": 0,
+      "stageTwoStatus": 0,
+      "warning": "Hessian generalized inverse: standard errors may not be trustworthy"
+    }
+  },
+  "comparison": {
+    "authorsCorrectedAve": 0.196,
+    "authorsCorrectedEightTargetChiSquare": 93.284,
+    "authorsCorrectedEightDF": 20,
+    "authorsCorrectedEightCFI": 0.833,
+    "authorsCorrectedEightRMSEA": 0.052,
+    "qualification": "Three-task mean squared loadings rounds to corrected 19.6%; eight-task output differs. Different software versions and Hessian warning are candidates, not established causes; corrected SI and original package versions remain unverified."
+  }
+}
