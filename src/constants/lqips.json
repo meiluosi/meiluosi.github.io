@@ -21,5 +21,7 @@
   "public:assets/images/brand/social-card.png": "1a1e1629301b232a19",
   "public:assets/images/brand/research-search.png": "eaeee9eff2edebefe9",
   "public:assets/images/brand/research-model.png": "eaeee9eef1ece6eae3",
-  "public:assets/images/brand/research-causal.png": "eaeee8eff2edecefe9"
+  "public:assets/images/brand/research-causal.png": "eaeee8eff2edecefe9",
+  "public:network-evolve/fig8_llm_arm_and_scaling.png": "f2e1e1f3f6f6f9fafa",
+  "public:network-evolve/fig7_attribution_ablation.png": "ebf1f2e7ecf1e2e8eb"
 }
