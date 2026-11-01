@@ -5,7 +5,7 @@ title: "Three Pre-Specified Hypotheses, Zero Passes: Two Reusable Checks from an
 editionLabel: ENGLISH EDITION · SOCIAL SIMULATION
 published: 2026-11-01T00:00:00.000+08:00
 draft: false
-description: "Results from NetworkEvolveLab: modularity saturates the bipolar ceiling at 0.49999997; asynchronous scheduling alone manufactures one-sided unfollowing (speaker-frequency bias ruled out); naive scaling to N=1000 collapses modularity to 0.077 as a pure density confound. Plus four retracted claims, a 2.5%-coverage LLM null, and the evidence boundary."
+description: "Results from NetworkEvolveLab: modularity saturates the bipolar ceiling at 0.49999997; asynchronous scheduling alone manufactures one-sided unfollowing (speaker-frequency bias ruled out); naive scaling to N=1000 collapses modularity to 0.077 as a pure density confound. Plus the retracted claims, an LLM null at 2.5% and 19% coverage, and the evidence boundary. Code is public."
 tags:
   - Social Simulation
   - LLM Agents
@@ -18,7 +18,7 @@ lang: en
 
 <!-- Mirrors the Chinese edition 2026-11-01-network-evolve-lab-negative-results. -->
 
-> **Boundary first: every number here comes from my own simulator. None comes from real-platform stance data.** The only "real" network is the SNAP Higgs edge list, which carries no stance labels; its two camps are a proxy derived from the topology (Louvain communities). The code is currently in a private repository, so you cannot independently re-run these numbers yet. Please discount accordingly.
+> **Boundary first: the numbers here come from my own simulator, not from real-platform behaviour data.** The SNAP Higgs edge list is real but carries no stance labels; its two camps are a proxy derived from the topology (Louvain communities). The only graph with real stance labels is a 100-node subgraph of the Political Blogosphere (Adamic–Glance 2005) used as a scope check in the appendix: one graph. Code is public: [meiluosi/NetworkEvolveLab](https://github.com/meiluosi/NetworkEvolveLab).
 
 ## The short version
 
@@ -124,7 +124,7 @@ Baseline $Q=0.442$ (N=100, T=60, 20 seeds). H3 requires a ≥35% gain in cross-c
 - The reach limb is **statistically inconclusive**: combined governance +19.4% (paired one-sided $t$ $p=0.040$, Wilcoxon $p=0.105$), bootstrap 95% CI [−0.1%, +50.1%], which **includes 35%**. Reach is close to bimodal: 7 of 20 seeds have baseline reach <0.05. So the $\Delta Q$ limb alone is what sinks H3.
 - An observation I did not pre-specify: diversified recommendation crushes **belief polarization Π** (0.123 → 0.068 → 0.030 at 0% / 15% / 30%) and edge count falls (1008 → 961 → 921), while modularity barely moves. Community structure is far more inert than beliefs. Exploratory only.
 
-## The LLM part: a null at 2.5% coverage
+## The LLM part: a null at 2.5% and at 19% coverage
 
 The title says "LLM cognition", but this is my weakest evidence, so it gets its own section.
 
@@ -136,13 +136,31 @@ Setup: a real LLM (MiniMax-M3.1-Flash, temperature 0) is mounted in the flagship
 - **Per-event agreement**: LLM and rule agree on 96.3% of 1721 events (1657/1721), but that is swamped by the "mostly reinforce" base rate: Cohen's $\kappa\approx0.62$. On the 85 events where the rule would sever, the LLM agrees on only 37 (43.5%), and it severs less (29) than the rule would (53).
 - $A_{\text{rupture}}$ is 0.089 ± 0.078 in the rule, LLM, and placebo arms alike: that endpoint is saturated and cannot count as evidence.
 
-**What I can say**: in this engine, with this prompt, at 2.5% coverage, replacing the rule backend with an LLM has no measurable structural effect; this design cannot detect one. **What I cannot say**: that "LLM cognition doesn't matter". Answering that needs far higher coverage than this experiment had.
+**For the 2.5% row, what I can say**: in this engine, with this prompt, at this coverage, replacing the rule backend with an LLM has no measurable structural effect; this design cannot detect one.
+
+### Added later: coverage raised to about 19%
+
+The obvious objection is low coverage, so I raised the budget to 60 events per round and added a model from a different vendor. 10 seeds, 30 rounds, N=60, still paired by seed against the rule backend:
+
+| Setting | Coverage | $\Delta Q$ (95% CI) | $\Delta A_{\text{rupture}}$ | $\kappa$ | Agreement on rule-severe events |
+|---|---|---|---|---|---|
+| MiniMax-M3.1-Flash, 6 events/round | 2.5% | −0.0040 ($p=0.42$) [−0.015, +0.007] | 0 | 0.62 | 43.5% (37/85) |
+| MiniMax-M3, 60 events/round | 19.3% | −0.0090 ($p=0.093$) [−0.020, +0.002] | −0.002 ($p=0.90$) | 0.41 | 18.3% (150/819) |
+| DeepSeek-flash, 60 events/round | 19.4% | −0.0048 ($p=0.30$) [−0.015, +0.005] | −0.011 ($p=0.34$) | 0.64 | 37.9% |
+
+- At about 19% coverage neither model family produces a significant structural effect, so "the null is an artefact of low coverage" does not hold up. Both placebo differences are within 0.002.
+- But MiniMax-M3's $\Delta Q=-0.009$ ($p=0.093$) leans negative and **is not significant**; it is not "exactly zero". With 10 seeds the CI is still wide.
+- The two models **copy the rule to very different degrees**: 18.3% agreement on rule-severe events for MiniMax-M3 versus 37.9% for DeepSeek-flash. Same structural effect, different behaviour.
+- These rows are not a controlled model comparison: the 2.5% row changes both model and event budget, and MiniMax-M3.1-Flash truncates its JSON output at high event counts, so it was not rerun at high coverage.
+- Still no human validation of individual actions. The repo contains a 300-event blind annotation package that I have **not run**, plus a rule-based "rule audit" generated mechanically from a vendor-supplied rule; it is labelled synthetic in the repo and is not human validation.
+
+**What I can say**: in this engine, replacing the rule backend with an LLM shows no significant structural change at 2.5% or about 19% coverage, across two model families. **What I cannot say**: that "LLM cognition doesn't matter": 81% of interactions are still rule-driven, and the engine only lets the LLM choose reinforce/decay/sever, not change what is said.
 
 ## Evidence boundary
 
-- **Simulation only**: rule-based agents mostly, LLM on 2.5%. The five benchmark networks are generated proxies, **not** the datasets they are named after; the real Higgs subgraph's camps are topology-derived.
+- **Simulation only**: rule-based agents mostly, LLM on 2.5%–19%. The five benchmark networks are generated proxies, **not** the datasets they are named after; the real Higgs subgraph's camps are topology-derived. The only real-stance graph is one PolBlogs subgraph (N=100, 10 seeds, 25 rounds, initial $Q_0=0.410$): the engine reaches $Q=0.486$ with giant component 0.952, while HK reaches $Q=0.487$ but keeps only 0.519 of the giant component. A single-graph scope check, not a population claim.
 - **Small scale**: main experiments at N=60–100, only Phase 7 reaches N=1000; $\theta^*$ is measured only at N=100 with no finite-size scaling, so "phase transition" is at best a crossover.
-- **One LLM, one prompt, temperature 0.**
+- **Two model families (MiniMax, DeepSeek), one prompt each**, both commercial rather than open-weight; no human validation of individual actions.
 - **n=20 has limited power**: failing to detect the interaction does not mean it is absent.
 - I used several AIs (Gemini, DeepSeek, Claude) for implementation, auditing, and writing. Four rounds of "review" were done by Claude, which also helped iterate on the manuscript, so it was **not independent review**. It made the argument more rigorous; it is not peer review.
 
@@ -156,8 +174,8 @@ As for the three nulls: they did not make the world more complicated. They showe
 ## Reproducibility
 
 - Every number is generated from frozen result JSONs by script, with fixed seeds;
-- a 451-entry SHA256 manifest covers results, benchmark graph caches, and the LLM call archive; I recomputed all of them and they match;
+- a 1077-entry SHA256 manifest covers results, benchmark graph caches, and the LLM call archive; I recomputed all of them and they match;
 - LLM calls are archived by request-content hash and replay with zero new calls (300 used by the experiment, 323 in the archive; the other 23 are earlier exploratory calls);
-- 46 unit tests pass.
+- 51 unit tests pass.
 
-The code is currently private; the above is my own check of my own environment.
+Code: [meiluosi/NetworkEvolveLab](https://github.com/meiluosi/NetworkEvolveLab). The above is my own check of my own environment; please re-run it. The LLM parts replay from the content-addressed archive and need no API key.
