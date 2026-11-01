@@ -1,0 +1,726 @@
+---
+/**
+ * transformer-cinema.astro
+ *
+ * 90秒纯代码交互长片 (Code Cinema):
+ * 《一个 Token 的时空之旅：从离散词表空间到自回归因果闭环》
+ */
+import Text from "@/components/common/BilingualText.astro";
+import CinemaDirector from "@/components/features/cinema/CinemaDirector.svelte";
+import Navbar from "@/components/layout/Navbar.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+	title="一个 Token 的时空之旅：90秒纯代码交互长片 — 枫语"
+	titleEn="A Token's Odyssey in Transformer: 90s Interactive Code Cinema"
+	description="90秒纯代码动态长片：从离散词元嵌入、多头 QKV 线性投影、因果掩码遮蔽到可交互温度分岔与自回归宇宙闭环。"
+	descriptionEn="A 90-second code-driven interactive motion film: navigating discrete token embeddings, multi-head QKV projections, causal masking, interactive temperature bifurcation, and autoregressive closure."
+	setOGTypeArticle={true}
+>
+	<Navbar />
+	<main id="swup-container" class="cinema-page-main" data-pagefind-body>
+		<div class="cinema-page-container">
+			<!-- 顶部面包屑与模式导航 -->
+			<nav class="cinema-breadcrumb">
+				<a href="/essays/">
+					← <Text zh="返回交互长卷与剧场索引" en="Back to Interactive Essays" />
+				</a>
+				<span class="sep">/</span>
+				<span class="current"><Text zh="03 · 交互代码电影" en="03 · Code Cinema" /></span>
+				<span class="sep">·</span>
+				<a href="/posts/2024-09-01-transformer架构详解/">
+					<Text zh="对照《Transformer 架构详解》理论长文 ↗" en="View Architecture Notes ↗" />
+				</a>
+			</nav>
+
+			<!-- 电影片头扉页 -->
+			<header class="cinema-hero-header">
+				<div class="hero-kicker-row">
+					<span class="kicker-tag">SCRIPTED CODE CINEMA · 90-SECOND THEATRE</span>
+					<span class="format-pill">100% SVG & SVELTE 5</span>
+				</div>
+
+				<h1 class="hero-title">
+					<Text
+						zh="一个 Token 的时空之旅"
+						en="A Token's Odyssey in Transformer"
+					/>
+				</h1>
+
+				<p class="hero-subtitle">
+					<Text
+						zh="从离散词表空间、QKV 线性投影、因果掩码屏蔽到可交互温度分岔与 KV Cache 增量自回归"
+						en="From discrete embedding spaces and linear QKV projections to causal masking, interactive temperature bifurcation, and KV Cache autoregressive closure"
+					/>
+				</p>
+
+				<blockquote class="hero-epigraph">
+					<Text
+						zh="“传统视频将知识刻死在静止的像素帧里，观众只能被动接受；而纯代码电影把整个计算舞台交给了数学与浏览器。镜头可以无限推近至矩阵微分，时间可以在高潮处驻留，等待你亲手拨动分岔滑块。”"
+						en="“Traditional video engraves knowledge into passive pixels; code cinema surrenders the entire computational stage to mathematics and the browser. The camera zooms seamlessly, and time pauses at peak bifurcation for your intervention.”"
+					/>
+				</blockquote>
+			</header>
+
+			<!-- 核心播放器舞台 (Code Cinema Director) -->
+			<section class="cinema-stage-section" aria-label="代码电影播放舞台">
+				<CinemaDirector client:load />
+			</section>
+
+			<!-- 全片无障碍文稿与分幕台词对照 (Accessible Transcript) -->
+			<section class="cinema-transcript-section" aria-labelledby="transcript-heading">
+				<div class="transcript-header-row">
+					<div>
+						<span class="transcript-badge">ACCESSIBLE TRANSCRIPT · 无障碍文字版</span>
+						<h2 id="transcript-heading" class="transcript-title">
+							<Text zh="全片 90 秒时空推演台词与数学算子对照" en="Full 90-Second Cinema Transcript & Mathematical Mechanics" />
+						</h2>
+					</div>
+					<p class="transcript-lead">
+						<Text
+							zh="为屏幕阅读器用户与深度学术研读者提供与画面毫秒级同步的完整解说文稿、研究文献引用与闭环数值断言。"
+							en="A synchronized verbatim transcript with research citations and mathematical invariants for screen reader users and academic inspection."
+						/>
+					</p>
+				</div>
+
+				<div class="transcript-acts-stack">
+					<!-- ACT I -->
+					<div class="transcript-act-group">
+						<div class="act-group-header">
+							<span class="act-pill">ACT I · 0:00 - 0:18</span>
+							<h3 class="act-group-title">
+								<Text zh="BPE 分词子词切分与高维嵌入映射" en="BPE Tokenization & Embedding Space Mapping" />
+							</h3>
+						</div>
+						<div class="transcript-lines">
+							<div class="transcript-line">
+								<span class="time-stamp">0:00 - 0:05</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="输入序列" en="Input Sequence" /></span>
+										<span class="tag-name"><Text zh="输入提示词 Prompt" en="Prompt Input" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="人类在终端输入自然语言问句：“人工智能能够思考吗”。在张量计算引擎中，连续文本需要先被离散符号化。"
+											en="A user inputs the natural language query: 'Can AI think?'. At the tensor computation layer, continuous text must first be discretized into discrete symbolic units."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">0:05 - 0:11</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="分词算法 BPE" en="BPE Tokenizer" /></span>
+										<span class="tag-name"><Text zh="BPE 子词合并" en="BPE Subword Merging" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="BPE（字节对编码）基于词频统计迭代合并子词（Sennrich et al., 2016），切分出离散词元序列。目标主角词元【思】（ID=28419）位于序列第 4 位。"
+											en="The Byte-Pair Encoding (BPE) algorithm iteratively merges frequent subwords (Sennrich et al., 2016), segmenting text into tokens. Target token [思] (ID=28419) occupies index 3."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">0:11 - 0:18</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="词嵌入与位置编码" en="Embedding & Positional Encoding" /></span>
+										<span class="tag-name"><Text zh="X = E + P 嵌入加和" en="X = E + P Synthesis" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="查表取出语义嵌入向量 $E[3]$，并叠加标准正弦余弦位置编码 $P[3]$（Vaswani et al., 2017），为无序的自注意力运算注入确定性时序位置信息：$X = E + P$。"
+											en="The model looks up embedding vector $E[3]$ and adds sinusoidal positional encoding $P[3]$ (Vaswani et al., 2017), equipping self-attention with explicit sequence order: $X = E + P$."
+										/>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ACT II -->
+					<div class="transcript-act-group">
+						<div class="act-group-header">
+							<span class="act-pill">ACT II · 0:18 - 0:38</span>
+							<h3 class="act-group-title">
+								<Text zh="多头分立与 QKV 线性投影" en="Multi-Head Attention: Q, K, V Linear Projections" />
+							</h3>
+						</div>
+						<div class="transcript-lines">
+							<div class="transcript-line">
+								<span class="time-stamp">0:18 - 0:24</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="线性投影变换" en="Linear Projections" /></span>
+										<span class="tag-name"><Text zh="矩阵乘法 X · W" en="Matrix Multiplication X · W" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="静态词嵌入缺乏上下文交互能力。输入向量 $X$ 与投影权重矩阵 $W_Q, W_K, W_V$ 相乘，线性映射至注意力子空间。"
+											en="Static embeddings lack context-dependent interaction. Multiplying input $X$ by learned projection matrices $W_Q, W_K$, and $W_V$ maps token representations into attention subspaces."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">0:24 - 0:31</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="多头注意力分立" en="Multi-Head Specialization" /></span>
+										<span class="tag-name"><Text zh="Head 1 句法 vs Head 2 语义" en="Head 1 Syntax vs Head 2 Semantics" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="单一注意力头受限于单一表征子空间。多头机制使模型能并行关注不同维度（Clark et al., 2019）：Head 1 侧重句法依存，Head 2 侧重主语语义实体关联。"
+											en="A single attention head is limited to one representation subspace. Multi-head attention enables parallel specialized focus (Clark et al., 2019): syntax tracking in Head 1 and semantic entity alignment in Head 2."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">0:31 - 0:38</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="QKV 三重表征" en="Q, K, V Representations" /></span>
+										<span class="tag-name"><Text zh="寻址 Q · 键名 K · 载荷 V" en="Query Q · Key K · Value V" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="Query 代表当前词元的寻址探针，Key 充当匹配标识索引，Value 则承载将被注意力加权抽取的真实语义信息。"
+											en="Query acts as the addressing probe for the current token, Key provides the matching feature index, and Value carries the semantic payload to be weighted and aggregated."
+										/>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ACT III -->
+					<div class="transcript-act-group">
+						<div class="act-group-header">
+							<span class="act-pill">ACT III · 0:38 - 0:58</span>
+							<h3 class="act-group-title">
+								<Text zh="缩放点积防饱和与 Value 向量加权聚合" en="Scaled Dot-Product, Causal Mask & Value Aggregation" />
+							</h3>
+						</div>
+						<div class="transcript-lines">
+							<div class="transcript-line">
+								<span class="time-stamp">0:38 - 0:44</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="缩放点积打分" en="Scaled Dot-Product Attention" /></span>
+										<span class="tag-name"><Text zh="除以 √d_k 抑噪" en="Variance Scaling / √d_k" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="主角 Query 与前驱各 Key 计算点积相似度。除以缩放因子 $\sqrt{d_k} = \sqrt{2} \approx 1.41$（Vaswani et al., 2017）使内积方差维持在 1，防止进入 Softmax 梯度饱和区。"
+											en="The Query computes dot-product scores with predecessor Keys. Dividing by $\sqrt{d_k} = \sqrt{2} \approx 1.41$ (Vaswani et al., 2017) maintains unit variance, preventing Softmax gradient saturation."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">0:44 - 0:51</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="自回归因果掩码" en="Autoregressive Causal Mask" /></span>
+										<span class="tag-name"><Text zh="因果掩码屏蔽未来 (-∞)" en="Causal Mask (-∞ -> 0.00)" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="自回归生成要求单向因果流，未来位置词元【吗】被因果掩码阻断：分数置为 $-\infty$，经 Softmax 指数运算后权重严格为 0.00，消除未来信息泄漏。"
+											en="In autoregressive generation, future token [吗] must not leak information. Masking its score to $-\infty$ forces its Softmax weight strictly to 0.00, preserving causal directionality."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">0:51 - 0:58</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="Value 向量加权聚合" en="Value Vector Aggregation" /></span>
+										<span class="tag-name"><Text zh="Z = ∑ α_i V_i 上下文新生" en="Z = ∑ α_i V_i Synthesis" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="注意力权重决定表征的线性组合：Head 1 以 $50.7\%$ 权重聚焦【能够】，Head 2 以 $49.4\%$ 权重聚焦【智能】，加权汇聚 Value 向量生成融合语境的新向量 $Z$。"
+											en="Attention weights dictate linear combination: Head 1 assigns $50.7\%$ weight to [能够], while Head 2 assigns $49.4\%$ to [智能], aggregating Value vectors into updated context vector $Z$."
+										/>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ACT IV -->
+					<div class="transcript-act-group highlight">
+						<div class="act-group-header">
+							<span class="act-pill">ACT IV · 0:58 - 1:18 (INTERACTIVE CHECKPOINT AT 1:06)</span>
+							<h3 class="act-group-title">
+								<Text zh="MLP 键值记忆检索与 Softmax 温度分岔 (交互驻留)" en="MLP Key-Value Memory & Interactive Softmax Bifurcation" />
+							</h3>
+						</div>
+						<div class="transcript-lines">
+							<div class="transcript-line">
+								<span class="time-stamp">0:58 - 1:05</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="前馈神经网络 FFN" en="Feed-Forward Network (FFN)" /></span>
+										<span class="tag-name"><Text zh="4 ➜ 8 ➜ 4 事实神经元激活" en="Fact Neurons Firing" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="自注意力汇聚语境关联，前馈网络（FFN）则被证明扮演键值记忆库角色（Geva et al., 2021）。隐层 8 个神经元通过 GELU 激活特定概念知识并经投影层写回。"
+											en="While attention aggregates contextual dependencies, FFN layers function as key-value memories (Geva et al., 2021). Eight hidden neurons activate specific concepts via GELU before linear read-out."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line highlight-line">
+								<span class="time-stamp">1:05 - 1:12</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="Softmax 温度调节" en="Softmax Temperature Scaling" /></span>
+										<span class="tag-name pause-tag"><Text zh="⏸ 交互驻留 · 请调温度 T" en="⏸ Pause: Tune Temperature T" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="【播放自动驻留】请读者交互调节采样温度 $T$：低温度 ($T \to 0.2$) 压制分布熵并趋向 Argmax 贪心选择；高温度 ($T \to 2.0$) 趋向均匀分布增加生成随机性。"
+											en="[Cinema Paused] Interactive control active: adjust temperature $T$. Low $T$ ($T \to 0.2$) minimizes entropy toward greedy Argmax selection; high $T$ ($T \to 2.0$) flattens logits toward uniform noise."
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">1:12 - 1:18</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="Top-p 核采样截断" en="Top-p Nucleus Truncation" /></span>
+										<span class="tag-name"><Text zh="核采样截断 Top-p" en="Top-p Nucleus Truncation" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="核采样（$\text{Top-}p = 0.95$，Holtzman et al., 2020）动态保留累积概率前 $95\%$ 的最小候选子集，截除不可靠的低概率长尾，并将剩余候选概率重新归一化。"
+											en="Nucleus sampling ($\text{Top-}p = 0.95$, Holtzman et al., 2020) preserves the smallest subset exceeding $95\%$ cumulative probability, pruning the low-probability tail and renormalizing."
+										/>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ACT V -->
+					<div class="transcript-act-group">
+						<div class="act-group-header">
+							<span class="act-pill">ACT V · 1:18 - 1:30</span>
+							<h3 class="act-group-title">
+								<Text zh="随机采样胜出与 KV Cache 增量推断" en="Stochastic Sampling & KV Cache Autoregressive Inference" />
+							</h3>
+						</div>
+						<div class="transcript-lines">
+							<div class="transcript-line">
+								<span class="time-stamp">1:18 - 1:24</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="随机采样输出" en="Stochastic Sampling" /></span>
+										<span class="tag-name"><Text zh="新词结晶：【考】" en="Token [考] Sampled" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="多项式采样锁定胜出词元：【考】以 $90.3\%$ 的基础概率（Top-p 归一化后 $92.9\%$）胜出，成功完成当前子词预测，组成序列：“人工智能能够思考”！"
+											en="Categorical sampling selects the winning token: [考] emerges with $90.3\%$ base probability ($92.9\%$ after Top-p renormalization), yielding the sequence: '人工智能能够思考'!"
+										/>
+									</p>
+								</div>
+							</div>
+							<div class="transcript-line">
+								<span class="time-stamp">1:24 - 1:30</span>
+								<div class="line-content">
+									<div class="line-meta">
+										<span class="speaker-name"><Text zh="KV Cache 增量复用" en="KV Cache Incremental Inference" /></span>
+										<span class="tag-name"><Text zh="历史常驻 · O(1) 增量前向" en="O(1) Memory Reuse" /></span>
+									</div>
+									<p class="line-text">
+										<Text
+											zh="为避免重复计算，所有前驱词元的 Key 与 Value 缓存在 KV Cache 中。自回归步只需计算新词【考】的一组向量并追加缓存，以 $\mathcal{O}(1)$ 增量复杂度持续生成。"
+											en="To eliminate redundant computation, predecessor Keys and Values remain in the KV Cache. Each step only computes and appends vectors for new token [考], achieving $\mathcal{O}(1)$ incremental generation."
+										/>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 剧场解剖与五幕导演手记 (Director's Commentary) -->
+			<article class="directors-commentary">
+				<h2 class="commentary-title">
+					<Text zh="五幕导演手记与数学物理机制解剖" en="Director's Commentary & Mathematical Mechanics" />
+				</h2>
+
+				<div class="acts-grid">
+					<div class="act-card">
+						<span class="act-badge">ACT I · 0:00 - 0:18</span>
+						<h3><Text zh="BPE 分词子词切分与高维嵌入映射" en="BPE Tokenization & Embedding Space Mapping" /></h3>
+						<p>
+							<Text
+								zh="自然语言输入序列“人工智能能够思考吗”进入流水线。BPE（字节对编码）基于词频统计贪心合并高频子词（Sennrich et al., 2016），切分出离散词元序列。目标主角词元【思】（ID=28419）位于序列第 4 位，从词嵌入矩阵取出 4 维语义向量 $E[3]$，并叠加正弦余弦位置编码 $P[3]$（Vaswani et al., 2017），注入确定性时序位置：$X = E + P$。"
+								en="The query 'Can AI think?' enters the pipeline. The Byte-Pair Encoding (BPE) algorithm iteratively merges frequent subwords (Sennrich et al., 2016) into discrete tokens. Protagonist token [思] (ID=28419) at position 3 retrieves a 4-dimensional semantic embedding $E[3]$ and adds sinusoidal positional encoding $P[3]$ (Vaswani et al., 2017): $X = E + P$."
+							/>
+						</p>
+					</div>
+
+					<div class="act-card">
+						<span class="act-badge">ACT II · 0:18 - 0:38</span>
+						<h3><Text zh="多头分立与 QKV 线性投影矩阵" en="Multi-Head Attention: Q, K, V Linear Projections" /></h3>
+						<p>
+							<Text
+								zh="静态词嵌入无法感知动态语境。输入向量 $X$ 分别与参数矩阵 $W_Q, W_K, W_V$ 进行矩阵乘法，线性映射至多头注意力子空间。为克服单头表征容量限制，模型分立出 Head 1 与 Head 2（Clark et al., 2019）：Query 充当主动寻址探针，Key 提供被匹配的特征标识，Value 则承载待加权聚合的真实语义载荷。"
+								en="Static embeddings cannot capture contextual relationships. Input $X$ multiplies learned weight matrices $W_Q, W_K, W_V$ to project into multi-head attention subspaces. To expand representation capacity beyond a single head (Clark et al., 2019), Head 1 and Head 2 specialize in parallel: Query seeks matching context, Key exposes indexing keys, and Value holds the semantic payload."
+							/>
+						</p>
+					</div>
+
+					<div class="act-card">
+						<span class="act-badge">ACT III · 0:38 - 0:58</span>
+						<h3><Text zh="缩放点积防饱和与 Value 向量加权聚合" en="Scaled Dot-Product, Causal Mask & Value Aggregation" /></h3>
+						<p>
+							<Text
+								zh="主角【思】的 Query 与前驱各 Key 进行点积内积计算相关度。除以缩放因子 $\sqrt{d_k} = \sqrt{2} \approx 1.41$（Vaswani et al., 2017）使内积方差稳定在 1，防止 Softmax 进入梯度饱和区。未来词元【吗】被因果掩码强制置为 $-\infty$，Softmax 权重精确为 0。最终 Head 1 以 $50.7\%$ 权重聚焦【能够】，Head 2 以 $49.4\%$ 权重聚焦【智能】，加权汇聚 Value 向量生成全新语境向量 $Z$。"
+								en="The Query of [思] computes dot-product similarity against predecessor Keys. Dividing by $\sqrt{d_k} = \sqrt{2} \approx 1.41$ (Vaswani et al., 2017) stabilizes variance to 1, preventing gradient saturation in Softmax. Future token [吗] is clamped to $-\infty$ via causal masking, zeroing its weight. Head 1 assigns $50.7\%$ attention to [能够], while Head 2 assigns $49.4\%$ to [智能], linearly combining Values into context vector $Z$."
+							/>
+						</p>
+					</div>
+
+					<div class="act-card highlight">
+						<span class="act-badge">ACT IV · 0:58 - 1:18 (INTERACTIVE CHECKPOINT AT 1:06)</span>
+						<h3><Text zh="MLP 键值记忆检索与 Softmax 温度分岔 (交互驻留)" en="MLP Key-Value Memory & Softmax Temperature Bifurcation" /></h3>
+						<p>
+							<Text
+								zh="前馈层（FFN）充当事实概念的键值记忆库（Geva et al., 2021），将 4 维语境向量升维至 8 维隐藏层，经 GELU 激活常识神经元并投影写回。动画在 1:06 自动驻留：请拖动温度滑块 $T$。极低温度 ($T \to 0.2$) 使分布熵塌缩为 0 bit 走向贪婪 Argmax 独选；极高温度 ($T \to 2.0$) 抹平差距导致高熵白噪声；结合 Top-p ($p = 0.95$，Holtzman et al., 2020) 动态剪除长尾概率。"
+								en="The feed-forward network acts as key-value memory for factual associations (Geva et al., 2021), expanding 4 dimensions to 8 hidden neurons with GELU activation before linear read-out. The cinema pauses at 1:06 for user interaction: adjust temperature $T$ to observe greedy Argmax collapse ($T \to 0.2$, entropy $\approx 0$ bit) versus high-entropy noise ($T \to 2.0$), stabilized by nucleus truncation (Top-p $= 0.95$, Holtzman et al., 2020)."
+							/>
+						</p>
+					</div>
+
+					<div class="act-card">
+						<span class="act-badge">ACT V · 1:18 - 1:30</span>
+						<h3><Text zh="多项式采样胜出与 KV Cache 增量自回归" en="Stochastic Sampling & KV Cache Incremental Autoregression" /></h3>
+						<p>
+							<Text
+								zh="在默认 $T = 0.7$ 下，候选词【考】以 $90.3\%$ 基础概率（Top-p 归一化后达 $92.9\%$）胜出，拼装成句“人工智能能够思考”。历史词元的 Key 与 Value 永久驻留在显存 KV Cache 中，新词追加缓存末尾。自回归步骤以 $\mathcal{O}(1)$ 增量计算复杂度持续向后生成，驱动因果流循环推进。"
+								en="Under default $T = 0.7$, token [考] wins with $90.3\%$ base probability ($92.9\%$ after Top-p renormalization), assembling '人工智能能够思考'. Predecessor Keys and Values stay pinned in the KV Cache; appending the new token enables subsequent forward steps at $\mathcal{O}(1)$ incremental complexity."
+							/>
+						</p>
+					</div>
+				</div>
+			</article>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.cinema-page-main {
+		min-height: 100vh;
+		background: var(--brand-paper, #faf8f5);
+		color: var(--brand-ink, #2d3748);
+		padding: 2rem 1.5rem 6rem;
+	}
+
+	.cinema-page-container {
+		max-width: 1180px;
+		margin: 0 auto;
+	}
+
+	.cinema-breadcrumb {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		font-size: 13px;
+		margin-bottom: 2rem;
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+	}
+	.cinema-breadcrumb a {
+		color: var(--brand-accent, #0f766e);
+		text-decoration: none;
+		font-weight: 500;
+	}
+	.cinema-breadcrumb a:hover {
+		text-decoration: underline;
+	}
+	.cinema-breadcrumb .sep {
+		color: var(--text-muted, #718096);
+	}
+	.cinema-breadcrumb .current {
+		font-weight: 600;
+		color: var(--brand-ink, #17211c);
+	}
+
+	.cinema-hero-header {
+		margin-bottom: 2.5rem;
+	}
+	.hero-kicker-row {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+	.kicker-tag {
+		font-size: 0.76rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		color: var(--brand-clay, #8a7356);
+	}
+	.format-pill {
+		font-size: 0.7rem;
+		font-family: monospace;
+		padding: 0.15rem 0.5rem;
+		border-radius: 99px;
+		background: rgba(15, 118, 110, 0.1);
+		color: #0f766e;
+		font-weight: 700;
+	}
+
+	.hero-title {
+		font-size: clamp(2rem, 4vw, 2.8rem);
+		font-weight: 800;
+		line-height: 1.25;
+		margin: 0 0 1rem;
+		color: var(--brand-ink, #17211c);
+	}
+	.hero-subtitle {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-muted, #718096);
+		margin: 0 0 1.5rem;
+	}
+	.hero-epigraph {
+		margin: 0;
+		padding: 1rem 1.25rem;
+		border-left: 3px solid #0f766e;
+		background: rgba(15, 118, 110, 0.05);
+		border-radius: 0 8px 8px 0;
+		font-size: 0.95rem;
+		line-height: 1.65;
+		color: var(--brand-ink, #2d3748);
+		font-style: italic;
+	}
+
+	.cinema-stage-section {
+		margin-bottom: 3.5rem;
+	}
+
+	/* Accessible Transcript Section */
+	.cinema-transcript-section {
+		margin-bottom: 4rem;
+		padding: 2rem;
+		background: rgba(255, 255, 255, 0.75);
+		border: 1px solid var(--brand-line, rgba(23, 33, 28, 0.12));
+		border-radius: 12px;
+	}
+	:global(.dark) .cinema-transcript-section {
+		background: rgba(17, 26, 36, 0.6);
+		border-color: rgba(255, 255, 255, 0.08);
+	}
+	.transcript-header-row {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-bottom: 2rem;
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid var(--brand-line, rgba(23, 33, 28, 0.1));
+	}
+	.transcript-badge {
+		font-size: 0.72rem;
+		font-family: monospace;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		color: var(--brand-clay, #8a7356);
+		text-transform: uppercase;
+	}
+	.transcript-title {
+		font-size: 1.45rem;
+		font-weight: 700;
+		margin: 0.35rem 0 0;
+		color: var(--brand-ink, #17211c);
+	}
+	.transcript-lead {
+		font-size: 0.92rem;
+		color: var(--text-muted, #64748b);
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.transcript-acts-stack {
+		display: flex;
+		flex-direction: column;
+		gap: 1.75rem;
+	}
+	.transcript-act-group {
+		border: 1px solid rgba(120, 140, 130, 0.18);
+		border-radius: 10px;
+		background: rgba(0, 0, 0, 0.015);
+		overflow: hidden;
+	}
+	:global(.dark) .transcript-act-group {
+		background: rgba(255, 255, 255, 0.02);
+		border-color: rgba(255, 255, 255, 0.06);
+	}
+	.transcript-act-group.highlight {
+		border-color: #0f766e;
+		background: rgba(15, 118, 110, 0.03);
+	}
+	.act-group-header {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		padding: 0.85rem 1.25rem;
+		background: rgba(0, 0, 0, 0.03);
+		border-bottom: 1px solid rgba(120, 140, 130, 0.12);
+	}
+	:global(.dark) .act-group-header {
+		background: rgba(255, 255, 255, 0.03);
+	}
+	.act-pill {
+		font-size: 0.72rem;
+		font-family: monospace;
+		font-weight: 800;
+		color: #0f766e;
+		letter-spacing: 0.05em;
+	}
+	.act-group-title {
+		font-size: 1.05rem;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	.transcript-lines {
+		padding: 0.75rem 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	.transcript-line {
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		gap: 1.25rem;
+		align-items: baseline;
+		padding-bottom: 0.85rem;
+		border-bottom: 1px dashed rgba(120, 140, 130, 0.15);
+	}
+	.transcript-line:last-child {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+	@media (max-width: 640px) {
+		.transcript-line {
+			grid-template-columns: 1fr;
+			gap: 0.4rem;
+		}
+	}
+	.time-stamp {
+		font-family: monospace;
+		font-size: 0.78rem;
+		font-weight: 700;
+		color: var(--brand-clay, #8a7356);
+		white-space: nowrap;
+	}
+	.line-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+	.line-meta {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.speaker-name {
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: var(--brand-ink, #17211c);
+	}
+	.tag-name {
+		font-size: 0.7rem;
+		font-family: monospace;
+		font-weight: 600;
+		padding: 0.1rem 0.45rem;
+		border-radius: 4px;
+		background: rgba(15, 118, 110, 0.08);
+		color: #0f766e;
+	}
+	.tag-name.pause-tag {
+		background: rgba(220, 38, 38, 0.1);
+		color: #dc2626;
+	}
+	.line-text {
+		font-size: 0.9rem;
+		line-height: 1.65;
+		margin: 0;
+		color: var(--brand-ink, #334155);
+	}
+	:global(.dark) .line-text {
+		color: #cbd5e1;
+	}
+
+	/* Director's Commentary Section */
+	.directors-commentary {
+		padding-top: 2rem;
+		border-top: 1px dashed rgba(120, 140, 130, 0.3);
+	}
+	.commentary-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 1.75rem;
+	}
+
+	.acts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 1.5rem;
+	}
+	.act-card {
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px solid rgba(120, 140, 130, 0.2);
+		border-radius: 10px;
+		padding: 1.25rem;
+		display: flex;
+		flex-direction: column;
+	}
+	:global(.dark) .act-card {
+		background: rgba(255, 255, 255, 0.02);
+	}
+	.act-card.highlight {
+		border-color: #0f766e;
+		background: rgba(15, 118, 110, 0.04);
+	}
+	.act-badge {
+		font-size: 0.72rem;
+		font-family: monospace;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		color: #0f766e;
+		margin-bottom: 0.5rem;
+	}
+	.act-card h3 {
+		font-size: 1.15rem;
+		font-weight: 700;
+		margin: 0 0 0.75rem;
+	}
+	.act-card p {
+		font-size: 0.9rem;
+		line-height: 1.65;
+		color: var(--text-muted, #64748b);
+		margin: 0;
+	}
+</style>
