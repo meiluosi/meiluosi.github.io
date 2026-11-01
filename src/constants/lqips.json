@@ -23,5 +23,8 @@
   "public:assets/images/brand/research-model.png": "eaeee9eef1ece6eae3",
   "public:assets/images/brand/research-causal.png": "eaeee8eff2edecefe9",
   "public:network-evolve/fig8_llm_arm_and_scaling.png": "f2e1e1f3f6f6f9fafa",
-  "public:network-evolve/fig7_attribution_ablation.png": "ebf1f2e7ecf1e2e8eb"
+  "public:network-evolve/fig7_attribution_ablation.png": "ebf1f2e7ecf1e2e8eb",
+  "public:lfe-laya/fig3_reliability.png": "e0dee0e3e8eac4c4cb",
+  "public:lfe-laya/fig2_language_sensor.png": "ecededd7dcdfd6c8b7",
+  "public:lfe-laya/fig1_retention.png": "e4e8eae4eaeef3f3f5"
 }
