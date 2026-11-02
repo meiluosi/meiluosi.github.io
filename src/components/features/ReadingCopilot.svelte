@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { MLCEngine } from "@mlc-ai/web-llm";
 import { onDestroy, onMount } from "svelte";
+import { getCopilotSelection } from "@/utils/copilot-selection";
 import {
 	formatRagContextForPrompt,
 	type RagSearchResult,
@@ -263,6 +264,7 @@ async function ensureMarkdownDeps(): Promise<void> {
 $effect(() => {
 	if (isOpen) {
 		ensureMarkdownDeps();
+		checkModelsCacheStatus();
 	}
 });
 
@@ -713,32 +715,18 @@ function generateFallbackSummary(
 
 // Listen to mouseup selection inside article
 function handleTextSelection() {
-	const selection = window.getSelection();
-	if (!selection || selection.isCollapsed) {
+	const result = getCopilotSelection(
+		window.getSelection(),
+		document.getElementById("post-container"),
+		window.scrollX,
+		window.scrollY,
+	);
+	if (!result) {
 		showSelectionBubble = false;
 		return;
 	}
-
-	const text = selection.toString().trim();
-	if (text.length < 2 || text.length > 500) {
-		showSelectionBubble = false;
-		return;
-	}
-
-	// Ensure selection is inside the markdown article
-	const range = selection.getRangeAt(0);
-	const container = document.getElementById("post-container");
-	if (!container?.contains(range.commonAncestorContainer)) {
-		showSelectionBubble = false;
-		return;
-	}
-
-	const rect = range.getBoundingClientRect();
-	bubblePos = {
-		top: rect.top + window.scrollY - 38,
-		left: Math.max(16, rect.left + window.scrollX + rect.width / 2 - 40),
-	};
-	selectedText = text;
+	bubblePos = { top: result.top, left: result.left };
+	selectedText = result.text;
 	showSelectionBubble = true;
 }
 
@@ -759,8 +747,6 @@ onMount(() => {
 	} catch {
 		/* Ignore storage error */
 	}
-
-	checkModelsCacheStatus();
 
 	document.addEventListener("mouseup", handleTextSelection);
 	const handleKeyDown = (e: KeyboardEvent) => {
@@ -815,7 +801,6 @@ onMount(() => {
 		onmouseenter={() => ensureMarkdownDeps()}
 		onclick={() => {
 			isOpen = true;
-			checkModelsCacheStatus();
 			if (engineStatus === "unloaded") {
 				initEngine();
 			}
