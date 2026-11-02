@@ -182,7 +182,7 @@ onMount(() => {
 					style="left: {item.leftPct}%; top: {item.topPct}%; --node-color: {item.color};"
 					onclick={() => (selectedRouteId = item.route.id)}
 					onmouseenter={() => (selectedRouteId = item.route.id)}
-					aria-label={`${item.route.roman} ${item.route.nameZh}`}
+					aria-label={`${item.route.roman} ${english ? item.route.nameEn : item.route.nameZh}`}
 				>
 					<span class="star-dot">{item.route.roman}</span>
 					<span class="star-label">{english ? item.route.nameEn.split(",")[0] : item.route.nameZh.replace("路线", "")}</span>

@@ -99,7 +99,7 @@ const dateLabel = (date: Date) => {
 		<Navbar />
 		<main id="swup-container" class="route-container">
 			<!-- 顶部导航走廊 -->
-			<nav class="route-nav-bar" aria-label="路线导航">
+			<nav class="route-nav-bar" aria-label="路线导航" data-i18n-aria-label-zh="路线导航" data-i18n-aria-label-en="Route navigation">
 				<a href="/routes/" class="back-atlas">
 					← <Text zh="返回 20 路线全景地图" en="All 20 Paradigm Families" />
 				</a>
@@ -365,19 +365,20 @@ const dateLabel = (date: Date) => {
 										{post.data.format && (
 											<span class="note-format">{post.data.format}</span>
 										)}
+										{!translation && <span class="note-format" data-locale-notice hidden>Chinese original · English translation unavailable</span>}
 									</div>
 									<h3 class="note-title">
 										<a href={postLink} data-i18n-href-zh={postLink} data-i18n-href-en={enLink}>
-											<Text zh={post.data.title} en={translation?.data.title ?? post.data.title} />
+											{translation ? <Text zh={post.data.title} en={translation.data.title} /> : <span lang="zh">{post.data.title}</span>}
 										</a>
 									</h3>
 									{post.data.description && (
 										<p class="note-desc">
-											<Text zh={post.data.description} en={translation?.data.description ?? post.data.description} />
+											{translation ? <Text zh={post.data.description} en={translation.data.description ?? post.data.description} /> : <span lang="zh">{post.data.description}</span>}
 										</p>
 									)}
 									<div class="note-footer">
-										<a href={postLink} class="read-on">
+										<a href={postLink} data-i18n-href-zh={postLink} data-i18n-href-en={enLink} class="read-on">
 											<Text zh="阅读全文" en="Read note" /> ↗
 										</a>
 									</div>

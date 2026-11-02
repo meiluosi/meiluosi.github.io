@@ -123,7 +123,7 @@ onMount(() => {
 				<span>{english ? "Incline Slope Angle (γ)" : "环境斜坡倾角 (γ)"}</span>
 				<strong class="val-pill">{slopeAngle.toFixed(1)}°</strong>
 			</div>
-			<input type="range" min="0.5" max="8.0" step="0.5" bind:value={slopeAngle} class="slider" />
+			<input type="range" min="0.5" max="8.0" step="0.5" bind:value={slopeAngle} class="slider" aria-label={english ? "Incline slope angle" : "环境斜坡倾角"} />
 			<span class="sub-hint">{english ? "Golden resonance slope: 3.5° ~ 4.5°" : "黄金共振倾角：3.5° ~ 4.5°"}</span>
 		</div>
 
@@ -132,7 +132,7 @@ onMount(() => {
 				<span>{english ? "Hip Passive Spring Stiffness (k)" : "髋关节被动弹性耦合度 (k)"}</span>
 				<strong class="val-pill">{legStiffness.toFixed(2)}</strong>
 			</div>
-			<input type="range" min="0.1" max="1.0" step="0.05" bind:value={legStiffness} class="slider" />
+			<input type="range" min="0.1" max="1.0" step="0.05" bind:value={legStiffness} class="slider" aria-label={english ? "Hip passive spring stiffness" : "髋关节被动弹性耦合度"} />
 			<span class="sub-hint">{english ? "Natural pendulum frequency: 0.45 ~ 0.55" : "匹配摆腿固有频率：0.45 ~ 0.55"}</span>
 		</div>
 	</div>
