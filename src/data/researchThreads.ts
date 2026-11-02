@@ -28,14 +28,26 @@ export const researchThreads = [
 		kind: "tower",
 		sources: [
 			{
+				label: "前沿基础模型研究室（DeepSeek 专著）",
+				labelEn: "Frontier Foundation Model Research (DeepSeek Monograph)",
+				href: "/books/frontier-foundation-models/",
+				hrefEn: "/books/frontier-foundation-models/",
+			},
+			{
+				label: "现代 Transformer 前向解剖：RMSNorm、RoPE 与 SwiGLU",
+				labelEn: "Modern Transformer Anatomy: RMSNorm, RoPE & SwiGLU",
+				href: "/posts/2026-10-20-llm-training-pretrain-03-forward/",
+				hrefEn: "/en/posts/llm-training-pretrain-03-forward/",
+			},
+			{
 				label: "小模型全链路训练",
 				labelEn: "End-to-end small-model training",
 				href: "/posts/2026-07-08-1b模型全链路实验计划/",
 				hrefEn: "/en/posts/local-1b-model-workflow/",
 			},
 			{
-				label: "LLM 推理优化",
-				labelEn: "LLM inference optimization",
+				label: "LLM 推理优化与系统部署",
+				labelEn: "LLM inference optimization & deployment",
 				href: "/posts/2024-10-27-llm推理优化与部署/",
 				hrefEn: "/en/posts/llm-inference-optimization/",
 			},
@@ -79,6 +91,12 @@ export const researchThreads = [
 		kind: "book",
 		sources: [
 			{
+				label: "GRPO 组内相对策略优化与推理强化学习",
+				labelEn: "GRPO group-relative policy optimization for reasoning",
+				href: "/posts/2026-10-23-llm-training-rl-05-grpo/",
+				hrefEn: "/en/posts/llm-training-rl-05-grpo/",
+			},
+			{
 				label: "AlphaZero 五子棋实现",
 				labelEn: "AlphaZero Gomoku implementation",
 				href: "/posts/2024-6-30-alpha-zero算法实现五子棋/",
@@ -95,12 +113,6 @@ export const researchThreads = [
 				labelEn: "Actor–Critic algorithm note",
 				href: "/posts/2024-07-12-actor-critic算法家族/",
 				hrefEn: "/en/posts/actor-critic-algorithm-family/",
-			},
-			{
-				label: "模型基础强化学习与动态规划",
-				labelEn: "Model-based RL and dynamic programming",
-				href: "/posts/2024-07-28-模型基础强化学习/",
-				hrefEn: "/en/posts/model-based-reinforcement-learning-foundations/",
 			},
 			{
 				label: "Kuhn Poker CFR",

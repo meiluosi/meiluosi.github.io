@@ -377,7 +377,8 @@ export function buildConceptGraph(
 	}
 	// Add frequent named concepts from prose, retaining a source sentence for every node.
 	for (const [sectionId, lines] of prose) {
-		const owner = nodes.find((n) => n.id === sectionId)!;
+		const owner = nodes.find((n) => n.id === sectionId);
+		if (!owner) continue;
 		const text = clean(lines.join("\n"));
 		const alternatives = [...vocabulary]
 			.sort((a, b) => b.length - a.length)

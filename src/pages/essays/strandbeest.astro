@@ -2,6 +2,7 @@
 import Text from "@/components/common/BilingualText.astro";
 import StrandbeestBeastStage from "@/components/features/strandbeest/StrandbeestBeastStage.svelte";
 import StrandbeestLab from "@/components/features/strandbeest/StrandbeestLab.svelte";
+import StrandbeestScalingGaLab from "@/components/features/strandbeest/StrandbeestScalingGaLab.svelte";
 import Navbar from "@/components/layout/Navbar.astro";
 import Layout from "@/layouts/Layout.astro";
 import { STRANDBEEST_LINKS } from "@/utils/strandbeest-geometry";
@@ -84,7 +85,7 @@ import { STRANDBEEST_LINKS } from "@/utils/strandbeest-geometry";
 
 		<figure class="walker-stage-figure">
 			<StrandbeestBeastStage client:visible />
-			<figcaption><Text zh="03 / 多腿相位协同与 Three.js 3D 立体骨架。三组对称双腿以 0°、120°、240° 错开相位共用同一根曲柄轴：当一组腿抬起回摆时，另外两组正好处于底部平直触地段，从而托住机身平稳前行。" en="03 / Multi-leg phase coordination and Three.js 3D PVC skeleton. Three mirrored leg pairs share one crankshaft at 0°, 120°, and 240° phase offsets: while one pair lifts, the others remain in flat ground stance, keeping the spine level." /></figcaption>
+			<figcaption><Text zh="03 / 多腿相位协同与 Three.js 3D 立体骨架。三组对称双腿以 0°、120°、240° 错开相位共用同一根曲柄轴：当一组腿抬起回摆时，另外两组正好处于底部平直触地段，从而托住机身平稳前行。（注：本交互演示为纯几何运动学实时重放，海风与机身起伏为示意模型，未在浏览器端运行刚体物理碰撞引擎）" en="03 / Multi-leg phase coordination and Three.js 3D PVC skeleton. Three mirrored leg pairs share one crankshaft at 0°, 120°, and 240° phase offsets: while one pair lifts, the others remain in flat ground stance, keeping the spine level. (Note: this interactive stage is a pure kinematic replay; wind and chassis displacement are schematic visual models, without real-time rigid-body collision simulation in the browser.)" /></figcaption>
 		</figure>
 
 		<article class="essay-body">
@@ -104,8 +105,30 @@ import { STRANDBEEST_LINKS } from "@/utils/strandbeest-geometry";
 				<Text as="p" zh="Jansen 在自己的演化记录中说，这些杆长的比例曾借助 Atari 电脑上的遗传算法寻找。这是一个迷人的交汇：艺术家提出想象，材料施加限制，计算帮助寻找比例，沙滩再给出新的问题。" en="In his evolution notes, Jansen says he used a genetic algorithm on an Atari computer to find the rod-length ratios. It is an intriguing meeting: the artist supplies an idea, the material imposes limits, computation searches for proportions, and the beach poses new questions." />
 				<p class="source-link"><a href="https://www.strandbeest.com/evolution?period=chorda"><Text zh="关于杆长与遗传算法的原始叙述 ↗" en="The original account of the ratios and genetic algorithm ↗" /></a></p>
 				<Text as="p" zh="沿这条线继续做自己的实验，可以先说明希望保留什么：更平的触地段，更小的抬脚高度，还是更容易加工的结构？不同问题，会让不同的形状留下来。所谓“更好”，总要回到一个具体的愿望。" en="To continue with an experiment of our own, we can first say what we want to preserve: a flatter contact path, a lower lift, or a structure that is easier to build? Different questions keep different shapes. “Better” always returns to a particular wish." />
+			</section>
+		</article>
+
+		<figure class="walker-stage-figure">
+			<StrandbeestScalingGaLab client:visible />
+			<figcaption><Text zh="04 / 起步风速随尺度与销轴摩擦的变化相图（MuJoCo 与独立求解器 K2 对照），以及遗传算法盲搜中的“适应度函数作弊”沙盒。（注：相图数据基于离线 E0/E1 刚体动力学仿真格点，GA 沙盒为预演算的典型表型解剖与重放，未在浏览器端实时运行 500 代进化算法）" en="04 / Start-up wind speed phase diagram across scale and pin friction (MuJoCo vs. independent solver K2), paired with the genetic algorithm reward-hacking sandbox. (Note: phase diagrams derive from offline E0/E1 rigid-body simulations; the GA sandbox demonstrates pre-computed archetypes rather than running live 500-generation GA searches in-browser.)" /></figcaption>
+		</figure>
+
+		<article class="essay-body">
+			<section aria-label="Closing reflections">
 				<Text as="p" zh="看懂圆与交点之后，那只脚并没有变得不神奇。反而是一些原本看不见的关系显现出来：一根杆不能伸长，另一个关节便只好转身；局部很简单，放在一起却有了节奏。" en="Knowing about the circles does not make the foot less wonderful. It makes hidden relationships visible: one rod cannot stretch, so another joint must turn. Each local rule is simple. Together, they acquire a rhythm." />
 				<Text as="p" class="closing" zh="也许技术与艺术相遇的地方，就在这里。我们一边知道它为什么动，一边仍然愿意看它多走一步。" en="Perhaps this is where art and technology meet: we understand why it moves, and still want to watch it take one more step." />
+
+				<div class="series-bridge">
+					<h3><Text zh="延伸阅读：Strandbeest 研究系列与具身智能路线" en="Further Reading: Strandbeest Series & Embodied Dynamics" /></h3>
+					<ul>
+						<li><a href="/posts/2026-10-04-strandbeest-evolution-history/"><Text zh="01 · Strandbeest 的十二个演化时期：一个人和一群塑料管动物 ↗" en="01 · Twelve evolutionary periods of Strandbeest ↗" /></a></li>
+						<li><a href="/posts/2026-10-04-strandbeest-leg-linkage/"><Text zh="02 · 十三个数字怎么让腿走起来：Jansen 连杆的几何 (E2 文献核对) ↗" en="02 · How thirteen numbers make a leg walk: Jansen linkage geometry (E2) ↗" /></a></li>
+						<li><a href="/posts/2026-10-04-re-evolving-the-strandbeest-leg/"><Text zh="03 · 从随机长度出发，能重新演化出 Jansen 的腿吗？(GA vs CMA-ES) ↗" en="03 · Can we re-evolve Jansen's leg from random lengths? (GA vs CMA-ES) ↗" /></a></li>
+						<li><a href="/posts/2026-10-06-strandbeest-design-to-print-platform/"><Text zh="04 · 从设计到打印：一个开源的动力兽设计与验证平台 ↗" en="04 · From design to print: an open-source Strandbeest platform ↗" /></a></li>
+						<li><a href="/posts/2026-10-28-strandbeest-wind-evidence-and-negative-results/"><Text zh="05 · 只靠风，一只走兽最少要多大的风？——方法、证据分级与负面结果报告 ↗" en="05 · Minimum wind to walk: solver cross-checks, scaling laws & negative results ↗" /></a></li>
+						<li><a href="/routes/embodied-dynamical/"><Text zh="路线 XII · 具身动力学与形态学计算 (0 FLOPs) ↗" en="Route XII · Embodied Dynamics & Morphological Computation ↗" /></a></li>
+					</ul>
+				</div>
 			</section>
 
 			<footer class="essay-sources">
@@ -211,6 +234,9 @@ import { STRANDBEEST_LINKS } from "@/utils/strandbeest-geometry";
 	.lengths{display:grid;grid-template-columns:repeat(5,1fr);gap:10px 20px;padding:8px 0 25px;font:13px "JetBrains Mono",monospace;color:var(--brand-body)}
 	.lengths b{font-weight:500;color:var(--brand-muted)}
 	.essay-body :global(.closing){font-family:"Noto Serif SC","Songti SC",STSong,Georgia,serif;font-size:22px!important;color:var(--brand-ink)!important;line-height:1.9!important;margin-top:38px!important}
+	.series-bridge{margin-top:36px;padding:20px 24px;border:1px solid var(--brand-line);border-radius:6px;background:color-mix(in srgb,var(--brand-sage) 12%,transparent)}
+	.series-bridge h3{font:500 17px/1.5 "Noto Serif SC","Songti SC",Georgia,serif;margin:0 0 12px;color:var(--brand-ink)}
+	.series-bridge ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.7}
 	.essay-sources{border-top:1px solid var(--brand-line);padding-top:40px}
 	.essay-sources :global(h2){font-size:23px}
 	.essay-sources :global(p){font-size:13px!important}

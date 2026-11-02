@@ -13,7 +13,12 @@ const { title, titleEn, description, descriptionEn } = Astro.props;
 const pathname = Astro.url.pathname;
 
 const links = [
-	{ href: "/research/intelligence/", zh: "综合研究", en: "Research", match: (p: string) => p.startsWith("/research/intelligence") },
+	{
+		href: "/research/intelligence/",
+		zh: "综合研究",
+		en: "Research",
+		match: (p: string) => p.startsWith("/research/intelligence"),
+	},
 	{
 		href: "/routes/",
 		zh: "智能路线 (20)",

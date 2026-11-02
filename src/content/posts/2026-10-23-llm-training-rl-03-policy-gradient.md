@@ -84,7 +84,7 @@ $$
 \end{aligned}
 $$
 
-这就是这里需要的**似然比梯度**。检查器不用可微；可微的是模型赋给采到答案的 log probability。若奖励本身显式依赖 θ，还需处理相应导数，不能直接套这个只含固定奖励的推导。
+这就是这里需要的**似然比梯度**。检查器不用可微；可微的是模型赋给采到答案的 log probability。若奖励本身显式依赖 $\theta$，还需处理相应导数，不能直接套这个只含固定奖励的推导。
 
 OpenAI Spinning Up 的官方推导给出了同样的 log-derivative 变换及采样估计条件；本文把它缩小到一个可枚举回答空间，便于检查数值。[策略优化推导](https://github.com/openai/spinningup/blob/master/docs/spinningup/rl_intro3.rst)
 

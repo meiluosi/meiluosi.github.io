@@ -1,7 +1,7 @@
-import evidence from "../../docs/intelligence-history/round-four/research.json";
 import boundaries from "../../docs/intelligence-history/round-four/boundaries/research.json";
-import meaning from "../../docs/intelligence-history/round-four/meaning/research.json";
 import reviewData from "../../docs/intelligence-history/round-four/integration/research.json";
+import meaning from "../../docs/intelligence-history/round-four/meaning/research.json";
+import evidence from "../../docs/intelligence-history/round-four/research.json";
 
 export interface ResearchClaim {
 	id: string;
@@ -61,9 +61,8 @@ const originals: Record<string, ResearchArticleData> = {
 	evidence: {
 		...evidence,
 		sources: evidence.sources.map((source) => {
-			const guide = reviewData.sources.find(
-				(item) => item.id === source.id,
-			)!.readerGuide;
+			const guide = reviewData.sources.find((item) => item.id === source.id)
+				?.readerGuide ?? { problem: "", solution: "", remaining: "" };
 			return { ...source, ...guide };
 		}),
 	},

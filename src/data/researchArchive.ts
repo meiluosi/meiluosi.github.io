@@ -99,4 +99,54 @@ export const researchArchive = [
 			"It also discusses Texas Hold’em abstractions, CFR+, and exploitability or match-win evaluation",
 		],
 	},
+	{
+		match: "fly-connectome-01-circuit-and-framework",
+		caseSlug: "flywire-connectome-audit",
+		kind: "CONNECTOMICS · PREREGISTERED AUDIT",
+		kindZh: "全脑连接组 · 预注册实证审计",
+		thread: "EMBODIED & NEUROSCIENCE",
+		threadZh: "生物连接组与具身",
+		status: "11 CHAPTERS · NEGATIVE RESULTS REPORTED",
+		statusZh: "11 章完结 · 含阴性结果诚实报告",
+		summary:
+			"基于 FlyWire 果蝇全脑突触连接组与蘑菇体 15 个多巴胺舱室，在严格保度随机重连零模型（Degree-Preserving Shuffled Controls）下检验觅食、持续学习与组合优化边界。",
+		titleEn: "FlyWire Drosophila connectome preregistered audit",
+		summaryEn:
+			"A preregistered 11-chapter empirical audit of the FlyWire fruit fly connectome against degree-preserving shuffled controls across foraging, continual learning, and negative-result boundaries.",
+		evidence: [
+			"严格锁定保度随机重连零模型（Degree-Preserving Null Models）与相等读出层容量",
+			"覆盖气味觅食、自然气味协方差阳性对照、15 个多巴胺舱室冲突仲裁",
+			"专门以整章报告静态连接组在通用持续学习与 TSP 上的阴性证伪结论",
+		],
+		evidenceEn: [
+			"Enforces degree-preserving shuffled null models and equal readout capacity",
+			"Covers odor foraging, natural odor covariance positive controls, and 15 dopaminergic compartments",
+			"Dedicates full chapters to honest negative results on continual learning and TSP",
+		],
+	},
+	{
+		match: "re-evolving-the-strandbeest-leg",
+		caseSlug: "strandbeest-linkage-evolution",
+		kind: "EMBODIED MECHANICS · EVOLUTION",
+		kindZh: "具身连杆力学 · 演化复现",
+		thread: "PHYSICAL EMBODIMENT",
+		threadZh: "物理具身与形态计算",
+		status: "11-BAR KINEMATICS · WIND AUDIT",
+		statusZh: "11 杆闭环运动学 · 风能实测边界",
+		summary:
+			"无需微控制器，仅靠 11 根平面连杆的长度比例（Holy Numbers）将圆周曲柄旋转转化为平底步态，并检验演化算法复现与风能转化边界。",
+		titleEn: "Re-evolving the Strandbeest planar linkage",
+		summaryEn:
+			"Reconstructing Theo Jansen’s 11-bar linkage ratios via evolutionary optimization, closed-loop kinematics, and wind-propulsion boundary audits.",
+		evidence: [
+			"完整推导 11 根连杆几何约束与曲柄全周可转性（Grashof 判据）",
+			"对比演化算法搜索轨迹与 Jansen 原始圣数的步态平直度与地面冲击",
+			"配套风力推进效率与机械死点阴性结果实证记录",
+		],
+		evidenceEn: [
+			"Full geometric kinematics and Grashof crank-rotatability verification",
+			"Compares evolutionary search trajectories against Jansen’s original Holy Numbers",
+			"Includes empirical wind-propulsion efficiency and mechanical lockup negative results",
+		],
+	},
 ] as const;

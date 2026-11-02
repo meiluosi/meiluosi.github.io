@@ -1,6 +1,7 @@
 <script lang="ts">
 import { tick } from "svelte";
 import type { TimelineRoute } from "@/data/intelligenceTimelines";
+
 let { route }: { route: TimelineRoute } = $props();
 let english = $state(false);
 $effect(() => {
@@ -31,7 +32,8 @@ let query = $state("");
 const nodes = $derived(
 	[...route.nodes].sort(
 		(a, b) =>
-			(a.year ?? Infinity) - (b.year ?? Infinity) || a.id.localeCompare(b.id),
+			(a.year ?? Number.POSITIVE_INFINITY) -
+				(b.year ?? Number.POSITIVE_INFINITY) || a.id.localeCompare(b.id),
 	),
 );
 const visible = $derived(
@@ -77,7 +79,7 @@ $effect(() => {
 		if (!(event.target instanceof Element)) return;
 		const link = event.target.closest("a[href]");
 		if (!link) return;
-		const target = new URL(link.getAttribute("href")!, location.href);
+		const target = new URL(link.getAttribute("href") ?? "", location.href);
 		if (
 			target.origin === location.origin &&
 			target.pathname === location.pathname &&

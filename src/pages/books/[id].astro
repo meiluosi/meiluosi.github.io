@@ -9,6 +9,7 @@ import Text from "@/components/common/BilingualText.astro";
 import Lens06Connectionist from "@/components/features/route-lenses/Lens06Connectionist.svelte";
 import Lens10Neuroscience from "@/components/features/route-lenses/Lens10Neuroscience.svelte";
 import Lens12EmbodiedDynamics from "@/components/features/route-lenses/Lens12EmbodiedDynamics.svelte";
+import LensWorldModelIntegrator from "@/components/features/route-lenses/LensWorldModelIntegrator.svelte";
 import Navbar from "@/components/layout/Navbar.astro";
 import { LIVING_BOOKS, type LivingBook } from "@/data/livingBooks";
 import Layout from "@/layouts/Layout.astro";
@@ -110,6 +111,7 @@ const totalChapters = book.volumes.reduce(
 							{book.featuredLensId === "embodied" && <Lens12EmbodiedDynamics client:visible />}
 							{book.featuredLensId === "connectionist" && <Lens06Connectionist client:visible />}
 							{book.featuredLensId === "neuroscience" && <Lens10Neuroscience client:visible />}
+							{book.featuredLensId === "world-model" && <LensWorldModelIntegrator client:visible />}
 						</div>
 					</section>
 
@@ -144,6 +146,11 @@ const totalChapters = book.volumes.reduce(
 												{ch.routeBadge && (
 													<span class="ch-badge route">{ch.routeBadge}</span>
 												)}
+												{ch.status === "upcoming" && (
+													<span class="ch-badge route">
+														⏳ <Text zh="连载筹备 · 关联基线" en="Forthcoming · Baseline" />
+													</span>
+												)}
 												{ch.hasInteractive && (
 													<span class="ch-badge interactive">
 														⚡ <Text zh="含交互沙盒" en="Interactive Lens" />
@@ -159,7 +166,11 @@ const totalChapters = book.volumes.reduce(
 												<Text zh={ch.summaryZh} en={ch.summaryEn} />
 											</p>
 											<a href={ch.href} class="ch-read-cta">
-												<Text zh="进入本章正文与推演" en="Read Chapter" /> →
+												{ch.status === "upcoming" ? (
+													<Text zh="预读关联基线与实验台" en="Preview Related Baseline & Lab" />
+												) : (
+													<Text zh="进入本章正文与推演" en="Read Chapter" />
+												)} →
 											</a>
 										</div>
 									</article>

@@ -1,5 +1,5 @@
 export const now = {
-	updatedAt: "2026-10-23",
+	updatedAt: "2026-11-01",
 	question: "智能是什么？它能否从对世界的表征，走向对自身的理解与重构？",
 	questionEn:
 		"What is intelligence? Can it move from representing the world to understanding and refining itself?",
@@ -8,7 +8,7 @@ export const now = {
 	aboutMissionEn:
 		"I approach the question through concrete probes: how mechanics produce gait, how models learn representations, how causality reasons about counterfactuals, and whether intelligence can iteratively improve itself.",
 	mission:
-		"十月把手头的预训练数据笔记整理成六篇，从语料地图、清洗、质量筛选、去重，到混合采样与可追溯构建，主要在想训练文本是怎样被一步步决定下来的。小模型全链路、搜索与因果的旧笔记也在重读，补上当时没写清的上下文。",
+		"十月完成了《锻造语言模型》七卷 42 篇与《果蝇全脑连接组》11 章预注册实证；十一月正式启动第四部常青专著「前沿基础模型技术研究室」，第一阶段以核心研究问题与四级证据审查为标尺，深度拆解 DeepSeek 从 V1、MoE、MLA、V3、R1 到 mHC、Engram、V4.1-Flash 与 DualPath 的模型—训练—系统协同演进。",
 	missionEn:
-		"In October I organized the pretraining-data notes into six pieces — corpus map, cleaning, quality filtering, dedup, mixture, and a traceable build — mostly asking how training text gets decided step by step. I’m also rereading older notes on the small-model pipeline, search, and causal analysis, filling in context that was missing then.",
+		"After completing the 7-volume (42-chapter) Forging Language Models monograph and the 11-chapter Drosophila Connectome study in October, November kicks off Monograph IV — Frontier Foundation Model Research — dissecting DeepSeek’s full architecture, RL, and systems co-design from V1–V3 and R1 to mHC, Engram, V4.1-Flash, and DualPath.",
 };

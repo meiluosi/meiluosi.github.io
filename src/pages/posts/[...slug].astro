@@ -23,6 +23,7 @@ import InteractiveMathEnhancer from "@/components/features/InteractiveMathEnhanc
 import InteractiveProseEnhancer from "@/components/features/InteractiveProseEnhancer.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
+import ReadingCopilot from "@/components/features/ReadingCopilot.svelte";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import RelatedArticles from "@/components/features/RelatedArticles.astro";
 import RouteCoordinateBadge from "@/components/features/RouteCoordinateBadge.astro";
@@ -396,7 +397,7 @@ const jsonLd = {
           <InteractiveProseEnhancer />
 
           {/* 思维导图 */}
-          <Mindmap graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)} client:load />
+          <Mindmap graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)} client:visible />
 
           {
             licenseConfig.enable && (
@@ -502,7 +503,7 @@ const jsonLd = {
     seriesArticles={seriesItems}
     connectedLabs={connectedLabs}
     lang="zh"
-    client:load
+    client:visible
   />
 
   <ReadingChain
@@ -519,4 +520,7 @@ const jsonLd = {
 
   <!-- 评论 -->
   {entry.data.comment && !entry.data.password && <Comment post={entry} />}
+
+  <!-- AI 伴读 (WebLLM / WebGPU 端侧开源模型) -->
+  <ReadingCopilot client:only="svelte" lang="zh" title={entry.data.title} />
 </MainGridLayout>

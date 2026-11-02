@@ -408,7 +408,7 @@ export function traceStrandbeest(
 
 	let flatness: number | null = null;
 	let dutyFactor: number | null = null;
-	if (complete && height && height > 0 && stancePoints.length > 4) {
+	if (complete && width && width > 0 && stancePoints.length > 4) {
 		dutyFactor = Math.round((stancePoints.length / samples) * 100);
 		const meanY =
 			stancePoints.reduce((acc, p) => acc + p.y, 0) / stancePoints.length;
@@ -416,10 +416,10 @@ export function traceStrandbeest(
 			stancePoints.reduce((acc, p) => acc + (p.y - meanY) ** 2, 0) /
 			stancePoints.length;
 		const stdDev = Math.sqrt(variance);
-		// Normalize stdDev relative to total height into a 0-100 flatness score
+		// Normalize stdDev relative to stride width (Rule C: prevents reward hacking via inflated lift height)
 		flatness = Math.max(
 			0,
-			Math.min(100, Math.round(100 * (1 - (stdDev / height) * 4.5))),
+			Math.min(100, Math.round(100 * (1 - (stdDev / width) * 12.0))),
 		);
 	}
 

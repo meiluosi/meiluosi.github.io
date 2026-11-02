@@ -4,6 +4,8 @@
 
 ## 文档索引
 
+[前沿基础模型技术研究室规划](./frontier-model-research-plan.md)：DeepSeek 全系技术演进（V1 → V2 → V3 → R1 → V3.2 → mHC/Engram → V4/V4.1/DualPath）、研究工程五步法与三维索引台账。
+
 [第五卷审校记录](./reasoning-rl-research.md)：强化学习问题建模、教学算例和页面验收。
 
 [第六卷审校记录](./tool-training-research.md)：工具交互轨迹、环境契约与页面验收。
@@ -12,6 +14,7 @@
 
 | 文档 | 说明 |
 |------|------|
+| [decisions/README.md](./decisions/README.md) | 决策记录（ADR）：部署主线等长期决定 |
 | [intelligence-routes-specification.md](./intelligence-routes-specification.md) | 🧭 「智能是什么」20 大探索路线家族与 20 个全量交互认知透镜架构规范 |
 | [intelligence-history-plan.md](./intelligence-history-plan.md) | 智能问题演进史：研究工程方法、四轮交付与证据标准 |
 | [intelligence-history/round-two/README.md](./intelligence-history/round-two/README.md) | 第二轮成果：三条样板、25 个审校节点、文献笔记与可编辑图 |

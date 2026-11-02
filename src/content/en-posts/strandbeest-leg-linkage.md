@@ -43,7 +43,7 @@ $F$ is the foot. Two circles meet in two points; the choice fixes the assembly b
 
 The solver walks the list in order, so the GA only changes lengths and never the topology.
 
-![Foot path of the Jansen linkage](/strandbeest/jansen-leg.gif)
+![Foot path of the Jansen linkage](/strandbeest/jansen-leg.webp)
 
 ## Why a D
 
@@ -68,7 +68,7 @@ One leg spends half a turn in the air. The Strandbeest puts many legs on one cra
 const feet = multiLegFeet(spec, evenPhases(8), 120);
 ```
 
-![8 legs, phased (schematic)](/strandbeest/walker.gif)
+![8 legs, phased (schematic)](/strandbeest/walker.webp)
 
 The picture is schematic: legs are drawn as hip-to-foot lines, planted feet (orange) stay fixed relative to the ground while the body glides over them. I checked that with 12 legs (6 per side) at least one foot is always down and support is stable over 90% of the cycle (that is a hard constraint in the wind objective). With one leg it fails: it is in the air for half the turn.
 

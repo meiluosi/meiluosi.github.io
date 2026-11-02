@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint (Biome, 只检查不修复)
+        run: npx biome check ./src
+
+      - name: Frontmatter 校验
+        run: pnpm validate:frontmatter
+
+      - name: Astro 诊断
+        run: pnpm check
+
+      - name: TypeScript 类型检查
+        run: pnpm type-check
+
+      - name: 构建
+        run: pnpm build
+
+      - name: 站内链接审计
+        run: pnpm audit:links

@@ -217,4 +217,118 @@ export const caseStudies = [
 			"Introduce stronger confounding, model misspecification, and data drift to see which conclusions remain stable.",
 		],
 	},
+	{
+		slug: "flywire-connectome-audit",
+		match: "fly-connectome-01-circuit-and-framework",
+		title: "果蝇全脑连接组（FlyWire）预注册实证与阴性结果审计",
+		titleEn:
+			"Preregistered empirical audit of the FlyWire Drosophila connectome",
+		dek: "拒绝用事后调参粉饰曲线：在保度打乱零模型下，诚实检验静态生物突触拓扑究竟能做什么、不能做什么。",
+		dekEn:
+			"Under strict degree-preserving null models, test what static biological synaptic topology truly explains — and report clean negative results where it fails.",
+		question:
+			"仅凭静态全脑突触连接矩阵，能否在不依赖读出层过拟合的前提下涌现自适应智能？",
+		questionEn:
+			"Can a static whole-brain synaptic matrix produce adaptive behavior without relying on readout-layer overfitting?",
+		claim:
+			"演化雕琢的果蝇蘑菇体连接在自然生态气味统计流形与多巴胺舱室冲突仲裁上具有显著结构优势，但静态连接组本身并非通吃任意组合优化或通用持续学习的魔法矩阵。",
+		claimEn:
+			"Evolutionarily tuned mushroom-body topology excels on natural odor manifolds and compartmental valence arbitration, but static connectomes alone do not magically solve arbitrary combinatorial or continual-learning benchmarks.",
+		approach: [
+			{
+				title: "锁定预注册协议与保度零模型",
+				body: "在运行任务前预先固定读出层容量、超参数网格与证伪阈值，所有实验均与保持入度/出度分布不变的随机重连网络（Degree-Preserving Shuffled Controls）同台对照。",
+				titleEn:
+					"Lock preregistration protocols and degree-preserving null models",
+				bodyEn:
+					"Fix readout capacity, hyperparameter grids, and falsification thresholds upfront, comparing every circuit against degree-preserving shuffled controls.",
+			},
+			{
+				title: "阳性对照：自然气味流形与 15 个多巴胺舱室",
+				body: "检验真实化学气味协方差矩阵下的稀疏编码可分性，并模拟蘑菇体 15 个异构遗忘速率多巴胺舱室在奖惩冲突下的快速仲裁。",
+				titleEn:
+					"Positive controls: natural odor manifolds and 15 MB compartments",
+				bodyEn:
+					"Test sparse coding separability on natural chemical odor covariances and model multi-timescale valence arbitration across 15 dopaminergic compartments.",
+			},
+			{
+				title: "诚实发表阴性证伪结论",
+				body: "对持续学习灾难性遗忘审计、元学习迁移与三轮 TSP 启发式搜索保存完整阴性记录，剥离度数分布混淆带来的虚假阳性。",
+				titleEn: "Publish clean negative and falsification results",
+				bodyEn:
+					"Document full negative results across continual-learning audits, meta-learning, and three rounds of TSP testing after removing degree-distribution confounders.",
+			},
+		],
+		result:
+			"已完成三卷 11 章专著（MONOGRAPH III），明确划定了静态解剖连接与动态神经调质/具身动力学之间的科学分界线。",
+		resultEn:
+			"Completed as an 11-chapter monograph (MONOGRAPH III), demarcating what static anatomical connectivity contributes versus what requires neuromodulation and embodiment.",
+		rsi: "可信的自我改进与科学探索都建立在“能够识别伪改进”之上：没有严格的零模型与阴性结果报告，系统极易把评价漏洞或读出层过拟合误判为机制突破。",
+		rsiEn:
+			"Credible self-improvement depends on detecting false progress: without strict null models and negative-result reporting, readout overfitting is easily mistaken for architectural breakthrough.",
+		boundaries: [
+			"静态电镜突触权重缺少神经调质浓度、膜电位时序动力学与发育可塑性。",
+			"后续需结合闭环感觉运动环境，研究连接组拓扑与具身反馈的联合演化。",
+		],
+		boundariesEn: [
+			"Static EM synaptic weights omit neuromodulatory state, membrane time constants, and developmental plasticity.",
+			"Future work must couple connectome topology with closed-loop sensorimotor environments.",
+		],
+	},
+	{
+		slug: "strandbeest-linkage-evolution",
+		match: "re-evolving-the-strandbeest-leg",
+		title: "重演风力仿生兽（Strandbeest）：平面连杆演化与风能边界",
+		titleEn:
+			"Re-evolving the Strandbeest: planar linkage kinematics and wind limits",
+		dek: "当智能被写入几何连杆比例而非数字芯片，机械形态本身如何承担步态控制计算？",
+		dekEn:
+			"When control is encoded in linkage geometry rather than silicon, how does physical morphology itself compute a stable walking gait?",
+		question:
+			"11 根平面刚性连杆的长度比例，如何决定曲柄全周可转性、平底支撑相与抗风推进效率？",
+		questionEn:
+			"How do the length ratios of an 11-bar planar linkage govern full crank rotation, flat-footed stance phases, and wind-powered propulsion?",
+		claim:
+			"形态计算（Morphological Computation）可以将高频姿态顺应卸载给几何约束，但其可行参数流形极其狭窄，稍有越界即陷入机械死点（Lockup）。",
+		claimEn:
+			"Morphological computation offloads high-frequency gait stabilization into geometric constraints, but its feasible parameter manifold is razor-thin and bounded by mechanical lockup.",
+		approach: [
+			{
+				title: "精确闭环几何求解与死点判据",
+				body: "通过圆交点解析几何逐帧求解曲柄全周 360° 轨迹，自动筛除违反三角不等式或陷入奇异死点的非法基因型。",
+				titleEn: "Exact closed-loop geometric solving and lockup detection",
+				bodyEn:
+					"Solve crank trajectories across 360° via analytical circle intersections, filtering out genotypes that violate triangle inequalities or hit kinematic singularities.",
+			},
+			{
+				title: "演化搜索对照 Jansen 圣数",
+				body: "以支撑相平直度、步幅高度比与速度均匀性构造多目标适应度，对比演化涌现比例与 Theo Jansen 原始 13 个圣数。",
+				titleEn: "Evolutionary search vs. Jansen’s Holy Numbers",
+				bodyEn:
+					"Optimize stance flatness, stride-to-lift ratio, and velocity uniformity via evolutionary search, comparing discovered ratios with Jansen’s original Holy Numbers.",
+			},
+			{
+				title: "风能转化实证与阴性结果记录",
+				body: "核算风帆/风轮气动输入到多腿相移曲柄轴的机械损耗，诚实记录低风速启动静摩擦死区与3D打印公差放大效应。",
+				titleEn: "Wind-energy audit and negative-result documentation",
+				bodyEn:
+					"Audit mechanical transmission losses from aerodynamic input to multi-leg phase-shifted cranks, documenting static-friction dead zones and 3D-printing tolerance sensitivity.",
+			},
+		],
+		result:
+			"已完成 5 篇系列文章与交互连杆仿真沙盒（`/essays/strandbeest/`），将机械连杆演进纳入「智能是什么」第 12 路线（具身、生成与动力学）。",
+		resultEn:
+			"Completed across 5 articles and an interactive linkage sandbox (`/essays/strandbeest/`), anchoring Route 12 (Embodied & Dynamical Systems).",
+		rsi: "展示了“硬件/形态层的演化搜索”：在参数空间里，绝大多数随机变异连转一圈都做不到，唯有先跨过可转性拓扑门槛，连续优化才开始生效。",
+		rsiEn:
+			"Illustrates evolutionary search in morphology space: most random mutations cannot even complete a rotation; continuous optimization only works after crossing the topological viability threshold.",
+		boundaries: [
+			"刚体平面连杆不含主动感知与地形自适应力矩调节。",
+			"物理 3D 打印装配中的铰链间隙与摩擦损耗会显著偏移理想几何轨迹。",
+		],
+		boundariesEn: [
+			"Rigid planar linkages lack active terrain sensing and adaptive torque modulation.",
+			"Joint clearance and friction in physical 3D-printed assemblies shift trajectories away from ideal kinematics.",
+		],
+	},
 ] as const;

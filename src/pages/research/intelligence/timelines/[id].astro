@@ -1,14 +1,14 @@
 ---
 import fs from "node:fs";
 import path from "node:path";
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import TimelineReader from "@/components/research/TimelineReader.svelte";
+import { researchArticles, researchReview } from "@/data/intelligenceResearch";
 import {
+	type TimelineRoute,
 	timelineRoutes,
 	timelineScope,
-	type TimelineRoute,
 } from "@/data/intelligenceTimelines";
-import { researchArticles, researchReview } from "@/data/intelligenceResearch";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import "@/styles/intelligence-research.css";
 export function getStaticPaths() {
 	return timelineRoutes.map((route) => ({

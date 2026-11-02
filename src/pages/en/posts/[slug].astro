@@ -10,6 +10,7 @@ import InteractiveProseEnhancer from "@/components/features/InteractiveProseEnha
 import KatexManager from "@/components/features/KatexManager.astro";
 import Mindmap from "@/components/features/Mindmap.svelte";
 import ReadingChain from "@/components/features/ReadingChain.astro";
+import ReadingCopilot from "@/components/features/ReadingCopilot.svelte";
 import ReadingProgress from "@/components/features/ReadingProgress.svelte";
 import RelatedArticles from "@/components/features/RelatedArticles.astro";
 import RouteCoordinateBadge from "@/components/features/RouteCoordinateBadge.astro";
@@ -265,7 +266,7 @@ const jsonLd = {
 		<Mindmap
 			graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)}
 			english
-			client:load
+			client:visible
 		/>
 
 		<!-- Local Knowledge Neighborhood & Andy Matuschak Sliding Drawer -->
@@ -281,7 +282,7 @@ const jsonLd = {
 			seriesArticles={seriesItems}
 			connectedLabs={connectedLabs}
 			lang="en"
-			client:load
+			client:visible
 		/>
 
 		<ReadingChain
@@ -296,4 +297,7 @@ const jsonLd = {
 			<RelatedArticles items={relatedArticles} basePath="/en/posts/" lang="en" />
 		)}
 	</article>
+
+	<!-- AI Reading Copilot (WebLLM / WebGPU On-Device) -->
+	<ReadingCopilot client:only="svelte" lang="en" title={entry.data.title} />
 </MainGridLayout>

@@ -1,6 +1,6 @@
 ---
-import ResearchEntry from "@/components/research/ResearchEntry.astro";
 import Text from "@/components/common/BilingualText.astro";
+import ResearchEntry from "@/components/research/ResearchEntry.astro";
 import { library } from "@/data/library";
 import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import {
@@ -11,9 +11,15 @@ import {
 const notes = await getResearchNotes();
 const topics = [
 	{
+		id: "frontier",
+		zh: "前沿基座与系统协同",
+		en: "Frontier models & systems",
+		icon: "M12 2L2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5",
+	},
+	{
 		id: "models",
-		zh: "模型与训练",
-		en: "Models & training",
+		zh: "模型与训练基础",
+		en: "Models & training foundations",
 		icon: "M12 3 3 8l9 5 9-5-9-5ZM3 12l9 5 9-5M3 16l9 5 9-5",
 	},
 	{
@@ -28,16 +34,37 @@ const topics = [
 		en: "Causality & evaluation",
 		icon: "M4 20V10m8 10V4m8 16v-7M2 20h20",
 	},
+	{
+		id: "embodied",
+		zh: "连接组与具身演化",
+		en: "Connectomics & embodiment",
+		icon: "M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5Zm-7 14a7 7 0 0 1 14 0v4H5v-4Z",
+	},
 ];
 const shortTitles: Record<string, string> = {
+	"deepseek-moe": "DeepSeekMoE (Fine-Grained & Shared Experts)",
+	"deepseek-math": "DeepSeekMath & GRPO",
+	"deepseek-v2": "DeepSeek-V2 (Multi-Head Latent Attention)",
+	"deepseek-v3": "DeepSeek-V3 (Aux-Loss-Free MoE, MTP & FP8)",
+	"deepseek-r1": "DeepSeek-R1 & R1-Zero (Reasoning RL)",
+	"deepseek-v3-2": "DeepSeek-V3.2 (Dynamic Sparse Attention & Agent RL)",
+	"deepseek-math-v2": "DeepSeekMath-V2 (Self-Verifiable Proofs)",
+	"deepseek-mhc": "mHC (Manifold-Constrained Hyper-Connections)",
+	"deepseek-engram": "Engram (Conditional Memory Lookup)",
+	"deepseek-v4": "DeepSeek-V4 & V4.1-Flash (CED & Cross-Layer KV)",
+	"deepseek-dualpath": "DualPath (Agentic KV Storage Bandwidth)",
 	minimind: "MiniMind",
 	nanochat: "nanochat",
+	transformer: "Transformer (Attention Is All You Need)",
+	instructgpt: "InstructGPT (SFT + RM + RLHF)",
+	dpo: "DPO (Direct Preference Optimization)",
+	react: "ReAct (Reasoning + Acting)",
 	"mcts-survey": "Monte Carlo Tree Search",
 	alphazero: "AlphaZero",
 	"causal-remix": "Causal Inference: The Remix",
 	ylearn: "YLearn",
-	transformer: "Transformer",
-	react: "ReAct",
+	"flywire-connectome": "FlyWire Whole-Brain Drosophila Connectome",
+	"strandbeest-kinematics": "Strandbeest Linkage & Gait Evolution",
 };
 ---
 <ExploreLayout title="文献架" titleEn="Research library" description="模型训练、强化学习与因果推断的论文、教材及开源项目。" descriptionEn="Papers, textbooks, and open-source projects on model training, reinforcement learning, and causal inference.">
@@ -54,11 +81,11 @@ const shortTitles: Record<string, string> = {
    <div class="reference-grid">
     {library.map((item,index)=>{
      const topic=topics.find(t=>t.id===item.topic)!;
-     return <details id={item.id} class="reference-card" data-topic={item.topic} data-search-text={`${item.title} ${item.authors} ${item.kind} ${item.kindEn} ${item.focus} ${item.focusEn} ${shortTitles[item.id]}`.toLowerCase()}>
+     return <details id={item.id} class="reference-card" data-topic={item.topic} data-search-text={`${item.title} ${item.authors} ${item.kind} ${item.kindEn} ${item.questionId ?? ""} ${item.focus} ${item.focusEn} ${shortTitles[item.id] ?? ""}`.toLowerCase()}>
       <summary>
        <div class="card-top"><span class="source-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={topic.icon}/></svg></span><span class="card-number">{String(index+1).padStart(2,"0")}</span></div>
        <h2>{shortTitles[item.id] || item.title}</h2>
-       <p class="card-meta"><Text zh={item.kind} en={item.kindEn} /> · {item.year === "Project" ? <Text zh="开源项目" en="Open source" /> : item.year === "Online edition" ? <Text zh="在线版" en="Online edition" /> : item.year}</p>
+       <p class="card-meta"><Text zh={item.kind} en={item.kindEn} /> · {item.year === "Project" ? <Text zh="开源项目" en="Open source" /> : item.year === "Online edition" ? <Text zh="在线版" en="Online edition" /> : item.year}{item.questionId ? ` · ${item.questionId}` : ""}</p>
        <div class="card-bottom"><span class="topic-dot" aria-hidden="true"></span><Text zh={topic.zh} en={topic.en} /><span class="expand-icon" aria-hidden="true">＋</span></div>
       </summary>
       <div class="source-detail">

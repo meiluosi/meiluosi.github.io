@@ -8,6 +8,10 @@ import Navbar from "@/components/layout/Navbar.astro";
 import { LIVING_BOOKS } from "@/data/livingBooks";
 import Layout from "@/layouts/Layout.astro";
 
+const totalVolumes = LIVING_BOOKS.reduce(
+	(acc, book) => acc + book.volumes.length,
+	0,
+);
 const totalChapters = LIVING_BOOKS.reduce(
 	(acc, book) =>
 		acc + book.volumes.reduce((vAcc, v) => vAcc + v.chapters.length, 0),
@@ -51,7 +55,7 @@ const totalChapters = LIVING_BOOKS.reduce(
 						<span><Text zh="部专著书稿" en="Monographs" /></span>
 					</div>
 					<div class="stat-pill">
-						<strong>15</strong>
+						<strong>{totalVolumes}</strong>
 						<span><Text zh="个主题分卷" en="Volumes" /></span>
 					</div>
 					<div class="stat-pill">
@@ -113,6 +117,31 @@ const totalChapters = LIVING_BOOKS.reduce(
 													<line x1="52" y1="52" x2="108" y2="108" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
 													<line x1="52" y1="108" x2="108" y2="52" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
 													<circle cx="80" cy="80" r="7" fill="currentColor" />
+												</svg>
+											)}
+											{idx === 3 && (
+												<svg viewBox="0 0 160 160" class="engraving-svg">
+													<polygon points="80,22 134,54 134,106 80,138 26,106 26,54" fill="none" stroke="currentColor" stroke-width="1.3" />
+													<polygon points="80,46 112,65 112,95 80,114 48,95 48,65" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2" />
+													<line x1="26" y1="54" x2="134" y2="106" stroke="currentColor" stroke-width="0.9" />
+													<line x1="134" y1="54" x2="26" y2="106" stroke="currentColor" stroke-width="0.9" />
+													<circle cx="80" cy="80" r="9" fill="currentColor" />
+													<circle cx="80" cy="22" r="4" fill="currentColor" />
+													<circle cx="134" cy="54" r="4" fill="currentColor" />
+													<circle cx="134" cy="106" r="4" fill="currentColor" />
+													<circle cx="80" cy="138" r="4" fill="currentColor" />
+													<circle cx="26" cy="106" r="4" fill="currentColor" />
+													<circle cx="26" cy="54" r="4" fill="currentColor" />
+												</svg>
+											)}
+											{idx === 4 && (
+												<svg viewBox="0 0 160 160" class="engraving-svg">
+													<circle cx="80" cy="80" r="56" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3" />
+													<path d="M 80 80 C 96 64, 118 76, 108 98 C 96 122, 54 118, 46 88 C 36 52, 82 26, 118 46 C 142 60, 140 108, 104 128" fill="none" stroke="currentColor" stroke-width="1.5" />
+													<line x1="80" y1="24" x2="108" y2="98" stroke="currentColor" stroke-width="1.2" />
+													<circle cx="80" cy="24" r="4" fill="currentColor" />
+													<circle cx="108" cy="98" r="7" fill="currentColor" />
+													<circle cx="80" cy="80" r="3.5" fill="currentColor" />
 												</svg>
 											)}
 										</div>

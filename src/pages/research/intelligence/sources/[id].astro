@@ -1,11 +1,11 @@
 ---
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import {
-	researchSources,
-	researchReview,
-	researchArticleForConclusion,
 	type ResearchSource,
+	researchArticleForConclusion,
+	researchReview,
+	researchSources,
 } from "@/data/intelligenceResearch";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import "@/styles/intelligence-research.css";
 export function getStaticPaths() {
 	return researchSources.map((source) => ({
@@ -17,7 +17,9 @@ interface Props {
 	source: ResearchSource & { article: string };
 }
 const { source } = Astro.props;
-const registry = researchReview.sources.find((item) => item.id === source.id)!;
+const registry =
+	researchReview.sources.find((item) => item.id === source.id) ??
+	researchReview.sources[0];
 const related = researchReview.reviews.filter((review) =>
 	review.evidence.some((id) => source.claims.some((claim) => claim.id === id)),
 );

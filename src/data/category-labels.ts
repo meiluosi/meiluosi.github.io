@@ -22,12 +22,16 @@ export const categoryLabels: Record<string, string> = {
 	Probability: "概率论",
 	"Reinforcement Learning": "强化学习",
 	Research: "研究",
+	Strandbeest: "Strandbeest",
 	Uncategorized: "未分类",
+	代码造物与显式世界模型: "代码造物与显式世界模型",
 };
 
 export const categoryLabelsEn: Record<string, string> = {
 	大模型训练研究笔记: "LLM Training Research",
 	果蝇连接组研究: "Fly Connectome",
+	代码造物与显式世界模型: "Code Creations & World Models",
+	Strandbeest: "Strandbeest",
 };
 
 /**

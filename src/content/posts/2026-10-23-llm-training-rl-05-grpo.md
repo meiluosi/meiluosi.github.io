@@ -39,7 +39,7 @@ A_i&=\frac{r_i-\bar r}{s}.
 \end{aligned}
 $$
 
-本例 s=√(3/16)，约为 0.433013。优势为：
+本例 $s = \sqrt{3/16} \approx 0.433013$。优势为：
 
 $$
 \begin{aligned}

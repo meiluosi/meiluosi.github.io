@@ -12,6 +12,7 @@ export interface BookChapter {
 	href: string;
 	routeBadge?: string;
 	hasInteractive?: boolean;
+	status?: "published" | "upcoming";
 }
 
 export interface BookVolume {
@@ -51,7 +52,7 @@ export interface LivingBook {
 	epigraphEn: string;
 	abstractZh: string;
 	abstractEn: string;
-	featuredLensId: "embodied" | "connectionist" | "neuroscience";
+	featuredLensId: "embodied" | "connectionist" | "neuroscience" | "world-model";
 	volumes: BookVolume[];
 	sidenotes: BookSidenote[];
 }
@@ -1152,6 +1153,563 @@ export const LIVING_BOOKS: LivingBook[] = [
 				linkHref: "/routes/neuroscience/",
 				linkTextZh: "对照第 10 路线：神经科学与脑网络 ↗",
 				linkTextEn: "Compare with Route 10: Neuroscience ↗",
+			},
+		],
+	},
+	{
+		id: "frontier-foundation-models",
+		roman: "MONOGRAPH IV",
+		titleZh: "前沿基础模型技术研究室：从 DeepSeek 演进到系统协同",
+		titleEn:
+			"Frontier Foundation Model Research: From DeepSeek Evolution to Systems Co-Design",
+		subtitleZh:
+			"以模型演进为主线、核心研究问题为索引，深度还原 MLA、DeepSeekMoE、GRPO、R1、mHC、Engram、V4.1 CED 与底层基础设施的协同设计",
+		subtitleEn:
+			"Problem-Indexed Dissection of MLA, DeepSeekMoE, GRPO, R1, mHC, Engram, V4.1 CED, and AI Infrastructure Co-Design",
+		editionBadgeZh: "常青研究专著 · v0.1 Skeleton Established",
+		editionBadgeEn: "Living Research Monograph · v0.1 Skeleton",
+		status: "living",
+		completionPercent: 10,
+		accentColor: "#4338ca",
+		spineColor: "#1e1b4b",
+		epigraphZh:
+			"“真正理解一个前沿模型体系，不能止步于知道它用了 MLA、MoE 或 GRPO，而必须回答三个更深的问题：当时遇到了什么瓶颈而放弃了其他路线？架构、训练算法与底层硬件如何协同？脱离千卡集群后哪些规律依然成立？”",
+		epigraphEn:
+			"“To truly understand a frontier model family, we must ask: Why this design over rejected alternatives? How do architecture, RL, and kernels co-evolve? And which insights generalize beyond cluster scale?”",
+		abstractZh:
+			"本专著是「前沿基础模型技术研究室」的核心载体。第一阶段以 DeepSeek 从 V1、DeepSeekMoE、V2、V3、R1 直至 V3.2、mHC、Engram、V4.1-Flash 与 DualPath 的完整技术演进为主线，围绕六大研究视角与三维知识库索引（问题索引、技术索引、论文与四级证据索引）展开；每章严格交付机制推导、设计决策还原、四级证据审查与 MacBook Air M4 可复现实验，并为后续横向对标 OpenAI、Anthropic、DeepMind、Qwen 建立统一标尺。",
+		abstractEn:
+			"Organized around six research perspectives and a three-index knowledge base (Problems, Techniques, and Four-Tier Evidence Audits), this monograph reconstructs the full technical evolution of DeepSeek from V1–V3 and R1 to mHC, Engram, V4.1-Flash, and DualPath.",
+		featuredLensId: "connectionist",
+		volumes: [
+			{
+				volNum: "第一卷 · VOLUME I",
+				titleZh: "高效基础模型基座：全景、MoE、MLA 与 V3 全链路（2023–2024）",
+				titleEn:
+					"Efficient Foundation Models: Panorama, DeepSeekMoE, MLA & V3 Pipeline",
+				epigraphZh:
+					"从标准 Dense Transformer 的显存与通信墙出发，追踪细粒度稀疏激活、低秩潜向量 KV 压缩与 FP8 无辅助损失训练如何合流。",
+				epigraphEn:
+					"Tracing how fine-grained sparsity, low-rank KV compression, and aux-loss-free FP8 training broke the memory and communication walls.",
+				chapters: [
+					{
+						num: "Unit 01",
+						titleZh:
+							"DeepSeek 技术演进全景：从标准 Transformer 到 V4.1，究竟改变了什么？",
+						titleEn:
+							"DeepSeek Technical Evolution Panorama: From Vanilla Transformer to V4.1",
+						summaryZh:
+							"梳理 V1 → V2 → V3 → R1 → V3.2 → V4 → V4.1 的架构与训练路线，还原每一代解决的扩展瓶颈、引入的新问题与关键设计决策表。",
+						summaryEn:
+							"Mapping the full trajectory from V1 to V4.1: bottlenecks solved, new trade-offs introduced, and a master design decision ledger.",
+						href: "/posts/2026-10-20-llm-training-pretrain-03-forward/",
+						routeBadge: "P-00 · Q01-Q06",
+						hasInteractive: true,
+						status: "upcoming",
+					},
+					{
+						num: "Unit 02",
+						titleZh:
+							"深入 DeepSeekMoE：细粒度专家分割、共享专家隔离与无辅助损失负载均衡",
+						titleEn:
+							"Inside DeepSeekMoE: Fine-Grained Experts, Shared Isolation & Aux-Loss-Free Balancing",
+						summaryZh:
+							"从 Dense FFN 与传统 GShard/Switch MoE 出发，推导专家分工机制、V3 动态偏置负载均衡，并开展小规模路由实验。",
+						summaryEn:
+							"From Dense FFN to fine-grained expert segmentation, shared expert isolation, and V3 dynamic bias load balancing.",
+						href: "/posts/2026-10-20-llm-training-pretrain-03-forward/",
+						routeBadge: "P-01 · Q-02",
+						hasInteractive: true,
+						status: "upcoming",
+					},
+					{
+						num: "Unit 03",
+						titleZh:
+							"深入 MLA（多头潜在注意力）：为什么可以只保存低秩压缩表示？",
+						titleEn:
+							"Inside Multi-Head Latent Attention (MLA): Low-Rank KV Compression & Decoupled RoPE",
+						summaryZh:
+							"从 MHA、MQA、GQA 进入 MLA，详解低秩上下投影、推理期矩阵吸收、解耦 RoPE 位置编码及其与 KV Cache 带宽的定量关系。",
+						summaryEn:
+							"Tensor-level derivation of low-rank KV joint compression, matrix absorption during inference, and decoupled RoPE.",
+						href: "/lab/rope-attention/",
+						routeBadge: "P-03 · Q-01",
+						hasInteractive: true,
+						status: "upcoming",
+					},
+					{
+						num: "Unit 04",
+						titleZh:
+							"还原 DeepSeek-V3 完整训练链路：MTP 多 Token 预测、FP8 混合精度与系统权衡",
+						titleEn:
+							"Reconstructing DeepSeek-V3: Multi-Token Prediction, Fine-Grained FP8 & Co-Design",
+						summaryZh:
+							"把 MLA、无辅助损失 MoE、MTP、细粒度 Tile/Block FP8 量化与 DualPipe 组合起来，交付全链路架构图与成本审计报告。",
+						summaryEn:
+							"Synthesizing MLA, aux-loss-free MoE, MTP, tile/block-wise FP8 quantization, and DualPipe into an end-to-end systems audit.",
+						href: "/lab/model-pipeline/",
+						routeBadge: "P-04 · Q-03/Q-05",
+						hasInteractive: true,
+						status: "upcoming",
+					},
+				],
+			},
+			{
+				volNum: "第二卷 · VOLUME II",
+				titleZh:
+					"复杂推理与强化学习演进：GRPO、R1、过程验证与 Agent RL（2024–2025）",
+				titleEn:
+					"Complex Reasoning & RL: GRPO, R1-Zero/R1, Process Verification & Agent RL",
+				epigraphZh:
+					"当强化学习甩掉昂贵的同规模 Critic 网络，长思维链反思、定理自验证与多步工具交互是如何在规则奖励下涌现的？",
+				epigraphEn:
+					"How long-CoT self-reflection, theorem verification, and multi-turn tool agency emerge under critic-free reinforcement learning.",
+				chapters: [
+					{
+						num: "Unit 05",
+						titleZh:
+							"DeepSeekMath 与 GRPO 起源：组内相对优势如何消去 Critic 显存负担？",
+						titleEn:
+							"DeepSeekMath & GRPO: Eliminating the Value Critic via Group-Relative Advantage",
+						summaryZh:
+							"对比 PPO 与 GRPO 的方差、显存与长度偏置，复现小模型在可验证数学任务上的组内采样消融实验。",
+						summaryEn:
+							"Comparing PPO and GRPO across variance, memory footprint, and length bias with small-model ablations.",
+						href: "/posts/2026-10-23-llm-training-rl-05-grpo/",
+						routeBadge: "P-02 · Q-04",
+						hasInteractive: true,
+						status: "upcoming",
+					},
+					{
+						num: "Unit 06",
+						titleZh:
+							"DeepSeek-R1 与 R1-Zero：纯 RL 推理涌现、冷启动 SFT 必要性与蒸馏边界",
+						titleEn:
+							"DeepSeek-R1 & R1-Zero: Pure-RL Emergence, Cold-Start SFT & Distillation Boundaries",
+						summaryZh:
+							"对比 R1-Zero 与 R1 两条训练路径：可读性崩塌、语言混杂、多阶段奖励设计，以及蒸馏究竟是迁移模式还是激发上限。",
+						summaryEn:
+							"Dissecting R1-Zero vs. R1: readability collapse, multi-stage rule rewards, and what distillation transfers vs. limits.",
+						href: "/posts/2026-10-23-llm-training-rl-06-evaluation/",
+						routeBadge: "P-05 · Q-04",
+						status: "upcoming",
+					},
+					{
+						num: "Unit 07",
+						titleZh:
+							"DeepSeekMath-V2：如何从最终答案奖励转向可自验证的推理过程？",
+						titleEn:
+							"DeepSeekMath-V2: From Outcome Rewards to Self-Verifiable Reasoning Processes",
+						summaryZh:
+							"当问题缺乏简单标量核对器或存在伪证正确率时，如何联合训练生成器与证明验证器闭环。",
+						summaryEn:
+							"Moving beyond outcome-only rewards to generator-verifier loops for rigorous mathematical proof checking.",
+						href: "/posts/2026-10-23-llm-training-rl-02-verifiers/",
+						routeBadge: "P-07 · Q-04",
+						status: "upcoming",
+					},
+					{
+						num: "Unit 08",
+						titleZh:
+							"DeepSeek-V3.2：动态稀疏注意力（DSA）与大规模 Agent 环境强化学习",
+						titleEn:
+							"DeepSeek-V3.2: Dynamic Sparse Attention & Large-Scale Agentic RL",
+						summaryZh:
+							"剖析闪电索引器（Lightning Indexer）如何实现细粒度稀疏注意力，并与合成多步工具调用环境协同扩展。",
+						summaryEn:
+							"Combining Lightning Indexer fine-grained sparse attention with synthetic multi-turn tool-use reinforcement learning.",
+						href: "/posts/2026-10-23-llm-training-tool-01-trajectories/",
+						routeBadge: "P-06 · Q-01/Q-06",
+						status: "upcoming",
+					},
+				],
+			},
+			{
+				volNum: "第三卷 · VOLUME III",
+				titleZh:
+					"架构重塑与不对称计算：mHC、Engram、V4 与 V4.1-Flash（2025–2026）",
+				titleEn:
+					"Architectural Redesign: mHC, Engram, Million-Token V4 & Asymmetric V4.1-Flash",
+				epigraphZh:
+					"跳出标准残差流、同质 FFN 参数存储与输入输出对称计算的隐含假设，重新审视基础模型的连接、记忆与编码边界。",
+				epigraphEn:
+					"Challenging standard residual connections, monolithic FFN memory, and symmetric input-output computation.",
+				chapters: [
+					{
+						num: "Unit 09",
+						titleZh:
+							"mHC（流形约束超连接）：能否拓宽残差连接容量又保持深层训练稳定？",
+						titleEn:
+							"mHC (Manifold-Constrained Hyper-Connections): Expanding Residual Streams Safely",
+						summaryZh:
+							"分析无约束超连接（HC）为何破坏恒等映射导致信号爆炸，以及 Sinkhorn-Knopp 双随机矩阵流形投影如何恢复稳定性。",
+						summaryEn:
+							"How projecting multi-stream hyper-connection matrices onto the Birkhoff polytope restores identity-mapping stability.",
+						href: "/posts/2026-10-20-llm-training-pretrain-05-optimization/",
+						routeBadge: "P-08 · Q-03",
+						status: "upcoming",
+					},
+					{
+						num: "Unit 10",
+						titleZh:
+							"Engram 条件记忆：静态世界知识查找（O(1)）与动态神经计算能否分开？",
+						titleEn:
+							"Engram Conditional Memory: Decoupling O(1) Knowledge Lookup from Neural Computation",
+						summaryZh:
+							"剖析基于现代哈希 N-gram 嵌入的 Engram 模块如何与 MoE 形成 U 型缩放互补，并将大容量词表卸载至主机内存。",
+						summaryEn:
+							"Separating static knowledge lookup via hashed N-gram tables from dynamic MoE expert computation.",
+						href: "/posts/2026-10-20-llm-training-pretrain-01-tokenization/",
+						routeBadge: "P-09 · Q-02",
+						status: "upcoming",
+					},
+					{
+						num: "Unit 11",
+						titleZh:
+							"DeepSeek-V4 与 V4.1-Flash：百万上下文、CED 不对称编解码与跨层 KV 复用",
+						titleEn:
+							"DeepSeek-V4 & V4.1-Flash: Million-Token Context, CED & Cross-Layer KV Reuse",
+						summaryZh:
+							"研究为什么输入阶段与输出阶段应当采用不同计算结构（Causal Encoder–Decoder、CSA2 与跨层 KV 共享），并严格执行四级证据边界审查。",
+						summaryEn:
+							"Examining asymmetric prompt encoding vs. decoding (CED), CSA2, cross-layer KV reuse, and strict evidence boundary auditing.",
+						href: "/posts/2024-10-27-llm推理优化与部署/",
+						routeBadge: "P-10/P-11 · Q-01/Q-05",
+						status: "upcoming",
+					},
+				],
+			},
+			{
+				volNum: "第四卷 · VOLUME IV",
+				titleZh: "从算法到完整 AI 基础设施：内核、通信、DualPipe 与 DualPath",
+				titleEn:
+					"From Algorithms to AI Infrastructure: Kernels, DeepEP, DualPipe & DualPath",
+				epigraphZh:
+					"没有贴合硬件内存层次与互连拓扑的算子与调度，纸面上的 FLOPs 削减永远无法变成真实的训练吞吐与线上低延迟。",
+				epigraphEn:
+					"Without hardware-aware kernels, communication primitives, and storage scheduling, theoretical FLOP reductions stay on paper.",
+				chapters: [
+					{
+						num: "Unit 12",
+						titleZh:
+							"算子与并行协同：FlashMLA、DeepGEMM、DeepEP 与 DualPipe 双向流水线",
+						titleEn:
+							"Kernel & Parallelism Co-Design: FlashMLA, DeepGEMM, DeepEP & DualPipe",
+						summaryZh:
+							"拆解 Hopper/现代 GPU 上的变长 KV 核函数、细粒度 FP8 矩阵乘、NVLink/RDMA 专家并行调度与计算通信重叠数学条件。",
+						summaryEn:
+							"Inside variable-length MLA kernels, fine-grained FP8 GEMM, MoE all-to-all dispatch, and DualPipe computation-communication overlap.",
+						href: "/posts/2026-10-23-llm-training-eval-03-costs/",
+						routeBadge: "Sys-01 · Q-02/Q-03",
+						status: "upcoming",
+					},
+					{
+						num: "Unit 13",
+						titleZh:
+							"DualPath 与 Agent 推理存储系统：如何突破多轮长上下文 KV Cache 带宽瓶颈？",
+						titleEn:
+							"DualPath & Agentic Inference: Breaking the KV Cache Storage Bandwidth Bottleneck",
+						summaryZh:
+							"分析高缓存命中率下 Prefill 网卡饱和与 Decode 网卡闲置的不对称矛盾，还原存储→Prefill 与存储→Decode 双路径动态调度。",
+						summaryEn:
+							"Resolving asymmetric NIC utilization in multi-turn agentic workloads via dual-path KV cache loading across Prefill and Decode engines.",
+						href: "/posts/2024-10-27-llm推理优化与部署/",
+						routeBadge: "P-12 · Q-01/Q-06",
+						status: "upcoming",
+					},
+				],
+			},
+		],
+		sidenotes: [
+			{
+				marker: "边注 §1",
+				titleZh: "研究工程五步法与四级证据审查",
+				titleEn: "Five-Step Methodology & Four-Tier Evidence Audit",
+				bodyZh:
+					"本专著拒绝把“看懂论文”等同于“验证论文”。每章固定区分：[E1 论文报告结论]、[E2 开源源码确认机制]、[E3 第三方独立复现] 与 [E4 本机 M4 16GB 缩模实验 / 待验假设]。",
+				bodyEn:
+					"Every chapter strictly separates author claims [E1], open-source code verification [E2], independent reproductions [E3], and local M4 16GB probe experiments [E4].",
+				linkHref: "/lab/model-pipeline/",
+				linkTextZh: "打开全链路模型交互实验台 ↗",
+				linkTextEn: "Open Model Pipeline Studio ↗",
+			},
+			{
+				marker: "边注 §2",
+				titleZh: "三维研究索引（问题 · 技术 · 论文）",
+				titleEn: "Three-Index Knowledge Base",
+				bodyZh:
+					"全书以 Q-01 至 Q-06 六大核心研究问题为一级锚点（如 KV 带宽墙、稀疏激活、无 Critic 推理 RL、残差与记忆分离），为后续横向对比 OpenAI、Anthropic、DeepMind、Qwen 提供统一坐标系。",
+				bodyEn:
+					"Indexed by six core research questions (Q-01 to Q-06) to enable rigorous cross-lab comparisons across DeepSeek, OpenAI, Anthropic, DeepMind, and Qwen.",
+				linkHref: "/library/",
+				linkTextZh: "查阅站内研究文献架 ↗",
+				linkTextEn: "Browse Research Library ↗",
+			},
+		],
+	},
+	{
+		id: "code-as-world-model",
+		roman: "MONOGRAPH V",
+		titleZh: "代码造物与显式世界模型：程序化动画、物理仿真与数学可视化手记",
+		titleEn:
+			"Code as World Model: Procedural Animation, Physics Simulation & Mathematical Visualization",
+		subtitleZh:
+			"从微分方程辛积分器、相空间吸引子、几何连杆逆运动学到偏微分方程连续场的 12 章可交互造物专著",
+		subtitleEn:
+			"A 12-Chapter Interactive Monograph on Symplectic Integrators, Phase-Space Attractors, Linkage Kinematics, and Emergent Continuous Fields",
+		editionBadgeZh: "十二单元全集完结 · v1.0 Complete Edition",
+		editionBadgeEn: "12 Units Complete · v1.0 Edition",
+		status: "completed",
+		completionPercent: 100,
+		accentColor: "#0f766e",
+		spineColor: "#115e59",
+		epigraphZh:
+			"“当你拒绝使用预设的 CSS 关键帧，而是亲手写下一行状态递推方程 s_{t+1} = f(s_t, a_t, Δt) 时，你写的就不再是‘动画特效’，而是在数字虚空中立下了一条物理定律——屏幕上的每一帧运动，都是这个微型世界模型在时间流中的必然涌现。”",
+		epigraphEn:
+			"“When you reject pre-baked keyframes and write an explicit state transition law s_{t+1} = f(s_t, a_t, Δt), you are no longer coding visual effects—you are legislating physical laws for a miniature universe.”",
+		abstractZh:
+			"为什么一段 60fps 的程序化动画本质上就是一个完备的「显式世界模型」？本专著遵循 Bret Victor、Bartosz Ciechanowski 与 3Blue1Brown 的第一性原理交互标准，将代码动画拆解为「内部状态流形 s_t」、「演化动力学算子 f」与「观测渲染投影 g(s_t)」。全书分为三卷十二章，从时间步进与辛几何数值积分出发，穿越刚体连杆、位置动力学与逆运动学，最终抵达反应扩散偏微分方程与 AI 隐空间世界模型的交汇处。",
+		abstractEn:
+			"Why is a 60fps procedural animation fundamentally an explicit World Model? Following the interactive standards of Bret Victor and Bartosz Ciechanowski, this three-volume monograph dissects code animation into state manifolds, dynamical operators, and rendering projections—bridging numerical physics and AI world models.",
+		featuredLensId: "world-model",
+		volumes: [
+			{
+				volNum: "第一卷 · VOLUME I",
+				titleZh: "时间步进、微分方程与数值积分器",
+				titleEn:
+					"Time Stepping, Differential Equations & Numerical Integrators",
+				epigraphZh:
+					"如何让静态几何在离散帧率中诚实地演化，而不因数值截断产生伪能量爆炸或相位漂移？",
+				epigraphEn:
+					"How static geometry evolves faithfully across discrete frames without spurious energy explosion or phase drift.",
+				chapters: [
+					{
+						num: "Unit 01",
+						titleZh:
+							"世界模型的最小骨架：状态向量 s_t、固定时间步 Δt 与渲染投影 g(s_t)",
+						titleEn:
+							"Minimal Skeleton of a World Model: State Vector, Fixed Timestep & Projection",
+						summaryZh:
+							"解剖 requestAnimationFrame 循环、固定物理步长累加器（Accumulator）与帧间线性插值——为什么掉帧绝对不能改变世界的物理结果？",
+						summaryEn:
+							"Dissecting requestAnimationFrame loops, fixed-timestep accumulators, and render interpolation so frame drops never alter physics.",
+						href: "/posts/2026-11-01-code-world-model-01-state-and-accumulator/",
+						routeBadge: "Unit 01 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 02",
+						titleZh:
+							"积分器的艺术：显式欧拉、半隐式辛欧拉（Symplectic）、Verlet 与 RK4",
+						titleEn:
+							"The Art of Integrators: Explicit Euler, Symplectic Euler, Verlet & RK4",
+						summaryZh:
+							"为什么仅调换一行速度与位置的更新顺序，就能决定一个代码动画世界是‘相空间面积守恒’还是‘能量无中生有原地爆炸’？",
+						summaryEn:
+							"Why swapping a single line of velocity-position update order determines whether phase-space volume is conserved or explodes.",
+						href: "/posts/2026-11-01-code-world-model-02-symplectic-integrators/",
+						routeBadge: "Unit 02 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 03",
+						titleZh:
+							"二阶动力学与有机运动感：用阻尼谐振子 (ω_n, ζ) 取代死板的贝塞尔缓动",
+						titleEn:
+							"Second-Order Dynamics: Replacing Bezier Easings with Damped Harmonic Oscillators",
+						summaryZh:
+							"推导欠阻尼、临界阻尼与过阻尼二阶微分系统，让几何图形与 UI 响应鼠标干预时自带真实的重量、惯性与动量连续性。",
+						summaryEn:
+							"Deriving underdamped, critically damped, and overdamped second-order systems for momentum-preserving interactive motion.",
+						href: "/posts/2026-11-01-code-world-model-03-second-order-dynamics/",
+						routeBadge: "Unit 03 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 04",
+						titleZh:
+							"相空间（Phase Space）、极限环与混沌分岔：从范德波尔振荡器到双摆",
+						titleEn:
+							"Phase Space, Limit Cycles & Chaotic Bifurcations: Van der Pol to Double Pendulum",
+						summaryZh:
+							"同屏绘制‘物理空间动画’与‘(θ, dθ/dt) 相空间矢量场’，直观看见极限环吸引子如何编码生命节律、初始微扰如何指数发散。",
+						summaryEn:
+							"Synchronizing physical-space animation with phase-portrait vector fields to visualize limit-cycle attractors and Lyapunov divergence.",
+						href: "/posts/2026-11-01-code-world-model-04-phase-space-and-attractors/",
+						routeBadge: "Unit 04 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+				],
+			},
+			{
+				volNum: "第二卷 · VOLUME II",
+				titleZh: "几何约束、刚体连杆与逆运动学",
+				titleEn: "Geometric Constraints, Rigid Linkages & Inverse Kinematics",
+				epigraphZh:
+					"当多个自由度被刚性距离与角度约束锁死时，单点旋转如何转化为优雅的仿生机械步态？",
+				epigraphEn:
+					"How local crank rotation transforms into lifelike locomotion when degrees of freedom are locked by geometric constraints.",
+				chapters: [
+					{
+						num: "Unit 05",
+						titleZh:
+							"闭环连杆与解析几何约束：从圆交点闭式解到 Strandbeest 仿生风力兽步态",
+						titleEn:
+							"Closed-Loop Linkages: Circle-Intersection Kinematics & Strandbeest Gait",
+						summaryZh:
+							"基于 Theo Jansen 十一圣数连杆比例，手推四杆/八杆机构余弦定理闭式解、死点奇异判据与平底支撑步态包络线。",
+						summaryEn:
+							"Closed-form circle-circle intersections and cosine-law kinematics for Theo Jansen's Strandbeest linkage.",
+						href: "/posts/2026-11-01-code-world-model-05-closed-loop-linkages/",
+						routeBadge: "Unit 05 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 06",
+						titleZh:
+							"位置动力学（Position-Based Dynamics, PBD）与雅可比迭代约束松弛",
+						titleEn:
+							"Position-Based Dynamics (PBD) & Gauss-Seidel Constraint Relaxation",
+						summaryZh:
+							"跳过繁琐的全局刚度矩阵求逆，仅凭‘Verlet 惯性预测 + 迭代拉回距离约束’的十行代码，实时模拟悬链绳索、布料网格与软体多边形。",
+						summaryEn:
+							"Simulating ropes, cloth meshes, and soft bodies in real time via Verlet prediction and iterative distance-constraint projection.",
+						href: "/posts/2026-11-01-code-world-model-06-position-based-dynamics/",
+						routeBadge: "Unit 06 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 07",
+						titleZh:
+							"正向与逆向运动学（FK / IK）：FABRIK 算法与程序化多足步态合成",
+						titleEn:
+							"Forward & Inverse Kinematics: FABRIK & Procedural Multi-Legged Locomotion",
+						summaryZh:
+							"零预制美术关键帧：用前向后向迭代逆运动学（FABRIK）配合重心偏移触发器，写出自动适应地形起伏的程序化蜘蛛与触手动画。",
+						summaryEn:
+							"Zero pre-baked keyframes: synthesizing terrain-adaptive multi-legged gaits using Forward-And-Backward Reaching Inverse Kinematics.",
+						href: "/posts/2026-11-01-code-world-model-07-inverse-kinematics-fabrik/",
+						routeBadge: "Unit 07 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 08",
+						titleZh: "有向距离场（SDF）、连续碰撞检测与刚体冲量动量守恒",
+						titleEn:
+							"Signed Distance Fields (SDF), Collision Manifolds & Impulse Conservation",
+						summaryZh:
+							"用纯数学标量场 d(p) = 0 定义任意几何边界、光滑布尔融合与表面法向量 ∇d，推导弹性恢复系数与旋转冲量响应。",
+						summaryEn:
+							"Defining exact geometry, smooth Boolean blends, and surface normals via Signed Distance Fields and impulse resolution.",
+						href: "/posts/2026-11-01-code-world-model-08-signed-distance-fields-collision/",
+						routeBadge: "Unit 08 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+				],
+			},
+			{
+				volNum: "第三卷 · VOLUME III",
+				titleZh: "连续场、局部规则涌现与心智仿真连接",
+				titleEn: "Continuous Fields, Local Emergence & Mental Simulation",
+				epigraphZh:
+					"极简的局部代码算子如何涌现出复杂的生命图景？显式代码世界又如何成为检验 AI 隐式世界模型的黄金标尺？",
+				epigraphEn:
+					"How local operators give rise to macro-scale life—and how explicit code worlds benchmark neural world models.",
+				chapters: [
+					{
+						num: "Unit 09",
+						titleZh: "局部感知与群体涌现：Boids 三定律、空间网格哈希与流场寻路",
+						titleEn:
+							"Local Rules & Flock Emergence: Boids, Spatial Hashing & Flow Fields",
+						summaryZh:
+							"分离、对齐、凝聚三个局部向量算子，如何在零全局指挥官的前提下涌现出椋鸟群风暴与果蝇觅食聚集。",
+						summaryEn:
+							"How separation, alignment, and cohesion vectors produce emergent flocking and foraging swarms with O(N) spatial hashing.",
+						href: "/posts/2026-11-01-code-world-model-09-boids-flocking-spatial-hashing/",
+						routeBadge: "Unit 09 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 10",
+						titleZh:
+							"网格上的偏微分方程：2D 波动方程、图灵反应扩散（Gray-Scott）与流体平流",
+						titleEn:
+							"PDEs on a Grid: Wave Equation, Gray-Scott Reaction-Diffusion & Advection",
+						summaryZh:
+							"把拉普拉斯算子 ∇² 写成二维数组的五点离散卷积，在 Canvas 像素缓冲中实时长出干涉涟漪、珊瑚斑纹与涡旋场。",
+						summaryEn:
+							"Discretizing the Laplacian operator ∇² on 2D grids to grow interference ripples, Turing morphogenesis patterns, and fluid vortices.",
+						href: "/posts/2026-11-01-code-world-model-10-grid-pde-reaction-diffusion/",
+						routeBadge: "Unit 10 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 11",
+						titleZh:
+							"Manim 与 Ciechanowski 式的数学叙事语法：同伦变换、复平面映射与视觉证明",
+						titleEn:
+							"Mathematical Visual Storytelling: Homotopy, Complex Mappings & Visual Proofs",
+						summaryZh:
+							"提炼用代码讲清抽象数学的工程范式：基底线性变换动画、流形同伦插值、状态着色编码与30秒顿悟结构。",
+						summaryEn:
+							"Engineering visual proofs: basis transformations, homotopy interpolation, and state-driven color encoding.",
+						href: "/posts/2026-11-01-code-world-model-11-mathematical-visual-storytelling/",
+						routeBadge: "Unit 11 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+					{
+						num: "Unit 12",
+						titleZh:
+							"终章回响：显式代码世界模型 vs. 神经网络隐空间做梦（MBRL / Dreamer / JEPA）",
+						titleEn:
+							"Epilogue: Explicit Code World Models vs. Neural Latent Rollouts",
+						summaryZh:
+							"将前三卷的手写确定性物理引擎作为 Ground Truth，对照 Model-Based RL、Dreamer 隐空间轨迹推演与视频生成模型：为什么真正的智能需要如代码般守恒且可干预的内部世界模型？",
+						summaryEn:
+							"Benchmarking MBRL, Dreamer latent rollouts, and video generators against explicit code physics: why causal invariants matter.",
+						href: "/posts/2026-11-01-code-world-model-12-neural-vs-code-world-models/",
+						routeBadge: "Unit 12 · Published",
+						hasInteractive: true,
+						status: "published",
+					},
+				],
+			},
+		],
+		sidenotes: [
+			{
+				marker: "边注 §1",
+				titleZh: "Ciechanowski / Victor 第一性原理铁律",
+				titleEn: "The First-Principles Interactive Standard",
+				bodyZh:
+					"本专著遵循全站交互解释器铁律：严禁使用无数学内核的纯装饰性 CSS 动画。每一个视觉组件都必须由显式物理递推方程、几何约束或微分算子实时驱动，并提供可跨越分岔阈值的控制旋钮。",
+				bodyEn:
+					"No decorative CSS animations: every visual widget is driven live by explicit differential equations, geometric constraints, or phase-space operators.",
+				linkHref: "/essays/strandbeest/",
+				linkTextZh: "体验 Strandbeest 连杆视觉随笔 ↗",
+				linkTextEn: "Explore Strandbeest Visual Essay ↗",
+			},
+			{
+				marker: "边注 §2",
+				titleZh: "连接第 07 与第 12 智能路线",
+				titleEn: "Bridging Route 07 (Causality) & Route 12 (Dynamics)",
+				bodyZh:
+					"用代码写动画是人类正向构造『显式世界模型』（从法则到画面）；而强化学习与认知科学中的世界模型则是从观测经验中逆向拟合『隐式状态转移』（从画面到法则）。两者在相空间与反事实干预 `do(x)` 上殊途同归。",
+				bodyEn:
+					"Coding simulations constructs explicit world models forward (laws → pixels), while AI world models invert the process (pixels → latent laws).",
+				linkHref: "/routes/causal-world-models/",
+				linkTextZh: "对照第 07 路线：因果与世界模型 ↗",
+				linkTextEn: "Compare Route 07: Causal & World Models ↗",
 			},
 		],
 	},

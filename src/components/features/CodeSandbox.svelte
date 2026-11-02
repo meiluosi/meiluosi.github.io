@@ -23,16 +23,23 @@ let stdout = $state("");
 let stderr = $state("");
 let executionTimeMs = $state(0);
 
+interface PyodideInstance {
+	runPythonAsync: (code: string) => Promise<unknown>;
+	globals: {
+		get: (name: string) => string | undefined;
+	};
+}
+
 // Global Pyodide singleton on window
 declare global {
 	interface Window {
-		loadPyodide?: (config: { indexURL: string }) => Promise<any>;
-		__pyodideInstance?: any;
-		__pyodideLoadingPromise?: Promise<any>;
+		loadPyodide?: (config: { indexURL: string }) => Promise<PyodideInstance>;
+		__pyodideInstance?: PyodideInstance;
+		__pyodideLoadingPromise?: Promise<PyodideInstance>;
 	}
 }
 
-async function getPyodide(): Promise<any> {
+async function getPyodide(): Promise<PyodideInstance | null> {
 	if (typeof window === "undefined") return null;
 	if (window.__pyodideInstance) return window.__pyodideInstance;
 
@@ -77,6 +84,7 @@ async function runCode(): Promise<void> {
 
 	try {
 		const pyodide = await getPyodide();
+		if (!pyodide) throw new Error("Pyodide unavailable");
 		status = "running";
 
 		// Python harness capturing stdout and stderr
@@ -113,10 +121,10 @@ __captured_err = __stderr_buf.getvalue()
 			status = "success";
 			playMechanicalTick(1.2);
 		}
-	} catch (e: any) {
+	} catch (e: unknown) {
 		executionTimeMs = Math.round(performance.now() - startTime);
 		status = "error";
-		stderr = e.message || String(e);
+		stderr = e instanceof Error ? e.message : String(e);
 	}
 }
 

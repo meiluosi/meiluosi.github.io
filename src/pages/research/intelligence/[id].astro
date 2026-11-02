@@ -1,16 +1,16 @@
 ---
-import roundSix from "../../../../docs/intelligence-history/round-six/research.json";
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import {
-	researchArticles,
-	researchReview,
 	classificationLabels,
 	graphLabels,
-	researchSourceForClaim,
-	researchArticleForConclusion,
 	type ResearchArticle,
+	researchArticleForConclusion,
+	researchArticles,
+	researchReview,
+	researchSourceForClaim,
 } from "@/data/intelligenceResearch";
 import { getRouteById } from "@/data/intelligenceRoutes";
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
+import roundSix from "../../../../docs/intelligence-history/round-six/research.json";
 import "@/styles/intelligence-research.css";
 export function getStaticPaths() {
 	return researchArticles.map((article) => ({

@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { startVisibleLoop } from "@/utils/frame-loop";
 import { playLatchClick, playSlideTick } from "@/utils/haptics";
 
 interface Props {
@@ -288,7 +289,6 @@ onMount(() => {
 	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 	if (reduced) autoRotate = false;
 
-	let frameId = 0;
 	const renderLoop = () => {
 		if (canvasEl) {
 			const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -313,12 +313,11 @@ onMount(() => {
 		if (!reduced) {
 			marbleT += 1;
 		}
-		frameId = requestAnimationFrame(renderLoop);
 	};
-	frameId = requestAnimationFrame(renderLoop);
+	const stopLoop = startVisibleLoop(canvasEl, renderLoop);
 
 	return () => {
-		cancelAnimationFrame(frameId);
+		stopLoop();
 		document.removeEventListener("site-locale-change", sync);
 	};
 });

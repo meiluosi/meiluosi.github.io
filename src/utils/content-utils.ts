@@ -22,26 +22,38 @@ async function getRawSortedPosts(): Promise<CollectionEntry<"posts">[]> {
 	return sorted;
 }
 
+let cachedSortedPostsPromise: Promise<CollectionEntry<"posts">[]> | null = null;
+
+export function clearSortedPostsCache(): void {
+	cachedSortedPostsPromise = null;
+}
+
 export async function getSortedPosts(): Promise<CollectionEntry<"posts">[]> {
-	const sorted = await getRawSortedPosts();
+	if (!cachedSortedPostsPromise) {
+		cachedSortedPostsPromise = (async () => {
+			const sorted = await getRawSortedPosts();
 
-	for (let i = 1; i < sorted.length; i++) {
-		sorted[i].data.nextSlug = sorted[i - 1].id;
-		sorted[i].data.nextTitle = sorted[i - 1].data.title;
-	}
-	for (let i = 0; i < sorted.length - 1; i++) {
-		sorted[i].data.prevSlug = sorted[i + 1].id;
-		sorted[i].data.prevTitle = sorted[i + 1].data.title;
+			for (let i = 1; i < sorted.length; i++) {
+				sorted[i].data.nextSlug = sorted[i - 1].id;
+				sorted[i].data.nextTitle = sorted[i - 1].data.title;
+			}
+			for (let i = 0; i < sorted.length - 1; i++) {
+				sorted[i].data.prevSlug = sorted[i + 1].id;
+				sorted[i].data.prevTitle = sorted[i + 1].data.title;
+			}
+
+			return sorted;
+		})();
 	}
 
-	return sorted;
+	return cachedSortedPostsPromise;
 }
 export type PostForList = {
 	id: string;
 	data: CollectionEntry<"posts">["data"];
 };
 export async function getSortedPostsList(): Promise<PostForList[]> {
-	const sortedFullPosts = await getRawSortedPosts();
+	const sortedFullPosts = await getSortedPosts();
 
 	// delete post.body
 	const sortedPostsList = sortedFullPosts.map((post) => ({

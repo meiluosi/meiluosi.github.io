@@ -1,9 +1,14 @@
 ---
+import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import descriptive from "../../../../docs/intelligence-history/round-seven/evidence/descriptive-results.json";
 import models from "../../../../docs/intelligence-history/round-seven/evidence/model-results.json";
-import ExploreLayout from "@/layouts/ExploreLayout.astro";
 import "@/styles/intelligence-research.css";
-const labels: Record<string,string> = {UnscrambleWords1:"词语重组", BrainstormObject1:"物体用途发散", TypingText1:"文本输入"};
+
+const labels: Record<string, string> = {
+	UnscrambleWords1: "词语重组",
+	BrainstormObject1: "物体用途发散",
+	TypingText1: "文本输入",
+};
 ---
 <ExploreLayout title="群体研究复核" titleEn="Collective intelligence: verification" description="锁定群体研究的代码、数据和更正，区分描述性复算与原模型复现。" descriptionEn="A version and data audit of a collective intelligence study, in Chinese.">
 <article class="research-page" lang="zh-CN" data-pagefind-body>

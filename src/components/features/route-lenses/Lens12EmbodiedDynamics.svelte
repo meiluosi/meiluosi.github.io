@@ -201,6 +201,13 @@ onMount(() => {
 			{english
 				? "Before evolving a gigantic cortex to compute joint trajectories via inverse kinematics, nature offloads control into compliant tendons, pendular dynamics, and environmental affordances."
 				: "传统符号主义试图用中央处理器精确解算每个关节的逆运动学微分方程；而具身认知指出：顺应性的肌腱、摆锤形态与地面反作用力的物理闭环，本身就在以零算力完成精妙的‘形态学计算’。"}
+			<div class="strand-twin-link">
+				<a href="/essays/strandbeest/">
+					{english
+						? "🌬️ Twin Mechanism Lab: How Theo Jansen's Strandbeest turns sea wind into a flat-bottomed walking gait via 11 fixed-length rods (2D/3D Simulation) ↗"
+						: "🌬️ 孪生形态学计算实验：探索 Theo Jansen 风吹动力兽（Strandbeest）如何靠 11 根定长连杆把海风转化为平底迈步（2D/3D 仿真） ↗"}
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -343,4 +350,15 @@ onMount(() => {
 	line-height: 1.5;
 }
 .insight-icon { font-size: 1.1rem; }
+.strand-twin-link {
+	margin-top: 0.55rem;
+	padding-top: 0.5rem;
+	border-top: 1px dashed rgba(138, 115, 86, 0.3);
+}
+.strand-twin-link a {
+	color: var(--brand-accent, #2b6cb0);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	font-weight: 500;
+}
 </style>

@@ -41,11 +41,41 @@ export function resolvePostRoute(postData: {
 	const title = (postData.title || "").toLowerCase();
 
 	// 2. 根据 tags / category / title 规则映射
-	// 路线 12: 具身与动力系统 (Strandbeest / 连杆 / 步态)
+	// 路线 10: 神经科学路线 (果蝇连接组研究 / 果蝇连接组 / 连接组 / 神经科学 / connectome)
 	if (
+		category.includes("果蝇连接组研究") ||
+		category.includes("果蝇") ||
+		category.includes("神经科学") ||
+		category.includes("connectome") ||
 		tags.some(
 			(t) =>
-				t.includes("strandbeest") || t.includes("仿生") || t.includes("连杆"),
+				t.includes("果蝇连接组") ||
+				t.includes("连接组") ||
+				t.includes("神经科学") ||
+				t.includes("connectome"),
+		) ||
+		title.includes("果蝇连接组") ||
+		title.includes("连接组") ||
+		title.includes("神经科学") ||
+		title.includes("connectome")
+	) {
+		return getRouteById("neuroscience");
+	}
+
+	// 路线 12: 具身与动力系统 (Strandbeest / 连杆 / 步态 / 代码造物与显式世界模型)
+	if (
+		category.includes("代码造物与显式世界模型") ||
+		category.includes("代码造物") ||
+		category.includes("strandbeest") ||
+		tags.some(
+			(t) =>
+				t.includes("strandbeest") ||
+				t.includes("仿生") ||
+				t.includes("连杆") ||
+				t.includes("代码造物与显式世界模型") ||
+				t.includes("代码造物") ||
+				t.includes("物理仿真") ||
+				t.includes("动力学"),
 		) ||
 		title.includes("strandbeest") ||
 		title.includes("步态")
@@ -77,29 +107,39 @@ export function resolvePostRoute(postData: {
 		return getRouteById("developmental-openended");
 	}
 
-	// 路线 08: 控制论与强化学习 (RL / 强化学习 / MCTS / CFR / 扑克 / 博弈)
+	// 路线 08: 控制论与强化学习 (RL / 强化学习 / MCTS / CFR / 扑克 / 博弈 / Game AI / 游戏AI / 多人博弈)
 	if (
 		category.includes("强化学习") ||
 		category.includes("博弈") ||
+		category.includes("game ai") ||
+		category.includes("游戏ai") ||
 		tags.some(
 			(t) =>
 				t.includes("rl") ||
 				t.includes("强化学习") ||
 				t.includes("mcts") ||
 				t.includes("cfr") ||
-				t.includes("博弈"),
+				t.includes("博弈") ||
+				t.includes("game ai") ||
+				t.includes("游戏ai") ||
+				t.includes("多人博弈"),
 		) ||
 		title.includes("强化学习") ||
 		title.includes("cfr") ||
-		title.includes("mcts")
+		title.includes("mcts") ||
+		title.includes("博弈") ||
+		title.includes("多人博弈") ||
+		title.includes("游戏ai")
 	) {
 		return getRouteById("cybernetics-rl");
 	}
 
-	// 路线 06: 连接主义、统计表征与大模型 (LLM / 训练 / Transformer / Attention / 微调)
+	// 路线 06: 连接主义、统计表征与大模型 (LLM / 训练 / Transformer / Attention / 微调 / NLP / Deep Learning)
 	if (
 		category.includes("llm") ||
 		category.includes("大模型") ||
+		category.includes("nlp") ||
+		category.includes("deep learning") ||
 		tags.some(
 			(t) =>
 				t.includes("llm") ||
@@ -109,11 +149,17 @@ export function resolvePostRoute(postData: {
 				t.includes("注意力") ||
 				t.includes("attention") ||
 				t.includes("vllm") ||
-				t.includes("deepspeed"),
+				t.includes("deepspeed") ||
+				t.includes("rag") ||
+				t.includes("agent") ||
+				t.includes("模型架构"),
 		) ||
 		title.includes("llm") ||
 		title.includes("transformer") ||
-		title.includes("预训练")
+		title.includes("预训练") ||
+		title.includes("大模型") ||
+		title.includes("提示工程") ||
+		title.includes("rag")
 	) {
 		return getRouteById("connectionist");
 	}
@@ -127,11 +173,23 @@ export function resolvePostRoute(postData: {
 		return getRouteById("symbolic-logic");
 	}
 
-	// 路线 04: 理性与统计决策
+	// 路线 04: 理性与统计决策 (统计学 / 假设检验 / 因果推断 / 数据分析 / 决策)
 	if (
+		category.includes("data science") ||
 		tags.some(
-			(t) => t.includes("统计") || t.includes("决策") || t.includes("数据分析"),
-		)
+			(t) =>
+				t.includes("统计") ||
+				t.includes("统计学") ||
+				t.includes("假设检验") ||
+				t.includes("因果推断") ||
+				t.includes("决策") ||
+				t.includes("数据分析") ||
+				t.includes("数据处理"),
+		) ||
+		title.includes("统计") ||
+		title.includes("假设检验") ||
+		title.includes("数据分析") ||
+		title.includes("r语言")
 	) {
 		return getRouteById("rational-resource");
 	}

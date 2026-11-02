@@ -28,6 +28,7 @@ let hoveredNode = $state<GraphNode | null>(null);
 
 // 3D Celestial Cosmos & 2D Layout State
 let viewMode = $state<"2d" | "3d">("3d");
+let celestialTheme = $state<"deep-space" | "parchment">("deep-space");
 let rotX = $state(0.24);
 let rotY = $state(0.0);
 let isDragging3D = false;
@@ -54,13 +55,50 @@ interface SimNodeExt extends GraphNode {
 	projScale?: number;
 }
 
-// Background cosmic stars
-const stars = Array.from({ length: 80 }, (_, i) => ({
-	x: Math.sin(i * 19.3) * 0.5 + 0.5,
-	y: Math.cos(i * 37.7) * 0.5 + 0.5,
-	r: (i % 3) * 0.5 + 0.7,
-	alpha: Math.sin(i * 7.1) * 0.25 + 0.45,
-}));
+// Background cosmic stars with spectral types and scintillation
+interface CosmicStar {
+	x: number;
+	y: number;
+	r: number;
+	alpha: number;
+	phase: number;
+	color: string;
+	spectral: "blue" | "cyan" | "white" | "gold" | "amber";
+}
+
+const spectralPalette = {
+	blue: "rgba(160, 205, 255, ALPHA)",
+	cyan: "rgba(165, 245, 230, ALPHA)",
+	white: "rgba(255, 255, 255, ALPHA)",
+	gold: "rgba(255, 235, 175, ALPHA)",
+	amber: "rgba(255, 195, 140, ALPHA)",
+};
+
+const stars: CosmicStar[] = Array.from({ length: 220 }, (_, i) => {
+	const spectralKeys: (keyof typeof spectralPalette)[] = [
+		"cyan",
+		"white",
+		"blue",
+		"gold",
+		"cyan",
+		"white",
+		"amber",
+	];
+	const spectral = spectralKeys[i % spectralKeys.length];
+	const isGuideStar = i % 14 === 0;
+	// Deterministic pseudo-random distribution
+	const rx = (((Math.sin(i * 19.33) * 43758.5453) % 1) + 1) % 1;
+	const ry = (((Math.cos(i * 37.77) * 43758.5453) % 1) + 1) % 1;
+	return {
+		x: rx,
+		y: ry,
+		r: isGuideStar ? 1.5 + (i % 3) * 0.45 : 0.5 + (i % 5) * 0.22,
+		alpha: isGuideStar ? 0.78 + (i % 4) * 0.05 : 0.35 + (i % 5) * 0.12,
+		phase: (i * 0.73) % (Math.PI * 2),
+		color: spectralPalette[spectral],
+		spectral,
+	};
+});
 
 // Transform / Pan / Zoom state
 let transform = $state({ x: 0, y: 0, k: 1 });
@@ -226,6 +264,121 @@ function scheduleNextFrame() {
 	animFrameId = requestAnimationFrame(tickSimulation);
 }
 
+function drawCelestialBackground(
+	ctx: CanvasRenderingContext2D,
+	width: number,
+	height: number,
+) {
+	if (celestialTheme === "deep-space") {
+		// Deep space radiant gradient
+		const bgGrad = ctx.createRadialGradient(
+			width * 0.5,
+			height * 0.48,
+			10,
+			width * 0.5,
+			height * 0.5,
+			Math.max(width, height) * 0.75,
+		);
+		bgGrad.addColorStop(0, "#0e1c2d");
+		bgGrad.addColorStop(0.35, "#08131e");
+		bgGrad.addColorStop(0.7, "#040911");
+		bgGrad.addColorStop(1, "#020408");
+		ctx.fillStyle = bgGrad;
+		ctx.fillRect(0, 0, width, height);
+
+		// Nebula cloud 1 (Cosmic Cyan / Emerald dust)
+		const n1 = ctx.createRadialGradient(
+			width * 0.32,
+			height * 0.36,
+			20,
+			width * 0.32,
+			height * 0.36,
+			Math.min(width, height) * 0.58,
+		);
+		n1.addColorStop(0, "rgba(28, 88, 78, 0.24)");
+		n1.addColorStop(0.5, "rgba(16, 54, 58, 0.10)");
+		n1.addColorStop(1, "rgba(0, 0, 0, 0)");
+		ctx.fillStyle = n1;
+		ctx.fillRect(0, 0, width, height);
+
+		// Nebula cloud 2 (Stellar Violet / Deep Indigo)
+		const n2 = ctx.createRadialGradient(
+			width * 0.68,
+			height * 0.64,
+			20,
+			width * 0.68,
+			height * 0.64,
+			Math.min(width, height) * 0.62,
+		);
+		n2.addColorStop(0, "rgba(68, 42, 98, 0.20)");
+		n2.addColorStop(0.5, "rgba(32, 22, 60, 0.08)");
+		n2.addColorStop(1, "rgba(0, 0, 0, 0)");
+		ctx.fillStyle = n2;
+		ctx.fillRect(0, 0, width, height);
+
+		// Nebula cloud 3 (Stellar cradle golden amber)
+		const n3 = ctx.createRadialGradient(
+			width * 0.52,
+			height * 0.46,
+			10,
+			width * 0.52,
+			height * 0.46,
+			Math.min(width, height) * 0.38,
+		);
+		n3.addColorStop(0, "rgba(130, 85, 45, 0.16)");
+		n3.addColorStop(1, "rgba(0, 0, 0, 0)");
+		ctx.fillStyle = n3;
+		ctx.fillRect(0, 0, width, height);
+	} else {
+		// Antique parchment chart
+		const bgGrad = ctx.createRadialGradient(
+			width * 0.5,
+			height * 0.5,
+			30,
+			width * 0.5,
+			height * 0.5,
+			Math.max(width, height) * 0.72,
+		);
+		bgGrad.addColorStop(0, "#fcfaf4");
+		bgGrad.addColorStop(0.7, "#f5eee0");
+		bgGrad.addColorStop(1, "#eae0cc");
+		ctx.fillStyle = bgGrad;
+		ctx.fillRect(0, 0, width, height);
+	}
+
+	// Draw twinkling stars
+	ctx.save();
+	const timeNow = Date.now() * 0.002;
+	for (const star of stars) {
+		const sx = star.x * width;
+		const sy = star.y * height;
+		const twinkle = Math.sin(timeNow + star.phase) * 0.3 + 0.7;
+		const alpha =
+			star.alpha * twinkle * (celestialTheme === "deep-space" ? 1 : 0.45);
+
+		ctx.beginPath();
+		ctx.arc(sx, sy, star.r, 0, Math.PI * 2);
+		ctx.fillStyle =
+			celestialTheme === "deep-space"
+				? star.color.replace("ALPHA", alpha.toFixed(2))
+				: `rgba(90, 80, 70, ${(alpha * 0.6).toFixed(2)})`;
+		ctx.fill();
+
+		// Faint diffraction cross for bright guide stars in deep space
+		if (star.r > 1.4 && celestialTheme === "deep-space") {
+			ctx.strokeStyle = star.color.replace("ALPHA", (alpha * 0.45).toFixed(2));
+			ctx.lineWidth = 0.6;
+			ctx.beginPath();
+			ctx.moveTo(sx - 4.5, sy);
+			ctx.lineTo(sx + 4.5, sy);
+			ctx.moveTo(sx, sy - 4.5);
+			ctx.lineTo(sx, sy + 4.5);
+			ctx.stroke();
+		}
+	}
+	ctx.restore();
+}
+
 function tickSimulation() {
 	if (!canvasEl) return;
 	const ctx = canvasEl.getContext("2d");
@@ -234,6 +387,12 @@ function tickSimulation() {
 	const rect = canvasEl.getBoundingClientRect();
 	const width = canvasEl.width;
 	const height = canvasEl.height;
+
+	// Render Celestial Deep Space Background
+	drawCelestialBackground(ctx, width, height);
+
+	const isDeepSpace = celestialTheme === "deep-space";
+	const nowTime = Date.now() * 0.001;
 
 	// 3D CELESTIAL COSMOS MODE
 	if (viewMode === "3d") {
@@ -274,34 +433,47 @@ function tickSimulation() {
 			n.projY = y2 * scale;
 		}
 
-		// Render 3D Scene
-		ctx.clearRect(0, 0, width, height);
-
-		// Draw twinkling stars
-		ctx.save();
-		for (const star of stars) {
-			const sx = star.x * width;
-			const sy = star.y * height;
-			ctx.beginPath();
-			ctx.arc(sx, sy, star.r, 0, Math.PI * 2);
-			ctx.fillStyle = `rgba(180, 205, 195, ${star.alpha})`;
-			ctx.fill();
-		}
-		ctx.restore();
-
 		ctx.save();
 		ctx.translate(transform.x, transform.y);
 		ctx.scale(transform.k, transform.k);
 
-		// Draw faint 3D orbital rings
-		const orbitalRadii = [135, 210, 290];
+		// 1. Draw 3D Celestial Armillary Rings & Polar Axis
 		ctx.save();
 		ctx.lineWidth = 1 / transform.k;
-		for (const or of orbitalRadii) {
+
+		// Celestial North & South Polar Axis
+		const poleY = 320;
+		const p1x = 0;
+		const p1y = -poleY * cosX;
+		const p1z = -poleY * sinX;
+		const p1scale = Math.max(0.2, focal / (focal + p1z + 250));
+		const p2y = poleY * cosX;
+		const p2z = poleY * sinX;
+		const p2scale = Math.max(0.2, focal / (focal + p2z + 250));
+
+		ctx.beginPath();
+		ctx.strokeStyle = isDeepSpace
+			? "rgba(100, 180, 160, 0.18)"
+			: "rgba(140, 115, 90, 0.22)";
+		ctx.setLineDash([4, 6]);
+		ctx.moveTo(p1x * p1scale, p1y * p1scale);
+		ctx.lineTo(p1x * p2scale, p2y * p2scale);
+		ctx.stroke();
+		ctx.setLineDash([]);
+
+		// Orbital & Coordinate Rings (Labs 135, Evergreen 210, Frontier 290)
+		const orbitalRadii = [
+			{ r: 135, label: "1.2 AU" },
+			{ r: 210, label: "2.0 AU" },
+			{ r: 290, label: "2.8 AU" },
+		];
+		for (const { r: or } of orbitalRadii) {
 			ctx.beginPath();
-			ctx.strokeStyle = "rgba(92, 122, 107, 0.15)";
-			for (let step = 0; step <= 48; step++) {
-				const theta = (step / 48) * Math.PI * 2;
+			ctx.strokeStyle = isDeepSpace
+				? "rgba(100, 180, 160, 0.22)"
+				: "rgba(120, 100, 80, 0.22)";
+			for (let step = 0; step <= 64; step++) {
+				const theta = (step / 64) * Math.PI * 2;
 				const rx = Math.cos(theta) * or;
 				const rz = Math.sin(theta) * or;
 				const rx1 = rx * cosY - rz * sinY;
@@ -316,11 +488,49 @@ function tickSimulation() {
 			}
 			ctx.stroke();
 		}
+
+		// Celestial Equator with 24 Tick Marks (Armillary Ring)
+		const eqRadius = 340;
+		ctx.beginPath();
+		ctx.strokeStyle = isDeepSpace
+			? "rgba(130, 210, 185, 0.28)"
+			: "rgba(160, 130, 100, 0.28)";
+		for (let step = 0; step <= 72; step++) {
+			const theta = (step / 72) * Math.PI * 2;
+			const rx = Math.cos(theta) * eqRadius;
+			const rz = Math.sin(theta) * eqRadius;
+			const rx1 = rx * cosY - rz * sinY;
+			const rz1 = rx * sinY + rz * cosY;
+			const ry2 = -rz1 * sinX;
+			const rz2 = rz1 * cosX;
+			const rscale = Math.max(0.2, focal / (focal + rz2 + 250));
+			const px = rx1 * rscale;
+			const py = ry2 * rscale;
+			if (step === 0) ctx.moveTo(px, py);
+			else ctx.lineTo(px, py);
+
+			// Draw tick mark every 3 steps (24 hours)
+			if (step % 3 === 0) {
+				const tickLen = 6;
+				const tickRx = Math.cos(theta) * (eqRadius + tickLen);
+				const tickRz = Math.sin(theta) * (eqRadius + tickLen);
+				const tx1 = tickRx * cosY - tickRz * sinY;
+				const tz1 = tickRx * sinY + tickRz * cosY;
+				const ty2 = -tz1 * sinX;
+				const tz2 = tz1 * cosX;
+				const tscale = Math.max(0.2, focal / (focal + tz2 + 250));
+				ctx.moveTo(px, py);
+				ctx.lineTo(tx1 * tscale, ty2 * tscale);
+			}
+		}
+		ctx.stroke();
 		ctx.restore();
 
-		// Draw edges in 3D
+		// 2. Draw Constellation Edges in 3D
 		const nodeMap = new Map(simNodes.map((n) => [n.id, n]));
+		let edgeIdx = 0;
 		for (const e of simEdges) {
+			edgeIdx++;
 			const s = nodeMap.get(e.source);
 			const t = nodeMap.get(e.target);
 			if (!s || !t) continue;
@@ -335,17 +545,33 @@ function tickSimulation() {
 			ctx.lineTo(t.projX || 0, t.projY || 0);
 
 			if (isConnectedToHover || isConnectedToSelected) {
-				ctx.strokeStyle = "rgba(92, 122, 107, 0.85)";
-				ctx.lineWidth = 2.5 / transform.k;
+				ctx.strokeStyle = isDeepSpace
+					? "rgba(140, 245, 215, 0.95)"
+					: "rgba(50, 99, 78, 0.95)";
+				ctx.lineWidth = 2.4 / transform.k;
+				ctx.stroke();
+
+				// Starlight photon pulse along the edge
+				const pulseT = (nowTime * 0.8 + edgeIdx * 0.25) % 1;
+				const pulseX =
+					(s.projX || 0) + ((t.projX || 0) - (s.projX || 0)) * pulseT;
+				const pulseY =
+					(s.projY || 0) + ((t.projY || 0) - (s.projY || 0)) * pulseT;
+				ctx.beginPath();
+				ctx.arc(pulseX, pulseY, 2.5 / transform.k, 0, Math.PI * 2);
+				ctx.fillStyle = isDeepSpace ? "#ffffff" : "#b07857";
+				ctx.fill();
 			} else {
 				const edgeAlpha = Math.max(
-					0.08,
-					Math.min(0.35, ((s.projScale || 1) + (t.projScale || 1)) * 0.16),
+					0.12,
+					Math.min(0.42, ((s.projScale || 1) + (t.projScale || 1)) * 0.22),
 				);
-				ctx.strokeStyle = `rgba(130, 160, 145, ${edgeAlpha})`;
+				ctx.strokeStyle = isDeepSpace
+					? `rgba(130, 210, 190, ${edgeAlpha})`
+					: `rgba(120, 145, 130, ${edgeAlpha})`;
 				ctx.lineWidth = 1 / transform.k;
+				ctx.stroke();
 			}
-			ctx.stroke();
 		}
 
 		// Sort nodes by projZ ascending (draw back to front)
@@ -353,7 +579,7 @@ function tickSimulation() {
 			(a, b) => (a.projZ || 0) - (b.projZ || 0),
 		);
 
-		// Draw 3D nodes
+		// 3. Draw 3D Celestial Nodes (Stellar Rendering)
 		const qLower = searchQuery.trim().toLowerCase();
 		for (const n of sortedNodes) {
 			const isHovered = hoveredNode?.id === n.id;
@@ -366,27 +592,54 @@ function tickSimulation() {
 				activeFilter === "all" || n.maturity === activeFilter;
 
 			const baseAlpha = matchesFilter && matchesSearch ? 1 : 0.15;
-			const depthAlpha = Math.max(0.3, Math.min(1.0, (n.projScale || 1) * 1.1));
+			const depthAlpha = Math.max(
+				0.35,
+				Math.min(1.0, (n.projScale || 1) * 1.15),
+			);
 			const alpha = baseAlpha * depthAlpha;
 
 			const meta =
 				MATURITY_DEFINITIONS[n.maturity] || MATURITY_DEFINITIONS.budding;
-			const baseRadius = n.kind === "hub" ? 15 : n.kind === "lab" ? 12 : 8;
+			const baseRadius = n.kind === "hub" ? 16 : n.kind === "lab" ? 12 : 8;
 			const radius = baseRadius * (n.projScale || 1) * (isHovered ? 1.35 : 1);
 
 			ctx.save();
 			ctx.globalAlpha = alpha;
 
-			// Glow aura
-			if (isHovered || isSelected || n.kind === "hub") {
-				ctx.beginPath();
-				ctx.arc(
-					n.projX || 0,
-					n.projY || 0,
-					radius + 6 * (n.projScale || 1),
-					0,
-					Math.PI * 2,
+			const nx = n.projX || 0;
+			const ny = n.projY || 0;
+
+			// Corona glow for Hubs and highlighted nodes
+			if (isDeepSpace && (n.kind === "hub" || isHovered || isSelected)) {
+				const glowMult = n.kind === "hub" ? 3.8 : 2.6;
+				const glowGrad = ctx.createRadialGradient(
+					nx,
+					ny,
+					radius * 0.3,
+					nx,
+					ny,
+					radius * glowMult,
 				);
+				glowGrad.addColorStop(
+					0,
+					n.kind === "hub"
+						? "rgba(255, 255, 255, 0.95)"
+						: "rgba(165, 245, 220, 0.8)",
+				);
+				glowGrad.addColorStop(
+					0.3,
+					n.kind === "hub"
+						? "rgba(110, 230, 195, 0.45)"
+						: "rgba(92, 180, 150, 0.35)",
+				);
+				glowGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+				ctx.beginPath();
+				ctx.arc(nx, ny, radius * glowMult, 0, Math.PI * 2);
+				ctx.fillStyle = glowGrad;
+				ctx.fill();
+			} else if (isHovered || isSelected || n.kind === "hub") {
+				ctx.beginPath();
+				ctx.arc(nx, ny, radius + 6 * (n.projScale || 1), 0, Math.PI * 2);
 				ctx.fillStyle =
 					n.kind === "hub"
 						? "rgba(92, 122, 107, 0.35)"
@@ -394,29 +647,76 @@ function tickSimulation() {
 				ctx.fill();
 			}
 
-			// Sphere node
+			// Diffraction Spikes for Core Hub Stars in deep space
+			if (isDeepSpace && n.kind === "hub") {
+				const spikeLen = radius * 3.2;
+				ctx.save();
+				ctx.translate(nx, ny);
+				ctx.rotate(rotY * 0.6);
+				ctx.strokeStyle = "rgba(255, 255, 255, 0.65)";
+				ctx.lineWidth = 1.2 / transform.k;
+				ctx.beginPath();
+				ctx.moveTo(-spikeLen, 0);
+				ctx.lineTo(spikeLen, 0);
+				ctx.moveTo(0, -spikeLen);
+				ctx.lineTo(0, spikeLen);
+				ctx.stroke();
+
+				// Diagonal faint ray
+				ctx.strokeStyle = "rgba(160, 240, 220, 0.35)";
+				ctx.lineWidth = 0.8 / transform.k;
+				const diag = spikeLen * 0.55;
+				ctx.beginPath();
+				ctx.moveTo(-diag, -diag);
+				ctx.lineTo(diag, diag);
+				ctx.moveTo(-diag, diag);
+				ctx.lineTo(diag, -diag);
+				ctx.stroke();
+				ctx.restore();
+			}
+
+			// Sphere node body
 			ctx.beginPath();
-			ctx.arc(n.projX || 0, n.projY || 0, radius, 0, Math.PI * 2);
+			ctx.arc(nx, ny, radius, 0, Math.PI * 2);
 			ctx.fillStyle = meta.color;
 			ctx.fill();
-			ctx.strokeStyle = "#ffffff";
+
+			// Bright stellar center core
+			if (isDeepSpace && (n.kind === "hub" || n.maturity === "evergreen")) {
+				ctx.beginPath();
+				ctx.arc(nx, ny, radius * 0.45, 0, Math.PI * 2);
+				ctx.fillStyle = "#ffffff";
+				ctx.fill();
+			}
+
+			ctx.strokeStyle = isDeepSpace ? "rgba(255, 255, 255, 0.9)" : "#ffffff";
 			ctx.lineWidth = (1.5 * (n.projScale || 1)) / transform.k;
 			ctx.stroke();
 
-			// Label
+			// Starlight Label
 			if (
-				(n.projScale || 1) > 0.55 ||
+				(n.projScale || 1) > 0.52 ||
 				isHovered ||
 				isSelected ||
 				n.kind === "hub"
 			) {
 				ctx.font = `${n.kind === "hub" ? "bold 13px" : "11px"} -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
-				ctx.fillStyle =
-					isHovered || isSelected ? "#1b2a26" : "rgba(40, 50, 45, 0.9)";
+				if (isDeepSpace) {
+					ctx.shadowColor = "rgba(0, 4, 10, 0.95)";
+					ctx.shadowBlur = 5;
+					ctx.fillStyle =
+						isHovered || isSelected ? "#ffffff" : "rgba(240, 250, 245, 0.95)";
+				} else {
+					ctx.shadowColor = "rgba(255, 255, 255, 0.9)";
+					ctx.shadowBlur = 4;
+					ctx.fillStyle =
+						isHovered || isSelected ? "#1b2a26" : "rgba(40, 50, 45, 0.92)";
+				}
 				ctx.textAlign = "center";
-				const textY = (n.projY || 0) + radius + 13 * (n.projScale || 1);
+				const textY = ny + radius + 13 * (n.projScale || 1);
 				const displayLabel = english && n.labelEn ? n.labelEn : n.label;
-				ctx.fillText(displayLabel, n.projX || 0, textY);
+				ctx.fillText(displayLabel, nx, textY);
+				ctx.shadowBlur = 0;
 			}
 
 			ctx.restore();
@@ -453,7 +753,6 @@ function tickSimulation() {
 		}
 
 		// Centering gravity
-		const cDist = Math.hypot(n1.x || 0, n1.y || 0);
 		n1.vx = (n1.vx || 0) - (n1.x || 0) * 0.0008;
 		n1.vy = (n1.vy || 0) - (n1.y || 0) * 0.0008;
 	}
@@ -487,15 +786,38 @@ function tickSimulation() {
 		n.y = (n.y || 0) + n.vy;
 	}
 
-	// 4. Render Canvas
-	ctx.clearRect(0, 0, width, height);
+	// 4. Render 2D Canvas
 	ctx.save();
 	ctx.translate(transform.x, transform.y);
 	ctx.scale(transform.k, transform.k);
 
-	// Draw edges
+	// 2D Polar Coordinate Rings
+	ctx.save();
+	ctx.lineWidth = 1 / transform.k;
+	ctx.strokeStyle = isDeepSpace
+		? "rgba(100, 180, 160, 0.16)"
+		: "rgba(120, 100, 80, 0.18)";
+	for (const r of [120, 240, 360]) {
+		ctx.beginPath();
+		ctx.arc(0, 0, r, 0, Math.PI * 2);
+		ctx.stroke();
+	}
+	// Cardinal axes
+	ctx.beginPath();
+	ctx.setLineDash([3, 5]);
+	ctx.moveTo(-400, 0);
+	ctx.lineTo(400, 0);
+	ctx.moveTo(0, -400);
+	ctx.lineTo(0, 400);
+	ctx.stroke();
+	ctx.setLineDash([]);
+	ctx.restore();
+
+	// Draw edges in 2D
 	const qLower = searchQuery.trim().toLowerCase();
+	let edgeIdx2D = 0;
 	for (const e of simEdges) {
+		edgeIdx2D++;
 		const s = nodeMap.get(e.source);
 		const t = nodeMap.get(e.target);
 		if (!s || !t) continue;
@@ -510,16 +832,30 @@ function tickSimulation() {
 		ctx.lineTo(t.x || 0, t.y || 0);
 
 		if (isConnectedToHover || isConnectedToSelected) {
-			ctx.strokeStyle = "rgba(92, 122, 107, 0.8)";
-			ctx.lineWidth = 2 / transform.k;
+			ctx.strokeStyle = isDeepSpace
+				? "rgba(140, 245, 215, 0.95)"
+				: "rgba(50, 99, 78, 0.95)";
+			ctx.lineWidth = 2.4 / transform.k;
+			ctx.stroke();
+
+			// Photon pulse
+			const pulseT = (nowTime * 0.8 + edgeIdx2D * 0.25) % 1;
+			const pulseX = (s.x || 0) + ((t.x || 0) - (s.x || 0)) * pulseT;
+			const pulseY = (s.y || 0) + ((t.y || 0) - (s.y || 0)) * pulseT;
+			ctx.beginPath();
+			ctx.arc(pulseX, pulseY, 2.5 / transform.k, 0, Math.PI * 2);
+			ctx.fillStyle = isDeepSpace ? "#ffffff" : "#b07857";
+			ctx.fill();
 		} else {
-			ctx.strokeStyle = "rgba(160, 160, 160, 0.2)";
+			ctx.strokeStyle = isDeepSpace
+				? "rgba(130, 210, 190, 0.25)"
+				: "rgba(150, 150, 150, 0.25)";
 			ctx.lineWidth = 1 / transform.k;
+			ctx.stroke();
 		}
-		ctx.stroke();
 	}
 
-	// Draw nodes
+	// Draw nodes in 2D
 	for (const n of simNodes) {
 		const isHovered = hoveredNode?.id === n.id;
 		const isSelected = selectedNode?.id === n.id;
@@ -533,38 +869,85 @@ function tickSimulation() {
 		const meta =
 			MATURITY_DEFINITIONS[n.maturity] || MATURITY_DEFINITIONS.budding;
 		const radius =
-			(n.kind === "hub" ? 14 : n.kind === "lab" ? 11 : 8) *
+			(n.kind === "hub" ? 15 : n.kind === "lab" ? 11 : 8) *
 			(isHovered ? 1.3 : 1);
 
 		ctx.save();
 		ctx.globalAlpha = alpha;
 
+		const nx = n.x || 0;
+		const ny = n.y || 0;
+
 		// Glow or ring
-		if (isHovered || isSelected) {
+		if (isDeepSpace && (isHovered || isSelected || n.kind === "hub")) {
+			const glowGrad = ctx.createRadialGradient(
+				nx,
+				ny,
+				radius * 0.4,
+				nx,
+				ny,
+				radius * 2.8,
+			);
+			glowGrad.addColorStop(
+				0,
+				n.kind === "hub"
+					? "rgba(255, 255, 255, 0.9)"
+					: "rgba(165, 245, 220, 0.75)",
+			);
+			glowGrad.addColorStop(
+				0.3,
+				n.kind === "hub"
+					? "rgba(110, 230, 195, 0.4)"
+					: "rgba(92, 180, 150, 0.3)",
+			);
+			glowGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
 			ctx.beginPath();
-			ctx.arc(n.x || 0, n.y || 0, radius + 5, 0, Math.PI * 2);
+			ctx.arc(nx, ny, radius * 2.8, 0, Math.PI * 2);
+			ctx.fillStyle = glowGrad;
+			ctx.fill();
+		} else if (isHovered || isSelected) {
+			ctx.beginPath();
+			ctx.arc(nx, ny, radius + 5, 0, Math.PI * 2);
 			ctx.fillStyle = "rgba(92, 122, 107, 0.25)";
 			ctx.fill();
 		}
 
 		// Node circle
 		ctx.beginPath();
-		ctx.arc(n.x || 0, n.y || 0, radius, 0, Math.PI * 2);
+		ctx.arc(nx, ny, radius, 0, Math.PI * 2);
 		ctx.fillStyle = meta.color;
 		ctx.fill();
-		ctx.strokeStyle = "#ffffff";
+
+		if (isDeepSpace && (n.kind === "hub" || n.maturity === "evergreen")) {
+			ctx.beginPath();
+			ctx.arc(nx, ny, radius * 0.4, 0, Math.PI * 2);
+			ctx.fillStyle = "#ffffff";
+			ctx.fill();
+		}
+
+		ctx.strokeStyle = isDeepSpace ? "rgba(255, 255, 255, 0.85)" : "#ffffff";
 		ctx.lineWidth = 1.5 / transform.k;
 		ctx.stroke();
 
 		// Label text
 		if (transform.k > 0.6 || isHovered || isSelected || n.kind === "hub") {
 			ctx.font = `${n.kind === "hub" ? "bold 13px" : "11px"} -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
-			ctx.fillStyle =
-				isHovered || isSelected ? "#1b2a26" : "rgba(40, 50, 45, 0.85)";
+			if (isDeepSpace) {
+				ctx.shadowColor = "rgba(0, 4, 10, 0.95)";
+				ctx.shadowBlur = 4;
+				ctx.fillStyle =
+					isHovered || isSelected ? "#ffffff" : "rgba(240, 250, 245, 0.95)";
+			} else {
+				ctx.shadowColor = "rgba(255, 255, 255, 0.9)";
+				ctx.shadowBlur = 3;
+				ctx.fillStyle =
+					isHovered || isSelected ? "#1b2a26" : "rgba(40, 50, 45, 0.88)";
+			}
 			ctx.textAlign = "center";
-			const textY = (n.y || 0) + radius + 14;
+			const textY = ny + radius + 14;
 			const displayLabel = english && n.labelEn ? n.labelEn : n.label;
-			ctx.fillText(displayLabel, n.x || 0, textY);
+			ctx.fillText(displayLabel, nx, textY);
+			ctx.shadowBlur = 0;
 		}
 
 		ctx.restore();
@@ -605,8 +988,14 @@ function getNodeAt(x: number, y: number): SimNodeExt | null {
 	return null;
 }
 
-function handleMouseDown(e: MouseEvent) {
+function handlePointerDown(e: PointerEvent) {
 	if (!canvasEl) return;
+	try {
+		canvasEl.setPointerCapture(e.pointerId);
+	} catch {
+		// Ignore pointer capture errors if unsupported
+	}
+
 	const rect = canvasEl.getBoundingClientRect();
 	const mx = e.clientX - rect.left;
 	const my = e.clientY - rect.top;
@@ -625,7 +1014,7 @@ function handleMouseDown(e: MouseEvent) {
 	}
 }
 
-function handleMouseMove(e: MouseEvent) {
+function handlePointerMove(e: PointerEvent) {
 	if (!canvasEl) return;
 	const rect = canvasEl.getBoundingClientRect();
 	const mx = e.clientX - rect.left;
@@ -656,7 +1045,7 @@ function handleMouseMove(e: MouseEvent) {
 		return;
 	}
 
-	// Check hover
+	// Check hover (for mouse or non-dragging pointers)
 	const hit = getNodeAt(mx, my);
 	if (hit !== hoveredNode) {
 		hoveredNode = hit;
@@ -666,7 +1055,24 @@ function handleMouseMove(e: MouseEvent) {
 	}
 }
 
-function handleMouseUp() {
+function handlePointerUp(e: PointerEvent) {
+	if (canvasEl?.hasPointerCapture(e.pointerId)) {
+		try {
+			canvasEl.releasePointerCapture(e.pointerId);
+		} catch {
+			// ignore
+		}
+	}
+	draggedNode = null;
+	isDraggingCanvas = false;
+	isDragging3D = false;
+}
+
+function handlePointerCancel(e: PointerEvent) {
+	handlePointerUp(e);
+}
+
+function handleLostPointerCapture() {
 	draggedNode = null;
 	isDraggingCanvas = false;
 	isDragging3D = false;
@@ -715,6 +1121,12 @@ function focusNode(node: GraphNode) {
 function closeDrawer() {
 	selectedNode = null;
 	playLatchClick();
+}
+
+function handleWindowKeyDown(e: KeyboardEvent) {
+	if (e.key === "Escape" && selectedNode) {
+		closeDrawer();
+	}
 }
 
 onMount(() => {
@@ -793,6 +1205,8 @@ onMount(() => {
 });
 </script>
 
+<svelte:window onkeydown={handleWindowKeyDown} />
+
 <div class="knowledge-cosmos-wrapper">
 	<!-- Top Controls Toolbar -->
 	<div class="cosmos-toolbar">
@@ -849,6 +1263,36 @@ onMount(() => {
 				</button>
 			</div>
 
+			<!-- Celestial Theme Switcher -->
+			<div class="view-mode-toggle celestial-toggle">
+				<button
+					type="button"
+					class="view-pill"
+					class:active={celestialTheme === "deep-space"}
+					onclick={() => {
+						celestialTheme = "deep-space";
+						playShutterTick();
+						ensureAnimating(180);
+					}}
+					title={english ? "Deep Space Celestial Sky" : "深空星穹"}
+				>
+					🌌 {english ? "Cosmos" : "深空星穹"}
+				</button>
+				<button
+					type="button"
+					class="view-pill"
+					class:active={celestialTheme === "parchment"}
+					onclick={() => {
+						celestialTheme = "parchment";
+						playShutterTick();
+						ensureAnimating(180);
+					}}
+					title={english ? "Antique Astrolabe Parchment" : "古典星历"}
+				>
+					📜 {english ? "Parchment" : "古典星历"}
+				</button>
+			</div>
+
 			<input
 				type="search"
 				class="cosmos-search-input"
@@ -863,13 +1307,15 @@ onMount(() => {
 	</div>
 
 	<!-- Canvas Graph Arena -->
-	<div class="canvas-container">
+	<div class="canvas-container theme-{celestialTheme}">
 		<canvas
 			bind:this={canvasEl}
 			aria-hidden="true"
-			onmousedown={handleMouseDown}
-			onmousemove={handleMouseMove}
-			onmouseup={handleMouseUp}
+			onpointerdown={handlePointerDown}
+			onpointermove={handlePointerMove}
+			onpointerup={handlePointerUp}
+			onpointercancel={handlePointerCancel}
+			onlostpointercapture={handleLostPointerCapture}
 			onwheel={handleWheel}
 		></canvas>
 
@@ -1147,8 +1593,23 @@ onMount(() => {
 	.canvas-container {
 		position: relative;
 		width: 100%;
-		height: 640px;
-		background: radial-gradient(circle at center, rgba(92, 122, 107, 0.03) 0%, transparent 70%);
+		height: 660px;
+		border-radius: 16px;
+		overflow: hidden;
+		border: 1px solid var(--brand-line);
+		transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.canvas-container.theme-deep-space {
+		background: radial-gradient(ellipse 90% 80% at 50% 50%, #0d1a29 0%, #08121d 55%, #03060a 100%);
+		border-color: rgba(92, 160, 135, 0.32);
+		box-shadow: inset 0 0 100px rgba(0, 5, 12, 0.8), 0 14px 40px -10px rgba(0, 0, 0, 0.4);
+	}
+
+	.canvas-container.theme-parchment {
+		background: radial-gradient(circle at center, #fdfbf7 0%, #f5efe3 70%, #ede3cf 100%);
+		border-color: rgba(145, 120, 95, 0.3);
+		box-shadow: inset 0 0 60px rgba(180, 160, 130, 0.15), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
 	}
 
 	canvas {
@@ -1156,6 +1617,7 @@ onMount(() => {
 		height: 100%;
 		display: block;
 		cursor: grab;
+		touch-action: none;
 	}
 
 	canvas:active {
@@ -1169,10 +1631,74 @@ onMount(() => {
 		font-size: 11px;
 		color: var(--brand-muted);
 		pointer-events: none;
-		background: rgba(255, 255, 255, 0.7);
-		backdrop-filter: blur(4px);
-		padding: 4px 8px;
+		background: rgba(255, 255, 255, 0.75);
+		backdrop-filter: blur(6px);
+		padding: 5px 10px;
 		border-radius: 6px;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		transition: all 0.25s ease;
+	}
+
+	.canvas-container.theme-deep-space .canvas-hint {
+		background: rgba(8, 16, 26, 0.78);
+		border-color: rgba(80, 160, 135, 0.3);
+		color: rgba(195, 235, 220, 0.85);
+		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+	}
+
+	.canvas-container.theme-deep-space .sliding-pane-drawer {
+		background: rgba(10, 18, 28, 0.94);
+		backdrop-filter: blur(16px);
+		border: 1px solid rgba(92, 160, 135, 0.35);
+		color: #eaf3ee;
+		box-shadow: -8px 0 36px rgba(0, 0, 0, 0.55);
+	}
+
+	.canvas-container.theme-deep-space .btn-close {
+		color: #9eb5aa;
+	}
+
+	.canvas-container.theme-deep-space .btn-close:hover {
+		color: #ffffff;
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.canvas-container.theme-deep-space .drawer-title {
+		color: #ffffff;
+	}
+
+	.canvas-container.theme-deep-space .drawer-excerpt {
+		color: #b5cdc3;
+	}
+
+	.canvas-container.theme-deep-space .meta-tag {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.16);
+		color: #9eb5aa;
+	}
+
+	.canvas-container.theme-deep-space .tag-pill {
+		background: rgba(255, 255, 255, 0.06);
+		border-color: rgba(255, 255, 255, 0.14);
+		color: #8da59a;
+	}
+
+	.canvas-container.theme-deep-space .neighbor-pill {
+		background: rgba(255, 255, 255, 0.06);
+		border-color: rgba(255, 255, 255, 0.12);
+		color: #d6e8e0;
+	}
+
+	.canvas-container.theme-deep-space .neighbor-pill:hover {
+		background: rgba(92, 160, 135, 0.22);
+		border-color: var(--brand-accent);
+		color: #ffffff;
+	}
+
+	.canvas-container.theme-deep-space .drawer-route-link {
+		background: rgba(180, 110, 80, 0.18);
+		border-color: rgba(210, 130, 90, 0.35);
+		color: #fcece3;
 	}
 
 	/* Plain-text node index: the accessible, no-JS path into the same graph */
@@ -1332,10 +1858,18 @@ onMount(() => {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 4px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
+		border-radius: 8px;
+		transition: background 0.15s ease, color 0.15s ease;
 	}
 
 	.btn-close:hover {
 		color: var(--brand-ink);
+		background: rgba(0, 0, 0, 0.05);
 	}
 
 	.drawer-title {
@@ -1493,5 +2027,58 @@ onMount(() => {
 
 	.btn-action-primary:hover {
 		opacity: 0.9;
+	}
+
+	@media (max-width: 640px) {
+		.cosmos-toolbar {
+			padding: 10px 12px;
+			gap: 10px;
+		}
+
+		.filter-strip {
+			width: 100%;
+			overflow-x: auto;
+			flex-wrap: nowrap;
+			padding-bottom: 4px;
+			scrollbar-width: none;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.filter-strip::-webkit-scrollbar {
+			display: none;
+		}
+
+		.search-and-reset {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+
+		.cosmos-search-input {
+			flex: 1 1 140px;
+			min-width: 0;
+		}
+
+		.canvas-container {
+			height: clamp(380px, 60vh, 520px);
+		}
+
+		.sliding-pane-drawer {
+			top: 8px;
+			right: 8px;
+			bottom: 8px;
+			left: 8px;
+			width: auto;
+			max-width: none;
+			padding: 14px;
+		}
+
+		.canvas-hint {
+			font-size: 10px;
+			padding: 4px 8px;
+			max-width: calc(100% - 32px);
+			white-space: normal;
+		}
 	}
 </style>

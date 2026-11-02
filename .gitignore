@@ -39,3 +39,7 @@ docs/thoughts/
 cache/
 package/
 .obsidian/
+
+# perf baseline outputs
+.lighthouseci/
+bundle-size.json

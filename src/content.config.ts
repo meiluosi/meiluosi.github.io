@@ -94,7 +94,7 @@ const postsCollection: ReturnType<typeof defineCollection<typeof postsSchema>> =
 		schema: postsSchema,
 	});
 
-const specSchema: z.ZodType<{}> = z.object({});
+const specSchema: z.ZodType<Record<string, never>> = z.object({});
 const specCollection: ReturnType<typeof defineCollection<typeof specSchema>> =
 	defineCollection({
 		loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/spec" }),

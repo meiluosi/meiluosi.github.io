@@ -11,6 +11,10 @@ lang: zh
 
 > Transformer架构的诞生标志着深度学习进入新纪元。2017年，Google团队在论文《Attention is All You Need》中提出Transformer，彻底颠覆了序列建模的传统范式。它不仅催生了BERT、GPT等里程碑模型，更成为现代大语言模型的基石。
 
+> **🧭 2026 体系化专著与交互演进导读**：本文写于 2024 年，以 2017 原版 Encoder–Decoder（Post-LN + 正弦位置编码）为讲解对象。若你想进一步研究**现代大语言模型前向架构与工业级演进**，建议继续阅读：
+> - **现代基座标准解剖**：[《现代 Transformer 前向解剖：Pre-RMSNorm、RoPE 与 SwiGLU》](/posts/2026-10-20-llm-training-pretrain-03-forward/)（含 [3D 前向流交互沙盒](/lab/transformer-forward/) 与 [RoPE 旋转位置编码实验室](/lab/rope-attention/)）
+> - **前沿工业级架构演进**：[《MONOGRAPH IV · 前沿基础模型技术研究室（DeepSeek 全系拆解）》](/books/frontier-foundation-models/)（深入 MLA 低秩 KV 压缩、DeepSeekMoE、mHC 流形约束超连接与 Engram 条件记忆）
+
 ---
 
 ## 一、核心架构

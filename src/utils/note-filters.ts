@@ -22,6 +22,12 @@ export function mountNoteFilters(): () => void {
 	const status = root.querySelector<HTMLElement>("[data-note-results]");
 	const empty = root.querySelector<HTMLElement>("[data-note-empty]");
 	const reset = root.querySelector<HTMLButtonElement>("[data-note-reset]");
+	const quickReset = root.querySelector<HTMLButtonElement>(
+		"[data-note-quick-reset]",
+	);
+	const dropdowns = [
+		...root.querySelectorAll<HTMLDetailsElement>(".filter-dropdown"),
+	];
 	const input = root.querySelector<HTMLInputElement>("[data-note-search]");
 	const clear = root.querySelector<HTMLButtonElement>("[data-note-clear]");
 	type SearchRecord = { id: string; zh: string; en: string };
@@ -77,6 +83,40 @@ export function mountNoteFilters(): () => void {
 			button.ariaPressed = String(button.dataset.noteClusterFilter === cluster);
 		for (const button of topics)
 			button.ariaPressed = String(button.dataset.noteTopicFilter === topic);
+
+		// Synchronize dropdown labels and active status
+		const isEn = document.documentElement.lang.startsWith("en");
+		for (const dropdown of dropdowns) {
+			const facet = dropdown.dataset.dropdownFacet;
+			const valEl = dropdown.querySelector<HTMLElement>(
+				`[data-dropdown-value="${facet}"]`,
+			);
+			const activeBtn = dropdown.querySelector<HTMLButtonElement>(
+				"button[aria-pressed='true']",
+			);
+			if (valEl && activeBtn) {
+				const isAll =
+					activeBtn.dataset.noteMaturityFilter === "all" ||
+					activeBtn.dataset.noteFormatFilter === "all" ||
+					activeBtn.dataset.noteClusterFilter === "all";
+				valEl.textContent = isAll
+					? isEn
+						? "All"
+						: "全部"
+					: activeBtn.textContent?.trim() || "";
+				dropdown.classList.toggle("is-filtered", !isAll);
+			}
+		}
+
+		if (quickReset) {
+			const hasActiveFilter =
+				format !== "all" ||
+				maturity !== "all" ||
+				cluster !== "all" ||
+				topic !== "all" ||
+				Boolean(input?.value.trim());
+			quickReset.hidden = !hasActiveFilter;
+		}
 	};
 	// URL 是筛选状态的唯一来源：首次进入与浏览器前进/后退都从地址栏重新读取。
 	const syncFromUrl = () => {
@@ -245,6 +285,7 @@ export function mountNoteFilters(): () => void {
 	input?.addEventListener(
 		"input",
 		() => {
+			syncButtons();
 			clearTimeout(timer);
 			timer = setTimeout(() => void search(), 150);
 		},
@@ -257,6 +298,7 @@ export function mountNoteFilters(): () => void {
 				input.value = "";
 				input.focus();
 			}
+			syncButtons();
 			void search();
 		},
 		{ signal: events.signal },
@@ -294,6 +336,20 @@ export function mountNoteFilters(): () => void {
 		},
 		{ signal: events.signal },
 	);
+	// Click outside to collapse open dropdowns
+	document.addEventListener(
+		"click",
+		(event) => {
+			if (!(event.target instanceof Element)) return;
+			if (!event.target.closest(".filter-dropdown")) {
+				for (const dropdown of dropdowns) {
+					dropdown.removeAttribute("open");
+				}
+			}
+		},
+		{ signal: events.signal },
+	);
+
 	for (const button of [...formats, ...maturities, ...clusters, ...topics]) {
 		button.addEventListener(
 			"click",
@@ -306,41 +362,33 @@ export function mountNoteFilters(): () => void {
 					maturity = button.dataset.noteMaturityFilter ?? "all";
 				else if (isCluster) cluster = button.dataset.noteClusterFilter ?? "all";
 				else topic = button.dataset.noteTopicFilter ?? "all";
-				for (const peer of isFormat
-					? formats
-					: isMaturity
-						? maturities
-						: isCluster
-							? clusters
-							: topics)
-					peer.ariaPressed = String(peer === button);
+
+				const parentDetails = button.closest<HTMLDetailsElement>(
+					"details.filter-dropdown",
+				);
+				if (parentDetails) {
+					parentDetails.removeAttribute("open");
+				}
+				syncButtons();
 				update();
 			},
 			{ signal: events.signal },
 		);
 	}
-	reset?.addEventListener(
-		"click",
-		() => {
-			format = maturity = cluster = topic = "all";
-			if (input) input.value = "";
-			failed = false;
-			for (const button of formats)
-				button.ariaPressed = String(button.dataset.noteFormatFilter === "all");
-			for (const button of maturities)
-				button.ariaPressed = String(
-					button.dataset.noteMaturityFilter === "all",
-				);
-			for (const button of clusters)
-				button.ariaPressed = String(button.dataset.noteClusterFilter === "all");
-			for (const button of topics)
-				button.ariaPressed = String(button.dataset.noteTopicFilter === "all");
-			// The reset button disappears with the empty state, so return focus to a stable control.
-			formats[0]?.focus({ preventScroll: true });
-			update();
-		},
-		{ signal: events.signal },
-	);
+
+	const handleResetAll = () => {
+		format = maturity = cluster = topic = "all";
+		if (input) input.value = "";
+		failed = false;
+		syncButtons();
+		topics[0]?.focus({ preventScroll: true });
+		update();
+	};
+
+	reset?.addEventListener("click", handleResetAll, { signal: events.signal });
+	quickReset?.addEventListener("click", handleResetAll, {
+		signal: events.signal,
+	});
 	root.addEventListener("focusin", () => cancelAnimations(), {
 		signal: events.signal,
 	});

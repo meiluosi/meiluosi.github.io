@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { startVisibleLoop } from "@/utils/frame-loop";
 import {
 	playLatchClick,
 	playMechanicalTick,
@@ -106,7 +107,6 @@ const acts: Act[] = [
 let activeActIdx = $state(0);
 let english = $state(false);
 let canvasEl: HTMLCanvasElement;
-let animId: number;
 
 onMount(() => {
 	english = document.documentElement.lang.startsWith("en");
@@ -138,8 +138,11 @@ onMount(() => {
 
 	// Canvas visual loop
 	let frame = 0;
+	const reducedMotion = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
 	const renderCanvas = () => {
-		frame++;
+		if (!reducedMotion) frame++;
 		if (canvasEl) {
 			const ctx = canvasEl.getContext("2d");
 			if (ctx) {
@@ -322,15 +325,14 @@ onMount(() => {
 				}
 			}
 		}
-		animId = requestAnimationFrame(renderCanvas);
 	};
 
-	renderCanvas();
+	const stopLoop = startVisibleLoop(canvasEl, renderCanvas);
 
 	return () => {
 		observer.disconnect();
 		document.removeEventListener("site-locale-change", handleLocale);
-		cancelAnimationFrame(animId);
+		stopLoop();
 	};
 });
 </script>

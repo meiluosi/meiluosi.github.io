@@ -68,8 +68,11 @@ test("one sampled revolution preserves every rod and crank length", () => {
 	const start = solveStrandbeest(0).points;
 	const end = solveStrandbeest(360).points;
 	for (const name of Object.keys(start) as (keyof typeof start)[]) {
-		close(start[name]!.x, end[name]!.x);
-		close(start[name]!.y, end[name]!.y);
+		const sPt = start[name];
+		const ePt = end[name];
+		assert.ok(sPt && ePt);
+		close(sPt.x, ePt.x);
+		close(sPt.y, ePt.y);
 	}
 	assert.equal(traceStrandbeest().validSamples, 360);
 });
