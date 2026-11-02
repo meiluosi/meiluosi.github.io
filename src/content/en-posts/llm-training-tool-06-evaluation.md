@@ -24,9 +24,9 @@ Success must include evidence and applicable constraints. Reporting insufficient
 
 ## Distinguish coverage from reliability
 
-For a known per-task independent success probability p=0.8, at least one success in three attempts has probability 0.992; all three succeeding has probability 0.512. The former is pass@k, while τ-bench calls the latter pass^k. Coverage also requires a practical selector to deliver a successful result.
+For a known per-task independent success probability $p=0.8$, at least one success in three attempts has probability 0.992; all three succeeding has probability 0.512. The former is pass@k, while τ-bench calls the latter pass^k. Coverage also requires a practical selector to deliver a successful result.
 
-Given n observed trials with c successes and n≥k, subset estimators are one minus C(n−c,k)/C(n,k) for pass@k and C(c,k)/C(n,k) for pass^k. With n=5,c=4,k=3, they are 1 and 0.4. These differ from treating observed c/n as known p. A finite estimate of 1 is not a guarantee.
+Given n observed trials with c successes and $n\ge k$, subset estimators are one minus $C(n-c,k)/C(n,k)$ for pass@k and $C(c,k)/C(n,k)$ for pass^k. With $n=5,c=4,k=3$, they are 1 and 0.4. These differ from treating observed c/n as known p. A finite estimate of 1 is not a guarantee.
 
 Compute per task before averaging. Tasks with true success probabilities 1 and 0 have mean three-run reliability 0.5, not the cube of their mean success rate. Shared memory, persistent faults, and changing state can violate independent-trial assumptions.
 

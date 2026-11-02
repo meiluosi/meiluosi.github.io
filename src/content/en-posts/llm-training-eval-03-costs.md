@@ -22,7 +22,7 @@ Two examples with 800 prompt and 200 answer tokens each contain 2,000 nonpadding
 
 ## Treat compute formulas as approximations
 
-For an appropriate dense full-training approximation, C≈6ND gives 6×10^15 FLOPs at N=10^8 and D=10^7. [Kaplan et al., Section 2.1](https://arxiv.org/html/2001.08361v1#S2.SS1) explains the counting assumptions and omitted terms. State parameter conventions, padding, and attention limits. Trainable adapter parameter count cannot simply replace N, because frozen base layers still perform work.
+For an appropriate dense full-training approximation, $C\approx6ND$ gives $6\times 10^{15}$ FLOPs at $N=10^8$ and $D=10^7$. [Kaplan et al., Section 2.1](https://arxiv.org/html/2001.08361v1#S2.SS1) explains the counting assumptions and omitted terms. State parameter conventions, padding, and attention limits. Trainable adapter parameter count cannot simply replace N, because frozen base layers still perform work.
 
 Two 1,024-token sequences and one 2,048-token sequence have equal token totals but different sums of squared lengths: the latter is twice as large. This describes a dense-attention component, not necessarily twice the total runtime.
 

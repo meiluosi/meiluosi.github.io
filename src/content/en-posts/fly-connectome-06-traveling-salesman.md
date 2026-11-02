@@ -26,7 +26,7 @@ The positioning is deliberately narrow. The goal is not to show that a fly algor
 
 Ant colony optimization in one minute: many "ants" each walk a tour, and at every city the next stop is chosen by a weight that combines three terms.
 
-- **τ, the pheromone.** Traces left by other ants during this search; edges on good routes carry stronger traces. It is learned within a single search, one number per edge.
+- **$\tau$, the pheromone.** Traces left by other ants during this search; edges on good routes carry stronger traces. It is learned within a single search, one number per edge.
 - **η, the inverse distance.** A fixed prior that favors nearby cities.
 - **v, the learned edge value.** The added term, supplied by a mushroom body trained across instances. Setting v to 0 gives plain ant colony optimization.
 
@@ -85,7 +85,7 @@ The final statement for round two: no improvement beyond the bound; the real wir
 
 The review's suggestion was to change the feature rather than add more algorithm. The feature chosen is state-dependent: the turn angle. Knowing the previous stop tells you whether this step is a sharp turn, and neither distance nor pheromone, which look at a single edge, can supply that.
 
-A turn bin is added to the transition signature, with levels for straight, slight turn, right angle, U-turn and others, 7 levels plus "no previous stop", occupying 8 new glomeruli. A hand-written control accompanies it, a fixed turn penalty of the form exp(-γ times (1 minus cosine of the turn angle)), which does not learn and answers whether turn context helps at all.
+A turn bin is added to the transition signature, with levels for straight, slight turn, right angle, U-turn and others, 7 levels plus "no previous stop", occupying 8 new glomeruli. A hand-written control accompanies it, a fixed turn penalty of the form $\exp(-\gamma(1-\cos(\text{turn angle})))$, which does not learn and answers whether turn context helps at all.
 
 Over 300 brand-new test instances, the learner against ant colony was -0.01 in R1, +0.03 in R2, and -0.18 in R3, all equivalent, and the hand-written turn penalty was 0.32 worse in R2.
 

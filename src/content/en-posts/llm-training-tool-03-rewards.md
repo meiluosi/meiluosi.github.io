@@ -32,7 +32,7 @@ With discount 0.9, the first return becomes 0.715. Define whether a step means a
 
 A 0.1 bonus for any valid call combined with a 0.05 call charge still pays 0.05 for a useless repetition. Ten such calls earn 0.5 without task success. A step cap limits exploitation but does not repair the objective.
 
-[Potential-based shaping research](https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf) analyzes policy-preserving transformations under specified MDP conditions. The article separately derives a finite-episode telescoping identity for extra rewards γΦ(next)−Φ(current). With terminal potential zero, a fixed potential, consistent discounting, and a fixed start distribution, the added return is policy-independent. Dropping terminal adjustments invalidates that argument. This says nothing by itself about neural-network convergence speed.
+[Potential-based shaping research](https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf) analyzes policy-preserving transformations under specified MDP conditions. The article separately derives a finite-episode telescoping identity for extra rewards $\gamma\Phi(\text{next})-\Phi(\text{current})$. With terminal potential zero, a fixed potential, consistent discounting, and a fixed start distribution, the added return is policy-independent. Dropping terminal adjustments invalidates that argument. This says nothing by itself about neural-network convergence speed.
 
 ## Recovery needs a new environment contract
 

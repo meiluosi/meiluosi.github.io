@@ -18,7 +18,7 @@ lang: en
 
 ## A task with an explicit contract
 
-Given nonnegative integers a and b, return the smallest nonnegative integer n satisfying 3n+a≥b, using exactly one JSON field. For a=2 and b=12, `{"n":4}` is valid. The value 5 satisfies the inequality but violates minimality; the text `The answer is 4` violates the output contract. This deliberately simple task makes verifier mistakes visible; it is not a benchmark for advanced reasoning.
+Given nonnegative integers a and b, return the smallest nonnegative integer n satisfying $3n+a\ge b$, using exactly one JSON field. For a=2 and b=12, `{"n":4}` is valid. The value 5 satisfies the inequality but violates minimality; the text `The answer is 4` violates the output contract. This deliberately simple task makes verifier mistakes visible; it is not a benchmark for advanced reasoning.
 
 At token step t, the state consists of the prompt and the generated prefix. The action is the next token sampled from the policy. A complete response defines a trajectory. The terminal task reward is one for a valid answer and zero otherwise. Normal termination and a generation-length cutoff must remain distinguishable in the logs.
 
@@ -38,7 +38,7 @@ The single-sample objective averages reward over a specified prompt distribution
 
 ## Verify the loop before interpreting gains
 
-A verifier that only checks the inequality rewards arbitrarily large integers. A dataset dominated by b≤a rewards a constant-zero answer. All-zero task rewards provide no successful examples and give zero task-reward contribution to the simplest reward-weighted policy-gradient estimator, although other losses or baselines can still produce updates.
+A verifier that only checks the inequality rewards arbitrarily large integers. A dataset dominated by $b\le a$ rewards a constant-zero answer. All-zero task rewards provide no successful examples and give zero task-reward contribution to the simplest reward-weighted policy-gradient estimator, although other losses or baselines can still produce updates.
 
 The proposed experiment first checks boundary cases, malformed responses, and deterministic rescoring. It then compares an unchanged model with one sample, the unchanged model with multiple samples and selection, and an updated model with one sample, adding matched inference-budget comparisons. Evaluation groups must cover different input conditions and include an untouched test partition. These comparisons have not been run.
 

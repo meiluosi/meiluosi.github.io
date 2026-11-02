@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "description": "逐行审校基线；变动或新增须重新审查。行号不作为匹配条件。",
+  "entries": [
+    {
+      "file": "src/content/en-posts/fly-connectome-08-individual-differences.md",
+      "text": "| M_R, M_L | MaleCNS | male | right and left hemispheres |",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/en-posts/fly-connectome-08-individual-differences.md",
+      "text": "| F_R, F_L | FlyWire (v783) | female | right and left hemispheres |",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/en-posts/fly-connectome-08-individual-differences.md",
+      "text": "| H_R | hemibrain v1.2 | female | right hemisphere only; 1927 Kenyon cells, of which 1801 have projection neuron input |",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/en-posts/fly-connectome-09-compartments-and-dopamine.md",
+      "text": "- **Clusters.** By the compartment in which the MBON sits, the PAM cluster (γ3, γ4, γ5, β1, β2, β′1, β′2, α1) carries reward dopamine and the PPL1 cluster (γ1, γ2, α′1, α′2, α′3, α2, α3) carries punishment dopamine. Of the 48 MBONs in the model, 20 fall in the PAM cluster and 28 in the PPL1 cluster, and the one calyx MBON does not learn.",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/en-posts/fly-connectome-09-compartments-and-dopamine.md",
+      "text": "The literature is treated with the same care. Aso et al. 2014 describe this rule with hedges such as \"generally\", and there are exceptions: PAM's MB-M3 and γ3 drive aversive memories under some conditions, PPL1-γ2α′1 takes part in the extinction of reward memories, and α′3 is associated with novelty. Transmitter and cluster direction broadly agree — 15 of the 20 PAM-cluster MBONs have inhibitory transmitters, and 19 of the 28 PPL1-cluster MBONs are cholinergic — but GABAergic MBONs occur in both clusters, so transmitter sign cannot be read directly as readout sign.",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/en-posts/llm-training-tool-06-evaluation.md",
+      "text": "Success must include evidence and applicable constraints. Reporting insufficient stock can correctly complete a query. Reporting an unresolved timeout is distinct from obtaining an inventory answer. [τ-bench v1](https://arxiv.org/html/2406.12045v1#S3) combines outcome and required-output checks while explicitly acknowledging that these do not capture every process-policy violation.",
+      "count": 1,
+      "category": "基准专名；若同一行有其他变量需另行处理"
+    },
+    {
+      "file": "src/content/en-posts/llm-training-tool-06-evaluation.md",
+      "text": "For a known per-task independent success probability $p=0.8$, at least one success in three attempts has probability 0.992; all three succeeding has probability 0.512. The former is pass@k, while τ-bench calls the latter pass^k. Coverage also requires a practical selector to deliver a successful result.",
+      "count": 1,
+      "category": "基准专名；若同一行有其他变量需另行处理"
+    },
+    {
+      "file": "src/content/en-posts/network-evolve-lab-negative-results.md",
+      "text": "![10-arm factorial attribution: left, A_rupture per arm; right, seed-paired decisive contrasts](/network-evolve/fig7_attribution_ablation.png)",
+      "count": 1,
+      "category": "图片替代文字中的指标名称，需另行人工处理"
+    },
+    {
+      "file": "src/content/posts/2024-07-22-DUCG建模实战指南.md",
+      "text": "1. ❌ **混淆相关与因果**：记住\"相关≠因果\"",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2024-08-05-强化学习调参技巧.md",
+      "text": "2. **n_epochs**：",
+      "count": 1,
+      "category": "参数标识符"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-01-circuit-and-framework.md",
+      "text": "- 真实 ≈ 打乱：起作用的不是具体接了哪几个小球。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-01-circuit-and-framework.md",
+      "text": "- 真实 ≈ 随机稀疏：只要稀疏扩展就行，真实连线没有额外的东西。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-01-circuit-and-framework.md",
+      "text": "- 真实 ≈ 线性：稀疏扩展也没有带来好处。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-01-circuit-and-framework.md",
+      "text": "- 打乱保留每个 KC 的输入数和突触数，但打散了小球扇出不均匀的结构（最少 2 个 KC、最多 473 个）。“真实 ≈ 打乱”不等于“扇出结构不重要”。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-02-protocol-and-review.md",
+      "text": "20 个、60 个世界里“真实连线略强”的迹象，在重跑中消失：同一批世界仅因智能体内部随机数不同，净奖励就波动约 5，小于约 10 的差异分不出来。改为先登记，再跑 200 个新世界：真实 ≈ 打乱（−0.4，区间 [−3.6, +2.8]），随机稀疏反而更好（多 6.9 到 8.3）。另有一处实现假象的排查，见第 3 篇。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-03-foraging-and-swarm.md",
+      "text": "- **真实 ≈ 打乱**：把每个 KC 接哪几个小球随机换掉，成绩几乎不变（−0.4，区间 [−3.6, +2.8]）。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-06-tsp-three-rounds.md",
+      "text": "**学习器没有把转角信息学出来。** 转角只是 6 个输入小球里的 1 个，5% 的 KC 编码在不同转角档之间几乎一样，加上只有 25 到 50 步学习、约 4000 个不同签名，信号被淹没。所以“真实 ≈ 随机”在这里是设计的必然，不能当作连线无关的证据。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-08-individual-differences.md",
+      "text": "| M_R、M_L | MaleCNS | 雄 | 左右半球 |",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-08-individual-differences.md",
+      "text": "| F_R、F_L | FlyWire（v783） | 雌 | 左右半球 |",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-08-individual-differences.md",
+      "text": "| H_R | hemibrain v1.2 | 雌 | 只有右半球；1927 个 KC，其中 1801 个有 PN 输入 |",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-09-compartments-and-dopamine.md",
+      "text": "- **簇：** 按 MBON 所在隔间，PAM 簇（γ3、γ4、γ5、β1、β2、β′1、β′2、α1）对应奖励多巴胺，PPL1 簇（γ1、γ2、α′1、α′2、α′3、α2、α3）对应惩罚多巴胺；48 个 MBON 里 20 个属于 PAM，28 个属于 PPL1，1 个（calyx）不学习。",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/posts/2026-10-21-fly-connectome-09-compartments-and-dopamine.md",
+      "text": "**文献怎么说：** Aso 等 2014 自己用“generally”之类的词描述这条规则；文献里有例外（PAM 的 MB-M3 和 γ3 在某些条件下驱动厌恶记忆，PPL1-γ2α′1 参与奖励记忆的消退，α′3 与新奇有关）。MBON 的递质与簇的方向一致：PAM 簇 20 个 MBON 里 15 个是抑制性递质，PPL1 簇 28 个里 19 个是乙酰胆碱，但 GABA 能的 MBON 两个簇里都有，所以递质符号不能直接当作读出符号。",
+      "count": 1,
+      "category": "神经解剖或样本专名"
+    },
+    {
+      "file": "src/content/posts/2026-10-23-llm-training-tool-06-evaluation.md",
+      "text": "只看最终状态也有盲点。τ-bench 的原论文使用数据库终态与必要输出信息评测，并明确指出得分通过不一定覆盖所有过程规则，例如是否获得确认。[τ-bench v1，第 3 节](https://arxiv.org/html/2406.12045v1#S3)",
+      "count": 1,
+      "category": "基准专名；若同一行有其他变量需另行处理"
+    },
+    {
+      "file": "src/content/posts/2026-10-23-llm-training-tool-06-evaluation.md",
+      "text": "**至少一次成功**适合衡量候选覆盖能力，但还要有办法识别并交付成功结果；**全部成功**则强调重复运行的稳定性。前者常记为 pass@k，τ-bench 将后者记为 pass^k。不要因为符号相似，就把两种指标放在同一列比较。",
+      "count": 1,
+      "category": "基准专名；若同一行有其他变量需另行处理"
+    },
+    {
+      "file": "src/content/posts/2026-10-28-strandbeest-wind-evidence-and-negative-results.md",
+      "text": "**核对（Verification）≠ 验证（Validation）**：两个求解器一致证明了\"我们正确求解了自己写下的方程\"（核对），不证明\"方程符合真实世界\"（验证）。",
+      "count": 1,
+      "category": "文字比较符号，建议改写成自然语言"
+    },
+    {
+      "file": "src/content/posts/2026-11-01-network-evolve-lab-negative-results.md",
+      "text": "![10 臂析因归因：左为各臂 A_rupture，右为按种子配对的决定性对比](/network-evolve/fig7_attribution_ablation.png)",
+      "count": 1,
+      "category": "图片替代文字中的指标名称，需另行人工处理"
+    }
+  ]
+}

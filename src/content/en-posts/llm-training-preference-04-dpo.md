@@ -53,7 +53,7 @@ For this positive h, the gradient magnitude is about 0.823 at beta=10 but only 3
 
 ## Sequence sums do not divide responsibility equally
 
-The chosen token contributions are log(0.6/0.5)≈0.1823 and log(0.7/0.6)≈0.1542. They sum to 0.3365 but are not equal. Parameter gradients additionally depend on each token's network derivatives.
+The chosen token contributions are $\log(0.6/0.5)\approx0.1823$ and $\log(0.7/0.6)\approx0.1542$. They sum to 0.3365 but are not equal. Parameter gradients additionally depend on each token's network derivatives.
 
 [TRL 0.23.1](https://huggingface.co/docs/trl/v0.23.1/en/dpo_trainer) documents reference precomputation and different loss variants. Changing sequence summation to length averaging changes the objective; do not treat it as an innocuous implementation detail.
 

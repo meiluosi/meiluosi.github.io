@@ -8,6 +8,7 @@
  * 用法：
  *   node scripts/audit-math-notation.js
  *   node scripts/audit-math-notation.js --strict
+ *   node scripts/audit-math-notation.js --baseline
  */
 
 import fs from "node:fs/promises";
@@ -102,6 +103,18 @@ async function auditFile(filePath) {
 
 async function main() {
 	const strict = process.argv.includes("--strict");
+	const useBaseline = process.argv.includes("--baseline");
+	const baselinePath = "scripts/math-audit-baseline.json";
+	const baseline = useBaseline ? JSON.parse(await fs.readFile(baselinePath, "utf8")) : null;
+	const allowance = new Map();
+	if (baseline) {
+		for (const entry of baseline.entries) {
+			const key = JSON.stringify([entry.file, entry.text]);
+			if (allowance.has(key)) throw new Error(`重复基线项: ${entry.file}`);
+			allowance.set(key, entry.count);
+		}
+	}
+	const unapproved = [];
 	const files = (
 		await Promise.all(CONTENT_DIRS.map((pattern) => glob(pattern)))
 	).flat();
@@ -113,6 +126,14 @@ async function main() {
 
 	for (const file of files) {
 		const issues = await auditFile(file);
+		if (baseline) {
+			for (const issue of issues) {
+				const key = JSON.stringify([file, issue.raw]);
+				const remaining = allowance.get(key) || 0;
+				if (remaining > 0) allowance.set(key, remaining - 1);
+				else unapproved.push({ file, ...issue });
+			}
+		}
 		if (issues.length > 0) {
 			fileCountWithIssues++;
 			totalIssues += issues.length;
@@ -132,7 +153,6 @@ async function main() {
 	console.log("\n--------------------------------------------------");
 	if (totalIssues === 0) {
 		console.log("✅ 全站正文数学符号与公式规范审计通过！零裸露伪公式。");
-		process.exit(0);
 	} else {
 		console.log(
 			`⚠️  发现 ${totalIssues} 处正文使用了裸露字符或伪公式，分布在 ${fileCountWithIssues} 篇文章中。`,
@@ -140,9 +160,16 @@ async function main() {
 		console.log(
 			"💡 提示：使用标准行内 LaTeX ($ ... $) 可激活站内 InteractiveMathEnhancer 跨公式变量高亮能力。",
 		);
-		if (strict) {
-			process.exit(1);
-		}
+		if (strict && !baseline) process.exitCode = 1;
+	}
+	if (baseline) {
+		if (unapproved.length) {
+			console.error(`\n❌ 发现 ${unapproved.length} 处未在基线中的疑似问题：`);
+			for (const issue of unapproved) console.error(`${issue.file}:${issue.line} [${issue.type}] ${issue.raw}`);
+			process.exitCode = 1;
+		} else console.log("✅ 没有新增基线外疑似问题。");
+		const stale = [...allowance.values()].reduce((sum, count) => sum + count, 0);
+		if (stale) console.log(`ℹ️ ${stale} 条基线已不再出现，可审查后移除。`);
 	}
 }
 

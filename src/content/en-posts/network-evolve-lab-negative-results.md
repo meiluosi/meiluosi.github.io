@@ -59,7 +59,7 @@ I had initially attributed one-sided rupture to "multi-dimensional semantics". C
 - **Anisotropy produces genuine one-sided rupture**: +0.216 ($p=1.9\times10^{-6}$, 20/20 seeds positive), and a robust +0.178 under async uniform speaking.
 - **Pure timing is enough**: async with **uniform** speaking gives +0.053 in the scalar model ($p=6.5\times10^{-4}$, 15/20 positive) and +0.041 in the isotropic multi-d model ($p=0.002$).
 - **Speaker-frequency bias does nothing**: weighted vs uniform, +0.0065, $p=0.71$. I guessed wrong here: Hub/Bridger/Long-tail speaking weights are 10/3/0.5 in the code, and I suspected that was the driver.
-- Not a T=30 truncation artefact: scalar uniform-speaker $A(t)$ is 0.53 (t=5), 0.087 (t=10), then flat at 0.053 from t≥15. The large early values come from very few severed dyads.
+- Not a T=30 truncation artefact: scalar uniform-speaker $A(t)$ is 0.53 (t=5), 0.087 (t=10), then flat at 0.053 from $t\ge15$. The large early values come from very few severed dyads.
 - The two sources are **not shown to be additive**: adding async on top of anisotropy gives almost nothing (+0.003). The interaction point estimate is −0.039, 95% CI [−0.088, +0.010], $p=0.14$. With n=20 I cannot detect it; "descriptively attenuated" is as far as I can go.
 
 **Why this matters for LLM social simulation**: many systems use "one random speaker per step". If you report that agents "unfollow one-sidedly" in such a system, run a synchronous control first; otherwise you cannot tell whether it is agent cognition or the scheduler. I only demonstrated this on rule-based agents, not LLM agents.
@@ -104,7 +104,7 @@ One more wording fix: I first called the hypotheses "pre-registered", but there 
 
 ### H2: Bridgers are not more fragile
 
-Pre-specified: Bridgers, squeezed by dissonance from both sides, retain at least 40% fewer ties than others ($p<0.01$). Define $\text{gap}=(\text{others}-\text{Bridger})/\text{others}$; H2 needs gap ≥ +0.40. 20 seeds, T=60, seed as the statistical unit.
+Pre-specified: Bridgers, squeezed by dissonance from both sides, retain at least 40% fewer ties than others ($p<0.01$). Define $\text{gap}=(\text{others}-\text{Bridger})/\text{others}$; H2 needs $\text{gap}\ge +0.40$. 20 seeds, T=60, seed as the statistical unit.
 
 | Bridger assignment | Tolerance | Bridger retention | Others | gap (95% CI) |
 |---|---|---|---|---|
@@ -117,7 +117,7 @@ The gap is negative, so Bridgers are *more* stable. But once tolerance is equali
 
 ### H3: platform interventions
 
-Baseline $Q=0.442$ (N=100, T=60, 20 seeds). H3 requires a ≥35% gain in cross-camp reach **and** $\Delta Q\le-0.20$.
+Baseline $Q=0.442$ (N=100, T=60, 20 seeds). H3 requires a $\ge 35\%$ gain in cross-camp reach **and** $\Delta Q\le-0.20$.
 
 - 15% diversified recommendation: $\Delta Q=-0.038$ ($p=7.4\times10^{-8}$). Dose-response at 5/10/15/20/30%: −0.014/−0.029/−0.038/−0.055/−0.078. **Monotonic**, but nowhere near −0.20.
 - Combined three-policy: $\Delta Q=-0.041$. Bridger subsidy and hub throttling alone do almost nothing (+0.002, +0.001).
@@ -131,7 +131,7 @@ The title says "LLM cognition", but this is my weakest evidence, so it gets its 
 Setup: a real LLM (MiniMax-M3.1-Flash, temperature 0) is mounted in the flagship engine. Each round, 6 listener–speaker events go in one batched call; the model returns a belief update and keep / mute / unfollow / block, applied to the graph. 10 seeds × 30 rounds = 1800 requests, 1721 decisions applied, i.e. **2.52%** of 68,404 interactions. The rest follow the rule backend.
 
 - Result: $\Delta Q=-0.0040$ ($p=0.42$, 95% CI [−0.015, +0.007]); the $A_{\text{rupture}}$ difference is exactly 0 in every seed.
-- Actions: keep 1631, mute 61, unfollow 28, block 1. About 3 edges per seed (≈0.9%) were removed by the LLM.
+- Actions: keep 1631, mute 61, unfollow 28, block 1. About 3 edges per seed ($\approx 0.9\%$) were removed by the LLM.
 - **Placebo**: delete the same number of random edges (~2.9 per seed) in the rule backend: $\Delta Q=+0.0018$ ($p=0.57$). LLM vs placebo: −0.0058 ($p=0.19$). **The LLM effect is indistinguishable from random severance.**
 - **Per-event agreement**: LLM and rule agree on 96.3% of 1721 events (1657/1721), but that is swamped by the "mostly reinforce" base rate: Cohen's $\kappa\approx0.62$. On the 85 events where the rule would sever, the LLM agrees on only 37 (43.5%), and it severs less (29) than the rule would (53).
 - $A_{\text{rupture}}$ is 0.089 ± 0.078 in the rule, LLM, and placebo arms alike: that endpoint is saturated and cannot count as evidence.

@@ -43,10 +43,10 @@ The environment-table memory (regime) keeps up to four belief tables and opens o
 
 | Comparison (16 seeds) | Difference (preset threshold) | Same direction |
 |---|---|---|
-| A/B/A: regime savings − ordinary learner | **+0.250** (≥ +0.15) | 16/16 |
-| Repeated reversals A/B/A/B/A | **+0.205** (≥ +0.15) | 16/16 |
-| Partial reversal | **+0.141** (≥ +0.05) | 16/16 |
-| Twice as many foods (K=12) | **+0.365** (≥ +0.10) | 16/16 |
+| A/B/A: regime savings − ordinary learner | **+0.250** ($\ge +0.15$) | 16/16 |
+| Repeated reversals A/B/A/B/A | **+0.205** ($\ge +0.15$) | 16/16 |
+| Partial reversal | **+0.141** ($\ge +0.05$) | 16/16 |
+| Twice as many foods (K=12) | **+0.365** ($\ge +0.10$) | 16/16 |
 | regime not worse than a probabilistic comparator (non-inferiority) | **+0.131** | 16/16 |
 
 Two notes: **Laya's prior has no discriminating power on this data (AUC 0.505)** and the retention gain is still there, so the credit belongs to the memory structure, not to the language model; and the probabilistic comparator (a simplified online approximation of latent-cause inference) saved about zero or less, which only says something about *my approximation*, not about that family of methods.

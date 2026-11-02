@@ -19,7 +19,7 @@ lang: en
 
 ## Define what acceptance means
 
-The running task asks for the smallest nonnegative integer n satisfying 3n+a≥b, returned as a JSON object with exactly one integer field. For a=2 and b=12, the value 4 passes. The value 5 satisfies the inequality but fails minimality. Returning a string, an extra field, or non-JSON text violates this particular interface contract, even if another application might choose a more permissive contract.
+The running task asks for the smallest nonnegative integer n satisfying $3n+a\ge b$, returned as a JSON object with exactly one integer field. For a=2 and b=12, the value 4 passes. The value 5 satisfies the inequality but fails minimality. Returning a string, an extra field, or non-JSON text violates this particular interface contract, even if another application might choose a more permissive contract.
 
 The checker verifies both that n satisfies the inequality and that n−1 fails when n is positive. Monotonicity makes these sufficient for minimality. A ceiling-based formula and exhaustive enumeration provide alternative ways to check small cases.
 

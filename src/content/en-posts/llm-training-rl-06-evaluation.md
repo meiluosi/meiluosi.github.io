@@ -24,7 +24,7 @@ A controlled parameter comparison fixes the model starting point, prompts, task 
 
 ## Candidate coverage is not delivered accuracy
 
-For N sampled responses containing C passing candidates, a standard pass@k estimate is one minus the ratio of all-failure k-subsets to all k-subsets, requiring N≥k. With N=10, C=2, and k=4, it is 2/3. This is distinct from assuming a known true success probability of 0.2, which gives 0.5904 for four independent attempts.
+For N sampled responses containing C passing candidates, a standard pass@k estimate is one minus the ratio of all-failure k-subsets to all k-subsets, requiring $N\ge k$. With N=10, C=2, and k=4, it is 2/3. This is distinct from assuming a known true success probability of 0.2, which gives 0.5904 for four independent attempts.
 
 The [Codex evaluation paper](https://arxiv.org/html/2107.03374v2#S2.SS1) derives the estimator and explains the bias of substituting an empirical pass@1 into the power formula. Compute per task before averaging; do not pool candidates across different questions. Unbiased estimation does not make a single observed value the true probability.
 
