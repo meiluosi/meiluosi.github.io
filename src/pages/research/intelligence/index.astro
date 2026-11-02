@@ -6,9 +6,34 @@ import "@/styles/intelligence-research.css";
 ---
 <ExploreLayout title="智能是什么 · 综合研究" titleEn="What is intelligence? Research syntheses" description="从表现与机制、系统边界到意义与意识，复核18条结论与它们的证据边界。" descriptionEn="Three Chinese-language syntheses with 18 reviewed conclusions and traceable evidence.">
 	<article class="research-page" lang="zh-CN">
+		<p class="scope-note" lang="en">This research overview and the linked syntheses are currently available in Chinese.</p>
 		<p class="kicker">INTELLIGENCE / RESEARCH SYNTHESIS · 2026.10.28</p>
 		<h1>智能是什么：<br />把不同问题放在一起，<br />把推理的边界写清楚。</h1>
 		<p class="lead">成绩怎样支持能力判断？一个工具何时成为认知系统的一部分？功能与物理证据怎样连接意义和体验？三篇综述共同复核18条结论，保留它们的前提、反方与下一项检验。</p>
+		<section aria-labelledby="current-judgments">
+			<h2 id="current-judgments">先看两个问题的当前状态</h2>
+			<p>以下是既有研究的阅读入口，并非新增实验或对原结论的改写。日期指相关判断最近一次实质综合或复核，具体阅读范围和历史版本见链接。</p>
+			<div class="glossary">
+				<section class="research-card">
+					<h3>成绩能说明多少能力？</h3>
+					<p><strong>当前判断：</strong>成绩是特定任务、评分和资源条件下的表现；跨任务能力与学习效率需要分别提供证据。</p>
+					<p><strong>主要证据：</strong>第四轮比较了能力与学习效率的不同测量目标，并记录了所读材料的原文位置和范围。</p>
+					<p><strong>反方解释：</strong>有预测效度的能力指标不必等待完整机制理论；但共享评分偏差、训练数据或工具支持也可能影响跨任务表现。</p>
+					<p><strong>未解决与下一步：</strong>预先指定留出任务和系统，控制资源并记录学习曲线；这项检验仍是建议，尚未执行。</p>
+					<p class="quiet">最近实质综合：2026-10-28，第八轮问题地图。</p>
+					<p><a href="/research/intelligence/map/#performance">问题与反方</a> · <a href="/research/intelligence/evidence/#p1">第四轮结论与来源</a></p>
+				</section>
+				<section class="research-card">
+					<h3>群体共同表现来自什么？</h3>
+					<p><strong>当前判断：</strong>所读群体研究报告多任务表现的共同变化；成员能力和协作过程的贡献仍有分歧，预测关系不能直接当作协作的因果效应。</p>
+					<p><strong>主要证据：</strong>第七轮锁定代码与数据复核：三任务模型的载荷平方均值四舍五入后与更正值一致；八任务结果不同，且出现求逆警告。</p>
+					<p><strong>反方解释：</strong>共同因素可能受成员能力或任务设计驱动；过程变量的预测力也不能单独证明协作的因果作用。</p>
+					<p><strong>未解决与下一步：</strong>八任务差异原因尚不明确，需继续核对原环境、修正版材料与团队排除流程；不能据此声称完整复现。</p>
+					<p class="quiet">最近实质综合：2026-10-28，第八轮问题地图；数据与模型复核见第七轮。</p>
+					<p><a href="/research/intelligence/verification/">数据、版本与复核结果</a> · <a href="/research/intelligence/evidence/#p4">第四轮结论与来源</a> · <a href="/research/intelligence/map/#collective">问题与反方</a></p>
+				</section>
+			</div>
+		</section>
 		<nav class="research-nav"><a href="/research/intelligence/map/">第八轮：智能问题地图</a><a href="/research/intelligence/verification/">第七轮：群体研究复核</a><a href="/research/intelligence/revisit/">第六轮：关键缺口与反方</a><a href="/research/intelligence/timelines/">20条路线演进时间线</a><a href="/research/intelligence/sources/"><Text zh="文献与原文定位 · 31" en="Sources & locations · 31" /></a><a href="/research/intelligence/review/">修订对照 · 18</a><a href="/research/intelligence/next/">后续研究 · 9</a><a href="/routes/">20路线地图</a></nav>
 		<div class="research-grid">{researchArticles.map((article, index) => <article class="research-card"><span class="kicker">ESSAY 0{index+1}</span><h2><a href={`/research/intelligence/${article.id}/`}>{article.title}</a></h2><p>{article.data.synthesis[0].text}</p><span class="quiet">6条条件性结论 · {article.data.sources.length}条来源记录 · {article.graphs.length}组可编辑图</span></article>)}</div>
 		<div class="scope-note">第四轮共同复核收紧13条措辞，保留5条原句。11条属于推理边界、4条依赖争议判据、3条限于指定材料。此后第六轮补充选读文献，第七轮开展群体研究的数据与版本复核；具体范围见各轮记录。</div>
