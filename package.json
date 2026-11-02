@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
+    "test": "node scripts/run-tests.mjs",
     "build": "node scripts/generate-icons.js && npx tsx scripts/generate-lqips.ts && npx tsx scripts/generate-summaries.ts && node scripts/validate-frontmatter.js && astro build && npx tsx scripts/subset-fonts.ts",
     "preview": "astro preview",
     "astro": "astro",

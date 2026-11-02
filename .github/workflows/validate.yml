@@ -1,0 +1,68 @@
+name: Validate site
+
+on:
+  workflow_call:
+    inputs:
+      pages_artifact:
+        description: Upload the validated build for GitHub Pages
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm exec biome check ./src
+
+      - name: Frontmatter validation
+        run: pnpm validate:frontmatter
+
+      - name: Tests
+        run: pnpm test
+
+      - name: Astro diagnostics
+        run: pnpm check
+
+      - name: TypeScript
+        run: pnpm type-check
+
+      - name: Math notation baseline
+        run: node scripts/audit-math-notation.js --baseline
+
+      - name: Build
+        run: pnpm build
+
+      - name: Internal links
+        run: pnpm audit:links
+
+      - name: Prepare Pages artifact
+        if: inputs.pages_artifact
+        run: touch dist/.nojekyll
+
+      - name: Upload validated Pages artifact
+        if: inputs.pages_artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist

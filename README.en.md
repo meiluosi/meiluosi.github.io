@@ -29,7 +29,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [localhost:4321](http://localhost:4321). Before submitting website changes, run `pnpm check`, `pnpm type-check`, and `pnpm build`; use `pnpm preview` to inspect the production build.
+Open [localhost:4321](http://localhost:4321). Before submitting website changes, run `pnpm test`, `pnpm check`, `pnpm type-check`, and `pnpm build`; use `pnpm preview` to inspect the production build.
 
 ## Maintenance and documentation
 

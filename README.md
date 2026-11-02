@@ -29,7 +29,7 @@ pnpm install
 pnpm dev
 ```
 
-打开 [localhost:4321](http://localhost:4321)。提交网站改动前运行 `pnpm check`、`pnpm type-check` 和 `pnpm build`；构建后可用 `pnpm preview` 预览。
+打开 [localhost:4321](http://localhost:4321)。提交网站改动前运行 `pnpm test`、`pnpm check`、`pnpm type-check` 和 `pnpm build`；构建后可用 `pnpm preview` 预览。
 
 ## 维护与文档
 
