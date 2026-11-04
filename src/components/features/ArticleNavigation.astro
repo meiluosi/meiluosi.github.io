@@ -12,6 +12,38 @@ const sections = headings
 		...heading,
 		text: heading.text.replace(/#\s*$/, "").trim(),
 	}));
+
+interface TocGroup {
+	slug: string;
+	text: string;
+	depth: number;
+	children: Array<{ slug: string; text: string; depth: number }>;
+}
+
+const tocGroups: TocGroup[] = [];
+for (const heading of sections) {
+	if (heading.depth === 2 || tocGroups.length === 0) {
+		tocGroups.push({
+			slug: heading.slug,
+			text: heading.text,
+			depth: heading.depth,
+			children: [],
+		});
+	} else {
+		const lastGroup = tocGroups[tocGroups.length - 1];
+		lastGroup?.children.push({
+			slug: heading.slug,
+			text: heading.text,
+			depth: heading.depth,
+		});
+	}
+}
+
+const totalSubsections = tocGroups.reduce(
+	(acc, g) => acc + g.children.length,
+	0,
+);
+const hasCollapsibleGroups = totalSubsections > 0;
 ---
 
 <div class="reading-navigation">
@@ -26,26 +58,97 @@ const sections = headings
 	</a>
 	{sections.length > 0 && (
 		<>
-			<details class="reading-toc">
+			<details
+				class="reading-toc"
+				data-smart-fold={totalSubsections >= 4 ? "true" : "false"}
+			>
 				<summary
 					data-i18n="reading.contents"
 					data-i18n-zh="本篇目录"
 					data-i18n-en="ON THIS PAGE"
 				>
-					{english ? "ON THIS PAGE" : "本篇目录"}
+					<span>{english ? "ON THIS PAGE" : "本篇目录"}</span>
+					<span class="toc-badge">TOC</span>
 				</summary>
+				{hasCollapsibleGroups && (
+					<div class="toc-toolbar">
+						<button
+							type="button"
+							class="toc-toggle-all"
+							data-toc-toggle-all
+							data-expanded={totalSubsections >= 4 ? "false" : "true"}
+						>
+							{totalSubsections >= 4
+								? english
+									? "Expand all"
+									: "展开子节"
+								: english
+									? "Collapse"
+									: "收起子节"}
+						</button>
+					</div>
+				)}
 				<nav aria-label={english ? "Article sections" : "文章章节"}>
-					<ol>
-						{sections.map((heading) => (
-							<li class:list={{ nested: heading.depth === 3 }}>
-								<a
-									href={`#${encodeURIComponent(heading.slug)}`}
-									data-reading-heading={heading.slug}
+					<ol class="toc-root-list">
+						{tocGroups.map((group, groupIdx) => {
+							const hasChildren = group.children.length > 0;
+							const defaultOpen = totalSubsections < 4 || groupIdx === 0;
+							return (
+								<li
+									class:list={[
+										"toc-group",
+										{
+											"has-children": hasChildren,
+											nested: group.depth === 3,
+										},
+									]}
+									data-toc-group={group.slug}
+									data-group-open={defaultOpen ? "true" : "false"}
 								>
-									{heading.text}
-								</a>
-							</li>
-						))}
+									<div class="toc-row">
+										{hasChildren ? (
+											<button
+												type="button"
+												class="toc-fold-btn"
+												data-toc-fold={group.slug}
+												aria-expanded={defaultOpen ? "true" : "false"}
+												aria-label={
+													english
+														? "Toggle subsections"
+														: "展开或折叠子章节"
+												}
+											>
+												<span class="fold-chevron" aria-hidden="true">
+													▸
+												</span>
+											</button>
+										) : (
+											<span class="toc-fold-spacer" aria-hidden="true" />
+										)}
+										<a
+											href={`#${encodeURIComponent(group.slug)}`}
+											data-reading-heading={group.slug}
+										>
+											{group.text}
+										</a>
+									</div>
+									{hasChildren && (
+										<ol class="toc-sublist">
+											{group.children.map((child) => (
+												<li class="nested">
+													<a
+														href={`#${encodeURIComponent(child.slug)}`}
+														data-reading-heading={child.slug}
+													>
+														{child.text}
+													</a>
+												</li>
+											))}
+										</ol>
+									)}
+								</li>
+							);
+						})}
 					</ol>
 				</nav>
 			</details>
@@ -86,6 +189,15 @@ const sections = headings
 	}
 	const toc = document.querySelector<HTMLDetailsElement>(".reading-toc");
 	const fab = document.querySelector<HTMLButtonElement>("[data-mobile-toc-fab]");
+	const toggleAllBtn = document.querySelector<HTMLButtonElement>(
+		"[data-toc-toggle-all]",
+	);
+	const foldButtons = [
+		...document.querySelectorAll<HTMLButtonElement>("[data-toc-fold]"),
+	];
+	const tocGroups = [
+		...document.querySelectorAll<HTMLLIElement>("[data-toc-group]"),
+	];
 	const desktop = matchMedia("(min-width: 1180px)");
 	const links = [
 		...document.querySelectorAll<HTMLAnchorElement>("[data-reading-heading]"),
@@ -93,7 +205,31 @@ const sections = headings
 	const headings = links
 		.map((link) => document.getElementById(link.dataset.readingHeading ?? ""))
 		.filter((item): item is HTMLElement => Boolean(item));
+	const smartFold = toc?.dataset.smartFold === "true";
 	let pending = 0;
+
+	const setGroupOpen = (groupEl: HTMLLIElement, open: boolean) => {
+		groupEl.dataset.groupOpen = open ? "true" : "false";
+		const btn = groupEl.querySelector<HTMLButtonElement>("[data-toc-fold]");
+		btn?.setAttribute("aria-expanded", open ? "true" : "false");
+	};
+
+	const updateToggleAllLabel = () => {
+		if (!toggleAllBtn) return;
+		const collapsible = tocGroups.filter((g) =>
+			g.classList.contains("has-children"),
+		);
+		const allOpen = collapsible.every((g) => g.dataset.groupOpen === "true");
+		toggleAllBtn.dataset.expanded = allOpen ? "true" : "false";
+		const isEn = document.documentElement.lang.toLowerCase().startsWith("en");
+		toggleAllBtn.textContent = allOpen
+			? isEn
+				? "Collapse"
+				: "收起子节"
+			: isEn
+				? "Expand all"
+				: "展开子节";
+	};
 
 	const closeMobileSheet = () => {
 		if (!toc) return;
@@ -124,10 +260,31 @@ const sections = headings
 			headings
 				.filter((heading) => heading.getBoundingClientRect().top <= 96)
 				.at(-1) ?? headings[0];
+		let activeLink: HTMLAnchorElement | null = null;
 		for (const link of links) {
-			if (link.dataset.readingHeading === current?.id)
+			if (link.dataset.readingHeading === current?.id) {
 				link.setAttribute("aria-current", "location");
-			else link.removeAttribute("aria-current");
+				activeLink = link;
+			} else {
+				link.removeAttribute("aria-current");
+			}
+		}
+
+		// Auto-expand the active H2 group when smartFold is enabled, respecting manual overrides
+		if (smartFold && activeLink) {
+			const activeGroup = activeLink.closest<HTMLLIElement>("[data-toc-group]");
+			for (const group of tocGroups) {
+				if (!group.classList.contains("has-children")) continue;
+				const manual = group.dataset.manualState;
+				if (manual === "open") {
+					setGroupOpen(group, true);
+				} else if (manual === "closed") {
+					setGroupOpen(group, false);
+				} else {
+					setGroupOpen(group, group === activeGroup);
+				}
+			}
+			updateToggleAllLabel();
 		}
 	};
 
@@ -152,6 +309,27 @@ const sections = headings
 		if (toc && !desktop.matches) {
 			closeMobileSheet();
 		}
+	};
+
+	const onFoldClick = (event: MouseEvent) => {
+		const btn = event.currentTarget as HTMLButtonElement;
+		const group = btn.closest<HTMLLIElement>("[data-toc-group]");
+		if (!group) return;
+		const nextOpen = group.dataset.groupOpen !== "true";
+		group.dataset.manualState = nextOpen ? "open" : "closed";
+		setGroupOpen(group, nextOpen);
+		updateToggleAllLabel();
+	};
+
+	const onToggleAllClick = () => {
+		if (!toggleAllBtn) return;
+		const expand = toggleAllBtn.dataset.expanded !== "true";
+		for (const group of tocGroups) {
+			if (!group.classList.contains("has-children")) continue;
+			group.dataset.manualState = expand ? "open" : "closed";
+			setGroupOpen(group, expand);
+		}
+		updateToggleAllLabel();
 	};
 
 	const onFabClick = () => {
@@ -186,6 +364,8 @@ const sections = headings
 		desktop.removeEventListener("change", sync);
 		toc?.removeEventListener("toggle", schedule);
 		fab?.removeEventListener("click", onFabClick);
+		toggleAllBtn?.removeEventListener("click", onToggleAllClick);
+		for (const btn of foldButtons) btn.removeEventListener("click", onFoldClick);
 		for (const link of links) link.removeEventListener("click", onLinkClick);
 	};
 
@@ -195,6 +375,8 @@ const sections = headings
 	desktop.addEventListener("change", sync);
 	toc?.addEventListener("toggle", schedule);
 	fab?.addEventListener("click", onFabClick);
+	toggleAllBtn?.addEventListener("click", onToggleAllClick);
+	for (const btn of foldButtons) btn.addEventListener("click", onFoldClick);
 	sync();
 	highlight();
 	for (const link of links) link.addEventListener("click", onLinkClick);
@@ -245,36 +427,120 @@ const sections = headings
 	}
 	summary {
 		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
 		font: 11px/1.8 var(--font-mono, "JetBrains Mono", monospace);
 		color: var(--brand-accent);
 	}
-	ol {
+	.toc-badge {
+		font-size: 9px;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		padding: 1px 6px;
+		border-radius: 4px;
+		background: var(--brand-surface);
+		border: 1px solid var(--brand-line);
+		color: var(--brand-muted);
+	}
+	.toc-toolbar {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 4px;
+	}
+	.toc-toggle-all {
+		border: none;
+		background: transparent;
+		padding: 2px 4px;
+		font: 500 11px/1.4 var(--font-mono, "JetBrains Mono", monospace);
+		color: var(--brand-muted);
+		cursor: pointer;
+		border-radius: 4px;
+	}
+	.toc-toggle-all:hover {
+		color: var(--brand-accent);
+		background: var(--brand-surface);
+	}
+	ol.toc-root-list {
 		list-style: none;
-		margin: 12px 0 0;
+		margin: 8px 0 0;
 		padding: 0;
 		max-height: 55vh;
 		overflow: auto;
 		overscroll-behavior: contain;
 	}
+	ol.toc-sublist {
+		list-style: none;
+		margin: 2px 0 4px 7px;
+		padding: 0 0 0 8px;
+		border-left: 1px dashed var(--brand-line);
+	}
+	.toc-group[data-group-open="false"] > ol.toc-sublist {
+		display: none;
+	}
+	.toc-row {
+		display: flex;
+		align-items: flex-start;
+		gap: 2px;
+	}
+	.toc-fold-btn {
+		flex-shrink: 0;
+		width: 16px;
+		height: 22px;
+		margin-top: 2px;
+		padding: 0;
+		border: none;
+		background: transparent;
+		color: var(--brand-muted);
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+	}
+	.toc-fold-btn:hover {
+		color: var(--brand-accent);
+		background: var(--brand-surface);
+	}
+	.fold-chevron {
+		display: inline-block;
+		font-size: 11px;
+		line-height: 1;
+		transition: transform 0.18s ease;
+	}
+	.toc-group[data-group-open="true"] .fold-chevron {
+		transform: rotate(90deg);
+	}
+	.toc-fold-spacer {
+		flex-shrink: 0;
+		width: 16px;
+		height: 22px;
+	}
 	li {
-		padding: 5px 0;
-		line-height: 1.7;
+		padding: 3px 0;
+		line-height: 1.6;
 	}
 	.nested {
-		padding-left: 12px;
+		padding-left: 6px;
 		font-size: 12px;
 	}
 	li a {
+		flex: 1;
+		min-width: 0;
 		display: block;
 		color: var(--brand-muted);
 		text-decoration: none;
 		border-left: 2px solid transparent;
-		padding-left: 8px;
+		padding-left: 6px;
+		border-radius: 0 4px 4px 0;
+		transition: color 0.18s ease, background-color 0.18s ease;
 	}
 	li a[aria-current] {
 		border-color: var(--brand-accent);
 		color: var(--brand-ink);
 		font-weight: 600;
+		background: var(--brand-surface);
 	}
 	li a:hover {
 		color: var(--brand-accent);
@@ -304,8 +570,8 @@ const sections = headings
 			padding: 16px 12px;
 			background: var(--brand-paper);
 		}
-		ol {
-			max-height: calc(100vh - 230px);
+		ol.toc-root-list {
+			max-height: calc(100vh - 250px);
 		}
 		:global(#content-wrapper) {
 			padding-right: max(

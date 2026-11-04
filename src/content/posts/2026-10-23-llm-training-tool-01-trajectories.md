@@ -11,6 +11,20 @@ category: 大模型训练研究笔记
 series: "大模型训练研究笔记 · 工具交互卷"
 seriesOrder: 1
 lang: zh
+verifiedNote: "2026-11 审校：已核对 Transformers 4.57.1 工具接口与 36 组库存轨迹不变量"
+targetAudience: "研究多步 Agent 训练数据构造、工具调用 SFT 与轨迹审计的工程师与研究者"
+corePapers:
+  - title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    url: "https://arxiv.org/html/2210.03629v3#S2"
+    note: "arXiv:2210.03629 · §2 方法核对"
+  - title: "Hugging Face Transformers 4.57.1 Tool Use"
+    url: "https://huggingface.co/docs/transformers/v4.57.1/en/chat_extras"
+    note: "官方文档 · 工具 Schema 与结果回填"
+takeaways:
+  - "区分『模型生成的调用请求（call）』与『外围环境返回的观测结果（result）』，理解为什么只保留最终回答会丢失决策依据"
+  - "掌握工具接口契约的六个关键要素（操作名、编号映射、成功/失败状态、无副作用边界）"
+  - "用反例审计完整交互轨迹：拦截孤儿结果、调换观测、跳过前置查询与越界承诺"
+  - "明确监督微调（SFT）中的损失掩码边界：环境返回值作为条件上下文输入，但不计入模型预测损失"
 ---
 
 用户问：“杭州仓库有没有足够的 A17？我要 3 件；不够的话，再看看苏州仓库。只查询，不预订。”

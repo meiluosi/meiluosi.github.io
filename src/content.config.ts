@@ -37,11 +37,29 @@ type PostsData = {
 	password: string;
 	passwordHint: string;
 	aiSummary: string;
+	/** 核心锚点文献（可选） */
+	corePapers?: Array<{
+		title: string;
+		url?: string;
+		note?: string;
+	}>;
+	/** 阅读收获清单（可选） */
+	takeaways?: string[];
+	/** 适合读者与前置知识（可选） */
+	targetAudience?: string;
+	/** 时效性与核验说明（可选） */
+	verifiedNote?: string;
 	prevTitle: string;
 	prevSlug: string;
 	nextTitle: string;
 	nextSlug: string;
 };
+
+const corePaperSchema = z.object({
+	title: z.string(),
+	url: z.string().optional(),
+	note: z.string().optional(),
+});
 
 const postsSchema: z.ZodType<PostsData> = z.object({
 	title: z.string(),
@@ -80,6 +98,10 @@ const postsSchema: z.ZodType<PostsData> = z.object({
 	password: z.string().optional().default(""),
 	passwordHint: z.string().optional().default(""),
 	aiSummary: z.string().optional().default(""),
+	corePapers: z.array(corePaperSchema).optional(),
+	takeaways: z.array(z.string()).optional(),
+	targetAudience: z.string().optional(),
+	verifiedNote: z.string().optional(),
 
 	/* For internal use */
 	prevTitle: z.string().default(""),
@@ -107,6 +129,7 @@ type EnglishPostData = {
 	title: string;
 	editionLabel?: string;
 	published: Date;
+	updated?: Date;
 	description: string;
 	tags: string[];
 	category: string | null;
@@ -116,6 +139,15 @@ type EnglishPostData = {
 	seriesOrder?: number;
 	route?: string | number;
 	routes?: string[];
+	aiSummary?: string;
+	corePapers?: Array<{
+		title: string;
+		url?: string;
+		note?: string;
+	}>;
+	takeaways?: string[];
+	targetAudience?: string;
+	verifiedNote?: string;
 	lang: "en";
 };
 
@@ -125,6 +157,7 @@ const enPostsSchema: z.ZodType<EnglishPostData> = z.object({
 	title: z.string(),
 	editionLabel: z.string().optional(),
 	published: z.date(),
+	updated: z.date().optional(),
 	description: z.string().optional().default(""),
 	tags: z.array(z.string()).optional().default([]),
 	category: z.string().optional().nullable().default(""),
@@ -132,6 +165,11 @@ const enPostsSchema: z.ZodType<EnglishPostData> = z.object({
 	seriesOrder: z.number().optional(),
 	route: z.union([z.string(), z.number()]).optional(),
 	routes: z.array(z.string()).optional().default([]),
+	aiSummary: z.string().optional(),
+	corePapers: z.array(corePaperSchema).optional(),
+	takeaways: z.array(z.string()).optional(),
+	targetAudience: z.string().optional(),
+	verifiedNote: z.string().optional(),
 	lang: z.literal("en").default("en"),
 });
 

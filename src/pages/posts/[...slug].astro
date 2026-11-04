@@ -129,6 +129,9 @@ const connectedLabs = findConnectedLabs(
 );
 
 const postRoute = resolvePostRoute(entry.data);
+const conceptGraph = entry.data.password
+	? { nodes: [], links: [] }
+	: buildConceptGraph(entry.data.title, entry.body ?? "", headings);
 
 const bannerPostMeta = {
 	title: entry.data.title,
@@ -341,11 +344,21 @@ const jsonLd = {
         </div>
       )}
 
-      <!-- AI 摘要 -->
+      <!-- AI 导读与概念脉络 -->
       {
-        entry.data.aiSummary && (
+        !entry.data.password && (
           <div class="onload-animation">
-            <AiSummary aiSummary={entry.data.aiSummary} />
+            <AiSummary
+              aiSummary={entry.data.aiSummary}
+              description={entry.data.description}
+              corePapers={entry.data.corePapers}
+              takeaways={entry.data.takeaways}
+              targetAudience={entry.data.targetAudience}
+              verifiedNote={entry.data.verifiedNote}
+              published={entry.data.published}
+              updated={entry.data.updated}
+              conceptGraph={conceptGraph}
+            />
           </div>
         )
       }
@@ -397,7 +410,7 @@ const jsonLd = {
           <InteractiveProseEnhancer />
 
           {/* 思维导图 */}
-          <Mindmap graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)} client:visible />
+          <Mindmap graph={conceptGraph} client:visible />
 
           {
             licenseConfig.enable && (

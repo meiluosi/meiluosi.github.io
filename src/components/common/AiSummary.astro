@@ -1,95 +1,574 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { ConceptGraph } from "@/utils/article-concept-graph";
+import { formatDateToYYYYMMDD } from "@/utils/date-utils";
+
+interface CorePaper {
+	title: string;
+	url?: string;
+	note?: string;
+}
+
+interface Props {
+	aiSummary?: string;
+	description?: string;
+	corePapers?: CorePaper[];
+	takeaways?: string[];
+	targetAudience?: string;
+	verifiedNote?: string;
+	published?: Date;
+	updated?: Date;
+	conceptGraph?: ConceptGraph;
+	english?: boolean;
+}
+
+const {
+	aiSummary = "",
+	description = "",
+	corePapers = [],
+	takeaways = [],
+	targetAudience = "",
+	verifiedNote = "",
+	updated,
+	conceptGraph,
+	english = false,
+} = Astro.props;
+
+const summaryText = aiSummary.trim() || description.trim();
+const hasStructuredMeta =
+	corePapers.length > 0 ||
+	takeaways.length > 0 ||
+	Boolean(targetAudience.trim()) ||
+	Boolean(verifiedNote.trim());
+
+const topSections =
+	conceptGraph?.nodes.filter(
+		(node) => node.parent === "root" && node.kind === "section",
+	) ?? [];
+const conceptNodes =
+	conceptGraph?.nodes.filter((node) => node.kind === "concept") ?? [];
+const hasConceptOutline = topSections.length >= 2;
+
+const shouldRender =
+	Boolean(summaryText) || hasStructuredMeta || hasConceptOutline;
+
+const verifiedBadgeText = verifiedNote.trim()
+	? verifiedNote.trim()
+	: updated
+		? english
+			? `Verified ${formatDateToYYYYMMDD(updated)}`
+			: `最近审校 ${formatDateToYYYYMMDD(updated)}`
+		: "";
 ---
 
 {
-  /* AI 摘要组件 — 在文章顶部显示 AI 生成的一句话摘要 */
+	shouldRender && (
+		<aside
+			class="executive-brief-card"
+			aria-label={english ? "Executive brief and article outline" : "文章导读与概念脉络"}
+			data-pagefind-ignore
+		>
+			<div class="brief-header">
+				<div class="brief-title-group">
+					<span class="brief-icon" aria-hidden="true">
+						<Icon name="mingcute:ai-line" size="16" />
+					</span>
+					<span class="brief-kicker">
+						{english
+							? aiSummary.trim()
+								? "AI EXECUTIVE BRIEF"
+								: "EXECUTIVE BRIEF"
+							: aiSummary.trim()
+								? "AI 导读与研究提要"
+								: "导读与研究提要"}
+					</span>
+				</div>
+
+				{verifiedBadgeText && (
+					<span class="brief-verified-badge" title={verifiedBadgeText}>
+						<span class="verified-dot" aria-hidden="true" />
+						{verifiedBadgeText}
+					</span>
+				)}
+			</div>
+
+			{summaryText && <p class="brief-summary-text">{summaryText}</p>}
+
+			{(corePapers.length > 0 || targetAudience.trim()) && (
+				<div class="brief-meta-list">
+					{corePapers.length > 0 && (
+						<div class="brief-meta-row">
+							<span class="brief-meta-label">
+								📌 {english ? "Core Literature" : "核心文献"}
+							</span>
+							<div class="brief-papers">
+								{corePapers.map((paper) => (
+									<span class="brief-paper-item">
+										{paper.url ? (
+											<a
+												href={paper.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="brief-paper-link"
+											>
+												{paper.title} ↗
+											</a>
+										) : (
+											<span class="brief-paper-title">{paper.title}</span>
+										)}
+										{paper.note && (
+											<span class="brief-paper-note">({paper.note})</span>
+										)}
+									</span>
+								))}
+							</div>
+						</div>
+					)}
+
+					{targetAudience.trim() && (
+						<div class="brief-meta-row">
+							<span class="brief-meta-label">
+								📌 {english ? "Target Reader" : "适合读者"}
+							</span>
+							<span class="brief-meta-value">{targetAudience.trim()}</span>
+						</div>
+					)}
+				</div>
+			)}
+
+			{takeaways.length > 0 && (
+				<div class="brief-takeaways">
+					<p class="brief-takeaways-heading">
+						{english ? "What You Will Learn" : "关于本文档 · 核心收获"}
+					</p>
+					<ul class="brief-takeaways-list">
+						{takeaways.map((item) => (
+							<li>
+								<span class="takeaway-check" aria-hidden="true">
+									✓
+								</span>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+
+			{hasConceptOutline && conceptGraph && (
+				<details class="brief-mindmap-drawer">
+					<summary class="brief-mindmap-summary">
+						<span class="mindmap-summary-left">
+							<span class="mindmap-summary-icon" aria-hidden="true">
+								🌿
+							</span>
+							<span>
+								{english
+									? `Concept Mindmap & Section Outline (${topSections.length} sections${conceptNodes.length > 0 ? ` · ${conceptNodes.length} key concepts` : ""})`
+									: `展开全文概念导图与章节脉络（${topSections.length} 节${conceptNodes.length > 0 ? ` · ${conceptNodes.length} 个核心概念` : ""}）`}
+							</span>
+						</span>
+						<span class="mindmap-summary-chevron" aria-hidden="true">
+							▾
+						</span>
+					</summary>
+
+					<div class="brief-mindmap-body">
+						<div class="mindmap-tree-grid">
+							{topSections.map((section, idx) => {
+								const childSections = conceptGraph.nodes.filter(
+									(n) => n.parent === section.id && n.kind === "section",
+								);
+								const childConcepts = conceptGraph.nodes.filter(
+									(n) => n.parent === section.id && n.kind === "concept",
+								);
+								return (
+									<div class="mindmap-branch-card">
+										<div class="branch-header">
+											<span class="branch-index">
+												{String(idx + 1).padStart(2, "0")}
+											</span>
+											<a
+												href={`#${encodeURIComponent(section.slug)}`}
+												class="branch-section-link"
+											>
+												{section.label}
+											</a>
+										</div>
+
+										{childSections.length > 0 && (
+											<ul class="branch-sub-list">
+												{childSections.map((sub) => (
+													<li>
+														<a href={`#${encodeURIComponent(sub.slug)}`}>
+															{sub.label}
+														</a>
+													</li>
+												))}
+											</ul>
+										)}
+
+										{childConcepts.length > 0 && (
+											<div class="branch-concepts">
+												{childConcepts.map((concept) => (
+													<a
+														href={`#${encodeURIComponent(concept.slug)}`}
+														class="branch-concept-pill"
+														title={concept.evidence}
+													>
+														{concept.label}
+													</a>
+												))}
+											</div>
+										)}
+									</div>
+								);
+							})}
+						</div>
+
+						<div class="mindmap-drawer-footer">
+							<span class="mindmap-footer-hint">
+								{english
+									? "Click any section or concept pill to jump directly to its context."
+									: "点击任意章节或概念胶囊即可定位至正文段落。"}
+							</span>
+							<a href="#article-concept-network" class="mindmap-full-link">
+								🕸️{" "}
+								{english
+									? "Interactive Concept Constellation ↘"
+									: "跳转至文末完整交互概念星系 ↘"}
+							</a>
+						</div>
+					</div>
+				</details>
+			)}
+		</aside>
+	)
 }
-{
-  (Astro.props.aiSummary && typeof Astro.props.aiSummary === "string" && Astro.props.aiSummary.trim()) && (
-    <div class="ai-summary-card">
-      <div class="ai-summary-icon">
-        <Icon name="mingcute:ai-line" size="18" />
-      </div>
-      <div class="ai-summary-content">
-        <span class="ai-summary-label">AI 摘要</span>
-        <p class="ai-summary-text">{Astro.props.aiSummary}</p>
-      </div>
-    </div>
-  )
-}
 
-<style is:global>
-  .ai-summary-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 18px;
-    margin: 16px 0 24px;
-    border-radius: 12px;
-    background: linear-gradient(
-      135deg,
-      rgba(var(--theme-color-rgb, 20, 184, 166), 0.06),
-      rgba(var(--theme-color-rgb, 59, 130, 246), 0.04)
-    );
-    border: 1px solid
-      rgba(var(--theme-color-rgb, 20, 184, 166), 0.15);
-    font-size: 14px;
-    line-height: 1.6;
-  }
+<style>
+	.executive-brief-card {
+		margin: 14px 0 26px;
+		padding: 16px 18px;
+		border-radius: 12px;
+		background: var(--brand-surface, rgba(64, 109, 90, 0.04));
+		border: 1px solid var(--brand-line, rgba(64, 109, 90, 0.16));
+		color: var(--brand-body, #2f3e36);
+		font-size: 14px;
+		line-height: 1.65;
+	}
 
-  :global(.dark) .ai-summary-card {
-    background: linear-gradient(
-      135deg,
-      rgba(var(--theme-color-rgb, 20, 184, 166), 0.08),
-      rgba(var(--theme-color-rgb, 59, 130, 246), 0.04)
-    );
-    border-color: rgba(var(--theme-color-rgb, 20, 184, 166), 0.2);
-  }
+	.brief-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		margin-bottom: 10px;
+	}
 
-  .ai-summary-icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: var(--theme-color, hsl(165, 60%, 50%));
-    color: #fff;
-  }
+	.brief-title-group {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+	}
 
-  .ai-summary-content {
-    flex: 1;
-    min-width: 0;
-  }
+	.brief-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		border-radius: 6px;
+		background: var(--brand-accent, #3b6b57);
+		color: #fff;
+		flex-shrink: 0;
+	}
 
-  .ai-summary-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--theme-color, hsl(165, 60%, 50%));
-    margin-bottom: 4px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: rgba(var(--theme-color-rgb, 20, 184, 166), 0.1);
-  }
+	.brief-kicker {
+		font: 600 11px/1.4 var(--font-mono, "JetBrains Mono", monospace);
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--brand-accent, #3b6b57);
+	}
 
-  :global(.dark) .ai-summary-label {
-    background: rgba(var(--theme-color-rgb, 20, 184, 166), 0.15);
-  }
+	.brief-verified-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 2px 9px;
+		border-radius: 999px;
+		border: 1px solid var(--brand-line, rgba(64, 109, 90, 0.2));
+		background: var(--brand-paper, #fbfaf6);
+		color: var(--brand-muted, #5c6f64);
+		font: 500 11px/1.5 var(--font-mono, "JetBrains Mono", monospace);
+	}
 
-  .ai-summary-text {
-    margin: 0;
-    color: var(--text-color, #374151);
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.85;
-  }
+	.verified-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 999px;
+		background: var(--brand-accent, #3b6b57);
+	}
 
-  :global(.dark) .ai-summary-text {
-    color: var(--text-color, #d1d5db);
-  }
+	.brief-summary-text {
+		margin: 0;
+		color: var(--brand-ink, #1f2d26);
+		font-size: 14px;
+		line-height: 1.68;
+	}
+
+	.brief-meta-list {
+		margin-top: 12px;
+		padding-top: 10px;
+		border-top: 1px dashed var(--brand-line, rgba(64, 109, 90, 0.18));
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		font-size: 13px;
+	}
+
+	.brief-meta-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 6px 10px;
+	}
+
+	.brief-meta-label {
+		font-weight: 600;
+		color: var(--brand-ink, #1f2d26);
+		white-space: nowrap;
+	}
+
+	.brief-meta-value {
+		color: var(--brand-body, #2f3e36);
+	}
+
+	.brief-papers {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 12px;
+	}
+
+	.brief-paper-item {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 4px;
+	}
+
+	.brief-paper-link {
+		color: var(--brand-accent, #3b6b57);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		font-weight: 500;
+	}
+
+	.brief-paper-link:hover {
+		opacity: 0.85;
+	}
+
+	.brief-paper-title {
+		font-weight: 500;
+		color: var(--brand-ink, #1f2d26);
+	}
+
+	.brief-paper-note {
+		font-size: 12px;
+		color: var(--brand-muted, #5c6f64);
+	}
+
+	.brief-takeaways {
+		margin-top: 12px;
+		padding-top: 10px;
+		border-top: 1px dashed var(--brand-line, rgba(64, 109, 90, 0.18));
+	}
+
+	.brief-takeaways-heading {
+		margin: 0 0 6px;
+		font-size: 12px;
+		font-weight: 600;
+		color: var(--brand-muted, #5c6f64);
+		letter-spacing: 0.02em;
+	}
+
+	.brief-takeaways-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 5px;
+		font-size: 13px;
+	}
+
+	.brief-takeaways-list li {
+		display: flex;
+		align-items: baseline;
+		gap: 7px;
+		line-height: 1.55;
+		color: var(--brand-ink, #1f2d26);
+	}
+
+	.takeaway-check {
+		color: var(--brand-accent, #3b6b57);
+		font-weight: 700;
+		font-size: 12px;
+		flex-shrink: 0;
+	}
+
+	.brief-mindmap-drawer {
+		margin-top: 12px;
+		padding-top: 10px;
+		border-top: 1px solid var(--brand-line, rgba(64, 109, 90, 0.16));
+	}
+
+	.brief-mindmap-summary {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		cursor: pointer;
+		user-select: none;
+		font-size: 12.5px;
+		font-weight: 600;
+		color: var(--brand-accent, #3b6b57);
+		padding: 2px 0;
+	}
+
+	.brief-mindmap-summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.mindmap-summary-left {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.mindmap-summary-chevron {
+		transition: transform 0.2s ease;
+		font-size: 12px;
+		color: var(--brand-muted, #5c6f64);
+	}
+
+	.brief-mindmap-drawer[open] .mindmap-summary-chevron {
+		transform: rotate(180deg);
+	}
+
+	.brief-mindmap-body {
+		margin-top: 12px;
+	}
+
+	.mindmap-tree-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+		gap: 10px;
+	}
+
+	.mindmap-branch-card {
+		padding: 10px 12px;
+		border-radius: 9px;
+		background: var(--brand-paper, #fbfaf6);
+		border: 1px solid var(--brand-line, rgba(64, 109, 90, 0.14));
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.branch-header {
+		display: flex;
+		align-items: baseline;
+		gap: 6px;
+	}
+
+	.branch-index {
+		font: 600 10px/1 var(--font-mono, "JetBrains Mono", monospace);
+		color: var(--brand-accent, #3b6b57);
+		opacity: 0.75;
+		flex-shrink: 0;
+	}
+
+	.branch-section-link {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--brand-ink, #1f2d26);
+		text-decoration: none;
+		line-height: 1.4;
+	}
+
+	.branch-section-link:hover {
+		color: var(--brand-accent, #3b6b57);
+		text-decoration: underline;
+	}
+
+	.branch-sub-list {
+		list-style: none;
+		margin: 0;
+		padding: 0 0 0 14px;
+		border-left: 1.5px solid var(--brand-line, rgba(64, 109, 90, 0.2));
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		font-size: 12px;
+	}
+
+	.branch-sub-list a {
+		color: var(--brand-muted, #5c6f64);
+		text-decoration: none;
+		line-height: 1.4;
+	}
+
+	.branch-sub-list a:hover {
+		color: var(--brand-accent, #3b6b57);
+	}
+
+	.branch-concepts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px;
+		margin-top: 2px;
+	}
+
+	.branch-concept-pill {
+		font-size: 11px;
+		line-height: 1.3;
+		padding: 2px 7px;
+		border-radius: 999px;
+		background: var(--brand-surface, rgba(64, 109, 90, 0.08));
+		border: 1px solid var(--brand-line, rgba(64, 109, 90, 0.16));
+		color: var(--brand-accent, #3b6b57);
+		text-decoration: none;
+	}
+
+	.branch-concept-pill:hover {
+		border-color: var(--brand-accent, #3b6b57);
+	}
+
+	.mindmap-drawer-footer {
+		margin-top: 10px;
+		padding-top: 8px;
+		border-top: 1px dashed var(--brand-line, rgba(64, 109, 90, 0.15));
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		font-size: 12px;
+	}
+
+	.mindmap-footer-hint {
+		color: var(--brand-muted, #5c6f64);
+	}
+
+	.mindmap-full-link {
+		font-weight: 600;
+		color: var(--brand-accent, #3b6b57);
+		text-decoration: none;
+	}
+
+	.mindmap-full-link:hover {
+		text-decoration: underline;
+	}
 </style>

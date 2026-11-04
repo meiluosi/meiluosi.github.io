@@ -11,6 +11,19 @@ tags:
 category: LLM Training Research
 series: LLM Training Research Notes · Tool Interaction Volume
 seriesOrder: 1
+verifiedNote: "Verified 2026-11 · Aligned with Transformers 4.57.1 tool schema & 36-pair trajectory invariants"
+targetAudience: "Engineers and researchers building multi-step Agent SFT datasets and trajectory verifiers"
+corePapers:
+  - title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    url: "https://arxiv.org/html/2210.03629v3#S2"
+    note: "arXiv:2210.03629 · §2 Method"
+  - title: "Hugging Face Transformers 4.57.1 Tool Use"
+    url: "https://huggingface.co/docs/transformers/v4.57.1/en/chat_extras"
+    note: "Official Docs · Tool Schema & Observation Return"
+takeaways:
+  - "Separate model-emitted actions (call/final) from environment-supplied observations (result) in training logs"
+  - "Audit trajectory integrity against corrupted counterexamples (orphan results, swapped observations, premature answers)"
+  - "Condition next-step action prediction on tool observations while masking environment tokens from the training loss"
 lang: en
 ---
 

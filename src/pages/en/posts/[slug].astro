@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
+import AiSummary from "@/components/common/AiSummary.astro";
 import Markdown from "@/components/common/Markdown.astro";
 import ArticleBrandStyle from "@/components/features/ArticleBrandStyle.astro";
 import ArticleLocalGraph from "@/components/features/ArticleLocalGraph.svelte";
@@ -60,6 +61,11 @@ const { Content, headings, remarkPluginFrontmatter } = await render(entry);
 const words = Math.round(Number(remarkPluginFrontmatter.words ?? 0));
 const minutes = Math.max(1, Math.ceil(words / 220));
 const postRoute = resolvePostRoute(entry.data);
+const conceptGraph = buildConceptGraph(
+	entry.data.title,
+	entry.body ?? "",
+	headings,
+);
 
 // 英文页的阅读链只包含真正发布的译文，顺序与中文页一致（同主题优先）。
 const [englishEntries, publicSources] = await Promise.all([
@@ -257,6 +263,21 @@ const jsonLd = {
 			</div>
 		)}
 
+		<div class="onload-animation">
+			<AiSummary
+				aiSummary={entry.data.aiSummary}
+				description={entry.data.description}
+				corePapers={entry.data.corePapers ?? source?.data?.corePapers}
+				takeaways={entry.data.takeaways}
+				targetAudience={entry.data.targetAudience}
+				verifiedNote={entry.data.verifiedNote}
+				published={entry.data.published}
+				updated={entry.data.updated ?? source?.data?.updated}
+				conceptGraph={conceptGraph}
+				english
+			/>
+		</div>
+
 		<Markdown class="mb-6 markdown-content onload-animation">
 			<Content />
 		</Markdown>
@@ -264,7 +285,7 @@ const jsonLd = {
 		<InteractiveProseEnhancer />
 
 		<Mindmap
-			graph={buildConceptGraph(entry.data.title, entry.body ?? "", headings)}
+			graph={conceptGraph}
 			english
 			client:visible
 		/>
