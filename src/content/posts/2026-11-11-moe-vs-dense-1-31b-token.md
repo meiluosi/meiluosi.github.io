@@ -2,7 +2,7 @@
 title: "13 亿 token 之后：三个 MoE 与稠密基线的同预算对照，和四个不能忽略的混淆项"
 format: experiment
 description: "在一张 8 GB 显卡、一份 19.6 亿 token 的中文语料上，把稠密 65M 基线与三个小规模 MoE 复现（Qwen3、DeepSeek-V3、GLM-4.5）各训满 13.1 亿 token。三个 MoE 的验证 NLL 低 0.10–0.14 nat，墙钟却是稠密的 2.4–4.2 倍；优化器、MTP、总参数与验证样本量全都不同，所以这轮只能读成方向，不能排架构。"
-published: 2026-11-11T00:00:00.000+08:00
+published: 2026-11-11T00:00:00.000Z
 draft: false
 tags:
   - 预训练

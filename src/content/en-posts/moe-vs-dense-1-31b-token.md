@@ -3,7 +3,7 @@ sourceId: 2026-11-11-moe-vs-dense-1-31b-token
 slug: moe-vs-dense-1-31b-token
 title: "After 1.31 Billion Tokens: Three Small MoE Reproductions vs a Dense Baseline, and Four Confounds I Cannot Ignore"
 editionLabel: ENGLISH EDITION · LLM TRAINING
-published: 2026-11-11T00:00:00.000+08:00
+published: 2026-11-11T00:00:00.000Z
 draft: false
 description: "On a single 8 GB GPU and a 1.96B-token Chinese corpus, a dense 65M baseline and three small-scale MoE reproductions (Qwen3, DeepSeek-V3, GLM-4.5) each trained for 1.31B tokens. The MoE runs reach 0.10–0.14 lower validation NLL, but take 2.4–4.2x the dense AdamW wall clock, and optimizer, MTP head, parameter count and validation sample size all differ. This round is a direction, not an architecture ranking."
 tags:
