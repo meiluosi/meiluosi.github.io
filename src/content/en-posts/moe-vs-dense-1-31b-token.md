@@ -121,3 +121,22 @@ The line above said the three MoE checkpoints had not been evaluated. They have 
 - **NLL and CMRC do not agree on the ordering.** By NLL, qwen3 and glm are tied and better than deepseek, followed by Muon and AdamW; by CMRC, glm leads, qwen3 follows, Muon and AdamW are tied, and deepseek is last. deepseek is 0.097 nat better than dense on NLL but 0.7 points worse on CMRC, and Muon's 0.055-nat advantage does not appear on CMRC either.
 - glm's +5.9 points is the only lead worth chasing, but the Wilson intervals still overlap (16.6–26.0 against 11.3–19.6), and a two-proportion test gives z of about 1.85 with p of about 0.06. With 287 stories, a 5-point difference is not resolvable.
 - So the conclusion stands and is if anything more conservative: **at 1.31B tokens, one seed and 287 CMRC stories, I see no evidence that the NLL advantage reliably becomes downstream gain.** A paired test (McNemar) would need per-item output added to the evaluation script and a rerun of about 1.5 hours. Machine results live in the project's `docs/PRETRAIN_EVAL.md` and `reports/pretrain-eval/`.
+
+## Addendum 2 (same day, late): the paired test changes half the picture
+
+"287 stories cannot resolve 5 points" in Addendum 1 came from a two-proportion test, which assumes independent groups. Both checkpoints answer the same 287 stories, so dropping the pairing throws away most of the power. I added per-item output to the evaluation script (output only, scoring unchanged; all five accuracies reproduced exactly) and reran with an exact McNemar test:
+
+| Comparison (A vs B) | A accuracy | B accuracy | Difference | 95% paired interval | McNemar p |
+|---|---:|---:|---:|---|---:|
+| Dense AdamW vs Muon | 15.0% | 15.3% | −0.3 pp | [−3.1, +2.4] | 1.000 |
+| Dense AdamW vs qwen3 | 15.0% | 16.7% | −1.7 pp | [−4.9, +1.4] | 0.405 |
+| Dense AdamW vs deepseek | 15.0% | 14.3% | +0.7 pp | [−1.7, +3.1] | 0.791 |
+| Dense AdamW vs glm | 15.0% | 20.9% | **−5.9 pp** | [−9.4, −2.8] | **0.0015** |
+| glm vs qwen3 | 20.9% | 16.7% | +4.2 pp | [+1.4, +7.3] | 0.0118 |
+| glm vs deepseek | 20.9% | 14.3% | +6.6 pp | [+3.5, +10.1] | 0.0003 |
+| glm vs Muon | 20.9% | 15.3% | +5.6 pp | [+2.4, +8.7] | 0.0009 |
+
+- **glm is significantly better than all four checkpoints** (p from 0.0003 to 0.012); qwen3, deepseek and Muon are not significantly different from dense.
+- So the conservative conclusion from Addendum 1 needs a sharper version: **qwen3's and deepseek's NLL advantage really does not reach downstream, while glm's gain is real but is a bundle of Muon, MTP, a shared expert and more capacity, so it cannot be attributed to MoE.**
+- One telling control: Muon alone on the dense model improves NLL by 0.055 nat yet leaves CMRC unchanged (15.3% against 15.0%, p=1.0). The downstream gain more likely comes from MTP or capacity than from the optimizer.
+- Next step: an MTP 0/1 ablation in the same codebase. The cheapest version is to add an MTP head to the dense 65M model and see whether CMRC moves.
