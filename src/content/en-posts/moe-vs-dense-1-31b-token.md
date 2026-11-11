@@ -4,6 +4,7 @@ slug: moe-vs-dense-1-31b-token
 title: "After 1.31 Billion Tokens: Three Small MoE Reproductions vs a Dense Baseline, and Four Confounds I Cannot Ignore"
 editionLabel: ENGLISH EDITION · LLM TRAINING
 published: 2026-11-11T00:00:00.000Z
+updated: 2026-11-11T00:00:00.000Z
 draft: false
 description: "On a single 8 GB GPU and a 1.96B-token Chinese corpus, a dense 65M baseline and three small-scale MoE reproductions (Qwen3, DeepSeek-V3, GLM-4.5) each trained for 1.31B tokens. The MoE runs reach 0.10–0.14 lower validation NLL, but take 2.4–4.2x the dense AdamW wall clock, and optimizer, MTP head, parameter count and validation sample size all differ. This round is a direction, not an architecture ranking."
 tags:
@@ -103,3 +104,20 @@ Not "MoE is better", but three more basic facts:
 Short learning-rate sweeps systematically favor larger rates: the schedule decays quickly and never exposes late-training instability. Every MoE learning rate here came from a 500-step sweep, and the dense baseline from a separate 500-step sweep, so **the tuning effort on the two sides is not equal**. Anyone using these numbers to argue that the MoE architecture is superior should read the four confounds above first.
 
 Next round I will remove the confounds before claiming anything about architecture.
+
+## Addendum (2026-11-11, evening): the downstream evaluation is done
+
+The line above said the three MoE checkpoints had not been evaluated. They have now been, on exactly the same protocol (same script, same tokenizer, same 1,346 C-Eval questions and 287 CMRC stories):
+
+| Checkpoint | CMRC first blank (sum) | 95% interval | C-Eval 0-shot raw |
+|---|---:|---|---:|
+| Dense 65M (AdamW) | 15.0% (43/287) | 11.3–19.6 | 23.0% |
+| Dense 65M (Muon) | 15.3% (44/287) | 11.6–20.0 | 23.9% |
+| qwen3 MoE | 16.7% (48/287) | 12.9–21.5 | 23.8% |
+| deepseek MoE | 14.3% (41/287) | 10.7–18.8 | 23.7% |
+| glm MoE | 20.9% (60/287) | 16.6–26.0 | 27.6% |
+
+- C-Eval is still chance-level: only glm's 0-shot lower bound (25.2%) sits just above 25%, and its 5-shot score is 27.3%, so a single seed cannot support "it learned exam knowledge".
+- **NLL and CMRC do not agree on the ordering.** By NLL, qwen3 and glm are tied and better than deepseek, followed by Muon and AdamW; by CMRC, glm leads, qwen3 follows, Muon and AdamW are tied, and deepseek is last. deepseek is 0.097 nat better than dense on NLL but 0.7 points worse on CMRC, and Muon's 0.055-nat advantage does not appear on CMRC either.
+- glm's +5.9 points is the only lead worth chasing, but the Wilson intervals still overlap (16.6–26.0 against 11.3–19.6), and a two-proportion test gives z of about 1.85 with p of about 0.06. With 287 stories, a 5-point difference is not resolvable.
+- So the conclusion stands and is if anything more conservative: **at 1.31B tokens, one seed and 287 CMRC stories, I see no evidence that the NLL advantage reliably becomes downstream gain.** A paired test (McNemar) would need per-item output added to the evaluation script and a rerun of about 1.5 hours. Machine results live in the project's `docs/PRETRAIN_EVAL.md` and `reports/pretrain-eval/`.
